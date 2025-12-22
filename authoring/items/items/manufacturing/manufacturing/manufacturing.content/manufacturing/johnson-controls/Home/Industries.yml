@@ -1,0 +1,40 @@
+﻿---
+ID: "4ff55f3d-fad5-4bae-9cf3-3e05b47dea59"
+Parent: "bfa0902b-7692-4cc6-af76-2ca7cf6ecc42"
+Template: "37dac6cc-325b-4768-8b8b-29cd59a021de"
+Path: "/sitecore/content/manufacturing/johnson-controls/Home/Industries"
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{B4F49B23-4BBA-4C79-BA22-F89F5F0D4E4F}"
+- ID: "c7c26117-dbb1-42b2-ab5e-f7223845cca3"
+  Hint: __Thumbnail
+  Value: |
+    <image mediaid="{672FC3D7-6DE1-4571-AE41-4A7B538C2EEF}" />
+- ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
+  Hint: __Shared revision
+  Value: "95606bd6-af63-487b-b1c2-26a1b66f2ed4"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20251222T172647Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{57CC7DCE-E6B1-4564-9581-0E5850B8BDF2}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "036f5913-561c-479c-979e-eff3e05afd37"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\kaitlyn.folsom@sitecore.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20251222T172648Z
+    - ID: "ed981ca0-271d-4543-b735-ecc955bd58a1"
+      Hint: ogTitle
+      Value: Industries

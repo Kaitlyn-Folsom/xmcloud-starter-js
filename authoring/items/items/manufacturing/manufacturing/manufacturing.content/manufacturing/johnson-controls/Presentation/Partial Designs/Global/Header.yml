@@ -11,7 +11,7 @@ SharedFields:
 - ID: "c7c26117-dbb1-42b2-ab5e-f7223845cca3"
   Hint: __Thumbnail
   Value: |
-    <image mediaid="{C4BCCFEF-D34C-4E5A-A1FA-68B6932B2E1A}" />
+    <image mediaid="{2431453C-81F9-4EF4-AA3F-C733A438D21A}" />
 - ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
   Hint: __Shared revision
   Value: "046e2f4b-faa3-479d-938c-91d28725b0d4"
@@ -51,11 +51,11 @@ Languages:
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "db2b8a03-8ea2-4370-a336-a1b5e416fb73"
+      Value: "75828e4c-4ee0-47af-9069-e1d806757300"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251222T142629Z
+      Value: 20251222T195743Z

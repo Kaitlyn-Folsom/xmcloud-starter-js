@@ -94,6 +94,7 @@ import * as EmailIcondev from 'src/components/icon/svg/EmailIcon.dev';
 import * as heroprops from 'src/components/hero/hero.props';
 import * as Hero from 'src/components/hero/Hero';
 import * as globalheaderprops from 'src/components/global-header/global-header.props';
+import * as UtilityBrandBar from 'src/components/global-header/UtilityBrandBar';
 import * as GlobalHeader from 'src/components/global-header/GlobalHeader';
 import * as globalfooterprops from 'src/components/global-footer/global-footer.props';
 import * as GlobalFooter from 'src/components/global-footer/GlobalFooter';
@@ -220,6 +221,7 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['hero', { ...heroprops }],
   ['Hero', { ...Hero, componentType: 'client' }],
   ['global-header', { ...globalheaderprops }],
+  ['UtilityBrandBar', { ...UtilityBrandBar, componentType: 'client' }],
   ['GlobalHeader', { ...GlobalHeader, componentType: 'client' }],
   ['global-footer', { ...globalfooterprops }],
   ['GlobalFooter', { ...GlobalFooter }],

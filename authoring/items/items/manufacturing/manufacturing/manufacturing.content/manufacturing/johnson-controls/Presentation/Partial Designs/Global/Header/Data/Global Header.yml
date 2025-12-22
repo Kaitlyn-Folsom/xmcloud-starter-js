@@ -13,13 +13,16 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20251222T142528Z
     - ID: "4da75bcf-390e-46fa-ad87-926ec4db0876"
       Hint: headerLogo
       Value: |
-        <image mediaid="{E732C884-8655-4A03-B8B0-F7EBA817E231}" alt="Logo" />
+        <image mediaid="c9c985a1-efc7-4bc3-babb-3dcd70a46033" />
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -30,21 +33,18 @@ Languages:
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c1e0600b-9e9d-4b1a-b3d2-c463d637b728"
+      Value: "f31f26a8-fc06-41f6-a121-520ed2d83a5f"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251222T142629Z
+      Value: 20251222T195743Z
     - ID: "e3289100-a242-4fc7-814f-0ffef0ffe8bd"
       Hint: headerContact
       Value: |
         <link class="" querystring="" id="{4EB22D59-21C5-4081-8DA4-34ABEACDDD47}" anchor="" target="" title="" linktype="internal" text="Get In Touch" url="" />
     - ID: "f073d52d-022c-4560-90c2-71fc674cf8bf"
       Hint: primaryNavigationLinks
-      Value: |
-        {5E2EE404-D626-4173-9E3C-F3792442EDB0}
-        {2D319278-C4C4-4808-ABE9-CC48633D28E3}
-        {9365B042-0D8A-47B8-96E3-AAF0801AF2EB}
+      Value: "{4EB22D59-21C5-4081-8DA4-34ABEACDDD47}"
