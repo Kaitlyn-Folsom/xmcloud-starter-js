@@ -25,7 +25,7 @@ type CtaBannerFields = {
 
 type CtaBannerProps = ComponentProps & CtaBannerFields & CtaBannerParams;
 
-const ctaBannerVariants = cva('w-full mx-auto px-6 py-16 md:py-24 text-center', {
+const ctaBannerVariants = cva('w-full mx-auto px-6 py-16 md:py-24 text-left', {
   variants: {
     colorScheme: {
       default: '',
@@ -51,9 +51,9 @@ const ctaTitleVariants = cva(
 const ctaButtonVariants = cva('text-sm font-heading font-medium', {
   variants: {
     colorScheme: {
-      default: '',
-      primary: 'bg-accent text-accent-foreground hover:bg-accent/90',
-      secondary: 'bg-primary text-primary-foreground hover:bg-primary/90',
+      default: 'bg-[#f58835] hover:bg-[#e67a2a] text-white',
+      primary: 'bg-[#f58835] hover:bg-[#e67a2a] text-white',
+      secondary: 'bg-[#f58835] hover:bg-[#e67a2a] text-white',
     },
   },
 });

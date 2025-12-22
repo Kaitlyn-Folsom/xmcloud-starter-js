@@ -17,7 +17,7 @@ export const Default: React.FC<TextBannerProps> = (props) => {
     variants: {
       theme: {
         dark: 'bg-dark text-dark-foreground',
-        light: 'bg-gray-100 text-black',
+        light: 'bg-secondary text-foreground',
         primary: 'bg-primary text-primary-foreground',
         secondary: 'bg-secondary text-secondary-foreground',
         muted: 'bg-muted text-muted-foreground',

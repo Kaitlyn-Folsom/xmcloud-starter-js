@@ -89,7 +89,7 @@ export const Default: React.FC<MultiPromoTabsProps> = (props) => {
                 <SelectItem
                   key={index}
                   value={index.toString()}
-                  className="capitalize"
+                  className=""
                 >
                   {item.title?.jsonValue.value || `Tab ${index + 1}`}
                 </SelectItem>

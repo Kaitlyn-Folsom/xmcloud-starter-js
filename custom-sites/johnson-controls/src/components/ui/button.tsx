@@ -17,8 +17,10 @@ const buttonVariants = cva(
         link: 'text-foreground underline-offset-4 hover:underline',
         topic:
           'bg-accent hover:bg-primary-hover text-accent-foreground font-heading rounded-full px-4 py-2 text-sm font-medium transition-colors',
+        cta:
+          'bg-[#f58835] hover:bg-[#e67a2a] text-white font-medium transition-colors',
         'rounded-white':
-          'rounded-full bg-white text-secondary-foreground hover:bg-gray-100 transition-all duration-300',
+          'rounded-full bg-white text-secondary-foreground hover:bg-secondary transition-all duration-300',
       },
       size: {
         default: 'px-8 py-2-5',

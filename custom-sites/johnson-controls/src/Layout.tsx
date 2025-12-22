@@ -12,23 +12,22 @@ import {
 } from '@sitecore-content-sdk/nextjs';
 import Scripts from 'src/Scripts';
 import SitecoreStyles from 'components/content-sdk/SitecoreStyles';
-import { Figtree } from 'next/font/google';
+import { Noto_Sans } from 'next/font/google';
 import componentMap from '.sitecore/component-map';
 import Providers from './Providers';
 
-const heading = Figtree({
-  weight: ['400', '500'],
-  variable: '--font-heading',
+// Johnson Controls brand font: Noto Sans with approved weights
+const notoSans = Noto_Sans({
+  weight: ['300', '400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-noto-sans',
   subsets: ['latin', 'latin-ext'],
   display: 'swap',
+  fallback: ['Arial', 'sans-serif'], // Arial is the fallback per brand guidelines
 });
 
-const body = Figtree({
-  weight: ['400', '500'],
-  variable: '--font-body',
-  subsets: ['latin', 'latin-ext'],
-  display: 'swap',
-});
+const heading = notoSans;
+const body = notoSans;
 interface LayoutProps {
   page: Page;
 }
@@ -52,7 +51,7 @@ const Layout = ({ page }: LayoutProps): JSX.Element => {
   const { route } = layout.sitecore;
   const fields = route?.fields as RouteFields;
   const mainClassPageEditing = mode.isEditing ? 'editing-mode' : 'prod-mode';
-  const classNamesMain = `${mainClassPageEditing} ${body.variable} ${heading.variable} main-layout`;
+  const classNamesMain = `${mainClassPageEditing} ${notoSans.variable} main-layout`;
 
   const metaTitle =
     fields?.metadataTitle?.value?.toString() ||
