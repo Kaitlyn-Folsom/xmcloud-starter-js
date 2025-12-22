@@ -18,14 +18,14 @@ const buttonVariants = cva(
         topic:
           'bg-accent hover:bg-primary-hover text-accent-foreground font-heading rounded-full px-4 py-2 text-sm font-medium transition-colors',
         cta:
-          'bg-[#f58835] hover:bg-[#e67a2a] text-white font-medium transition-colors',
+          'bg-[#f58835] hover:bg-[#e67a2a] text-white font-medium transition-colors rounded-full',
         'rounded-white':
           'rounded-full bg-white text-secondary-foreground hover:bg-secondary transition-all duration-300',
       },
       size: {
-        default: 'px-8 py-2-5',
-        sm: 'h-9 rounded-md px-3',
-        lg: 'h-11 rounded-md px-8',
+        default: 'px-8 py-2-5 rounded-full',
+        sm: 'h-9 rounded-full px-3',
+        lg: 'h-11 rounded-full px-8',
         icon: 'h-10 w-10',
       },
     },

@@ -32,6 +32,7 @@ import * as imageoptimizationcontext from 'src/components/image/image-optimizati
 import * as ImageWrapperdev from 'src/components/image/ImageWrapper.dev';
 import * as Icon from 'src/components/icon/Icon';
 import * as Hero from 'src/components/hero/Hero';
+import * as UtilityBrandBar from 'src/components/global-header/UtilityBrandBar';
 import * as GlobalHeader from 'src/components/global-header/GlobalHeader';
 import * as FooterNavigationColumn from 'src/components/global-footer/FooterNavigationColumn';
 import * as floatingdockdev from 'src/components/floating-dock/floating-dock.dev';
@@ -75,6 +76,7 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['ImageWrapper', { ...ImageWrapperdev }],
   ['Icon', { ...Icon }],
   ['Hero', { ...Hero }],
+  ['UtilityBrandBar', { ...UtilityBrandBar }],
   ['GlobalHeader', { ...GlobalHeader }],
   ['FooterNavigationColumn', { ...FooterNavigationColumn }],
   ['floating-dock', { ...floatingdockdev }],

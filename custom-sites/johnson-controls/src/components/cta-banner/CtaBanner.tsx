@@ -48,7 +48,7 @@ const ctaTitleVariants = cva(
   }
 );
 
-const ctaButtonVariants = cva('text-sm font-heading font-medium', {
+const ctaButtonVariants = cva('text-sm font-heading font-medium rounded-full', {
   variants: {
     colorScheme: {
       default: 'bg-[#f58835] hover:bg-[#e67a2a] text-white',

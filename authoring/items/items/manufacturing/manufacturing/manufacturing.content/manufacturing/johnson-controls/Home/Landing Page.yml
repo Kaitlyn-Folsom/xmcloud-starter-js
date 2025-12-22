@@ -20,6 +20,13 @@ SharedFields:
   Value: "{C5232BD6-288F-4CFF-B0F8-C4595E8D02B7}"
 Languages:
 - Language: en
+  Fields:
+  - ID: "30e85e5d-e00a-4864-b358-7624d511deb4"
+    Hint: __Unversioned revision
+    Value: "a5f47256-fa53-4048-9e15-5bbade8aaa0f"
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Smart Bulidings
   Versions:
   - Version: 1
     Fields:
@@ -151,7 +158,7 @@ Languages:
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "ba547569-e9e6-4fb8-90ed-f4dd0d470b34"
+      Value: "b3865a8b-6c8c-4764-9bba-a745f22271fb"
     - ID: "b7979eed-6bcb-4117-80bc-4bcc6aab12a9"
       Hint: pageHeaderTitle
       Value: Brands trusted by consumers around the world.
@@ -161,7 +168,7 @@ Languages:
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251222T142639Z
+      Value: 20251222T165603Z
     - ID: "ed981ca0-271d-4543-b735-ecc955bd58a1"
       Hint: ogTitle
       Value: Landing Page
