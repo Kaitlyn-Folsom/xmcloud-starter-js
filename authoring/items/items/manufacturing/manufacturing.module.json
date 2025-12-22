@@ -1,0 +1,20 @@
+{
+    "$schema": "../../.sitecore/schemas/ModuleFile.schema.json",
+    "namespace": "Manufacturing",
+    "items": {
+        "path": "manufacturing",
+        "includes": [
+            {
+                "name": "manufacturing.content",
+                "path": "/sitecore/content/Manufacturing",
+                "allowedPushOperations": "CreateUpdateAndDelete"
+            },
+            {
+                "name": "manufacturing.media",
+                "path": "/sitecore/media library/Feature/Manufacturing",
+                "allowedPushOperations": "CreateUpdateAndDelete"
+            }
+        ]
+    }
+}
+
