@@ -1,0 +1,31 @@
+﻿---
+ID: "5f42749b-547d-4a19-9a83-b055c316a67b"
+Parent: "70866f47-0c4f-4f81-b836-b9cf86b73a37"
+Template: "8a3ca452-cbf0-49fb-a34c-aa9265c0af49"
+Path: "/sitecore/content/manufacturing/johnson-controls/Data/Testimonial Carousels"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20251222T142538Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\kaitlyn.folsom@sitecore.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\kaitlyn.folsom@sitecore.com
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "6a96b59d-0055-4015-9fbf-4ea1f52965ab"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\kaitlyn.folsom@sitecore.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20251222T142538Z

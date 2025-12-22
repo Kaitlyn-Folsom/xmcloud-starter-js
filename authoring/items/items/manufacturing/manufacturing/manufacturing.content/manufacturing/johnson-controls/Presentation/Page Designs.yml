@@ -1,0 +1,42 @@
+﻿---
+ID: "d1270e82-f298-4c2b-a837-3716f1fa72d9"
+Parent: "2e001dba-3656-4b36-ba1f-db19769d96fb"
+Template: "880be97c-162c-4500-b91a-8ef46f22368e"
+Path: "/sitecore/content/manufacturing/johnson-controls/Presentation/Page Designs"
+BranchID: "45cf9f42-b3ac-4412-aab9-f8441c7e448e"
+SharedFields:
+- ID: "ba1f60d6-3deb-40cc-bb61-eec772279ee1"
+  Hint: TemplatesMapping
+  Value: "%7bF6D1AC00-81BE-4564-AF88-F189A7294BCF%7d%3d%257BF9F6E897-0456-4ADA-814B-09BFA945B720%257D%26%7b90B4A4A4-9A12-4CFB-9446-134E59D704FB%7d%3d%257BF9F6E897-0456-4ADA-814B-09BFA945B720%257D%26%7b240461D5-850E-4CC6-AB00-F6182FC14240%7d%26%7bA740686E-D41F-41DC-9368-1ABDFE0C941E%7d%3d%257BF9F6E897-0456-4ADA-814B-09BFA945B720%257D%26%7b7553055C-FB84-49E8-A562-8FAC2C3F90A7%7d%3d%257BF9F6E897-0456-4ADA-814B-09BFA945B720%257D%26%7b37DAC6CC-325B-4768-8B8B-29CD59A021DE%7d%3d%257BF9F6E897-0456-4ADA-814B-09BFA945B720%257D%26%7b3CB04B1D-8654-4C34-BB54-B24A167B92CC%7d%3d%257BF9F6E897-0456-4ADA-814B-09BFA945B720%257D"
+- ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
+  Hint: __Shared revision
+  Value: "e5292986-b20f-481d-bd81-b3e669af0f32"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{2EA756FA-AED6-4599-83B7-36FEFE229B31}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20251222T142324Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\kaitlyn.folsom@sitecore.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\kaitlyn.folsom@sitecore.com
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "a89e76fa-937a-4f64-aff6-59a2c06b536b"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\kaitlyn.folsom@sitecore.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20251222T142620Z
