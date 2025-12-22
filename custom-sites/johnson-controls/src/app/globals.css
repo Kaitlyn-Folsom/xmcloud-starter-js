@@ -48,10 +48,11 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground text-left;
     font-feature-settings:
       'rlig' 1,
       'calt' 1;
+    text-transform: none; /* Avoid all-caps per brand guidelines */
   }
 }
 
