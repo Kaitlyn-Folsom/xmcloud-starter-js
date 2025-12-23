@@ -10,17 +10,12 @@ interface HeroParams {
 }
 
 interface HeroFields {
-  titleRequired: Field<string>;
-  descriptionOptional?: Field<string>;
-  linkOptional?: LinkField;
-  heroVideoOptional1?: LinkField;
-  heroImageOptional1?: ImageField;
-  heroVideoOptional2?: LinkField;
-  heroImageOptional2?: ImageField;
-  heroVideoOptional3?: LinkField;
-  heroImageOptional3?: ImageField;
-  heroVideoOptional4?: LinkField;
-  heroImageOptional4?: ImageField;
+  badge?: Field<string>;
+  title: Field<string>;
+  image: ImageField;
+  description?: Field<string>; // Used as subtitle
+  bannerCTA?: LinkField; // Used as first CTA
+  searchLink?: LinkField; // Second CTA
 }
 
 export interface HeroProps extends ComponentProps {
