@@ -46,10 +46,10 @@ Languages:
     - ID: "60629870-4b2c-4574-a086-ad5cf20fce16"
       Hint: link1
       Value: |
-        <link class="" querystring="" id="{4EB22D59-21C5-4081-8DA4-34ABEACDDD47}" anchor="" target="_blank" title="" linktype="internal" text="Solar Electric Program" url="" />
+        <link class="" id="{4EB22D59-21C5-4081-8DA4-34ABEACDDD47}" querystring="" anchor="" target="_blank" title="" linktype="internal" text="Solar Electric Program" url="/manufacturing/johnson-controls/Landing Page" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "d4a23d04-fc22-4cb8-891d-dbf6b730315c"
+      Value: "1cdcc742-2084-49a4-913a-e4652617958b"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -61,7 +61,7 @@ Languages:
     - ID: "c4d68c1f-0cd0-41e2-b986-0fec9a910176"
       Hint: link2
       Value: |
-        <link class="" querystring="" id="{4EB22D59-21C5-4081-8DA4-34ABEACDDD47}" anchor="" target="_blank" title="" linktype="internal" text="Wind Energy Collection" url="" />
+        <link class="" id="{4EB22D59-21C5-4081-8DA4-34ABEACDDD47}" querystring="" anchor="" target="_blank" title="" linktype="internal" text="Wind Energy Collection" url="/manufacturing/johnson-controls/Landing Page" />
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251222T142627Z
+      Value: 20251223T134649Z

@@ -33,18 +33,18 @@ Languages:
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "f31f26a8-fc06-41f6-a121-520ed2d83a5f"
+      Value: "5d3b8351-7e7c-41d9-b0ce-ccb68b918f4d"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251222T195743Z
+      Value: 20251223T134649Z
     - ID: "e3289100-a242-4fc7-814f-0ffef0ffe8bd"
       Hint: headerContact
       Value: |
-        <link class="" querystring="" id="{4EB22D59-21C5-4081-8DA4-34ABEACDDD47}" anchor="" target="" title="" linktype="internal" text="Get In Touch" url="" />
+        <link class="" id="{4EB22D59-21C5-4081-8DA4-34ABEACDDD47}" querystring="" anchor="" target="" title="" linktype="internal" text="Get In Touch" url="/manufacturing/johnson-controls/Landing Page" />
     - ID: "f073d52d-022c-4560-90c2-71fc674cf8bf"
       Hint: primaryNavigationLinks
       Value: "{4EB22D59-21C5-4081-8DA4-34ABEACDDD47}"

@@ -1,19 +1,15 @@
 ﻿---
-ID: "abffef8d-d4c9-4da1-97c6-868cbd0e121f"
+ID: "b850da6c-55dd-4e12-afb2-a4b682de03ea"
 Parent: "13b362f7-0031-4417-822a-04ae0dbddfc8"
 Template: "ae018465-4e68-4a49-8b15-9702274fa75a"
-Path: "/sitecore/content/manufacturing/johnson-controls/Home/Data/Other Hero"
-BranchID: "67d5aed7-9d44-4899-925d-d06ef478b9fb"
+Path: "/sitecore/content/manufacturing/johnson-controls/Home/Data/Homepage Hero - Default"
 SharedFields:
 - ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
   Hint: __Workflow
   Value: "{A053ED9F-4099-4682-9411-2B4C98E481E4}"
 - ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
   Hint: __Shared revision
-  Value: "43fa3f37-c8d1-4ef7-8079-bd32514501f5"
-- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
-  Hint: __Originator
-  Value: "{BEAFDBBA-845A-41D2-8F9B-27427CBFA86C}"
+  Value: "30fbca4b-2e72-4ede-8d7e-d11f12980c71"
 Languages:
 - Language: en
   Versions:
@@ -24,27 +20,27 @@ Languages:
       Value: <r />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20251222T142457Z
+      Value: 20251223T165759Z
     - ID: "29fdc472-23a7-463e-8b3e-cd93551fa51c"
       Hint: badge
       Value: test
     - ID: "3c2b7d00-8de2-4636-a65f-d667a75ec4a7"
       Hint: description
-      Value: teset
+      Value: test
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
       Value: "{12FFAC4C-565F-4C9A-B63E-7F77E96B4D1F}"
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
-        sitecore\Admin
+        sitecore\kaitlyn.folsom@sitecore.com
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "01e59fcc-bbd4-4988-a832-e0e594cee252"
+      Value: "dd6012b2-7898-45a1-af0d-44bf79f6e485"
     - ID: "9ad66b62-4ebd-42da-8e1a-09dca7db5aea"
       Hint: bannerText
       Value: test
@@ -55,10 +51,10 @@ Languages:
     - ID: "c65eb2cc-503f-48cd-ba69-42c29df106c1"
       Hint: image
       Value: |
-        <image mediaid="81d3e1af-7d3e-4683-8ae3-03ee2a512c51" />
+        <image mediaid="973f75fc-bb2c-43bb-96a5-7b1733092e6e" />
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251223T144821Z
+      Value: 20251223T165832Z
     - ID: "e5e059ce-66e3-4039-887b-0086e7764f09"
       Hint: title
       Value: test

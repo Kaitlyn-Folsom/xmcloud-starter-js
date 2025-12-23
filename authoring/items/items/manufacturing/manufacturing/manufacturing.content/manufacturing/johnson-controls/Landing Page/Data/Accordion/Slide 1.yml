@@ -1,8 +1,8 @@
 ﻿---
-ID: "1eefb830-91f7-4d4f-a655-cd620aaa1ba3"
-Parent: "0c1f23fa-d7e4-477d-8074-26643a41ddb7"
-Template: "bee4869d-b588-42c2-9797-76510c397e6a"
-Path: "/sitecore/content/manufacturing/johnson-controls/Home/Article Page/Data/CTA Banner"
+ID: "7691d71a-73d4-4083-bdf1-cffacd10e3c3"
+Parent: "1b2dd82f-3de1-468f-9fd1-21062e91a7b2"
+Template: "75bc6ab0-2492-4129-9f90-ca0bab019e07"
+Path: "/sitecore/content/manufacturing/johnson-controls/Landing Page/Data/Accordion/Slide 1"
 BranchID: "97509128-1b31-4a5b-9c07-d4c94b611d24"
 SharedFields:
 - ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
@@ -10,10 +10,10 @@ SharedFields:
   Value: "{A053ED9F-4099-4682-9411-2B4C98E481E4}"
 - ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
   Hint: __Shared revision
-  Value: "d548ee26-1ebe-4179-916d-252052be49ff"
+  Value: "c59121d5-622a-470a-a139-a746d04eac04"
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
-  Value: "{4B2589F4-68C0-4730-8D4B-43AE496B6091}"
+  Value: "{C1D626F6-0371-4BDB-BBE9-9587E962CD4E}"
 Languages:
 - Language: en
   Versions:
@@ -21,7 +21,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20251222T142515Z
+      Value: 20251222T142508Z
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
       Value: "{12FFAC4C-565F-4C9A-B63E-7F77E96B4D1F}"
@@ -29,27 +29,24 @@ Languages:
       Hint: __Owner
       Value: |
         sitecore\kaitlyn.folsom@sitecore.com
+    - ID: "59f8ca51-d752-468c-bfe5-b36bc0cc4c9d"
+      Hint: heading
+      Value: "Which brands are available in my country?"
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
         sitecore\kaitlyn.folsom@sitecore.com
-    - ID: "7a8c2095-39f5-4f40-b69d-16ddff188a68"
-      Hint: titleRequired
-      Value: "Ready to embrace beauty  with a conscience?"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0a1680ad-a808-4ba3-8700-940f51dcda47"
-    - ID: "9fdcf3e1-5289-4ae0-b4e4-9460ad50814f"
-      Hint: linkOptional
-      Value: |
-        <link class="" id="{4EB22D59-21C5-4081-8DA4-34ABEACDDD47}" querystring="" anchor="" target="" title="" linktype="internal" text="Explore Our Brands" url="/manufacturing/johnson-controls/Landing Page" />
-    - ID: "a35015fe-805c-45d7-9446-f88b33a157d4"
-      Hint: descriptionOptional
-      Value: Be a part of the confidence revolution with Solterra & Co.
+      Value: "4ec1034e-6f56-49b0-ba91-c7899acfdb4b"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251223T134649Z
+      Value: 20251222T142508Z
+    - ID: "e67167b4-10c7-409c-a118-8cd21fd07e1b"
+      Hint: description
+      Value: |
+        <div class="ck-content"><p>Setting up an account is quick and easy! Simply visit our sign-up page, provide your basic information, and follow the guided setup process. Once registered, you’ll receive a confirmation email with next steps. Need help? Our support team is here to assist you!</p></div>
