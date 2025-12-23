@@ -21,6 +21,12 @@ const buttonVariants = cva(
           'bg-[#f58835] hover:bg-[#e67a2a] text-white font-medium transition-colors rounded-full',
         'rounded-white':
           'rounded-full bg-white text-secondary-foreground hover:bg-secondary transition-all duration-300',
+        'primary-dark-blue':
+          'bg-primary text-primary-foreground hover:bg-primary/90 rounded-full',
+        'primary-open-blue':
+          'bg-[#00adff] text-[#000070] hover:bg-[#0099e6] rounded-full',
+        'primary-green':
+          'bg-[#32c858] text-[#000070] hover:bg-[#2db54d] rounded-full',
       },
       size: {
         default: 'px-8 py-2-5 rounded-full',
@@ -30,7 +36,7 @@ const buttonVariants = cva(
       },
     },
     defaultVariants: {
-      variant: 'default',
+      variant: 'primary-dark-blue',
       size: 'default',
     },
   }

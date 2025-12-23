@@ -94,3 +94,13 @@
 @utility indent {
   @apply px-8 @md:px-16;
 }
+
+@utility open-blue-primary-blue {
+  background-color: #00adff;
+  color: #000070;
+}
+
+@utility open-blue-primary-green {
+  background-color: #32c858;
+  color: #000070;
+}
