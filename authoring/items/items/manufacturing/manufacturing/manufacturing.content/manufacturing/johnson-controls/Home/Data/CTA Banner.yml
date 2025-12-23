@@ -38,11 +38,11 @@ Languages:
       Value: 3.4 billion people in 190 countries use our brands every day.
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "1505e264-e189-45de-8a1f-f29b5f205083"
+      Value: "743e7745-7bc7-40ea-9371-2130c51efdc3"
     - ID: "9fdcf3e1-5289-4ae0-b4e4-9460ad50814f"
       Hint: linkOptional
       Value: |
-        <link class="" querystring="" id="{4EB22D59-21C5-4081-8DA4-34ABEACDDD47}" anchor="" target="" title="" linktype="internal" text="See Our Brands" url="" />
+        <link class="" id="{4EB22D59-21C5-4081-8DA4-34ABEACDDD47}" querystring="" anchor="" target="" title="" linktype="internal" text="See Our Brands" url="/manufacturing/johnson-controls/Landing Page" />
     - ID: "a35015fe-805c-45d7-9446-f88b33a157d4"
       Hint: descriptionOptional
       Value: Be a part of the confidence revolution with Solterra & Co.
@@ -52,4 +52,4 @@ Languages:
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251222T142626Z
+      Value: 20251223T134648Z
