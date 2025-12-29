@@ -61,7 +61,7 @@ Languages:
         <image mediaid="c3f90f33-1083-4d97-9d58-ee3a437c65b3" alt="Oil Painting" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "564c4e83-8b25-425d-b850-a4e883f21d1b"
+      Value: "d2cb1947-624a-4ae4-be50-0424d2fb9705"
     - ID: "b39f9979-146b-4205-aa65-0cc7637d5d7e"
       Hint: heroImageOptional2
       Value: |
@@ -73,10 +73,10 @@ Languages:
     - ID: "c17f89f8-7429-4af1-a47d-b7b1e037fe45"
       Hint: linkOptional
       Value: |
-        <link class="" id="{4EB22D59-21C5-4081-8DA4-34ABEACDDD47}" querystring="" anchor="" target="" title="" linktype="internal" text="For the People" url="/manufacturing/johnson-controls/Landing Page" />
+        <link class="" querystring="" id="{4EB22D59-21C5-4081-8DA4-34ABEACDDD47}" anchor="" target="" title="" linktype="internal" text="For the People" url="/manufacturing/johnson-controls/Landing Page" />
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251223T163136Z
+      Value: 20251229T143846Z
     - ID: "e2223200-5161-4e5a-9a35-9a5ac126c05c"
       Hint: descriptionOptional
       Value: Our commitment to green energy is paving the way for a cleaner, healthier planet. Join us on our journey towards a future where clean, renewable energy transform the way we power our lives. 

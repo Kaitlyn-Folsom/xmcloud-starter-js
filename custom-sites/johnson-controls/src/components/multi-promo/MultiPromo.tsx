@@ -77,72 +77,34 @@ export const Default: React.FC<MultiPromoProps> = (props) => {
 
     return (
       <div
-        data-component="MultiPromoCarousel"
+        data-component="MultiPromo"
         data-class-change
         className={cn(
-          'mx-auto my-8 max-w-screen-xl group-[.has-bg:not(.is-inset)]:my-4 group-[.container--full-bleed]:px-4 group-[.has-bg.is-inset]:px-0 md:my-16 md:group-[.has-bg:not(.is-inset)]:my-0 xl:group-[.container--full-bleed]:px-8',
+          'mx-auto max-w-8xl group-[.container--full-bleed]:px-4 xl:group-[.container--full-bleed]:px-8 mt-12 mb-12',
           {
             'position-left': !hasPagesPositionStyles,
             [props?.params?.styles]: props?.params?.styles,
           }
         )}
       >
-        <div className="flex flex-col gap-4 group-[.is-inset]:px-4 sm:group-[.is-inset]:px-0 xl:flex-row xl:items-end xl:justify-between xl:gap-20">
-          {title && (
-            <div className="basis-full xl:basis-1/2">
-              <Text
-                tag="h2"
-                field={title?.jsonValue}
-                className="font-heading text-box-trim-both text-box-edge-asc-baseline -ml-1 max-w-[20ch] text-pretty text-4xl font-normal leading-[1.1333] tracking-tighter sm:text-5xl md:max-w-[17.5ch] lg:text-6xl"
-              />
-            </div>
-          )}
-          {description && (
-            <div className="basis-full xl:basis-1/2">
-              <RichText
-                className="text-body prose text-box-trim-both text-box-edge-asc-baseline mt-6 max-w-[51.5ch] text-pretty text-lg leading-[1.444] tracking-tight"
-                field={description?.jsonValue}
-              />
-            </div>
-          )}
-        </div>
-        {children && (
-          <>
-            <Carousel
-              setApi={setApi}
-              opts={{
-                align: 'center',
-                breakpoints: {
-                  '(min-width: 640px)': { align: 'start' },
-                },
-                loop: true,
-                skipSnaps: true,
-              }}
-              className="relative -ml-4 -mr-4 overflow-hidden sm:ml-0 sm:group-[.is-inset]:-mr-8 md:group-[.is-inset]:-mr-16 xl:-mr-0 xl:group-[.is-inset]:-mr-16
-              2xl:group-[.is-inset]:-mr-24"
-              ref={carouselRef}
-            >
-              <CarouselContent className="my-12 last:mb-0 sm:my-16 sm:-ml-8">
-                {children?.results?.map((item: MultiPromoItemProps, index: number) => (
-                  <CarouselItem
-                    key={index}
-                    className={cn(
-                      'min-w-[238px] max-w-[416px] basis-3/4 pl-4 transition-opacity duration-300 sm:basis-[45%] sm:pl-8 md:basis-[31%]',
-                      {
-                        [`lg:basis-[31%]`]: numColumns === '3',
-                        [`xl:basis-[23%]`]: numColumns === '4',
-                      }
-                    )}
-                  >
-                    <MultiPromoItem key={index} isPageEditing={isPageEditing} {...item} />
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-            </Carousel>
-            <div className="sr-only" aria-live="polite" aria-atomic="true">
-              {announcement}
-            </div>
-          </>
+        {/* Headline Section with Light Grey Background */}
+        {title && (
+          <div className="bg-gray-100 px-6 py-8 md:px-12 md:py-12 bg-gradient-to-b from-[#f2f2f2] to-[#ffffff]">
+            <Text
+              tag="h2"
+              field={title?.jsonValue}
+              className="font-heading text-gray-700 text-3xl font-normal leading-tight tracking-tight md:text-4xl lg:text-5xl"
+            />
+          </div>
+        )}
+
+        {/* Two Column Grid Layout */}
+        {children && children.results && children.results.length > 0 && (
+          <div className="grid grid-cols-1 gap-8 px-6 py-12 md:grid-cols-2 md:gap-12 md:px-12">
+            {children.results.map((item: MultiPromoItemProps, index: number) => (
+              <MultiPromoItem key={index} isPageEditing={isPageEditing} {...item} />
+            ))}
+          </div>
         )}
       </div>
     );

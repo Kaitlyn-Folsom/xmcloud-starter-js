@@ -61,7 +61,7 @@ export const Default: React.FC<GlobalHeaderProps> = (props) => {
           'bg-background sticky top-0 z-50 flex w-full items-center justify-center border-b pt-[20px]'
         )}
       >
-        <div className="mx-auto flex w-full max-w-8xl items-center px-4 md:px-6 lg:px-8">
+        <div className="mx-auto flex w-full max-w-8xl items-center px-4 md:px-4 lg:px-8 justify-between">
           <div className="mr-4 md:mr-6 lg:mr-8 shrink-0">
             {pageEditing ? (
               <Image field={logo?.jsonValue} className="h-10 w-auto" />
@@ -77,6 +77,7 @@ export const Default: React.FC<GlobalHeaderProps> = (props) => {
             )}
           </div>
           {/* Desktop Navigation - Hidden on mobile/tablet, visible on lg+ */}
+          <div className="flex items-center">
           <nav 
             aria-label="Main" 
             data-orientation="horizontal" 
@@ -91,7 +92,7 @@ export const Default: React.FC<GlobalHeaderProps> = (props) => {
               >
                 <li>
                   <Link 
-                    className="inline-flex items-center justify-center gap-2 whitespace-nowrap transition-colors focus-visible:outline-none disabled:pointer-events-none px-3 py-2 md:px-4 lg:px-3 rounded-full font-body text-[#333740] uppercase text-xs md:text-sm lg:text-[13px] font-bold" 
+                    className="inline-flex gap-2 transition-colors focus-visible:outline-none disabled:pointer-events-none px-3 py-2 md:px-4 lg:px-3 rounded-full font-body text-[#333740] uppercase text-xs md:text-[13px] font-bold" 
                     href="/"
                   >
                     Smart Buildings
@@ -99,7 +100,7 @@ export const Default: React.FC<GlobalHeaderProps> = (props) => {
                 </li>
                 <li>
                   <Link 
-                    className="inline-flex items-center justify-center gap-2 whitespace-nowrap transition-colors focus-visible:outline-none px-3 py-2 md:px-4 lg:px-3 rounded-full font-body text-[#333740] uppercase text-xs md:text-sm lg:text-[13px] font-bold" 
+                    className="inline-flex gap-2 transition-colors focus-visible:outline-none px-3 py-2 md:px-4 lg:px-3 rounded-full font-body text-[#333740] uppercase text-xs md:text-[13px] font-bold" 
                     href="/Article-Page"
                   >
                     Products & Solutions
@@ -107,7 +108,7 @@ export const Default: React.FC<GlobalHeaderProps> = (props) => {
                 </li>
                 <li>
                   <Link 
-                    className="inline-flex items-center justify-center gap-2 whitespace-nowrap transition-colors focus-visible:outline-none px-3 py-2 md:px-4 lg:px-3 rounded-full font-body text-[#333740] uppercase text-xs md:text-sm lg:text-[13px] font-bold" 
+                    className="inline-flex gap-2 transition-colors focus-visible:outline-none px-3 py-2 md:px-3 font-body text-[#333740] uppercase text-xs md:text-[13px] font-bold" 
                     href="/Article-Page"
                   >
                     Services & Support
@@ -115,7 +116,7 @@ export const Default: React.FC<GlobalHeaderProps> = (props) => {
                 </li>
                 <li>
                   <Link 
-                    className="inline-flex items-center justify-center gap-2 whitespace-nowrap transition-colors focus-visible:outline-none px-3 py-2 md:px-4 lg:px-3 rounded-full font-body text-[#333740] uppercase text-xs md:text-sm lg:text-[13px] font-bold" 
+                    className="inline-flex gap-2 transition-colors focus-visible:outline-none px-3 py-2 md:px-3 font-body text-[#333740] uppercase text-xs md:text-[13px] font-bold" 
                     href="/Article-Page"
                   >
                     Industries
@@ -123,7 +124,7 @@ export const Default: React.FC<GlobalHeaderProps> = (props) => {
                 </li>
                 <li>
                   <Link 
-                    className="inline-flex items-center justify-center gap-2 whitespace-nowrap transition-colors focus-visible:outline-none px-3 py-2 md:px-4 lg:px-3 rounded-full font-body text-[#333740] uppercase text-xs md:text-sm lg:text-[13px] font-bold" 
+                    className="inline-flex gap-2 transition-colors focus-visible:outline-none px-3 py-2 md:px-3 font-body text-[#333740] uppercase text-xs md:text-[13px] font-bold" 
                     href="/Article-Page"
                   >
                     Building Insights
@@ -131,7 +132,7 @@ export const Default: React.FC<GlobalHeaderProps> = (props) => {
                 </li>
                 <li>
                   <Link 
-                    className="inline-flex items-center justify-center gap-2 whitespace-nowrap transition-colors focus-visible:outline-none px-3 py-2 md:px-4 lg:px-3 rounded-full font-body text-[#333740] uppercase text-xs md:text-sm lg:text-[13px] font-bold" 
+                    className="inline-flex gap-2 whitespace-nowrap transition-colors focus-visible:outline-none px-3 py-2 md:px-3 font-body text-[#333740] uppercase text-xs md:text-[13px] font-bold" 
                     href="/Article-Page"
                   >
                     About Us
@@ -144,6 +145,7 @@ export const Default: React.FC<GlobalHeaderProps> = (props) => {
           {/* Search Icon - Hidden on mobile, visible on md+ */}
           <div className="hidden md:block">
             <Search className="w-5 h-5 md:w-6 md:h-6 text-black" />
+          </div>
           </div>
           {/* Mobile Navigation */}
           <div className="lg:hidden flex flex-1 justify-end items-center gap-2">

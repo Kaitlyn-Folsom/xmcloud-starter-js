@@ -25,7 +25,7 @@ Languages:
     - ID: "024a119b-09d8-480b-b179-872c47dce1b5"
       Hint: linkOptional
       Value: |
-        <link class="" id="{4EB22D59-21C5-4081-8DA4-34ABEACDDD47}" querystring="" anchor="" target="" title="" linktype="internal" text="Explore" url="/manufacturing/johnson-controls/Landing Page" />
+        <link class="" querystring="" id="{4EB22D59-21C5-4081-8DA4-34ABEACDDD47}" anchor="" target="" title="" linktype="internal" text="Explore" url="/manufacturing/johnson-controls/Landing Page" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20251222T142513Z
@@ -48,7 +48,7 @@ Languages:
       Value: Solterra Beauty
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "f8f2d5be-f5e2-4661-b20c-c3bb7cf23afc"
+      Value: "62add489-c31c-44c2-a1f4-85ec798ce1e7"
     - ID: "ab7c812f-8768-4203-8ee2-40d0ebb2107a"
       Hint: imageRequired
       Value: |
@@ -59,4 +59,4 @@ Languages:
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251223T134648Z
+      Value: 20251229T143846Z

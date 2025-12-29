@@ -16,9 +16,8 @@ export const Default: React.FC = () => {
             <Link href="/" className="inline-block">
               <div className="flex items-center gap-2">
                 <div>
-                  <Image src="https://www.johnsoncontrols.com/-/media/project/jci-global/johnson-controls/jci-common-media-library/logo/jci-logo-new-headerv1.svg?la=en&h=400&w=600&hash=CA621B3A6D1EFC69361F038D927889AB" alt="Johnson Controls" width={100} height={100} />
+                  <Image src="/images/jci-header-logo.svg" alt="Johnson Controls" width={100} height={100} />
                 </div>
-                {/* Open Globe icon placeholder - would need actual SVG */}
               </div>
             </Link>
           </div>
@@ -26,51 +25,51 @@ export const Default: React.FC = () => {
           {/* Connect with us - Center Right */}
           <div className="lg:col-span-3">
             <h3 className="mb-4 text-sm font-semibold text-primary uppercase tracking-wide">Connect with us</h3>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               <Link
                 href="https://www.linkedin.com/company/johnson-controls"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-black rounded p-2 hover:opacity-80 transition-opacity"
+                className="bg-black rounded p-1 hover:opacity-80 transition-opacity"
                 aria-label="LinkedIn"
               >
-                <Linkedin className="h-5 w-5 text-white" />
+                <Linkedin className="h-4 w-4 text-white" />
               </Link>
               <Link
                 href="https://www.facebook.com/JohnsonControls"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-black rounded-full p-2 hover:opacity-80 transition-opacity"
+                className="bg-black rounded-full p-1 hover:opacity-80 transition-opacity"
                 aria-label="Facebook"
               >
-                <Facebook className="h-5 w-5 text-white" />
+                <Facebook className="h-4 w-4 text-white" />
               </Link>
               <Link
                 href="https://www.instagram.com/johnsoncontrols"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-black rounded-full p-2 hover:opacity-80 transition-opacity"
+                className="bg-black rounded-full p-1 hover:opacity-80 transition-opacity"
                 aria-label="Instagram"
               >
-                <Instagram className="h-5 w-5 text-white" />
+                <Instagram className="h-4 w-4 text-white" />
               </Link>
               <Link
                 href="https://twitter.com/johnsoncontrols"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-black rounded p-2 hover:opacity-80 transition-opacity"
+                className="bg-black rounded p-1 hover:opacity-80 transition-opacity"
                 aria-label="Twitter"
               >
-                <Twitter className="h-5 w-5 text-white" />
+                <Twitter className="h-4 w-4 text-white" />
               </Link>
               <Link
                 href="https://www.youtube.com/user/JohnsonControls"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-black rounded p-2 hover:opacity-80 transition-opacity"
+                className="bg-black rounded p-1 hover:opacity-80 transition-opacity"
                 aria-label="YouTube"
               >
-                <Youtube className="h-5 w-5 text-white" />
+                <Youtube className="h-4 w-4 text-white" />
               </Link>
             </div>
           </div>
@@ -182,11 +181,8 @@ export const Default: React.FC = () => {
                 </Link>
               </li>
             </ul>
-          </div>
-
-          {/* Industries */}
-          <div>
-            <h3 className="mb-4 text-sm font-semibold text-primary uppercase tracking-wide">Industries</h3>
+            {/* Industries */}
+            <h3 className="mt-8 mb-4 text-sm font-semibold text-primary uppercase tracking-wide">Industries</h3>
             <ul className="space-y-2.5">
               <li>
                 <Link href="/industries" className="text-sm font-normal text-[#333740]/70 hover:text-[#333740] transition-colors">
@@ -194,11 +190,8 @@ export const Default: React.FC = () => {
                 </Link>
               </li>
             </ul>
-          </div>
-
-          {/* Building Insights */}
-          <div>
-            <h3 className="mb-4 text-sm font-semibold text-primary uppercase tracking-wide">Building Insights</h3>
+            {/* Building Insights */}
+            <h3 className="mt-8 mb-4 text-sm font-semibold text-primary uppercase tracking-wide">Building Insights</h3>
             <ul className="space-y-2.5">
               <li>
                 <Link href="/insights" className="text-sm font-normal text-[#333740]/70 hover:text-[#333740] transition-colors">
@@ -206,11 +199,8 @@ export const Default: React.FC = () => {
                 </Link>
               </li>
             </ul>
-          </div>
-
-          {/* Events */}
-          <div>
-            <h3 className="mb-4 text-sm font-semibold text-primary uppercase tracking-wide">Events</h3>
+            {/* Events */}
+            <h3 className="mb-4 mt-8 text-sm font-semibold text-primary uppercase tracking-wide">Events</h3>
             <ul className="space-y-2.5">
               <li>
                 <Link href="/events/trade-shows" className="text-sm font-normal text-[#333740]/70 hover:text-[#333740] transition-colors">
@@ -223,7 +213,7 @@ export const Default: React.FC = () => {
                 </Link>
               </li>
             </ul>
-          </div>
+          </div> 
 
           {/* OpenBlue */}
           <div>
@@ -255,11 +245,8 @@ export const Default: React.FC = () => {
                 </Link>
               </li>
             </ul>
-          </div>
-
-          {/* Smart Buildings */}
-          <div>
-            <h3 className="mb-4 text-sm font-semibold text-primary uppercase tracking-wide">Smart Buildings</h3>
+            {/* Smart Buildings */}
+            <h3 className="mb-4 mt-8 text-sm font-semibold text-primary uppercase tracking-wide">Smart Buildings</h3>
             <ul className="space-y-2.5">
               <li>
                 <Link href="/smart-buildings/a-new-class-of-smart-buildings" className="text-sm font-normal text-[#333740]/70 hover:text-[#333740] transition-colors">
@@ -358,7 +345,7 @@ export const Default: React.FC = () => {
         </div>
       </div>
         {/* Bottom Footer - Dark Blue Strip */}
-      <div className="bg-primary text-white py-4 px-4 md:px-6 lg:px-8 -mx-4 md:-mx-6 lg:-mx-8">
+      <div className="bg-primary text-white py-4 px-4 md:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <p className="text-xs font-normal text-white">
               © 2025 Johnson Controls. All Rights Reserved.
