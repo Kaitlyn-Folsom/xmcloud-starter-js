@@ -10,14 +10,14 @@ SharedFields:
   Value: "{B4F49B23-4BBA-4C79-BA22-F89F5F0D4E4F}"
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 50
+  Value: 25
 - ID: "c7c26117-dbb1-42b2-ab5e-f7223845cca3"
   Hint: __Thumbnail
   Value: |
     <image mediaid="{9B47EC48-131E-44E2-935D-32AC8A382A5B}" />
 - ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
   Hint: __Shared revision
-  Value: "5edae620-068a-4768-96d9-999fc561207f"
+  Value: "63d52fe4-3e15-4421-a056-f0d1e72d16e6"
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
   Value: "{C5232BD6-288F-4CFF-B0F8-C4595E8D02B7}"
@@ -51,8 +51,15 @@ Languages:
               s:par="darkPlayIcon&amp;colorScheme&amp;CSSStyles&amp;DynamicPlaceholderId=2&amp;Styles"
               s:ph="/headless-main/container-fullwidth-1" />
             <r
-              uid="{9D170E22-6F82-48B1-8656-CF3662BF9064}"
+              uid="{4EED246F-8A9E-4781-8657-B0BF5F37E5A8}"
               p:after="r[@uid='{A4EC01AF-61BB-403C-ADF6-A24A65309077}']"
+              s:ds="local:/Data/Homepage - MultiPromo"
+              s:id="{D806DDF7-39A7-4A6D-8E0A-D138BC53845D}"
+              s:par="FieldNames&amp;numColumns&amp;CSSStyles&amp;DynamicPlaceholderId=18"
+              s:ph="/headless-main/container-fullbleed-3" />
+            <r
+              uid="{9D170E22-6F82-48B1-8656-CF3662BF9064}"
+              p:after="r[@uid='{4EED246F-8A9E-4781-8657-B0BF5F37E5A8}']"
               s:ds="local:/Data/Logo Tab"
               s:id="{14CA65A5-8661-4195-AC0E-51C0E58C695D}"
               s:par="colorScheme&amp;CSSStyles&amp;DynamicPlaceholderId=4&amp;Styles"
@@ -171,7 +178,7 @@ Languages:
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "8cda5f3f-940d-462f-8673-3d5781e9c09f"
+      Value: "072cc98b-890f-4c5d-8ef8-281cb430f9f0"
     - ID: "b7979eed-6bcb-4117-80bc-4bcc6aab12a9"
       Hint: pageHeaderTitle
       Value: Brands trusted by consumers around the world.
@@ -181,7 +188,7 @@ Languages:
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251223T134849Z
+      Value: 20251229T143846Z
     - ID: "ed981ca0-271d-4543-b735-ecc955bd58a1"
       Hint: ogTitle
       Value: Landing Page

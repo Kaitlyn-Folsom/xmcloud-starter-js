@@ -41,8 +41,14 @@ Languages:
               s:par="FieldNames=%7B024D26FC-04D2-4DA4-ADF7-D939E52D497A%7D&amp;textOrientation&amp;layout&amp;theme&amp;bannerHeight&amp;CSSStyles&amp;DynamicPlaceholderId=33"
               s:ph="headless-main" />
             <r
-              uid="{103BA67D-EC95-4C39-8806-FF4BE90D8F40}"
+              uid="{2195BBEB-A833-4EDA-A82A-091E5337011F}"
               p:after="r[@uid='{92539CF8-B18A-4C08-9EC7-B5851E8F5023}']"
+              s:id="{7A1D9A21-B8D7-42F9-9B0B-92ABF8D1974F}"
+              s:par="GridParameters=%7B7465D855-992E-4DC2-9855-A03250DFA74B%7D&amp;FieldNames&amp;BackgroundImage&amp;Styles&amp;RenderingIdentifier&amp;CSSStyles&amp;DynamicPlaceholderId=36"
+              s:ph="headless-main" />
+            <r
+              uid="{103BA67D-EC95-4C39-8806-FF4BE90D8F40}"
+              p:after="r[@uid='{2195BBEB-A833-4EDA-A82A-091E5337011F}']"
               s:id="{E80C2A78-FCC2-4D32-8EC5-4133F608BE5C}"
               s:par="DynamicPlaceholderId=11&amp;backgroundColor=primary&amp;colorScheme=primary&amp;inset=1"
               s:ph="headless-main" />
@@ -77,15 +83,8 @@ Languages:
               s:par="DynamicPlaceholderId=26"
               s:ph="headless-main" />
             <r
-              uid="{851C033B-5C73-4967-9B9D-BD51704962DA}"
-              p:after="r[@uid='{5E70EAF3-D915-41A1-A5F4-5F4995491D37}']"
-              s:ds="local:/Data/MultiPromoCarousel"
-              s:id="{D806DDF7-39A7-4A6D-8E0A-D138BC53845D}"
-              s:par="DynamicPlaceholderId=12"
-              s:ph="/headless-main/container-fullbleed-11" />
-            <r
               uid="{21BD7631-3345-4C6E-AA6C-D6DF5D162895}"
-              p:after="r[@uid='{851C033B-5C73-4967-9B9D-BD51704962DA}']"
+              p:after="r[@uid='{5E70EAF3-D915-41A1-A5F4-5F4995491D37}']"
               s:id="{02340885-3692-4CAD-AC11-ED61206501A3}"
               s:par="DynamicPlaceholderId=24&amp;excludeTopMargin=1"
               s:ph="/headless-main/container-fullbleed-11" />
@@ -103,8 +102,15 @@ Languages:
               s:par="DynamicPlaceholderId=19"
               s:ph="/headless-main/container-fullbleed-17/container-fullwidth-18" />
             <r
-              uid="{663A52AA-7D0B-408E-B394-B5211DB80AE0}"
+              uid="{8423FB05-89D0-414D-BC85-B1BE7E3A7F85}"
               p:after="r[@uid='{B78A611C-EA70-474D-92B6-17C2C7DCFE63}']"
+              s:ds="d73d13c4-6059-4412-b0ad-79b954618f73"
+              s:id="{241A1B8E-E69A-4E07-B5E4-53975371AD3C}"
+              s:par="colorScheme&amp;FieldNames=%7BE2C30E13-6C52-41A4-BC08-754F2F8E5C7C%7D&amp;CSSStyles&amp;DynamicPlaceholderId=35"
+              s:ph="/headless-main/container-fullbleed-27/container-fullwidth-21" />
+            <r
+              uid="{663A52AA-7D0B-408E-B394-B5211DB80AE0}"
+              p:after="r[@uid='{8423FB05-89D0-414D-BC85-B1BE7E3A7F85}']"
               s:ds="local:/Data/Testimonial"
               s:id="{FC274B80-2EF2-4B05-89D4-22FCB1E9CC9C}"
               s:par=""
@@ -124,11 +130,18 @@ Languages:
               s:par="DynamicPlaceholderId=20&amp;colorScheme=light"
               s:ph="/headless-main/container-fullwidth-26" />
             <r
-              uid="{EE100ECF-7408-446E-8CD5-C1ADA9CF1E68}"
+              uid="{9F0C1E43-C0D4-4ADB-95D2-83A930BDCC54}"
               p:after="r[@uid='{D687539B-EE38-4A8B-BA0B-A93185C73D1A}']"
-              s:ds="local:/Data/AnimatedPromo"
+              s:ds="d3c6d90d-d5b7-4908-864f-32c0c3c48f47"
               s:id="{241A1B8E-E69A-4E07-B5E4-53975371AD3C}"
-              s:par="DynamicPlaceholderId=15"
+              s:par="DynamicPlaceholderId=34&amp;FieldNames=%7BE2C30E13-6C52-41A4-BC08-754F2F8E5C7C%7D"
+              s:ph="/headless-main/container-fullbleed-27" />
+            <r
+              uid="{EE100ECF-7408-446E-8CD5-C1ADA9CF1E68}"
+              p:after="r[@uid='{9F0C1E43-C0D4-4ADB-95D2-83A930BDCC54}']"
+              s:ds="cdfbff88-d2e9-47dc-b77a-3bd561518beb"
+              s:id="{241A1B8E-E69A-4E07-B5E4-53975371AD3C}"
+              s:par="DynamicPlaceholderId=15&amp;FieldNames=%7BC7B3C188-9B05-4FE9-A2E5-CDA2B764F0A7%7D"
               s:ph="/headless-main/container-fullbleed-27" />
             <r
               uid="{F4252E55-95EC-4D2F-AE32-FBCA3744690C}"
@@ -145,11 +158,18 @@ Languages:
               s:ph="/headless-main/container-fullbleed-28" />
             <r
               uid="{FAAE8CA5-C15B-45FF-809B-C909CF83563B}"
-              p:after="*[1=2]"
+              p:after="r[@uid='{85E549DF-421F-43EE-BFB8-4E46D38E3B7F}']"
               s:ds="local:/Data/Video 1"
               s:id="{7CB831E8-C889-4193-B822-A1131CB0B755}"
               s:par="DynamicPlaceholderId=32&amp;displayIcon=1&amp;useModal=1"
               s:ph="/headless-main/container-fullbleed-31" />
+            <r
+              uid="{66029687-EA2C-4CB1-90F3-EF996E1708C7}"
+              p:after="*[1=2]"
+              s:ds="30bbd004-94ef-4ec8-b503-02a5e17650ed"
+              s:id="{D806DDF7-39A7-4A6D-8E0A-D138BC53845D}"
+              s:par="FieldNames&amp;numColumns&amp;CSSStyles&amp;DynamicPlaceholderId=37"
+              s:ph="/headless-main/container-36" />
           </d>
         </r>
     - ID: "2485de13-6c39-468c-9c26-fe08c27088f4"
@@ -180,7 +200,7 @@ Languages:
       Value: Solterra & Co.
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "224f8b0c-f9a7-48b7-955d-869b27a3644c"
+      Value: "b42ae286-ef06-4b7a-b5a6-bed891311931"
     - ID: "9b600e71-cf7a-4874-9032-f394a9bd2e48"
       Hint: metadataDescription
       Value: Solterra & Co.
@@ -193,7 +213,7 @@ Languages:
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251223T194049Z
+      Value: 20251229T144517Z
     - ID: "ed981ca0-271d-4543-b735-ecc955bd58a1"
       Hint: ogTitle
       Value: Solterra & Co.

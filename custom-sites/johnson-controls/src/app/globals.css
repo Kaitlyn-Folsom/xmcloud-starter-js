@@ -104,3 +104,30 @@
   background-color: #32c858;
   color: #000070;
 }
+
+/* Promo Animated Gradient Ribbon */
+.promo-animated__image--gradient-right::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  background-image: url('/images/linear-gradient-ribbon.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 12px;
+}
+
+.promo-animated__image--gradient-left::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  background-image: url('/images/linear-gradient-ribbon.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 12px;
+}

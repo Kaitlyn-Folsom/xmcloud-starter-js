@@ -1,8 +1,8 @@
 ﻿---
-ID: "7f19b31c-d59e-4fcf-8d51-26a00c5cba65"
-Parent: "0ac6e8e0-840b-40cd-b71f-d720d568fc87"
+ID: "30bbd004-94ef-4ec8-b503-02a5e17650ed"
+Parent: "763d3b70-5f4b-4953-b677-c7f8b2987ca2"
 Template: "775d6354-cf01-4f34-9713-d34645079c88"
-Path: "/sitecore/content/manufacturing/johnson-controls/Landing Page/Data/Multi Promo"
+Path: "/sitecore/content/manufacturing/johnson-controls/Data/MultiPromos/Homepage - MultiPromo"
 BranchID: "97509128-1b31-4a5b-9c07-d4c94b611d24"
 SharedFields:
 - ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
@@ -21,10 +21,13 @@ Languages:
     Fields:
     - ID: "24fa0354-d116-4f42-9eaa-bdab15a8ade7"
       Hint: title
-      Value: Multi Promo
+      Value: Transform buildings from static entities into smart, strategic assets
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20251222T142510Z
+    - ID: "2fe9bed7-7bcc-4a35-a209-34bcb84fcb42"
+      Hint: description
+      Value: 
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
       Value: "{12FFAC4C-565F-4C9A-B63E-7F77E96B4D1F}"
@@ -38,11 +41,11 @@ Languages:
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "3cfc46c7-ba0a-4eab-9d42-c44adfd12b1d"
+      Value: "b74745f2-42d8-4856-a3a7-64081d10b219"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251222T142510Z
+      Value: 20251229T144900Z
