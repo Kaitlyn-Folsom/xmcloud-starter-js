@@ -1,3 +1,5 @@
+'use client';
+
 import { Text } from '@sitecore-content-sdk/nextjs';
 import { cn } from '@/lib/utils';
 import { Accordion } from '@/components/ui/accordion';

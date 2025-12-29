@@ -45,7 +45,7 @@ export const PromoAnimatedImageRight: React.FC<PromoAnimatedProps> = (props) => 
           <div
             data-class-change
             className={cn(
-              'promo-animated__content-wrapper @md:grid-cols-2 group grid grid-cols-1',
+              'promo-animated__content-wrapper @md:grid-cols-2 group grid grid-cols-1 mb-4',
               { [props?.params?.styles]: props?.params?.styles }
             )}
           >
@@ -55,7 +55,7 @@ export const PromoAnimatedImageRight: React.FC<PromoAnimatedProps> = (props) => 
               <AnimatedSection reducedMotion={prefersReducedMotion} isPageEditing={isPageEditing}>
                 <Text
                   tag="h2"
-                  className="font-heading @sm:text-4xl @lg:text-5xl @xl:text-6xl mb-6 text-3xl font-semibold leading-tight tracking-tight text-black"
+                  className="font-heading @sm:text-4xl mb-6 text-3xl font-semibold leading-tight tracking-tight text-black"
                   field={title}
                 />
               </AnimatedSection>
@@ -86,7 +86,7 @@ export const PromoAnimatedImageRight: React.FC<PromoAnimatedProps> = (props) => 
                     variant="outline"
                     buttonLink={primaryLink}
                     isPageEditing={isPageEditing}
-                    className="rounded-full border-2 border-[#00adff] text-[#152ea9] hover:border-[#152ea9]"
+                    className="rounded-full border-2 border-[#00adff] text-[#152ea9] hover:border-[#152ea9] hover:bg-white hover:text-[#152ea9]"
                   />
                 )}
               </AnimatedSection>

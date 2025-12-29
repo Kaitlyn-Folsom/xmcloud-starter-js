@@ -29,23 +29,23 @@ export const Default: React.FC<GlobalHeaderProps> = (props) => {
   const [visible, setVisible] = useState(true);
   const [prevScrollY, setPrevScrollY] = useState(0);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      if (currentScrollY < 10) {
-        setVisible(true);
-      } else if (currentScrollY < prevScrollY) {
-        setVisible(true);
-      } else if (currentScrollY > 10 && currentScrollY > prevScrollY) {
-        setVisible(false);
-      }
-      setPrevScrollY(currentScrollY);
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const currentScrollY = window.scrollY;
+  //     if (currentScrollY < 10) {
+  //       setVisible(true);
+  //     } else if (currentScrollY < prevScrollY) {
+  //       setVisible(true);
+  //     } else if (currentScrollY > 10 && currentScrollY > prevScrollY) {
+  //       setVisible(false);
+  //     }
+  //     setPrevScrollY(currentScrollY);
+  //   };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+  //   window.addEventListener('scroll', handleScroll, { passive: true });
 
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [prevScrollY]);
+  //   return () => window.removeEventListener('scroll', handleScroll);
+  // }, [prevScrollY]);
 
   return (
     <>

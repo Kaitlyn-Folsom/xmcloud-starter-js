@@ -1,11 +1,18 @@
 import type React from 'react';
-import Image from 'next/image';
+// import Image from 'next/image';
 import Link from 'next/link';
 import { Linkedin, Facebook, Instagram, Twitter, Youtube, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { GlobalFooterProps } from './global-footer.props';
+import { Default as Logo } from '@/components/logo/Logo.dev';
+import { Link as SitecoreLink, Image } from '@sitecore-content-sdk/nextjs';
 
-export const Default: React.FC = () => {
+export const Default: React.FC<GlobalFooterProps> = (props) => {
+  const { fields, page } = props ?? {};
+  const { footerLogo } = fields?.data?.datasource ?? {};
+  const pageEditing = page.mode.isEditing;
+
   return (
     <footer className="bg-[#f2f2f2] text-[#333740]">
       <div className="mx-auto w-full max-w-7xl px-4 py-12 md:px-6 lg:px-8">
@@ -15,9 +22,18 @@ export const Default: React.FC = () => {
           <div className="lg:col-span-3">
             <Link href="/" className="inline-block">
               <div className="flex items-center gap-2">
-                <div>
-                  <Image src="/images/jci-header-logo.svg" alt="Johnson Controls" width={100} height={100} />
-                </div>
+                {pageEditing ? (
+                    <Image field={footerLogo?.jsonValue} className="h-10 w-[150px]" />
+                  ) : (
+                    footerLogo?.jsonValue?.value && (
+                      <Link
+                        href="/"
+                        className="flex w-[164px] items-stretch space-x-2 [&_.image-container]:w-full"
+                      >
+                        <Logo logo={footerLogo?.jsonValue} className="w-full max-w-[100px] md:max-w-[110px] lg:max-w-[125px]" />
+                      </Link>
+                    )
+                  )}
               </div>
             </Link>
           </div>
@@ -92,12 +108,12 @@ export const Default: React.FC = () => {
         <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-5 mb-12">
           <div>
           <div className="lg:col-span-2 flex flex-col gap-3">
-             <Button asChild variant="default" className="bg-primary text-white hover:bg-primary/90 w-full rounded-full">
+             <Button asChild variant="default" className="bg-[#00adff] text-[#000070] hover:bg-primary/90 w-full rounded-full">
                <Link href="/contact">
                  Contact us
                </Link>
              </Button>
-             <Button asChild variant="default" className="bg-primary text-white hover:bg-primary/90 w-full rounded-full">
+             <Button asChild variant="default" className="bg-[#00adff] text-[#000070] hover:bg-primary/90 w-full rounded-full">
                <Link href="/find-a-rep">
                  Find a rep
                </Link>
