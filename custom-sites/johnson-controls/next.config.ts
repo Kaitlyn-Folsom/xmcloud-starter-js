@@ -26,6 +26,16 @@ const nextConfig: NextConfig = {
         hostname: 'xmc-*.**',
         port: '',
       },
+      {
+        protocol: 'https',
+        hostname: 'starter-*.**',
+        port: '',
+      },
+      {
+        protocol: 'https',
+        hostname: 'jci-demo.**',
+        port: '',
+      },
     ],
   },
   
