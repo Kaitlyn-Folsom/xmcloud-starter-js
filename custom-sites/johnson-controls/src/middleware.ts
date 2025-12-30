@@ -79,10 +79,12 @@ export const config = {
    * 3. /sitecore/api (Sitecore API routes)
    * 4. /- (Sitecore media)
    * 5. /healthz (Health check)
-   * 7. all root files inside /public
+   * 6. Static HTML files in /public (search.html, search-results.html, etc.)
+   * 7. Image files in /public/images/ directory
+   * 8. Other root files inside /public
    */
   matcher: [
     '/',
-    '/((?!api/|sitemap|robots|_next/|healthz|sitecore/api/|-/|favicon.ico|sc_logo.svg).*)',
+    '/((?!api/|sitemap|robots|_next/|healthz|sitecore/api/|-/|favicon.ico|sc_logo.svg|search\\.html|search-results\\.html|.*\\.html$|images/|.*\\.jpg$|.*\\.jpeg$|.*\\.png$|.*\\.gif$|.*\\.svg$|.*\\.webp$|.*\\.ico$).*)',
   ],
 };
