@@ -71,7 +71,7 @@ export const Default = (): JSX.Element => {
               Thank You!
             </h3>
             <p className="text-lg leading-relaxed text-gray-700">
-              We've received your inquiry and will get back to you soon.
+              We&apos;ve received your inquiry and will get back to you soon.
             </p>
           </div>
         ) : (
