@@ -224,7 +224,7 @@ export const ImageRight: React.FC<HeroProps> = ({ fields, params, page }) => {
                     <Button
                       variant="ghost"
                       asChild
-                      className="bg-white text-black hover:bg-gray-100 rounded-full px-6 py-3 font-medium"
+                      className="bg-white text-black hover:bg-gray-100 rounded-full px-6 py-3 font-medium hover:text-black"
                     >
                       {isPageEditing ? (
                         <SitecoreLink field={bannerCTA} editable={true} />

@@ -36,12 +36,12 @@ import * as UtilityBrandBar from 'src/components/global-header/UtilityBrandBar';
 import * as GlobalHeader from 'src/components/global-header/GlobalHeader';
 import * as FooterNavigationColumn from 'src/components/global-footer/FooterNavigationColumn';
 import * as floatingdockdev from 'src/components/floating-dock/floating-dock.dev';
+import * as ContactForm from 'src/components/contact-form/ContactForm';
 import * as BackgroundThumbnaildev from 'src/components/background-thumbnail/BackgroundThumbnail.dev';
 import * as ArticleListing from 'src/components/article-listing/ArticleListing';
 import * as ArticleHeader from 'src/components/article-header/ArticleHeader';
 import * as AnimatedSectiondev from 'src/components/animated-section/AnimatedSection.dev';
 import * as AlertBannerdev from 'src/components/alert-banner/AlertBanner.dev';
-import * as AccordionBlockDefaultdev from 'src/components/accordion-block/AccordionBlockDefault.dev';
 import * as AccordionBlock from 'src/components/accordion-block/AccordionBlock';
 
 export const componentMap = new Map<string, NextjsContentSdkComponent>([
@@ -81,12 +81,12 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['GlobalHeader', { ...GlobalHeader }],
   ['FooterNavigationColumn', { ...FooterNavigationColumn }],
   ['floating-dock', { ...floatingdockdev }],
+  ['ContactForm', { ...ContactForm }],
   ['BackgroundThumbnail', { ...BackgroundThumbnaildev }],
   ['ArticleListing', { ...ArticleListing }],
   ['ArticleHeader', { ...ArticleHeader }],
   ['AnimatedSection', { ...AnimatedSectiondev }],
   ['AlertBanner', { ...AlertBannerdev }],
-  ['AccordionBlockDefault', { ...AccordionBlockDefaultdev }],
   ['AccordionBlock', { ...AccordionBlock }],
 ]);
 

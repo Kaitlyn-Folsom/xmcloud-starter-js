@@ -49,8 +49,8 @@ export const Default: React.FC<PageHeaderProps> = ({
     const containerClasses = cn(pageHeaderComponentClasses({ colorScheme }));
 
     return (
-      <section className={containerClasses}>
-        <div className="@md:grid-cols-2 @lg:gap-12 mx-auto grid w-full grid-cols-1 gap-8">
+      <section className={`${containerClasses} bg-[#f2f2f2] py-12 px-8`}>
+        <div className="@md:grid-cols-2 @lg:gap-12 mx-auto grid w-full grid-cols-1 gap-8 max-w-7xl">
           {/* Left */}
           <div className="flex flex-col justify-between">
             <AnimatedSection
@@ -59,7 +59,7 @@ export const Default: React.FC<PageHeaderProps> = ({
             >
               <Text
                 tag="h1"
-                className="@md:text-5xl @lg:text-7xl font-heading text-pretty text-5xl font-normal leading-[0.93] tracking-tighter"
+                className="@md:text-3xl @lg:text-4xl font-heading text-pretty text-3xl font-semibold text-[#2e2925]"
                 field={title}
               />
             </AnimatedSection>
@@ -71,7 +71,7 @@ export const Default: React.FC<PageHeaderProps> = ({
                 <div className="@md:mt-16 mt-4 flex max-w-[504px] flex-col gap-6">
                   <Text
                     tag="p"
-                    className="letter-spacing-[-0.4%] line-height-[24px] text-base font-medium"
+                    className=" text-base font-normal"
                     field={logoText?.jsonValue}
                   />
                   <div className="flex flex-nowrap items-center justify-between gap-8">
@@ -92,11 +92,11 @@ export const Default: React.FC<PageHeaderProps> = ({
               isPageEditing={isPageEditing}
             >
               <RichText
-                className="line-height[26px] @lg:ms-auto max-w-[547px] text-lg font-medium tracking-tight"
+                className="line-height[26px] @lg:ms-auto max-w-[700px] font-normal tracking-tight text-[#2e2925]"
                 field={subtitle}
               />
             </AnimatedSection>
-            <AnimatedSection
+            {/* <AnimatedSection
               reducedMotion={prefersReducedMotion}
               isPageEditing={isPageEditing}
             >
@@ -114,7 +114,7 @@ export const Default: React.FC<PageHeaderProps> = ({
                   <ImageWrapper image={imageRequired?.jsonValue} />
                 )}
               </div>
-            </AnimatedSection>
+            </AnimatedSection> */}
           </div>
         </div>
       </section>
