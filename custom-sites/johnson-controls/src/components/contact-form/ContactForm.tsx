@@ -38,7 +38,7 @@ export const Default = (): JSX.Element => {
   };
 
   return (
-    <section className="mx-auto w-full max-w-4xl px-4 py-12">
+    <section className="mx-auto w-full max-w-4xl px-4 py-12" id="contact">
       <div className="mx-auto max-w-2xl">
         {/* Title */}
         <h2 className="mb-8 text-center text-2xl font-semibold leading-tight text-gray-900 md:text-3xl">
