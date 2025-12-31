@@ -6,7 +6,6 @@ import { cn } from '@/lib/utils';
 import { NoDataFallback } from '@/utils/NoDataFallback';
 import { Button } from '@/components/ui/button';
 import { HeroProps } from './hero.props';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Define heroVariants using class-variance-authority for styling
 export const heroVariants = cva('hero relative w-full overflow-hidden', {
@@ -167,10 +166,7 @@ export const ImageRight: React.FC<HeroProps> = ({ fields, params, page }) => {
 
         {/* Gradient overlay - covers ~60% from left, fully rounded, with opacity */}
         <div 
-          className="absolute left-0 top-[-50%] bottom-[-20%] w-[90%] lg:w-[65%] z-10 rounded-r-[47%] lg:rounded-r-[48%]"
-          style={{
-            background: 'linear-gradient(95deg, rgba(0, 0, 112, 1) 0%, rgba(21, 46, 169, .95) 100%);',
-          }}
+          className="absolute left-0 top-[-50%] bottom-[-20%] w-[90%] lg:w-[65%] z-10 rounded-r-[47%] lg:rounded-r-[48%] bg-[linear-gradient(95deg,rgba(0,0,112,1)_0%,rgba(21,46,169,.95)_100%)]"
         />
         
         {/* Content Container */}
