@@ -33,7 +33,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'jci-demo.**',
+        hostname: 'jci-demo-sc.**',
         port: '',
       },
     ],
