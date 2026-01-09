@@ -1,0 +1,12 @@
+{
+  "GlobalHeader": {
+    "nav": {
+      "smartBuildings": "Edificios Inteligentes",
+      "productsSolutions": "Productos y Soluciones",
+      "servicesSupport": "Servicios y Soporte",
+      "industries": "Industrias",
+      "buildingInsights": "Perspectivas de Edificios",
+      "aboutUs": "Acerca de Nosotros"
+    }
+  }
+}

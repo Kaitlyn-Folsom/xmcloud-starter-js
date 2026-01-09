@@ -6,6 +6,7 @@ import { Menu, Search } from 'lucide-react';
 import { Link as SitecoreLink, Image } from '@sitecore-content-sdk/nextjs';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import { useTranslations } from 'next-intl';
 
 import {
   NavigationMenu,
@@ -25,6 +26,7 @@ export const Default: React.FC<GlobalHeaderProps> = (props) => {
   const links = fields?.data?.item?.children?.results ?? [];
   const [isOpen, setIsOpen] = useState(false);
   const pageEditing = page.mode.isEditing;
+  const t = useTranslations('GlobalHeader.nav');
 
   const [visible, setVisible] = useState(true);
   const [prevScrollY, setPrevScrollY] = useState(0);
@@ -95,7 +97,7 @@ export const Default: React.FC<GlobalHeaderProps> = (props) => {
                     className="inline-flex gap-2 transition-colors focus-visible:outline-none disabled:pointer-events-none px-3 py-2 md:px-4 lg:px-3 rounded-full font-body text-[#333740] uppercase text-xs md:text-[13px] font-bold" 
                     href="/"
                   >
-                    Smart Buildings
+                    {t('smartBuildings')}
                   </Link>
                 </li>
                 <li>
@@ -103,7 +105,7 @@ export const Default: React.FC<GlobalHeaderProps> = (props) => {
                     className="inline-flex gap-2 transition-colors focus-visible:outline-none px-3 py-2 md:px-4 lg:px-3 rounded-full font-body text-[#333740] uppercase text-xs md:text-[13px] font-bold" 
                     href="/Article-Page"
                   >
-                    Products & Solutions
+                    {t('productsSolutions') || 'Products & Solutions'}
                   </Link>
                 </li>
                 <li>
@@ -111,7 +113,7 @@ export const Default: React.FC<GlobalHeaderProps> = (props) => {
                     className="inline-flex gap-2 transition-colors focus-visible:outline-none px-3 py-2 md:px-3 font-body text-[#333740] uppercase text-xs md:text-[13px] font-bold" 
                     href="/Article-Page"
                   >
-                    Services & Support
+                    {t('servicesSupport')}
                   </Link>
                 </li>
                 <li>
@@ -119,7 +121,7 @@ export const Default: React.FC<GlobalHeaderProps> = (props) => {
                     className="inline-flex gap-2 transition-colors focus-visible:outline-none px-3 py-2 md:px-3 font-body text-[#333740] uppercase text-xs md:text-[13px] font-bold" 
                     href="/Article-Page"
                   >
-                    Industries
+                    {t('industries')}
                   </Link>
                 </li>
                 <li>
@@ -127,7 +129,7 @@ export const Default: React.FC<GlobalHeaderProps> = (props) => {
                     className="inline-flex gap-2 transition-colors focus-visible:outline-none px-3 py-2 md:px-3 font-body text-[#333740] uppercase text-xs md:text-[13px] font-bold" 
                     href="/Article-Page"
                   >
-                    Building Insights
+                    {t('buildingInsights')}
                   </Link>
                 </li>
                 <li>
@@ -135,7 +137,7 @@ export const Default: React.FC<GlobalHeaderProps> = (props) => {
                     className="inline-flex gap-2 whitespace-nowrap transition-colors focus-visible:outline-none px-3 py-2 md:px-3 font-body text-[#333740] uppercase text-xs md:text-[13px] font-bold" 
                     href="/Article-Page"
                   >
-                    About Us
+                    {t('aboutUs')}
                   </Link>
                 </li>
               </ul>
@@ -168,7 +170,7 @@ export const Default: React.FC<GlobalHeaderProps> = (props) => {
                     onClick={() => setIsOpen(false)}
                     className="justify-start font-body text-[#333740] uppercase text-sm font-bold"
                   >
-                    <Link href="/">Smart Buildings</Link>
+                    <Link href="/">{t('smartBuildings')}</Link>
                   </Button>
                   <Button
                     variant="ghost"
@@ -176,7 +178,7 @@ export const Default: React.FC<GlobalHeaderProps> = (props) => {
                     onClick={() => setIsOpen(false)}
                     className="justify-start font-body text-[#333740] uppercase text-sm font-bold"
                   >
-                    <Link href="/Article-Page">Products & Solutions</Link>
+                    <Link href="/Article-Page">{t('productsSolutions')}</Link>
                   </Button>
                   <Button
                     variant="ghost"
@@ -184,7 +186,7 @@ export const Default: React.FC<GlobalHeaderProps> = (props) => {
                     onClick={() => setIsOpen(false)}
                     className="justify-start font-body text-[#333740] uppercase text-sm font-bold"
                   >
-                    <Link href="/Article-Page">Services & Support</Link>
+                    <Link href="/Article-Page">{t('servicesSupport')}</Link>
                   </Button>
                   <Button
                     variant="ghost"
@@ -192,7 +194,7 @@ export const Default: React.FC<GlobalHeaderProps> = (props) => {
                     onClick={() => setIsOpen(false)}
                     className="justify-start font-body text-[#333740] uppercase text-sm font-bold"
                   >
-                    <Link href="/Article-Page">Industries</Link>
+                    <Link href="/Article-Page">{t('industries')}</Link>
                   </Button>
                   <Button
                     variant="ghost"
@@ -200,7 +202,7 @@ export const Default: React.FC<GlobalHeaderProps> = (props) => {
                     onClick={() => setIsOpen(false)}
                     className="justify-start font-body text-[#333740] uppercase text-sm font-bold"
                   >
-                    <Link href="/Article-Page">Building Insights</Link>
+                    <Link href="/Article-Page">{t('buildingInsights')}</Link>
                   </Button>
                   <Button
                     variant="ghost"
@@ -208,7 +210,7 @@ export const Default: React.FC<GlobalHeaderProps> = (props) => {
                     onClick={() => setIsOpen(false)}
                     className="justify-start font-body text-[#333740] uppercase text-sm font-bold"
                   >
-                    <Link href="/Article-Page">About Us</Link>
+                    <Link href="/Article-Page">{t('aboutUs')}</Link>
                   </Button>
                   {headerContact?.jsonValue?.value?.href && (
                     <Button
