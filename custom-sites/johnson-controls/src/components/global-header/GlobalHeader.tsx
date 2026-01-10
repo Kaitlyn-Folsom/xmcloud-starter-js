@@ -1,18 +1,12 @@
 'use client';
 
-import { Fragment, useState, useEffect } from 'react';
+import { Fragment, useState } from 'react';
 import Link from 'next/link';
 import { Menu, Search } from 'lucide-react';
-import { Link as SitecoreLink, Image } from '@sitecore-content-sdk/nextjs';
+import { Image } from '@sitecore-content-sdk/nextjs';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
-
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuList,
-} from '@/components/ui/navigation-menu';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Default as Logo } from '@/components/logo/Logo.dev';
 import { GlobalHeaderProps } from './global-header.props';
@@ -23,31 +17,11 @@ import { UtilityBrandBar } from './UtilityBrandBar';
 export const Default: React.FC<GlobalHeaderProps> = (props) => {
   const { fields, page } = props ?? {};
   const { logo, headerContact } = fields?.data?.item ?? {};
-  const links = fields?.data?.item?.children?.results ?? [];
   const [isOpen, setIsOpen] = useState(false);
   const pageEditing = page.mode.isEditing;
   const t = useTranslations('GlobalHeader.nav');
 
-  const [visible, setVisible] = useState(true);
-  const [prevScrollY, setPrevScrollY] = useState(0);
-
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const currentScrollY = window.scrollY;
-  //     if (currentScrollY < 10) {
-  //       setVisible(true);
-  //     } else if (currentScrollY < prevScrollY) {
-  //       setVisible(true);
-  //     } else if (currentScrollY > 10 && currentScrollY > prevScrollY) {
-  //       setVisible(false);
-  //     }
-  //     setPrevScrollY(currentScrollY);
-  //   };
-
-  //   window.addEventListener('scroll', handleScroll, { passive: true });
-
-  //   return () => window.removeEventListener('scroll', handleScroll);
-  // }, [prevScrollY]);
+  const [visible] = useState(true);
 
   return (
     <>
@@ -105,7 +79,7 @@ export const Default: React.FC<GlobalHeaderProps> = (props) => {
                     className="inline-flex gap-2 transition-colors focus-visible:outline-none px-3 py-2 md:px-4 lg:px-3 rounded-full font-body text-[#333740] uppercase text-xs md:text-[13px] font-bold" 
                     href="/Article-Page"
                   >
-                    {t('productsSolutions') || 'Products & Solutions'}
+                    {t('productsSolutions')}
                   </Link>
                 </li>
                 <li>
