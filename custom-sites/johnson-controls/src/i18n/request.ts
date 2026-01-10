@@ -3,7 +3,7 @@ import { hasLocale } from 'next-intl';
 import { routing } from './routing';
 import client from 'src/lib/sitecore-client';
 import enMessages from '../../messages/en.json';
-import esMessages from '../../messages/es.json';
+import esESMessages from '../../messages/es-ES.json';
 
 export default getRequestConfig(async ({ requestLocale }: GetRequestConfigParams) => {
   // Provide a static locale, fetch a user setting,
@@ -14,11 +14,14 @@ export default getRequestConfig(async ({ requestLocale }: GetRequestConfigParams
   // to support SSG and multisite here we expect both site and locale in the format {site}_{locale}
   const requested = await requestLocale;
   const [parsedSite, parsedLocale] = requested?.split('_') || [];
-  const locale = hasLocale(routing.locales, parsedLocale) ? parsedLocale : routing.defaultLocale;
-console.log('locale', locale);
+  
+  // Normalize 'es' to 'es-ES' for compatibility
+  const normalizedLocale = parsedLocale === 'es' ? 'es-ES' : parsedLocale;
+  const locale = hasLocale(routing.locales, normalizedLocale) ? normalizedLocale : routing.defaultLocale;
+
   // Load local message files - use static imports for build compatibility
   const localMessages: Record<string, unknown> =
-    locale === 'es' ? esMessages : enMessages;
+    locale === 'es-ES' ? esESMessages : enMessages;
 
   // Fetch messages from Sitecore
   let sitecoreMessages: Record<string, unknown> = {};
