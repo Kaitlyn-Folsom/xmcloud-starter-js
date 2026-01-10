@@ -26,8 +26,33 @@ export default async function Page({ params, searchParams }: PageProps) {
   const { site, locale, path } = await params;
   const draft = await draftMode();
 
+  // Determine the actual locale - in editing mode, check multiple sources
+  let actualLocale = locale || scConfig.defaultLanguage || 'en';
+  
+  if (draft.isEnabled) {
+    const editingParams = await searchParams;
+    
+    // In XM Cloud editing mode, the locale is in editingParams.language
+    // Fallback to other sources if not found
+    const editingLocale = 
+      (editingParams.language as string) ||
+      (editingParams.sc_lang as string) || 
+      (editingParams.locale as string);
+    
+    actualLocale = editingLocale || locale || scConfig.defaultLanguage || 'en';
+  }
+
+  // Normalize locale: 'es' -> 'es-ES', 'ja' -> 'ja-JP' for compatibility
+  let normalizedLocale = actualLocale;
+  if (actualLocale === 'es') {
+    normalizedLocale = 'es-ES';
+  } else if (actualLocale === 'ja') {
+    normalizedLocale = 'ja-JP';
+  }
+  
   // Set site and locale to be available in src/i18n/request.ts for fetching the dictionary
-  setRequestLocale(`${site}_${locale}`);
+  // This must be called early, before any translation hooks are used
+  setRequestLocale(`${site}_${normalizedLocale}`);
 
   // Fetch the page data from Sitecore
   let page;
@@ -39,7 +64,7 @@ export default async function Page({ params, searchParams }: PageProps) {
       page = await client.getPreview(editingParams);
     }
   } else {
-    page = await client.getPage(path ?? [], { site, locale });
+    page = await client.getPage(path ?? [], { site, locale: normalizedLocale });
   }
 
   // If the page is not found, return a 404

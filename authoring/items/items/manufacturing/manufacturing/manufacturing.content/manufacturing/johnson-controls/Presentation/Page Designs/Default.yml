@@ -7,9 +7,16 @@ SharedFields:
 - ID: "0966b999-0d0e-4278-acc9-9da69d461fe6"
   Hint: PartialDesigns
   Value: "{C0C669FB-EC4A-4189-A4B7-29C802E7576F}|{03C48EB7-81DC-458C-8E70-1838431C1DF8}"
+- ID: "c7c26117-dbb1-42b2-ab5e-f7223845cca3"
+  Hint: __Thumbnail
+  Value: |
+    <image mediaid="{2366AEA8-0C0F-4E91-881F-F3BD033C76C0}" />
 - ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
   Hint: __Shared revision
-  Value: "201af20f-c45b-478b-9bcf-f6b68c2b5c90"
+  Value: "b8ed2228-7ad8-40f8-804c-6046a0771da6"
+- ID: "fd4e2050-186c-4375-8b99-e8a85dd7436e"
+  Hint: __Enable item fallback
+  Value: 1
 Languages:
 - Language: en
   Versions:
@@ -28,11 +35,11 @@ Languages:
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "42d81b6e-db5f-4bdf-8ba4-a1dc62976846"
+      Value: "25767ec1-94df-4813-b7f9-59b7af93cc56"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251222T142620Z
+      Value: 20260108T184517Z

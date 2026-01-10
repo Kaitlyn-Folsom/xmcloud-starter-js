@@ -14,10 +14,13 @@ SharedFields:
     <image mediaid="{2431453C-81F9-4EF4-AA3F-C733A438D21A}" />
 - ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
   Hint: __Shared revision
-  Value: "046e2f4b-faa3-479d-938c-91d28725b0d4"
+  Value: "c218ee52-f9ce-49d2-91e1-f47477d3d5bf"
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
   Value: "{32F6D51F-B04C-4100-B304-42F7807C20A3}"
+- ID: "fd4e2050-186c-4375-8b99-e8a85dd7436e"
+  Hint: __Enable item fallback
+  Value: 1
 Languages:
 - Language: en
   Versions:
@@ -51,11 +54,11 @@ Languages:
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "75828e4c-4ee0-47af-9069-e1d806757300"
+      Value: "8f25e888-1c6e-4c9f-8788-c87acb4317eb"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251222T195743Z
+      Value: 20260108T184723Z

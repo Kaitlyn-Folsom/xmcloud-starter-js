@@ -30,7 +30,7 @@ Languages:
       Value: 20251222T142510Z
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
-      Value: "{12FFAC4C-565F-4C9A-B63E-7F77E96B4D1F}"
+      Value: "{4460E76C-87E9-4859-9DE6-DE122774937F}"
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -48,10 +48,10 @@ Languages:
     - ID: "7eca61ae-f0c1-49e6-b131-686ab895a1dc"
       Hint: image
       Value: |
-        <image mediaid="87859f44-062a-47a2-a194-aeaeb9d272a8" />
+        <image mediaid="87859f44-062a-47a2-a194-aeaeb9d272a8" alt="demo" height="" width="" hspace="" vspace="" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "af0d5b58-794e-4b8f-8a7d-d122b25f7034"
+      Value: "f213b69e-3924-4e3d-9f01-943fdcd2c696"
     - ID: "8ec6e4b8-3a38-4115-a892-38051924f3f1"
       Hint: link
       Value: |
@@ -62,4 +62,4 @@ Languages:
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251229T144900Z
+      Value: 20251230T182854Z

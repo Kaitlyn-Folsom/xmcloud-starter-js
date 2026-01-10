@@ -1,0 +1,68 @@
+﻿---
+ID: "48d0e86e-3af0-4305-bdf1-71c1ac512e8d"
+Parent: "86e37204-6672-4456-af25-c75b93b94a04"
+Template: "ae018465-4e68-4a49-8b15-9702274fa75a"
+Path: "/sitecore/content/manufacturing/johnson-controls/Data/Heros/Hero - OpenBlue - Default_var2"
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{A053ED9F-4099-4682-9411-2B4C98E481E4}"
+- ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
+  Hint: __Shared revision
+  Value: "2eae28f8-7fb4-42b6-8773-576a1f2f0843"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20251223T150732Z
+    - ID: "27fc9ad4-02a9-4660-bce7-26a9ac2ccb00"
+      Hint: searchLink
+      Value: |
+        <link linktype="external" url="https://jci-demo-sc.vercel.app/Open-Blue#contact" text="Contact Us"/>
+    - ID: "29fdc472-23a7-463e-8b3e-cd93551fa51c"
+      Hint: badge
+      Value: Sustainability
+    - ID: "3c2b7d00-8de2-4636-a65f-d667a75ec4a7"
+      Hint: description
+      Value: Unlock the ROI performance of your building today with award winning AI
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{4460E76C-87E9-4859-9DE6-DE122774937F}"
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\kaitlyn.folsom@sitecore.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\kaitlyn.folsom@sitecore.com
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "9bc1dbea-34bc-4626-bb7c-f98b8a247c06"
+    - ID: "9ad66b62-4ebd-42da-8e1a-09dca7db5aea"
+      Hint: bannerText
+      Value: 
+    - ID: "b80f6e4e-44ec-4bf5-92b0-f50f71530c06"
+      Hint: bannerCTA
+      Value: |
+        <link linktype="external" url="#" target="" text="Product tour" title="" class=""/>
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\kaitlyn.folsom@sitecore.com
+    - ID: "c65eb2cc-503f-48cd-ba69-42c29df106c1"
+      Hint: image
+      Value: |
+        <image mediaid="234a5ae8-d2fb-4310-a085-ed22e828fec8" alt="openblue-hero" />
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20260102T190057Z
+    - ID: "e5e059ce-66e3-4039-887b-0086e7764f09"
+      Hint: title
+      Value: Revolutionize Your Space with OpenBlue

@@ -4,6 +4,7 @@ import { routing } from './routing';
 import client from 'src/lib/sitecore-client';
 import enMessages from '../../messages/en.json';
 import esESMessages from '../../messages/es-ES.json';
+import jaJPMessages from '../../messages/ja-JP.json';
 
 export default getRequestConfig(async ({ requestLocale }: GetRequestConfigParams) => {
   // Provide a static locale, fetch a user setting,
@@ -15,13 +16,21 @@ export default getRequestConfig(async ({ requestLocale }: GetRequestConfigParams
   const requested = await requestLocale;
   const [parsedSite, parsedLocale] = requested?.split('_') || [];
   
-  // Normalize 'es' to 'es-ES' for compatibility
-  const normalizedLocale = parsedLocale === 'es' ? 'es-ES' : parsedLocale;
+  // Normalize locales for compatibility: 'es' -> 'es-ES', 'ja' -> 'ja-JP'
+  let normalizedLocale = parsedLocale;
+  if (parsedLocale === 'es') {
+    normalizedLocale = 'es-ES';
+  } else if (parsedLocale === 'ja') {
+    normalizedLocale = 'ja-JP';
+  }
+  
   const locale = hasLocale(routing.locales, normalizedLocale) ? normalizedLocale : routing.defaultLocale;
-
+  
   // Load local message files - use static imports for build compatibility
   const localMessages: Record<string, unknown> =
-    locale === 'es-ES' ? esESMessages : enMessages;
+    locale === 'ja-JP' ? jaJPMessages :
+    locale === 'es-ES' ? esESMessages : 
+    enMessages;
 
   // Fetch messages from Sitecore
   let sitecoreMessages: Record<string, unknown> = {};

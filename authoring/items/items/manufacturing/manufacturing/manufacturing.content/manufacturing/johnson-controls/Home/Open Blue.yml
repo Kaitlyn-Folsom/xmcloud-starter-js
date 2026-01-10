@@ -7,13 +7,16 @@ SharedFields:
 - ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
   Hint: __Workflow
   Value: "{B4F49B23-4BBA-4C79-BA22-F89F5F0D4E4F}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 44
 - ID: "c7c26117-dbb1-42b2-ab5e-f7223845cca3"
   Hint: __Thumbnail
   Value: |
     <image mediaid="{34F51203-6C4B-4889-B5B5-21102EFA1202}" />
 - ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
   Hint: __Shared revision
-  Value: "c672d4f7-5688-4d30-8b5f-6d3ffb7c8990"
+  Value: "4d1dacfb-4b77-4bb6-bf88-c3d575032043"
 Languages:
 - Language: en
   Versions:
@@ -31,10 +34,95 @@ Languages:
             id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
             <r
               uid="{89D51664-2385-4246-964D-66087D4BBD4D}"
+              p:before="*"
               s:ds="f9a523fa-6d33-4f05-aa62-ae32bfe0e1eb"
               s:id="{6D0AAE4A-C2D1-4F3A-8285-705D13DE8244}"
               s:par="FieldNames=%7B8DD2E3CF-0610-4508-9802-AED9377FA0AB%7D&amp;textOrientation&amp;layout&amp;theme&amp;bannerHeight&amp;CSSStyles&amp;DynamicPlaceholderId=1"
+              s:ph="headless-main">
+              <rls>
+                <ruleset
+                  s:pet="true">
+                  <rule
+                    uid="{E6C5C9AB-CAB2-4F7D-9D18-ADCE5A746C14}"
+                    s:name="89d5166423854246964d66087d4bbd4d_465159b955bb486fa0aa122bace5806a">
+                    <conditions>
+                      <condition
+                        uid="28C828D9FE794A19B6CCBF679BD52A16"
+                        s:id="{8E7426A4-12ED-4C44-8625-E7191860E726}"
+                        s:VariantName="89d5166423854246964d66087d4bbd4d_465159b955bb486fa0aa122bace5806a" />
+                    </conditions>
+                    <actions>
+                      <action
+                        uid="{87F039BF-2FD9-4551-9E7F-259A58FC7C54}"
+                        s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                        s:DataSource="48d0e86e-3af0-4305-bdf1-71c1ac512e8d" />
+                    </actions>
+                  </rule>
+                  <rule
+                    uid="{00000000-0000-0000-0000-000000000000}"
+                    s:name="Default">
+                    <conditions>
+                      <condition
+                        uid="4DAF9C00B1934871BC404C07DD2AD6B0"
+                        s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                    </conditions>
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+            <r
+              uid="{985288F6-936D-48A4-8323-FFEF10314AED}"
+              p:after="r[@uid='{89D51664-2385-4246-964D-66087D4BBD4D}']"
+              s:ds="local:/Data/Page Header 2"
+              s:id="{C78595D2-0892-4EC6-9FF8-B71EDBF17861}"
+              s:par="darkPlayIcon&amp;colorScheme&amp;FieldNames=%7BCABEBC30-CFE5-4B1D-9DB7-AA27C71BA911%7D&amp;CSSStyles&amp;DynamicPlaceholderId=10"
               s:ph="headless-main" />
+            <r
+              uid="{4BD87D22-DF8B-466E-8DCE-E273C9854C3C}"
+              p:after="r[@uid='{985288F6-936D-48A4-8323-FFEF10314AED}']"
+              s:id="{E80C2A78-FCC2-4D32-8EC5-4133F608BE5C}"
+              s:par="colorScheme&amp;excludeTopMargin&amp;inset&amp;CSSStyles&amp;DynamicPlaceholderId=13"
+              s:ph="headless-main" />
+            <r
+              uid="{A23E2F09-4E2C-482D-A786-FCEBEF1051BD}"
+              p:after="r[@uid='{4BD87D22-DF8B-466E-8DCE-E273C9854C3C}']"
+              s:id="{E80C2A78-FCC2-4D32-8EC5-4133F608BE5C}"
+              s:par="colorScheme&amp;excludeTopMargin&amp;inset&amp;CSSStyles&amp;DynamicPlaceholderId=4&amp;Styles=%7B00EE9D95-F6D1-4B9E-B07B-5C9BF7890FA4%7D"
+              s:ph="headless-main" />
+            <r
+              uid="{CAF762D1-2525-4D93-AAB1-6A04B42703A4}"
+              p:after="r[@uid='{A23E2F09-4E2C-482D-A786-FCEBEF1051BD}']"
+              s:ds="846ff314-766f-4006-937c-28a752e01af9"
+              s:id="{241A1B8E-E69A-4E07-B5E4-53975371AD3C}"
+              s:par="colorScheme&amp;FieldNames=%7BC7B3C188-9B05-4FE9-A2E5-CDA2B764F0A7%7D&amp;CSSStyles&amp;DynamicPlaceholderId=9"
+              s:ph="/headless-main/container-fullbleed-4/container-7" />
+            <r
+              uid="{526AE286-7D88-43B3-8E9B-A53DA3B60500}"
+              p:after="r[@uid='{CAF762D1-2525-4D93-AAB1-6A04B42703A4}']"
+              s:ds="12fa779d-b30f-4fcd-b7f0-3b03d5cab744"
+              s:id="{2492BAC4-DA07-4C86-87F0-9873D40E2276}"
+              s:par="GridParameters=%7B7465D855-992E-4DC2-9855-A03250DFA74B%7D&amp;FieldNames=%7BD8266BF9-7838-4B9D-9BD7-BBBA4476F41C%7D&amp;Styles&amp;RenderingIdentifier&amp;CSSStyles=mt-6&amp;DynamicPlaceholderId=8"
+              s:ph="/headless-main/container-fullbleed-4/container-7" />
+            <r
+              uid="{7FF4D5EF-B311-4135-ABA1-4C0BE0615D32}"
+              p:after="r[@uid='{526AE286-7D88-43B3-8E9B-A53DA3B60500}']"
+              s:ds="local:/Data/Form"
+              s:id="{A95827CB-CDAA-4D55-BF1A-EE3D69EDA715}"
+              s:par="CSSStyles"
+              s:ph="/headless-main/container-fullbleed-4/container-7" />
+            <r
+              uid="{9FCE111F-66DC-484A-AB20-0CFA612397CD}"
+              p:after="r[@uid='{7FF4D5EF-B311-4135-ABA1-4C0BE0615D32}']"
+              s:id="{7A1D9A21-B8D7-42F9-9B0B-92ABF8D1974F}"
+              s:par="GridParameters=%7B7465D855-992E-4DC2-9855-A03250DFA74B%7D&amp;FieldNames&amp;BackgroundImage&amp;Styles=%7C%7B00EE9D95-F6D1-4B9E-B07B-5C9BF7890FA4%7D%7C%7BF1AD6B7C-0D5C-4D27-88B2-150B4156E4F4%7D&amp;RenderingIdentifier&amp;CSSStyles&amp;DynamicPlaceholderId=7"
+              s:ph="/headless-main/container-fullbleed-4" />
+            <r
+              uid="{4077741F-32F2-486D-A982-870E5263729E}"
+              p:after="*[1=2]"
+              s:ds="local:/Data/Image 1"
+              s:id="{AB2EDBA0-3960-4F12-B765-579DC231894A}"
+              s:par="GridParameters=%7B7465D855-992E-4DC2-9855-A03250DFA74B%7D%7C%7BE25B16F8-81E2-443F-B4B0-500E08F42815%7D%7C%7BB86D9885-E5AE-4A8A-847C-D231A94408AD%7D&amp;FieldNames=%7B6B659364-B82C-41FA-9F0B-5F5095C794E5%7D&amp;Styles=%7C%7B4158D8C7-9A72-4F52-9C32-F29FC0B459A5%7D&amp;RenderingIdentifier&amp;CSSStyles=flex%20justify-center&amp;DynamicPlaceholderId=12"
+              s:ph="/headless-main/container-fullbleed-13" />
           </d>
         </r>
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
@@ -42,17 +130,254 @@ Languages:
       Value: 20251222T172609Z
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
-      Value: "{57CC7DCE-E6B1-4564-9581-0E5850B8BDF2}"
+      Value: "{F7FE5BDD-A991-4A58-9735-CD08F9B097AB}"
+    - ID: "5272817a-75b7-4554-a5ef-2cc4930034d2"
+      Hint: pageSubtitle
+      Value: OpenBlue is the digital foundation of our smart building ecosystem. Building on nearly 140 years of Johnson Controls’ expertise and innovation, OpenBlue helps you unlock new levels of performance across HVAC, fire, security, and controls. By adding a digital layer to your building systems, OpenBlue enables smarter energy use, lower emissions, enhanced equipment reliability, and more comfortable, secure spaces for the people who use them every day.
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "77381740-7d35-4fd3-b232-1093c36a3b5e"
+      Value: "bc05a7ef-2bc4-4eed-ac88-974c5367a063"
+    - ID: "b7979eed-6bcb-4117-80bc-4bcc6aab12a9"
+      Hint: pageHeaderTitle
+      Value: Creating efficient, sustainable & resilient buildings across your real estate portfolio
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251223T194459Z
+      Value: 20260102T151414Z
     - ID: "ed981ca0-271d-4543-b735-ecc955bd58a1"
       Hint: ogTitle
       Value: Open Blue
+  - Version: 2
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{89D51664-2385-4246-964D-66087D4BBD4D}"
+              p:before="*"
+              s:ds="f9a523fa-6d33-4f05-aa62-ae32bfe0e1eb"
+              s:id="{6D0AAE4A-C2D1-4F3A-8285-705D13DE8244}"
+              s:par="FieldNames=%7B8DD2E3CF-0610-4508-9802-AED9377FA0AB%7D&amp;textOrientation&amp;layout&amp;theme&amp;bannerHeight&amp;CSSStyles&amp;DynamicPlaceholderId=1"
+              s:ph="headless-main">
+              <rls>
+                <ruleset
+                  s:pet="true">
+                  <rule
+                    uid="{41BBE10A-88C7-49F6-8434-6FC6822B4678}"
+                    s:name="89d5166423854246964d66087d4bbd4d_58651c5209254740bca818787bf31906">
+                    <conditions>
+                      <condition
+                        uid="9FCE97D0D41944CD9AA9292970701E49"
+                        s:id="{8E7426A4-12ED-4C44-8625-E7191860E726}"
+                        s:VariantName="89d5166423854246964d66087d4bbd4d_58651c5209254740bca818787bf31906" />
+                    </conditions>
+                    <actions>
+                      <action
+                        uid="{D67B8056-5762-4F1C-9283-F74560465EF4}"
+                        s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                        s:DataSource="48d0e86e-3af0-4305-bdf1-71c1ac512e8d" />
+                      <action
+                        uid="{9264DA05-9DF7-4589-B7EC-70998DA4D86A}"
+                        s:id="{525C7B5A-8FD2-4B99-89F6-4F3F6D23BB02}"
+                        s:Parameters="FieldNames=%7B8DD2E3CF-0610-4508-9802-AED9377FA0AB%7D&amp;textOrientation&amp;layout&amp;theme&amp;bannerHeight&amp;CSSStyles&amp;DynamicPlaceholderId=1" />
+                    </actions>
+                  </rule>
+                  <rule
+                    uid="{00000000-0000-0000-0000-000000000000}"
+                    s:name="Default">
+                    <conditions>
+                      <condition
+                        uid="BF29578467C14CBEA8242F07F655A63B"
+                        s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                    </conditions>
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+            <r
+              uid="{985288F6-936D-48A4-8323-FFEF10314AED}"
+              p:after="r[@uid='{89D51664-2385-4246-964D-66087D4BBD4D}']"
+              s:ds="local:/Data/Page Header 2"
+              s:id="{C78595D2-0892-4EC6-9FF8-B71EDBF17861}"
+              s:par="darkPlayIcon&amp;colorScheme&amp;FieldNames=%7BCABEBC30-CFE5-4B1D-9DB7-AA27C71BA911%7D&amp;CSSStyles&amp;DynamicPlaceholderId=10"
+              s:ph="headless-main" />
+            <r
+              uid="{4BD87D22-DF8B-466E-8DCE-E273C9854C3C}"
+              p:after="r[@uid='{985288F6-936D-48A4-8323-FFEF10314AED}']"
+              s:id="{E80C2A78-FCC2-4D32-8EC5-4133F608BE5C}"
+              s:par="colorScheme&amp;excludeTopMargin&amp;inset&amp;CSSStyles&amp;DynamicPlaceholderId=13"
+              s:ph="headless-main" />
+            <r
+              uid="{A23E2F09-4E2C-482D-A786-FCEBEF1051BD}"
+              p:after="r[@uid='{4BD87D22-DF8B-466E-8DCE-E273C9854C3C}']"
+              s:id="{E80C2A78-FCC2-4D32-8EC5-4133F608BE5C}"
+              s:par="colorScheme&amp;excludeTopMargin&amp;inset&amp;CSSStyles&amp;DynamicPlaceholderId=4&amp;Styles=%7B00EE9D95-F6D1-4B9E-B07B-5C9BF7890FA4%7D"
+              s:ph="headless-main" />
+            <r
+              uid="{CAF762D1-2525-4D93-AAB1-6A04B42703A4}"
+              p:after="r[@uid='{A23E2F09-4E2C-482D-A786-FCEBEF1051BD}']"
+              s:ds="846ff314-766f-4006-937c-28a752e01af9"
+              s:id="{241A1B8E-E69A-4E07-B5E4-53975371AD3C}"
+              s:par="colorScheme&amp;FieldNames=%7BC7B3C188-9B05-4FE9-A2E5-CDA2B764F0A7%7D&amp;CSSStyles&amp;DynamicPlaceholderId=9"
+              s:ph="/headless-main/container-fullbleed-4/container-7" />
+            <r
+              uid="{526AE286-7D88-43B3-8E9B-A53DA3B60500}"
+              p:after="r[@uid='{CAF762D1-2525-4D93-AAB1-6A04B42703A4}']"
+              s:ds="12fa779d-b30f-4fcd-b7f0-3b03d5cab744"
+              s:id="{2492BAC4-DA07-4C86-87F0-9873D40E2276}"
+              s:par="GridParameters=%7B7465D855-992E-4DC2-9855-A03250DFA74B%7D&amp;FieldNames=%7BD8266BF9-7838-4B9D-9BD7-BBBA4476F41C%7D&amp;Styles&amp;RenderingIdentifier&amp;CSSStyles=mt-6&amp;DynamicPlaceholderId=8"
+              s:ph="/headless-main/container-fullbleed-4/container-7" />
+            <r
+              uid="{7FF4D5EF-B311-4135-ABA1-4C0BE0615D32}"
+              p:after="r[@uid='{526AE286-7D88-43B3-8E9B-A53DA3B60500}']"
+              s:ds="local:/Data/Form"
+              s:id="{A95827CB-CDAA-4D55-BF1A-EE3D69EDA715}"
+              s:par="CSSStyles"
+              s:ph="/headless-main/container-fullbleed-4/container-7" />
+            <r
+              uid="{9FCE111F-66DC-484A-AB20-0CFA612397CD}"
+              p:after="r[@uid='{7FF4D5EF-B311-4135-ABA1-4C0BE0615D32}']"
+              s:id="{7A1D9A21-B8D7-42F9-9B0B-92ABF8D1974F}"
+              s:par="GridParameters=%7B7465D855-992E-4DC2-9855-A03250DFA74B%7D&amp;FieldNames&amp;BackgroundImage&amp;Styles=%7C%7B00EE9D95-F6D1-4B9E-B07B-5C9BF7890FA4%7D%7C%7BF1AD6B7C-0D5C-4D27-88B2-150B4156E4F4%7D&amp;RenderingIdentifier&amp;CSSStyles&amp;DynamicPlaceholderId=7"
+              s:ph="/headless-main/container-fullbleed-4" />
+            <r
+              uid="{4077741F-32F2-486D-A982-870E5263729E}"
+              p:after="*[1=2]"
+              s:ds="local:/Data/Image 1"
+              s:id="{AB2EDBA0-3960-4F12-B765-579DC231894A}"
+              s:par="GridParameters=%7B7465D855-992E-4DC2-9855-A03250DFA74B%7D%7C%7BE25B16F8-81E2-443F-B4B0-500E08F42815%7D%7C%7BB86D9885-E5AE-4A8A-847C-D231A94408AD%7D&amp;FieldNames=%7B6B659364-B82C-41FA-9F0B-5F5095C794E5%7D&amp;Styles=%7C%7B4158D8C7-9A72-4F52-9C32-F29FC0B459A5%7D&amp;RenderingIdentifier&amp;CSSStyles=flex%20justify-center&amp;DynamicPlaceholderId=12"
+              s:ph="/headless-main/container-fullbleed-13" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20260102T193822Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{F7FE5BDD-A991-4A58-9735-CD08F9B097AB}"
+    - ID: "4dd4e18f-b1a3-4225-967f-b4ec9f68928c"
+      Hint: ogDescription
+      Value: Applying data from both inside buildings and beyond, our customers can now manage operations systemically.
+    - ID: "5272817a-75b7-4554-a5ef-2cc4930034d2"
+      Hint: pageSubtitle
+      Value: OpenBlue is the digital foundation of our smart building ecosystem. Building on nearly 140 years of Johnson Controls’ expertise and innovation, OpenBlue helps you unlock new levels of performance across HVAC, fire, security, and controls. By adding a digital layer to your building systems, OpenBlue enables smarter energy use, lower emissions, enhanced equipment reliability, and more comfortable, secure spaces for the people who use them every day.
+    - ID: "8535365d-ae76-4875-ab5b-a618d5819af0"
+      Hint: metadataTitle
+      Value: OpenBlue
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "4d48fa4d-8756-4580-b7ff-f68b054fca50"
+    - ID: "9b600e71-cf7a-4874-9032-f394a9bd2e48"
+      Hint: metadataDescription
+      Value: Applying data from both inside buildings and beyond, our customers can now manage operations systemically.
+    - ID: "b7979eed-6bcb-4117-80bc-4bcc6aab12a9"
+      Hint: pageHeaderTitle
+      Value: Creating efficient, sustainable & resilient buildings across your real estate portfolio
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\kaitlyn.folsom@sitecore.com
+    - ID: "c8f93afe-bfd4-4e8f-9c61-152559854661"
+      Hint: __Valid from
+      Value: 20260102T193822Z
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20260105T171403Z
+    - ID: "ed981ca0-271d-4543-b735-ecc955bd58a1"
+      Hint: ogTitle
+      Value: OpenBlue
+    - ID: "f6fcc0b6-31b2-49cd-8a66-4ba282a8ad24"
+      Hint: metadataKeywords
+      Value: OpenBlue, Artificial Intelligence, Healthy Buildings
+- Language: "es-ES"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{5FAF4FBF-9FD9-4B66-A77B-ED8F5486FC13}"
+              p:before="*"
+              s:ds="2eea3963-3c9a-478d-b919-5a16dbc5d582"
+              s:id="{77447DA8-09CF-4067-86DA-F87505E0A156}"
+              s:par="FieldNames=%7BC093116F-A606-445E-8C11-251AC9F2122D%7D&amp;excludeTopMargin&amp;CSSStyles&amp;DynamicPlaceholderId=1"
+              s:ph="headless-header" />
+            <r
+              uid="{E53EF565-2A4E-4E2F-9D40-A890FD5E1BA7}"
+              p:after="*[1=2]"
+              s:ds="bdb4298c-1590-439f-a5d9-f8ac71c1911e"
+              s:id="{1648D90C-709E-4FD1-92C1-A37BDF08F1FF}"
+              s:par="FieldNames=%7BCC62089A-13DC-458F-B5B1-5653DB2D6F1E%7D&amp;CSSStyles&amp;DynamicPlaceholderId=2"
+              s:ph="headless-footer" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20260108T184304Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{57CC7DCE-E6B1-4564-9581-0E5850B8BDF2}"
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\kaitlyn.folsom@sitecore.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\kaitlyn.folsom@sitecore.com
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "c1510634-dd02-4254-8da1-fa24447e5422"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\kaitlyn.folsom@sitecore.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20260108T185158Z
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20260108T184601Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{57CC7DCE-E6B1-4564-9581-0E5850B8BDF2}"
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\kaitlyn.folsom@sitecore.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\kaitlyn.folsom@sitecore.com
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "494839cf-1d18-4caf-b43e-64f182d69816"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\kaitlyn.folsom@sitecore.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20260108T184601Z

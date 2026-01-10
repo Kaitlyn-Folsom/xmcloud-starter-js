@@ -1,0 +1,54 @@
+{
+  "GlobalHeader": {
+    "nav": {
+      "smartBuildings": "スマートビル",
+      "productsSolutions": "製品とソリューション",
+      "servicesSupport": "サービスとサポート",
+      "industries": "業界",
+      "buildingInsights": "ビルインサイト",
+      "aboutUs": "私たちについて"
+    }
+  },
+  "GlobalFooter": {
+    "connectWithUs": "お問い合わせ",
+    "findALocation": "所在地を探す",
+    "locationPlaceholder": "所在地を入力してください",
+    "contactUs": "お問い合わせ",
+    "findARep": "担当者を探す",
+    "productsAndSolutions": "製品とソリューション",
+    "serviceAndSupport": "サービスとサポート",
+    "industries": "業界",
+    "buildingInsights": "ビルインサイト",
+    "events": "イベント",
+    "openBlue": "OpenBlue",
+    "smartBuildings": "スマートビル",
+    "aboutUs": "私たちについて",
+    "ourCompany": "当社について",
+    "careers": "キャリア",
+    "media": "メディア",
+    "investors": "投資家",
+    "suppliers": "サプライヤー",
+    "trustCenter": "トラストセンター",
+    "authorizedPartners": "認定パートナー",
+    "sustainability": "サステナビリティ",
+    "ethicsCompliance": "倫理とコンプライアンス",
+    "locations": "所在地",
+    "login": "ログイン",
+    "copyright": "© 2025 ジョンソンコントロールズ。無断転載を禁じます。",
+    "accessibility": "アクセシビリティ",
+    "privacy": "プライバシー",
+    "yourPrivacyChoices": "プライバシー選択",
+    "terms": "利用規約",
+    "cookiePreferences": "Cookie設定"
+  },
+  "UtilityBrandBar": {
+    "viewOurBrands": "ブランド一覧",
+    "globalDirectory": "グローバルディレクトリ",
+    "countrySelector": "JP | JA",
+    "searchCountries": "国を検索",
+    "seeFullList": "完全なリストを見る",
+    "investors": "投資家",
+    "careers": "キャリア",
+    "mediaCenter": "メディアセンター"
+  }
+}

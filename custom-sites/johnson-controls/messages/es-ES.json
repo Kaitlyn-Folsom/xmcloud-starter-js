@@ -8,5 +8,47 @@
       "buildingInsights": "Perspectivas de Edificios",
       "aboutUs": "Acerca de Nosotros"
     }
+  },
+  "GlobalFooter": {
+    "connectWithUs": "Conecta con nosotros",
+    "findALocation": "Encontrar una ubicación",
+    "locationPlaceholder": "Escribe la ubicación aquí",
+    "contactUs": "Contáctanos",
+    "findARep": "Encontrar un representante",
+    "productsAndSolutions": "Productos y Soluciones",
+    "serviceAndSupport": "Servicio y Soporte",
+    "industries": "Industrias",
+    "buildingInsights": "Perspectivas de Edificios",
+    "events": "Eventos",
+    "openBlue": "OpenBlue",
+    "smartBuildings": "Edificios Inteligentes",
+    "aboutUs": "Acerca de Nosotros",
+    "ourCompany": "Nuestra empresa",
+    "careers": "Carreras",
+    "media": "Medios",
+    "investors": "Inversores",
+    "suppliers": "Proveedores",
+    "trustCenter": "Centro de confianza",
+    "authorizedPartners": "Socios autorizados",
+    "sustainability": "Sostenibilidad",
+    "ethicsCompliance": "Ética y cumplimiento",
+    "locations": "Ubicaciones",
+    "login": "Iniciar sesión",
+    "copyright": "© 2025 Johnson Controls. Todos los derechos reservados.",
+    "accessibility": "Accesibilidad",
+    "privacy": "Privacidad",
+    "yourPrivacyChoices": "Tus opciones de privacidad",
+    "terms": "Términos",
+    "cookiePreferences": "Preferencias de cookies"
+  },
+  "UtilityBrandBar": {
+    "viewOurBrands": "Ver nuestras marcas",
+    "globalDirectory": "Directorio Global",
+    "countrySelector": "ES | ES",
+    "searchCountries": "Buscar países",
+    "seeFullList": "Ver lista completa",
+    "investors": "Inversores",
+    "careers": "Carreras",
+    "mediaCenter": "Centro de medios"
   }
 }

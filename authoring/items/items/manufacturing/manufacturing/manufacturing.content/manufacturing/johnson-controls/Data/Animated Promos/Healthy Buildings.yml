@@ -23,7 +23,7 @@ Languages:
       Value: 20251229T141434Z
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
-      Value: "{12FFAC4C-565F-4C9A-B63E-7F77E96B4D1F}"
+      Value: "{4460E76C-87E9-4859-9DE6-DE122774937F}"
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -35,10 +35,10 @@ Languages:
     - ID: "84a2a397-786e-43bd-85a0-bfbcc51fc3f3"
       Hint: image
       Value: |
-        <image mediaid="1797920e-847d-418d-a3ce-b8f6826b2541" />
+        <image mediaid="1797920e-847d-418d-a3ce-b8f6826b2541" alt="interior" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "76373e5b-1ab6-4a79-a52f-1442c7bf2124"
+      Value: "e1b3ccaa-f38e-4edc-90a9-492510d9d6c7"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -48,7 +48,7 @@ Languages:
       Value: Smart buildings help drive productivity, health, and wellness. For better returns, optimization can drive value in people, space, and building health within the occupant community while enhancing their experiences.
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251229T141706Z
+      Value: 20251230T170040Z
     - ID: "da7db0f2-08eb-47c5-af07-ed12a1e998db"
       Hint: title
       Value: Healthy Buildings

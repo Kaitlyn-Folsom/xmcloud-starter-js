@@ -38,15 +38,15 @@ Languages:
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "8575b1e2-0c6e-4295-9f66-fb9c72cb464d"
+      Value: "7d92f0c1-6d01-4782-88ac-266345439f99"
     - ID: "969b132e-3dc2-4526-8f8d-61e3ea742df6"
       Hint: link
       Value: |
-        <link class="" querystring="" id="{4EB22D59-21C5-4081-8DA4-34ABEACDDD47}" anchor="" target="" title="" linktype="internal" text="Blog" url="/manufacturing/johnson-controls/Landing Page" />
+        <link class="" id="{4EB22D59-21C5-4081-8DA4-34ABEACDDD47}" querystring="" anchor="" target="" title="" linktype="internal" text="Blog" url="/manufacturing/johnson-controls/Home/Landing Page" />
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251229T143847Z
+      Value: 20251229T152354Z

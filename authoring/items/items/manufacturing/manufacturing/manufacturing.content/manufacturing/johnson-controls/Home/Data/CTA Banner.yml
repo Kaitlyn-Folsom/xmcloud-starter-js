@@ -19,6 +19,9 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20251222T142454Z
@@ -35,21 +38,22 @@ Languages:
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "7a8c2095-39f5-4f40-b69d-16ddff188a68"
       Hint: titleRequired
-      Value: 3.4 billion people in 190 countries use our brands every day.
+      Value: How to unlock your building’s smart potential
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "88b2e46a-3774-4b31-8935-c21ee138dff9"
+      Value: "e98854f5-3c8a-471b-9a78-82220fc0fdc6"
     - ID: "9fdcf3e1-5289-4ae0-b4e4-9460ad50814f"
       Hint: linkOptional
       Value: |
-        <link class="" querystring="" id="{4EB22D59-21C5-4081-8DA4-34ABEACDDD47}" anchor="" target="" title="" linktype="internal" text="See Our Brands" url="/manufacturing/johnson-controls/Landing Page" />
+        <link linktype="internal" id="{4EB22D59-21C5-4081-8DA4-34ABEACDDD47}" anchor="" querystring="" target="" class="" text="Learn more" title=""/>
     - ID: "a35015fe-805c-45d7-9446-f88b33a157d4"
       Hint: descriptionOptional
-      Value: Be a part of the confidence revolution with Solterra & Co.
+      Value: |
+        For many industries, your building is the physical heart of your organization. You need it to run as efficiently and sustainably as possible, now and into the future. "Cracking the code: Unleash your smart buildings strategy with the power of facility data," a commissioned study conducted by Forrester Consulting on behalf of Johnson Controls, found that few businesses operate smart buildings today.
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251229T143846Z
+      Value: 20251229T191526Z

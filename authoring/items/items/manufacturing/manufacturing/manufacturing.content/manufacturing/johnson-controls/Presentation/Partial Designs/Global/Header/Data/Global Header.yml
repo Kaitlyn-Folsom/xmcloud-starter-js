@@ -5,9 +5,15 @@ Template: "efd96479-7bf2-4be1-a08a-b01e59f92cdc"
 Path: "/sitecore/content/manufacturing/johnson-controls/Presentation/Partial Designs/Global/Header/Data/Global Header"
 BranchID: "ed920ceb-2272-432a-829e-4610b6b94945"
 SharedFields:
+- ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
+  Hint: __Shared revision
+  Value: "15510e69-2261-475b-8017-751cc1bf9fc1"
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
   Value: "{615185A5-8A93-4119-9E26-A8494A6A2135}"
+- ID: "fd4e2050-186c-4375-8b99-e8a85dd7436e"
+  Hint: __Enable item fallback
+  Value: 1
 Languages:
 - Language: en
   Versions:
@@ -33,18 +39,18 @@ Languages:
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "2120442c-6143-406e-b34c-3ad3c0e89203"
+      Value: "1017b771-a2b0-4ee0-9447-0394247730d8"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251229T143846Z
+      Value: 20260108T184723Z
     - ID: "e3289100-a242-4fc7-814f-0ffef0ffe8bd"
       Hint: headerContact
       Value: |
-        <link class="" querystring="" id="{4EB22D59-21C5-4081-8DA4-34ABEACDDD47}" anchor="" target="" title="" linktype="internal" text="Get In Touch" url="/manufacturing/johnson-controls/Landing Page" />
+        <link class="" id="{4EB22D59-21C5-4081-8DA4-34ABEACDDD47}" querystring="" anchor="" target="" title="" linktype="internal" text="Get In Touch" url="/manufacturing/johnson-controls/Home/Landing Page" />
     - ID: "f073d52d-022c-4560-90c2-71fc674cf8bf"
       Hint: primaryNavigationLinks
       Value: "{4EB22D59-21C5-4081-8DA4-34ABEACDDD47}"

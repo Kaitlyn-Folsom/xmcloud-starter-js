@@ -21,6 +21,7 @@ import {
 } from '@/components/ui/accordion';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
 
 const brandCategories = [
@@ -253,6 +254,7 @@ export const UtilityBrandBar = () => {
   const [isBrandDropdownOpen, setIsBrandDropdownOpen] = useState(false);
   const [isCountrySelectorOpen, setIsCountrySelectorOpen] = useState(false);
   const [countrySearch, setCountrySearch] = useState('');
+  const t = useTranslations('UtilityBrandBar');
 
   const filteredCountries = countryRegions.map((region) => ({
     ...region,
@@ -273,12 +275,12 @@ export const UtilityBrandBar = () => {
                   variant="ghost"
                   className="text-sm  text-black hover:text-[#333740] hover:bg-transparent p-0 h-auto semibold"
                 >
-                  View Our Brands
+                  {t('viewOurBrands')}
                   <ChevronDown className="ml-1 h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-[600px] max-h-[80vh] overflow-y-auto p-4">
-                <p className="text-sm font-semibold text-[#333740] mb-4">Global Directory</p>
+                <p className="text-sm font-semibold text-[#333740] mb-4">{t('globalDirectory')}</p>
                 <ul className="space-y-2">
                   {brandCategories.map((category) => (
                     <li key={category.name}>
@@ -320,10 +322,10 @@ export const UtilityBrandBar = () => {
           </div>
 
           {/* Brand Logo Center - Empty */}
-          <div className="lg:col-span-5 hidden lg:block"></div>
+          <div className="md:col-span-4 lg:col-span-4 hidden lg:block"></div>
 
           {/* Utility Links and Language Selector - Right */}
-          <div className="lg:col-span-4 flex items-center justify-end gap-4">
+          <div className="md:col-span-5 lg:col-span-5 flex items-center justify-end gap-4">
             {/* Desktop Utility Links */}
             <div className="hidden md:flex items-center gap-4">
               <Link
@@ -332,7 +334,7 @@ export const UtilityBrandBar = () => {
                 rel="noopener noreferrer"
                 className="text-sm font-normal text-black hover:text-primary transition-colors hover:underline"
               >
-                Investors
+                {t('investors')}
               </Link>
               <div>|</div>
               <Link
@@ -341,7 +343,7 @@ export const UtilityBrandBar = () => {
                 rel="noopener noreferrer"
                 className="text-sm font-normal text-black hover:text-primary transition-colors hover:underline"
               >
-                Careers
+                {t('careers')}
               </Link>
               <div>|</div>
               <Link
@@ -350,7 +352,7 @@ export const UtilityBrandBar = () => {
                 rel="noopener noreferrer"
                 className="text-sm font-normal text-black hover:text-primary transition-colors hover:underline"
               >
-                Media Center
+                {t('mediaCenter')}
               </Link>
               <div>|</div>
             </div>
@@ -362,7 +364,7 @@ export const UtilityBrandBar = () => {
                   variant="ghost"
                   className="text-sm font-normal text-[#333740] hover:text-[#333740] hover:bg-transparent p-0 h-auto"
                 >
-                 <Globe /> US | EN
+                 <Globe /> {t('countrySelector')}
                   <ChevronDown className="ml-1 h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
@@ -370,22 +372,22 @@ export const UtilityBrandBar = () => {
                 <div className="mb-4">
                   <Input
                     type="search"
-                    placeholder="Search Countries"
+                    placeholder={t('searchCountries')}
                     value={countrySearch}
                     onChange={(e) => setCountrySearch(e.target.value)}
                     className="w-full"
-                    aria-label="Search Countries"
+                    aria-label={t('searchCountries')}
                   />
                   <Button
                     variant="ghost"
                     className="mt-2 text-xs text-primary hover:text-primary"
                     onClick={() => setCountrySearch('')}
                   >
-                    See Full List
+                    {t('seeFullList')}
                   </Button>
                 </div>
                 <div className="mb-4 flex items-center justify-between">
-                  <p className="text-sm font-semibold text-[#333740]">Global Directory</p>
+                  <p className="text-sm font-semibold text-[#333740]">{t('globalDirectory')}</p>
                   <Button
                     variant="ghost"
                     size="icon"
@@ -435,7 +437,7 @@ export const UtilityBrandBar = () => {
                 rel="noopener noreferrer"
                 className="text-sm font-normal text-[#333740] hover:text-primary transition-colors"
               >
-                Investors
+                {t('investors')}
               </Link>
             </li>
             <li>
@@ -445,7 +447,7 @@ export const UtilityBrandBar = () => {
                 rel="noopener noreferrer"
                 className="text-sm font-normal text-[#333740] hover:text-primary transition-colors"
               >
-                Careers
+                {t('careers')}
               </Link>
             </li>
             <li>
@@ -455,7 +457,7 @@ export const UtilityBrandBar = () => {
                 rel="noopener noreferrer"
                 className="text-sm font-normal text-[#333740] hover:text-primary transition-colors"
               >
-                Media Center
+                {t('mediaCenter')}
               </Link>
             </li>
           </ul>

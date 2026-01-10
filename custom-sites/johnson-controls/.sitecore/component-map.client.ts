@@ -34,6 +34,7 @@ import * as Icon from 'src/components/icon/Icon';
 import * as Hero from 'src/components/hero/Hero';
 import * as UtilityBrandBar from 'src/components/global-header/UtilityBrandBar';
 import * as GlobalHeader from 'src/components/global-header/GlobalHeader';
+import * as GlobalFooter from 'src/components/global-footer/GlobalFooter';
 import * as FooterNavigationColumn from 'src/components/global-footer/FooterNavigationColumn';
 import * as floatingdockdev from 'src/components/floating-dock/floating-dock.dev';
 import * as ContactForm from 'src/components/contact-form/ContactForm';
@@ -79,6 +80,7 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['Hero', { ...Hero }],
   ['UtilityBrandBar', { ...UtilityBrandBar }],
   ['GlobalHeader', { ...GlobalHeader }],
+  ['GlobalFooter', { ...GlobalFooter }],
   ['FooterNavigationColumn', { ...FooterNavigationColumn }],
   ['floating-dock', { ...floatingdockdev }],
   ['ContactForm', { ...ContactForm }],
