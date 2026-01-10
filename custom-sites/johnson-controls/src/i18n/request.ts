@@ -2,6 +2,8 @@ import { getRequestConfig, GetRequestConfigParams } from 'next-intl/server';
 import { hasLocale } from 'next-intl';
 import { routing } from './routing';
 import client from 'src/lib/sitecore-client';
+import enMessages from '../../messages/en.json';
+import esMessages from '../../messages/es.json';
 
 export default getRequestConfig(async ({ requestLocale }: GetRequestConfigParams) => {
   // Provide a static locale, fetch a user setting,
@@ -13,39 +15,18 @@ export default getRequestConfig(async ({ requestLocale }: GetRequestConfigParams
   const requested = await requestLocale;
   const [parsedSite, parsedLocale] = requested?.split('_') || [];
   const locale = hasLocale(routing.locales, parsedLocale) ? parsedLocale : routing.defaultLocale;
-
-  // Load local message files
-  let localMessages: Record<string, any> = {};
-
-  try {
-    // Dynamically import the message file based on locale
-    if (locale === 'en') {
-      const enMessages = await import('../../messages/en.json');
-      localMessages = enMessages.default || enMessages;
-    } else if (locale === 'es') {
-      const esMessages = await import('../../messages/es.json');
-      localMessages = esMessages.default || esMessages;
-    }
-  } catch (error) {
-    // Fallback to English if locale file doesn't exist
-    if (locale !== 'en') {
-      try {
-        const enMessages = await import('../../messages/en.json');
-        localMessages = enMessages.default || enMessages;
-      } catch {
-        // Ignore if English file also doesn't exist
-        localMessages = {};
-      }
-    }
-  }
+console.log('locale', locale);
+  // Load local message files - use static imports for build compatibility
+  const localMessages: Record<string, unknown> =
+    locale === 'es' ? esMessages : enMessages;
 
   // Fetch messages from Sitecore
-  let sitecoreMessages = {};
+  let sitecoreMessages: Record<string, unknown> = {};
   try {
-    sitecoreMessages = await client.getDictionary({
+    sitecoreMessages = (await client.getDictionary({
       locale,
       site: parsedSite,
-    });
+    })) as Record<string, unknown>;
   } catch (error) {
     // If Sitecore dictionary fetch fails, continue with local messages only
     console.warn('Failed to fetch Sitecore dictionary:', error);

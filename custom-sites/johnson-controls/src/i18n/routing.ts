@@ -3,10 +3,10 @@ import sitecoreConfig from 'sitecore.config';
 
 export const routing = defineRouting({
   // A list of all locales that are supported
-  locales: ['en', 'es'],
+  locales: ['en', 'es'] as const,
 
   // Used when no locale matches
-  defaultLocale: sitecoreConfig.defaultLanguage || 'en',
+  defaultLocale: (sitecoreConfig.defaultLanguage === 'es' ? 'es' : 'en') as 'en' | 'es',
 
   // No prefix is added for the default locale ("as-needed").
   // For other configuration options, refer to the next-intl documentation:
