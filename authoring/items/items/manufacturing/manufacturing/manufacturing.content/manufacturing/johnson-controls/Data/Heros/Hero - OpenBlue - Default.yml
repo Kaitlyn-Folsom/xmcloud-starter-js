@@ -24,7 +24,7 @@ Languages:
     - ID: "27fc9ad4-02a9-4660-bce7-26a9ac2ccb00"
       Hint: searchLink
       Value: |
-        <link linktype="external" url="#" text="Contact Us"/>
+        <link linktype="external" url="https://jci-demo-sc.vercel.app/Open-Blue#contact" text="Contact Us"/>
     - ID: "29fdc472-23a7-463e-8b3e-cd93551fa51c"
       Hint: badge
       Value: Sustainability
@@ -33,7 +33,7 @@ Languages:
       Value: Unlock the ROI performance of your building today with award winning AI
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
-      Value: "{12FFAC4C-565F-4C9A-B63E-7F77E96B4D1F}"
+      Value: "{4460E76C-87E9-4859-9DE6-DE122774937F}"
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -44,7 +44,7 @@ Languages:
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0fbec333-2ebd-40d6-85cb-81fa72fb9b82"
+      Value: "ad85d533-fc22-4911-81fd-782151197b2a"
     - ID: "9ad66b62-4ebd-42da-8e1a-09dca7db5aea"
       Hint: bannerText
       Value: 
@@ -59,10 +59,10 @@ Languages:
     - ID: "c65eb2cc-503f-48cd-ba69-42c29df106c1"
       Hint: image
       Value: |
-        <image mediaid="234a5ae8-d2fb-4310-a085-ed22e828fec8" />
+        <image mediaid="234a5ae8-d2fb-4310-a085-ed22e828fec8" alt="openblue-hero" />
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251223T190302Z
+      Value: 20251231T163334Z
     - ID: "e5e059ce-66e3-4039-887b-0086e7764f09"
       Hint: title
       Value: OpenBlue

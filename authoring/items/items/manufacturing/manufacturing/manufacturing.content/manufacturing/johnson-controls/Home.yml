@@ -5,6 +5,9 @@ Template: "f6d1ac00-81be-4564-af88-f189a7294bcf"
 Path: "/sitecore/content/manufacturing/johnson-controls/Home"
 BranchID: "45cf9f42-b3ac-4412-aab9-f8441c7e448e"
 SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{B4F49B23-4BBA-4C79-BA22-F89F5F0D4E4F}"
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 0
@@ -14,7 +17,7 @@ SharedFields:
     <image mediaid="{3B2C4C91-6A64-41C4-B2AA-223EA3B95059}" />
 - ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
   Hint: __Shared revision
-  Value: "92a99af7-8eab-4626-b204-919b89cfdf58"
+  Value: "73d807db-7f35-403f-862c-0615afa05d4c"
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
   Value: "{F558BEC9-C602-4D7A-B9A1-D0411C946EA4}"
@@ -39,7 +42,54 @@ Languages:
               s:ds="1a36615f-9d92-462e-bad8-98d87d0a3e6b"
               s:id="{6D0AAE4A-C2D1-4F3A-8285-705D13DE8244}"
               s:par="FieldNames=%7B024D26FC-04D2-4DA4-ADF7-D939E52D497A%7D&amp;textOrientation&amp;layout&amp;theme&amp;bannerHeight&amp;CSSStyles&amp;DynamicPlaceholderId=33"
-              s:ph="headless-main" />
+              s:ph="headless-main">
+              <rls>
+                <ruleset
+                  s:pet="true">
+                  <rule
+                    uid="{A4FE402F-CED2-4E8E-AFC4-84B11C976BF2}"
+                    s:name="0890a4c09d4c4fe690dcf1cc02a4f934">
+                    <conditions>
+                      <condition
+                        uid="78D38E97D357439C93803B07E9F946E2"
+                        s:id="{8E7426A4-12ED-4C44-8625-E7191860E726}"
+                        s:VariantName="0890a4c09d4c4fe690dcf1cc02a4f934" />
+                    </conditions>
+                    <actions>
+                      <action
+                        uid="{FBA65CD6-8DDC-44D6-A3E0-3A236DE4CDFE}"
+                        s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                        s:DataSource="95500d9b-86af-442e-bc12-ee9604097dd6" />
+                    </actions>
+                  </rule>
+                  <rule
+                    uid="{D0103753-C890-4BCE-B2EC-714E7E34A914}"
+                    s:name="d51ca09455664b869002d0c70a4cd048">
+                    <conditions>
+                      <condition
+                        uid="2EF171C5CE444A8EB91142304A8A867F"
+                        s:id="{8E7426A4-12ED-4C44-8625-E7191860E726}"
+                        s:VariantName="d51ca09455664b869002d0c70a4cd048" />
+                    </conditions>
+                    <actions>
+                      <action
+                        uid="{939303BD-5649-4886-B285-765C67D444C1}"
+                        s:id="{0F3C6BEC-E56B-4875-93D7-2846A75881D2}"
+                        s:DataSource="6e580633-f4ac-4cc2-a457-dae417acdbd6" />
+                    </actions>
+                  </rule>
+                  <rule
+                    uid="{00000000-0000-0000-0000-000000000000}"
+                    s:name="Default">
+                    <conditions>
+                      <condition
+                        uid="46DF773139E7449298E5AF75A9197146"
+                        s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                    </conditions>
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
             <r
               uid="{2195BBEB-A833-4EDA-A82A-091E5337011F}"
               p:after="r[@uid='{92539CF8-B18A-4C08-9EC7-B5851E8F5023}']"
@@ -47,91 +97,47 @@ Languages:
               s:par="GridParameters=%7B7465D855-992E-4DC2-9855-A03250DFA74B%7D&amp;FieldNames&amp;BackgroundImage&amp;Styles&amp;RenderingIdentifier&amp;CSSStyles&amp;DynamicPlaceholderId=36"
               s:ph="headless-main" />
             <r
-              uid="{103BA67D-EC95-4C39-8806-FF4BE90D8F40}"
-              p:after="r[@uid='{2195BBEB-A833-4EDA-A82A-091E5337011F}']"
-              s:id="{E80C2A78-FCC2-4D32-8EC5-4133F608BE5C}"
-              s:par="DynamicPlaceholderId=11&amp;backgroundColor=primary&amp;colorScheme=primary&amp;inset=1"
-              s:ph="headless-main" />
-            <r
               uid="{EF5922C3-41AD-427D-8352-13014A959069}"
-              p:after="r[@uid='{103BA67D-EC95-4C39-8806-FF4BE90D8F40}']"
+              p:after="r[@uid='{2195BBEB-A833-4EDA-A82A-091E5337011F}']"
               s:id="{E80C2A78-FCC2-4D32-8EC5-4133F608BE5C}"
               s:par="DynamicPlaceholderId=27&amp;inset=1"
               s:ph="headless-main" />
             <r
-              uid="{DA49CC4A-429F-42A9-8E68-09F3AA09DF30}"
-              p:after="r[@uid='{EF5922C3-41AD-427D-8352-13014A959069}']"
-              s:id="{E80C2A78-FCC2-4D32-8EC5-4133F608BE5C}"
-              s:par="DynamicPlaceholderId=28&amp;backgroundColor=primary"
-              s:ph="headless-main" />
-            <r
               uid="{0B5151CD-1339-47D6-A687-49BEA5EC8BE7}"
-              p:after="r[@uid='{DA49CC4A-429F-42A9-8E68-09F3AA09DF30}']"
+              p:after="r[@uid='{EF5922C3-41AD-427D-8352-13014A959069}']"
               s:id="{E80C2A78-FCC2-4D32-8EC5-4133F608BE5C}"
               s:par="DynamicPlaceholderId=31"
               s:ph="headless-main" />
             <r
-              uid="{6265EC3C-888D-4186-80D4-E71F888F7232}"
-              p:after="r[@uid='{0B5151CD-1339-47D6-A687-49BEA5EC8BE7}']"
-              s:id="{E80C2A78-FCC2-4D32-8EC5-4133F608BE5C}"
-              s:par="DynamicPlaceholderId=17&amp;inset=1"
-              s:ph="headless-main" />
-            <r
               uid="{5E70EAF3-D915-41A1-A5F4-5F4995491D37}"
-              p:after="r[@uid='{6265EC3C-888D-4186-80D4-E71F888F7232}']"
+              p:after="r[@uid='{0B5151CD-1339-47D6-A687-49BEA5EC8BE7}']"
               s:id="{02340885-3692-4CAD-AC11-ED61206501A3}"
               s:par="DynamicPlaceholderId=26"
               s:ph="headless-main" />
             <r
-              uid="{21BD7631-3345-4C6E-AA6C-D6DF5D162895}"
-              p:after="r[@uid='{5E70EAF3-D915-41A1-A5F4-5F4995491D37}']"
-              s:id="{02340885-3692-4CAD-AC11-ED61206501A3}"
-              s:par="DynamicPlaceholderId=24&amp;excludeTopMargin=1"
-              s:ph="/headless-main/container-fullbleed-11" />
-            <r
-              uid="{D620B831-7452-4A6B-91D4-DDAAF181B037}"
-              p:after="r[@uid='{21BD7631-3345-4C6E-AA6C-D6DF5D162895}']"
-              s:id="{02340885-3692-4CAD-AC11-ED61206501A3}"
-              s:par="DynamicPlaceholderId=18"
-              s:ph="/headless-main/container-fullbleed-17" />
-            <r
-              uid="{B78A611C-EA70-474D-92B6-17C2C7DCFE63}"
-              p:after="r[@uid='{D620B831-7452-4A6B-91D4-DDAAF181B037}']"
-              s:ds="local:/Data/Accordion"
-              s:id="{913E30C7-63C2-4A2B-9D44-B2ADAEED6BC2}"
-              s:par="DynamicPlaceholderId=19"
-              s:ph="/headless-main/container-fullbleed-17/container-fullwidth-18" />
-            <r
               uid="{8423FB05-89D0-414D-BC85-B1BE7E3A7F85}"
-              p:after="r[@uid='{B78A611C-EA70-474D-92B6-17C2C7DCFE63}']"
+              p:after="r[@uid='{5E70EAF3-D915-41A1-A5F4-5F4995491D37}']"
               s:ds="d73d13c4-6059-4412-b0ad-79b954618f73"
               s:id="{241A1B8E-E69A-4E07-B5E4-53975371AD3C}"
               s:par="colorScheme&amp;FieldNames=%7BE2C30E13-6C52-41A4-BC08-754F2F8E5C7C%7D&amp;CSSStyles&amp;DynamicPlaceholderId=35"
               s:ph="/headless-main/container-fullbleed-27/container-fullwidth-21" />
             <r
-              uid="{663A52AA-7D0B-408E-B394-B5211DB80AE0}"
+              uid="{29EB3079-CD01-4DF7-B883-D96266A32B41}"
               p:after="r[@uid='{8423FB05-89D0-414D-BC85-B1BE7E3A7F85}']"
-              s:ds="local:/Data/Testimonial"
-              s:id="{FC274B80-2EF2-4B05-89D4-22FCB1E9CC9C}"
-              s:par=""
+              s:ds="ec3b8853-56f0-42d6-b102-8bff0ccf4fcf"
+              s:id="{2492BAC4-DA07-4C86-87F0-9873D40E2276}"
+              s:par="GridParameters=%7B7465D855-992E-4DC2-9855-A03250DFA74B%7D&amp;FieldNames=%7BD8266BF9-7838-4B9D-9BD7-BBBA4476F41C%7D&amp;Styles&amp;RenderingIdentifier&amp;CSSStyles&amp;DynamicPlaceholderId=39"
               s:ph="/headless-main/container-fullbleed-27/container-fullwidth-21" />
             <r
-              uid="{7A15087F-57C9-444A-AF62-32107B775662}"
-              p:after="r[@uid='{663A52AA-7D0B-408E-B394-B5211DB80AE0}']"
-              s:ds="local:/Data/MultiPromoTabs"
-              s:id="{EAD21DA1-10F6-45C6-A0D5-55AAF09FB743}"
-              s:par="DynamicPlaceholderId=13"
-              s:ph="/headless-main/container-fullbleed-11/container-fullwidth-24" />
-            <r
-              uid="{D687539B-EE38-4A8B-BA0B-A93185C73D1A}"
-              p:after="r[@uid='{7A15087F-57C9-444A-AF62-32107B775662}']"
-              s:ds="local:/Data/CTA Banner"
-              s:id="{3332F59B-F5F3-44DF-B66E-2811C31AEB3C}"
-              s:par="DynamicPlaceholderId=20&amp;colorScheme=light"
-              s:ph="/headless-main/container-fullwidth-26" />
+              uid="{0C6EB5EE-6532-46E2-8C5E-CE3B3CBC0A0D}"
+              p:after="r[@uid='{29EB3079-CD01-4DF7-B883-D96266A32B41}']"
+              s:ds="e2556cea-0185-435b-898b-64dbbf9d0dd4"
+              s:id="{2492BAC4-DA07-4C86-87F0-9873D40E2276}"
+              s:par="GridParameters=%7B7465D855-992E-4DC2-9855-A03250DFA74B%7D&amp;FieldNames=%7BD8266BF9-7838-4B9D-9BD7-BBBA4476F41C%7D&amp;Styles&amp;RenderingIdentifier&amp;CSSStyles&amp;DynamicPlaceholderId=38"
+              s:ph="/headless-main/container-fullbleed-27" />
             <r
               uid="{9F0C1E43-C0D4-4ADB-95D2-83A930BDCC54}"
-              p:after="r[@uid='{D687539B-EE38-4A8B-BA0B-A93185C73D1A}']"
+              p:after="r[@uid='{0C6EB5EE-6532-46E2-8C5E-CE3B3CBC0A0D}']"
               s:ds="d3c6d90d-d5b7-4908-864f-32c0c3c48f47"
               s:id="{241A1B8E-E69A-4E07-B5E4-53975371AD3C}"
               s:par="DynamicPlaceholderId=34&amp;FieldNames=%7BE2C30E13-6C52-41A4-BC08-754F2F8E5C7C%7D"
@@ -150,73 +156,98 @@ Languages:
               s:par="DynamicPlaceholderId=21"
               s:ph="/headless-main/container-fullbleed-27" />
             <r
-              uid="{85E549DF-421F-43EE-BFB8-4E46D38E3B7F}"
-              p:after="r[@uid='{F4252E55-95EC-4D2F-AE32-FBCA3744690C}']"
-              s:ds="local:/Data/Topic Listing"
-              s:id="{D890160D-BD57-42EF-9FBD-F9666F385004}"
-              s:par="DynamicPlaceholderId=30&amp;backgroundTheme=shooting-star"
-              s:ph="/headless-main/container-fullbleed-28" />
-            <r
-              uid="{FAAE8CA5-C15B-45FF-809B-C909CF83563B}"
-              p:after="r[@uid='{85E549DF-421F-43EE-BFB8-4E46D38E3B7F}']"
-              s:ds="local:/Data/Video 1"
-              s:id="{7CB831E8-C889-4193-B822-A1131CB0B755}"
-              s:par="DynamicPlaceholderId=32&amp;displayIcon=1&amp;useModal=1"
-              s:ph="/headless-main/container-fullbleed-31" />
-            <r
               uid="{66029687-EA2C-4CB1-90F3-EF996E1708C7}"
-              p:after="*[1=2]"
+              p:after="r[@uid='{F4252E55-95EC-4D2F-AE32-FBCA3744690C}']"
               s:ds="30bbd004-94ef-4ec8-b503-02a5e17650ed"
               s:id="{D806DDF7-39A7-4A6D-8E0A-D138BC53845D}"
               s:par="FieldNames&amp;numColumns&amp;CSSStyles&amp;DynamicPlaceholderId=37"
               s:ph="/headless-main/container-36" />
+            <r
+              uid="{124616E3-26BA-4E45-8AA3-6E182674183A}"
+              p:after="*[1=2]"
+              s:ds="local:/Data/Image 2"
+              s:id="{AB2EDBA0-3960-4F12-B765-579DC231894A}"
+              s:par="GridParameters=%7B7465D855-992E-4DC2-9855-A03250DFA74B%7D&amp;FieldNames=%7B6B659364-B82C-41FA-9F0B-5F5095C794E5%7D&amp;Styles&amp;RenderingIdentifier&amp;CSSStyles&amp;DynamicPlaceholderId=41"
+              s:ph="/headless-main/container-fullbleed-31" />
           </d>
         </r>
     - ID: "2485de13-6c39-468c-9c26-fe08c27088f4"
       Hint: pageSummary
-      Value: Solterra & Co.
+      Value: 
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20251222T142323Z
     - ID: "27cd428b-f652-4534-b76f-33f64b742659"
       Hint: pageShortTitle
-      Value: Solterra & Co.
+      Value: Johnson Controls
     - ID: "4dd4e18f-b1a3-4225-967f-b4ec9f68928c"
       Hint: ogDescription
-      Value: Solterra & Co.
+      Value: Applying data from both inside buildings and beyond, our customers can now manage operations systemically.
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "5c01b675-9b56-4d6b-aee4-0ecb1a0021f6"
       Hint: pageTitle
-      Value: Solterra & Co.
+      Value: Johnson Controls
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
         sitecore\kaitlyn.folsom@sitecore.com
+    - ID: "65408499-25bc-49d0-a2ff-b2fdd798aafc"
+      Hint: ogImage
+      Value: |
+        <image mediaid="c9c985a1-efc7-4bc3-babb-3dcd70a46033" alt="Johnson Controls Logo" />
     - ID: "8535365d-ae76-4875-ab5b-a618d5819af0"
       Hint: metadataTitle
-      Value: Solterra & Co.
+      Value: Johnson Controls
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "b42ae286-ef06-4b7a-b5a6-bed891311931"
+      Value: "de8ae88b-e0a0-44bd-8312-2f762a7bece6"
     - ID: "9b600e71-cf7a-4874-9032-f394a9bd2e48"
       Hint: metadataDescription
-      Value: Solterra & Co.
+      Value: Applying data from both inside buildings and beyond, our customers can now manage operations systemically.
     - ID: "b7979eed-6bcb-4117-80bc-4bcc6aab12a9"
       Hint: pageHeaderTitle
-      Value: Solterra & Co.
+      Value: Johnson Controls
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251229T144517Z
+      Value: 20260105T162442Z
     - ID: "ed981ca0-271d-4543-b735-ecc955bd58a1"
       Hint: ogTitle
-      Value: Solterra & Co.
+      Value: Johnson Controls
     - ID: "f6fcc0b6-31b2-49cd-8a66-4ba282a8ad24"
       Hint: metadataKeywords
-      Value: Alaris, electric, future
+      Value: OpenBlue, Artificial Intelligence, Healthy Buildings, AI in Building Management, Net Zero Buildings
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20260108T142407Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{57CC7DCE-E6B1-4564-9581-0E5850B8BDF2}"
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\kaitlyn.folsom@sitecore.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\kaitlyn.folsom@sitecore.com
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "453ab990-8d5f-46aa-b5c6-8a8c6989ef7d"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\kaitlyn.folsom@sitecore.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20260108T142408Z

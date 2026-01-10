@@ -5,9 +5,15 @@ Template: "b7dd1b74-b6f3-4cdb-97af-8e70d0ca7d98"
 Path: "/sitecore/content/manufacturing/johnson-controls/Presentation/Partial Designs"
 BranchID: "45cf9f42-b3ac-4412-aab9-f8441c7e448e"
 SharedFields:
+- ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
+  Hint: __Shared revision
+  Value: "ba6f4c33-d149-4d72-b45b-765a934838db"
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
   Value: "{703ABB6D-BE33-4F9D-97FF-EE1571A14C81}"
+- ID: "fd4e2050-186c-4375-8b99-e8a85dd7436e"
+  Hint: __Enable item fallback
+  Value: 1
 Languages:
 - Language: en
   Versions:
@@ -26,11 +32,11 @@ Languages:
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "60626e8c-69cb-4adb-b8b9-f1370a34aec4"
+      Value: "226587ff-8312-4aa1-9739-e6b01004f9f0"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251222T142325Z
+      Value: 20260108T184810Z

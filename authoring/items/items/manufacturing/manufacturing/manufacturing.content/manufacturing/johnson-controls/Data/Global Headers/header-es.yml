@@ -1,0 +1,38 @@
+﻿---
+ID: "2eea3963-3c9a-478d-b919-5a16dbc5d582"
+Parent: "6d5cbe44-fb02-499b-be39-05ca46ced21a"
+Template: "efd96479-7bf2-4be1-a08a-b01e59f92cdc"
+Path: "/sitecore/content/manufacturing/johnson-controls/Data/Global Headers/header-es"
+Languages:
+- Language: "es-ES"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20260108T185111Z
+    - ID: "4da75bcf-390e-46fa-ad87-926ec4db0876"
+      Hint: headerLogo
+      Value: |
+        <image mediaid="c9c985a1-efc7-4bc3-babb-3dcd70a46033" alt="logo" />
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\kaitlyn.folsom@sitecore.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\kaitlyn.folsom@sitecore.com
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "a26a17d4-7c40-4bc2-a43f-5a710066096f"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\kaitlyn.folsom@sitecore.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20260108T185128Z

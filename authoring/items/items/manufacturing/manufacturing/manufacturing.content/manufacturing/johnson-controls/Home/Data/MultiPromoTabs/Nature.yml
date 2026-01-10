@@ -46,10 +46,10 @@ Languages:
     - ID: "60629870-4b2c-4574-a086-ad5cf20fce16"
       Hint: link1
       Value: |
-        <link class="" querystring="" id="{4EB22D59-21C5-4081-8DA4-34ABEACDDD47}" anchor="" target="" title="" linktype="internal" text="Nature Link" url="/manufacturing/johnson-controls/Landing Page" />
+        <link class="" id="{4EB22D59-21C5-4081-8DA4-34ABEACDDD47}" querystring="" anchor="" target="" title="" linktype="internal" text="Nature Link" url="/manufacturing/johnson-controls/Home/Landing Page" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "7e3527e8-6032-4f1d-bee0-2ccbfccd6e3f"
+      Value: "cb2d7973-3308-44d9-b5f5-e36972362d64"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -64,4 +64,4 @@ Languages:
         <link class="" id="{5BD906C3-0FF2-4478-9136-F7E32ADFD8C2}" querystring="" anchor="" target="" title="" linktype="internal" text="Nature Link 2" url="" />
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251229T143846Z
+      Value: 20251229T152354Z

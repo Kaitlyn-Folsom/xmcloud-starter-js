@@ -23,7 +23,7 @@ Languages:
       Value: 20251229T141434Z
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
-      Value: "{12FFAC4C-565F-4C9A-B63E-7F77E96B4D1F}"
+      Value: "{4460E76C-87E9-4859-9DE6-DE122774937F}"
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -35,10 +35,10 @@ Languages:
     - ID: "84a2a397-786e-43bd-85a0-bfbcc51fc3f3"
       Hint: image
       Value: |
-        <image mediaid="6403b0d2-7107-49ea-a559-96391c6b113f" />
+        <image mediaid="6403b0d2-7107-49ea-a559-96391c6b113f" alt="city" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "034926ad-3d20-4cb7-9dfa-ce5a14382cab"
+      Value: "c8ef65b9-a456-49e7-a2cf-75f1c1b7f170"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -48,7 +48,7 @@ Languages:
       Value: "We are closing both the technology and financing gaps to make buildings efficient and sustainable. By upgrading hardware, introducing electrification and digitalization, buildings run on a fraction of the energy and costs, and ultimately can operate with zero or near-zero emissions."
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251229T141911Z
+      Value: 20251230T170052Z
     - ID: "da7db0f2-08eb-47c5-af07-ed12a1e998db"
       Hint: title
       Value: Net Zero Buildings

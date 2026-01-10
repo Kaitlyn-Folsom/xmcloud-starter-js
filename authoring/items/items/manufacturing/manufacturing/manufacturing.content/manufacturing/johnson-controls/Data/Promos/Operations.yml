@@ -1,0 +1,50 @@
+﻿---
+ID: "ec3b8853-56f0-42d6-b102-8bff0ccf4fcf"
+Parent: "b313d3b4-8fad-4010-a2f1-095e398c36d6"
+Template: "dfed4457-d760-457a-bec1-c0dccdc44381"
+Path: "/sitecore/content/manufacturing/johnson-controls/Data/Promos/Operations"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "1f66862d-a5e3-405f-8e3e-b787b4c39b12"
+      Hint: PromoText2
+      Value: |
+        <div class="ck-content"><p>Our experts can help reduce maintenance costs and minimize downtime. Contact us at +1 866-227-2750.</p></div>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20251229T191711Z
+    - ID: "28079f3a-896b-4273-be5f-59d0ebb7cd7d"
+      Hint: PromoText
+      Value: |
+        <div class="ck-content"><h2 class="universalpromobar-title" style="-webkit-text-stroke-width:0px;background-color:rgb(240, 240, 240);border-width:0px;box-sizing:border-box;color:rgb(46, 41, 37);font-family:NotoSansSemiBold, &quot;Noto Sans&quot;, sans-serif;font-size:2rem;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;letter-spacing:normal;line-height:1.25;margin:0px 0px 8px;orphans:2;outline:0px;padding:0px;text-align:left;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0px;text-transform:none;vertical-align:baseline;white-space:normal;widows:2;word-spacing:0px;"><strong>Operations, maintenance, and repair services</strong></h2></div>
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\kaitlyn.folsom@sitecore.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\kaitlyn.folsom@sitecore.com
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "f0da99a2-9bb7-4d12-9b21-bc3bada60eeb"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\kaitlyn.folsom@sitecore.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20251229T191836Z
+    - ID: "ef24bed2-46ab-4d53-ad1a-1019935a4e89"
+      Hint: PromoLink
+      Value: |
+        <link linktype="external" url="#" target="" text="Learn more" title="" class=""/>
+    - ID: "f94b9858-c439-4291-863b-757b536c8b65"
+      Hint: PromoIcon
+      Value: |
+        <image mediaid="c1119f8d-a22b-4882-9592-e2f68933edef" />

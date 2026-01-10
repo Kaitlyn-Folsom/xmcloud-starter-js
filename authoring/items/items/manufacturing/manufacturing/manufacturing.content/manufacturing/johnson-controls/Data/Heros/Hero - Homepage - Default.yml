@@ -29,7 +29,7 @@ Languages:
       Value: Reduce energy usage and save up to 10% with OpenBlue
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
-      Value: "{12FFAC4C-565F-4C9A-B63E-7F77E96B4D1F}"
+      Value: "{4460E76C-87E9-4859-9DE6-DE122774937F}"
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -40,11 +40,11 @@ Languages:
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "3eb6323e-96b8-4020-9ba3-fc11b3a686f1"
+      Value: "4c6abd32-fc34-404f-bc6e-dad02f710e5e"
     - ID: "b80f6e4e-44ec-4bf5-92b0-f50f71530c06"
       Hint: bannerCTA
       Value: |
-        <link linktype="internal" id="ac7732d8-e477-4ce3-b9c2-a2cb0b5486f6" anchor="" querystring="" target="" class="" text="Learn How" title=""/>
+        <link class="" querystring="" id="ac7732d8-e477-4ce3-b9c2-a2cb0b5486f6" anchor="" target="" title="" linktype="internal" text="Learn How" url="/manufacturing/johnson-controls/Home/Open Blue" />
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -52,10 +52,10 @@ Languages:
     - ID: "c65eb2cc-503f-48cd-ba69-42c29df106c1"
       Hint: image
       Value: |
-        <image mediaid="3f22e678-479d-4bef-aa7a-76b21e063abe" />
+        <image mediaid="3f22e678-479d-4bef-aa7a-76b21e063abe" alt="hero image" />
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251223T194241Z
+      Value: 20251230T165524Z
     - ID: "e5e059ce-66e3-4039-887b-0086e7764f09"
       Hint: title
       Value: Optimize building performance

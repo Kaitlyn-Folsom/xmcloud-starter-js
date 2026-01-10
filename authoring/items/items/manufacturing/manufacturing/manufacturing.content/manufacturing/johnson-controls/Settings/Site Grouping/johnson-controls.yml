@@ -43,7 +43,10 @@ SharedFields:
   Value: *
 - ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
   Hint: __Shared revision
-  Value: "e14e3205-5a02-4914-8589-e45bbc005ebf"
+  Value: "ff6492cb-10bc-49f5-b27a-65d36798b3e9"
+- ID: "e5b5ccb5-17a1-429d-bd3e-6122b3216e52"
+  Hint: TargetHostName
+  Value: "jci-demo-sc.vercel.app"
 - ID: "f57099a3-526a-49f2-aebd-635453e48875"
   Hint: RenderingHost
   Value: "johnson-controls"
@@ -68,11 +71,11 @@ Languages:
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "69e5e681-be1c-4b14-9c2e-c985aa49f9a1"
+      Value: "01240726-97be-45e8-8def-f09c5260901b"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251222T152730Z
+      Value: 20251230T185310Z

@@ -1,0 +1,61 @@
+﻿---
+ID: "6e580633-f4ac-4cc2-a457-dae417acdbd6"
+Parent: "86e37204-6672-4456-af25-c75b93b94a04"
+Template: "ae018465-4e68-4a49-8b15-9702274fa75a"
+Path: "/sitecore/content/manufacturing/johnson-controls/Data/Heros/Hero - Homepage - CRE"
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{A053ED9F-4099-4682-9411-2B4C98E481E4}"
+- ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
+  Hint: __Shared revision
+  Value: "56d1c2ef-7310-4875-87da-b30291bb6a48"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20251230T164657Z
+    - ID: "29fdc472-23a7-463e-8b3e-cd93551fa51c"
+      Hint: badge
+      Value: Efficiency Meets Sustainability
+    - ID: "3c2b7d00-8de2-4636-a65f-d667a75ec4a7"
+      Hint: description
+      Value: "Harness OpenBlue’s AI-driven platform for smarter, greener, and more profitable buildings."
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{4460E76C-87E9-4859-9DE6-DE122774937F}"
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\kaitlyn.folsom@sitecore.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\kaitlyn.folsom@sitecore.com
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "e6598d6a-01f4-4674-9d3d-d8c41ca04801"
+    - ID: "b80f6e4e-44ec-4bf5-92b0-f50f71530c06"
+      Hint: bannerCTA
+      Value: |
+        <link linktype="internal" id="ac7732d8-e477-4ce3-b9c2-a2cb0b5486f6" anchor="" querystring="" target="" class="" text="Learn more" title=""/>
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\kaitlyn.folsom@sitecore.com
+    - ID: "c65eb2cc-503f-48cd-ba69-42c29df106c1"
+      Hint: image
+      Value: |
+        <image mediaid="b44bdd14-75cd-4f40-b1ad-0f8e15fc6136" alt="city" />
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20260102T145557Z
+    - ID: "e5e059ce-66e3-4039-887b-0086e7764f09"
+      Hint: title
+      Value: "Future-Proof Your Building Operations"

@@ -4,37 +4,73 @@ Parent: "bfa0902b-7692-4cc6-af76-2ca7cf6ecc42"
 Template: "37dac6cc-325b-4768-8b8b-29cd59a021de"
 Path: "/sitecore/content/manufacturing/johnson-controls/Home/Industries"
 SharedFields:
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Value: |
+    {A740686E-D41F-41DC-9368-1ABDFE0C941E}
+    {7553055C-FB84-49E8-A562-8FAC2C3F90A7}
+    {37DAC6CC-325B-4768-8B8B-29CD59A021DE}
+    {3CB04B1D-8654-4C34-BB54-B24A167B92CC}
 - ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
   Hint: __Workflow
   Value: "{B4F49B23-4BBA-4C79-BA22-F89F5F0D4E4F}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 82
 - ID: "c7c26117-dbb1-42b2-ab5e-f7223845cca3"
   Hint: __Thumbnail
   Value: |
     <image mediaid="{672FC3D7-6DE1-4571-AE41-4A7B538C2EEF}" />
 - ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
   Hint: __Shared revision
-  Value: "95606bd6-af63-487b-b1c2-26a1b66f2ed4"
+  Value: "bcbdfc0a-671c-401c-ad9b-cc58adaffddd"
 Languages:
 - Language: en
   Versions:
   - Version: 1
     Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{554BC0B7-6B8B-4D2C-9ED8-C1681F67EA30}"
+              p:before="*"
+              s:ds="d41db601-4d5c-4a11-9509-8aee5268734f"
+              s:id="{6D0AAE4A-C2D1-4F3A-8285-705D13DE8244}"
+              s:par="FieldNames=%7B8DD2E3CF-0610-4508-9802-AED9377FA0AB%7D&amp;textOrientation&amp;layout&amp;theme&amp;bannerHeight&amp;CSSStyles&amp;DynamicPlaceholderId=1"
+              s:ph="headless-main" />
+            <r
+              uid="{BCBFCA6E-2EC3-4CEB-8DD9-29F4E00E4A13}"
+              p:after="*[1=2]"
+              s:ds="e2556cea-0185-435b-898b-64dbbf9d0dd4"
+              s:id="{2492BAC4-DA07-4C86-87F0-9873D40E2276}"
+              s:par="GridParameters=%7B7465D855-992E-4DC2-9855-A03250DFA74B%7D&amp;FieldNames=%7BA7467B6A-3634-45EB-A5F9-AC88871BEF53%7D&amp;Styles&amp;RenderingIdentifier&amp;CSSStyles&amp;DynamicPlaceholderId=3"
+              s:ph="headless-main" />
+          </d>
+        </r>
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20251222T172647Z
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
-      Value: "{57CC7DCE-E6B1-4564-9581-0E5850B8BDF2}"
+      Value: "{F7FE5BDD-A991-4A58-9735-CD08F9B097AB}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "036f5913-561c-479c-979e-eff3e05afd37"
+      Value: "eac02115-8428-4331-803b-11cbfdbc3027"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\kaitlyn.folsom@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251222T172648Z
+      Value: 20251230T184820Z
     - ID: "ed981ca0-271d-4543-b735-ecc955bd58a1"
       Hint: ogTitle
       Value: Industries

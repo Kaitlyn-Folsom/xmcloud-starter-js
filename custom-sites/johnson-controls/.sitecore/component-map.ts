@@ -225,7 +225,7 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['UtilityBrandBar', { ...UtilityBrandBar, componentType: 'client' }],
   ['GlobalHeader', { ...GlobalHeader, componentType: 'client' }],
   ['global-footer', { ...globalfooterprops }],
-  ['GlobalFooter', { ...GlobalFooter }],
+  ['GlobalFooter', { ...GlobalFooter, componentType: 'client' }],
   ['FooterNavigationColumn', { ...FooterNavigationColumn, componentType: 'client' }],
   ['FooterNavigationCallout', { ...FooterNavigationCalloutdev }],
   ['floating-dock', { ...floatingdockdev }],

@@ -1,3 +1,5 @@
+'use client';
+
 import type React from 'react';
 // import Image from 'next/image';
 import Link from 'next/link';
@@ -7,11 +9,13 @@ import { Input } from '@/components/ui/input';
 import { GlobalFooterProps } from './global-footer.props';
 import { Default as Logo } from '@/components/logo/Logo.dev';
 import { Link as SitecoreLink, Image } from '@sitecore-content-sdk/nextjs';
+import { useTranslations } from 'next-intl';
 
 export const Default: React.FC<GlobalFooterProps> = (props) => {
   const { fields, page } = props ?? {};
   const { footerLogo } = fields?.data?.datasource ?? {};
   const pageEditing = page.mode.isEditing;
+  const t = useTranslations('GlobalFooter');
 
   return (
     <footer className="bg-[#f2f2f2] text-[#333740]">
@@ -20,27 +24,25 @@ export const Default: React.FC<GlobalFooterProps> = (props) => {
         <div className="grid grid-cols-1 gap-8 mb-12 lg:grid-cols-12 lg:gap-6">
           {/* Logo - Left */}
           <div className="lg:col-span-3">
-            <Link href="/" className="inline-block">
+            {pageEditing ? (
               <div className="flex items-center gap-2">
-                {pageEditing ? (
-                    <Image field={footerLogo?.jsonValue} className="h-10 w-[150px]" />
-                  ) : (
-                    footerLogo?.jsonValue?.value && (
-                      <Link
-                        href="/"
-                        className="flex w-[164px] items-stretch space-x-2 [&_.image-container]:w-full"
-                      >
-                        <Logo logo={footerLogo?.jsonValue} className="w-full max-w-[100px] md:max-w-[110px] lg:max-w-[125px]" />
-                      </Link>
-                    )
-                  )}
+                <Image field={footerLogo?.jsonValue} className="h-10 w-[150px]" />
               </div>
-            </Link>
+            ) : (
+              footerLogo?.jsonValue?.value && (
+                <Link
+                  href="/"
+                  className="inline-block flex w-[164px] items-stretch space-x-2 [&_.image-container]:w-full"
+                >
+                  <Logo logo={footerLogo?.jsonValue} className="w-full max-w-[100px] md:max-w-[110px] lg:max-w-[125px]" />
+                </Link>
+              )
+            )}
           </div>
 
           {/* Connect with us - Center Right */}
           <div className="lg:col-span-3">
-            <h3 className="mb-4 text-sm font-semibold text-primary uppercase tracking-wide">Connect with us</h3>
+            <h3 className="mb-4 text-sm font-semibold text-primary uppercase tracking-wide">{t('connectWithUs')}</h3>
             <div className="flex items-center gap-4">
               <Link
                 href="https://www.linkedin.com/company/johnson-controls"
@@ -92,11 +94,11 @@ export const Default: React.FC<GlobalFooterProps> = (props) => {
 
           {/* Find a Location - Right */}
           <div className="lg:col-span-4">
-            <h4 className="mb-2 text-sm font-semibold text-primary uppercase tracking-wide">Find a Location</h4>
+            <h4 className="mb-2 text-sm font-semibold text-primary uppercase tracking-wide">{t('findALocation')}</h4>
             <div className="relative">
               <Input
                 type="text"
-                placeholder="Type location here"
+                placeholder={t('locationPlaceholder')}
                 className="w-full pr-10 bg-white text-[#333740] placeholder:text-gray-400"
               />
               <Search className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 pointer-events-none" />
@@ -110,19 +112,19 @@ export const Default: React.FC<GlobalFooterProps> = (props) => {
           <div className="lg:col-span-2 flex flex-col gap-3">
              <Button asChild variant="default" className="bg-[#00adff] text-[#000070] hover:bg-primary/90 w-full rounded-full">
                <Link href="/contact">
-                 Contact us
+                 {t('contactUs')}
                </Link>
              </Button>
              <Button asChild variant="default" className="bg-[#00adff] text-[#000070] hover:bg-primary/90 w-full rounded-full">
                <Link href="/find-a-rep">
-                 Find a rep
+                 {t('findARep')}
                </Link>
              </Button>
           </div>
           </div>
           {/* Products and Solutions */}
           <div>
-            <h3 className="mb-4 text-sm font-semibold text-primary uppercase tracking-wide">Products and Solutions</h3>
+            <h3 className="mb-4 text-sm font-semibold text-primary uppercase tracking-wide">{t('productsAndSolutions')}</h3>
             <ul className="space-y-2.5">
               <li>
                 <Link href="/products/building-automations-and-controls" className="text-sm font-normal text-[#333740]/70 hover:text-[#333740] transition-colors">
@@ -184,7 +186,7 @@ export const Default: React.FC<GlobalFooterProps> = (props) => {
 
           {/* Service and Support */}
           <div>
-            <h3 className="mb-4 text-sm font-semibold text-primary uppercase tracking-wide">Service and Support</h3>
+            <h3 className="mb-4 text-sm font-semibold text-primary uppercase tracking-wide">{t('serviceAndSupport')}</h3>
             <ul className="space-y-2.5">
               <li>
                 <Link href="/services/service-and-support" className="text-sm font-normal text-[#333740]/70 hover:text-[#333740] transition-colors">
@@ -198,16 +200,16 @@ export const Default: React.FC<GlobalFooterProps> = (props) => {
               </li>
             </ul>
             {/* Industries */}
-            <h3 className="mt-8 mb-4 text-sm font-semibold text-primary uppercase tracking-wide">Industries</h3>
+            <h3 className="mt-8 mb-4 text-sm font-semibold text-primary uppercase tracking-wide">{t('industries')}</h3>
             <ul className="space-y-2.5">
               <li>
                 <Link href="/industries" className="text-sm font-normal text-[#333740]/70 hover:text-[#333740] transition-colors">
-                  Industries
+                  {t('industries')}
                 </Link>
               </li>
             </ul>
             {/* Building Insights */}
-            <h3 className="mt-8 mb-4 text-sm font-semibold text-primary uppercase tracking-wide">Building Insights</h3>
+            <h3 className="mt-8 mb-4 text-sm font-semibold text-primary uppercase tracking-wide">{t('buildingInsights')}</h3>
             <ul className="space-y-2.5">
               <li>
                 <Link href="/insights" className="text-sm font-normal text-[#333740]/70 hover:text-[#333740] transition-colors">
@@ -216,7 +218,7 @@ export const Default: React.FC<GlobalFooterProps> = (props) => {
               </li>
             </ul>
             {/* Events */}
-            <h3 className="mb-4 mt-8 text-sm font-semibold text-primary uppercase tracking-wide">Events</h3>
+            <h3 className="mb-4 mt-8 text-sm font-semibold text-primary uppercase tracking-wide">{t('events')}</h3>
             <ul className="space-y-2.5">
               <li>
                 <Link href="/events/trade-shows" className="text-sm font-normal text-[#333740]/70 hover:text-[#333740] transition-colors">
@@ -233,7 +235,7 @@ export const Default: React.FC<GlobalFooterProps> = (props) => {
 
           {/* OpenBlue */}
           <div>
-            <h3 className="mb-4 text-sm font-semibold text-primary uppercase tracking-wide">OpenBlue</h3>
+            <h3 className="mb-4 text-sm font-semibold text-primary uppercase tracking-wide">{t('openBlue')}</h3>
             <ul className="space-y-2.5">
               <li>
                 <Link href="/openblue/what-is-openblue" className="text-sm font-normal text-[#333740]/70 hover:text-[#333740] transition-colors">
@@ -262,7 +264,7 @@ export const Default: React.FC<GlobalFooterProps> = (props) => {
               </li>
             </ul>
             {/* Smart Buildings */}
-            <h3 className="mb-4 mt-8 text-sm font-semibold text-primary uppercase tracking-wide">Smart Buildings</h3>
+            <h3 className="mb-4 mt-8 text-sm font-semibold text-primary uppercase tracking-wide">{t('smartBuildings')}</h3>
             <ul className="space-y-2.5">
               <li>
                 <Link href="/smart-buildings/a-new-class-of-smart-buildings" className="text-sm font-normal text-[#333740]/70 hover:text-[#333740] transition-colors">
@@ -294,66 +296,66 @@ export const Default: React.FC<GlobalFooterProps> = (props) => {
 
           {/* About Us */}
           <div>
-            <h3 className="mb-4 text-sm font-semibold text-primary uppercase tracking-wide">About Us</h3>
+            <h3 className="mb-4 text-sm font-semibold text-primary uppercase tracking-wide">{t('aboutUs')}</h3>
             <ul className="space-y-2.5">
               <li>
                 <Link href="/about/our-company" className="text-sm font-normal text-[#333740]/70 hover:text-[#333740] transition-colors">
-                  Our company
+                  {t('ourCompany')}
                 </Link>
               </li>
               <li>
                 <Link href="/about/careers" className="text-sm font-normal text-[#333740]/70 hover:text-[#333740] transition-colors">
-                  Careers
+                  {t('careers')}
                 </Link>
               </li>
               <li>
                 <Link href="/about/media" className="text-sm font-normal text-[#333740]/70 hover:text-[#333740] transition-colors">
-                  Media
+                  {t('media')}
                 </Link>
               </li>
               <li>
                 <Link href="/about/investors" className="text-sm font-normal text-[#333740]/70 hover:text-[#333740] transition-colors">
-                  Investors
+                  {t('investors')}
                 </Link>
               </li>
               <li>
                 <Link href="/about/suppliers" className="text-sm font-normal text-[#333740]/70 hover:text-[#333740] transition-colors">
-                  Suppliers
+                  {t('suppliers')}
                 </Link>
               </li>
               <li>
                 <Link href="/about/trust-center" className="text-sm font-normal text-[#333740]/70 hover:text-[#333740] transition-colors">
-                  Trust Center
+                  {t('trustCenter')}
                 </Link>
               </li>
               <li>
                 <Link href="/about/authorized-partners" className="text-sm font-normal text-[#333740]/70 hover:text-[#333740] transition-colors">
-                  Authorized Partners
+                  {t('authorizedPartners')}
                 </Link>
               </li>
               <li>
                 <Link href="/about/sustainability" className="text-sm font-normal text-[#333740]/70 hover:text-[#333740] transition-colors">
-                  Sustainability
+                  {t('sustainability')}
                 </Link>
               </li>
               <li>
                 <Link href="/about/ethics-compliance" className="text-sm font-normal text-[#333740]/70 hover:text-[#333740] transition-colors">
-                  Ethics & Compliance
+                  {t('ethicsCompliance')}
                 </Link>
               </li>
               <li>
                 <Link href="/about/contact-us" className="text-sm font-normal text-[#333740]/70 hover:text-[#333740] transition-colors">
-                  Contact us
+                  {t('contactUs')}
                 </Link>
               </li>
               <li>
                 <Link href="/about/locations" className="text-sm font-normal text-[#333740]/70 hover:text-[#333740] transition-colors">
-                  Locations
+                  {t('locations')}
                 </Link>
               </li>
               <li>
                 <Link href="/about/login" className="text-sm font-normal text-[#333740]/70 hover:text-[#333740] transition-colors">
-                  Login
+                  {t('login')}
                 </Link>
               </li>
             </ul>
@@ -364,31 +366,31 @@ export const Default: React.FC<GlobalFooterProps> = (props) => {
       <div className="bg-primary text-white py-4 px-4 md:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <p className="text-xs font-normal text-white">
-              © 2025 Johnson Controls. All Rights Reserved.
+              {t('copyright')}
             </p>
             <div className="flex flex-wrap items-center gap-x-2 gap-y-2 text-xs text-white">
               <Link href="/accessibility" className="hover:underline">
-                Accessibility
+                {t('accessibility')}
               </Link>
               <span className="text-white/50">|</span>
               <Link href="/privacy" className="hover:underline">
-                Privacy
+                {t('privacy')}
               </Link>
               <span className="text-white/50">|</span>
               <Link href="/suppliers" className="hover:underline">
-                Suppliers
+                {t('suppliers')}
               </Link>
               <span className="text-white/50">|</span>
               <Link href="/your-privacy-choices" className="hover:underline">
-                Your privacy choices
+                {t('yourPrivacyChoices')}
               </Link>
               <span className="text-white/50">|</span>
               <Link href="/terms" className="hover:underline">
-                Terms
+                {t('terms')}
               </Link>
               <span className="text-white/50">|</span>
               <Link href="/cookie-preferences" className="hover:underline">
-                Cookie Preferences
+                {t('cookiePreferences')}
               </Link>
             </div>
           </div>
