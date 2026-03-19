@@ -1,0 +1,33 @@
+{
+    "$schema": "../../.sitecore/schemas/ModuleFile.schema.json",
+    "namespace": "famous-footwear",
+    "items": {
+        "includes": [
+            {
+                "name": "ff.templates",
+                "path": "/sitecore/templates/Project/famous-footwear",
+                "allowedPushOperations": "CreateUpdateAndDelete"
+            },
+            {
+                "name": "ff.renderings",
+                "path": "/sitecore/Layout/Renderings/Project/famous-footwear",
+                "allowedPushOperations": "CreateUpdateAndDelete"
+            },
+            {
+                "name": "ff.placeholderSettings",
+                "path": "/sitecore/Layout/Placeholder Settings/Project/famous-footwear",
+                "allowedPushOperations": "CreateUpdateAndDelete"
+            },
+            {
+                "name": "ff.media",
+                "path": "/sitecore/media library/Project/famous-footwear",
+                "allowedPushOperations": "CreateUpdateAndDelete"
+            },
+            {
+                "name": "ff.content",
+                "path": "/sitecore/content/famous-footwear",
+                "allowedPushOperations": "CreateUpdateAndDelete"
+            }
+        ]
+    }
+}
