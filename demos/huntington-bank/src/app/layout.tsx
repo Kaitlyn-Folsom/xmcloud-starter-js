@@ -29,7 +29,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://edge-platform.sitecorecloud.io" />
-        <link rel="icon" href="/brand/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/brand/favicon.png" type="image/png" />
       </head>
       <body>
         <StructuredData id="organization-schema" data={organizationSchema as JsonLdValue} />

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { Default as Hero } from '@/components/hero/Hero';
+import { Default as Hero, MultiImage } from '@/components/hero/Hero';
 import {
   defaultProps,
   propsWithPrimaryScheme,
@@ -16,6 +16,7 @@ import {
   propsEditing,
   mockPageData,
   mockPageDataEditing,
+  mockFields,
 } from './Hero.mockProps';
 import type { HeroProps } from '@/components/hero/hero.props';
 
@@ -220,42 +221,42 @@ describe('Hero Component', () => {
 
   describe('Color scheme variants', () => {
     it('should apply light color scheme classes', () => {
-      const { container } = render(<Hero {...defaultProps} />);
+      const { container } = render(<MultiImage {...defaultProps} />);
 
       const section = container.querySelector('section');
       expect(section).toHaveClass('bg-light', 'text-primary');
     });
 
     it('should apply primary color scheme classes', () => {
-      const { container } = render(<Hero {...propsWithPrimaryScheme} />);
+      const { container } = render(<MultiImage {...propsWithPrimaryScheme} />);
 
       const section = container.querySelector('section');
       expect(section).toHaveClass('bg-primary', 'text-primary-foreground');
     });
 
     it('should apply secondary color scheme classes', () => {
-      const { container } = render(<Hero {...propsWithSecondaryScheme} />);
+      const { container } = render(<MultiImage {...propsWithSecondaryScheme} />);
 
       const section = container.querySelector('section');
       expect(section).toHaveClass('bg-secondary', 'text-primary');
     });
 
     it('should apply tertiary color scheme classes', () => {
-      const { container } = render(<Hero {...propsWithTertiaryScheme} />);
+      const { container } = render(<MultiImage {...propsWithTertiaryScheme} />);
 
       const section = container.querySelector('section');
       expect(section).toHaveClass('bg-tertiary', 'text-primary');
     });
 
     it('should apply dark color scheme classes', () => {
-      const { container } = render(<Hero {...propsWithDarkScheme} />);
+      const { container } = render(<MultiImage {...propsWithDarkScheme} />);
 
       const section = container.querySelector('section');
       expect(section).toHaveClass('bg-dark', 'text-primary');
     });
 
     it('should apply default light scheme when colorScheme is not provided', () => {
-      const { container } = render(<Hero {...propsWithoutColorScheme} />);
+      const { container } = render(<MultiImage {...propsWithoutColorScheme} />);
 
       const section = container.querySelector('section');
       expect(section).toHaveClass('bg-light', 'text-primary');
@@ -283,7 +284,7 @@ describe('Hero Component', () => {
         'bg-accent',
         'font-semibold',
         'text-accent-foreground',
-        'shadow-sm',
+        'rounded-full',
         'hover:bg-accent/90'
       );
     });
@@ -317,14 +318,14 @@ describe('Hero Component', () => {
 
   describe('Media sections rendering', () => {
     it('should render all four media sections', () => {
-      render(<Hero {...defaultProps} />);
+      render(<MultiImage {...defaultProps} />);
 
       const mediaSections = screen.getAllByTestId('media-section');
       expect(mediaSections).toHaveLength(4);
     });
 
     it('should render media sections with videos', () => {
-      render(<Hero {...defaultProps} />);
+      render(<MultiImage {...defaultProps} />);
 
       const mediaSections = screen.getAllByTestId('media-section');
       expect(mediaSections[0]).toHaveAttribute('data-video', '/videos/hero-video-1.mp4');
@@ -334,7 +335,7 @@ describe('Hero Component', () => {
     });
 
     it('should render media sections with images', () => {
-      render(<Hero {...defaultProps} />);
+      render(<MultiImage {...defaultProps} />);
 
       const mediaSections = screen.getAllByTestId('media-section');
       expect(mediaSections[0]).toHaveAttribute('data-image', '/images/hero-image-1.jpg');
@@ -344,7 +345,7 @@ describe('Hero Component', () => {
     });
 
     it('should render media sections with correct aspect ratios', () => {
-      render(<Hero {...defaultProps} />);
+      render(<MultiImage {...defaultProps} />);
 
       const mediaSections = screen.getAllByTestId('media-section');
       expect(mediaSections[0]).toHaveClass('aspect-280/356');
@@ -354,7 +355,7 @@ describe('Hero Component', () => {
     });
 
     it('should render media sections with images only', () => {
-      render(<Hero {...propsWithImagesOnly} />);
+      render(<MultiImage {...propsWithImagesOnly} />);
 
       const mediaSections = screen.getAllByTestId('media-section');
       expect(mediaSections).toHaveLength(4);
@@ -448,7 +449,7 @@ describe('Hero Component', () => {
 
     it('should set reducedMotion to true in editing mode', () => {
       mockUseSitecore.mockReturnValue(mockPageDataEditing);
-      render(<Hero {...propsEditing} />);
+      render(<MultiImage {...propsEditing} />);
 
       const mediaSections = screen.getAllByTestId('media-section');
       mediaSections.forEach((section) => {
@@ -466,11 +467,72 @@ describe('Hero Component', () => {
       expect(animatedSection).toHaveAttribute('data-direction', 'up');
     });
 
-    it('should apply correct classes to AnimatedSection', () => {
+    it('should apply centered column layout classes to Default AnimatedSection', () => {
       render(<Hero {...defaultProps} />);
 
       const animatedSection = screen.getByTestId('animated-section');
+      expect(animatedSection).toHaveClass(
+        'flex',
+        'w-full',
+        'flex-col',
+        'items-center',
+        'gap-3',
+        'text-center'
+      );
+    });
+
+    it('should apply row layout classes to MultiImage AnimatedSection', () => {
+      render(<MultiImage {...defaultProps} />);
+
+      const animatedSection = screen.getByTestId('animated-section');
       expect(animatedSection).toHaveClass('@lg:flex-row', '@lg:items-center', '@lg:gap-10');
+    });
+  });
+
+  describe('Default variant full-bleed background', () => {
+    it('should render a single media section for feature 1 when media is present', () => {
+      render(<Hero {...defaultProps} />);
+
+      const mediaSections = screen.getAllByTestId('media-section');
+      expect(mediaSections).toHaveLength(1);
+      expect(mediaSections[0]).toHaveAttribute('data-video', '/videos/hero-video-1.mp4');
+      expect(mediaSections[0]).toHaveAttribute('data-image', '/images/hero-image-1.jpg');
+    });
+
+    it('should use full-bleed media classes on the background MediaSection', () => {
+      render(<Hero {...defaultProps} />);
+
+      const mediaSections = screen.getAllByTestId('media-section');
+      expect(mediaSections[0].className).toContain('absolute');
+      expect(mediaSections[0].className).toContain('inset-0');
+      expect(mediaSections[0].className).toContain('object-cover');
+    });
+
+    it('should apply min-height when feature 1 media exists', () => {
+      const { container } = render(<Hero {...defaultProps} />);
+
+      const section = container.querySelector('section');
+      expect(section?.className).toContain('min-h-[70vh]');
+      expect(section?.className).toContain('md:min-h-[80vh]');
+    });
+
+    it('should apply heroVariants on section when feature 1 has no media', () => {
+      const {
+        heroVideoOptional1: _discardV1,
+        heroImageOptional1: _discardI1,
+        ...fieldsWithoutFeature1
+      } = mockFields;
+
+      const propsNoHeroMedia: HeroProps = {
+        ...defaultProps,
+        fields: fieldsWithoutFeature1,
+      };
+
+      const { container } = render(<Hero {...propsNoHeroMedia} />);
+
+      const section = container.querySelector('section');
+      expect(section).toHaveClass('bg-light', 'text-primary');
+      expect(screen.queryAllByTestId('media-section')).toHaveLength(0);
     });
   });
 
@@ -559,7 +621,7 @@ describe('Hero Component', () => {
     });
 
     it('should apply correct media section container classes', () => {
-      const { container } = render(<Hero {...defaultProps} />);
+      const { container } = render(<MultiImage {...defaultProps} />);
 
       // Check for the class by looking at the element's className
       const mediaContainer = Array.from(container.querySelectorAll('div')).find(
@@ -595,6 +657,7 @@ describe('Hero Component', () => {
       render(<Hero {...defaultProps} />);
 
       const mediaSections = screen.getAllByTestId('media-section');
+      expect(mediaSections).toHaveLength(1);
       mediaSections.forEach((section) => {
         expect(section).toHaveAttribute('data-reduced-motion', 'true');
       });
