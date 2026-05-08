@@ -33,12 +33,6 @@ interface MockImageWrapperProps {
   wrapperClass?: string;
 }
 
-interface MockAnimatedSectionProps {
-  children?: React.ReactNode;
-  className?: string;
-  animationType?: string;
-}
-
 interface MockButtonBaseProps {
   buttonLink?: LinkField;
   variant?: string;
@@ -102,14 +96,6 @@ jest.mock('@/components/image/ImageWrapper.dev', () => ({
   ),
 }));
 
-jest.mock('@/components/animated-section/AnimatedSection.dev', () => ({
-  Default: ({ children, className, animationType }: MockAnimatedSectionProps) => (
-    <div data-testid="animated-section" data-animation-type={animationType} className={className}>
-      {children}
-    </div>
-  ),
-}));
-
 jest.mock('@/components/button-component/ButtonComponent', () => ({
   ButtonBase: ({ buttonLink, variant, isPageEditing }: MockButtonBaseProps) => {
     if (!buttonLink?.value?.href && !isPageEditing) return null;
@@ -131,23 +117,6 @@ jest.mock('@/utils/NoDataFallback', () => ({
   ),
 }));
 
-// Mock window.matchMedia
-beforeAll(() => {
-  Object.defineProperty(window, 'matchMedia', {
-    writable: true,
-    value: jest.fn().mockImplementation((query: string) => ({
-      matches: false,
-      media: query,
-      onchange: null,
-      addListener: jest.fn(),
-      removeListener: jest.fn(),
-      addEventListener: jest.fn(),
-      removeEventListener: jest.fn(),
-      dispatchEvent: jest.fn(),
-    })),
-  });
-});
-
 describe('PromoAnimated Component - Default Variant', () => {
   beforeEach(() => {
     jest.clearAllMocks();
@@ -158,6 +127,7 @@ describe('PromoAnimated Component - Default Variant', () => {
       render(<PromoAnimated {...defaultProps} />);
 
       expect(screen.getByText('Discover Excellence')).toBeInTheDocument();
+      expect(screen.getByText('PARTNER SPOTLIGHT')).toBeInTheDocument();
       expect(screen.getByTestId('image-wrapper')).toBeInTheDocument();
       expect(screen.getByText('Shop Now')).toBeInTheDocument();
       expect(screen.getByText('Learn More')).toBeInTheDocument();
@@ -200,7 +170,9 @@ describe('PromoAnimated Component - Default Variant', () => {
       const buttons = screen.getAllByTestId('button-component');
       expect(buttons).toHaveLength(2);
       expect(buttons[0]).toHaveAttribute('href', '/shop/premium');
+      expect(buttons[0]).toHaveAttribute('data-variant', 'outline');
       expect(buttons[1]).toHaveAttribute('href', '/learn-more');
+      expect(buttons[1]).toHaveAttribute('data-variant', 'secondary');
     });
   });
 
@@ -210,6 +182,7 @@ describe('PromoAnimated Component - Default Variant', () => {
 
       const section = container.querySelector('section');
       expect(section).toHaveClass('@container');
+      expect(section).toHaveClass('bg-background');
     });
 
     it('should apply grid layout classes', () => {
@@ -219,21 +192,11 @@ describe('PromoAnimated Component - Default Variant', () => {
       expect(contentWrapper).toHaveClass('grid', 'grid-cols-1');
     });
 
-    it('should render animated sections', () => {
-      render(<PromoAnimated {...defaultProps} />);
+    it('should render media frame with image', () => {
+      const { container } = render(<PromoAnimated {...defaultProps} />);
 
-      const animatedSections = screen.getAllByTestId('animated-section');
-      expect(animatedSections.length).toBeGreaterThan(0);
-    });
-
-    it('should render rotate animation for sprite', () => {
-      render(<PromoAnimated {...defaultProps} />);
-
-      const animatedSections = screen.getAllByTestId('animated-section');
-      const rotateSection = animatedSections.find(
-        (section) => section.getAttribute('data-animation-type') === 'rotate'
-      );
-      expect(rotateSection).toBeInTheDocument();
+      expect(container.querySelector('.promo-animated__media-frame')).toBeInTheDocument();
+      expect(screen.getByTestId('image-wrapper')).toBeInTheDocument();
     });
   });
 
@@ -377,6 +340,7 @@ describe('PromoAnimated Component - ImageRight Variant', () => {
       render(<ImageRight {...defaultProps} />);
 
       expect(screen.getByText('Discover Excellence')).toBeInTheDocument();
+      expect(screen.getByText('PARTNER SPOTLIGHT')).toBeInTheDocument();
       expect(screen.getByTestId('image-wrapper')).toBeInTheDocument();
       expect(screen.getByText('Shop Now')).toBeInTheDocument();
     });
@@ -433,30 +397,4 @@ describe('PromoAnimated Component - ImageRight Variant', () => {
     });
   });
 });
-
-describe('PromoAnimated - Reduced Motion', () => {
-  beforeEach(() => {
-    jest.clearAllMocks();
-  });
-
-  it('should detect prefers-reduced-motion media query', () => {
-    const matchMediaMock = jest.fn().mockImplementation((query: string) => ({
-      matches: query === '(prefers-reduced-motion: reduce)',
-      media: query,
-      onchange: null,
-      addListener: jest.fn(),
-      removeListener: jest.fn(),
-      addEventListener: jest.fn(),
-      removeEventListener: jest.fn(),
-      dispatchEvent: jest.fn(),
-    }));
-
-    window.matchMedia = matchMediaMock as typeof window.matchMedia;
-
-    render(<PromoAnimated {...defaultProps} />);
-
-    expect(matchMediaMock).toHaveBeenCalledWith('(prefers-reduced-motion: reduce)');
-  });
-});
-
 

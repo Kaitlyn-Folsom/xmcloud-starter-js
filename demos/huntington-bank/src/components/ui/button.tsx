@@ -8,17 +8,19 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: 'bg-primary text-primary-foreground hover:bg-primary/90',
+        /* Lime primary CTA — Huntington-style */
+        default: 'bg-accent text-accent-foreground shadow-sm hover:bg-accent/90',
         destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
-        outline: 'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
-        secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
-        tertiary: 'bg-tertiary text-tertiary-foreground hover:bg-tertiary/80',
-        ghost: 'hover:bg-accent hover:text-accent-foreground',
-        link: 'text-foreground underline-offset-4 hover:underline',
+        outline:
+          'border border-input bg-background text-foreground hover:bg-secondary hover:text-secondary-foreground',
+        secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary-hover',
+        tertiary: 'bg-tertiary text-tertiary-foreground hover:bg-tertiary-hover',
+        ghost: 'hover:bg-muted hover:text-foreground',
+        link: 'text-primary underline-offset-4 hover:underline',
         topic:
-          'bg-accent hover:bg-primary-hover text-accent-foreground font-heading rounded-full px-4 py-2 text-sm font-medium transition-colors',
+          'bg-accent font-heading hover:bg-primary-hover hover:text-primary-foreground rounded-full px-4 py-2 text-sm font-semibold text-accent-foreground transition-colors',
         'rounded-white':
-          'rounded-full bg-white text-secondary-foreground hover:bg-gray-100 transition-all duration-300',
+          'rounded-full bg-white text-primary shadow-sm transition-all duration-300 hover:bg-white/95',
       },
       size: {
         default: 'px-8 py-2-5',

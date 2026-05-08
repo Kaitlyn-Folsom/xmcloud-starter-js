@@ -98,7 +98,7 @@ export const Default: React.FC<LogoTabsProps> = ({ fields, page, isPageEditing: 
             <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/80" />
           </div>
         ) : (
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-800 to-gray-900" />
+          <div className="from-primary absolute inset-0 bg-gradient-to-b to-black/80" />
         )}
 
         {/* Content */}
@@ -131,7 +131,7 @@ export const Default: React.FC<LogoTabsProps> = ({ fields, page, isPageEditing: 
                   {logosData.map((logo, index) => (
                     <div key={index} className="border-b border-white/20 pb-10 last:border-0">
                       <div className="mb-6 flex items-center">
-                        <div className="rounded-[20px] bg-white px-6 py-3 shadow-lg">
+                        <div className="bg-card rounded-xl px-6 py-3 shadow-lg">
                           <Image field={logo?.logo?.jsonValue} className="h-6 w-auto" />
                         </div>
                         <div className="ml-4 text-lg text-white opacity-70">

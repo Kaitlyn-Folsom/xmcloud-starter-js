@@ -279,7 +279,13 @@ describe('Hero Component', () => {
       render(<Hero {...propsWithPrimaryScheme} />);
 
       const button = screen.getByTestId('hero-button');
-      expect(button).toHaveClass('text-primary', 'bg-white', 'hover:bg-gray-100');
+      expect(button).toHaveClass(
+        'bg-accent',
+        'font-semibold',
+        'text-accent-foreground',
+        'shadow-sm',
+        'hover:bg-accent/90'
+      );
     });
   });
 

@@ -11,20 +11,27 @@ import {
 } from '@sitecore-content-sdk/nextjs';
 import Scripts from 'src/Scripts';
 import SitecoreStyles from 'components/content-sdk/SitecoreStyles';
-import { Figtree } from 'next/font/google';
+import { Source_Sans_3 as SourceSans3 } from 'next/font/google';
 import componentMap from '.sitecore/component-map';
 import Providers from './Providers';
 
-const heading = Figtree({
-  weight: ['400', '500'],
+const heading = SourceSans3({
+  weight: ['600', '700'],
   variable: '--font-heading',
   subsets: ['latin', 'latin-ext'],
   display: 'swap',
 });
 
-const body = Figtree({
-  weight: ['400', '500'],
+const body = SourceSans3({
+  weight: ['400', '500', '600'],
   variable: '--font-body',
+  subsets: ['latin', 'latin-ext'],
+  display: 'swap',
+});
+
+const accent = SourceSans3({
+  weight: ['500', '600'],
+  variable: '--font-accent',
   subsets: ['latin', 'latin-ext'],
   display: 'swap',
 });
@@ -51,7 +58,7 @@ const Layout = ({ page }: LayoutProps): JSX.Element => {
   const { layout, mode } = page;
   const { route } = layout.sitecore;
   const mainClassPageEditing = mode.isEditing ? 'editing-mode' : 'prod-mode';
-  const classNamesMain = `${mainClassPageEditing} ${body.variable} ${heading.variable} main-layout`;
+  const classNamesMain = `${mainClassPageEditing} ${body.variable} ${heading.variable} ${accent.variable} main-layout`;
 
   return (
     <>

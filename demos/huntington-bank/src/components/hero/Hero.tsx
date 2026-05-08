@@ -95,7 +95,9 @@ export const Default: React.FC<HeroProps> = ({ fields, params, page }) => {
                     <EditableButton
                       buttonLink={linkOptional}
                       className={
-                        colorScheme === 'primary' ? 'text-primary bg-white hover:bg-gray-100' : ''
+                        colorScheme === 'primary'
+                          ? 'bg-accent font-semibold text-accent-foreground rounded-full hover:bg-accent/90'
+                          : 'rounded-full'
                       }
                       isPageEditing={isPageEditing}
                       contextTitle={titleRequired?.value}

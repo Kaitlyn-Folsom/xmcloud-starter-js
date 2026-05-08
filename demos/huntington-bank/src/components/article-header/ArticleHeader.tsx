@@ -319,7 +319,7 @@ export const Default: React.FC<ArticleHeaderProps> = ({ fields, page }) => {
             {/* in order to be fully responsive the height of this section needs to be half of the height of the image */}
             <div
               data-component="white-bar"
-              className="@xs:h-[125px] @sm:h-[150px] @md:h-[140px] @lg:h-[90px] @xl:h-[180px] absolute bottom-0 h-[90px] w-full  bg-white"
+              className="@xs:h-[125px] @sm:h-[150px] @md:h-[140px] @lg:h-[90px] @xl:h-[180px] bg-background absolute bottom-0 h-[90px] w-full"
             ></div>
 
             {/* Content */}

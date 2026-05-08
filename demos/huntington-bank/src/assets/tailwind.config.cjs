@@ -38,17 +38,18 @@ module.exports = {
             },
             backgroundImage: {
                 'img-primary':
-                    'linear-gradient(to bottom, hsla(var(--colors-primary) / 90%), hsla(var(--colors-primary) / 60%)), var(--bg-img, url("/placeholder.svg"))',
+                    'linear-gradient(to bottom, hsla(var(--colors-primary) / 88%), hsla(var(--colors-primary) / 52%)), var(--bg-img, url("/placeholder.svg"))',
                 'img-secondary':
-                    'linear-gradient(to bottom, hsla(var(--colors-secondary) / 90%), hsla(var(--colors-secondary) / 60%)), var(--bg-img, url("/placeholder.svg"))',
+                    'linear-gradient(to bottom, hsla(var(--colors-secondary) / 92%), hsla(var(--colors-secondary) / 65%)), var(--bg-img, url("/placeholder.svg"))',
                 'img-muted':
-                    'linear-gradient(to bottom, hsla(var(--colors-muted) / 90%), hsla(var(--colors-muted) / 60%)), var(--bg-img, url("/placeholder.svg"))',
+                    'linear-gradient(to bottom, hsla(var(--colors-muted) / 90%), hsla(var(--colors-muted) / 62%)), var(--bg-img, url("/placeholder.svg"))',
+                /* Darken photography for white/lime copy */
                 'img-dark':
-                    'linear-gradient(to bottom, hsla(var(--colors-foreground) / 90%), hsla(var(--colors-foreground) / 60%)), var(--bg-img, url("/placeholder.svg"))',
+                    'linear-gradient(to bottom, hsla(var(--colors-primary) / 78%), hsla(var(--colors-primary) / 42%)), var(--bg-img, url("/placeholder.svg"))',
                 'img-light':
-                    'linear-gradient(to bottom, hsla(var(--colors-background) / 90%), hsla(var(--colors-background) / 60%)), var(--bg-img, url("/placeholder.svg"))',
+                    'linear-gradient(to bottom, hsla(var(--colors-background) / 85%), hsla(var(--colors-background) / 55%)), var(--bg-img, url("/placeholder.svg"))',
                 'img-accent':
-                    'linear-gradient(to bottom, hsla(var(--colors-accent) / 80%), hsla(var(--colors-accent) / 60%)), var(--bg-img, url("/placeholder.svg"))',
+                    'linear-gradient(to bottom, hsla(var(--colors-accent) / 75%), hsla(var(--colors-accent) / 48%)), var(--bg-img, url("/placeholder.svg"))',
             },
             blur: {
                 none: 'var(--blur-none)',

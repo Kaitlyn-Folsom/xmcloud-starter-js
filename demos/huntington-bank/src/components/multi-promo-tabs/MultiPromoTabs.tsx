@@ -80,7 +80,7 @@ export const Default: React.FC<MultiPromoTabsProps> = (props) => {
           >
             <SelectTrigger
               id={id}
-              className="text-primary-foreground w-full border-0 bg-black/20"
+              className="text-primary-foreground w-full border-0 bg-white/15"
             >
               <SelectValue placeholder={initialTabTitle} />
             </SelectTrigger>
@@ -108,7 +108,7 @@ export const Default: React.FC<MultiPromoTabsProps> = (props) => {
               <TabsTrigger
                 key={index}
                 value={index.toString()}
-                className="font-body letter-spacing-[-0.8] data-[state=active]:bg-accent data-[state=active]:text-accent-foreground data-[state=active]:hover:bg-accent/90 hover:bg-accent hover:text-accent-foreground border-accent rounded-md border bg-transparent px-4 py-2 text-base font-normal text-white transition-all duration-300"
+                className="font-body letter-spacing-[-0.8] data-[state=active]:bg-accent data-[state=active]:text-accent-foreground data-[state=active]:hover:bg-accent/90 hover:bg-accent hover:text-accent-foreground border-accent rounded-full border bg-transparent px-4 py-2 text-base font-normal text-white transition-all duration-300"
               >
                 {item.title?.jsonValue.value || `Tab ${index + 1}`}
               </TabsTrigger>

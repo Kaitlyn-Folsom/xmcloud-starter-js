@@ -44,7 +44,7 @@ const PromoBlock = (props: PromoBlockProps): JSX.Element => {
         orientation === Orientation.IMAGE_LEFT,
     }),
     image: 'aspect-video h-full w-full object-cover sm:aspect-[1920/1080]',
-    copy: cn('relative p-6 bg-white z-2 row-[2_/_4]', {
+    copy: cn('bg-card relative z-2 row-[2_/_4] p-6', {
       ['col-start-1 col-end-1 sm:col-end-13 sm:@2xl:col-end-9 text-right']:
         orientation === Orientation.IMAGE_RIGHT,
       ['col-start-1 col-end-1 sm:col-end-13 sm:@2xl:col-start-5']:

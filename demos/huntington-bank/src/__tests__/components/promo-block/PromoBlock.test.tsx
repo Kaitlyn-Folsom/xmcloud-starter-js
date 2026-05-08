@@ -259,7 +259,7 @@ describe('PromoBlock Component', () => {
       const flexComponents = screen.getAllByTestId('flex');
       const copyFlex = flexComponents[0];
       expect(copyFlex.className).toContain('p-6');
-      expect(copyFlex.className).toContain('bg-white');
+      expect(copyFlex.className).toContain('bg-card');
     });
 
     it('should apply text-right for version-two with image-right', () => {
@@ -396,7 +396,7 @@ describe('PromoBlock Component', () => {
 
         const flexComponents = screen.getAllByTestId('flex');
         const copyFlex = flexComponents[0];
-        expect(copyFlex.className).toContain('bg-white');
+        expect(copyFlex.className).toContain('bg-card');
         expect(copyFlex.className).toContain('p-6');
       });
     });

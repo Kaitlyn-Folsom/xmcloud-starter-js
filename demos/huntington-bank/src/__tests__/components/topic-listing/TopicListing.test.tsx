@@ -333,7 +333,7 @@ describe('TopicListing Component', () => {
       render(<TopicListing {...defaultProps} />);
 
       const title = screen.getByText('Explore Our Topics');
-      expect(title).toHaveClass('text-white');
+      expect(title).toHaveClass('text-primary-foreground');
     });
   });
 

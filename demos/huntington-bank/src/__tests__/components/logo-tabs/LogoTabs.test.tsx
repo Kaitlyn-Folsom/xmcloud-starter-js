@@ -168,7 +168,7 @@ describe('LogoTabs Component', () => {
     it('should render fallback background when no image provided', () => {
       const { container } = render(<LogoTabs {...propsWithoutBackground} />);
 
-      const fallbackBackground = container.querySelector('.bg-gradient-to-b.from-gray-800.to-gray-900');
+      const fallbackBackground = container.querySelector('[class*="from-primary"][class*="to-black"]');
       expect(fallbackBackground).toBeInTheDocument();
     });
 

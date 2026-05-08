@@ -402,7 +402,7 @@ describe('GlobalHeader Component', () => {
       const { container } = render(<GlobalHeader {...defaultProps} />);
 
       const header = container.querySelector('header');
-      expect(header).toHaveClass('h-[96px]');
+      expect(header).toHaveClass('min-h-[88px]');
     });
 
     it('should apply responsive padding classes', () => {
@@ -466,7 +466,7 @@ describe('GlobalHeader Component', () => {
       const { container } = render(<GlobalHeader {...defaultProps} />);
 
       const header = container.querySelector('header');
-      expect(header).toHaveClass('bg-background', 'border-b');
+      expect(header).toHaveClass('bg-primary', 'border-b', 'border-white/10');
     });
 
     it('should apply responsive flex classes to desktop nav', () => {
