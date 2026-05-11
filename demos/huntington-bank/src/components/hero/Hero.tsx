@@ -116,6 +116,7 @@ export const Default: React.FC<HeroProps> = ({ fields, params, page }) => {
                 tag="h1"
                 field={titleRequired}
                 className="font-heading @lg:text-7xl @lg:leading-[90px] basis-1/2 text-5xl font-normal leading-[60px] text-accent"
+                style={{fontFamily: 'serif'}}
               />
             )}
             <div className="@lg:gap-10 flex max-w-3xl basis-1/2 flex-col items-center gap-8">

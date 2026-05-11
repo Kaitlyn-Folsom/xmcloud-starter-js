@@ -52,7 +52,7 @@ export const Default: React.FC<PageHeaderProps> = ({
       <section className={containerClasses}>
         <div className="@md:grid-cols-2 @lg:gap-12 mx-auto grid w-full grid-cols-1 gap-8">
           {/* Left */}
-          <div className="flex flex-col justify-between">
+          <div className="flex flex-col">
             <AnimatedSection
               reducedMotion={prefersReducedMotion}
               isPageEditing={isPageEditing}
@@ -61,6 +61,15 @@ export const Default: React.FC<PageHeaderProps> = ({
                 tag="h1"
                 className="@md:text-5xl @lg:text-7xl font-heading text-pretty text-5xl font-normal leading-[0.93] tracking-tighter"
                 field={title}
+              />
+            </AnimatedSection>
+            <AnimatedSection
+              reducedMotion={prefersReducedMotion}
+              isPageEditing={isPageEditing}
+            >
+              <RichText
+                className="line-height[26px] @lg:ms-auto max-w-[547px] text-lg font-medium tracking-tight"
+                field={subtitle}
               />
             </AnimatedSection>
             {children?.results && (
@@ -87,7 +96,7 @@ export const Default: React.FC<PageHeaderProps> = ({
           </div>
           {/* Right */}
           <div className="flex flex-col justify-end gap-10">
-            <AnimatedSection
+            {/* <AnimatedSection
               reducedMotion={prefersReducedMotion}
               isPageEditing={isPageEditing}
             >
@@ -95,7 +104,7 @@ export const Default: React.FC<PageHeaderProps> = ({
                 className="line-height[26px] @lg:ms-auto max-w-[547px] text-lg font-medium tracking-tight"
                 field={subtitle}
               />
-            </AnimatedSection>
+            </AnimatedSection> */}
             <AnimatedSection
               reducedMotion={prefersReducedMotion}
               isPageEditing={isPageEditing}
