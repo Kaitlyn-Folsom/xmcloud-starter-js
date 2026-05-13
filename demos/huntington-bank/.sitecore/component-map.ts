@@ -44,6 +44,29 @@ import * as sitemetadataprops from 'src/components/site-metadata/site-metadata.p
 import * as SiteMetadata from 'src/components/site-metadata/SiteMetadata';
 import * as secondarynavigationprops from 'src/components/secondary-navigation/secondary-navigation.props';
 import * as SecondaryNavigation from 'src/components/secondary-navigation/SecondaryNavigation';
+import * as SearchExperienceLoadMore from 'src/components/search-experience/SearchExperience.LoadMore';
+import * as SearchExperience from 'src/components/search-experience/SearchExperience';
+import * as useSearchField from 'src/components/search-experience/search-components/useSearchField';
+import * as useRouter from 'src/components/search-experience/search-components/useRouter';
+import * as useParams from 'src/components/search-experience/search-components/useParams';
+import * as useEvent from 'src/components/search-experience/search-components/useEvent';
+import * as useDebounce from 'src/components/search-experience/search-components/useDebounce';
+import * as models from 'src/components/search-experience/search-components/models';
+import * as constants from 'src/components/search-experience/search-components/constants';
+import * as SearchSkeletonItem from 'src/components/search-experience/search-components/SearchSkeletonItem';
+import * as SearchPagination from 'src/components/search-experience/search-components/SearchPagination';
+import * as SearchItemCommon from 'src/components/search-experience/search-components/SearchItemCommon';
+import * as SearchInput from 'src/components/search-experience/search-components/SearchInput';
+import * as SearchError from 'src/components/search-experience/search-components/SearchError';
+import * as SearchEmptyResults from 'src/components/search-experience/search-components/SearchEmptyResults';
+import * as index from 'src/components/search-experience/search-components/SearchItem/index';
+import * as SearchItemTitle from 'src/components/search-experience/search-components/SearchItem/SearchItemTitle';
+import * as SearchItemTags from 'src/components/search-experience/search-components/SearchItem/SearchItemTags';
+import * as SearchItemSummary from 'src/components/search-experience/search-components/SearchItem/SearchItemSummary';
+import * as SearchItemSubTitle from 'src/components/search-experience/search-components/SearchItem/SearchItemSubTitle';
+import * as SearchItemLink from 'src/components/search-experience/search-components/SearchItem/SearchItemLink';
+import * as SearchItemImage from 'src/components/search-experience/search-components/SearchItem/SearchItemImage';
+import * as SearchItemCategory from 'src/components/search-experience/search-components/SearchItem/SearchItemCategory';
 import * as richtextblockprops from 'src/components/rich-text-block/rich-text-block.props';
 import * as RichTextBlock from 'src/components/rich-text-block/RichTextBlock';
 import * as promoblockprops from 'src/components/promo-block/promo-block.props';
@@ -176,6 +199,28 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['SiteMetadata', { ...SiteMetadata }],
   ['secondary-navigation', { ...secondarynavigationprops }],
   ['SecondaryNavigation', { ...SecondaryNavigation, componentType: 'client' }],
+  ['SearchExperience', { ...SearchExperienceLoadMore, ...SearchExperience, componentType: 'client' }],
+  ['useSearchField', { ...useSearchField, componentType: 'client' }],
+  ['useRouter', { ...useRouter, componentType: 'client' }],
+  ['useParams', { ...useParams, componentType: 'client' }],
+  ['useEvent', { ...useEvent, componentType: 'client' }],
+  ['useDebounce', { ...useDebounce, componentType: 'client' }],
+  ['models', { ...models }],
+  ['constants', { ...constants }],
+  ['SearchSkeletonItem', { ...SearchSkeletonItem, componentType: 'client' }],
+  ['SearchPagination', { ...SearchPagination, componentType: 'client' }],
+  ['SearchItemCommon', { ...SearchItemCommon, componentType: 'client' }],
+  ['SearchInput', { ...SearchInput, componentType: 'client' }],
+  ['SearchError', { ...SearchError, componentType: 'client' }],
+  ['SearchEmptyResults', { ...SearchEmptyResults, componentType: 'client' }],
+  ['index', { ...index, componentType: 'client' }],
+  ['SearchItemTitle', { ...SearchItemTitle, componentType: 'client' }],
+  ['SearchItemTags', { ...SearchItemTags, componentType: 'client' }],
+  ['SearchItemSummary', { ...SearchItemSummary, componentType: 'client' }],
+  ['SearchItemSubTitle', { ...SearchItemSubTitle, componentType: 'client' }],
+  ['SearchItemLink', { ...SearchItemLink, componentType: 'client' }],
+  ['SearchItemImage', { ...SearchItemImage, componentType: 'client' }],
+  ['SearchItemCategory', { ...SearchItemCategory, componentType: 'client' }],
   ['rich-text-block', { ...richtextblockprops }],
   ['RichTextBlock', { ...RichTextBlock }],
   ['promo-block', { ...promoblockprops }],

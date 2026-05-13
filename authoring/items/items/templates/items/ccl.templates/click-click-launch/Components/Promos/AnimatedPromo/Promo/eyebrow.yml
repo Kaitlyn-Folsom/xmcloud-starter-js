@@ -1,44 +1,37 @@
 ﻿---
-ID: "3a2a1142-68ca-4f5b-afb0-c17d2c0ef8ea"
+ID: "80582d08-c259-40e6-a472-b388d897e312"
 Parent: "be2be52b-a2f7-4b0f-baee-2f08c0e9d463"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: "/sitecore/templates/Project/click-click-launch/Components/Promos/AnimatedPromo/Promo/secondaryLink"
+Path: "/sitecore/templates/Project/click-click-launch/Components/Promos/AnimatedPromo/Promo/eyebrow"
 SharedFields:
-- ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
-  Hint: Source
-  Value: "query:$linkableHomes"
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
-  Value: General Link
+  Value: "Single-Line Text"
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 400
+  Value: 500
+- ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
+  Hint: __Shared revision
+  Value: "b343dc58-8536-48dc-bb96-4fe0193aa670"
 Languages:
 - Language: en
-  Fields:
-  - ID: "19a69332-a23e-4e70-8d16-b2640cb24cc8"
-    Hint: Title
-    Value: Secondary Link
-  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
-    Hint: __Display name
-    Value: Secondary Link
   Versions:
-  - Version: 2
+  - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20250220T202136Z
+      Value: 20260507T004036Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
-        sitecore\Admin
+        sitecore\kaitlyn.folsom@sitecore.com
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
-        sitecore\Admin
+        sitecore\kaitlyn.folsom@sitecore.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "3ea7026a-8944-4066-9aed-ff2b050519d4"
+      Value: "3aa33942-774d-4421-acce-4a5f9e3c5fd6"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |

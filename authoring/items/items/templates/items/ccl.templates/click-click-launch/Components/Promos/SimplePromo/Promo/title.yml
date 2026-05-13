@@ -2,7 +2,7 @@
 ID: "5c33f772-5806-4ad8-a236-730f1b299531"
 Parent: "2877390e-cb3e-410d-83a0-0fdd6334066d"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: "/sitecore/templates/Project/click-click-launch/Components/Promos/SimplePromo/Promo/heading"
+Path: "/sitecore/templates/Project/click-click-launch/Components/Promos/SimplePromo/Promo/title"
 SharedFields:
 - ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
   Hint: Source
@@ -26,29 +26,6 @@ Languages:
     Hint: __Display name
     Value: PromoText
   Versions:
-  - Version: 1
-    Fields:
-    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Hint: __Created
-      Value: 20240306T140630Z
-    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
-      Hint: __Owner
-      Value: |
-        sitecore\Admin
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        sitecore\Admin
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "db79d5ff-89c7-4d04-b524-629efed76db9"
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\Admin
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20240306T140630Z
   - Version: 2
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
@@ -81,24 +58,6 @@ Languages:
     Hint: __Display name
     Value: Heading
   Versions:
-  - Version: 1
-    Fields:
-    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Hint: __Created
-      Value: 20111213T193500Z
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "4216717e-fda7-4cd5-96f9-4f9de8004895"
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\Admin
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20240319T163155Z
-    - ID: "fa622538-0c13-4130-a001-45984241aa00"
-      Hint: Enable Language Fallback
-      Value: 1
   - Version: 2
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
@@ -106,14 +65,14 @@ Languages:
       Value: 20111213T193500Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "4216717e-fda7-4cd5-96f9-4f9de8004895"
+      Value: "76e25159-12e7-46e8-995f-36207ded977b"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\Admin
+        sitecore\kaitlyn.folsom@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240319T163155Z
+      Value: 20260507T004254Z
     - ID: "fa622538-0c13-4130-a001-45984241aa00"
       Hint: Enable Language Fallback
       Value: 1
@@ -126,29 +85,6 @@ Languages:
     Hint: __Display name
     Value: プロモ テキスト
   Versions:
-  - Version: 1
-    Fields:
-    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Hint: __Created
-      Value: 20240306T140630Z
-    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
-      Hint: __Owner
-      Value: |
-        sitecore\Admin
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        sitecore\Admin
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "db79d5ff-89c7-4d04-b524-629efed76db9"
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\Admin
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20240306T140630Z
   - Version: 2
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
@@ -181,29 +117,6 @@ Languages:
     Hint: __Display name
     Value: 促销文字
   Versions:
-  - Version: 1
-    Fields:
-    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Hint: __Created
-      Value: 20240306T140630Z
-    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
-      Hint: __Owner
-      Value: |
-        sitecore\Admin
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        sitecore\Admin
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "db79d5ff-89c7-4d04-b524-629efed76db9"
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\Admin
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20240306T140630Z
   - Version: 2
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
