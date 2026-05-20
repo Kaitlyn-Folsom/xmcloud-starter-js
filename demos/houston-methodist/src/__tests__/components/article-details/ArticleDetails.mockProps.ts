@@ -45,10 +45,11 @@ const createMockPage = (routeFields: Record<string, unknown> | null): Page => ({
         ? {
             name: 'Test Article',
             fields: routeFields,
+            placeholders: {},
           }
         : null,
     },
-  },
+  } as Page['layout'],
   locale: 'en',
 });
 

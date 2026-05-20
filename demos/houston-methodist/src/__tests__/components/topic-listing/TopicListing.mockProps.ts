@@ -107,6 +107,48 @@ export const defaultProps: TopicListingProps = {
   page: mockPage,
 };
 
+// Props with transparent background theme
+export const propsWithTransparentTheme: TopicListingProps = {
+  fields: {
+    data: {
+      datasource: {
+        title: {
+          jsonValue: mockTitle,
+        },
+        children: {
+          results: [mockTopicItem1, mockTopicItem2, mockTopicItem3],
+        },
+      },
+    },
+  },
+  params: {
+    backgroundTheme: 'transparent',
+  },
+  rendering: mockRendering,
+  page: mockPage,
+};
+
+// Props with light background theme
+export const propsWithLightTheme: TopicListingProps = {
+  fields: {
+    data: {
+      datasource: {
+        title: {
+          jsonValue: mockTitle,
+        },
+        children: {
+          results: [mockTopicItem1, mockTopicItem2, mockTopicItem3],
+        },
+      },
+    },
+  },
+  params: {
+    backgroundTheme: 'light',
+  },
+  rendering: mockRendering,
+  page: mockPage,
+};
+
 // Props without shooting star theme
 export const propsWithoutShootingStar: TopicListingProps = {
   fields: {

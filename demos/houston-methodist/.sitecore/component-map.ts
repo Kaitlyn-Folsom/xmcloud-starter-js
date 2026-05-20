@@ -10,6 +10,7 @@ import * as VideoModaldev from 'src/components/video/VideoModal.dev';
 import * as Video from 'src/components/video/Video';
 import * as verticalimageaccordionprops from 'src/components/vertical-image-accordion/vertical-image-accordion.props';
 import * as VerticalImageAccordion from 'src/components/vertical-image-accordion/VerticalImageAccordion';
+import * as topiclistingutil from 'src/components/topic-listing/topic-listing.util';
 import * as topiclistingprops from 'src/components/topic-listing/topic-listing.props';
 import * as TopicListing from 'src/components/topic-listing/TopicListing';
 import * as TopicItemdev from 'src/components/topic-listing/TopicItem.dev';
@@ -147,7 +148,7 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['Video', { ...Video, componentType: 'client' }],
   ['vertical-image-accordion', { ...verticalimageaccordionprops }],
   ['VerticalImageAccordion', { ...VerticalImageAccordion, componentType: 'client' }],
-  ['topic-listing', { ...topiclistingprops }],
+  ['topic-listing', { ...topiclistingutil, ...topiclistingprops }],
   ['TopicListing', { ...TopicListing }],
   ['TopicItem', { ...TopicItemdev }],
   ['theme-provider', { ...themeproviderdev }],

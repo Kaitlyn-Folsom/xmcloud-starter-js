@@ -67,30 +67,17 @@ export const PromoAnimatedImageRight: React.FC<PromoAnimatedProps> = (props) => 
           <div className="promo-animated__image @md:flex @md:justify-start @md:order-2 w-full">
             {image && (
               <div
-                className="@md:max-w-[452px] @xs:mx-0 relative mx-auto aspect-square h-full w-full max-w-[350px] rounded-r-full group-[.position-center]:mx-auto group-[.position-right]:ml-auto"
+                className=" @xs:mx-0 relative mx-auto aspect-square h-full w-full rounded-r-full group-[.position-center]:mx-auto group-[.position-right]:ml-auto"
                 ref={imageRef}
               >
-                <div className={imageBgOptions({ colorScheme, className: 'left-1/2' })} />
                 <ImageWrapper
                   image={image}
-                  className="@md:max-w-[452px] aspect-square w-full rounded-full object-cover"
-                  wrapperClass="relative aspect-square w-full overflow-hidden rounded-full"
+                  className=" aspect-square w-full object-cover"
+                  wrapperClass="relative aspect-square w-full overflow-hidden "
                   emptyFieldEditingComponent={PromoAnimatedEmptyImageEditing}
                   sizes="(min-width: 768px) 452px, 350px"
                   priority={true}
                 />
-                <AnimatedSection
-                  animationType="rotate"
-                  className="pointer-events-none absolute bottom-0 aspect-square h-full w-full rotate-0"
-                  divWithImage={imageRef}
-                  reducedMotion={prefersReducedMotion}
-                  isPageEditing={isPageEditing}
-                >
-                  <div
-                    className={spriteOptions({ colorScheme })}
-                    style={{ clipPath: 'polygon(0 0, 50% 0, 50% 100%, 0 100%)' }}
-                  />
-                </AnimatedSection>
               </div>
             )}
           </div>
@@ -100,7 +87,7 @@ export const PromoAnimatedImageRight: React.FC<PromoAnimatedProps> = (props) => 
               <AnimatedSection reducedMotion={prefersReducedMotion} isPageEditing={isPageEditing}>
                 <Text
                   tag="h2"
-                  className="font-heading @sm:text-5xl @lg:text-6xl -ml-1 mt-6 max-w-[15.5ch] text-4xl font-normal leading-[1.1333] tracking-tighter group-[.position-center]:mx-auto group-[.position-right]:ml-auto"
+                  className="font-heading @sm:text-4xl -ml-1 mt-6 text-4xl font-normal leading-[1.1333] tracking-tighter group-[.position-center]:mx-auto group-[.position-right]:ml-auto"
                   field={title}
                 />
               </AnimatedSection>

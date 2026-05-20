@@ -3,84 +3,30 @@ import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Flex } from '@/components/flex/Flex.dev';
 import { Link, Text } from '@sitecore-content-sdk/nextjs';
-import { cva } from 'class-variance-authority';
 import { NoDataFallback } from '@/utils/NoDataFallback';
 import { getDescriptiveLinkText } from '@/utils/link-text';
+
+/* Text Banner 02 – Light blue wash, text centered */
 
 export const Default: React.FC<TextBannerProps> = (props) => {
   const { fields, params, page } = props;
 
   const { heading, description, link, link2, image } = fields ?? {};
-  const { excludeTopMargin, theme } = params ?? {};
+  const { excludeTopMargin } = params ?? {};
   const isPageEditing = page?.mode?.isEditing ?? false;
 
-  const componentTheme = cva('p-5 mt-4', {
-    variants: {
-      theme: {
-        dark: 'bg-dark text-dark-foreground',
-        light: 'bg-gray-100 text-black',
-        primary: 'bg-primary text-primary-foreground',
-        secondary: 'bg-secondary text-secondary-foreground',
-        muted: 'bg-muted text-muted-foreground',
-        accent: 'bg-accent text-accent-foreground',
-      },
-      background: {
-        image: 'bg-cover bg-center',
-        color: '',
-      },
-    },
-    compoundVariants: [
-      {
-        theme: 'primary',
-        background: 'image',
-        className: 'bg-img-primary text-primary-foreground',
-      },
-      {
-        theme: 'secondary',
-        background: 'image',
-        className: 'bg-img-secondary text-secondary-foreground',
-      },
-      {
-        theme: 'muted',
-        background: 'image',
-        className: 'bg-img-muted text-muted-foreground',
-      },
-      {
-        theme: 'light',
-        background: 'image',
-        className: 'bg-img-light text-light-foreground',
-      },
-      {
-        theme: 'dark',
-        background: 'image',
-        className: 'bg-img-dark text-dark-foreground',
-      },
-      {
-        theme: 'accent',
-        background: 'image',
-        className: 'bg-img-accent text-accent-foreground',
-      },
-    ],
-    defaultVariants: {
-      theme: 'primary',
-      background: 'color',
-    },
-  });
-
-  const backgroundImageStyle = image?.value?.src
-    ? { '--bg-img': `url(${image?.value.src})` }
+  const imageSrc = image?.value?.src;
+  const hasBackgroundImage = Boolean(imageSrc);
+  const backgroundImageStyle = hasBackgroundImage
+    ? { '--bg-img': `url(${imageSrc})` }
     : {};
-  type BackgroundType = 'image' | 'color';
-  const backgroundType: BackgroundType = image?.value?.src ? 'image' : 'color';
+
   if (fields) {
     return (
       <section
         className={cn(
-          componentTheme({
-            background: backgroundType,
-            theme: theme,
-            className: 'relative content-center overflow-hidden rounded',
-          }),
+          'hm-section-wash relative mt-4 overflow-hidden rounded p-5 text-primary',
+          hasBackgroundImage ? 'bg-img-light bg-cover bg-center text-light-foreground' : '',
           {
             'mt-0': excludeTopMargin,
             [props?.params?.styles]: props?.params?.styles,

@@ -1,8 +1,10 @@
 import { Field, LinkField } from '@sitecore-content-sdk/nextjs';
 import { ComponentProps } from '@/lib/component-props';
+import { TopicListingBackgroundTheme } from '@/enumerations/TopicListingBackgroundTheme.enum';
+import { EnumValues } from '@/enumerations/generic.enum';
 
 export interface TopicListingParams {
-  backgroundTheme: string;
+  backgroundTheme?: EnumValues<typeof TopicListingBackgroundTheme>;
   [key: string]: any; // eslint-disable-line @typescript-eslint/no-explicit-any
 }
 
@@ -26,5 +28,6 @@ export type TopicItemProps = {
   link?: {
     jsonValue?: LinkField;
   };
+  backgroundTheme?: EnumValues<typeof TopicListingBackgroundTheme>;
   isPageEditing?: boolean;
 };

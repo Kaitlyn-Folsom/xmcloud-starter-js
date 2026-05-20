@@ -1,10 +1,10 @@
 import { ImageField, Field, LinkField } from '@sitecore-content-sdk/nextjs';
 import { EnumValues } from '@/enumerations/generic.enum';
-import { ColorSchemeLimited } from '@/enumerations/ColorSchemeLimited.enum';
+import { PageHeaderColorScheme } from '@/enumerations/PageHeaderColorScheme.enum';
 import { ComponentProps } from '@/lib/component-props';
 
 interface PageHeaderParams {
-  colorScheme?: EnumValues<typeof ColorSchemeLimited> | 'default';
+  colorScheme?: EnumValues<typeof PageHeaderColorScheme>;
   darkPlayIcon?: '0' | '1';
   [key: string]: any; // eslint-disable-line
 }

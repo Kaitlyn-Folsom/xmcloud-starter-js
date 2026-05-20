@@ -1,6 +1,5 @@
 import { Field, ImageField, LinkField, Page, PageMode, ComponentRendering } from '@sitecore-content-sdk/nextjs';
-import { EnumValues } from '@/enumerations/generic.enum';
-import { ColorSchemeLimited } from '@/enumerations/ColorSchemeLimited.enum';
+import { PageHeaderColorScheme } from '@/enumerations/PageHeaderColorScheme.enum';
 import { PageHeaderProps } from '@/components/page-header/page-header.props';
 
 // Mock page objects
@@ -251,25 +250,25 @@ export const mockFieldsWithoutSubtitle: PageHeaderProps['fields'] = {
 
 // Mock params
 export const mockParamsDefault: PageHeaderProps['params'] = {
-  colorScheme: 'default' as EnumValues<typeof ColorSchemeLimited> | 'default',
+  colorScheme: PageHeaderColorScheme.DEFAULT,
   darkPlayIcon: '0' as '0' | '1',
   RenderingIdentifier: 'page-header-rendering-id',
 };
 
-export const mockParamsPrimary: PageHeaderProps['params'] = {
-  colorScheme: 'primary' as EnumValues<typeof ColorSchemeLimited>,
+export const mockParamsLight: PageHeaderProps['params'] = {
+  colorScheme: PageHeaderColorScheme.LIGHT,
   darkPlayIcon: '0' as '0' | '1',
   RenderingIdentifier: 'page-header-rendering-id',
 };
 
-export const mockParamsSecondary: PageHeaderProps['params'] = {
-  colorScheme: 'secondary' as EnumValues<typeof ColorSchemeLimited>,
+export const mockParamsDark: PageHeaderProps['params'] = {
+  colorScheme: PageHeaderColorScheme.DARK,
   darkPlayIcon: '1' as '0' | '1',
   RenderingIdentifier: 'page-header-rendering-id',
 };
 
 export const mockParamsWithDarkIcon: PageHeaderProps['params'] = {
-  colorScheme: 'default' as EnumValues<typeof ColorSchemeLimited> | 'default',
+  colorScheme: PageHeaderColorScheme.DEFAULT,
   darkPlayIcon: '1' as '0' | '1',
   RenderingIdentifier: 'page-header-rendering-id',
 };
@@ -287,15 +286,15 @@ export const defaultProps: PageHeaderProps = {
   page: mockPageBase,
 };
 
-export const propsPrimaryColorScheme: PageHeaderProps = {
-  params: mockParamsPrimary,
+export const propsLightColorScheme: PageHeaderProps = {
+  params: mockParamsLight,
   fields: mockFields,
   rendering: mockRendering,
   page: mockPageBase,
 };
 
-export const propsSecondaryColorScheme: PageHeaderProps = {
-  params: mockParamsSecondary,
+export const propsDarkColorScheme: PageHeaderProps = {
+  params: mockParamsDark,
   fields: mockFields,
   rendering: mockRendering,
   page: mockPageBase,

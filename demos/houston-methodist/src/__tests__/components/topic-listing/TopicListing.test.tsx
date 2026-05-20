@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { Default as TopicListing } from '@/components/topic-listing/TopicListing';
-import type { Field, LinkField } from '@sitecore-content-sdk/nextjs';
+import type { ComponentParams, Field, LinkField } from '@sitecore-content-sdk/nextjs';
 import {
   defaultProps,
   propsWithoutShootingStar,
@@ -13,6 +13,8 @@ import {
   propsWithoutFields,
   propsWithUndefinedFields,
   propsWithMixedTopics,
+  propsWithLightTheme,
+  propsWithTransparentTheme,
 } from './TopicListing.mockProps';
 
 // Type definitions for mock components
@@ -142,6 +144,13 @@ describe('TopicListing Component', () => {
 
       const mainContainer = container.firstChild as HTMLElement;
       expect(mainContainer).toHaveAttribute('data-class-change');
+    });
+
+    it('should expose resolved background theme for debugging', () => {
+      const { container } = render(<TopicListing {...propsWithTransparentTheme} />);
+
+      const mainContainer = container.firstChild as HTMLElement;
+      expect(mainContainer).toHaveAttribute('data-background-theme', 'transparent');
     });
 
     it('should apply responsive padding classes', () => {
@@ -338,11 +347,56 @@ describe('TopicListing Component', () => {
   });
 
   describe('Theme and styling', () => {
-    it('should apply primary background', () => {
+    it('should apply primary background by default', () => {
       const { container } = render(<TopicListing {...defaultProps} />);
 
       const mainContainer = container.firstChild as HTMLElement;
       expect(mainContainer).toHaveClass('bg-primary', 'text-primary-foreground');
+    });
+
+    it('should apply light blue wash when backgroundTheme is light', () => {
+      const { container } = render(<TopicListing {...propsWithLightTheme} />);
+
+      const mainContainer = container.firstChild as HTMLElement;
+      expect(mainContainer).toHaveClass('hm-section-wash', 'text-primary');
+    });
+
+    it('should apply primary title color on light background', () => {
+      render(<TopicListing {...propsWithLightTheme} />);
+
+      const title = screen.getByText('Explore Our Topics');
+      expect(title).toHaveClass('text-primary');
+      expect(title).not.toHaveClass('text-white');
+    });
+
+    it('should apply transparent background with dark title when backgroundTheme is transparent', () => {
+      const { container } = render(<TopicListing {...propsWithTransparentTheme} />);
+
+      const mainContainer = container.firstChild as HTMLElement;
+      expect(mainContainer).toHaveClass('bg-transparent', 'text-foreground');
+
+      const title = screen.getByText('Explore Our Topics');
+      expect(title).toHaveClass('text-foreground');
+      expect(title).not.toHaveClass('text-white');
+    });
+
+    it('should read backgroundTheme from rendering.params when provided as a Field', () => {
+      const { container } = render(
+        <TopicListing
+          {...defaultProps}
+          params={{}}
+          rendering={{
+            ...defaultProps.rendering,
+            params: {
+              backgroundTheme: { value: 'transparent' },
+            } as unknown as ComponentParams,
+          }}
+        />
+      );
+
+      const mainContainer = container.firstChild as HTMLElement;
+      expect(mainContainer).toHaveClass('bg-transparent');
+      expect(mainContainer).toHaveAttribute('data-background-theme', 'transparent');
     });
 
     it('should have overflow hidden for background effects', () => {

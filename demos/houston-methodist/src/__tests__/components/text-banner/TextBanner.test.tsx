@@ -426,6 +426,20 @@ describe('TextBanner Component', () => {
       expect(centeredContainer).toBeInTheDocument();
     });
 
+    it('should render with light blue background and primary text', () => {
+      const { container } = render(<TextBanner02 {...propsWithoutImage} />);
+
+      const section = container.querySelector('section');
+      expect(section).toHaveClass('hm-section-wash', 'text-primary');
+    });
+
+    it('should render with light image overlay when a background image is set', () => {
+      const { container } = render(<TextBanner02 {...defaultProps} />);
+
+      const section = container.querySelector('section');
+      expect(section).toHaveClass('text-light-foreground', 'bg-img-light');
+    });
+
     it('should render heading in h2 tag', () => {
       const { container } = render(<TextBanner02 {...defaultProps} />);
 

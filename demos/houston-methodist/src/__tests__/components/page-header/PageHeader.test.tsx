@@ -5,8 +5,8 @@ import type { PageHeaderProps } from '@/components/page-header/page-header.props
 import type { ImageField, LinkField } from '@sitecore-content-sdk/nextjs';
 import {
   defaultProps,
-  propsPrimaryColorScheme,
-  propsSecondaryColorScheme,
+  propsLightColorScheme,
+  propsDarkColorScheme,
   propsWithDarkIcon,
   propsWithoutVideo,
   propsWithoutLogos,
@@ -231,7 +231,7 @@ describe('PageHeader Component', () => {
       const { container } = render(<PageHeader {...defaultProps} />);
 
       const section = container.querySelector('section');
-      expect(section).toHaveClass('@container', 'my-10', 'flex', 'flex-col');
+      expect(section).toHaveClass('@container', 'my-10', 'bg-transparent');
     });
 
     it('should render grid layout', () => {
@@ -250,25 +250,29 @@ describe('PageHeader Component', () => {
   });
 
   describe('Color schemes', () => {
-    it('should apply default color scheme', () => {
+    it('should apply default color scheme with transparent background', () => {
       const { container } = render(<PageHeader {...defaultProps} />);
 
       const section = container.querySelector('section');
-      expect(section).not.toHaveClass('bg-primary', 'bg-secondary');
+      expect(section).toHaveClass('bg-transparent');
+      expect(section).not.toHaveClass('hm-section-wash', 'bg-dark');
     });
 
-    it('should apply primary color scheme', () => {
-      const { container } = render(<PageHeader {...propsPrimaryColorScheme} />);
+    it('should apply light color scheme with light blue background', () => {
+      const { container } = render(<PageHeader {...propsLightColorScheme} />);
 
       const section = container.querySelector('section');
-      expect(section).toHaveClass('bg-primary', 'text-primary-foreground');
+      expect(section).toHaveClass('hm-section-wash');
     });
 
-    it('should apply secondary color scheme', () => {
-      const { container } = render(<PageHeader {...propsSecondaryColorScheme} />);
+    it('should apply dark color scheme with dark blue background and white text', () => {
+      const { container } = render(<PageHeader {...propsDarkColorScheme} />);
 
       const section = container.querySelector('section');
-      expect(section).toHaveClass('bg-secondary', 'text-secondary-foreground');
+      expect(section).toHaveClass('bg-dark', 'text-dark-foreground');
+
+      const heading = container.querySelector('h1');
+      expect(heading).toHaveClass('text-dark-foreground');
     });
   });
 

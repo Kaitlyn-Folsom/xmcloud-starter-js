@@ -1,25 +1,75 @@
 import { Meteors } from '@/components/magicui/meteors';
 import type React from 'react';
 import { Text } from '@sitecore-content-sdk/nextjs';
+import { cva } from 'class-variance-authority';
 import { TopicListingProps } from './topic-listing.props';
 import { NoDataFallback } from '@/utils/NoDataFallback';
 import { TopicItem } from './TopicItem.dev';
+import { TopicListingBackgroundTheme } from '@/enumerations/TopicListingBackgroundTheme.enum';
+import { getTopicListingBackgroundTheme } from './topic-listing.util';
+import { cn } from '@/lib/utils';
+
+const topicListingSectionClasses = cva(
+  '@container relative overflow-hidden py-24 md:pb-[128px] md:pt-28',
+  {
+    variants: {
+      backgroundTheme: {
+        [TopicListingBackgroundTheme.DEFAULT]: 'bg-primary text-primary-foreground',
+        [TopicListingBackgroundTheme.PRIMARY]: 'bg-primary text-primary-foreground',
+        [TopicListingBackgroundTheme.SECONDARY]: 'bg-secondary text-primary',
+        [TopicListingBackgroundTheme.LIGHT]: 'hm-section-wash text-primary',
+        [TopicListingBackgroundTheme.SHOOTING_STAR]: 'bg-primary text-primary-foreground',
+        [TopicListingBackgroundTheme.TRANSPARENT]: 'bg-transparent text-foreground',
+      },
+    },
+    defaultVariants: {
+      backgroundTheme: TopicListingBackgroundTheme.DEFAULT,
+    },
+  }
+);
+
+const topicListingTitleClasses = cva(
+  'font-heading @sm:text-5xl @md:text-5xl text-4xl font-semibold leading-tight tracking-normal',
+  {
+    variants: {
+      backgroundTheme: {
+        [TopicListingBackgroundTheme.DEFAULT]: 'text-white',
+        [TopicListingBackgroundTheme.PRIMARY]: 'text-white',
+        [TopicListingBackgroundTheme.SECONDARY]: 'text-primary',
+        [TopicListingBackgroundTheme.LIGHT]: 'text-primary',
+        [TopicListingBackgroundTheme.SHOOTING_STAR]: 'text-white',
+        [TopicListingBackgroundTheme.TRANSPARENT]: 'text-foreground',
+      },
+    },
+    defaultVariants: {
+      backgroundTheme: TopicListingBackgroundTheme.DEFAULT,
+    },
+  }
+);
 
 export const Default: React.FC<TopicListingProps> = (props) => {
-  const {
-    fields,
-    params: { backgroundTheme },
-    page
-  } = props;
+  const { fields, params, rendering, page } = props;
   const { title, children } = fields?.data?.datasource ?? {};
+
+  const mergedParams = {
+    ...(rendering?.params as Record<string, unknown> | undefined),
+    ...(params as Record<string, unknown> | undefined),
+  };
+  const backgroundTheme = getTopicListingBackgroundTheme(mergedParams);
+  const showMeteors = backgroundTheme === TopicListingBackgroundTheme.SHOOTING_STAR;
 
   if (fields) {
     return (
       <div
-        className="@container bg-primary text-primary-foreground relative overflow-hidden py-24 md:pb-[128px] md:pt-28"
+        data-component="TopicListing"
+        data-background-theme={backgroundTheme}
+        className={cn(
+          { [mergedParams.styles as string]: mergedParams.styles },
+          topicListingSectionClasses({ backgroundTheme })
+        )}
         data-class-change
       >
-        {backgroundTheme === 'shooting-star' && (
+        {showMeteors && (
           <div
             className="absolute inset-0 z-10"
             style={
@@ -47,7 +97,7 @@ export const Default: React.FC<TopicListingProps> = (props) => {
                 <Text
                   tag="h2"
                   field={title?.jsonValue}
-                  className="font-heading @sm:text-5xl @md:text-6xl @lg:text-7xl text-4xl font-semibold leading-tight tracking-normal text-white"
+                  className={topicListingTitleClasses({ backgroundTheme })}
                 />
               )}
             </div>
@@ -57,6 +107,7 @@ export const Default: React.FC<TopicListingProps> = (props) => {
                   <TopicItem
                     key={index}
                     {...topic}
+                    backgroundTheme={backgroundTheme}
                     isPageEditing={page?.mode?.isEditing}
                   />
                 ))}

@@ -10,17 +10,49 @@ import { VideoBase as Video } from '@/components/video/Video';
 import { Default as ImageWrapper } from '@/components/image/ImageWrapper.dev';
 import { cva } from 'class-variance-authority';
 
-const pageHeaderComponentClasses = cva(
-  '@container my-10 flex flex-col md:grid md:gap-8 md:items-center px-4 @xl:px-8',
+const pageHeaderComponentClasses = cva('@container my-10 px-4 @xl:px-8', {
+  variants: {
+    colorScheme: {
+      default: 'bg-transparent',
+      light: 'hm-section-wash py-10 @md:py-12',
+      dark: 'bg-dark py-10 text-dark-foreground @md:py-12',
+    },
+  },
+  defaultVariants: {
+    colorScheme: 'default',
+  },
+});
+
+const pageHeaderTitleClasses = cva(
+  'font-heading @md:text-4xl text-pretty text-3xl font-bold leading-tight tracking-tight',
   {
     variants: {
       colorScheme: {
-        default: '',
-        primary: 'bg-primary text-primary-foreground',
-        secondary: 'bg-secondary text-secondary-foreground',
+        default: 'text-primary',
+        light: 'text-primary',
+        dark: 'text-dark-foreground',
       },
     },
-  },
+    defaultVariants: {
+      colorScheme: 'default',
+    },
+  }
+);
+
+const pageHeaderSubtitleClasses = cva(
+  'line-height[26px] max-w-[547px] text-lg font-medium tracking-tight',
+  {
+    variants: {
+      colorScheme: {
+        default: 'text-foreground',
+        light: 'text-foreground',
+        dark: 'text-dark-foreground [&_a]:text-dark-foreground',
+      },
+    },
+    defaultVariants: {
+      colorScheme: 'default',
+    },
+  }
 );
 
 export const Default: React.FC<PageHeaderProps> = ({
@@ -50,25 +82,36 @@ export const Default: React.FC<PageHeaderProps> = ({
 
     return (
       <section className={containerClasses}>
-        <div className="@md:grid-cols-2 @lg:gap-12 mx-auto grid w-full grid-cols-1 gap-8">
-          {/* Left */}
-          <div className="flex flex-col justify-between">
+        <div className="@md:grid-cols-2 @lg:gap-12 mx-auto grid w-full max-w-screen-xl grid-cols-1 items-center gap-8">
+          {/* Left: title, subtitle, optional logos */}
+          <div className="flex flex-col justify-center gap-6">
             <AnimatedSection
               reducedMotion={prefersReducedMotion}
               isPageEditing={isPageEditing}
             >
               <Text
                 tag="h1"
-                className="font-heading text-primary @md:text-4xl @lg:text-5xl text-pretty text-3xl font-bold leading-tight tracking-tight"
+                className={pageHeaderTitleClasses({ colorScheme })}
                 field={title}
               />
             </AnimatedSection>
+            {(subtitle?.value || isPageEditing) && (
+              <AnimatedSection
+                reducedMotion={prefersReducedMotion}
+                isPageEditing={isPageEditing}
+              >
+                <RichText
+                  className={pageHeaderSubtitleClasses({ colorScheme })}
+                  field={subtitle}
+                />
+              </AnimatedSection>
+            )}
             {children?.results && (
               <AnimatedSection
                 reducedMotion={prefersReducedMotion}
                 isPageEditing={isPageEditing}
               >
-                <div className="@md:mt-16 mt-4 flex max-w-[504px] flex-col gap-6">
+                <div className="@md:mt-4 mt-4 flex max-w-[504px] flex-col gap-6">
                   <Text
                     tag="p"
                     className="letter-spacing-[-0.4%] line-height-[24px] text-base font-medium"
@@ -85,22 +128,13 @@ export const Default: React.FC<PageHeaderProps> = ({
               </AnimatedSection>
             )}
           </div>
-          {/* Right */}
-          <div className="flex flex-col justify-end gap-10">
+          {/* Right: image or video */}
+          <div>
             <AnimatedSection
               reducedMotion={prefersReducedMotion}
               isPageEditing={isPageEditing}
             >
-              <RichText
-                className="line-height[26px] @lg:ms-auto max-w-[547px] text-lg font-medium tracking-tight"
-                field={subtitle}
-              />
-            </AnimatedSection>
-            <AnimatedSection
-              reducedMotion={prefersReducedMotion}
-              isPageEditing={isPageEditing}
-            >
-              <div className="@md:rounded-[22px] @lg:ms-auto relative max-w-[547px] overflow-hidden rounded-xl">
+              <div className="@md:rounded-[22px] relative overflow-hidden rounded-xl">
                 {videoOptional?.jsonValue?.value?.href ? (
                   <Video
                     fields={{
