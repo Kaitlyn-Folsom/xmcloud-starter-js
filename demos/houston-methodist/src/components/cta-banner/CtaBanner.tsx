@@ -26,18 +26,18 @@ type CtaBannerFields = {
 
 type CtaBannerProps = ComponentProps & CtaBannerFields & CtaBannerParams;
 
-const ctaBannerVariants = cva('w-full mx-auto px-6 py-16 md:py-24 text-center', {
+const ctaBannerVariants = cva('w-full mx-auto px-6 py-12 @md:py-16 text-center', {
   variants: {
     colorScheme: {
-      default: '',
+      default: 'hm-section-wash',
       primary: 'bg-primary text-primary-foreground',
-      secondary: 'bg-secondary text-secondary-foreground',
+      secondary: 'bg-secondary text-primary',
     },
   },
 });
 
 const ctaTitleVariants = cva(
-  'mb-6 text-pretty text-4xl font-normal leading-[1.1333] tracking-tighter antialiased md:text-7xl',
+  'mb-6 text-pretty text-3xl font-semibold leading-tight tracking-tight antialiased @md:text-4xl',
   {
     variants: {
       colorScheme: {
@@ -49,11 +49,11 @@ const ctaTitleVariants = cva(
   }
 );
 
-const ctaButtonVariants = cva('text-sm font-heading font-medium', {
+const ctaButtonVariants = cva('rounded-none text-sm font-heading font-medium', {
   variants: {
     colorScheme: {
-      default: '',
-      primary: 'bg-accent text-accent-foreground hover:bg-accent/90',
+      default: 'bg-accent text-white hover:bg-accent/90 [&_a]:text-white hover:[&_a]:text-white',
+      primary: 'bg-accent text-white hover:bg-accent/90 [&_a]:text-white hover:[&_a]:text-white',
       secondary: 'bg-primary text-primary-foreground hover:bg-primary/90',
     },
   },

@@ -33,69 +33,72 @@ export const Default: React.FC<SubscriptionBannerProps> = ({ fields }) => {
   });
 
   const onSubmit = async (data: FormValues) => {
-    // Handle form submission
     console.log(data);
     setIsSubmitted(true);
-    // Reset the form to clear the input, then set the thank you message
     form.reset({ email: dictionary.EMAIL_SUCCESS_MESSAGE || 'Thank you' });
   };
 
   return (
-    <section className="mx-auto w-full px-4 py-16 text-center">
-      <div className="@container mx-auto max-w-5xl">
-        {titleRequired && (
-          <Text
-            tag="h2"
-            field={titleRequired}
-            className="text-primary font-heading mb-6 font-normal leading-tight tracking-tight [font-size:clamp(theme(fontSize.3xl),5cqi,theme(fontSize.7xl))]"
-          />
-        )}
-        {descriptionOptional && (
-          <Text
-            tag="p"
-            field={descriptionOptional}
-            className="font-body text-secondary-foreground mb-12 text-lg"
-          />
-        )}
-        <Form {...form}>
-          <form
-            onSubmit={form.handleSubmit(onSubmit)}
-            className="mx-auto flex max-w-md flex-col items-center justify-center gap-6"
-          >
-            <FormField
-              control={form.control}
-              name="email"
-              rules={{
-                required: 'Email is required',
-                pattern: {
-                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                  message: dictionary.EMAIL_ERROR_MESSAGE || 'Email format is invalid',
-                },
-              }}
-              render={({ field }) => (
-                <FormItem className="w-full">
-                  <FormControl>
-                    <Input
-                      type="email"
-                      placeholder={dictionary.EMAIL_PLACEHOLDER || 'Enter your email address'}
-                      className="border-input w-full flex-1 rounded-full px-6 py-3"
-                      disabled={isSubmitted}
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage className="text-destructive mt-2 text-sm" />
-                </FormItem>
-              )}
-            />
-            <Button
-              type="submit"
-              className="flex-1 rounded-full px-8 py-2.5"
-              disabled={isSubmitted}
+    <section className="bg-primary text-primary-foreground mx-auto w-full px-4 py-12 @md:py-14">
+      <div className="@container @xl:px-8 mx-auto max-w-screen-xl">
+        <div className="@md:flex @md:items-center @md:justify-between @md:gap-8">
+          <div className="@md:max-w-md">
+            {titleRequired && (
+              <Text
+                tag="h2"
+                field={titleRequired}
+                className="font-heading mb-2 text-2xl font-semibold @md:text-3xl"
+              />
+            )}
+            {descriptionOptional && (
+              <Text
+                tag="p"
+                field={descriptionOptional}
+                className="font-body text-primary-foreground/90 text-sm @md:text-base"
+              />
+            )}
+          </div>
+          <Form {...form}>
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="@md:flex-row mt-6 flex w-full flex-col items-stretch gap-3 @md:mt-0 @md:max-w-lg @md:flex-1 @md:justify-end"
             >
-              {dictionary.CTALABEL || 'Subscribe'}
-            </Button>
-          </form>
-        </Form>
+              <FormField
+                control={form.control}
+                name="email"
+                rules={{
+                  required: 'Email is required',
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    message: dictionary.EMAIL_ERROR_MESSAGE || 'Email format is invalid',
+                  },
+                }}
+                render={({ field }) => (
+                  <FormItem className="flex-1">
+                    <FormControl>
+                      <Input
+                        type="email"
+                        placeholder={dictionary.EMAIL_PLACEHOLDER || 'Enter your email address'}
+                        className="border-white/30 bg-white text-foreground h-11 w-full rounded-default px-4 placeholder:text-muted-foreground"
+                        disabled={isSubmitted}
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage className="text-destructive-foreground mt-2 text-sm" />
+                  </FormItem>
+                )}
+              />
+              <Button
+                type="submit"
+                variant="default"
+                className="h-11 shrink-0 px-8"
+                disabled={isSubmitted}
+              >
+                {dictionary.CTALABEL || 'Subscribe'}
+              </Button>
+            </form>
+          </Form>
+        </div>
       </div>
     </section>
   );

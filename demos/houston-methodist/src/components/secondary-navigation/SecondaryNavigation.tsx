@@ -66,7 +66,7 @@ export const Default: React.FC<SecondaryNavigationProps> = (props) => {
                 <Button asChild variant="link" className="justify-start">
                   <NextLink
                     href={item.url?.href || ''}
-                    className="hover:bg-accent-6 box-border inline-block w-full  p-2 px-4 font-bold"
+                    className="hover:bg-secondary text-primary box-border inline-block w-full p-2 px-4 font-semibold"
                   >
                     {title}
                   </NextLink>

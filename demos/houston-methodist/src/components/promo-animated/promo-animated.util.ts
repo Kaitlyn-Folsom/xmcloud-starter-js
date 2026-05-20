@@ -8,7 +8,7 @@ export const imageBgExtensionRenderingParams = cva(
     variants: {
       colorScheme: {
         primary: 'bg-primary',
-        secondary: 'bg-accent',
+        secondary: 'bg-secondary',
       },
     },
     defaultVariants: {
@@ -19,7 +19,7 @@ export const imageBgExtensionRenderingParams = cva(
 
 // Animated sprite in front of image
 export const animatedSpriteRenderingParams = cva(
-  ['promo-animated__sprite', 'h-full', 'w-full', 'rounded-full', 'pointer-events-none'],
+  ['promo-animated__sprite', 'h-full', 'w-full', 'rounded-md', 'pointer-events-none'],
   {
     variants: {
       colorScheme: {

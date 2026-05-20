@@ -140,7 +140,7 @@ export const Default: React.FC<TestimonialCarouselProps> = (props) => {
           <CarouselPrevious
             variant={'default'}
             className={cn(
-              '@md:h-[58px] @md:w-[58px] @md:[&_svg]:size-10 @lg:h-[116px] @lg:w-[116px] absolute top-1/2 h-[40px] w-[40px] -translate-y-1/2 rounded-full transition-all duration-300 [&_svg]:size-4',
+              '@md:h-[58px] @md:w-[58px] @md:[&_svg]:size-10 @lg:h-[116px] @lg:w-[116px] absolute top-1/2 h-[40px] w-[40px] -translate-y-1/2 rounded-none transition-all duration-300 [&_svg]:size-4',
               showPrevious ? '@md:left-[70px] @lg:left-[140px] left-[35px]' : '-left-[116px]',
               canScrollPrev
                 ? 'opacity-100'
@@ -154,7 +154,7 @@ export const Default: React.FC<TestimonialCarouselProps> = (props) => {
           <CarouselNext
             variant={'default'}
             className={cn(
-              '@md:h-[58px] @md:w-[58px] @md:[&_svg]:size-10 @lg:h-[116px] @lg:w-[116px] absolute top-1/2 h-[40px] w-[40px] -translate-y-1/2 rounded-full transition-all duration-300 [&_svg]:size-4',
+              '@md:h-[58px] @md:w-[58px] @md:[&_svg]:size-10 @lg:h-[116px] @lg:w-[116px] absolute top-1/2 h-[40px] w-[40px] -translate-y-1/2 rounded-none transition-all duration-300 [&_svg]:size-4',
               showNext ? '@md:right-[70px] @lg:right-[140px] right-[35px]' : '-right-[116px]',
               canScrollNext
                 ? 'opacity-100'

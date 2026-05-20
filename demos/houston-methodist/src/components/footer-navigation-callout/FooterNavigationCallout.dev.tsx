@@ -18,9 +18,9 @@ export const Default: React.FC<FooterNavigationCalloutProps> = ({ fields }) => {
 
   return (
     <aside>
-      <Card className="bg-accent text-accent-foreground rounded-[24px] border-none p-2 ">
+      <Card className="rounded-default border-border bg-card text-card-foreground border p-2 shadow-md">
         <CardHeader className="flex flex-row justify-between pb-4">
-          <CardTitle className="font-heading text-xl font-medium">
+          <CardTitle className="font-heading text-primary text-xl font-semibold">
             <Text tag="span" field={title} />
           </CardTitle>
         </CardHeader>
@@ -28,8 +28,9 @@ export const Default: React.FC<FooterNavigationCalloutProps> = ({ fields }) => {
           <Text field={description} className="font-body text-sm" />
           {linkOptional && (
             <Button
-              className="mt-10 block w-full text-center"
+              className="mt-6 block w-full text-center"
               buttonLink={linkOptional}
+              variant="default"
               contextTitle={title?.value}
             />
           )}

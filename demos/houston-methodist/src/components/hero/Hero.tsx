@@ -11,22 +11,26 @@ import { Default as AnimatedSection } from '@/components/animated-section/Animat
 import { Button } from '@/components/ui/button';
 import { Default as MediaSection } from '@/components/media-section/MediaSection.dev';
 import { HeroProps } from './hero.props';
+import { HeroImageBackground } from './HeroImageBackground.dev';
 
 // Define heroVariants using class-variance-authority for styling
-export const heroVariants = cva('hero @container py-24 relative w-full overflow-hidden', {
-  variants: {
-    colorScheme: {
-      primary: 'bg-primary text-primary-foreground',
-      secondary: 'bg-secondary text-primary',
-      tertiary: 'bg-tertiary text-primary',
-      dark: 'bg-dark text-primary',
-      light: 'bg-light text-primary',
+export const heroVariants = cva(
+  'hero @container relative w-full overflow-hidden py-16 @md:py-20',
+  {
+    variants: {
+      colorScheme: {
+        primary: 'bg-primary text-primary-foreground',
+        secondary: 'hm-section-wash text-primary',
+        tertiary: 'bg-tertiary text-primary',
+        dark: 'bg-dark text-dark-foreground',
+        light: 'bg-background text-primary',
+      },
     },
-  },
-  defaultVariants: {
-    colorScheme: 'light',
-  },
-});
+    defaultVariants: {
+      colorScheme: 'light',
+    },
+  }
+);
 
 export const Default: React.FC<HeroProps> = ({ fields, params, page }) => {
   // Destructure fields and params
@@ -73,7 +77,7 @@ export const Default: React.FC<HeroProps> = ({ fields, params, page }) => {
                 <Text
                   tag="h1"
                   field={titleRequired}
-                  className="font-heading @lg:text-8xl @lg:leading-[90px] basis-1/2 text-5xl font-normal leading-[60px]"
+                  className="hm-hero-headline @lg:text-5xl basis-1/2 text-3xl font-bold leading-tight @md:text-4xl"
                 />
               )}
               <div className="@lg:gap-10 flex basis-1/2  flex-col gap-8 ">
@@ -94,9 +98,7 @@ export const Default: React.FC<HeroProps> = ({ fields, params, page }) => {
                   <div>
                     <EditableButton
                       buttonLink={linkOptional}
-                      className={
-                        colorScheme === 'primary' ? 'text-primary bg-white hover:bg-gray-100' : ''
-                      }
+                      variant="default"
                       isPageEditing={isPageEditing}
                       contextTitle={titleRequired?.value}
                     />
@@ -164,4 +166,9 @@ export const Default: React.FC<HeroProps> = ({ fields, params, page }) => {
   }
 
   return <NoDataFallback componentName="Hero" />;
+};
+
+export const ImageBackground: React.FC<HeroProps> = (props) => {
+  const isPageEditing = props.page.mode.isEditing;
+  return <HeroImageBackground {...props} isPageEditing={isPageEditing} />;
 };

@@ -23,35 +23,62 @@
   h4,
   h5,
   h6 {
-    @apply font-heading;
+    @apply font-heading text-primary;
   }
 
   h1,
   .h1 {
-    @apply text-5xl font-normal @md:text-6xl;
+    @apply text-3xl font-semibold leading-tight tracking-tight @md:text-4xl @lg:text-5xl;
   }
   h2,
   .h2 {
-    @apply text-4xl font-normal @md:text-5xl;
+    @apply text-2xl font-semibold leading-snug tracking-tight @md:text-3xl;
   }
   h3,
   .h3 {
-    @apply text-3xl font-normal @md:text-4xl;
+    @apply text-xl font-semibold leading-snug @md:text-2xl;
   }
   h4,
   .h4 {
-    @apply text-2xl font-normal @md:text-3xl;
+    @apply text-lg font-semibold @md:text-xl;
   }
   h5,
   .h5 {
-    @apply text-xl font-normal @md:text-2xl;
+    @apply text-base font-semibold @md:text-lg;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground text-base leading-relaxed;
     font-feature-settings:
       'rlig' 1,
       'calt' 1;
+  }
+
+  a:not([class]) {
+    @apply text-primary underline-offset-2 hover:underline;
+  }
+}
+
+@layer components {
+  .hm-section-wash {
+    @apply bg-secondary;
+  }
+
+  .hm-hero-headline {
+    @apply font-heading text-primary uppercase tracking-wide;
+  }
+
+  .hm-nav-link {
+    @apply font-body text-primary text-sm font-semibold uppercase tracking-wider;
+  }
+
+  .hm-cta {
+    @apply bg-accent text-white hover:bg-accent/90 rounded-none font-semibold;
+  }
+
+  .hm-link-chevron::after {
+    content: ' ›';
+    @apply text-brand-accent-blue;
   }
 }
 

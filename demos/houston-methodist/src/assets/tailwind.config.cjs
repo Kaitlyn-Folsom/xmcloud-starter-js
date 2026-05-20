@@ -114,7 +114,7 @@ module.exports = {
             typography: ({ theme }) => ({
                 DEFAULT: {
                     css: {
-                        '--tw-prose-links': theme('colors.brand.DEFAULT'),
+                        '--tw-prose-links': theme('colors.primary'),
                         ...proseVars.reduce((acc, key) => ({ ...acc, [key]: 'inherit' }), {}),
                         h1: {
                             fontSize: theme('fontSize.5xl'),

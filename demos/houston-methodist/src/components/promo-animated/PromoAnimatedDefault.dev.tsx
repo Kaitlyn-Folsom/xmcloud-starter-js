@@ -11,10 +11,6 @@ import { PromoAnimatedProps } from './promo-animated.props';
 import { EnumValues } from '@/enumerations/generic.enum';
 import { ColorSchemeLimited as ColorScheme } from '@/enumerations/ColorSchemeLimited.enum';
 import { PromoAnimatedEmptyImageEditing } from './PromoAnimatedEmptyImageEditing';
-import {
-  animatedSpriteRenderingParams as spriteOptions,
-  imageBgExtensionRenderingParams as imageBgOptions,
-} from './promo-animated.util';
 
 export const PromoAnimatedDefault: React.FC<PromoAnimatedProps> = (props) => {
   const { fields, params, isPageEditing } = props;
@@ -47,27 +43,14 @@ export const PromoAnimatedDefault: React.FC<PromoAnimatedProps> = (props) => {
                 className="@md:max-w-[452px] @xs:mx-0 relative mx-auto aspect-square h-full w-full max-w-[350px] rounded-r-full group-[.position-center]:mx-auto group-[.position-right]:ml-auto"
                 ref={imageRef}
               >
-                <div className={imageBgOptions({ colorScheme, className: 'right-1/2' })} />
                 <ImageWrapper
                   image={image}
-                  className="@md:max-w-[452px] aspect-square w-full rounded-full object-cover"
-                  wrapperClass="relative aspect-square w-full overflow-hidden rounded-full"
+                  className="aspect-square w-full  object-cover"
+                  wrapperClass="relative aspect-square w-full overflow-hidden "
                   emptyFieldEditingComponent={PromoAnimatedEmptyImageEditing}
                   sizes="(min-width: 768px) 452px, 350px"
                   priority={true}
                 />
-                <AnimatedSection
-                  animationType="rotate"
-                  className="pointer-events-none absolute bottom-0 aspect-square h-full w-full rotate-0"
-                  divWithImage={imageRef}
-                  reducedMotion={prefersReducedMotion}
-                  isPageEditing={isPageEditing}
-                >
-                  <div
-                    className={spriteOptions({ colorScheme })}
-                    style={{ clipPath: 'polygon(0 0, 50% 0, 50% 100%, 0 100%)' }}
-                  />
-                </AnimatedSection>
               </div>
             )}
           </div>

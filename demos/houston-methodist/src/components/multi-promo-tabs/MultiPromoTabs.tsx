@@ -15,6 +15,12 @@ import { NoDataFallback } from '@/utils/NoDataFallback';
 import { MultiPromoTabsProps } from './multi-promo-tabs.props';
 import { Default as PromoTab } from './MultiPromoTab.dev';
 
+const sectionClassName =
+  'multi-promo-tabs @container hm-section-wash @md:p-12 @md:my-16 border-y border-border my-8 w-full px-4 group-[.is-inset]:px-4 sm:group-[.is-inset]:px-0';
+
+const titleClassName =
+  'text-box-trim-both text-box-edge-asc-baseline text-primary font-heading @md:text-4xl @sm:text-3xl mb-8 max-w-[28ch] text-pretty text-2xl font-semibold leading-tight tracking-tight';
+
 export const Default: React.FC<MultiPromoTabsProps> = (props) => {
   const [activeTab, setActiveTab] = useState(0);
   const { fields, page, isPageEditing } = props;
@@ -25,30 +31,21 @@ export const Default: React.FC<MultiPromoTabsProps> = (props) => {
 
   if (fields) {
     const tabItems = fields.data?.datasource?.children?.results ?? [];
-    // Get the initially selected tab title for the dropdown display
-    const initialTabTitle =
-      tabItems[0]?.title?.jsonValue?.value || 'Select an option';
-    // Get dropdown label text or use default
+    const initialTabTitle = tabItems[0]?.title?.jsonValue?.value || 'Select an option';
     const droplistLabelText =
-      fields.data?.datasource?.droplistLabel?.jsonValue?.value ||
-      'Select a value';
+      fields.data?.datasource?.droplistLabel?.jsonValue?.value || 'Select a value';
 
-    // When in editor mode, render all tabs stacked
     if (isEditMode) {
       return (
-        <div className="multi-promo-tabs @container bg-primary @md:p-12 @md:my-16 my-8 w-full group-[.is-inset]:px-4 sm:group-[.is-inset]:px-0">
-          <Text
-            tag="h2"
-            field={fields.data?.datasource?.title?.jsonValue}
-            className="text-box-trim-both text-box-edge-asc-baseline text-primary-foreground @md:text-6xl font-heading border-accent @sm:text-5xl -ml-1 mb-8 max-w-[20ch] text-pretty text-4xl font-normal leading-[1.1333] tracking-tighter md:max-w-[17.5ch]"
-          />
+        <div className={sectionClassName}>
+          <Text tag="h2" field={fields.data?.datasource?.title?.jsonValue} className={titleClassName} />
 
           {tabItems.map((item, index) => (
             <div
               key={index}
-              className="mb-12 border-b border-white/20 pb-12 last:mb-0 last:border-0 last:pb-0"
+              className="border-border mb-12 border-b pb-12 last:mb-0 last:border-0 last:pb-0"
             >
-              <div className="mb-4 text-xl font-medium text-white">
+              <div className="text-primary mb-4 text-xl font-semibold">
                 <Text field={item.title?.jsonValue} />
               </div>
               <PromoTab {...item} isEditMode={isEditMode} />
@@ -58,39 +55,24 @@ export const Default: React.FC<MultiPromoTabsProps> = (props) => {
       );
     }
 
-    // Normal interactive mode
     return (
-      <div className="multi-promo-tabs @container bg-primary @md:p-12 @md:my-16 my-8 w-full group-[.is-inset]:px-4 sm:group-[.is-inset]:px-0">
-        <Text
-          tag="h2"
-          field={fields.data?.datasource?.title?.jsonValue}
-          className="text-box-trim-both text-box-edge-asc-baseline text-primary-foreground @md:text-6xl font-heading border-accent @sm:text-5xl -ml-1 mb-8 max-w-[20ch] text-pretty text-4xl font-normal leading-[1.1333] tracking-tighter md:max-w-[17.5ch]"
-        />
+      <div className={sectionClassName}>
+        <Text tag="h2" field={fields.data?.datasource?.title?.jsonValue} className={titleClassName} />
 
         <div className="@md:hidden flex flex-col">
-          <label
-            htmlFor={id}
-            className="text-primary-foreground font-body mb-2 block text-base font-normal"
-          >
+          <label htmlFor={id} className="text-primary font-body mb-2 block text-sm font-medium">
             {droplistLabelText}
           </label>
           <Select
             onValueChange={(value) => setActiveTab(Number(value))}
             defaultValue={activeTab.toString()}
           >
-            <SelectTrigger
-              id={id}
-              className="text-primary-foreground w-full border-0 bg-black/20"
-            >
+            <SelectTrigger id={id} className="border-input bg-background text-foreground w-full">
               <SelectValue placeholder={initialTabTitle} />
             </SelectTrigger>
             <SelectContent>
               {tabItems.map((item, index) => (
-                <SelectItem
-                  key={index}
-                  value={index.toString()}
-                  className="capitalize"
-                >
+                <SelectItem key={index} value={index.toString()} className="capitalize">
                   {item.title?.jsonValue.value || `Tab ${index + 1}`}
                 </SelectItem>
               ))}
@@ -103,12 +85,12 @@ export const Default: React.FC<MultiPromoTabsProps> = (props) => {
           onValueChange={(value) => setActiveTab(Number(value))}
           className="w-full"
         >
-          <TabsList className="@md:flex hidden justify-start gap-2 border-0 bg-transparent">
+          <TabsList className="@md:flex hidden justify-start gap-1 border-0 bg-transparent p-0">
             {tabItems.map((item, index) => (
               <TabsTrigger
                 key={index}
                 value={index.toString()}
-                className="font-body letter-spacing-[-0.8] data-[state=active]:bg-accent data-[state=active]:text-accent-foreground data-[state=active]:hover:bg-accent/90 hover:bg-accent hover:text-accent-foreground border-accent rounded-md border bg-transparent px-4 py-2 text-base font-normal text-white transition-all duration-300"
+                className="font-body data-[state=active]:bg-primary data-[state=active]:text-primary-foreground hover:bg-secondary text-primary rounded-default border border-transparent bg-transparent px-4 py-2 text-sm font-semibold uppercase tracking-wide transition-colors"
               >
                 {item.title?.jsonValue.value || `Tab ${index + 1}`}
               </TabsTrigger>

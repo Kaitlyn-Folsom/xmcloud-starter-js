@@ -28,15 +28,17 @@ import * as MediaSectiondev from 'src/components/media-section/MediaSection.dev'
 import * as meteors from 'src/components/magicui/meteors';
 import * as LogoTabs from 'src/components/logo-tabs/LogoTabs';
 import * as nextImageSrcdev from 'src/components/image/nextImageSrc.dev';
-import * as ImageWrapperclient from 'src/components/image/ImageWrapper.client';
 import * as imageoptimizationcontext from 'src/components/image/image-optimization.context';
+import * as ImageWrapperclient from 'src/components/image/ImageWrapper.client';
 import * as Icon from 'src/components/icon/Icon';
+import * as HeroImageBackgrounddev from 'src/components/hero/HeroImageBackground.dev';
 import * as Hero from 'src/components/hero/Hero';
 import * as GlobalHeader from 'src/components/global-header/GlobalHeader';
 import * as FooterNavigationColumn from 'src/components/global-footer/FooterNavigationColumn';
 import * as floatingdockdev from 'src/components/floating-dock/floating-dock.dev';
 import * as ArticleListing from 'src/components/article-listing/ArticleListing';
 import * as ArticleHeader from 'src/components/article-header/ArticleHeader';
+import * as ArticleDetails from 'src/components/article-details/ArticleDetails';
 import * as AnimatedSectiondev from 'src/components/animated-section/AnimatedSection.dev';
 import * as AlertBannerdev from 'src/components/alert-banner/AlertBanner.dev';
 import * as AccordionBlock from 'src/components/accordion-block/AccordionBlock';
@@ -70,15 +72,17 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['meteors', { ...meteors }],
   ['LogoTabs', { ...LogoTabs }],
   ['nextImageSrc', { ...nextImageSrcdev }],
-  ['ImageWrapper', { ...ImageWrapperclient }],
   ['image-optimization', { ...imageoptimizationcontext }],
+  ['ImageWrapper', { ...ImageWrapperclient }],
   ['Icon', { ...Icon }],
+  ['HeroImageBackground', { ...HeroImageBackgrounddev }],
   ['Hero', { ...Hero }],
   ['GlobalHeader', { ...GlobalHeader }],
   ['FooterNavigationColumn', { ...FooterNavigationColumn }],
   ['floating-dock', { ...floatingdockdev }],
   ['ArticleListing', { ...ArticleListing }],
   ['ArticleHeader', { ...ArticleHeader }],
+  ['ArticleDetails', { ...ArticleDetails }],
   ['AnimatedSection', { ...AnimatedSectiondev }],
   ['AlertBanner', { ...AlertBannerdev }],
   ['AccordionBlock', { ...AccordionBlock }],

@@ -9,11 +9,11 @@ export const dynamic = 'force-dynamic';
 export async function GET(request: NextRequest): Promise<NextResponse> {
   const baseUrl = new URL(request.url).origin;
 
-  const content = `# Solterra & Co.
+  const content = `# Houston Methodist
 
-> Solterra & Co. is an editorial-style lifestyle brand site built with Next.js and Sitecore XM Cloud, featuring articles, storytelling, and content-driven experiences.
+> Houston Methodist is a leading health care system in Houston, Texas, offering hospitals, specialty care, research, and patient resources. This demo site mirrors the public web experience using Next.js and Sitecore XM Cloud.
 
-The site offers a curated reading experience with hero sections, article listings, and full article pages. Content is managed in Sitecore and delivered headlessly. Supports English and Canadian English.
+The site showcases find-care tools, service listings, health information, and patient resources. Content is managed in Sitecore and delivered headlessly.
 
 ## Key pages
 

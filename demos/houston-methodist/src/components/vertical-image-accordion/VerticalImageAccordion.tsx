@@ -40,7 +40,7 @@ export const Default: React.FC<VerticalImageAccordionProps> = ({ fields, isPageE
     if (isEditMode) {
       return (
         <div
-          className="@container bg-primary rounded-default text-primary-foreground relative mx-auto my-6 max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
+          className="@container bg-primary rounded-md text-primary-foreground relative mx-auto my-6 max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
           role="region"
           aria-label={title?.jsonValue?.value || 'Image Accordion'}
         >
@@ -65,7 +65,7 @@ export const Default: React.FC<VerticalImageAccordionProps> = ({ fields, isPageE
                   {(isEditMode || item?.image?.jsonValue?.value?.src) && (
                     <ImageWrapper
                       image={item?.image?.jsonValue}
-                      className="rounded-default h-full w-full object-cover"
+                      className="rounded-md h-full w-full object-cover"
                       wrapperClass="h-full w-full"
                       aria-hidden="true"
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -95,7 +95,7 @@ export const Default: React.FC<VerticalImageAccordionProps> = ({ fields, isPageE
                   {(isEditMode || item?.link?.jsonValue) && (
                     <>
                       {isEditMode ? (
-                        <div className="font-heading bg-secondary text-secondary-foreground mt-4 inline-flex w-fit items-center justify-center rounded px-8 py-2.5 text-sm font-medium">
+                        <div className="font-heading bg-secondary text-secondary-foreground mt-4 inline-flex w-fit items-center justify-center rounded-none px-8 py-2.5 text-sm font-medium">
                           <Link
                             field={
                               item.link?.jsonValue || {
@@ -145,7 +145,7 @@ export const Default: React.FC<VerticalImageAccordionProps> = ({ fields, isPageE
     // Normal interactive mode
     return (
       <div
-        className="@container bg-primary rounded-default text-primary-foreground relative mx-auto my-6 max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
+        className="@container bg-primary rounded-md text-primary-foreground relative mx-auto my-6 max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
         role="region"
         aria-label={title?.jsonValue?.value || 'Image Accordion'}
       >
@@ -210,7 +210,7 @@ export const Default: React.FC<VerticalImageAccordionProps> = ({ fields, isPageE
                       <div className="h-full w-full">
                         <ImageWrapper
                           image={item?.image?.jsonValue}
-                          className="rounded-default h-full w-full object-cover"
+                          className="rounded-md h-full w-full object-cover"
                           wrapperClass="h-full w-full"
                           aria-hidden="true"
                         />
@@ -267,7 +267,7 @@ export const Default: React.FC<VerticalImageAccordionProps> = ({ fields, isPageE
                     {(isEditMode || item?.link?.jsonValue) && (
                       <>
                         {isEditMode ? (
-                          <div className="font-heading bg-secondary text-secondary-foreground mt-4 inline-flex w-fit items-center justify-center rounded px-8 py-2.5 text-sm font-medium">
+                          <div className="font-heading bg-secondary text-secondary-foreground mt-4 inline-flex w-fit items-center justify-center rounded-none px-8 py-2.5 text-sm font-medium">
                             <Link
                               field={
                                 item.link?.jsonValue || {

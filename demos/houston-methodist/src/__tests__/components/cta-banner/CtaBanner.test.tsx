@@ -211,7 +211,7 @@ describe('CtaBanner Component', () => {
       render(<CtaBanner {...propsWithPrimaryColorScheme} />);
 
       const button = screen.getByTestId('button');
-      expect(button).toHaveClass('bg-accent', 'text-accent-foreground');
+      expect(button).toHaveClass('bg-accent', 'text-white');
     });
   });
 

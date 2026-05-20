@@ -1,7 +1,7 @@
 'use client';
 
 import type React from 'react';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Facebook, Linkedin, Twitter, Link, Check, Mail } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -90,10 +90,6 @@ export const Default: React.FC<ArticleHeaderProps> = ({ fields, page }) => {
     pageDisplayDate = null,
     pageAuthor = null,
   } = externalFields;
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const headerRef = useRef<HTMLDivElement>(null);
-  const imageRef = useRef<HTMLDivElement>(null);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const { toast } = useToast();
   const [copySuccess, setCopySuccess] = useState(false);
   const [forceCollapse] = useState(true);
@@ -105,48 +101,8 @@ export const Default: React.FC<ArticleHeaderProps> = ({ fields, page }) => {
     ARTICLE_HEADER_AUTHOR_LABEL: t(dictionaryKeys.ARTICLE_HEADER_AUTHOR_LABEL),
   };
 
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setPrefersReducedMotion(mediaQuery.matches);
-
-    const handleChange = () => setPrefersReducedMotion(mediaQuery.matches);
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, []);
-
-  useEffect(() => {
-    let animationFrameId: number;
-
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!headerRef.current) return;
-
-      // Use requestAnimationFrame to optimize performance
-      cancelAnimationFrame(animationFrameId);
-      animationFrameId = requestAnimationFrame(() => {
-        const rect = headerRef.current!.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width;
-        const y = (e.clientY - rect.top) / rect.height;
-        setMousePosition({ x, y });
-      });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, []);
 
   if (fields) {
-    const parallaxStyle = imageRequired?.jsonValue?.value?.src
-      ? {
-          transform: prefersReducedMotion
-            ? 'none'
-            : `translate(${mousePosition.x * -30}px, ${mousePosition.y * -30}px)`,
-          transition: prefersReducedMotion ? 'none' : 'transform 200ms ease-out',
-        }
-      : {};
-
     const handleShare = (platform: string) => {
       const url = encodeURIComponent(window.location.href);
       const title = encodeURIComponent(document.title);
@@ -201,7 +157,7 @@ export const Default: React.FC<ArticleHeaderProps> = ({ fields, page }) => {
       {
         title: 'Share on Facebook',
         icon: (
-          <Facebook className="h-full w-full text-white dark:text-neutral-300" aria-hidden="true" />
+          <Facebook className="text-primary h-full w-full" aria-hidden="true" />
         ),
         href: '#',
         onClick: () => handleShare('facebook'),
@@ -210,7 +166,7 @@ export const Default: React.FC<ArticleHeaderProps> = ({ fields, page }) => {
       {
         title: 'Share on Twitter',
         icon: (
-          <Twitter className="h-full w-full text-white dark:text-neutral-300" aria-hidden="true" />
+          <Twitter className="text-primary h-full w-full" aria-hidden="true" />
         ),
         href: '#',
         onClick: () => handleShare('twitter'),
@@ -219,7 +175,7 @@ export const Default: React.FC<ArticleHeaderProps> = ({ fields, page }) => {
       {
         title: 'Share on LinkedIn',
         icon: (
-          <Linkedin className="h-full w-full text-white dark:text-neutral-300" aria-hidden="true" />
+          <Linkedin className="text-primary h-full w-full" aria-hidden="true" />
         ),
         href: '#',
         onClick: () => handleShare('linkedin'),
@@ -228,7 +184,7 @@ export const Default: React.FC<ArticleHeaderProps> = ({ fields, page }) => {
       {
         title: 'Share via Email',
         icon: (
-          <Mail className="h-full w-full text-white dark:text-neutral-300" aria-hidden="true" />
+          <Mail className="text-primary h-full w-full" aria-hidden="true" />
         ),
         href: '#',
         onClick: () => handleShare('email'),
@@ -239,7 +195,7 @@ export const Default: React.FC<ArticleHeaderProps> = ({ fields, page }) => {
         icon: copySuccess ? (
           <Check className="h-full w-full text-green-500 dark:text-green-400" aria-hidden="true" />
         ) : (
-          <Link className="h-full w-full text-white dark:text-neutral-300" aria-hidden="true" />
+          <Link className="text-primary h-full w-full" aria-hidden="true" />
         ),
         href: '#',
         onClick: () => handleShare('copy'),
@@ -294,27 +250,9 @@ export const Default: React.FC<ArticleHeaderProps> = ({ fields, page }) => {
         {personSchema && <StructuredData id="author-person-schema" data={personSchema} />}
         <header
           className={cn('@container article-header relative mb-[86px] overflow-hidden')}
-          ref={headerRef}
         >
           <article itemScope={true} itemType="https://schema.org/Article">
-          <div className="relative z-0 h-[auto] overflow-hidden bg-black">
-            {/* Background Image with Parallax */}
-            <div
-              className="z-5 absolute inset-0 h-[120%] w-[120%] bg-cover bg-center opacity-70 transition-transform duration-200 ease-out"
-              style={parallaxStyle}
-            >
-              <ImageWrapper
-                image={imageRequired?.jsonValue}
-                alt={pageHeaderTitle?.jsonValue.value}
-                className="h-full w-full object-cover"
-                wrapperClass="h-full w-full"
-                priority
-                sizes="(max-width: 768px) 100vw, 800px"
-                ref={imageRef}
-              />
-            </div>
-            {/* Blur overlay - separate for better performance */}
-            <div className="absolute inset-0 backdrop-blur-md"></div>
+          <div className="bg-secondary relative z-0 h-[auto] overflow-hidden">
             {/* White Section */}
             {/* in order to be fully responsive the height of this section needs to be half of the height of the image */}
             <div
@@ -327,7 +265,7 @@ export const Default: React.FC<ArticleHeaderProps> = ({ fields, page }) => {
               <div className="flex flex-col">
                 {/* Back Button */}
                 <Button
-                  className="absolute left-0 top-[41px] mb-8 inline-flex items-center text-white transition-colors hover:text-white"
+                  className="text-primary hover:text-primary absolute left-0 top-[41px] mb-8 inline-flex items-center transition-colors"
                   variant="link"
                   onClick={(e) => {
                     e.preventDefault();
@@ -350,21 +288,21 @@ export const Default: React.FC<ArticleHeaderProps> = ({ fields, page }) => {
                 </Button>
                 {/* Category Badge */}
                 {(eyebrowOptional?.jsonValue?.value || isPageEditing) && (
-                  <Badge className="bg-accent text-accent-foreground hover:bg-accent font-body mx-auto  mb-4 inline-block text-[14px] font-medium tracking-tighter">
+                  <Badge className="bg-primary text-primary-foreground hover:bg-primary font-body mx-auto mb-4 inline-block rounded-default text-sm font-semibold uppercase tracking-wide">
                     <Text field={eyebrowOptional?.jsonValue} />
                   </Badge>
                 )}
                 {/* Title */}
                 <Text
                   tag="h1"
-                  className="@md:text-[62px] @md:mb-0 font-heading line-height-[69px] mx-auto max-w-4xl text-pretty px-6 text-center text-4xl font-normal tracking-tighter text-white"
+                  className="@md:text-[62px] @md:mb-0 font-heading text-primary line-height-[69px] mx-auto max-w-4xl text-pretty px-6 text-center text-4xl font-normal tracking-tighter"
                   field={pageHeaderTitle?.jsonValue}
                 />
                 {/* Read Time and Date - Centered */}
                 {(pageReadTime?.jsonValue?.value ||
                   pageDisplayDate?.jsonValue?.value ||
                   isPageEditing) && (
-                  <div className="@md:flex-row @xl:px-8 mb-8 flex flex-col items-center justify-center space-x-2 px-4 text-center text-sm text-white subpixel-antialiased">
+                  <div className="@md:flex-row @xl:px-8 text-muted-foreground mb-8 flex flex-col items-center justify-center space-x-2 px-4 text-center text-sm subpixel-antialiased">
                     {(pageReadTime?.jsonValue?.value || isPageEditing) && (
                       <Text
                         tag="span"
@@ -396,7 +334,7 @@ export const Default: React.FC<ArticleHeaderProps> = ({ fields, page }) => {
                 <div className="@lg:col-span-3 @lg:justify-end @lg:pt-4 @lg:h-[250px] @lg:items-start col-span-1 flex h-[auto] flex-wrap items-center justify-center gap-4 p-6 subpixel-antialiased">
                   {pageAuthor?.jsonValue && (
                     <div className="grid gap-y-3">
-                      <p className="flex min-h-10 flex-col justify-center text-sm text-white">
+                      <p className="text-muted-foreground flex min-h-10 flex-col justify-center text-sm">
                         {dictionary.ARTICLE_HEADER_AUTHOR_LABEL}
                       </p>
                       <Avatar>
@@ -407,7 +345,7 @@ export const Default: React.FC<ArticleHeaderProps> = ({ fields, page }) => {
                         <AvatarFallback>{`${pageAuthor?.jsonValue?.fields?.personFirstName?.value} ${pageAuthor?.jsonValue?.fields?.personLastName?.value}`}</AvatarFallback>
                       </Avatar>
                       <div className="relative">
-                        <p className="text-pretty font-medium text-white">
+                        <p className="text-primary text-pretty font-medium">
                           {pageAuthor?.jsonValue?.fields?.personFirstName?.value}{' '}
                           {pageAuthor?.jsonValue?.fields?.personLastName?.value}
                         </p>
@@ -415,7 +353,7 @@ export const Default: React.FC<ArticleHeaderProps> = ({ fields, page }) => {
                           <Text
                             tag={'p'}
                             field={pageAuthor?.jsonValue?.fields?.personJobTitle}
-                            className="text-pretty text-sm text-white"
+                            className="text-muted-foreground text-pretty text-sm"
                           />
                         )}
                       </div>
@@ -425,28 +363,27 @@ export const Default: React.FC<ArticleHeaderProps> = ({ fields, page }) => {
 
                 {/* Share Section - Mobile Only */}
                 <div className="@lg:hidden col-span-1 flex h-[auto] items-center justify-center gap-4 p-6">
-                  <p className="@lg:mb-2 m-0 flex items-center justify-center text-pretty text-sm font-medium text-white subpixel-antialiased">
+                  <p className="@lg:mb-2 text-primary m-0 flex items-center justify-center text-pretty text-sm font-medium subpixel-antialiased">
                     Share
                   </p>
                   <FloatingDock items={links} forceCollapse={forceCollapse} />
                 </div>
 
                 {/* Featured Image */}
-                <figure className="@lg:col-span-6 relative z-10 col-span-2 mx-auto flex aspect-[16/9] w-full max-w-[800px] justify-center overflow-hidden rounded-[24px]">
+                <figure className="@lg:col-span-6 relative z-10 col-span-2 mx-auto flex aspect-[16/9] w-full max-w-[800px] justify-center overflow-hidden">
                   <ImageWrapper
                     image={imageRequired?.jsonValue}
                     alt={pageHeaderTitle?.jsonValue?.value}
-                    className="h-full w-full object-cover "
+                    className="h-full w-full object-cover"
                     wrapperClass="w-full relative"
                     priority
                     sizes="(max-width: 768px) 100vw, 800px"
-                    ref={imageRef}
                   />
                 </figure>
 
                 {/* Share Section - Desktop Only */}
                 <div className="@lg:col-span-3 @lg:justify-start @lg:pt-4 @lg:h-[250px] @lg:items-start @lg:flex hidden h-[auto] items-center justify-center gap-4 p-6">
-                  <p className="@lg:mt-2 m-0 mb-2 flex items-center justify-center text-pretty text-sm font-medium text-white subpixel-antialiased">
+                  <p className="@lg:mt-2 text-primary m-0 mb-2 flex items-center justify-center text-pretty text-sm font-medium subpixel-antialiased">
                     Share
                   </p>
                   <FloatingDock items={links} forceCollapse={forceCollapse} />

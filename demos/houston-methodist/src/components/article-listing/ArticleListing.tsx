@@ -106,7 +106,7 @@ export const Default: React.FC<ArticleListingProps> = ({
                     tag="h2"
                     id={sectionId}
                     field={titleOptional}
-                    className="font-heading @md:text-6xl text-primary text-4xl font-normal leading-[1.20] tracking-tighter"
+                    className="font-heading text-primary @md:text-4xl text-3xl font-semibold leading-tight tracking-tight"
                   />
 
                   {descriptionOptional && (
@@ -148,7 +148,7 @@ export const Default: React.FC<ArticleListingProps> = ({
             {featuredArticles.map((article, index) => (
               <article key={index} className="@md:mb-0 group/article mb-6">
                 {isPageEditing ? (
-                  <div className="rounded-default @md:mb-0 relative mb-4 aspect-[3/2] w-full overflow-hidden">
+                  <div className="rounded-md @md:mb-0 relative mb-4 aspect-[3/2] w-full overflow-hidden">
                     <Image
                       src={article.image}
                       alt={article.title}
@@ -158,7 +158,7 @@ export const Default: React.FC<ArticleListingProps> = ({
                   </div>
                 ) : (
                   <div
-                    className="rounded-default @md:mb-0 relative mb-4 aspect-[3/2] w-full cursor-pointer overflow-hidden"
+                    className="rounded-md @md:mb-0 relative mb-4 aspect-[3/2] w-full cursor-pointer overflow-hidden"
                     onClick={() => (window.location.href = article.link)}
                     role="button"
                     tabIndex={0}
@@ -230,7 +230,7 @@ export const Default: React.FC<ArticleListingProps> = ({
             {regularArticles.map((article, index) => (
               <article
                 key={index}
-                className="@md:p-8 rounded-default hover:bg-tertiary-hover focus:ring-accent group/article flex h-full flex-col p-4 transition-colors focus:outline-none focus:ring-2"
+                className="@md:p-8 rounded-md hover:bg-tertiary-hover focus:ring-accent group/article flex h-full flex-col p-4 transition-colors focus:outline-none focus:ring-2"
               >
                 <div>
                   {isPageEditing ? (

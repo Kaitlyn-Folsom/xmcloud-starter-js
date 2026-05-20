@@ -44,6 +44,7 @@ Quick checklist for semantic HTML and structured data implementation.
 | Component | Semantic Tags | Schema | Status |
 |-----------|--------------|--------|--------|
 | ArticleHeader | `<article>`, `<header>`, `<time>` | Article, Person | ✅ |
+| ArticleDetails | `<article>`, `<header>`, `<time>` | Article, Person | ✅ |
 | ArticleListing | `<section>`, `<article>` | - | ✅ |
 | ImageBlock | `<figure>`, `<figcaption>` | - | ✅ |
 | AccordionBlock | `<section>` | FAQPage | ✅ |

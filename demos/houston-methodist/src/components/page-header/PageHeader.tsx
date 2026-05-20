@@ -59,7 +59,7 @@ export const Default: React.FC<PageHeaderProps> = ({
             >
               <Text
                 tag="h1"
-                className="@md:text-5xl @lg:text-7xl font-heading text-pretty text-5xl font-normal leading-[0.93] tracking-tighter"
+                className="font-heading text-primary @md:text-4xl @lg:text-5xl text-pretty text-3xl font-bold leading-tight tracking-tight"
                 field={title}
               />
             </AnimatedSection>

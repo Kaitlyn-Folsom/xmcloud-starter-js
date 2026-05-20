@@ -507,11 +507,11 @@ describe('ArticleHeader Component', () => {
       expect(whiteBar).toBeInTheDocument();
     });
 
-    it('should render backdrop blur overlay', () => {
+    it('should render light blue secondary background', () => {
       const { container } = render(<ArticleHeader {...(defaultProps as unknown as Parameters<typeof ArticleHeader>[0])} />);
 
-      const blurOverlay = container.querySelector('.backdrop-blur-md');
-      expect(blurOverlay).toBeInTheDocument();
+      const secondaryBackground = container.querySelector('.bg-secondary');
+      expect(secondaryBackground).toBeInTheDocument();
     });
   });
 

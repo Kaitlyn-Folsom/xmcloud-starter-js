@@ -73,7 +73,7 @@ export default async function Page({ params, searchParams }: PageProps) {
     inLanguage: locale.replace('_', '-'),
     ...(baseUrl && {
       isPartOf: {
-        name: 'Solterra & Co.',
+        name: 'Houston Methodist',
         url: baseUrl,
       },
     }),
@@ -135,7 +135,7 @@ export const generateMetadata = async ({ params }: PageProps) => {
   const metadataDescription =
     routeFields?.metadataDescription?.value?.toString() ||
     routeFields?.pageSummary?.value?.toString() ||
-    'Solterra & Co. - Editorial-style content for lifestyle brands';
+    'Houston Methodist — Leading hospitals and health care in Houston, Texas';
 
   const ogTitle = routeFields?.ogTitle?.value?.toString() || metadataTitle;
 
@@ -178,7 +178,7 @@ export const generateMetadata = async ({ params }: PageProps) => {
       description: ogDescription,
       url: pageUrl,
       type: 'website',
-      siteName: site || 'Solterra & Co.',
+      siteName: site || 'Houston Methodist',
       locale: locale || 'en',
       images: ogImageUrl
         ? [
