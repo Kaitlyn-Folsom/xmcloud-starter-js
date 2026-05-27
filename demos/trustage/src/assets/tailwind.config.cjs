@@ -43,7 +43,7 @@ module.exports = {
                     'linear-gradient(to bottom, hsla(var(--colors-secondary) / 92%), hsla(var(--colors-secondary) / 65%)), var(--bg-img, url("/placeholder.svg"))',
                 'img-muted':
                     'linear-gradient(to bottom, hsla(var(--colors-muted) / 90%), hsla(var(--colors-muted) / 62%)), var(--bg-img, url("/placeholder.svg"))',
-                /* Darken photography for white/lime copy */
+                /* Darken photography for white/yellow copy */
                 'img-dark':
                     'linear-gradient(to bottom, hsla(var(--colors-primary) / 78%), hsla(var(--colors-primary) / 42%)), var(--bg-img, url("/placeholder.svg"))',
                 'img-light':

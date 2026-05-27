@@ -466,7 +466,7 @@ describe('GlobalHeader Component', () => {
       const { container } = render(<GlobalHeader {...defaultProps} />);
 
       const header = container.querySelector('header');
-      expect(header).toHaveClass('bg-primary', 'border-b', 'border-white/10');
+      expect(header).toHaveClass('bg-background', 'border-b', 'border-border');
     });
 
     it('should apply responsive flex classes to desktop nav', () => {

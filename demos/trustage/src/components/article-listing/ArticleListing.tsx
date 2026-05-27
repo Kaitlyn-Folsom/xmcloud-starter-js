@@ -135,7 +135,7 @@ export const Default: React.FC<ArticleListingProps> = ({
                       }
                     }
                     isPageEditing={isPageEditing}
-                    className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                    className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold"
                     contextTitle={titleOptional?.value}
                   />
                 </div>
@@ -190,7 +190,7 @@ export const Default: React.FC<ArticleListingProps> = ({
                   </p>
                   <div className="mt-6 flex items-center gap-4">
                     {(article.authorImage || article.author) && (
-                      <div className="bg-primary text-primary-foreground relative flex h-8 w-8 items-center justify-center overflow-hidden rounded-full">
+                      <div className="bg-primary text-primary-foreground relative flex h-8 w-8 items-center justify-center overflow-hidden rounded-md">
                         {article.authorImage ? (
                           <Image
                             src={article.authorImage}
@@ -247,7 +247,7 @@ export const Default: React.FC<ArticleListingProps> = ({
                 </div>
                 <div className="mt-auto flex items-center gap-4 pt-6">
                   {(article.authorImage || article.author) && (
-                    <div className="bg-primary text-primary-foreground relative flex h-8 w-8 items-center justify-center overflow-hidden rounded-full">
+                    <div className="bg-primary text-primary-foreground relative flex h-8 w-8 items-center justify-center overflow-hidden rounded-md">
                       {article.authorImage ? (
                         <Image
                           src={article.authorImage}

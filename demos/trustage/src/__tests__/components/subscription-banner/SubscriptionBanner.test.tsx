@@ -277,14 +277,14 @@ describe('SubscriptionBanner Component', () => {
       render(<SubscriptionBanner {...defaultProps} />);
 
       const input = screen.getByTestId('email-input');
-      expect(input).toHaveClass('border-input', 'w-full', 'flex-1', 'rounded-full', 'px-6', 'py-3');
+      expect(input).toHaveClass('border-input', 'w-full', 'flex-1', 'rounded-md', 'px-6', 'py-3');
     });
 
     it('should apply correct button classes', () => {
       render(<SubscriptionBanner {...defaultProps} />);
 
       const button = screen.getByTestId('submit-button');
-      expect(button).toHaveClass('flex-1', 'rounded-full', 'px-8', 'py-2.5');
+      expect(button).toHaveClass('flex-1', 'rounded-md', 'px-8', 'py-2.5');
     });
   });
 

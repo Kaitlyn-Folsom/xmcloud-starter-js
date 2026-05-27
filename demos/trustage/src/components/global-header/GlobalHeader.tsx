@@ -53,7 +53,7 @@ export const Default: React.FC<GlobalHeaderProps> = (props) => {
         animate={{ opacity: visible ? 1 : 0 }}
         transition={{ duration: 0.2 }}
         className={cn(
-          'border-b border-white/10 bg-primary text-primary-foreground @container sticky top-0 z-50 flex min-h-[88px] w-full items-center justify-center shadow-sm'
+          'border-border bg-background text-primary @container sticky top-0 z-50 flex min-h-[72px] w-full items-center justify-center border-b shadow-sm'
         )}
       >
         <div className="@xl:px-8 mx-auto flex h-16 w-full max-w-screen-xl items-center px-4">
@@ -83,7 +83,7 @@ export const Default: React.FC<GlobalHeaderProps> = (props) => {
                         <Button
                           variant="ghost"
                           asChild
-                          className="font-body text-base font-medium text-white hover:bg-white/10 hover:text-white"
+                          className="font-body text-primary hover:bg-secondary text-base font-semibold"
                         >
                           <SitecoreLink field={item.link?.jsonValue} />
                         </Button>
@@ -93,7 +93,7 @@ export const Default: React.FC<GlobalHeaderProps> = (props) => {
                             <Button
                               variant="ghost"
                               asChild
-                              className="font-body text-base font-medium text-white hover:bg-white/10 hover:text-white"
+                              className="font-body text-primary hover:bg-secondary text-base font-semibold"
                             >
                               <Link href={item.link.jsonValue.value.href as string}>
                                 {item.link.jsonValue.value.text}
@@ -110,22 +110,14 @@ export const Default: React.FC<GlobalHeaderProps> = (props) => {
           {/* Desktop CTA */}
           {pageEditing ? (
             <div className="@lg:flex @lg:items-center @lg:justify-end hidden">
-              <Button
-                variant="default"
-                asChild
-                className="ring-offset-primary rounded-full px-6 font-heading font-semibold shadow-none"
-              >
+              <Button variant="default" asChild className="font-heading px-6 font-semibold shadow-none">
                 <SitecoreLink field={headerContact?.jsonValue} />
               </Button>
             </div>
           ) : (
             headerContact?.jsonValue?.value?.href && (
               <div className="@lg:flex @lg:items-center @lg:justify-end hidden">
-                <Button
-                  variant="default"
-                  asChild
-                  className="ring-offset-primary rounded-full px-6 font-heading font-semibold shadow-none"
-                >
+                <Button variant="default" asChild className="font-heading px-6 font-semibold shadow-none">
                   <Link href={headerContact.jsonValue.value.href as Url}>
                     {headerContact.jsonValue.value.text}
                   </Link>
@@ -137,18 +129,14 @@ export const Default: React.FC<GlobalHeaderProps> = (props) => {
           <div className="@lg:hidden flex flex-1 justify-end">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="text-white hover:bg-white/10 [&_svg]:size-8"
-                >
+                <Button variant="ghost" size="icon" className="text-primary hover:bg-secondary [&_svg]:size-8">
                   <Menu />
                   <span className="sr-only">Toggle menu</span>
                 </Button>
               </SheetTrigger>
               <SheetContent
                 side="right"
-                className="border-white/10 bg-primary text-primary-foreground [&>button]:text-white [&>button]:ring-offset-primary [&>button_svg]:size-8"
+                className="border-border bg-background text-primary [&>button]:text-primary [&>button_svg]:size-8"
               >
                 <nav className="mt-[70px] flex flex-col space-y-4">
                   {links &&
@@ -160,7 +148,7 @@ export const Default: React.FC<GlobalHeaderProps> = (props) => {
                             key={`${item.link.jsonValue.value.text}-mobile`}
                             variant="ghost"
                             asChild
-                            className="justify-start text-white hover:bg-white/10 hover:text-white"
+                            className="text-primary hover:bg-secondary justify-start font-semibold"
                             onClick={() => setIsOpen(false)}
                           >
                             <Link href={item.link.jsonValue.value.href as string}>
@@ -173,7 +161,7 @@ export const Default: React.FC<GlobalHeaderProps> = (props) => {
                     <Button
                       variant="default"
                       asChild
-                      className="ring-offset-primary rounded-full font-semibold shadow-none"
+                      className="font-semibold shadow-none"
                       onClick={() => setIsOpen(false)}
                     >
                       <Link href={headerContact.jsonValue.value.href as Url}>

@@ -331,7 +331,7 @@ describe('MultiPromoTabs Component', () => {
       const { container } = render(<MultiPromoTabs {...defaultProps} />);
       
       const component = container.querySelector('.multi-promo-tabs');
-      expect(component).toHaveClass('@container', 'bg-primary');
+      expect(component).toHaveClass('@container', 'bg-secondary');
     });
 
     it('should apply title classes', () => {

@@ -162,7 +162,7 @@ describe('GlobalFooter Component', () => {
 
       const footer = container.querySelector('footer');
       expect(footer).toBeInTheDocument();
-      expect(footer).toHaveClass('bg-primary', 'text-white');
+      expect(footer).toHaveClass('bg-secondary', 'text-primary');
     });
 
     it('should render logo section', () => {
@@ -195,7 +195,7 @@ describe('GlobalFooter Component', () => {
 
       const copyrightText = screen.getByText('© 2024 Company Name. All rights reserved.');
       expect(copyrightText).toBeInTheDocument();
-      expect(copyrightText).toHaveClass('text-sm', 'text-white/80');
+      expect(copyrightText).toHaveClass('text-sm', 'text-muted-foreground');
     });
   });
 

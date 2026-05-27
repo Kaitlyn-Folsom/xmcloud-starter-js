@@ -21,7 +21,7 @@ export const Default: React.FC<MultiPromoItemProps> = (props) => {
       {(isPageEditing || image?.value?.src) && (
         <ImageWrapper
           image={image}
-          className="aspect-[131/121] w-full rounded-3xl object-cover"
+          className="aspect-[131/121] w-full rounded-none object-cover"
           wrapperClass="aspect-[131/121] w-full mb-7"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 400px"
         />

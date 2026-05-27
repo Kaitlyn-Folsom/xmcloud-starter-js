@@ -19,7 +19,7 @@ export const SearchInput = ({ value, onChange }: SearchInputProps) => {
           placeholder={t(DICTIONARY_KEYS.SEARCH_INPUT_PLACEHOLDER) || 'Search items...'}
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className="w-full px-4 py-3 pl-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="border-input text-primary focus:ring-ring w-full rounded-md border px-4 py-3 pl-12 focus:border-transparent focus:outline-none focus:ring-2"
         />
         <svg
           className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400"

@@ -35,7 +35,7 @@ export const PromoAnimatedDefault: React.FC<PromoAnimatedProps> = (props) => {
             {image && (
               <div
                 className={cn(
-                  'promo-animated__media-frame relative mx-auto w-full max-w-[520px] overflow-hidden rounded-2xl bg-primary shadow-sm ring-1 ring-black/5',
+                  'promo-animated__media-frame border-border relative mx-auto w-full max-w-[520px] overflow-hidden rounded-none border bg-secondary shadow-sm',
                   'group-[.position-center]:mx-auto group-[.position-right]:ml-auto @md:mx-0'
                 )}
               >
@@ -60,7 +60,7 @@ export const PromoAnimatedDefault: React.FC<PromoAnimatedProps> = (props) => {
                 {title && (
                   <Text
                     tag="h2"
-                    className="font-serif text-foreground @md:text-4xl group-[.position-center]:mx-auto group-[.position-right]:ml-auto mt-0 max-w-[40ch] text-3xl font-semibold leading-tight tracking-tight"
+                    className="font-heading text-primary @md:text-4xl group-[.position-center]:mx-auto group-[.position-right]:ml-auto mt-0 max-w-[40ch] text-3xl font-bold leading-tight"
                     field={title}
                   />
                 )}
@@ -80,7 +80,7 @@ export const PromoAnimatedDefault: React.FC<PromoAnimatedProps> = (props) => {
                 {primaryLink && (
                   <Button
                     variant={ButtonVariants.OUTLINE}
-                    className="rounded-full px-8 font-semibold"
+                    className="rounded-md px-8 font-semibold"
                     buttonLink={primaryLink}
                     isPageEditing={isPageEditing}
                     contextTitle={title?.value}
@@ -89,7 +89,7 @@ export const PromoAnimatedDefault: React.FC<PromoAnimatedProps> = (props) => {
                 {secondaryLink && (
                   <Button
                     variant={ButtonVariants.SECONDARY}
-                    className="rounded-full px-8 font-semibold"
+                    className="rounded-md px-8 font-semibold"
                     buttonLink={secondaryLink}
                     isPageEditing={isPageEditing}
                     contextTitle={title?.value}

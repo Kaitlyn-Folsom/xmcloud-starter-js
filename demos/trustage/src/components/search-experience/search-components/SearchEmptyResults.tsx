@@ -37,7 +37,7 @@ export const SearchEmptyResults = ({
           <button
             onClick={onClearSearch}
             disabled={!query}
-            className="px-4 py-2 rounded-md bg-primary text-primary-foreground hover:bg-primary-hover disabled:opacity-50"
+            className="bg-accent text-accent-foreground hover:bg-accent/90 rounded-md px-6 py-2.5 font-semibold disabled:opacity-50"
           >
             {t(DICTIONARY_KEYS.CLEAR_SEARCH) || 'Clear search'}
           </button>

@@ -213,9 +213,8 @@ describe('VerticalImageAccordion Component', () => {
       const mainContainer = container.firstChild as HTMLElement;
       expect(mainContainer).toHaveClass(
         '@container',
-        'bg-primary',
-        'rounded-default',
-        'text-primary-foreground',
+        'bg-secondary',
+        'text-primary',
         'relative',
         'mx-auto',
         'my-6',
@@ -484,7 +483,7 @@ describe('VerticalImageAccordion Component', () => {
       const { container } = render(<VerticalImageAccordion {...defaultProps} />);
 
       const mainContainer = container.firstChild as HTMLElement;
-      expect(mainContainer).toHaveClass('bg-primary', 'text-primary-foreground');
+      expect(mainContainer).toHaveClass('bg-secondary', 'text-primary');
     });
 
     it('should apply transition classes to accordion items', () => {

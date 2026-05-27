@@ -59,7 +59,7 @@ export const Default: React.FC<PageHeaderProps> = ({
             >
               <Text
                 tag="h1"
-                className="@md:text-5xl @lg:text-7xl font-heading text-pretty text-5xl font-normal leading-[0.93] tracking-tighter"
+                className="@md:text-5xl @lg:text-6xl font-heading text-primary text-pretty text-4xl font-bold leading-tight"
                 field={title}
               />
             </AnimatedSection>
@@ -109,7 +109,7 @@ export const Default: React.FC<PageHeaderProps> = ({
               reducedMotion={prefersReducedMotion}
               isPageEditing={isPageEditing}
             >
-              <div className="@md:rounded-[22px] @lg:ms-auto relative max-w-[547px] overflow-hidden rounded-xl">
+              <div className="@lg:ms-auto relative max-w-[547px] overflow-hidden rounded-none">
                 {videoOptional?.jsonValue?.value?.href ? (
                   <Video
                     fields={{

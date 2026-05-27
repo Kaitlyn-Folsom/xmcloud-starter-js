@@ -284,7 +284,6 @@ describe('Hero Component', () => {
         'bg-accent',
         'font-semibold',
         'text-accent-foreground',
-        'rounded-full',
         'hover:bg-accent/90'
       );
     });

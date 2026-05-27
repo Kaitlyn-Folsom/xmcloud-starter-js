@@ -42,7 +42,7 @@ const Default = (props: MultiPromoTabsFields) => {
     return (
       <div className="multi-promo-tab @md:grid-cols-2 @md:my-16 my-8 grid grid-cols-1 gap-6">
         <div className="flex flex-col gap-4">
-          <div className="overflow-hidden rounded-2xl">
+          <div className="overflow-hidden rounded-none">
             <ImageWrapper
               image={image1?.jsonValue as ImageField}
               className="h-full w-full object-cover"
@@ -58,7 +58,7 @@ const Default = (props: MultiPromoTabsFields) => {
           />
         </div>
         <div className="flex flex-col gap-4">
-          <div className="overflow-hidden rounded-2xl">
+          <div className="overflow-hidden rounded-none">
             <ImageWrapper
               image={image2?.jsonValue as ImageField}
               className="h-full w-full object-cover"
@@ -84,7 +84,7 @@ const Default = (props: MultiPromoTabsFields) => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
-        className="group/card1 relative block overflow-hidden rounded-2xl"
+        className="group/card1 relative block overflow-hidden rounded-none"
         onClick={(e) =>
           handleClick(
             e,
@@ -113,7 +113,7 @@ const Default = (props: MultiPromoTabsFields) => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
-        className="group/card2 relative block overflow-hidden rounded-2xl"
+        className="group/card2 relative block overflow-hidden rounded-none"
         onClick={(e) =>
           handleClick(
             e,

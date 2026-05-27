@@ -37,7 +37,7 @@ export const SearchPagination = ({
       <button
         onClick={() => onPageChange(Math.max(currentPage - 1, 1))}
         disabled={currentPage === 1}
-        className="flex items-center gap-1 px-3 py-2 rounded-lg cursor-pointer text-gray-600 hover:bg-primary-hover hover:text-primary-foreground disabled:opacity-50 disabled:cursor-not-allowed"
+        className="text-muted-foreground hover:bg-secondary hover:text-primary flex cursor-pointer items-center gap-1 rounded-md px-3 py-2 disabled:cursor-not-allowed disabled:opacity-50"
       >
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -59,9 +59,9 @@ export const SearchPagination = ({
         <button
           key={page}
           onClick={() => onPageChange(page)}
-          className={`w-10 h-10 rounded-lg cursor-pointer hover:bg-primary-hover hover:text-primary-foreground ${
+          className={`h-10 w-10 cursor-pointer rounded-md hover:bg-secondary hover:text-primary ${
             currentPage === page
-              ? 'bg-primary text-primary-foreground'
+              ? 'bg-accent text-accent-foreground'
               : 'text-gray-600 hover:bg-gray-100'
           }`}
         >
@@ -82,7 +82,7 @@ export const SearchPagination = ({
       <button
         onClick={() => onPageChange(Math.min(currentPage + 1, totalPages))}
         disabled={currentPage === totalPages}
-        className="flex items-center gap-1 px-3 py-2 rounded-lg cursor-pointer text-gray-600 hover:bg-primary-hover hover:text-primary-foreground disabled:opacity-50 disabled:cursor-not-allowed"
+        className="text-muted-foreground hover:bg-secondary hover:text-primary flex cursor-pointer items-center gap-1 rounded-md px-3 py-2 disabled:cursor-not-allowed disabled:opacity-50"
       >
         {t(DICTIONARY_KEYS.NEXT_PAGE) || 'Next'}
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

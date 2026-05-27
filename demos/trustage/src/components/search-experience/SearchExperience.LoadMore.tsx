@@ -137,7 +137,7 @@ export const LoadMore = (props: SearchExperienceProps) => {
                   loadMore();
                 }}
                 disabled={isLoadingMore}
-                className="px-4 py-2 rounded-lg cursor-pointer bg-primary text-primary-foreground hover:bg-primary-hover disabled:opacity-50"
+                className="bg-accent text-accent-foreground hover:bg-accent/90 cursor-pointer rounded-md px-6 py-2.5 font-semibold disabled:opacity-50"
               >
                 {t(DICTIONARY_KEYS.LOAD_MORE) || 'Load more'}
               </button>

@@ -40,7 +40,7 @@ export const Default: React.FC<VerticalImageAccordionProps> = ({ fields, isPageE
     if (isEditMode) {
       return (
         <div
-          className="@container bg-primary rounded-default text-primary-foreground relative mx-auto my-6 max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
+          className="@container bg-secondary text-primary relative mx-auto my-6 max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
           role="region"
           aria-label={title?.jsonValue?.value || 'Image Accordion'}
         >
@@ -145,7 +145,7 @@ export const Default: React.FC<VerticalImageAccordionProps> = ({ fields, isPageE
     // Normal interactive mode
     return (
       <div
-        className="@container bg-primary rounded-default text-primary-foreground relative mx-auto my-6 max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
+        className="@container bg-secondary text-primary relative mx-auto my-6 max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
         role="region"
         aria-label={title?.jsonValue?.value || 'Image Accordion'}
       >
