@@ -355,7 +355,7 @@ describe('CtaBanner Component', () => {
       render(<CtaBanner {...defaultProps} />);
 
       const button = screen.getByTestId('button');
-      expect(button).toHaveClass('text-sm', 'font-heading', 'font-medium');
+      expect(button).toHaveClass('text-sm', 'font-heading', 'font-semibold');
     });
   });
 

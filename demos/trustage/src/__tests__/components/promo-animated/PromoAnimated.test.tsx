@@ -111,6 +111,20 @@ jest.mock('@/components/button-component/ButtonComponent', () => ({
   },
 }));
 
+jest.mock('@/components/promo-animated/PromoAnimatedCta', () => ({
+  PromoAnimatedCta: ({ buttonLink, isPageEditing }: MockButtonBaseProps) => {
+    if (!buttonLink?.value?.href && !isPageEditing) return null;
+    return (
+      <a
+        data-testid="promo-animated-cta"
+        href={buttonLink?.value?.href as string | undefined}
+      >
+        {buttonLink?.value?.text}
+      </a>
+    );
+  },
+}));
+
 jest.mock('@/utils/NoDataFallback', () => ({
   NoDataFallback: ({ componentName }: MockNoDataFallbackProps) => (
     <div data-testid="no-data-fallback">{componentName}</div>
@@ -127,7 +141,7 @@ describe('PromoAnimated Component - Default Variant', () => {
       render(<PromoAnimated {...defaultProps} />);
 
       expect(screen.getByText('Discover Excellence')).toBeInTheDocument();
-      expect(screen.getByText('PARTNER SPOTLIGHT')).toBeInTheDocument();
+      expect(screen.getByText('Discover Excellence')).toBeInTheDocument();
       expect(screen.getByTestId('image-wrapper')).toBeInTheDocument();
       expect(screen.getByText('Shop Now')).toBeInTheDocument();
       expect(screen.getByText('Learn More')).toBeInTheDocument();
@@ -167,12 +181,14 @@ describe('PromoAnimated Component - Default Variant', () => {
     it('should render both primary and secondary links', () => {
       render(<PromoAnimated {...defaultProps} />);
 
-      const buttons = screen.getAllByTestId('button-component');
-      expect(buttons).toHaveLength(2);
-      expect(buttons[0]).toHaveAttribute('href', '/shop/premium');
-      expect(buttons[0]).toHaveAttribute('data-variant', 'outline');
-      expect(buttons[1]).toHaveAttribute('href', '/learn-more');
-      expect(buttons[1]).toHaveAttribute('data-variant', 'secondary');
+      const primaryCta = screen.getByTestId('promo-animated-cta');
+      const secondaryButtons = screen.getAllByTestId('button-component');
+
+      expect(primaryCta).toHaveAttribute('href', '/shop/premium');
+      expect(primaryCta).toHaveTextContent('Shop Now');
+      expect(secondaryButtons).toHaveLength(1);
+      expect(secondaryButtons[0]).toHaveAttribute('href', '/learn-more');
+      expect(secondaryButtons[0]).toHaveAttribute('data-variant', 'outline');
     });
   });
 
@@ -240,6 +256,7 @@ describe('PromoAnimated Component - Default Variant', () => {
       expect(screen.getByText('Discover Excellence')).toBeInTheDocument();
       expect(screen.getByTestId('image-wrapper')).toBeInTheDocument();
       expect(screen.getByText('Shop Now')).toBeInTheDocument();
+      expect(screen.getByText('Learn More')).toBeInTheDocument();
     });
 
     it('should render without links in non-editing mode', () => {
@@ -252,6 +269,7 @@ describe('PromoAnimated Component - Default Variant', () => {
     it('should render without primary link', () => {
       render(<PromoAnimated {...propsWithoutPrimaryLink} />);
 
+      expect(screen.queryByTestId('promo-animated-cta')).not.toBeInTheDocument();
       const buttons = screen.getAllByTestId('button-component');
       expect(buttons).toHaveLength(1);
       expect(buttons[0]).toHaveAttribute('href', '/learn-more');
@@ -260,9 +278,8 @@ describe('PromoAnimated Component - Default Variant', () => {
     it('should render without secondary link', () => {
       render(<PromoAnimated {...propsWithoutSecondaryLink} />);
 
-      const buttons = screen.getAllByTestId('button-component');
-      expect(buttons).toHaveLength(1);
-      expect(buttons[0]).toHaveAttribute('href', '/shop/premium');
+      expect(screen.getByTestId('promo-animated-cta')).toHaveAttribute('href', '/shop/premium');
+      expect(screen.queryByTestId('button-component')).not.toBeInTheDocument();
     });
   });
 
@@ -316,9 +333,8 @@ describe('PromoAnimated Component - Default Variant', () => {
     it('should render links with proper href', () => {
       render(<PromoAnimated {...defaultProps} />);
 
-      const buttons = screen.getAllByTestId('button-component');
-      expect(buttons[0]).toHaveAttribute('href', '/shop/premium');
-      expect(buttons[1]).toHaveAttribute('href', '/learn-more');
+      expect(screen.getByTestId('promo-animated-cta')).toHaveAttribute('href', '/shop/premium');
+      expect(screen.getByTestId('button-component')).toHaveAttribute('href', '/learn-more');
     });
 
     it('should render heading with semantic h2 tag', () => {
@@ -340,9 +356,10 @@ describe('PromoAnimated Component - ImageRight Variant', () => {
       render(<ImageRight {...defaultProps} />);
 
       expect(screen.getByText('Discover Excellence')).toBeInTheDocument();
-      expect(screen.getByText('PARTNER SPOTLIGHT')).toBeInTheDocument();
+      expect(screen.getByText('Discover Excellence')).toBeInTheDocument();
       expect(screen.getByTestId('image-wrapper')).toBeInTheDocument();
       expect(screen.getByText('Shop Now')).toBeInTheDocument();
+      expect(screen.getByText('Learn More')).toBeInTheDocument();
     });
 
     it('should render as section with data-component attribute', () => {

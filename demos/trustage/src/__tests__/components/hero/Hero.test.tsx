@@ -262,29 +262,40 @@ describe('Hero Component', () => {
       expect(section).toHaveClass('bg-light', 'text-primary');
     });
 
-    it('should apply correct text color for description with primary scheme', () => {
+    it('should apply correct text color for description with media hero', () => {
       render(<Hero {...propsWithPrimaryScheme} />);
 
       const description = screen.getByText(/Discover amazing features/);
-      expect(description).toHaveClass('text-primary-foreground');
+      expect(description).toHaveClass('text-primary');
     });
 
-    it('should apply correct text color for description with non-primary schemes', () => {
-      render(<Hero {...propsWithSecondaryScheme} />);
+    it('should apply correct text color for description without media', () => {
+      const {
+        heroVideoOptional1: _v1,
+        heroImageOptional1: _i1,
+        ...fieldsWithoutMedia
+      } = propsWithSecondaryScheme.fields!;
+
+      render(
+        <Hero
+          {...propsWithSecondaryScheme}
+          fields={fieldsWithoutMedia}
+        />
+      );
 
       const description = screen.getByText(/Discover amazing features/);
-      expect(description).toHaveClass('text-secondary-foreground');
+      expect(description).toHaveClass('text-muted-foreground');
     });
 
-    it('should apply correct button classes for primary scheme', () => {
+    it('should apply outline button classes on yellow hero panel', () => {
       render(<Hero {...propsWithPrimaryScheme} />);
 
       const button = screen.getByTestId('hero-button');
       expect(button).toHaveClass(
-        'bg-accent',
+        'border-primary',
+        'bg-white',
         'font-semibold',
-        'text-accent-foreground',
-        'hover:bg-accent/90'
+        'text-primary'
       );
     });
   });
@@ -466,17 +477,15 @@ describe('Hero Component', () => {
       expect(animatedSection).toHaveAttribute('data-direction', 'up');
     });
 
-    it('should apply centered column layout classes to Default AnimatedSection', () => {
+    it('should apply TruStage yellow panel classes to Default AnimatedSection', () => {
       render(<Hero {...defaultProps} />);
 
       const animatedSection = screen.getByTestId('animated-section');
       expect(animatedSection).toHaveClass(
+        'bg-accent',
         'flex',
-        'w-full',
         'flex-col',
-        'items-center',
-        'gap-3',
-        'text-center'
+        'gap-6'
       );
     });
 
@@ -484,7 +493,7 @@ describe('Hero Component', () => {
       render(<MultiImage {...defaultProps} />);
 
       const animatedSection = screen.getByTestId('animated-section');
-      expect(animatedSection).toHaveClass('@lg:flex-row', '@lg:items-center', '@lg:gap-10');
+      expect(animatedSection).toHaveClass('@lg:flex-row', '@lg:items-end', '@lg:gap-12');
     });
   });
 
@@ -498,21 +507,20 @@ describe('Hero Component', () => {
       expect(mediaSections[0]).toHaveAttribute('data-image', '/images/hero-image-1.jpg');
     });
 
-    it('should use full-bleed media classes on the background MediaSection', () => {
+    it('should use cover media classes on the hero image', () => {
       render(<Hero {...defaultProps} />);
 
       const mediaSections = screen.getAllByTestId('media-section');
-      expect(mediaSections[0].className).toContain('absolute');
-      expect(mediaSections[0].className).toContain('inset-0');
       expect(mediaSections[0].className).toContain('object-cover');
+      expect(mediaSections[0].className).toContain('h-full');
     });
 
-    it('should apply min-height when feature 1 media exists', () => {
+    it('should use grid layout when feature 1 media exists', () => {
       const { container } = render(<Hero {...defaultProps} />);
 
-      const section = container.querySelector('section');
-      expect(section?.className).toContain('min-h-[70vh]');
-      expect(section?.className).toContain('md:min-h-[80vh]');
+      const grid = container.querySelector('.grid');
+      expect(grid).toBeInTheDocument();
+      expect(grid?.className).toContain('@lg:grid-cols-12');
     });
 
     it('should apply heroVariants on section when feature 1 has no media', () => {
@@ -550,11 +558,11 @@ describe('Hero Component', () => {
       expect(section).toHaveClass('@container');
     });
 
-    it('should apply correct padding classes', () => {
+    it('should apply correct padding classes when media exists', () => {
       const { container } = render(<Hero {...defaultProps} />);
 
       const section = container.querySelector('section');
-      expect(section).toHaveClass('py-24');
+      expect(section).toHaveClass('py-8');
     });
 
     it('should apply overflow-hidden class', () => {
@@ -588,33 +596,30 @@ describe('Hero Component', () => {
   });
 
   describe('CSS classes and styling', () => {
-    it('should apply correct title classes', () => {
+    it('should apply correct title classes on yellow panel', () => {
       render(<Hero {...defaultProps} />);
 
       const title = screen.getByText('Welcome to Our Platform');
       expect(title).toHaveClass(
         'font-heading',
-        '@lg:text-8xl',
-        '@lg:leading-[90px]',
-        'text-5xl',
-        'font-normal',
-        'leading-[60px]'
+        'text-primary',
+        'font-bold',
+        'text-3xl'
       );
     });
 
-    it('should apply correct description classes', () => {
+    it('should apply correct description classes on yellow panel', () => {
       render(<Hero {...defaultProps} />);
 
       const description = screen.getByText(/Discover amazing features/);
-      expect(description).toHaveClass('font-body', 'text-medium', '@md:text-xl', 'text-lg');
+      expect(description).toHaveClass('font-body', 'text-primary', '@md:text-lg', 'text-base');
     });
 
-    it('should apply responsive gap classes to content', () => {
+    it('should apply responsive gap classes to yellow panel', () => {
       const { container } = render(<Hero {...defaultProps} />);
 
-      // Check for the class by looking at the element's className
       const contentDiv = Array.from(container.querySelectorAll('div')).find(
-        (div) => div.className && div.className.includes('@lg:gap-10')
+        (div) => div.className && div.className.includes('gap-6')
       );
       expect(contentDiv).toBeTruthy();
     });

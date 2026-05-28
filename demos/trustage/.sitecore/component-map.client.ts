@@ -39,6 +39,7 @@ import * as SearchItemImage from 'src/components/search-experience/search-compon
 import * as SearchItemCategory from 'src/components/search-experience/search-components/SearchItem/SearchItemCategory';
 import * as PromoAnimatedImageRightdev from 'src/components/promo-animated/PromoAnimatedImageRight.dev';
 import * as PromoAnimatedDefaultdev from 'src/components/promo-animated/PromoAnimatedDefault.dev';
+import * as PromoAnimatedCta from 'src/components/promo-animated/PromoAnimatedCta';
 import * as PromoAnimated from 'src/components/promo-animated/PromoAnimated';
 import * as portaldev from 'src/components/portal/portal.dev';
 import * as PageHeader from 'src/components/page-header/PageHeader';
@@ -101,6 +102,7 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['SearchItemCategory', { ...SearchItemCategory }],
   ['PromoAnimatedImageRight', { ...PromoAnimatedImageRightdev }],
   ['PromoAnimatedDefault', { ...PromoAnimatedDefaultdev }],
+  ['PromoAnimatedCta', { ...PromoAnimatedCta }],
   ['PromoAnimated', { ...PromoAnimated }],
   ['portal', { ...portaldev }],
   ['PageHeader', { ...PageHeader }],

@@ -402,7 +402,7 @@ describe('GlobalHeader Component', () => {
       const { container } = render(<GlobalHeader {...defaultProps} />);
 
       const header = container.querySelector('header');
-      expect(header).toHaveClass('min-h-[88px]');
+      expect(header).toHaveClass('min-h-[72px]');
     });
 
     it('should apply responsive padding classes', () => {

@@ -14,7 +14,7 @@ export const Default: React.FC<ImageProps> = (props) => {
       <figure className={cn('component', props.params.styles)}>
         <ImageWrapper
           image={image}
-          className="mb-[24px] h-full w-full object-cover"
+          className="mb-[24px] h-full w-full object-cover block"
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 1200px"
         />
         {caption && (

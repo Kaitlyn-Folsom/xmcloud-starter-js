@@ -14,6 +14,12 @@
 @source inline("offset-{1..12}");
 
 @layer base {
+  *,
+  *::before,
+  *::after {
+    border-radius: 0 !important;
+  }
+
   * {
     @apply border-border font-body;
   }

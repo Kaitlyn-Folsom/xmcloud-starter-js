@@ -118,7 +118,7 @@ describe('TopicListing Component', () => {
       const { container } = render(<TopicListing {...defaultProps} />);
 
       const mainContainer = container.firstChild;
-      expect(mainContainer).toHaveClass('@container', 'bg-primary', 'text-primary-foreground');
+      expect(mainContainer).toHaveClass('@container', 'bg-background', 'text-primary');
     });
   });
 
@@ -129,11 +129,11 @@ describe('TopicListing Component', () => {
       const mainContainer = container.firstChild as HTMLElement;
       expect(mainContainer).toHaveClass(
         '@container',
-        'bg-primary',
-        'text-primary-foreground',
+        'bg-background',
+        'text-primary',
         'relative',
         'overflow-hidden',
-        'py-24'
+        'py-16'
       );
     });
 
@@ -148,7 +148,7 @@ describe('TopicListing Component', () => {
       const { container } = render(<TopicListing {...defaultProps} />);
 
       const mainContainer = container.firstChild as HTMLElement;
-      expect(mainContainer).toHaveClass('py-24', 'md:pb-[128px]', 'md:pt-28');
+      expect(mainContainer).toHaveClass('py-16', '@md:py-24');
     });
 
     it('should render with correct title classes', () => {
@@ -157,11 +157,10 @@ describe('TopicListing Component', () => {
       const title = screen.getByText('Explore Our Topics');
       expect(title).toHaveClass(
         'font-heading',
-        '@sm:text-5xl',
-        '@md:text-6xl',
-        '@lg:text-7xl',
-        'text-4xl',
-        'font-semibold'
+        'font-bold',
+        '@sm:text-4xl',
+        '@md:text-5xl',
+        'text-3xl'
       );
     });
   });
@@ -333,16 +332,16 @@ describe('TopicListing Component', () => {
       render(<TopicListing {...defaultProps} />);
 
       const title = screen.getByText('Explore Our Topics');
-      expect(title).toHaveClass('text-primary-foreground');
+      expect(title).toHaveClass('text-primary');
     });
   });
 
   describe('Theme and styling', () => {
-    it('should apply primary background', () => {
+    it('should apply light background for default theme', () => {
       const { container } = render(<TopicListing {...defaultProps} />);
 
       const mainContainer = container.firstChild as HTMLElement;
-      expect(mainContainer).toHaveClass('bg-primary', 'text-primary-foreground');
+      expect(mainContainer).toHaveClass('bg-background', 'text-primary');
     });
 
     it('should have overflow hidden for background effects', () => {

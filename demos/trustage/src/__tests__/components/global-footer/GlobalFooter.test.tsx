@@ -285,7 +285,7 @@ describe('GlobalFooter Component', () => {
 
       const bottomBorder = container.querySelector('.border-t');
       expect(bottomBorder).toBeInTheDocument();
-      expect(bottomBorder).toHaveClass('border-white/10');
+      expect(bottomBorder).toHaveClass('border-border');
     });
 
     it('should apply container query classes', () => {
