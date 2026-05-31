@@ -28,13 +28,15 @@ export const Default: React.FC<PageHeaderProps> = ({
   params,
   page,
 }) => {
-  const { imageRequired, videoOptional, logoText, children } =
+  const { imageRequired, videoOptional, logoText, children, pageHeaderTitle, pageHeaderSubtitle } =
     fields?.data?.datasource || {};
-  const { pageHeaderTitle, pageTitle, pageSubtitle } =
+  const { pageTitle, pageSubtitle } =
     fields?.data?.externalFields || {};
 
+    console.log(fields, params, page)
+
   const title = pageHeaderTitle?.jsonValue ?? pageTitle?.jsonValue;
-  const subtitle = pageSubtitle?.jsonValue;
+  const subtitle = pageHeaderSubtitle?.jsonValue;
 
   const { colorScheme = 'default', darkPlayIcon = '0' } = params;
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);

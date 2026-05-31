@@ -32,6 +32,12 @@ export interface PageHeaderProps extends ComponentProps {
         children?: {
           results: PageHeaderLogos[];
         };
+        pageHeaderTitle: {
+          jsonValue: Field<string>;
+        };
+        pageHeaderSubtitle: {
+          jsonValue: Field<string>;
+        };
       };
       externalFields: {
         pageTitle: {

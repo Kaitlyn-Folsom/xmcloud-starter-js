@@ -39,7 +39,7 @@ export const PromoAnimatedDefault: React.FC<PromoAnimatedProps> = (props) => {
                   'group-[.position-center]:mx-auto group-[.position-right]:ml-auto @md:mx-0'
                 )}
               >
-                <div className="relative aspect-[4/5] w-full">
+                <div className="relative aspect-[1/1] w-full">
                   <ImageWrapper
                     image={image}
                     className="h-full w-full object-cover"
