@@ -20,6 +20,12 @@ SharedFields:
   Hint: ServerSideRenderingEngineEndpointUrl
   Value: "https://xmc-7xenb5qfs9sazmhe8rbofa-eh.sitecorecloud.io/api/editing/render"
 Languages:
+- Language: "ar-EG"
+  Versions:
+  - Version: 1
+- Language: "ar-SA"
+  Versions:
+  - Version: 1
 - Language: en
   Versions:
   - Version: 1

@@ -35,6 +35,12 @@ SharedFields:
         link2: field(name: "link2") {
           jsonValue
         }
+        pageHeaderTitle: field(name: "title") {
+          jsonValue
+        }
+        pageHeaderSubtitle: field(name: "subtitle") {
+          jsonValue
+        }
       }
     }
     
@@ -64,7 +70,7 @@ SharedFields:
   Value: 
 - ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
   Hint: __Shared revision
-  Value: "522a7995-c2df-4565-820c-dd4e13094658"
+  Value: "c90eedd9-b7f6-4527-90c6-135be7274117"
 - ID: "e829c217-5e94-4306-9c48-2634b094fdc2"
   Hint: OtherProperties
   Value: IsRenderingsWithDynamicPlaceholders=true&IsAutoDatasourceRendering=true
@@ -111,14 +117,14 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "8d6a20b4-52cd-436e-bd44-04854f958a6c"
+      Value: "891e6302-1d28-496c-bb30-60d8e84d1582"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\richard.seal@sitecore.com
+        sitecore\kaitlyn.folsom@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20250528T184059Z
+      Value: 20260531T193246Z
 - Language: "ja-JP"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
