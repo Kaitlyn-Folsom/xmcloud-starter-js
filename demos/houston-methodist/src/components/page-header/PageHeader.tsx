@@ -55,10 +55,15 @@ const pageHeaderSubtitleClasses = cva(
   }
 );
 
-export const Default: React.FC<PageHeaderProps> = ({
+interface PageHeaderContentProps extends PageHeaderProps {
+  imageOnLeft?: boolean;
+}
+
+const PageHeaderContent: React.FC<PageHeaderContentProps> = ({
   fields,
   params,
   page,
+  imageOnLeft = false,
 }) => {
   const { imageRequired, videoOptional, logoText, children } =
     fields?.data?.datasource || {};
@@ -83,12 +88,17 @@ export const Default: React.FC<PageHeaderProps> = ({
     return (
       <section className={containerClasses}>
         <div className="@md:grid-cols-2 @lg:gap-12 mx-auto grid w-full max-w-screen-xl grid-cols-1 items-center gap-8">
-          {/* Left: title, subtitle, optional logos */}
-          <div className="flex flex-col justify-center gap-6">
+          <div
+            className={cn(
+              'flex flex-col justify-center gap-6',
+              imageOnLeft && 'order-1 @md:order-2'
+            )}
+          >
             <AnimatedSection
               reducedMotion={prefersReducedMotion}
               isPageEditing={isPageEditing}
             >
+              {/* I can make changes live here! */}
               <Text
                 tag="h1"
                 className={pageHeaderTitleClasses({ colorScheme })}
@@ -128,8 +138,7 @@ export const Default: React.FC<PageHeaderProps> = ({
               </AnimatedSection>
             )}
           </div>
-          {/* Right: image or video */}
-          <div>
+          <div className={cn(imageOnLeft && 'order-2 @md:order-1')}>
             <AnimatedSection
               reducedMotion={prefersReducedMotion}
               isPageEditing={isPageEditing}
@@ -156,3 +165,11 @@ export const Default: React.FC<PageHeaderProps> = ({
   }
   return <NoDataFallback componentName="PageHeader" />;
 };
+
+export const Default: React.FC<PageHeaderProps> = (props) => (
+  <PageHeaderContent {...props} />
+);
+
+export const ImageLeft: React.FC<PageHeaderProps> = (props) => (
+  <PageHeaderContent {...props} imageOnLeft />
+);

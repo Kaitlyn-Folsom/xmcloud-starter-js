@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { Default as PageHeader } from '@/components/page-header/PageHeader';
+import { Default as PageHeader, ImageLeft } from '@/components/page-header/PageHeader';
 import type { PageHeaderProps } from '@/components/page-header/page-header.props';
 import type { ImageField, LinkField } from '@sitecore-content-sdk/nextjs';
 import {
@@ -421,6 +421,44 @@ describe('PageHeader Component', () => {
 
       expect(matchMediaMock).toHaveBeenCalledWith('(prefers-reduced-motion: reduce)');
     });
+  });
+});
+
+describe('PageHeader Component - ImageLeft Variant', () => {
+  it('should render with the same content as Default', () => {
+    render(<ImageLeft {...defaultProps} />);
+
+    expect(screen.getByText('Custom Header Title')).toBeInTheDocument();
+    expect(
+      screen.getByText(/Discover innovative solutions that transform your business/i)
+    ).toBeInTheDocument();
+  });
+
+  it('should apply desktop layout order classes for image on left', () => {
+    const { container } = render(<ImageLeft {...defaultProps} />);
+
+    const grid = container.querySelector('.grid');
+    const columns = grid?.children;
+
+    expect(columns?.[0]).toHaveClass('order-1', '@md:order-2');
+    expect(columns?.[1]).toHaveClass('order-2', '@md:order-1');
+  });
+
+  it('should not apply layout order classes on Default variant', () => {
+    const { container } = render(<PageHeader {...defaultProps} />);
+
+    const grid = container.querySelector('.grid');
+    const columns = grid?.children;
+
+    expect(columns?.[0]).not.toHaveClass('@md:order-2');
+    expect(columns?.[1]).not.toHaveClass('@md:order-1');
+  });
+
+  it('should render NoDataFallback when fields are missing', () => {
+    render(<ImageLeft {...propsWithoutFields} />);
+
+    const fallback = screen.getByTestId('no-data-fallback');
+    expect(fallback).toHaveTextContent('PageHeader');
   });
 });
 
