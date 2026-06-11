@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 import { useSearchParams } from 'next/navigation';
 import { useSitecore } from '@sitecore-content-sdk/nextjs';
 import { useSearch } from '@sitecore-content-sdk/nextjs/search';
-import { cn } from 'lib/utils';
+import { cn } from '@/lib/utils';
 import { SearchDocument, SearchExperienceProps } from './search-components/models';
 import { SearchEmptyResults } from './search-components/SearchEmptyResults';
 import { SearchError } from './search-components/SearchError';

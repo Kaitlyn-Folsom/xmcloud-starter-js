@@ -2,7 +2,7 @@
 import { HTMLAttributes } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@sitecore-content-sdk/nextjs';
-import { cn } from 'lib/utils';
+import { cn } from '@/lib/utils';
 import { SearchItemFields } from './index';
 import { DICTIONARY_KEYS } from '../constants';
 

@@ -1,6 +1,6 @@
 'use client';
 import { HTMLAttributes } from 'react';
-import { cn } from 'lib/utils';
+import { cn } from '@/lib/utils';
 import { ItemCardFrame, ItemListFrame, SearchItemVariant } from './SearchItemCommon';
 import { SearchFieldsMapping } from './models';
 

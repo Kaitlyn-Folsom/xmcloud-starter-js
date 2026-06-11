@@ -3,7 +3,7 @@ import { HTMLAttributes, useState } from 'react';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faImage } from '@fortawesome/free-solid-svg-icons';
-import { cn } from 'lib/utils';
+import { cn } from '@/lib/utils';
 import { SearchItemFields } from './index';
 import { SearchItemVariant } from '../SearchItemCommon';
 

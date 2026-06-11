@@ -1,7 +1,7 @@
 'use client';
 import { HTMLAttributes } from 'react';
 import { Text } from '@sitecore-content-sdk/nextjs';
-import { cn } from 'lib/utils';
+import { cn } from '@/lib/utils';
 
 type SearchItemCategoryProps = {
   category: { value: string } | undefined;
