@@ -1,14 +1,30 @@
 import { cva } from 'class-variance-authority';
-// ~~~~ Rendering param options ~~~~
 
-// Background extending to left behind image
-export const imageBgExtensionRenderingParams = cva(
-  ['promo-animated__image-bg-extension', 'absolute', 'bottom-0', 'top-0', 'w-[100vw]'],
+export type PromoAnimatedColorScheme = 'primary' | 'secondary';
+
+export const resolvePromoAnimatedColorScheme = (
+  colorScheme?: string | null
+): PromoAnimatedColorScheme => {
+  return colorScheme === 'secondary' ? 'secondary' : 'primary';
+};
+
+export const promoAnimatedContentBoxParams = cva(
+  [
+    'promo-animated__content',
+    'relative',
+    'z-10',
+    'flex',
+    'flex-col',
+    'justify-center',
+    'p-8',
+    '@md:p-12',
+    'text-left',
+  ],
   {
     variants: {
       colorScheme: {
-        primary: 'bg-primary',
-        secondary: 'bg-accent',
+        primary: 'bg-tertiary/95 text-tertiary-foreground',
+        secondary: 'bg-primary text-primary-foreground',
       },
     },
     defaultVariants: {
@@ -17,14 +33,13 @@ export const imageBgExtensionRenderingParams = cva(
   }
 );
 
-// Animated sprite in front of image
-export const animatedSpriteRenderingParams = cva(
-  ['promo-animated__sprite', 'h-full', 'w-full', 'rounded-full', 'pointer-events-none'],
+export const promoAnimatedLinkParams = cva(
+  ['inline-flex', 'items-center', 'gap-1.5', 'font-bold', 'text-lg', 'transition-opacity', 'hover:opacity-90'],
   {
     variants: {
       colorScheme: {
-        primary: 'bg-accent',
-        secondary: 'bg-primary',
+        primary: 'text-tertiary-foreground',
+        secondary: 'text-primary-foreground',
       },
     },
     defaultVariants: {

@@ -39,10 +39,8 @@ interface MockAnimatedSectionProps {
   animationType?: string;
 }
 
-interface MockButtonBaseProps {
-  buttonLink?: LinkField;
-  variant?: string;
-  isPageEditing?: boolean;
+interface MockLinkProps {
+  field?: LinkField;
 }
 
 interface MockNoDataFallbackProps {
@@ -80,6 +78,12 @@ jest.mock('@sitecore-content-sdk/nextjs', () => ({
     React.createElement('div', {
       dangerouslySetInnerHTML: { __html: field?.value || '' },
     }),
+  Link: ({ field }: MockLinkProps) =>
+    React.createElement(
+      'a',
+      { href: field?.value?.href as string | undefined },
+      field?.value?.text || ''
+    ),
   useSitecore: () => ({
     page: {
       mode: {
@@ -108,21 +112,6 @@ jest.mock('@/components/animated-section/AnimatedSection.dev', () => ({
       {children}
     </div>
   ),
-}));
-
-jest.mock('@/components/button-component/ButtonComponent', () => ({
-  ButtonBase: ({ buttonLink, variant, isPageEditing }: MockButtonBaseProps) => {
-    if (!buttonLink?.value?.href && !isPageEditing) return null;
-    return (
-      <a
-        data-testid="button-component"
-        data-variant={variant || 'default'}
-        href={buttonLink?.value?.href as string | undefined}
-      >
-        {buttonLink?.value?.text}
-      </a>
-    );
-  },
 }));
 
 jest.mock('@/utils/NoDataFallback', () => ({
@@ -197,10 +186,14 @@ describe('PromoAnimated Component - Default Variant', () => {
     it('should render both primary and secondary links', () => {
       render(<PromoAnimated {...defaultProps} />);
 
-      const buttons = screen.getAllByTestId('button-component');
-      expect(buttons).toHaveLength(2);
-      expect(buttons[0]).toHaveAttribute('href', '/shop/premium');
-      expect(buttons[1]).toHaveAttribute('href', '/learn-more');
+      expect(screen.getByRole('link', { name: 'Shop Now' })).toHaveAttribute(
+        'href',
+        '/shop/premium'
+      );
+      expect(screen.getByRole('link', { name: 'Learn More' })).toHaveAttribute(
+        'href',
+        '/learn-more'
+      );
     });
   });
 
@@ -212,11 +205,13 @@ describe('PromoAnimated Component - Default Variant', () => {
       expect(section).toHaveClass('@container');
     });
 
-    it('should apply grid layout classes', () => {
+    it('should apply overlapping banner layout classes', () => {
       const { container } = render(<PromoAnimated {...defaultProps} />);
 
       const contentWrapper = container.querySelector('.promo-animated__content-wrapper');
-      expect(contentWrapper).toHaveClass('grid', 'grid-cols-1');
+      expect(contentWrapper).toHaveClass('relative');
+      expect(container.querySelector('.promo-animated__image')).toHaveClass('@md:right-0');
+      expect(container.querySelector('.promo-animated__content')).toHaveClass('bg-tertiary');
     });
 
     it('should render animated sections', () => {
@@ -226,14 +221,11 @@ describe('PromoAnimated Component - Default Variant', () => {
       expect(animatedSections.length).toBeGreaterThan(0);
     });
 
-    it('should render rotate animation for sprite', () => {
+    it('should render animated sections for content entrance', () => {
       render(<PromoAnimated {...defaultProps} />);
 
       const animatedSections = screen.getAllByTestId('animated-section');
-      const rotateSection = animatedSections.find(
-        (section) => section.getAttribute('data-animation-type') === 'rotate'
-      );
-      expect(rotateSection).toBeInTheDocument();
+      expect(animatedSections.length).toBeGreaterThan(0);
     });
   });
 
@@ -283,23 +275,27 @@ describe('PromoAnimated Component - Default Variant', () => {
       render(<PromoAnimated {...propsWithoutLinks} />);
 
       expect(screen.getByText('Discover Excellence')).toBeInTheDocument();
-      expect(screen.queryByTestId('button-component')).not.toBeInTheDocument();
+      expect(screen.queryByRole('link')).not.toBeInTheDocument();
     });
 
     it('should render without primary link', () => {
       render(<PromoAnimated {...propsWithoutPrimaryLink} />);
 
-      const buttons = screen.getAllByTestId('button-component');
-      expect(buttons).toHaveLength(1);
-      expect(buttons[0]).toHaveAttribute('href', '/learn-more');
+      expect(screen.getByRole('link', { name: 'Learn More' })).toHaveAttribute(
+        'href',
+        '/learn-more'
+      );
+      expect(screen.queryByRole('link', { name: 'Shop Now' })).not.toBeInTheDocument();
     });
 
     it('should render without secondary link', () => {
       render(<PromoAnimated {...propsWithoutSecondaryLink} />);
 
-      const buttons = screen.getAllByTestId('button-component');
-      expect(buttons).toHaveLength(1);
-      expect(buttons[0]).toHaveAttribute('href', '/shop/premium');
+      expect(screen.getByRole('link', { name: 'Shop Now' })).toHaveAttribute(
+        'href',
+        '/shop/premium'
+      );
+      expect(screen.queryByRole('link', { name: 'Learn More' })).not.toBeInTheDocument();
     });
   });
 
@@ -353,9 +349,14 @@ describe('PromoAnimated Component - Default Variant', () => {
     it('should render links with proper href', () => {
       render(<PromoAnimated {...defaultProps} />);
 
-      const buttons = screen.getAllByTestId('button-component');
-      expect(buttons[0]).toHaveAttribute('href', '/shop/premium');
-      expect(buttons[1]).toHaveAttribute('href', '/learn-more');
+      expect(screen.getByRole('link', { name: 'Shop Now' })).toHaveAttribute(
+        'href',
+        '/shop/premium'
+      );
+      expect(screen.getByRole('link', { name: 'Learn More' })).toHaveAttribute(
+        'href',
+        '/learn-more'
+      );
     });
 
     it('should render heading with semantic h2 tag', () => {
@@ -388,18 +389,18 @@ describe('PromoAnimated Component - ImageRight Variant', () => {
       expect(section).toBeInTheDocument();
     });
 
-    it('should apply order-2 class to image container', () => {
+    it('should position image on the left for the mirrored variant', () => {
       const { container } = render(<ImageRight {...defaultProps} />);
 
       const imageContainer = container.querySelector('.promo-animated__image');
-      expect(imageContainer).toHaveClass('@md:order-2');
+      expect(imageContainer).toHaveClass('@md:left-0');
     });
 
-    it('should apply order-1 class to content container', () => {
+    it('should position content on the right for the mirrored variant', () => {
       const { container } = render(<ImageRight {...defaultProps} />);
 
       const contentContainer = container.querySelector('.promo-animated__content');
-      expect(contentContainer).toHaveClass('@md:order-1');
+      expect(contentContainer).toHaveClass('@md:right-0');
     });
   });
 
@@ -414,22 +415,20 @@ describe('PromoAnimated Component - ImageRight Variant', () => {
   });
 
   describe('Variant comparison', () => {
-    it('should render same content as Default variant but with different order', () => {
+    it('should render same content as Default variant but with mirrored layout', () => {
       const { container: defaultContainer } = render(<PromoAnimated {...defaultProps} />);
       const { container: imageRightContainer } = render(<ImageRight {...defaultProps} />);
 
-      // Both should have the same text content
       expect(defaultContainer.textContent).toContain('Discover Excellence');
       expect(imageRightContainer.textContent).toContain('Discover Excellence');
 
-      // But different layout classes
       const defaultImageContainer = defaultContainer.querySelector('.promo-animated__image');
       const imageRightImageContainer = imageRightContainer.querySelector(
         '.promo-animated__image'
       );
 
-      expect(defaultImageContainer).not.toHaveClass('@md:order-2');
-      expect(imageRightImageContainer).toHaveClass('@md:order-2');
+      expect(defaultImageContainer).toHaveClass('@md:right-0');
+      expect(imageRightImageContainer).toHaveClass('@md:left-0');
     });
   });
 });

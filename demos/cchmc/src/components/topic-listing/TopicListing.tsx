@@ -16,7 +16,7 @@ export const Default: React.FC<TopicListingProps> = (props) => {
   if (fields) {
     return (
       <div
-        className="@container bg-secondary text-foreground relative overflow-hidden py-20 md:pb-24 md:pt-24"
+        className="@container bg-white text-foreground relative overflow-hidden py-20 md:pb-24 md:pt-24"
         data-class-change
       >
         {backgroundTheme === 'shooting-star' && (
