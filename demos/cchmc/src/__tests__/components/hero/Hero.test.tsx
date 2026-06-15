@@ -1,17 +1,15 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import { Default as Hero } from '@/components/hero/Hero';
+import { render, screen } from '@testing-library/react';
+import {
+  Default as Hero,
+  DefaultInvert as HeroDefaultInvert,
+  ImageLeft as HeroImageLeft,
+} from '@/components/hero/Hero';
 import {
   defaultProps,
-  propsWithPrimaryScheme,
-  propsWithSecondaryScheme,
-  propsWithTertiaryScheme,
-  propsWithDarkScheme,
   propsWithoutDescription,
   propsWithoutLink,
   propsWithOnlyTitle,
-  propsWithImagesOnly,
-  propsWithoutColorScheme,
   propsWithoutFields,
   propsEditing,
   mockPageData,
@@ -19,10 +17,14 @@ import {
 } from './Hero.mockProps';
 import type { HeroProps } from '@/components/hero/hero.props';
 
-// Type definitions for mock components
 interface MockTextProps {
   field?: { value?: string };
   tag?: string;
+  className?: string;
+}
+
+interface MockImageProps {
+  field?: { value?: { src?: string; alt?: string } };
   className?: string;
 }
 
@@ -32,19 +34,11 @@ interface MockEditableButtonProps {
   isPageEditing?: boolean;
 }
 
-interface MockAnimatedSectionProps {
-  children?: React.ReactNode;
-  direction?: string;
+interface MockImageWrapperProps {
+  image?: { value?: { src?: string; alt?: string } };
   className?: string;
-  isPageEditing?: boolean;
-}
-
-interface MockMediaSectionProps {
-  video?: string;
-  image?: { value?: { src?: string } };
-  className?: string;
-  pause?: boolean;
-  reducedMotion?: boolean;
+  priority?: boolean;
+  alt?: string;
 }
 
 interface MockButtonProps {
@@ -60,7 +54,6 @@ interface MockNoDataFallbackProps {
   componentName?: string;
 }
 
-// Mock the cn utility
 jest.mock('@/lib/utils', () => ({
   cn: (...args: Array<string | boolean | Record<string, boolean> | undefined>) => {
     return args
@@ -80,7 +73,6 @@ jest.mock('@/lib/utils', () => ({
   },
 }));
 
-// Mock the useSitecore hook
 const mockUseSitecore = jest.fn();
 jest.mock('@sitecore-content-sdk/nextjs', () => ({
   useSitecore: () => mockUseSitecore(),
@@ -88,9 +80,13 @@ jest.mock('@sitecore-content-sdk/nextjs', () => ({
     const Tag = tag || 'span';
     return React.createElement(Tag, { className }, field?.value || '');
   },
+  Image: ({ field, className }: MockImageProps) =>
+    field?.value?.src ? (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img src={field.value.src} alt={field.value.alt} className={className} data-testid="hero-badge-image" />
+    ) : null,
 }));
 
-// Mock EditableButton component
 jest.mock('@/components/button-component/ButtonComponent', () => ({
   EditableButton: ({ buttonLink, className, isPageEditing }: MockEditableButtonProps) => (
     <button
@@ -104,35 +100,17 @@ jest.mock('@/components/button-component/ButtonComponent', () => ({
   ),
 }));
 
-// Mock AnimatedSection component
-jest.mock('@/components/animated-section/AnimatedSection.dev', () => ({
-  Default: ({ children, direction, className, isPageEditing }: MockAnimatedSectionProps) => (
+jest.mock('@/components/image/ImageWrapper.dev', () => ({
+  Default: ({ image, className, priority }: MockImageWrapperProps) => (
     <div
-      data-testid="animated-section"
-      data-direction={direction}
-      data-editing={isPageEditing}
-      className={className}
-    >
-      {children}
-    </div>
-  ),
-}));
-
-// Mock MediaSection component
-jest.mock('@/components/media-section/MediaSection.dev', () => ({
-  Default: ({ video, image, className, pause, reducedMotion }: MockMediaSectionProps) => (
-    <div
-      data-testid="media-section"
-      data-video={video}
+      data-testid="hero-background-image-inner"
       data-image={image?.value?.src}
-      data-pause={pause}
-      data-reduced-motion={reducedMotion}
+      data-priority={priority}
       className={className}
     />
   ),
 }));
 
-// Mock UI Button component
 jest.mock('@/components/ui/button', () => ({
   Button: ({ children, variant, size, onClick, className, ...props }: MockButtonProps) => (
     <button
@@ -148,13 +126,11 @@ jest.mock('@/components/ui/button', () => ({
   ),
 }));
 
-// Mock lucide-react icons
 jest.mock('lucide-react', () => ({
   Play: () => React.createElement('div', { 'data-testid': 'play-icon' }, 'Play'),
   Pause: () => React.createElement('div', { 'data-testid': 'pause-icon' }, 'Pause'),
 }));
 
-// Mock NoDataFallback
 jest.mock('@/utils/NoDataFallback', () => ({
   NoDataFallback: ({ componentName }: MockNoDataFallbackProps) => (
     <div data-testid="no-data-fallback">{componentName}</div>
@@ -166,7 +142,6 @@ describe('Hero Component', () => {
     jest.clearAllMocks();
     mockUseSitecore.mockReturnValue(mockPageData);
 
-    // Mock window.matchMedia
     Object.defineProperty(window, 'matchMedia', {
       writable: true,
       value: jest.fn().mockImplementation((query) => ({
@@ -200,7 +175,7 @@ describe('Hero Component', () => {
 
       const section = container.querySelector('section');
       expect(section).toBeInTheDocument();
-      expect(section).toHaveClass('hero', '@container');
+      expect(section).toHaveClass('hero', '@container', 'w-full');
     });
 
     it('should render title as h1 tag', () => {
@@ -216,70 +191,72 @@ describe('Hero Component', () => {
       const description = screen.getByText(/Discover amazing features/);
       expect(description.tagName).toBe('P');
     });
-  });
 
-  describe('Color scheme variants', () => {
-    it('should apply light color scheme classes', () => {
+    it('should render content inside the hero overlay block', () => {
       const { container } = render(<Hero {...defaultProps} />);
 
-      const section = container.querySelector('section');
-      expect(section).toHaveClass('bg-light', 'text-primary');
+      const overlay = container.querySelector('.bg-\\[\\#ba508e\\]');
+      expect(overlay).toBeInTheDocument();
+      expect(overlay).toContainElement(screen.getByText('Welcome to Our Platform'));
+    });
+  });
+
+  describe('Background media rendering', () => {
+    it('should render Feature 1 image as the background', () => {
+      render(<Hero {...defaultProps} />);
+
+      expect(screen.getByTestId('hero-background-image')).toBeInTheDocument();
+      expect(screen.getByTestId('hero-background-image-inner')).toHaveAttribute(
+        'data-image',
+        '/images/hero-image-1.jpg'
+      );
     });
 
-    it('should apply primary color scheme classes', () => {
-      const { container } = render(<Hero {...propsWithPrimaryScheme} />);
+    it('should prioritize the background image for loading', () => {
+      render(<Hero {...defaultProps} />);
 
-      const section = container.querySelector('section');
-      expect(section).toHaveClass('bg-primary', 'text-primary-foreground');
+      expect(screen.getByTestId('hero-background-image-inner')).toHaveAttribute(
+        'data-priority',
+        'true'
+      );
     });
 
-    it('should apply secondary color scheme classes', () => {
-      const { container } = render(<Hero {...propsWithSecondaryScheme} />);
+    it('should constrain the entire hero to 1440px', () => {
+      render(<Hero {...defaultProps} />);
 
-      const section = container.querySelector('section');
-      expect(section).toHaveClass('bg-secondary', 'text-primary');
+      expect(screen.getByTestId('hero-container')).toHaveClass('max-w-[1440px]', 'mx-auto');
     });
 
-    it('should apply tertiary color scheme classes', () => {
-      const { container } = render(<Hero {...propsWithTertiaryScheme} />);
+    it('should stack image above content on mobile and overlay from tablet up', () => {
+      render(<Hero {...defaultProps} />);
 
-      const section = container.querySelector('section');
-      expect(section).toHaveClass('bg-tertiary', 'text-primary');
+      expect(screen.getByTestId('hero-container')).toHaveClass('flex-col', 'md:block');
+      expect(screen.getByTestId('hero-background-image')).toHaveClass('md:absolute');
     });
 
-    it('should apply dark color scheme classes', () => {
-      const { container } = render(<Hero {...propsWithDarkScheme} />);
+    it('should render background from nested datasource fields', () => {
+      const nestedProps = {
+        ...defaultProps,
+        fields: {
+          data: {
+            datasource: {
+              titleRequired: { jsonValue: defaultProps.fields.titleRequired },
+              descriptionOptional: { jsonValue: defaultProps.fields.descriptionOptional },
+              linkOptional: { jsonValue: defaultProps.fields.linkOptional },
+              heroImageOptional1: { jsonValue: defaultProps.fields.heroImageOptional1 },
+              heroImageOptional2: { jsonValue: defaultProps.fields.heroImageOptional2 },
+            },
+          },
+        },
+      };
 
-      const section = container.querySelector('section');
-      expect(section).toHaveClass('bg-dark', 'text-primary');
-    });
+      render(<Hero {...nestedProps} />);
 
-    it('should apply default light scheme when colorScheme is not provided', () => {
-      const { container } = render(<Hero {...propsWithoutColorScheme} />);
-
-      const section = container.querySelector('section');
-      expect(section).toHaveClass('bg-light', 'text-primary');
-    });
-
-    it('should apply correct text color for description with primary scheme', () => {
-      render(<Hero {...propsWithPrimaryScheme} />);
-
-      const description = screen.getByText(/Discover amazing features/);
-      expect(description).toHaveClass('text-primary-foreground');
-    });
-
-    it('should apply correct text color for description with non-primary schemes', () => {
-      render(<Hero {...propsWithSecondaryScheme} />);
-
-      const description = screen.getByText(/Discover amazing features/);
-      expect(description).toHaveClass('text-secondary-foreground');
-    });
-
-    it('should apply correct button classes for primary scheme', () => {
-      render(<Hero {...propsWithPrimaryScheme} />);
-
-      const button = screen.getByTestId('hero-button');
-      expect(button).toHaveClass('text-primary', 'bg-white', 'hover:bg-gray-100');
+      expect(screen.getByTestId('hero-background-image-inner')).toHaveAttribute(
+        'data-image',
+        '/images/hero-image-1.jpg'
+      );
+      expect(screen.getByText('Welcome to Our Platform')).toBeInTheDocument();
     });
   });
 
@@ -309,129 +286,7 @@ describe('Hero Component', () => {
     });
   });
 
-  describe('Media sections rendering', () => {
-    it('should render all four media sections', () => {
-      render(<Hero {...defaultProps} />);
-
-      const mediaSections = screen.getAllByTestId('media-section');
-      expect(mediaSections).toHaveLength(4);
-    });
-
-    it('should render media sections with videos', () => {
-      render(<Hero {...defaultProps} />);
-
-      const mediaSections = screen.getAllByTestId('media-section');
-      expect(mediaSections[0]).toHaveAttribute('data-video', '/videos/hero-video-1.mp4');
-      expect(mediaSections[1]).toHaveAttribute('data-video', '/videos/hero-video-2.mp4');
-      expect(mediaSections[2]).toHaveAttribute('data-video', '/videos/hero-video-3.mp4');
-      expect(mediaSections[3]).toHaveAttribute('data-video', '/videos/hero-video-4.mp4');
-    });
-
-    it('should render media sections with images', () => {
-      render(<Hero {...defaultProps} />);
-
-      const mediaSections = screen.getAllByTestId('media-section');
-      expect(mediaSections[0]).toHaveAttribute('data-image', '/images/hero-image-1.jpg');
-      expect(mediaSections[1]).toHaveAttribute('data-image', '/images/hero-image-2.jpg');
-      expect(mediaSections[2]).toHaveAttribute('data-image', '/images/hero-image-3.jpg');
-      expect(mediaSections[3]).toHaveAttribute('data-image', '/images/hero-image-4.jpg');
-    });
-
-    it('should render media sections with correct aspect ratios', () => {
-      render(<Hero {...defaultProps} />);
-
-      const mediaSections = screen.getAllByTestId('media-section');
-      expect(mediaSections[0]).toHaveClass('aspect-280/356');
-      expect(mediaSections[1]).toHaveClass('aspect-280/196');
-      expect(mediaSections[2]).toHaveClass('aspect-280/356');
-      expect(mediaSections[3]).toHaveClass('aspect-280/356');
-    });
-
-    it('should render media sections with images only', () => {
-      render(<Hero {...propsWithImagesOnly} />);
-
-      const mediaSections = screen.getAllByTestId('media-section');
-      expect(mediaSections).toHaveLength(4);
-      // When no videos, data-video attribute might be undefined or empty
-      mediaSections.forEach((section) => {
-        const videoAttr = section.getAttribute('data-video');
-        expect(videoAttr === null || videoAttr === '' || videoAttr === 'undefined').toBe(true);
-      });
-    });
-  });
-
-  describe('Play/Pause control', () => {
-    it('should render play/pause button', () => {
-      render(<Hero {...defaultProps} />);
-
-      const controlButton = screen.getByTestId('control-button');
-      expect(controlButton).toBeInTheDocument();
-    });
-
-    it('should show pause icon when playing', () => {
-      render(<Hero {...defaultProps} />);
-
-      expect(screen.getByTestId('pause-icon')).toBeInTheDocument();
-    });
-
-    it('should toggle play/pause state on button click', () => {
-      render(<Hero {...defaultProps} />);
-
-      const controlButton = screen.getByTestId('control-button');
-      
-      // Initially showing pause icon (playing)
-      expect(screen.getByTestId('pause-icon')).toBeInTheDocument();
-      
-      // Click to pause
-      fireEvent.click(controlButton);
-      
-      // Should now show play icon
-      expect(screen.getByTestId('play-icon')).toBeInTheDocument();
-      expect(screen.queryByTestId('pause-icon')).not.toBeInTheDocument();
-    });
-
-    it('should have correct aria-label when playing', () => {
-      render(<Hero {...defaultProps} />);
-
-      const controlButton = screen.getByTestId('control-button');
-      expect(controlButton).toHaveAttribute('aria-label', 'Pause Ambient Video');
-    });
-
-    it('should have correct aria-label when paused', () => {
-      render(<Hero {...defaultProps} />);
-
-      const controlButton = screen.getByTestId('control-button');
-      fireEvent.click(controlButton);
-      
-      expect(controlButton).toHaveAttribute('aria-label', 'Play Ambient');
-    });
-
-    it('should not render control button when prefers-reduced-motion is set', () => {
-      window.matchMedia = jest.fn().mockImplementation((query) => ({
-        matches: query === '(prefers-reduced-motion: reduce)',
-        media: query,
-        onchange: null,
-        addListener: jest.fn(),
-        removeListener: jest.fn(),
-        addEventListener: jest.fn(),
-        removeEventListener: jest.fn(),
-        dispatchEvent: jest.fn(),
-      }));
-
-      render(<Hero {...defaultProps} />);
-
-      expect(screen.queryByTestId('control-button')).not.toBeInTheDocument();
-    });
-  });
-
   describe('Editing mode behavior', () => {
-    it('should render fields in editing mode even without values', () => {
-      mockUseSitecore.mockReturnValue(mockPageDataEditing);
-      render(<Hero {...propsEditing} />);
-
-      expect(screen.getByTestId('animated-section')).toHaveAttribute('data-editing', 'true');
-    });
-
     it('should pass editing state to EditableButton', () => {
       mockUseSitecore.mockReturnValue(mockPageDataEditing);
       render(<Hero {...propsEditing} />);
@@ -440,31 +295,11 @@ describe('Hero Component', () => {
       expect(button).toHaveAttribute('data-editing', 'true');
     });
 
-    it('should set reducedMotion to true in editing mode', () => {
+    it('should render background container in editing mode', () => {
       mockUseSitecore.mockReturnValue(mockPageDataEditing);
       render(<Hero {...propsEditing} />);
 
-      const mediaSections = screen.getAllByTestId('media-section');
-      mediaSections.forEach((section) => {
-        expect(section).toHaveAttribute('data-reduced-motion', 'true');
-      });
-    });
-  });
-
-  describe('AnimatedSection integration', () => {
-    it('should render content in AnimatedSection', () => {
-      render(<Hero {...defaultProps} />);
-
-      const animatedSection = screen.getByTestId('animated-section');
-      expect(animatedSection).toBeInTheDocument();
-      expect(animatedSection).toHaveAttribute('data-direction', 'up');
-    });
-
-    it('should apply correct classes to AnimatedSection', () => {
-      render(<Hero {...defaultProps} />);
-
-      const animatedSection = screen.getByTestId('animated-section');
-      expect(animatedSection).toHaveClass('@lg:flex-row', '@lg:items-center', '@lg:gap-10');
+      expect(screen.getByTestId('hero-background-image')).toBeInTheDocument();
     });
   });
 
@@ -476,25 +311,65 @@ describe('Hero Component', () => {
       expect(section).toHaveClass('custom-hero-style');
     });
 
-    it('should apply container query classes', () => {
-      const { container } = render(<Hero {...defaultProps} />);
-
-      const section = container.querySelector('section');
-      expect(section).toHaveClass('@container');
-    });
-
-    it('should apply correct padding classes', () => {
-      const { container } = render(<Hero {...defaultProps} />);
-
-      const section = container.querySelector('section');
-      expect(section).toHaveClass('py-24');
-    });
-
     it('should apply overflow-hidden class', () => {
-      const { container } = render(<Hero {...defaultProps} />);
+      render(<Hero {...defaultProps} />);
 
-      const section = container.querySelector('section');
-      expect(section).toHaveClass('overflow-hidden');
+      expect(screen.getByTestId('hero-container')).toHaveClass('overflow-hidden');
+    });
+  });
+
+  describe('DefaultInvert variant', () => {
+    it('should align content to the right from tablet up', () => {
+      render(<HeroDefaultInvert {...defaultProps} />);
+
+      expect(screen.getByTestId('hero-container')).toHaveAttribute('data-align', 'right');
+      expect(screen.getByTestId('hero-container').querySelector('.md\\:justify-end')).toBeInTheDocument();
+    });
+
+    it('should render the same hero content as Default', () => {
+      render(<HeroDefaultInvert {...defaultProps} />);
+
+      expect(screen.getByText('Welcome to Our Platform')).toBeInTheDocument();
+      expect(screen.getByTestId('hero-background-image')).toBeInTheDocument();
+      expect(screen.getByTestId('hero-button')).toBeInTheDocument();
+    });
+  });
+
+  describe('ImageLeft variant', () => {
+    it('should render a 50-50 split layout from tablet up', () => {
+      render(<HeroImageLeft {...defaultProps} />);
+
+      const container = screen.getByTestId('hero-container');
+      expect(container).toHaveAttribute('data-layout', 'split');
+      expect(container).toHaveClass('md:flex-row');
+
+      const contentPanel = container.querySelector('.bg-\\[\\#ba508e\\]');
+      const imagePanel = screen.getByTestId('hero-background-image');
+
+      expect(contentPanel).toHaveClass('md:w-1/2');
+      expect(imagePanel).toHaveClass('md:w-1/2');
+    });
+
+    it('should place content before the image in document order', () => {
+      render(<HeroImageLeft {...defaultProps} />);
+
+      const container = screen.getByTestId('hero-container');
+      const contentPanel = container.querySelector('.bg-\\[\\#ba508e\\]');
+      const imagePanel = screen.getByTestId('hero-background-image');
+
+      expect(contentPanel).toBeInTheDocument();
+      expect(imagePanel).toBeInTheDocument();
+      expect(
+        contentPanel!.compareDocumentPosition(imagePanel!) & Node.DOCUMENT_POSITION_FOLLOWING
+      ).toBeTruthy();
+    });
+
+    it('should render the same hero content as Default', () => {
+      render(<HeroImageLeft {...defaultProps} />);
+
+      expect(screen.getByText('Welcome to Our Platform')).toBeInTheDocument();
+      expect(screen.getByTestId('hero-background-image')).toBeInTheDocument();
+      expect(screen.getByTestId('hero-button')).toBeInTheDocument();
     });
   });
 
@@ -525,74 +400,29 @@ describe('Hero Component', () => {
       render(<Hero {...defaultProps} />);
 
       const title = screen.getByText('Welcome to Our Platform');
-      expect(title).toHaveClass(
-        'font-heading',
-        '@lg:text-8xl',
-        '@lg:leading-[90px]',
-        'text-5xl',
-        'font-normal',
-        'leading-[60px]'
-      );
+      expect(title).toHaveClass('font-heading', 'text-2xl', 'lg:text-4xl');
     });
 
     it('should apply correct description classes', () => {
       render(<Hero {...defaultProps} />);
 
       const description = screen.getByText(/Discover amazing features/);
-      expect(description).toHaveClass('font-body', 'text-medium', '@md:text-xl', 'text-lg');
+      expect(description).toHaveClass('text-base', 'md:text-lg');
     });
 
-    it('should apply responsive gap classes to content', () => {
-      const { container } = render(<Hero {...defaultProps} />);
+    it('should style CTA for contrast on primary overlay', () => {
+      render(<Hero {...defaultProps} />);
 
-      // Check for the class by looking at the element's className
-      const contentDiv = Array.from(container.querySelectorAll('div')).find(
-        (div) => div.className && div.className.includes('@lg:gap-10')
-      );
-      expect(contentDiv).toBeTruthy();
-    });
-
-    it('should apply correct media section container classes', () => {
-      const { container } = render(<Hero {...defaultProps} />);
-
-      // Check for the class by looking at the element's className
-      const mediaContainer = Array.from(container.querySelectorAll('div')).find(
-        (div) => div.className && div.className.includes('@lg:min-w-[120%]')
-      );
-      expect(mediaContainer).toBeTruthy();
-      if (mediaContainer) {
-        expect(mediaContainer.className).toContain('gap-4');
-      }
+      const button = screen.getByTestId('hero-button');
+      expect(button).toHaveClass('bg-background', 'text-primary');
     });
   });
 
   describe('Accessibility', () => {
-    it('should render control button with proper aria-label', () => {
+    it('should mark background media as decorative', () => {
       render(<Hero {...defaultProps} />);
 
-      const controlButton = screen.getByTestId('control-button');
-      expect(controlButton).toHaveAttribute('aria-label');
-    });
-
-    it('should respect prefers-reduced-motion setting', () => {
-      window.matchMedia = jest.fn().mockImplementation((query) => ({
-        matches: query === '(prefers-reduced-motion: reduce)',
-        media: query,
-        onchange: null,
-        addListener: jest.fn(),
-        removeListener: jest.fn(),
-        addEventListener: jest.fn(),
-        removeEventListener: jest.fn(),
-        dispatchEvent: jest.fn(),
-      }));
-
-      render(<Hero {...defaultProps} />);
-
-      const mediaSections = screen.getAllByTestId('media-section');
-      mediaSections.forEach((section) => {
-        expect(section).toHaveAttribute('data-reduced-motion', 'true');
-      });
+      expect(screen.getByTestId('hero-background-image')).toHaveAttribute('aria-hidden', 'true');
     });
   });
 });
-

@@ -53,11 +53,14 @@ import * as imageoptimizationcontext from 'src/components/image/image-optimizati
 import * as ImageWrapperclient from 'src/components/image/ImageWrapper.client';
 import * as Icon from 'src/components/icon/Icon';
 import * as Hero from 'src/components/hero/Hero';
+import * as HeaderSearchShelf from 'src/components/global-header/HeaderSearchShelf';
 import * as GlobalHeader from 'src/components/global-header/GlobalHeader';
 import * as FooterNavigationColumn from 'src/components/global-footer/FooterNavigationColumn';
+import * as FooterBackToTop from 'src/components/global-footer/FooterBackToTop';
 import * as floatingdockdev from 'src/components/floating-dock/floating-dock.dev';
 import * as ArticleListing from 'src/components/article-listing/ArticleListing';
 import * as ArticleHeader from 'src/components/article-header/ArticleHeader';
+import * as ArticleDetails from 'src/components/article-details/ArticleDetails';
 import * as AnimatedSectiondev from 'src/components/animated-section/AnimatedSection.dev';
 import * as AlertBannerdev from 'src/components/alert-banner/AlertBanner.dev';
 import * as AccordionBlock from 'src/components/accordion-block/AccordionBlock';
@@ -115,11 +118,14 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['ImageWrapper', { ...ImageWrapperclient }],
   ['Icon', { ...Icon }],
   ['Hero', { ...Hero }],
+  ['HeaderSearchShelf', { ...HeaderSearchShelf }],
   ['GlobalHeader', { ...GlobalHeader }],
   ['FooterNavigationColumn', { ...FooterNavigationColumn }],
+  ['FooterBackToTop', { ...FooterBackToTop }],
   ['floating-dock', { ...floatingdockdev }],
   ['ArticleListing', { ...ArticleListing }],
   ['ArticleHeader', { ...ArticleHeader }],
+  ['ArticleDetails', { ...ArticleDetails }],
   ['AnimatedSection', { ...AnimatedSectiondev }],
   ['AlertBanner', { ...AlertBannerdev }],
   ['AccordionBlock', { ...AccordionBlock }],

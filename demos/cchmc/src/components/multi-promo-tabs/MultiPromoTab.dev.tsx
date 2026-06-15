@@ -52,7 +52,7 @@ const Default = (props: MultiPromoTabsFields) => {
           <Button
             icon={{ value: 'arrow-up-right' }}
             iconClassName="h-4 w-4"
-            className="bg-popover hover:bg-popover hover:text-popover-foreground text-popover-foreground font-body letter-spacing-[-0.8] flex w-fit items-center gap-2 rounded-lg px-4 py-2"
+            className="bg-popover hover:bg-popover hover:text-popover-foreground text-popover-foreground font-body letter-spacing-[-0.8] flex w-fit items-center gap-2 rounded-none px-4 py-2"
             buttonLink={link1?.jsonValue || getEmptyLinkField()}
             isPageEditing={true}
           />
@@ -68,7 +68,7 @@ const Default = (props: MultiPromoTabsFields) => {
           <Button
             icon={{ value: 'arrow-up-right' }}
             iconClassName="h-4 w-4"
-            className="bg-popover hover:bg-popover hover:text-popover-foreground text-popover-foreground font-body letter-spacing-[-0.8] flex w-fit items-center gap-2 rounded-lg px-4 py-2"
+            className="bg-popover hover:bg-popover hover:text-popover-foreground text-popover-foreground font-body letter-spacing-[-0.8] flex w-fit items-center gap-2 rounded-none px-4 py-2"
             buttonLink={link2?.jsonValue || getEmptyLinkField()}
             isPageEditing={true}
           />
@@ -103,7 +103,7 @@ const Default = (props: MultiPromoTabsFields) => {
           <Button
             icon={{ value: 'arrow-up-right' }}
             iconClassName="h-4 w-4"
-            className="bg-popover hover:bg-popover hover:text-popover-foreground text-popover-foreground font-body letter-spacing-[-0.8] absolute bottom-4 left-4 flex items-center gap-2 rounded-lg px-4 py-2 backdrop-blur-sm transition-all duration-500 group-hover/card1:translate-x-2"
+            className="bg-popover hover:bg-popover hover:text-popover-foreground text-popover-foreground font-body letter-spacing-[-0.8] absolute bottom-4 left-4 flex items-center gap-2 rounded-none px-4 py-2 backdrop-blur-sm transition-all duration-500 group-hover/card1:translate-x-2"
             buttonLink={link1.jsonValue}
             isPageEditing={false}
           />
@@ -132,7 +132,7 @@ const Default = (props: MultiPromoTabsFields) => {
           <Button
             icon={{ value: 'arrow-up-right' }}
             iconClassName="h-4 w-4"
-            className="bg-popover hover:bg-popover hover:text-popover-foreground text-popover-foreground font-body letter-spacing-[-0.8] absolute bottom-4 left-4 flex items-center gap-2 rounded-lg px-4 py-2 backdrop-blur-sm transition-all duration-500 group-hover/card2:translate-x-2"
+            className="bg-popover hover:bg-popover hover:text-popover-foreground text-popover-foreground font-body letter-spacing-[-0.8] absolute bottom-4 left-4 flex items-center gap-2 rounded-none px-4 py-2 backdrop-blur-sm transition-all duration-500 group-hover/card2:translate-x-2"
             buttonLink={link2.jsonValue}
             isPageEditing={false}
           />

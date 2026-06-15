@@ -13,9 +13,9 @@ export const SearchEmptyResults = ({
 
   return (
     <div className="mb-8">
-      <div className="bg-white border border-gray-200 rounded-lg p-12 text-center">
+      <div className="bg-card border-border rounded-none border p-12 text-center">
         <svg
-          className="mx-auto h-10 w-10 text-gray-400"
+          className="text-muted-foreground mx-auto h-10 w-10"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -27,17 +27,17 @@ export const SearchEmptyResults = ({
             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
           />
         </svg>
-        <h3 className="mt-4 text-lg font-semibold text-gray-900">
+        <h3 className="text-foreground mt-4 text-lg font-semibold">
           {t(DICTIONARY_KEYS.NO_RESULTS_FOUND) || 'No results found'}
         </h3>
-        <p className="mt-2 text-gray-600">
+        <p className="text-muted-foreground mt-2">
           {t(DICTIONARY_KEYS.TRY_ADJUSTING_YOUR_SEARCH) || 'Try adjusting your search or clear it.'}
         </p>
         <div className="mt-6">
           <button
             onClick={onClearSearch}
             disabled={!query}
-            className="px-4 py-2 rounded-md bg-primary text-primary-foreground hover:bg-primary-hover disabled:opacity-50"
+            className="px-4 py-2 rounded-none bg-primary text-primary-foreground hover:bg-primary-hover disabled:opacity-50"
           >
             {t(DICTIONARY_KEYS.CLEAR_SEARCH) || 'Clear search'}
           </button>

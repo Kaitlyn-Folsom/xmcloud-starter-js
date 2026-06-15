@@ -114,46 +114,55 @@ module.exports = {
             typography: ({ theme }) => ({
                 DEFAULT: {
                     css: {
-                        '--tw-prose-links': theme('colors.brand.DEFAULT'),
+                        '--tw-prose-links': theme('colors.primary.DEFAULT'),
                         ...proseVars.reduce((acc, key) => ({ ...acc, [key]: 'inherit' }), {}),
                         h1: {
-                            fontSize: theme('fontSize.5xl'),
-                            fontWeight: 'normal',
-                            '@screen md': {
-                                fontSize: theme('fontSize.6xl'),
-                            },
-                        },
-                        h2: {
                             fontSize: theme('fontSize.4xl'),
-                            fontWeight: 'normal',
+                            fontWeight: '600',
                             '@screen md': {
                                 fontSize: theme('fontSize.5xl'),
                             },
                         },
-                        h3: {
+                        h2: {
                             fontSize: theme('fontSize.3xl'),
-                            fontWeight: 'normal',
+                            fontWeight: '600',
                             '@screen md': {
                                 fontSize: theme('fontSize.4xl'),
                             },
                         },
-                        h4: {
+                        h3: {
                             fontSize: theme('fontSize.2xl'),
-                            fontWeight: 'normal',
+                            fontWeight: '600',
                             '@screen md': {
                                 fontSize: theme('fontSize.3xl'),
                             },
                         },
-                        h5: {
+                        h4: {
                             fontSize: theme('fontSize.xl'),
-                            fontWeight: 'normal',
+                            fontWeight: '600',
                             '@screen md': {
                                 fontSize: theme('fontSize.2xl'),
+                            },
+                        },
+                        h5: {
+                            fontSize: theme('fontSize.lg'),
+                            fontWeight: '600',
+                            '@screen md': {
+                                fontSize: theme('fontSize.xl'),
                             },
                         },
                     },
                 },
             }),
+            colors: {
+                brand: {
+                    DEFAULT: 'hsl(327, 100%, 32%)',
+                },
+                primary: {
+                    DEFAULT: 'hsl(327, 100%, 32%)',
+                    foreground: 'hsl(0, 0%, 100%)',
+                },
+            },
             zIndex: {
                 '-z-1': '-1',
             },

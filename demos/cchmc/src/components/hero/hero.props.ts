@@ -9,8 +9,27 @@ interface HeroParams {
   [key: string]: any;
 }
 
+type JsonField<T> = { jsonValue?: T };
+
+interface HeroDatasource {
+  titleRequired?: JsonField<Field<string>>;
+  descriptionOptional?: JsonField<Field<string>>;
+  linkOptional?: JsonField<LinkField>;
+  heroVideoOptional1?: JsonField<LinkField>;
+  heroImageOptional1?: JsonField<ImageField>;
+  heroVideoOptional2?: JsonField<LinkField>;
+  heroImageOptional2?: JsonField<ImageField>;
+  heroVideoOptional3?: JsonField<LinkField>;
+  heroImageOptional3?: JsonField<ImageField>;
+  heroVideoOptional4?: JsonField<LinkField>;
+  heroImageOptional4?: JsonField<ImageField>;
+}
+
 interface HeroFields {
-  titleRequired: Field<string>;
+  data?: {
+    datasource?: HeroDatasource;
+  };
+  titleRequired?: Field<string>;
   descriptionOptional?: Field<string>;
   linkOptional?: LinkField;
   heroVideoOptional1?: LinkField;
@@ -27,3 +46,5 @@ export interface HeroProps extends ComponentProps {
   params: HeroParams;
   fields: HeroFields;
 }
+
+export type { HeroDatasource };

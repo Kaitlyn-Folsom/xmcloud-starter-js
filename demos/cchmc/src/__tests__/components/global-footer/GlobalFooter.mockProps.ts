@@ -73,9 +73,9 @@ export const mockFooterCopyright: Field<string> = {
 // Mock link fields
 export const mockFooterPromoLink: LinkField = {
   value: {
-    href: '/newsletter',
-    text: 'Subscribe Now',
-    title: 'Subscribe to Newsletter',
+    href: '/donate',
+    text: 'Give Today',
+    title: 'Give Today',
     target: '',
     linktype: 'internal',
   },

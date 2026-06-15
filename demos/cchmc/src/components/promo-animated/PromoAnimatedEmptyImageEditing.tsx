@@ -12,7 +12,7 @@ export const PromoAnimatedEmptyImageEditing: React.FC<PromoAnimatedEmptyImageEdi
   return (
     <div
       className={cn(
-        'relative h-full w-full overflow-hidden rounded-full bg-muted text-muted-foreground',
+        'relative h-full w-full overflow-hidden rounded-none bg-muted text-muted-foreground',
         className
       )}
     >

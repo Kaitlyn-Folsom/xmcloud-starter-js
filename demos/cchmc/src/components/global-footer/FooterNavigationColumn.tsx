@@ -16,10 +16,7 @@ import { Button } from '@/components/ui/button';
 import { Link, Text } from '@sitecore-content-sdk/nextjs';
 import { NoDataFallback } from '@/utils/NoDataFallback';
 import { useMatchMedia } from '@/hooks/use-match-media';
-/**
- * FooterNavigationColumn component renders a navigation column in the footer.
- * It displays a header and a list of navigation links.
- */
+
 export const Default: FC<FooterNavigationColumnProps> = (props) => {
   const { fields, page } = props;
   const { items, header } = fields.data?.datasource ?? {};
@@ -30,21 +27,24 @@ export const Default: FC<FooterNavigationColumnProps> = (props) => {
 
   if (fields) {
     return (
-      <nav>
+      <nav aria-labelledby={accordionId}>
         {isMobile ? (
-          <Accordion type="single" collapsible className="w-full" aria-labelledby={accordionId}>
-            <AccordionItem value={`item-${header?.jsonValue?.value}`}>
-              <AccordionTrigger className="text-lg font-medium" id={accordionId}>
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value={`item-${header?.jsonValue?.value}`} className="border-border">
+              <AccordionTrigger
+                className="text-foreground py-3.5 text-base font-bold tracking-wide uppercase hover:no-underline"
+                id={accordionId}
+              >
                 <Text field={header?.jsonValue} />
               </AccordionTrigger>
               <AccordionContent>
-                <ul className="space-y-2 py-2">
+                <ul className="space-y-3 pb-2">
                   {items?.results?.map((item: FooterNavigationLink, index) => (
                     <li key={`footerlinks-${index}-accordion-item`}>
                       <Button
                         variant="link"
                         asChild
-                        className="h-auto text-pretty p-0 text-base font-normal text-white"
+                        className="text-foreground hover:text-primary h-auto p-0 text-base font-normal"
                       >
                         <Link field={item.link?.jsonValue} />
                       </Button>
@@ -55,27 +55,33 @@ export const Default: FC<FooterNavigationColumnProps> = (props) => {
             </AccordionItem>
           </Accordion>
         ) : (
-          <ul className="mt-6 space-y-6" aria-labelledby={accordionId}>
+          <>
             {(isPageEditing || header?.jsonValue?.value) && (
-              <li className="text-lg font-medium" id={accordionId}>
-                <Text field={header?.jsonValue} />
-              </li>
+              <h3
+                id={accordionId}
+                className="text-foreground mb-5 text-base font-bold tracking-wide uppercase"
+              >
+                <Text field={header?.jsonValue} tag="span" />
+              </h3>
             )}
-            {items?.results?.map((item: FooterNavigationLink, index) => (
-              <li key={`footerlinks-${index}`}>
-                <Button
-                  variant="link"
-                  asChild
-                  className="h-auto text-pretty p-0 text-base font-normal text-white"
-                >
-                  <Link field={item.link?.jsonValue} />
-                </Button>
-              </li>
-            ))}
-          </ul>
+            <ul className="space-y-3">
+              {items?.results?.map((item: FooterNavigationLink, index) => (
+                <li key={`footerlinks-${index}`}>
+                  <Button
+                    variant="link"
+                    asChild
+                    className="text-foreground hover:text-primary h-auto p-0 text-base font-normal"
+                  >
+                    <Link field={item.link?.jsonValue} />
+                  </Button>
+                </li>
+              ))}
+            </ul>
+          </>
         )}
       </nav>
     );
   }
+
   return <NoDataFallback componentName="Footer Navigation Column" />;
 };

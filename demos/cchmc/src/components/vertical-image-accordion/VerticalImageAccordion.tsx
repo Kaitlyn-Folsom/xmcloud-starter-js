@@ -40,7 +40,7 @@ export const Default: React.FC<VerticalImageAccordionProps> = ({ fields, isPageE
     if (isEditMode) {
       return (
         <div
-          className="@container bg-primary rounded-default text-primary-foreground relative mx-auto my-6 max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
+          className="@container bg-secondary rounded-none text-foreground relative mx-auto my-6 max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
           role="region"
           aria-label={title?.jsonValue?.value || 'Image Accordion'}
         >
@@ -48,13 +48,13 @@ export const Default: React.FC<VerticalImageAccordionProps> = ({ fields, isPageE
             <Text
               tag="h2"
               field={title?.jsonValue}
-              className="font-heading text-primary-foreground @lg:text-6xl mb-16 text-4xl font-light tracking-tight"
+              className="font-heading text-foreground @lg:text-5xl mb-16 text-3xl font-semibold tracking-tight"
             />
           )}
 
           <div className="flex flex-col gap-14">
             {items?.results.map((item, index) => (
-              <div key={index} className="flex flex-col overflow-hidden rounded-lg">
+              <div key={index} className="flex flex-col overflow-hidden rounded-none">
                 <div
                   className="@md:h-[513px] relative h-[300px]"
                   role="img"
@@ -65,7 +65,7 @@ export const Default: React.FC<VerticalImageAccordionProps> = ({ fields, isPageE
                   {(isEditMode || item?.image?.jsonValue?.value?.src) && (
                     <ImageWrapper
                       image={item?.image?.jsonValue}
-                      className="rounded-default h-full w-full object-cover"
+                      className="rounded-none h-full w-full object-cover"
                       wrapperClass="h-full w-full"
                       aria-hidden="true"
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -78,7 +78,7 @@ export const Default: React.FC<VerticalImageAccordionProps> = ({ fields, isPageE
                     <Text
                       tag="h3"
                       field={item?.title?.jsonValue}
-                      className="font-accent text-primary-foreground text-2xl font-medium"
+                      className="font-accent text-foreground text-2xl font-semibold"
                       id={`tab-${index}`}
                     />
                   )}
@@ -87,7 +87,7 @@ export const Default: React.FC<VerticalImageAccordionProps> = ({ fields, isPageE
                     <Text
                       tag="p"
                       field={item?.description?.jsonValue}
-                      className="text-primary-foreground mt-2"
+                      className="text-muted-foreground mt-2"
                     />
                   )}
 
@@ -145,7 +145,7 @@ export const Default: React.FC<VerticalImageAccordionProps> = ({ fields, isPageE
     // Normal interactive mode
     return (
       <div
-        className="@container bg-primary rounded-default text-primary-foreground relative mx-auto my-6 max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
+        className="@container bg-secondary rounded-none text-foreground relative mx-auto my-6 max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
         role="region"
         aria-label={title?.jsonValue?.value || 'Image Accordion'}
       >
@@ -153,7 +153,7 @@ export const Default: React.FC<VerticalImageAccordionProps> = ({ fields, isPageE
           <Text
             tag="h2"
             field={title?.jsonValue}
-            className="font-heading text-primary-foreground @lg:text-6xl mb-16 text-4xl font-light tracking-tight"
+            className="font-heading text-foreground @lg:text-5xl mb-16 text-3xl font-semibold tracking-tight"
           />
         )}
 
@@ -169,7 +169,7 @@ export const Default: React.FC<VerticalImageAccordionProps> = ({ fields, isPageE
               <div
                 key={index}
                 className={cn(
-                  'group flex cursor-pointer flex-col overflow-hidden rounded-lg transition-all',
+                  'group flex cursor-pointer flex-col overflow-hidden rounded-none transition-all',
                   '@md:w-[270px]',
                   isActive && '@md:w-full'
                 )}
@@ -210,7 +210,7 @@ export const Default: React.FC<VerticalImageAccordionProps> = ({ fields, isPageE
                       <div className="h-full w-full">
                         <ImageWrapper
                           image={item?.image?.jsonValue}
-                          className="rounded-default h-full w-full object-cover"
+                          className="rounded-none h-full w-full object-cover"
                           wrapperClass="h-full w-full"
                           aria-hidden="true"
                         />
@@ -233,7 +233,7 @@ export const Default: React.FC<VerticalImageAccordionProps> = ({ fields, isPageE
                       <Text
                         tag="h3"
                         field={item?.title?.jsonValue}
-                        className="font-accent text-primary-foreground text-2xl font-medium"
+                        className="font-accent text-foreground text-2xl font-semibold"
                         id={`tab-${index}`}
                       />
                     )}
@@ -260,7 +260,7 @@ export const Default: React.FC<VerticalImageAccordionProps> = ({ fields, isPageE
                       <Text
                         tag="p"
                         field={item?.description?.jsonValue}
-                        className="text-primary-foreground mt-2"
+                        className="text-muted-foreground mt-2"
                       />
                     )}
                     {/* Always show CTA in edit mode, or only when data exists in normal mode */}

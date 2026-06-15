@@ -9,16 +9,16 @@ export const dynamic = 'force-dynamic';
 export async function GET(request: NextRequest): Promise<NextResponse> {
   const baseUrl = new URL(request.url).origin;
 
-  const content = `# Solterra & Co.
+  const content = `# Cincinnati Children's Hospital Medical Center
 
-> Solterra & Co. is an editorial-style lifestyle brand site built with Next.js and Sitecore XM Cloud, featuring articles, storytelling, and content-driven experiences.
+> Cincinnati Children's is a nationally ranked pediatric hospital offering specialty care, research, family resources, and health education for children and families.
 
-The site offers a curated reading experience with hero sections, article listings, and full article pages. Content is managed in Sitecore and delivered headlessly. Supports English and Canadian English.
+The site helps patients and families find doctors, schedule appointments, explore services and specialties, and access health library content. Built with Next.js and Sitecore XM Cloud for modern, accessible healthcare experiences.
 
 ## Key pages
 
-- [Home](${baseUrl}/): Brand landing and featured content
-- [Articles](${baseUrl}/Articles): Article listing and editorial index
+- [Home](${baseUrl}/): Hospital homepage and featured content
+- [Articles](${baseUrl}/Articles): Health stories, tips, and news
 - [Article page](${baseUrl}/Article-Page): Full article layout and reading experience
 - [Landing page](${baseUrl}/Landing-Page): Full landing page layout and experience
 

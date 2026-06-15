@@ -34,6 +34,12 @@ jest.mock('@/lib/utils', () => ({
 }));
 
 // Mock component prop interfaces
+interface MockLinkProps {
+  field?: { value?: { href?: string; text?: string } };
+  children?: React.ReactNode;
+  className?: string;
+}
+
 interface MockTextProps {
   field?: { value?: string };
   className?: string;
@@ -51,6 +57,10 @@ interface MockAppPlaceholderProps {
 const mockUseSitecore = jest.fn();
 jest.mock('@sitecore-content-sdk/nextjs', () => ({
   useSitecore: () => mockUseSitecore(),
+  Link: ({ field, children, className }: MockLinkProps & { className?: string }) => {
+    if (!field?.value?.href) return null;
+    return React.createElement('a', { href: field.value.href, className }, field.value.text || children);
+  },
   Text: ({ field, className }: MockTextProps) => {
     return React.createElement('span', { className }, field?.value || '');
   },
@@ -100,19 +110,9 @@ jest.mock('@/components/logo/Logo.dev', () => ({
   ),
 }));
 
-// Mock FooterCallout component
+// Mock FooterCallout component (legacy - no longer rendered in CCHMC footer)
 jest.mock('@/components/footer-navigation-callout/FooterNavigationCallout.dev', () => ({
-  Default: ({ fields }: MockFooterCalloutProps) => (
-    <div data-testid="footer-callout">
-      <div data-testid="callout-title">{fields.title?.value}</div>
-      <div data-testid="callout-description">{fields.description?.value}</div>
-      {fields.linkOptional?.value && (
-        <a href={fields.linkOptional.value.href} data-testid="callout-link">
-          {fields.linkOptional.value.text}
-        </a>
-      )}
-    </div>
-  ),
+  Default: () => null,
 }));
 
 // Mock EditableImageButton component
@@ -153,7 +153,7 @@ describe('GlobalFooter Component', () => {
 
       expect(screen.getByRole('contentinfo')).toBeInTheDocument();
       expect(screen.getByTestId('footer-logo')).toBeInTheDocument();
-      expect(screen.getByTestId('footer-callout')).toBeInTheDocument();
+      expect(screen.getByText('Connect With Us')).toBeInTheDocument();
       expect(screen.getByText('© 2024 Company Name. All rights reserved.')).toBeInTheDocument();
     });
 
@@ -162,7 +162,7 @@ describe('GlobalFooter Component', () => {
 
       const footer = container.querySelector('footer');
       expect(footer).toBeInTheDocument();
-      expect(footer).toHaveClass('bg-primary', 'text-white');
+      expect(footer).toHaveClass('bg-background', 'text-foreground');
     });
 
     it('should render logo section', () => {
@@ -180,14 +180,11 @@ describe('GlobalFooter Component', () => {
       expect(placeholder).toBeInTheDocument();
     });
 
-    it('should render callout section with correct data', () => {
+    it('should render give today link with correct data', () => {
       render(<GlobalFooter {...defaultProps} />);
 
-      expect(screen.getByTestId('callout-title')).toHaveTextContent('Stay Connected');
-      expect(screen.getByTestId('callout-description')).toHaveTextContent(
-        'Subscribe to our newsletter for updates'
-      );
-      expect(screen.getByTestId('callout-link')).toHaveAttribute('href', '/newsletter');
+      const giveTodayLink = screen.getByRole('link', { name: /Give Today/i });
+      expect(giveTodayLink).toHaveAttribute('href', '/donate');
     });
 
     it('should render copyright text', () => {
@@ -195,7 +192,7 @@ describe('GlobalFooter Component', () => {
 
       const copyrightText = screen.getByText('© 2024 Company Name. All rights reserved.');
       expect(copyrightText).toBeInTheDocument();
-      expect(copyrightText).toHaveClass('text-sm', 'text-white/80');
+      expect(copyrightText).toHaveClass('text-xs', 'uppercase');
     });
   });
 
@@ -216,8 +213,8 @@ describe('GlobalFooter Component', () => {
       expect(socialButtons[2]).toHaveAttribute('data-href', 'https://instagram.com');
     });
 
-    it('should render social links with ghost variant', () => {
-      render(<GlobalFooter {...defaultProps} />);
+    it('should render social links with ghost variant in editing mode', () => {
+      render(<GlobalFooter {...propsEditing} />);
 
       const socialButtons = screen.getAllByTestId('social-link-button');
       socialButtons.forEach((button) => {
@@ -258,8 +255,7 @@ describe('GlobalFooter Component', () => {
       render(<GlobalFooter {...propsWithoutPromoLink} />);
 
       expect(screen.getByTestId('footer-logo')).toBeInTheDocument();
-      expect(screen.getByTestId('footer-callout')).toBeInTheDocument();
-      expect(screen.queryByTestId('callout-link')).not.toBeInTheDocument();
+      expect(screen.getByRole('link', { name: /Give Today/i })).toBeInTheDocument();
     });
 
     it('should render with empty datasource', () => {
@@ -275,9 +271,8 @@ describe('GlobalFooter Component', () => {
     it('should render correct grid layout for main content', () => {
       const { container } = render(<GlobalFooter {...defaultProps} />);
 
-      const gridContainer = container.querySelector('.grid');
-      expect(gridContainer).toBeInTheDocument();
-      expect(gridContainer).toHaveClass('max-w-screen-xl', 'mx-auto');
+      expect(container.querySelector('.grid')).toBeInTheDocument();
+      expect(container.querySelector('.max-w-screen-xl')).toBeInTheDocument();
     });
 
     it('should render bottom section with border', () => {
@@ -285,7 +280,7 @@ describe('GlobalFooter Component', () => {
 
       const bottomBorder = container.querySelector('.border-t');
       expect(bottomBorder).toBeInTheDocument();
-      expect(bottomBorder).toHaveClass('border-white/10');
+      expect(bottomBorder).toHaveClass('border-border');
     });
 
     it('should apply container query classes', () => {
@@ -330,7 +325,7 @@ describe('GlobalFooter Component', () => {
       render(<GlobalFooter {...propsWithoutDatasource} />);
 
       expect(screen.getByRole('contentinfo')).toBeInTheDocument();
-      expect(screen.queryByTestId('callout-title')).toBeInTheDocument();
+      expect(screen.queryByTestId('footer-logo')).toBeInTheDocument();
     });
 
     it('should handle undefined social links results', () => {
@@ -358,7 +353,7 @@ describe('GlobalFooter Component', () => {
       const { container } = render(<GlobalFooter {...defaultProps} />);
 
       const gridContainer = container.querySelector('.grid');
-      expect(gridContainer).toHaveClass('@md:grid-cols-2', '@lg:grid-cols-12');
+      expect(gridContainer).toHaveClass('@lg:grid-cols-12');
     });
 
     it('should apply responsive padding classes', () => {
@@ -370,10 +365,10 @@ describe('GlobalFooter Component', () => {
     });
 
     it('should style social links container', () => {
-      const { container } = render(<GlobalFooter {...defaultProps} />);
+      render(<GlobalFooter {...defaultProps} />);
 
-      const socialContainer = container.querySelector('.flex.space-x-4');
-      expect(socialContainer).toBeInTheDocument();
+      expect(screen.getAllByTestId('social-link-button')).toHaveLength(3);
+      expect(screen.getByText('Patients & Family')).toBeInTheDocument();
     });
 
     it('should apply responsive flex classes to bottom section', () => {
@@ -381,7 +376,7 @@ describe('GlobalFooter Component', () => {
 
       const bottomSection = container.querySelector('.global-footer__bottom');
       expect(bottomSection).toBeInTheDocument();
-      expect(bottomSection).toHaveClass('@md:flex-row', 'flex-col');
+      expect(bottomSection).toHaveClass('@lg:flex-row', 'flex-col');
     });
   });
 

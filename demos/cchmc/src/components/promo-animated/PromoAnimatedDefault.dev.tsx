@@ -50,8 +50,8 @@ export const PromoAnimatedDefault: React.FC<PromoAnimatedProps> = (props) => {
                 <div className={imageBgOptions({ colorScheme, className: 'right-1/2' })} />
                 <ImageWrapper
                   image={image}
-                  className="@md:max-w-[452px] aspect-square w-full rounded-full object-cover"
-                  wrapperClass="relative aspect-square w-full overflow-hidden rounded-full"
+                  className="@md:max-w-[452px] aspect-square w-full rounded-none object-cover"
+                  wrapperClass="relative aspect-square w-full overflow-hidden rounded-none"
                   emptyFieldEditingComponent={PromoAnimatedEmptyImageEditing}
                   sizes="(min-width: 768px) 452px, 350px"
                   priority={true}

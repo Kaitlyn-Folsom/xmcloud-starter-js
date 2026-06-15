@@ -43,7 +43,7 @@ export const SearchItemImage = ({
             className="object-cover"
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center bg-gray-100">
+          <div className="bg-secondary flex h-full w-full items-center justify-center">
             <FontAwesomeIcon icon={faImage} size="2xl" className="text-gray-300" />
           </div>
         )}

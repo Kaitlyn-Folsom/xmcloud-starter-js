@@ -89,7 +89,7 @@ export const Default = ({
           //   style={{ height: `${imgSrc.height}px`, width: `${imgSrc.width}px` }}
           ref={videoRef}
           className={cn(
-            '@lg:rounded-default inset-0 block h-full w-full rounded-md object-cover',
+            '@lg:rounded-none inset-0 block h-full w-full rounded-none object-cover',
             className
           )}
           playsInline
@@ -129,7 +129,7 @@ export const Default = ({
         <ImageWrapper
           image={image}
           className={cn(
-            '@lg:rounded-default inset-0 block h-full w-full rounded-md object-cover',
+            '@lg:rounded-none inset-0 block h-full w-full rounded-none object-cover',
             className
           )}
           alt=""

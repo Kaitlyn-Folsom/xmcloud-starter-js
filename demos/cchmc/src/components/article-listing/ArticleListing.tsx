@@ -106,7 +106,7 @@ export const Default: React.FC<ArticleListingProps> = ({
                     tag="h2"
                     id={sectionId}
                     field={titleOptional}
-                    className="font-heading @md:text-6xl text-primary text-4xl font-normal leading-[1.20] tracking-tighter"
+                    className="font-heading text-primary text-3xl font-semibold leading-tight tracking-tight @md:text-4xl"
                   />
 
                   {descriptionOptional && (
@@ -146,7 +146,8 @@ export const Default: React.FC<ArticleListingProps> = ({
           {/* Featured articles - 2 column layout */}
           <div className="@md:grid-cols-2 mb-[28px] grid gap-8">
             {featuredArticles.map((article, index) => (
-              <article key={index} className="@md:mb-0 group/article mb-6">
+              <article key={index} className="@md:mb-0 group/article cchmc-card mb-6 overflow-hidden">
+                <div className="cchmc-editorial-bar" />
                 {isPageEditing ? (
                   <div className="rounded-default @md:mb-0 relative mb-4 aspect-[3/2] w-full overflow-hidden">
                     <Image
@@ -210,14 +211,14 @@ export const Default: React.FC<ArticleListingProps> = ({
                     )}
                     <div className="flex items-center gap-[9px]">
                       {article.author && (
-                        <p className="font-body text-accent-foreground text-sm font-medium">
+                        <p className="font-body text-muted-foreground text-sm font-medium">
                           {article.author}
                         </p>
                       )}
                       {article.author && article.readTime && (
                         <span className="text-accent text-sm">•</span>
                       )}
-                      <p className="text-accent-foreground text-sm">{article.readTime}</p>
+                      <p className="text-muted-foreground text-sm">{article.readTime}</p>
                     </div>
                   </div>
                 </div>
@@ -230,7 +231,7 @@ export const Default: React.FC<ArticleListingProps> = ({
             {regularArticles.map((article, index) => (
               <article
                 key={index}
-                className="@md:p-8 rounded-default hover:bg-tertiary-hover focus:ring-accent group/article flex h-full flex-col p-4 transition-colors focus:outline-none focus:ring-2"
+                className="@md:p-8 rounded-none hover:bg-secondary focus:ring-primary group/article flex h-full flex-col border border-border p-4 transition-colors focus:outline-none focus:ring-2"
               >
                 <div>
                   {isPageEditing ? (

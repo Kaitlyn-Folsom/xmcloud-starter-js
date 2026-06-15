@@ -120,10 +120,15 @@ import * as EmailIcondev from 'src/components/icon/svg/EmailIcon.dev';
 import * as heroprops from 'src/components/hero/hero.props';
 import * as Hero from 'src/components/hero/Hero';
 import * as globalheaderprops from 'src/components/global-header/global-header.props';
+import * as HeaderSearchShelf from 'src/components/global-header/HeaderSearchShelf';
 import * as GlobalHeader from 'src/components/global-header/GlobalHeader';
 import * as globalfooterprops from 'src/components/global-footer/global-footer.props';
 import * as GlobalFooter from 'src/components/global-footer/GlobalFooter';
 import * as FooterNavigationColumn from 'src/components/global-footer/FooterNavigationColumn';
+import * as FooterDecorations from 'src/components/global-footer/FooterDecorations';
+import * as FooterConnectSection from 'src/components/global-footer/FooterConnectSection';
+import * as FooterBackToTop from 'src/components/global-footer/FooterBackToTop';
+import * as FooterAccreditation from 'src/components/global-footer/FooterAccreditation';
 import * as FooterNavigationCalloutdev from 'src/components/footer-navigation-callout/FooterNavigationCallout.dev';
 import * as floatingdockdev from 'src/components/floating-dock/floating-dock.dev';
 import * as Flexdev from 'src/components/flex/Flex.dev';
@@ -147,6 +152,9 @@ import * as BackgroundThumbnaildev from 'src/components/background-thumbnail/Bac
 import * as ArticleListing from 'src/components/article-listing/ArticleListing';
 import * as articleheaderdictionary from 'src/components/article-header/article-header.dictionary';
 import * as ArticleHeader from 'src/components/article-header/ArticleHeader';
+import * as articledetailsprops from 'src/components/article-details/article-details.props';
+import * as articledetailsroutefields from 'src/components/article-details/article-details-route-fields';
+import * as ArticleDetails from 'src/components/article-details/ArticleDetails';
 import * as AnimatedSectiondev from 'src/components/animated-section/AnimatedSection.dev';
 import * as AlertBannerdev from 'src/components/alert-banner/AlertBanner.dev';
 import * as accordionblockprops from 'src/components/accordion-block/accordion-block.props';
@@ -270,10 +278,15 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['hero', { ...heroprops }],
   ['Hero', { ...Hero, componentType: 'client' }],
   ['global-header', { ...globalheaderprops }],
+  ['HeaderSearchShelf', { ...HeaderSearchShelf, componentType: 'client' }],
   ['GlobalHeader', { ...GlobalHeader, componentType: 'client' }],
   ['global-footer', { ...globalfooterprops }],
   ['GlobalFooter', { ...GlobalFooter }],
   ['FooterNavigationColumn', { ...FooterNavigationColumn, componentType: 'client' }],
+  ['FooterDecorations', { ...FooterDecorations }],
+  ['FooterConnectSection', { ...FooterConnectSection }],
+  ['FooterBackToTop', { ...FooterBackToTop, componentType: 'client' }],
+  ['FooterAccreditation', { ...FooterAccreditation }],
   ['FooterNavigationCallout', { ...FooterNavigationCalloutdev }],
   ['floating-dock', { ...floatingdockdev }],
   ['Flex', { ...Flexdev }],
@@ -297,6 +310,9 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['ArticleListing', { ...ArticleListing, componentType: 'client' }],
   ['article-header', { ...articleheaderdictionary }],
   ['ArticleHeader', { ...ArticleHeader, componentType: 'client' }],
+  ['article-details', { ...articledetailsprops }],
+  ['article-details-route-fields', { ...articledetailsroutefields }],
+  ['ArticleDetails', { ...ArticleDetails, componentType: 'client' }],
   ['AnimatedSection', { ...AnimatedSectiondev }],
   ['AlertBanner', { ...AlertBannerdev }],
   ['accordion-block', { ...accordionblockprops }],

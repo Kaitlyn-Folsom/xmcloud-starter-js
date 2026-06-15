@@ -37,7 +37,7 @@ const ctaBannerVariants = cva('w-full mx-auto px-6 py-16 md:py-24 text-center', 
 });
 
 const ctaTitleVariants = cva(
-  'mb-6 text-pretty text-4xl font-normal leading-[1.1333] tracking-tighter antialiased md:text-7xl',
+  'mb-6 text-pretty text-3xl font-semibold leading-tight tracking-tight antialiased md:text-5xl',
   {
     variants: {
       colorScheme: {

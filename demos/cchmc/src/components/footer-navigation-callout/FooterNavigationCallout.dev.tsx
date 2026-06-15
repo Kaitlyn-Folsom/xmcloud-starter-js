@@ -18,17 +18,17 @@ export const Default: React.FC<FooterNavigationCalloutProps> = ({ fields }) => {
 
   return (
     <aside>
-      <Card className="bg-accent text-accent-foreground rounded-[24px] border-none p-2 ">
-        <CardHeader className="flex flex-row justify-between pb-4">
-          <CardTitle className="font-heading text-xl font-medium">
+      <Card className="bg-tertiary text-tertiary-foreground rounded-none border-none shadow-none">
+        <CardHeader className="flex flex-row justify-between pb-2">
+          <CardTitle className="font-heading text-xl font-semibold">
             <Text tag="span" field={title} />
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <Text field={description} className="font-body text-sm" />
+          <Text field={description} className="font-body text-sm leading-relaxed" />
           {linkOptional && (
             <Button
-              className="mt-10 block w-full text-center"
+              className="mt-6 block w-full bg-white text-foreground hover:bg-secondary"
               buttonLink={linkOptional}
               contextTitle={title?.value}
             />
