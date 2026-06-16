@@ -59,8 +59,12 @@ export const Default: React.FC<PageHeaderProps> = ({
             >
               <Text
                 tag="h1"
-                className="@md:text-5xl @lg:text-6xl font-heading text-pretty text-4xl font-semibold leading-tight tracking-tight"
+                className="@md:text-5xl @lg:text-6xl font-heading text-pretty text-4xl font-semibold leading-tight tracking-tight mb-8"
                 field={title}
+              />
+              <RichText
+                className="line-height[26px] @lg:ms-auto max-w-[547px] text-lg font-medium tracking-tight"
+                field={subtitle}
               />
             </AnimatedSection>
             {children?.results && (
@@ -86,16 +90,8 @@ export const Default: React.FC<PageHeaderProps> = ({
             )}
           </div>
           {/* Right */}
-          <div className="flex flex-col justify-end gap-10">
-            <AnimatedSection
-              reducedMotion={prefersReducedMotion}
-              isPageEditing={isPageEditing}
-            >
-              <RichText
-                className="line-height[26px] @lg:ms-auto max-w-[547px] text-lg font-medium tracking-tight"
-                field={subtitle}
-              />
-            </AnimatedSection>
+          <div className="flex flex-col justify-center gap-10">
+
             <AnimatedSection
               reducedMotion={prefersReducedMotion}
               isPageEditing={isPageEditing}

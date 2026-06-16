@@ -67,7 +67,7 @@ export const Default: React.FC<GlobalHeaderProps> = (props) => {
   const navigateToSearch = useCallback(
     (query: string) => {
       const trimmed = query.trim();
-      const url = trimmed ? `/search?q=${encodeURIComponent(trimmed)}` : '/search';
+      const url = trimmed ? `/search?q=${encodeURIComponent(trimmed)}` : '/site-search';
       router.push(url);
       closeSearch();
     },

@@ -72,7 +72,7 @@ const isArticlePromoPlaceholderEmpty = (
 };
 
 const articleBodyRichTextClassName = cn(
-  'article-details-body text-primary mx-auto max-w-4xl px-6 py-12',
+  'article-details-body mx-auto max-w-4xl px-6 py-12',
   '[&_h1]:font-heading [&_h1]:mb-8 [&_h2]:font-heading [&_h2]:mb-6 [&_h3]:mb-5 [&_h4]:mb-4 [&_h5]:mb-3 [&_h6]:mb-3',
   '[&_p]:mb-4 [&_p:last-child]:mb-0',
   '[&_ul]:mb-6 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:marker:text-primary',
