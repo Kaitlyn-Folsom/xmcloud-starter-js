@@ -43,6 +43,7 @@ import * as PromoAnimatedContentdev from 'src/components/promo-animated/PromoAni
 import * as PromoAnimated from 'src/components/promo-animated/PromoAnimated';
 import * as portaldev from 'src/components/portal/portal.dev';
 import * as PageHeader from 'src/components/page-header/PageHeader';
+import * as MyChartForm from 'src/components/mychart-form/MyChartForm';
 import * as MultiPromoTabs from 'src/components/multi-promo-tabs/MultiPromoTabs';
 import * as MultiPromo from 'src/components/multi-promo/MultiPromo';
 import * as modetoggledev from 'src/components/mode-toggle/mode-toggle.dev';
@@ -109,6 +110,7 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['PromoAnimated', { ...PromoAnimated }],
   ['portal', { ...portaldev }],
   ['PageHeader', { ...PageHeader }],
+  ['MyChartForm', { ...MyChartForm }],
   ['MultiPromoTabs', { ...MultiPromoTabs }],
   ['MultiPromo', { ...MultiPromo }],
   ['mode-toggle', { ...modetoggledev }],

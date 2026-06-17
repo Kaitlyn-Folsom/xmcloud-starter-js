@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { useTranslations } from 'next-intl';
-import { DICTIONARY_KEYS } from './constants';
+// import { DICTIONARY_KEYS } from './constants';
 
 interface SearchInputProps {
   value: string;
@@ -16,7 +16,7 @@ export const SearchInput = ({ value, onChange }: SearchInputProps) => {
       <div className="relative flex-1">
         <input
           type="text"
-          placeholder={t(DICTIONARY_KEYS.SEARCH_INPUT_PLACEHOLDER) || 'Search items...'}
+          placeholder={'Enter Search Term ...'}
           value={value}
           onChange={(e) => onChange(e.target.value)}
           className="border-input w-full rounded-none px-4 py-3 pl-12 focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"

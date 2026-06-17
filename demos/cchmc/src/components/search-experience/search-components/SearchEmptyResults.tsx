@@ -1,6 +1,6 @@
 'use client';
 import { useTranslations } from 'next-intl';
-import { DICTIONARY_KEYS } from './constants';
+// import { DICTIONARY_KEYS } from './constants';
 
 export const SearchEmptyResults = ({
   query,
@@ -28,10 +28,10 @@ export const SearchEmptyResults = ({
           />
         </svg>
         <h3 className="text-foreground mt-4 text-lg font-semibold">
-          {t(DICTIONARY_KEYS.NO_RESULTS_FOUND) || 'No results found'}
+          {'No results found'}
         </h3>
         <p className="text-muted-foreground mt-2">
-          {t(DICTIONARY_KEYS.TRY_ADJUSTING_YOUR_SEARCH) || 'Try adjusting your search or clear it.'}
+          {'Try adjusting your search or clear it.'}
         </p>
         <div className="mt-6">
           <button
@@ -39,7 +39,7 @@ export const SearchEmptyResults = ({
             disabled={!query}
             className="px-4 py-2 rounded-none bg-primary text-primary-foreground hover:bg-primary-hover disabled:opacity-50"
           >
-            {t(DICTIONARY_KEYS.CLEAR_SEARCH) || 'Clear search'}
+            {'Clear search'}
           </button>
         </div>
       </div>

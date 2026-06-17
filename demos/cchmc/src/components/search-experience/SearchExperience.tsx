@@ -15,7 +15,7 @@ import { SearchInput } from './search-components/SearchInput';
 import { useEvent } from './search-components/useEvent';
 import { useSearchField } from './search-components/useSearchField';
 import { useParams } from './search-components/useParams';
-import { DICTIONARY_KEYS, gridColsClass } from './search-components/constants';
+import { gridColsClass } from './search-components/constants';
 import { useRouter } from './search-components/useRouter';
 
 export const Default = (props: SearchExperienceProps) => {
@@ -92,7 +92,7 @@ export const Default = (props: SearchExperienceProps) => {
             <SearchInput value={inputValue} onChange={(value) => onSearchChange(value, true)} />
 
             <p className="text-muted-foreground mb-6">
-              {total} {t(DICTIONARY_KEYS.RESULTS_FOUND) || 'results found'}
+              {total} {'results found'}
             </p>
           </div>
 
