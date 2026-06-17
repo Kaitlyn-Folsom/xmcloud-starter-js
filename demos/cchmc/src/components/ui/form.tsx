@@ -15,6 +15,38 @@ import {
 import { cn } from '@/lib/utils';
 import { Label } from '@/components/ui/label';
 
+type FormEngageEventName = 'VIEWED' | 'INTERACTED' | 'SUBMITTED';
+
+type FormEngageEventDetail = {
+  name: FormEngageEventName;
+};
+
+type FormEngageEvent = CustomEvent<FormEngageEventDetail>;
+
+function handleFormEngage(event: Event) {
+  const formEngageEvent = event as FormEngageEvent;
+  const eventName = formEngageEvent.detail?.name;
+
+  if (eventName === 'SUBMITTED') {
+    console.log('Sitecore form submitted:', formEngageEvent);
+  }
+}
+
+function useFormEngageListener() {
+  React.useEffect(() => {
+    document.addEventListener('form:engage', handleFormEngage);
+
+    return () => {
+      document.removeEventListener('form:engage', handleFormEngage);
+    };
+  }, []);
+}
+
+function FormEngageListener() {
+  useFormEngageListener();
+  return null;
+}
+
 const Form = FormProvider;
 
 type FormFieldContextValue<
@@ -160,6 +192,7 @@ FormMessage.displayName = 'FormMessage';
 export {
   useFormField,
   Form,
+  FormEngageListener,
   FormItem,
   FormLabel,
   FormControl,

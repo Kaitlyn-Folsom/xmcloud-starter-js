@@ -5,6 +5,7 @@ import { Page, SitecoreProvider } from '@sitecore-content-sdk/nextjs';
 import scConfig from 'sitecore.config';
 import components from '.sitecore/component-map.client';
 import { ThemeProvider } from '@/components/theme-provider/theme-provider.dev';
+import { FormEngageListener } from '@/components/ui/form';
 import { VideoProvider } from './contexts/VideoContext';
 
 export default function Providers({
@@ -22,6 +23,7 @@ export default function Providers({
       loadImportMap={() => import('.sitecore/import-map.client')}
     >
       <VideoProvider>
+        <FormEngageListener />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}
         </ThemeProvider>
