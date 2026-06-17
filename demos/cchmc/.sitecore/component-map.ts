@@ -55,6 +55,7 @@ import * as SearchSkeletonItem from 'src/components/search-experience/search-com
 import * as SearchPagination from 'src/components/search-experience/search-components/SearchPagination';
 import * as SearchItemCommon from 'src/components/search-experience/search-components/SearchItemCommon';
 import * as SearchInput from 'src/components/search-experience/search-components/SearchInput';
+import * as SearchExperienceFallback from 'src/components/search-experience/search-components/SearchExperienceFallback';
 import * as SearchError from 'src/components/search-experience/search-components/SearchError';
 import * as SearchEmptyResults from 'src/components/search-experience/search-components/SearchEmptyResults';
 import * as index from 'src/components/search-experience/search-components/SearchItem/index';
@@ -217,6 +218,7 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['SearchPagination', { ...SearchPagination, componentType: 'client' }],
   ['SearchItemCommon', { ...SearchItemCommon, componentType: 'client' }],
   ['SearchInput', { ...SearchInput, componentType: 'client' }],
+  ['SearchExperienceFallback', { ...SearchExperienceFallback, componentType: 'client' }],
   ['SearchError', { ...SearchError, componentType: 'client' }],
   ['SearchEmptyResults', { ...SearchEmptyResults, componentType: 'client' }],
   ['index', { ...index, componentType: 'client' }],

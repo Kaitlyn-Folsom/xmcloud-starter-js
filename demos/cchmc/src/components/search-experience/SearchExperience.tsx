@@ -1,5 +1,5 @@
 'use client';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { Suspense, useCallback, useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { useSearchParams } from 'next/navigation';
 import { useSitecore } from '@sitecore-content-sdk/nextjs';
@@ -11,6 +11,7 @@ import { SearchError } from './search-components/SearchError';
 import { SearchItem } from './search-components/SearchItem';
 import { SearchSkeletonItem } from './search-components/SearchSkeletonItem';
 import { SearchPagination } from './search-components/SearchPagination';
+import { SearchExperienceFallback } from './search-components/SearchExperienceFallback';
 import { SearchInput } from './search-components/SearchInput';
 import { useEvent } from './search-components/useEvent';
 import { useSearchField } from './search-components/useSearchField';
@@ -18,7 +19,7 @@ import { useParams } from './search-components/useParams';
 import { gridColsClass } from './search-components/constants';
 import { useRouter } from './search-components/useRouter';
 
-export const Default = (props: SearchExperienceProps) => {
+const SearchExperienceDefault = (props: SearchExperienceProps) => {
   const { page } = useSitecore();
   const { params } = props;
   const t = useTranslations();
@@ -141,3 +142,9 @@ export const Default = (props: SearchExperienceProps) => {
     </div>
   );
 };
+
+export const Default = (props: SearchExperienceProps) => (
+  <Suspense fallback={<SearchExperienceFallback {...props} />}>
+    <SearchExperienceDefault {...props} />
+  </Suspense>
+);

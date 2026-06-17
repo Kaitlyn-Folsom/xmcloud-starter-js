@@ -15,7 +15,7 @@ export const SearchItemLink = ({ className, link, onClick, ...props }: SearchIte
   const t = useTranslations();
 
 
-  const toUrlSlug = (value) =>
+  const toUrlSlug = (value: string) =>
     value
       .normalize('NFD')
       .replace(/[\u0300-\u036f]/g, '')
