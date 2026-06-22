@@ -25,7 +25,7 @@ const utilityTextLinks = [
   { label: 'Directions', href: '#' },
   { label: 'International', href: '#' },
   { label: 'Billing', href: '#' },
-  { label: 'Sign in to MyChart', href: '#' },
+  { label: 'Sign in to MyChart', href: '/mychart' },
 ];
 
 const utilityButtonLinks = [
