@@ -3,6 +3,9 @@
 import type React from 'react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useSitecore } from '@sitecore-content-sdk/nextjs';
+import { identity } from '@sitecore-content-sdk/events';
+import config from 'sitecore.config';
 import { ComponentProps } from '@/lib/component-props';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -25,6 +28,9 @@ type FormValues = {
 
 export const Default: React.FC<MyChartFormProps> = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const { page } = useSitecore();
+  const { isEditing, isPreview } = page.mode;
+  const { route } = page.layout.sitecore;
 
   const form = useForm<FormValues>({
     defaultValues: {
@@ -35,8 +41,35 @@ export const Default: React.FC<MyChartFormProps> = () => {
     mode: 'onTouched',
   });
 
-  const onSubmit = (data: FormValues) => {
-    console.log(data);
+  const onSubmit = async (data: FormValues) => {
+    const shouldSendIdentityEvent =
+      process.env.NODE_ENV !== 'development' && !isEditing && !isPreview;
+
+    if (shouldSendIdentityEvent) {
+      const email = data.email.toLowerCase();
+      const language = route?.itemLanguage || config.defaultLanguage;
+
+      await identity({
+        channel: 'WEB',
+        currency: 'USD',
+        language,
+        page: route?.name,
+        email,
+        firstName: data.firstName,
+        lastName: data.lastName,
+        identifiers: [
+          {
+            id: email,
+            provider: 'email',
+          },
+        ],
+      }).catch((error) => {
+        if (error?.status !== 404 && error?.status !== 0) {
+          console.debug('MyChart IDENTITY event error:', error);
+        }
+      });
+    }
+
     setIsSubmitted(true);
   };
 
