@@ -44,7 +44,7 @@ export const Default: React.FC<MultiPromoTabsProps> = (props) => {
           <Text
             tag="h2"
             field={titleField}
-            className="text-box-trim-both text-box-edge-asc-baseline text-primary-foreground @md:text-6xl font-heading border-accent @sm:text-5xl -ml-1 mb-8 max-w-[20ch] text-pretty text-4xl font-normal leading-[1.1333] tracking-tighter md:max-w-[17.5ch]"
+            className="text-box-trim-both text-box-edge-asc-baseline text-primary-foreground @md:text-5xl font-heading @sm:text-4xl mb-8 max-w-[20ch] text-pretty text-3xl font-bold leading-tight md:max-w-[17.5ch]"
           />
 
           {tabItems.map((item, index) => (
@@ -68,7 +68,7 @@ export const Default: React.FC<MultiPromoTabsProps> = (props) => {
         <Text
           tag="h2"
           field={titleField}
-          className="text-box-trim-both text-box-edge-asc-baseline text-primary-foreground @md:text-6xl font-heading border-accent @sm:text-5xl -ml-1 mb-8 max-w-[20ch] text-pretty text-4xl font-normal leading-[1.1333] tracking-tighter md:max-w-[17.5ch]"
+          className="text-box-trim-both text-box-edge-asc-baseline text-primary-foreground @md:text-5xl font-heading @sm:text-4xl mb-8 max-w-[20ch] text-pretty text-3xl font-bold leading-tight md:max-w-[17.5ch]"
         />
 
         <div className="@md:hidden flex flex-col">
@@ -112,7 +112,7 @@ export const Default: React.FC<MultiPromoTabsProps> = (props) => {
               <TabsTrigger
                 key={index}
                 value={index.toString()}
-                className="font-body letter-spacing-[-0.8] data-[state=active]:bg-accent data-[state=active]:text-accent-foreground data-[state=active]:hover:bg-accent/90 hover:bg-accent hover:text-accent-foreground border-accent rounded-md border bg-transparent px-4 py-2 text-base font-normal text-white transition-all duration-300"
+                className="font-body data-[state=active]:bg-white data-[state=active]:text-primary hover:bg-white/10 border-white/30 rounded-md border bg-transparent px-4 py-2 text-sm font-medium text-white transition-all duration-300"
               >
                 {getFieldValue(item.title)?.value || `Tab ${index + 1}`}
               </TabsTrigger>

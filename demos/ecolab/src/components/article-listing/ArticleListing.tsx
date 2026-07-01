@@ -58,21 +58,22 @@ export const Default: React.FC<ArticleListingProps> = ({
       <div className={cn('w-full', params?.styles)}>
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
           {(titleOptional || linkOptional?.value?.href || isPageEditing) && (
-            <div className="@md:flex-row @md:justify-between @md:items-center mb-20 flex flex-col">
+            <div className="@md:flex-row @md:justify-between @md:items-end mb-12 flex flex-col border-b border-border pb-8">
               {titleOptional && (
                 <div className="@md:mb-0 mb-4">
+                  <p className="ecolab-section-label mb-2">Latest News</p>
                   <Text
                     tag="h2"
                     id={sectionId}
                     field={titleOptional}
-                    className="font-heading @md:text-6xl text-primary text-4xl font-normal leading-[1.20] tracking-tighter"
+                    className="font-heading text-primary text-3xl font-bold leading-tight @md:text-4xl"
                   />
 
                   {descriptionOptional && (
                     <Text
                       tag="p"
                       field={descriptionOptional}
-                      className="text-muted-foreground font-body mt-[20px] max-w-3xl text-lg font-normal leading-relaxed"
+                      className="text-muted-foreground font-body mt-4 max-w-3xl text-base leading-relaxed"
                     />
                   )}
                 </div>
@@ -103,11 +104,14 @@ export const Default: React.FC<ArticleListingProps> = ({
           )}
 
           {/* Featured articles - 2 column layout */}
-          <div className="@md:grid-cols-2 mb-[28px] grid gap-8">
+          <div className="@md:grid-cols-2 mb-8 grid gap-6">
             {featuredArticles.map((article, index) => (
-              <article key={index} className="@md:mb-0 group/article mb-6">
+              <article
+                key={index}
+                className="@md:mb-0 ecolab-card group/article mb-6 overflow-hidden"
+              >
                 {isPageEditing ? (
-                  <div className="rounded-default @md:mb-0 relative mb-4 aspect-[3/2] w-full overflow-hidden">
+                  <div className="relative mb-0 aspect-[3/2] w-full overflow-hidden">
                     <Image
                       src={article.image}
                       alt={article.title}
@@ -117,7 +121,7 @@ export const Default: React.FC<ArticleListingProps> = ({
                   </div>
                 ) : (
                   <div
-                    className="rounded-default @md:mb-0 relative mb-4 aspect-[3/2] w-full cursor-pointer overflow-hidden"
+                    className="relative mb-0 aspect-[3/2] w-full cursor-pointer overflow-hidden"
                     onClick={() => (window.location.href = article.link)}
                     role="button"
                     tabIndex={0}
@@ -132,22 +136,22 @@ export const Default: React.FC<ArticleListingProps> = ({
                     />
                   </div>
                 )}
-                <div className="@md:p-8">
+                <div className="p-6">
                   {isPageEditing ? (
-                    <h3 className="font-heading text-card-foreground text-3xl font-medium leading-[1.30] -tracking-[0.9px]">
+                    <h3 className="font-heading text-primary text-xl font-bold leading-snug">
                       {article.title}
                     </h3>
                   ) : (
                     <Link field={{ value: { href: article.link } }} className="block">
-                      <h3 className="font-heading text-card-foreground text-3xl font-medium leading-[1.30] -tracking-[0.9px] decoration-1 underline-offset-4 group-hover/article:underline group-focus/article:underline">
+                      <h3 className="font-heading text-primary group-hover/article:text-primary-hover text-xl font-bold leading-snug transition-colors">
                         {article.title}
                       </h3>
                     </Link>
                   )}
-                  <p className="text-secondary-foreground text-normal mt-4 line-clamp-2 text-lg leading-[1.5] tracking-tighter">
+                  <p className="text-muted-foreground mt-3 line-clamp-3 text-sm leading-relaxed">
                     {article.summary}
                   </p>
-                  <div className="mt-6 flex items-center gap-4">
+                  <div className="mt-4 flex items-center gap-4">
                     {(article.authorImage || article.author) && (
                       <div className="bg-primary text-primary-foreground relative flex h-8 w-8 items-center justify-center overflow-hidden rounded-full">
                         {article.authorImage ? (
@@ -184,27 +188,27 @@ export const Default: React.FC<ArticleListingProps> = ({
             ))}
           </div>
 
-          {/* Regular articles - 3 column compact layout */}
-          <div className="@sm:grid-cols-2 @lg:grid-cols-3 grid gap-8">
+          {/* Regular articles - news card grid */}
+          <div className="@sm:grid-cols-2 @lg:grid-cols-4 grid gap-6">
             {regularArticles.map((article, index) => (
               <article
                 key={index}
-                className="@md:p-8 rounded-default hover:bg-tertiary-hover focus:ring-accent group/article flex h-full flex-col p-4 transition-colors focus:outline-none focus:ring-2"
+                className="ecolab-card group/article flex h-full flex-col p-6 transition-shadow hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary"
               >
                 <div>
                   {isPageEditing ? (
-                    <h3 className="font-heading text-card-foreground text-2xl font-medium leading-normal tracking-tighter">
+                    <h3 className="font-heading text-primary text-lg font-bold leading-snug">
                       {article.title}
                     </h3>
                   ) : (
                     <Link field={{ value: { href: article.link } }} className="block">
-                      <h3 className="font-heading text-card-foreground text-2xl font-medium leading-normal tracking-tighter decoration-1 underline-offset-4 group-hover/article:underline group-focus/article:underline">
+                      <h3 className="font-heading text-primary group-hover/article:text-primary-hover text-lg font-bold leading-snug transition-colors">
                         {article.title}
                       </h3>
                     </Link>
                   )}
                 </div>
-                <div className="mt-auto flex items-center gap-4 pt-6">
+                <div className="mt-auto flex items-center gap-4 pt-4">
                   {(article.authorImage || article.author) && (
                     <div className="bg-primary text-primary-foreground relative flex h-8 w-8 items-center justify-center overflow-hidden rounded-full">
                       {article.authorImage ? (

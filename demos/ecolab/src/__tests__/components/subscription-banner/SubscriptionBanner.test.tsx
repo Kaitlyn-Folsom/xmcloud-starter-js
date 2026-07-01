@@ -232,7 +232,7 @@ describe('SubscriptionBanner Component', () => {
 
       const section = container.querySelector('section');
       expect(section).toBeInTheDocument();
-      expect(section).toHaveClass('mx-auto', 'w-full', 'px-4', 'py-16', 'text-center');
+      expect(section).toHaveClass('mx-auto', 'w-full', 'px-4', 'py-16');
     });
 
     it('should apply correct title classes', () => {
@@ -242,10 +242,9 @@ describe('SubscriptionBanner Component', () => {
       expect(title).toHaveClass(
         'text-primary',
         'font-heading',
-        'mb-6',
-        'font-normal',
-        'leading-tight',
-        'tracking-tight'
+        'mb-4',
+        'font-bold',
+        'leading-tight'
       );
     });
 
@@ -255,7 +254,7 @@ describe('SubscriptionBanner Component', () => {
       const description = screen.getByText(
         'Get the latest updates delivered directly to your inbox'
       );
-      expect(description).toHaveClass('font-body', 'text-secondary-foreground', 'mb-12', 'text-lg');
+      expect(description).toHaveClass('font-body', 'text-muted-foreground', 'mb-10', 'text-lg');
     });
 
     it('should apply correct form container classes', () => {
@@ -265,11 +264,11 @@ describe('SubscriptionBanner Component', () => {
       expect(form).toHaveClass(
         'mx-auto',
         'flex',
-        'max-w-md',
+        'max-w-lg',
         'flex-col',
-        'items-center',
+        'items-stretch',
         'justify-center',
-        'gap-6'
+        'gap-4'
       );
     });
 
@@ -277,14 +276,14 @@ describe('SubscriptionBanner Component', () => {
       render(<SubscriptionBanner {...defaultProps} />);
 
       const input = screen.getByTestId('email-input');
-      expect(input).toHaveClass('border-input', 'w-full', 'flex-1', 'rounded-full', 'px-6', 'py-3');
+      expect(input).toHaveClass('border-input', 'w-full', 'flex-1', 'rounded-md', 'px-4', 'py-3');
     });
 
     it('should apply correct button classes', () => {
       render(<SubscriptionBanner {...defaultProps} />);
 
       const button = screen.getByTestId('submit-button');
-      expect(button).toHaveClass('flex-1', 'rounded-full', 'px-8', 'py-2.5');
+      expect(button).toHaveClass('rounded-full', 'px-8', 'py-2.5', 'w-full');
     });
   });
 
@@ -334,7 +333,7 @@ describe('SubscriptionBanner Component', () => {
       const { container } = render(<SubscriptionBanner {...defaultProps} />);
 
       const form = container.querySelector('form');
-      expect(form).toHaveClass('max-w-md');
+      expect(form).toHaveClass('max-w-lg');
     });
   });
 

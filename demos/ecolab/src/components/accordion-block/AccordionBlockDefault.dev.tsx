@@ -84,7 +84,7 @@ export const AccordionBlockDefault: React.FC<AccordionProps> = (props) => {
         <section
           data-component="AccordionBlock"
           data-class-change
-          className={cn('@container bg-secondary text-secondary-foreground rounded-3xl', {
+          className={cn('@container bg-surface-muted text-foreground rounded-md border border-border', {
             [params.styles as string]: params?.styles,
           })}
         >
@@ -93,7 +93,7 @@ export const AccordionBlockDefault: React.FC<AccordionProps> = (props) => {
             {headingField && (
               <Text
                 tag="h2"
-                className="font-heading text-primary @lg:text-7xl -ml-1 text-pretty text-5xl font-normal leading-[1.25] tracking-tighter"
+                className="font-heading text-primary @lg:text-5xl text-pretty text-3xl font-bold leading-tight"
                 field={headingField}
               />
             )}

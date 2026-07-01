@@ -102,6 +102,14 @@ interface MockAnimatePresenceProps {
 }
 
 jest.mock('framer-motion', () => {
+  const MockMotionDiv = React.forwardRef<HTMLDivElement, MockMotionHeaderProps>(
+    ({ children, ...props }, ref) => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      return React.createElement('div', { ...(props as any), ref }, children as React.ReactNode);
+    }
+  );
+  MockMotionDiv.displayName = 'MockMotionDiv';
+
   const MockMotionHeader = React.forwardRef<HTMLElement, MockMotionHeaderProps>(
     ({ children, ...props }, ref) => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -112,6 +120,7 @@ jest.mock('framer-motion', () => {
 
   return {
     motion: {
+      div: MockMotionDiv,
       header: MockMotionHeader,
     },
     AnimatePresence: ({ children }: MockAnimatePresenceProps) => <>{children}</>,
@@ -121,6 +130,7 @@ jest.mock('framer-motion', () => {
 // Mock lucide-react
 jest.mock('lucide-react', () => ({
   Menu: () => React.createElement('div', { 'data-testid': 'menu-icon' }, 'Menu'),
+  Search: () => React.createElement('div', { 'data-testid': 'search-icon' }, 'Search'),
 }));
 
 // Mock UI components
@@ -237,7 +247,7 @@ describe('GlobalHeader Component', () => {
 
       const header = container.querySelector('header');
       expect(header).toBeInTheDocument();
-      expect(header).toHaveClass('sticky', 'top-0', 'z-50');
+      expect(header).toHaveClass('bg-background', 'border-b');
     });
 
     it('should render logo in Link component when not editing', () => {
@@ -315,7 +325,7 @@ describe('GlobalHeader Component', () => {
       render(<GlobalHeader {...propsWithoutLinks} />);
 
       expect(screen.getByTestId('navigation-menu')).toBeInTheDocument();
-      expect(screen.queryByText('About')).not.toBeInTheDocument();
+      expect(screen.getByTestId('nav-menu-list')).toBeEmptyDOMElement();
     });
   });
 
@@ -394,15 +404,15 @@ describe('GlobalHeader Component', () => {
     it('should apply container query classes', () => {
       const { container } = render(<GlobalHeader {...defaultProps} />);
 
-      const header = container.querySelector('header');
-      expect(header).toHaveClass('@container');
+      const wrapper = container.querySelector('.\\@container');
+      expect(wrapper).toBeInTheDocument();
     });
 
     it('should apply correct height class', () => {
       const { container } = render(<GlobalHeader {...defaultProps} />);
 
       const header = container.querySelector('header');
-      expect(header).toHaveClass('h-[96px]');
+      expect(header).toHaveClass('h-[72px]');
     });
 
     it('should apply responsive padding classes', () => {
@@ -416,8 +426,8 @@ describe('GlobalHeader Component', () => {
     it('should apply sticky positioning', () => {
       const { container } = render(<GlobalHeader {...defaultProps} />);
 
-      const header = container.querySelector('header');
-      expect(header).toHaveClass('sticky', 'top-0', 'z-50');
+      const wrapper = container.querySelector('.sticky');
+      expect(wrapper).toHaveClass('sticky', 'top-0', 'z-50');
     });
   });
 
@@ -457,7 +467,7 @@ describe('GlobalHeader Component', () => {
       render(<GlobalHeader {...propsWithoutChildren} />);
 
       expect(screen.getByRole('banner')).toBeInTheDocument();
-      expect(screen.queryByText('About')).not.toBeInTheDocument();
+      expect(screen.getByTestId('nav-menu-list')).toBeEmptyDOMElement();
     });
   });
 

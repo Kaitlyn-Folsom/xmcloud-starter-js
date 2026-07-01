@@ -118,7 +118,7 @@ describe('TopicListing Component', () => {
       const { container } = render(<TopicListing {...defaultProps} />);
 
       const mainContainer = container.firstChild;
-      expect(mainContainer).toHaveClass('@container', 'bg-primary', 'text-primary-foreground');
+      expect(mainContainer).toHaveClass('@container', 'bg-surface-muted');
     });
   });
 
@@ -129,11 +129,10 @@ describe('TopicListing Component', () => {
       const mainContainer = container.firstChild as HTMLElement;
       expect(mainContainer).toHaveClass(
         '@container',
-        'bg-primary',
-        'text-primary-foreground',
+        'bg-surface-muted',
         'relative',
         'overflow-hidden',
-        'py-24'
+        'py-20'
       );
     });
 
@@ -148,7 +147,7 @@ describe('TopicListing Component', () => {
       const { container } = render(<TopicListing {...defaultProps} />);
 
       const mainContainer = container.firstChild as HTMLElement;
-      expect(mainContainer).toHaveClass('py-24', 'md:pb-[128px]', 'md:pt-28');
+      expect(mainContainer).toHaveClass('py-20', '@md:py-28');
     });
 
     it('should render with correct title classes', () => {
@@ -157,11 +156,10 @@ describe('TopicListing Component', () => {
       const title = screen.getByText('Explore Our Topics');
       expect(title).toHaveClass(
         'font-heading',
-        '@sm:text-5xl',
-        '@md:text-6xl',
-        '@lg:text-7xl',
-        'text-4xl',
-        'font-semibold'
+        '@sm:text-4xl',
+        '@md:text-5xl',
+        'text-3xl',
+        'font-bold'
       );
     });
   });
@@ -333,7 +331,7 @@ describe('TopicListing Component', () => {
       render(<TopicListing {...defaultProps} />);
 
       const title = screen.getByText('Explore Our Topics');
-      expect(title).toHaveClass('text-white');
+      expect(title).toHaveClass('text-primary');
     });
   });
 
@@ -342,7 +340,7 @@ describe('TopicListing Component', () => {
       const { container } = render(<TopicListing {...defaultProps} />);
 
       const mainContainer = container.firstChild as HTMLElement;
-      expect(mainContainer).toHaveClass('bg-primary', 'text-primary-foreground');
+      expect(mainContainer).toHaveClass('bg-surface-muted');
     });
 
     it('should have overflow hidden for background effects', () => {

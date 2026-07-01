@@ -303,14 +303,14 @@ export const Default: React.FC<ArticleHeaderProps> = ({ fields, page }) => {
                 </Button>
                 {/* Category Badge */}
                 {(eyebrowField?.value || isPageEditing) && (
-                  <Badge className="bg-accent text-accent-foreground hover:bg-accent font-body mx-auto  mb-4 inline-block text-[14px] font-medium tracking-tighter">
+                  <Badge className="bg-white/20 text-white hover:bg-white/30 font-body mx-auto mb-4 inline-block rounded-full border-0 px-4 py-1 text-xs font-semibold uppercase tracking-wide">
                     <Text field={eyebrowField} />
                   </Badge>
                 )}
                 {/* Title */}
                 <Text
                   tag="h1"
-                  className="@md:text-[62px] @md:mb-0 font-heading line-height-[69px] mx-auto max-w-4xl text-pretty px-6 text-center text-4xl font-normal tracking-tighter text-white"
+                  className="@md:text-5xl @md:mb-0 font-heading mx-auto max-w-4xl text-pretty px-6 text-center text-3xl font-bold leading-tight text-white"
                   field={pageHeaderTitleField}
                 />
                 {/* Read Time and Date - Centered */}
@@ -385,7 +385,7 @@ export const Default: React.FC<ArticleHeaderProps> = ({ fields, page }) => {
                 </div>
 
                 {/* Featured Image */}
-                <figure className="@lg:col-span-6 relative z-10 col-span-2 mx-auto flex aspect-[16/9] w-full max-w-[800px] justify-center overflow-hidden rounded-[24px]">
+                <figure className="@lg:col-span-6 relative z-10 col-span-2 mx-auto flex aspect-[16/9] w-full max-w-[800px] justify-center overflow-hidden rounded-md border border-white/20 shadow-lg">
                   <ImageWrapper
                     image={imageField}
                     alt={pageHeaderTitleField?.value}

@@ -252,7 +252,7 @@ describe('TestimonialCarousel Component', () => {
         '@container',
         'component',
         'testimonial-carousel',
-        'text-secondary-foreground'
+        'text-foreground'
       );
     });
 
@@ -439,7 +439,7 @@ describe('TestimonialCarousel Component', () => {
       const { container } = render(<TestimonialCarousel {...defaultProps} />);
 
       const carouselContainer = container.firstChild as HTMLElement;
-      expect(carouselContainer).toHaveClass('rounded-[24px]');
+      expect(carouselContainer).toHaveClass('rounded-md');
     });
 
     it('should have overflow hidden', () => {

@@ -338,7 +338,7 @@ describe('MultiPromoTabs Component', () => {
       render(<MultiPromoTabs {...defaultProps} />);
       
       const title = screen.getByText('Explore Our Collections');
-      expect(title).toHaveClass('font-heading', '@md:text-6xl');
+      expect(title).toHaveClass('font-heading', '@md:text-5xl');
     });
   });
 

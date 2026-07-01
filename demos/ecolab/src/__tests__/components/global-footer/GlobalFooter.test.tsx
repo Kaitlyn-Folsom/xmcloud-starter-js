@@ -162,7 +162,7 @@ describe('GlobalFooter Component', () => {
 
       const footer = container.querySelector('footer');
       expect(footer).toBeInTheDocument();
-      expect(footer).toHaveClass('bg-primary', 'text-white');
+      expect(footer).toHaveClass('bg-dark', 'text-dark-foreground');
     });
 
     it('should render logo section', () => {
@@ -195,7 +195,7 @@ describe('GlobalFooter Component', () => {
 
       const copyrightText = screen.getByText('© 2024 Company Name. All rights reserved.');
       expect(copyrightText).toBeInTheDocument();
-      expect(copyrightText).toHaveClass('text-sm', 'text-white/80');
+      expect(copyrightText).toHaveClass('text-xs', 'text-white/70');
     });
   });
 
@@ -283,9 +283,9 @@ describe('GlobalFooter Component', () => {
     it('should render bottom section with border', () => {
       const { container } = render(<GlobalFooter {...defaultProps} />);
 
-      const bottomBorder = container.querySelector('.border-t');
+      const bottomBorder = container.querySelector('.global-footer__bottom')?.parentElement;
       expect(bottomBorder).toBeInTheDocument();
-      expect(bottomBorder).toHaveClass('border-white/10');
+      expect(bottomBorder).toHaveClass('border-dark-foreground/10');
     });
 
     it('should apply container query classes', () => {
@@ -372,7 +372,7 @@ describe('GlobalFooter Component', () => {
     it('should style social links container', () => {
       const { container } = render(<GlobalFooter {...defaultProps} />);
 
-      const socialContainer = container.querySelector('.flex.space-x-4');
+      const socialContainer = container.querySelector('.flex.space-x-3');
       expect(socialContainer).toBeInTheDocument();
     });
 

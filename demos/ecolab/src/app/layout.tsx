@@ -13,13 +13,13 @@ export default function RootLayout({
 
   // Site-wide schemas: Organization + WebSite (injected once per page)
   const organizationSchema = generateOrganizationSchema({
-    name: 'Solterra & Co.',
+    name: 'Ecolab',
     url: baseUrl || undefined,
   });
 
   const webSiteSchema = baseUrl
     ? generateWebSiteSchema({
-      name: 'Solterra & Co.',
+      name: 'Ecolab',
       url: baseUrl,
     })
     : null;

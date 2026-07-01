@@ -229,7 +229,7 @@ describe('AccordionBlock Component', () => {
 
         const mainDiv = container.querySelector('[data-component="AccordionBlock"]');
         expect(mainDiv).toBeInTheDocument();
-        expect(mainDiv).toHaveClass('bg-secondary', 'text-secondary-foreground', 'rounded-3xl');
+        expect(mainDiv).toHaveClass('bg-surface-muted', 'text-foreground', 'rounded-md');
       });
 
       it('should apply custom styles from params', () => {
@@ -329,9 +329,9 @@ describe('AccordionBlock Component', () => {
         expect(heading).toHaveClass(
           'font-heading',
           'text-primary',
-          'text-5xl',
-          'font-normal',
-          'tracking-tighter'
+          'text-3xl',
+          'font-bold',
+          'leading-tight'
         );
       });
 

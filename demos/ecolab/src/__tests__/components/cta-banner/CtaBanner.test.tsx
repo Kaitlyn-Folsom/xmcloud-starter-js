@@ -190,7 +190,7 @@ describe('CtaBanner Component', () => {
       const { container } = render(<CtaBanner {...propsWithSecondaryColorScheme} />);
 
       const section = container.querySelector('section');
-      expect(section).toHaveClass('bg-secondary', 'text-secondary-foreground');
+      expect(section).toHaveClass('bg-accent', 'text-accent-foreground');
     });
 
     it('should handle missing color scheme', () => {
@@ -211,7 +211,7 @@ describe('CtaBanner Component', () => {
       render(<CtaBanner {...propsWithPrimaryColorScheme} />);
 
       const button = screen.getByTestId('button');
-      expect(button).toHaveClass('bg-accent', 'text-accent-foreground');
+      expect(button).toHaveClass('bg-white', 'text-primary');
     });
   });
 
@@ -341,14 +341,14 @@ describe('CtaBanner Component', () => {
       render(<CtaBanner {...defaultProps} />);
 
       const title = screen.getByTestId('text-h2');
-      expect(title).toHaveClass('mb-6', 'text-4xl', 'font-normal');
+      expect(title).toHaveClass('mb-4', 'text-3xl', 'font-bold');
     });
 
     it('should render description with correct typography classes', () => {
       render(<CtaBanner {...defaultProps} />);
 
       const description = screen.getByTestId('text-p');
-      expect(description).toHaveClass('mb-16', 'text-lg', 'antialiased');
+      expect(description).toHaveClass('mb-8', 'text-lg');
     });
 
     it('should render button with correct typography classes', () => {

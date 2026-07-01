@@ -96,7 +96,7 @@ export const Default: React.FC<MultiPromoProps> = (props) => {
               <Text
                 tag="h2"
                 field={titleField}
-                className="font-heading text-box-trim-both text-box-edge-asc-baseline -ml-1 max-w-[20ch] text-pretty text-4xl font-normal leading-[1.1333] tracking-tighter sm:text-5xl md:max-w-[17.5ch] lg:text-6xl"
+                className="font-heading text-primary text-box-trim-both text-box-edge-asc-baseline max-w-[20ch] text-pretty text-3xl font-bold leading-tight @sm:text-4xl @md:max-w-[17.5ch] @lg:text-5xl"
               />
             </div>
           )}

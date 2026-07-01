@@ -57,10 +57,16 @@ import * as ImageWrapperdev from 'src/components/image/ImageWrapper.dev';
 import * as ImageWrapperclient from 'src/components/image/ImageWrapper.client';
 import * as ImageBlock from 'src/components/image/ImageBlock';
 import * as Icon from 'src/components/icon/Icon';
-import * as YoutubeIcondev from 'src/components/icon/svg/YoutubeIcon.dev';
-import * as TwitterIcondev from 'src/components/icon/svg/TwitterIcon.dev';
 import * as signaldev from 'src/components/icon/svg/signal.dev';
 import * as playdev from 'src/components/icon/svg/play.dev';
+import * as diversitydev from 'src/components/icon/svg/diversity.dev';
+import * as crossarrowsdev from 'src/components/icon/svg/cross-arrows.dev';
+import * as communitiesdev from 'src/components/icon/svg/communities.dev';
+import * as arrowuprightdev from 'src/components/icon/svg/arrow-up-right.dev';
+import * as arrowrightdev from 'src/components/icon/svg/arrow-right.dev';
+import * as arrowleftdev from 'src/components/icon/svg/arrow-left.dev';
+import * as YoutubeIcondev from 'src/components/icon/svg/YoutubeIcon.dev';
+import * as TwitterIcondev from 'src/components/icon/svg/TwitterIcon.dev';
 import * as LinkedInIcondev from 'src/components/icon/svg/LinkedInIcon.dev';
 import * as InternalIcondev from 'src/components/icon/svg/InternalIcon.dev';
 import * as InstagramIcondev from 'src/components/icon/svg/InstagramIcon.dev';
@@ -68,12 +74,6 @@ import * as FileIcondev from 'src/components/icon/svg/FileIcon.dev';
 import * as FacebookIcondev from 'src/components/icon/svg/FacebookIcon.dev';
 import * as ExternalIcondev from 'src/components/icon/svg/ExternalIcon.dev';
 import * as EmailIcondev from 'src/components/icon/svg/EmailIcon.dev';
-import * as diversitydev from 'src/components/icon/svg/diversity.dev';
-import * as crossarrowsdev from 'src/components/icon/svg/cross-arrows.dev';
-import * as communitiesdev from 'src/components/icon/svg/communities.dev';
-import * as arrowuprightdev from 'src/components/icon/svg/arrow-up-right.dev';
-import * as arrowrightdev from 'src/components/icon/svg/arrow-right.dev';
-import * as arrowleftdev from 'src/components/icon/svg/arrow-left.dev';
 import * as Hero from 'src/components/hero/Hero';
 import * as GlobalHeader from 'src/components/global-header/GlobalHeader';
 import * as GlobalFooter from 'src/components/global-footer/GlobalFooter';
@@ -161,10 +161,16 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['ImageWrapper', { ...ImageWrapperdev, ...ImageWrapperclient }],
   ['ImageBlock', { ...ImageBlock }],
   ['Icon', { ...Icon, componentType: 'client' }],
-  ['YoutubeIcon', { ...YoutubeIcondev }],
-  ['TwitterIcon', { ...TwitterIcondev }],
   ['signal', { ...signaldev }],
   ['play', { ...playdev }],
+  ['diversity', { ...diversitydev }],
+  ['cross-arrows', { ...crossarrowsdev }],
+  ['communities', { ...communitiesdev }],
+  ['arrow-up-right', { ...arrowuprightdev }],
+  ['arrow-right', { ...arrowrightdev }],
+  ['arrow-left', { ...arrowleftdev }],
+  ['YoutubeIcon', { ...YoutubeIcondev }],
+  ['TwitterIcon', { ...TwitterIcondev }],
   ['LinkedInIcon', { ...LinkedInIcondev }],
   ['InternalIcon', { ...InternalIcondev }],
   ['InstagramIcon', { ...InstagramIcondev }],
@@ -172,12 +178,6 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['FacebookIcon', { ...FacebookIcondev }],
   ['ExternalIcon', { ...ExternalIcondev }],
   ['EmailIcon', { ...EmailIcondev }],
-  ['diversity', { ...diversitydev }],
-  ['cross-arrows', { ...crossarrowsdev }],
-  ['communities', { ...communitiesdev }],
-  ['arrow-up-right', { ...arrowuprightdev }],
-  ['arrow-right', { ...arrowrightdev }],
-  ['arrow-left', { ...arrowleftdev }],
   ['Hero', { ...Hero, componentType: 'client' }],
   ['GlobalHeader', { ...GlobalHeader, componentType: 'client' }],
   ['GlobalFooter', { ...GlobalFooter }],

@@ -214,7 +214,7 @@ describe('VerticalImageAccordion Component', () => {
       expect(mainContainer).toHaveClass(
         '@container',
         'bg-primary',
-        'rounded-default',
+        'rounded-md',
         'text-primary-foreground',
         'relative',
         'mx-auto',
@@ -477,7 +477,7 @@ describe('VerticalImageAccordion Component', () => {
       const { container } = render(<VerticalImageAccordion {...defaultProps} />);
 
       const mainContainer = container.firstChild as HTMLElement;
-      expect(mainContainer).toHaveClass('rounded-default');
+      expect(mainContainer).toHaveClass('rounded-md');
     });
 
     it('should apply primary background color', () => {

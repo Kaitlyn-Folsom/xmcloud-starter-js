@@ -13,24 +13,22 @@ import { Default as MediaSection } from '@/components/media-section/MediaSection
 import { getDatasource, getFieldValue } from '@/lib/component-props';
 import { HeroProps } from './hero.props';
 
-// Define heroVariants using class-variance-authority for styling
-export const heroVariants = cva('hero @container py-24 relative w-full overflow-hidden', {
+export const heroVariants = cva('hero @container relative w-full overflow-hidden', {
   variants: {
     colorScheme: {
       primary: 'bg-primary text-primary-foreground',
-      secondary: 'bg-secondary text-primary',
-      tertiary: 'bg-tertiary text-primary',
-      dark: 'bg-dark text-primary',
-      light: 'bg-light text-primary',
+      secondary: 'bg-secondary text-foreground',
+      tertiary: 'bg-tertiary text-foreground',
+      dark: 'bg-dark text-dark-foreground',
+      light: 'bg-background text-foreground',
     },
   },
   defaultVariants: {
-    colorScheme: 'light',
+    colorScheme: 'primary',
   },
 });
 
 export const Default: React.FC<HeroProps> = ({ fields, params, page }) => {
-  // Destructure fields and params
   const datasource = getDatasource(fields);
 
   const {
@@ -61,9 +59,11 @@ export const Default: React.FC<HeroProps> = ({ fields, params, page }) => {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const isPageEditing = page.mode.isEditing;
 
-  const { colorScheme } = params;
-  // Use custom hook to match media queries
+  const { colorScheme = 'primary' } = params;
   const [isPlaying, setIsPlaying] = useState(true);
+
+  const isDarkHero = colorScheme === 'primary' || colorScheme === 'dark';
+  const primaryMedia = heroImageField1 || heroVideoField1;
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -74,99 +74,97 @@ export const Default: React.FC<HeroProps> = ({ fields, params, page }) => {
   if (datasource) {
     return (
       <section className={cn(heroVariants({ colorScheme }), [params?.styles && params.styles])}>
-        <div className="grid gap-20">
-          {/* Hero content */}
-          <div className="mx-auto w-full max-w-screen-xl px-4 xl:px-8">
-            <AnimatedSection
-              direction="up"
-              className="@lg:flex-row @lg:items-center @lg:gap-10 flex flex-col items-stretch gap-3"
-              isPageEditing={isPageEditing}
-            >
+        <div className="@lg:grid-cols-2 grid min-h-[480px] @lg:min-h-[560px]">
+          {/* Content panel — Ecolab split hero */}
+          <div
+            className={cn(
+              'ecolab-dot-pattern flex flex-col justify-center px-6 py-16 @md:px-12 @lg:px-16 @xl:px-20',
+              isDarkHero ? 'bg-primary text-primary-foreground' : 'bg-secondary text-foreground'
+            )}
+          >
+            <AnimatedSection direction="up" isPageEditing={isPageEditing}>
               {(titleField?.value || isPageEditing) && (
                 <Text
                   tag="h1"
                   field={titleField}
-                  className="font-heading @lg:text-8xl @lg:leading-[90px] basis-1/2 text-5xl font-normal leading-[60px]"
+                  className="font-heading mb-6 text-4xl font-bold leading-tight tracking-tight @md:text-5xl @lg:text-6xl"
                 />
               )}
-              <div className="@lg:gap-10 flex basis-1/2  flex-col gap-8 ">
-                {(descriptionField?.value || isPageEditing) && (
-                  <Text
-                    tag="p"
-                    className={cn(
-                      'font-body line-height-[26px] text-medium font-base @md:text-xl text-lg',
-                      {
-                        'text-primary-foreground': colorScheme === 'primary',
-                        'text-secondary-foreground': colorScheme !== 'primary',
-                      }
-                    )}
-                    field={descriptionField}
+              {(descriptionField?.value || isPageEditing) && (
+                <Text
+                  tag="p"
+                  className={cn(
+                    'font-body mb-8 max-w-lg text-lg leading-relaxed @md:text-xl',
+                    isDarkHero ? 'text-primary-foreground/90' : 'text-muted-foreground'
+                  )}
+                  field={descriptionField}
+                />
+              )}
+              {linkField && (
+                <div className="flex flex-wrap gap-4">
+                  <EditableButton
+                    buttonLink={linkField}
+                    className={
+                      isDarkHero
+                        ? 'rounded-full bg-white text-primary hover:bg-gray-100'
+                        : 'rounded-full'
+                    }
+                    isPageEditing={isPageEditing}
+                    contextTitle={titleField?.value}
                   />
-                )}
-                {linkField && (
-                  <div>
-                    <EditableButton
-                      buttonLink={linkField}
-                      className={
-                        colorScheme === 'primary' ? 'text-primary bg-white hover:bg-gray-100' : ''
-                      }
-                      isPageEditing={isPageEditing}
-                      contextTitle={titleField?.value}
-                    />
-                  </div>
-                )}
-              </div>
+                </div>
+              )}
             </AnimatedSection>
           </div>
-          {/* Hero image/video sections */}
-          <div className="relative flex items-center justify-center overflow-x-hidden">
-            <div className="@lg:gap-8 @lg:min-w-[120%] mx-auto flex min-w-[110%]  items-start gap-4 px-4">
-              <div className="shrink-0 grow-0 basis-1/4">
-                <MediaSection
-                  video={heroVideoField1?.value?.href}
-                  image={heroImageField1}
-                  className="aspect-280/356 relative"
-                  pause={!isPlaying}
-                  reducedMotion={isPageEditing || prefersReducedMotion}
-                />
-              </div>
-              <div className="shrink-0 grow-0 basis-1/4">
-                <MediaSection
-                  video={heroVideoField2?.value?.href}
-                  image={heroImageField2}
-                  className="aspect-280/196 relative"
-                  pause={!isPlaying}
-                  reducedMotion={isPageEditing || prefersReducedMotion}
-                />
-              </div>
-              <div className="shrink-0 grow-0 basis-1/4">
-                <MediaSection
-                  video={heroVideoField3?.value?.href}
-                  image={heroImageField3}
-                  className="aspect-280/356 relative"
-                  pause={!isPlaying}
-                  reducedMotion={isPageEditing || prefersReducedMotion}
-                />
-              </div>
-              <div className="shrink-0 grow-0 basis-1/4">
-                <MediaSection
-                  video={heroVideoField4?.value?.href}
-                  image={heroImageField4}
-                  className="aspect-280/356 relative"
-                  pause={!isPlaying}
-                  reducedMotion={isPageEditing || prefersReducedMotion}
-                />
-              </div>
-            </div>
+
+          {/* Media panel */}
+          <div className="bg-surface-muted relative min-h-[280px] @lg:min-h-full">
+            {primaryMedia ? (
+              <MediaSection
+                video={heroVideoField1?.value?.href}
+                image={heroImageField1}
+                className="absolute inset-0 h-full w-full object-cover"
+                pause={!isPlaying}
+                reducedMotion={isPageEditing || prefersReducedMotion}
+              />
+            ) : (
+              <div className="from-primary/20 to-accent/30 absolute inset-0 bg-gradient-to-br" />
+            )}
           </div>
         </div>
-        {/* Play/Pause button - A11y */}
-        {!prefersReducedMotion && (
+
+        {/* Secondary media strip — industry carousel feel */}
+        {(heroImageField2 || heroVideoField2 || heroImageField3 || heroVideoField3) && (
+          <div className="bg-background border-border border-t py-8">
+            <div className="mx-auto flex max-w-screen-xl items-center justify-center gap-4 overflow-x-auto px-4 @md:gap-6 @xl:px-8">
+              {[heroImageField2, heroImageField3, heroImageField4].map((image, index) => {
+                const videoField = [heroVideoField2, heroVideoField3, heroVideoField4][index];
+                if (!image && !videoField?.value?.href) return null;
+                return (
+                  <div
+                    key={index}
+                    className="border-border relative aspect-[4/3] w-[200px] shrink-0 overflow-hidden rounded-md border @md:w-[280px]"
+                  >
+                    <MediaSection
+                      video={videoField?.value?.href}
+                      image={image}
+                      className="h-full w-full object-cover"
+                      pause={!isPlaying}
+                      reducedMotion={isPageEditing || prefersReducedMotion}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {!prefersReducedMotion && (heroVideoField1 || heroVideoField2) && (
           <Button
-            variant="link"
+            variant="ghost"
             size="icon"
             onClick={() => setIsPlaying((previousState) => !previousState)}
-            className="absolute bottom-2 right-2"
+            className="absolute bottom-4 right-4 bg-white/80 hover:bg-white"
             aria-label={isPlaying ? 'Pause Ambient Video' : 'Play Ambient'}
           >
             {isPlaying ? <Pause size={16} /> : <Play size={16} />}

@@ -223,7 +223,7 @@ describe('Hero Component', () => {
       const { container } = render(<Hero {...defaultProps} />);
 
       const section = container.querySelector('section');
-      expect(section).toHaveClass('bg-light', 'text-primary');
+      expect(section).toHaveClass('bg-background', 'text-foreground');
     });
 
     it('should apply primary color scheme classes', () => {
@@ -237,42 +237,42 @@ describe('Hero Component', () => {
       const { container } = render(<Hero {...propsWithSecondaryScheme} />);
 
       const section = container.querySelector('section');
-      expect(section).toHaveClass('bg-secondary', 'text-primary');
+      expect(section).toHaveClass('bg-secondary', 'text-foreground');
     });
 
     it('should apply tertiary color scheme classes', () => {
       const { container } = render(<Hero {...propsWithTertiaryScheme} />);
 
       const section = container.querySelector('section');
-      expect(section).toHaveClass('bg-tertiary', 'text-primary');
+      expect(section).toHaveClass('bg-tertiary', 'text-foreground');
     });
 
     it('should apply dark color scheme classes', () => {
       const { container } = render(<Hero {...propsWithDarkScheme} />);
 
       const section = container.querySelector('section');
-      expect(section).toHaveClass('bg-dark', 'text-primary');
+      expect(section).toHaveClass('bg-dark', 'text-dark-foreground');
     });
 
-    it('should apply default light scheme when colorScheme is not provided', () => {
+    it('should apply default primary scheme when colorScheme is not provided', () => {
       const { container } = render(<Hero {...propsWithoutColorScheme} />);
 
       const section = container.querySelector('section');
-      expect(section).toHaveClass('bg-light', 'text-primary');
+      expect(section).toHaveClass('bg-primary', 'text-primary-foreground');
     });
 
     it('should apply correct text color for description with primary scheme', () => {
       render(<Hero {...propsWithPrimaryScheme} />);
 
       const description = screen.getByText(/Discover amazing features/);
-      expect(description).toHaveClass('text-primary-foreground');
+      expect(description).toHaveClass('text-primary-foreground/90');
     });
 
     it('should apply correct text color for description with non-primary schemes', () => {
       render(<Hero {...propsWithSecondaryScheme} />);
 
       const description = screen.getByText(/Discover amazing features/);
-      expect(description).toHaveClass('text-secondary-foreground');
+      expect(description).toHaveClass('text-muted-foreground');
     });
 
     it('should apply correct button classes for primary scheme', () => {
@@ -337,14 +337,13 @@ describe('Hero Component', () => {
       expect(mediaSections[3]).toHaveAttribute('data-image', '/images/hero-image-4.jpg');
     });
 
-    it('should render media sections with correct aspect ratios', () => {
+    it('should render media sections with correct layout classes', () => {
       render(<Hero {...defaultProps} />);
 
       const mediaSections = screen.getAllByTestId('media-section');
-      expect(mediaSections[0]).toHaveClass('aspect-280/356');
-      expect(mediaSections[1]).toHaveClass('aspect-280/196');
-      expect(mediaSections[2]).toHaveClass('aspect-280/356');
-      expect(mediaSections[3]).toHaveClass('aspect-280/356');
+      mediaSections.forEach((section) => {
+        expect(section.className).toContain('object-cover');
+      });
     });
 
     it('should render media sections with images only', () => {
@@ -460,11 +459,11 @@ describe('Hero Component', () => {
       expect(animatedSection).toHaveAttribute('data-direction', 'up');
     });
 
-    it('should apply correct classes to AnimatedSection', () => {
+    it('should apply AnimatedSection wrapper for hero content', () => {
       render(<Hero {...defaultProps} />);
 
       const animatedSection = screen.getByTestId('animated-section');
-      expect(animatedSection).toHaveClass('@lg:flex-row', '@lg:items-center', '@lg:gap-10');
+      expect(animatedSection).toBeInTheDocument();
     });
   });
 
@@ -483,11 +482,11 @@ describe('Hero Component', () => {
       expect(section).toHaveClass('@container');
     });
 
-    it('should apply correct padding classes', () => {
+    it('should use split hero layout grid', () => {
       const { container } = render(<Hero {...defaultProps} />);
 
-      const section = container.querySelector('section');
-      expect(section).toHaveClass('py-24');
+      const grid = container.querySelector('.\\@lg\\:grid-cols-2');
+      expect(grid).toBeInTheDocument();
     });
 
     it('should apply overflow-hidden class', () => {
@@ -527,11 +526,10 @@ describe('Hero Component', () => {
       const title = screen.getByText('Welcome to Our Platform');
       expect(title).toHaveClass(
         'font-heading',
-        '@lg:text-8xl',
-        '@lg:leading-[90px]',
-        'text-5xl',
-        'font-normal',
-        'leading-[60px]'
+        'text-4xl',
+        'font-bold',
+        'leading-tight',
+        'tracking-tight'
       );
     });
 
@@ -539,30 +537,21 @@ describe('Hero Component', () => {
       render(<Hero {...defaultProps} />);
 
       const description = screen.getByText(/Discover amazing features/);
-      expect(description).toHaveClass('font-body', 'text-medium', '@md:text-xl', 'text-lg');
+      expect(description).toHaveClass('font-body', '@md:text-xl', 'text-lg', 'leading-relaxed');
     });
 
-    it('should apply responsive gap classes to content', () => {
+    it('should apply dot pattern to hero content panel', () => {
       const { container } = render(<Hero {...defaultProps} />);
 
-      // Check for the class by looking at the element's className
-      const contentDiv = Array.from(container.querySelectorAll('div')).find(
-        (div) => div.className && div.className.includes('@lg:gap-10')
-      );
-      expect(contentDiv).toBeTruthy();
+      const contentPanel = container.querySelector('.ecolab-dot-pattern');
+      expect(contentPanel).toBeInTheDocument();
     });
 
-    it('should apply correct media section container classes', () => {
+    it('should render secondary media strip when additional images exist', () => {
       const { container } = render(<Hero {...defaultProps} />);
 
-      // Check for the class by looking at the element's className
-      const mediaContainer = Array.from(container.querySelectorAll('div')).find(
-        (div) => div.className && div.className.includes('@lg:min-w-[120%]')
-      );
-      expect(mediaContainer).toBeTruthy();
-      if (mediaContainer) {
-        expect(mediaContainer.className).toContain('gap-4');
-      }
+      const mediaStrip = container.querySelector('.border-t');
+      expect(mediaStrip).toBeInTheDocument();
     });
   });
 

@@ -109,7 +109,7 @@ export const Default: React.FC<TestimonialCarouselProps> = (props) => {
     return (
       <div
         className={cn(
-          '@container component testimonial-carousel text-secondary-foreground @md:px-6 @lg:px-0 overflow-hidden rounded-[24px]',
+          '@container component testimonial-carousel bg-surface-muted text-foreground @md:px-6 @lg:px-0 overflow-hidden rounded-md border border-border py-8',
           { [`${props?.params?.styles}`]: props?.params?.styles }
         )}
         ref={carouselRef}

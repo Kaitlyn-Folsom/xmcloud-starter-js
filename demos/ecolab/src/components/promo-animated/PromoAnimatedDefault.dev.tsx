@@ -77,7 +77,7 @@ export const PromoAnimatedDefault: React.FC<PromoAnimatedProps> = (props) => {
               <AnimatedSection reducedMotion={prefersReducedMotion} isPageEditing={isPageEditing}>
                 <Text
                   tag="h2"
-                  className="font-heading @sm:text-5xl @lg:text-6xl -ml-1 mt-6 max-w-[15.5ch] text-4xl font-normal leading-[1.1333] tracking-tighter group-[.position-center]:mx-auto group-[.position-right]:ml-auto"
+                  className="font-heading @sm:text-4xl @lg:text-5xl mt-6 max-w-[15.5ch] text-3xl font-bold leading-tight group-[.position-center]:mx-auto group-[.position-right]:ml-auto"
                   field={title}
                 />
               </AnimatedSection>

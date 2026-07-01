@@ -50,7 +50,7 @@ export const Default: FC<FooterNavigationColumnProps> = (props) => {
                         <Button
                           variant="link"
                           asChild
-                          className="h-auto text-pretty p-0 text-base font-normal text-white"
+                          className="h-auto text-pretty p-0 text-sm font-normal text-white/80 hover:text-white"
                         >
                           <Link field={linkField} />
                         </Button>
@@ -64,7 +64,7 @@ export const Default: FC<FooterNavigationColumnProps> = (props) => {
         ) : (
           <ul className="mt-6 space-y-6" aria-labelledby={accordionId}>
             {(isPageEditing || headerField?.value) && (
-              <li className="text-lg font-medium" id={accordionId}>
+              <li className="text-sm font-semibold uppercase tracking-wide text-white" id={accordionId}>
                 <Text field={headerField} />
               </li>
             )}
@@ -76,7 +76,7 @@ export const Default: FC<FooterNavigationColumnProps> = (props) => {
                   <Button
                     variant="link"
                     asChild
-                    className="h-auto text-pretty p-0 text-base font-normal text-white"
+                    className="h-auto text-pretty p-0 text-sm font-normal text-white/80 hover:text-white"
                   >
                     <Link field={linkField} />
                   </Button>

@@ -19,7 +19,7 @@ export const Default: React.FC<TopicListingProps> = (props) => {
   if (fields) {
     return (
       <div
-        className="@container bg-primary text-primary-foreground relative overflow-hidden py-24 md:pb-[128px] md:pt-28"
+        className="@container bg-surface-muted relative overflow-hidden py-20 @md:py-28"
         data-class-change
       >
         {backgroundTheme === 'shooting-star' && (
@@ -50,7 +50,7 @@ export const Default: React.FC<TopicListingProps> = (props) => {
                 <Text
                   tag="h2"
                   field={titleField}
-                  className="font-heading @sm:text-5xl @md:text-6xl @lg:text-7xl text-4xl font-semibold leading-tight tracking-normal text-white"
+                  className="font-heading text-primary @sm:text-4xl @md:text-5xl text-3xl font-bold leading-tight"
                 />
               )}
             </div>

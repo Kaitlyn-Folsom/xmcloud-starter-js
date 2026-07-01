@@ -576,10 +576,11 @@ describe('MultiPromo Component', () => {
       const title = screen.getByText('Featured Products');
       expect(title).toHaveClass(
         'font-heading',
-        'text-4xl',
-        'sm:text-5xl',
-        'lg:text-6xl',
-        'tracking-tighter'
+        'text-primary',
+        'text-3xl',
+        '@sm:text-4xl',
+        '@lg:text-5xl',
+        'font-bold'
       );
     });
 

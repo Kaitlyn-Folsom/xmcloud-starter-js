@@ -115,7 +115,7 @@ describe('ContainerFullBleed Component', () => {
       expect(section).toHaveClass('is-inset');
       // Check for some inset-related classes
       expect(section?.className).toContain('px-');
-      expect(section?.className).toContain('rounded-3xl');
+      expect(section?.className).toContain('rounded-md');
     });
 
     it('should not apply inset when backgroundColor is transparent', () => {

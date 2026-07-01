@@ -117,38 +117,38 @@ module.exports = {
                         '--tw-prose-links': theme('colors.brand.DEFAULT'),
                         ...proseVars.reduce((acc, key) => ({ ...acc, [key]: 'inherit' }), {}),
                         h1: {
-                            fontSize: theme('fontSize.5xl'),
-                            fontWeight: 'normal',
-                            '@screen md': {
-                                fontSize: theme('fontSize.6xl'),
-                            },
-                        },
-                        h2: {
                             fontSize: theme('fontSize.4xl'),
-                            fontWeight: 'normal',
+                            fontWeight: '700',
                             '@screen md': {
                                 fontSize: theme('fontSize.5xl'),
                             },
                         },
-                        h3: {
+                        h2: {
                             fontSize: theme('fontSize.3xl'),
-                            fontWeight: 'normal',
+                            fontWeight: '700',
                             '@screen md': {
                                 fontSize: theme('fontSize.4xl'),
                             },
                         },
-                        h4: {
+                        h3: {
                             fontSize: theme('fontSize.2xl'),
-                            fontWeight: 'normal',
+                            fontWeight: '600',
                             '@screen md': {
                                 fontSize: theme('fontSize.3xl'),
                             },
                         },
-                        h5: {
+                        h4: {
                             fontSize: theme('fontSize.xl'),
-                            fontWeight: 'normal',
+                            fontWeight: '600',
                             '@screen md': {
                                 fontSize: theme('fontSize.2xl'),
+                            },
+                        },
+                        h5: {
+                            fontSize: theme('fontSize.lg'),
+                            fontWeight: '500',
+                            '@screen md': {
+                                fontSize: theme('fontSize.xl'),
                             },
                         },
                     },

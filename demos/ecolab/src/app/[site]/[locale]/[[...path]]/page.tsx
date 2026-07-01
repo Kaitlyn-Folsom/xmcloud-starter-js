@@ -65,7 +65,7 @@ export default async function Page({ params }: PageProps) {
     inLanguage: locale.replace('_', '-'),
     ...(baseUrl && {
       isPartOf: {
-        name: 'Solterra & Co.',
+        name: 'Ecolab',
         url: baseUrl,
       },
     }),
@@ -127,7 +127,7 @@ export const generateMetadata = async ({ params }: PageProps) => {
   const metadataDescription =
     routeFields?.metadataDescription?.value?.toString() ||
     routeFields?.pageSummary?.value?.toString() ||
-    'Solterra & Co. - Editorial-style content for lifestyle brands';
+    'Ecolab - Water, hygiene and infection prevention solutions';
 
   const ogTitle = routeFields?.ogTitle?.value?.toString() || metadataTitle;
 
@@ -170,7 +170,7 @@ export const generateMetadata = async ({ params }: PageProps) => {
       description: ogDescription,
       url: pageUrl,
       type: 'website',
-      siteName: site || 'Solterra & Co.',
+      siteName: site || 'Ecolab',
       locale: locale || 'en',
       images: ogImageUrl
         ? [

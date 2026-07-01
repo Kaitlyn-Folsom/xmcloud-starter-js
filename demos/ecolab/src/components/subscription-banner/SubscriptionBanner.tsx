@@ -41,26 +41,26 @@ export const Default: React.FC<SubscriptionBannerProps> = ({ fields }) => {
   };
 
   return (
-    <section className="mx-auto w-full px-4 py-16 text-center">
+    <section className="bg-surface-muted mx-auto w-full px-4 py-16 @md:py-20">
       <div className="@container mx-auto max-w-5xl">
         {titleRequired && (
           <Text
             tag="h2"
             field={titleRequired}
-            className="text-primary font-heading mb-6 font-normal leading-tight tracking-tight [font-size:clamp(theme(fontSize.3xl),5cqi,theme(fontSize.7xl))]"
+            className="text-primary font-heading mb-4 text-center text-3xl font-bold leading-tight @md:text-4xl"
           />
         )}
         {descriptionOptional && (
           <Text
             tag="p"
             field={descriptionOptional}
-            className="font-body text-secondary-foreground mb-12 text-lg"
+            className="font-body text-muted-foreground mb-10 text-center text-lg"
           />
         )}
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="mx-auto flex max-w-md flex-col items-center justify-center gap-6"
+            className="mx-auto flex max-w-lg flex-col items-stretch justify-center gap-4 @md:flex-row"
           >
             <FormField
               control={form.control}
@@ -78,7 +78,7 @@ export const Default: React.FC<SubscriptionBannerProps> = ({ fields }) => {
                     <Input
                       type="email"
                       placeholder={dictionary.EMAIL_PLACEHOLDER || 'Enter your email address'}
-                      className="border-input w-full flex-1 rounded-full px-6 py-3"
+                      className="border-input w-full flex-1 rounded-md px-4 py-3"
                       disabled={isSubmitted}
                       {...field}
                     />
@@ -89,7 +89,7 @@ export const Default: React.FC<SubscriptionBannerProps> = ({ fields }) => {
             />
             <Button
               type="submit"
-              className="flex-1 rounded-full px-8 py-2.5"
+              className="rounded-full px-8 py-2.5 @md:w-auto w-full"
               disabled={isSubmitted}
             >
               {dictionary.CTALABEL || 'Subscribe'}

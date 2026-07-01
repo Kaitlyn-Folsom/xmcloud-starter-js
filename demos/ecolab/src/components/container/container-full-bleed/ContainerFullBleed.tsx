@@ -44,7 +44,7 @@ export const Default: React.FC<ContainerFullBleedProps> = (props) => {
         inset: {
           false: null,
           true: [
-            'is-inset px-4 sm:px-8 md:px-16 2xl:px-24 mx-4 overflow-hidden rounded-3xl min-[1440px]:mx-auto max-w-[1408px]',
+            'is-inset px-4 sm:px-8 md:px-16 2xl:px-24 mx-4 overflow-hidden rounded-md min-[1440px]:mx-auto max-w-[1408px]',
           ],
         },
         margin: {

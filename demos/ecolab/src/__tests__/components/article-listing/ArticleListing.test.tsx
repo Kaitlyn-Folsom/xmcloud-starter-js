@@ -186,7 +186,7 @@ describe('ArticleListing Component', () => {
     it('should render regular articles in 3-column grid', () => {
       const { container } = render(<ArticleListing {...(propsThreeArticles as unknown as Parameters<typeof ArticleListing>[0])} />);
 
-      const regularGrid = container.querySelector('.grid.\\@lg\\:grid-cols-3');
+      const regularGrid = container.querySelector('.grid.\\@lg\\:grid-cols-4');
       expect(regularGrid).toBeInTheDocument();
     });
 

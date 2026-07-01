@@ -43,7 +43,7 @@ export const Default: React.FC<VerticalImageAccordionProps> = ({ fields, isPageE
     if (isEditMode) {
       return (
         <div
-          className="@container bg-primary rounded-default text-primary-foreground relative mx-auto my-6 max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
+          className="@container bg-primary text-primary-foreground relative mx-auto my-6 max-w-7xl rounded-md px-4 py-16 sm:px-6 lg:px-8"
           role="region"
           aria-label={titleField?.value || 'Image Accordion'}
         >
@@ -72,7 +72,7 @@ export const Default: React.FC<VerticalImageAccordionProps> = ({ fields, isPageE
                   {(isEditMode || itemImage?.value?.src) && (
                     <ImageWrapper
                       image={itemImage}
-                      className="rounded-default h-full w-full object-cover"
+                      className="rounded-md h-full w-full object-cover"
                       wrapperClass="h-full w-full"
                       aria-hidden="true"
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -153,7 +153,7 @@ export const Default: React.FC<VerticalImageAccordionProps> = ({ fields, isPageE
     // Normal interactive mode
     return (
       <div
-        className="@container bg-primary rounded-default text-primary-foreground relative mx-auto my-6 max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
+        className="@container bg-primary text-primary-foreground relative mx-auto my-6 max-w-7xl rounded-md px-4 py-16 sm:px-6 lg:px-8"
         role="region"
         aria-label={titleField?.value || 'Image Accordion'}
       >
@@ -220,7 +220,7 @@ export const Default: React.FC<VerticalImageAccordionProps> = ({ fields, isPageE
                       <div className="h-full w-full">
                         <ImageWrapper
                           image={itemImage}
-                          className="rounded-default h-full w-full object-cover"
+                          className="rounded-md h-full w-full object-cover"
                           wrapperClass="h-full w-full"
                           aria-hidden="true"
                         />

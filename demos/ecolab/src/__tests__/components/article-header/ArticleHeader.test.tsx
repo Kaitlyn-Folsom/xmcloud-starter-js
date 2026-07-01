@@ -443,7 +443,7 @@ describe('ArticleHeader Component', () => {
       render(<ArticleHeader {...(defaultProps as unknown as Parameters<typeof ArticleHeader>[0])} />);
 
       const badge = screen.getByTestId('badge');
-      expect(badge).toHaveClass('bg-accent', 'text-accent-foreground');
+      expect(badge).toHaveClass('bg-white/20', 'text-white');
     });
   });
 

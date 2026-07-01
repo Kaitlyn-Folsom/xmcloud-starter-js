@@ -11,18 +11,18 @@ import {
 } from '@sitecore-content-sdk/nextjs';
 import Scripts from '@/Scripts';
 import SitecoreStyles from '@/components/content-sdk/SitecoreStyles';
-import { Figtree } from 'next/font/google';
+import { Roboto } from 'next/font/google';
 import componentMap from '.sitecore/component-map';
 import Providers from './Providers';
 
-const heading = Figtree({
-  weight: ['400', '500'],
+const heading = Roboto({
+  weight: ['400', '500', '700'],
   variable: '--font-heading',
   subsets: ['latin', 'latin-ext'],
   display: 'swap',
 });
 
-const body = Figtree({
+const body = Roboto({
   weight: ['400', '500'],
   variable: '--font-body',
   subsets: ['latin', 'latin-ext'],

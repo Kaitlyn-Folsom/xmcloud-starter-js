@@ -7,35 +7,35 @@ import { Text, Link } from '@sitecore-content-sdk/nextjs';
 import { getDescriptiveLinkText } from '@/utils/link-text';
 import { CtaBannerProps } from './cta-banner.props';
 
-const ctaBannerVariants = cva('w-full mx-auto px-6 py-16 md:py-24 text-center', {
+const ctaBannerVariants = cva('w-full mx-auto px-6 py-16 @md:py-20', {
   variants: {
     colorScheme: {
-      default: '',
+      default: 'bg-surface-muted',
       primary: 'bg-primary text-primary-foreground',
-      secondary: 'bg-secondary text-secondary-foreground',
+      secondary: 'bg-accent text-accent-foreground',
     },
   },
 });
 
 const ctaTitleVariants = cva(
-  'mb-6 text-pretty text-4xl font-normal leading-[1.1333] tracking-tighter antialiased md:text-7xl',
+  'mb-4 text-pretty text-3xl font-bold leading-tight tracking-tight @md:text-4xl @lg:text-5xl',
   {
     variants: {
       colorScheme: {
-        default: '',
+        default: 'text-primary',
         primary: 'text-primary-foreground',
-        secondary: 'text-primary',
+        secondary: 'text-accent-foreground',
       },
     },
   }
 );
 
-const ctaButtonVariants = cva('text-sm font-heading font-medium', {
+const ctaButtonVariants = cva('text-sm font-heading font-medium rounded-full', {
   variants: {
     colorScheme: {
-      default: '',
-      primary: 'bg-accent text-accent-foreground hover:bg-accent/90',
-      secondary: 'bg-primary text-primary-foreground hover:bg-primary/90',
+      default: 'bg-primary text-primary-foreground hover:bg-primary-hover',
+      primary: 'bg-white text-primary hover:bg-gray-100',
+      secondary: 'bg-white text-accent hover:bg-gray-100',
     },
   },
 });
@@ -46,26 +46,23 @@ export const Default: React.FC<CtaBannerProps> = (props) => {
 
   if (fields) {
     const { titleRequired, descriptionOptional, linkOptional } = fields || {};
-    const colorScheme = params.colorScheme ?? undefined;
+    const colorScheme = params.colorScheme ?? 'secondary';
 
     return (
       <section className={ctaBannerVariants({ colorScheme })}>
-        <div className="mx-auto w-full max-w-4xl">
-          {/* Use Text component with fallback for heading */}
+        <div className="mx-auto w-full max-w-4xl @md:text-left text-center">
           <AnimatedSection direction="up" isPageEditing={isPageEditing}>
             <Text tag="h2" className={ctaTitleVariants({ colorScheme })} field={titleRequired} />
             <Text
               tag="p"
-              className="mx-auto mb-16 max-w-xl text-lg antialiased"
+              className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed @md:mx-0 @md:text-left"
               field={descriptionOptional}
             />
 
-            {/* Render button with link */}
             {linkOptional && (
               <Button className={ctaButtonVariants({ colorScheme })} asChild>
                 <Link
                   field={
-                    // Enhance link with descriptive text for SEO
                     !isPageEditing && linkOptional?.value?.text
                       ? {
                           ...linkOptional,
@@ -81,7 +78,6 @@ export const Default: React.FC<CtaBannerProps> = (props) => {
               </Button>
             )}
           </AnimatedSection>
-          {/* Use Text component with fallback for subheading */}
         </div>
       </section>
     );
