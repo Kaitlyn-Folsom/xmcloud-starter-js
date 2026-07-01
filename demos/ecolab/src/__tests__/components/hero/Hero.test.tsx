@@ -1,6 +1,6 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import { Default as Hero } from '@/components/hero/Hero';
+import { render, screen } from '@testing-library/react';
+import { Default as Hero, ImageLeft as HeroImageLeft } from '@/components/hero/Hero';
 import {
   defaultProps,
   propsWithPrimaryScheme,
@@ -10,7 +10,7 @@ import {
   propsWithoutDescription,
   propsWithoutLink,
   propsWithOnlyTitle,
-  propsWithImagesOnly,
+  propsWithoutFeaturedImage,
   propsWithoutColorScheme,
   propsWithoutFields,
   propsEditing,
@@ -19,7 +19,6 @@ import {
 } from './Hero.mockProps';
 import type { HeroProps } from '@/components/hero/hero.props';
 
-// Type definitions for mock components
 interface MockTextProps {
   field?: { value?: string };
   tag?: string;
@@ -37,30 +36,21 @@ interface MockAnimatedSectionProps {
   direction?: string;
   className?: string;
   isPageEditing?: boolean;
-}
-
-interface MockMediaSectionProps {
-  video?: string;
-  image?: { value?: { src?: string } };
-  className?: string;
-  pause?: boolean;
   reducedMotion?: boolean;
 }
 
-interface MockButtonProps {
-  children?: React.ReactNode;
-  variant?: string;
-  size?: string;
-  onClick?: () => void;
+interface MockImageWrapperProps {
+  image?: { value?: { src?: string } };
   className?: string;
-  [key: string]: unknown;
+  wrapperClass?: string;
+  priority?: boolean;
+  sizes?: string;
 }
 
 interface MockNoDataFallbackProps {
   componentName?: string;
 }
 
-// Mock the cn utility
 jest.mock('@/lib/utils', () => ({
   cn: (...args: Array<string | boolean | Record<string, boolean> | undefined>) => {
     return args
@@ -80,7 +70,6 @@ jest.mock('@/lib/utils', () => ({
   },
 }));
 
-// Mock the useSitecore hook
 const mockUseSitecore = jest.fn();
 jest.mock('@sitecore-content-sdk/nextjs', () => ({
   useSitecore: () => mockUseSitecore(),
@@ -90,7 +79,6 @@ jest.mock('@sitecore-content-sdk/nextjs', () => ({
   },
 }));
 
-// Mock EditableButton component
 jest.mock('@/components/button-component/ButtonComponent', () => ({
   EditableButton: ({ buttonLink, className, isPageEditing }: MockEditableButtonProps) => (
     <button
@@ -104,13 +92,19 @@ jest.mock('@/components/button-component/ButtonComponent', () => ({
   ),
 }));
 
-// Mock AnimatedSection component
 jest.mock('@/components/animated-section/AnimatedSection.dev', () => ({
-  Default: ({ children, direction, className, isPageEditing }: MockAnimatedSectionProps) => (
+  Default: ({
+    children,
+    direction,
+    className,
+    isPageEditing,
+    reducedMotion,
+  }: MockAnimatedSectionProps) => (
     <div
       data-testid="animated-section"
       data-direction={direction}
       data-editing={isPageEditing}
+      data-reduced-motion={reducedMotion}
       className={className}
     >
       {children}
@@ -118,43 +112,19 @@ jest.mock('@/components/animated-section/AnimatedSection.dev', () => ({
   ),
 }));
 
-// Mock MediaSection component
-jest.mock('@/components/media-section/MediaSection.dev', () => ({
-  Default: ({ video, image, className, pause, reducedMotion }: MockMediaSectionProps) => (
+jest.mock('@/components/image/ImageWrapper.dev', () => ({
+  Default: ({ image, className, wrapperClass, priority, sizes }: MockImageWrapperProps) => (
     <div
-      data-testid="media-section"
-      data-video={video}
+      data-testid="featured-image"
       data-image={image?.value?.src}
-      data-pause={pause}
-      data-reduced-motion={reducedMotion}
+      data-priority={priority}
+      data-sizes={sizes}
       className={className}
+      data-wrapper-class={wrapperClass}
     />
   ),
 }));
 
-// Mock UI Button component
-jest.mock('@/components/ui/button', () => ({
-  Button: ({ children, variant, size, onClick, className, ...props }: MockButtonProps) => (
-    <button
-      data-testid="control-button"
-      data-variant={variant}
-      data-size={size}
-      onClick={onClick}
-      className={className}
-      {...props}
-    >
-      {children}
-    </button>
-  ),
-}));
-
-// Mock lucide-react icons
-jest.mock('lucide-react', () => ({
-  Play: () => React.createElement('div', { 'data-testid': 'play-icon' }, 'Play'),
-  Pause: () => React.createElement('div', { 'data-testid': 'pause-icon' }, 'Pause'),
-}));
-
-// Mock NoDataFallback
 jest.mock('@/utils/NoDataFallback', () => ({
   NoDataFallback: ({ componentName }: MockNoDataFallbackProps) => (
     <div data-testid="no-data-fallback">{componentName}</div>
@@ -166,7 +136,6 @@ describe('Hero Component', () => {
     jest.clearAllMocks();
     mockUseSitecore.mockReturnValue(mockPageData);
 
-    // Mock window.matchMedia
     Object.defineProperty(window, 'matchMedia', {
       writable: true,
       value: jest.fn().mockImplementation((query) => ({
@@ -265,7 +234,7 @@ describe('Hero Component', () => {
       render(<Hero {...propsWithPrimaryScheme} />);
 
       const description = screen.getByText(/Discover amazing features/);
-      expect(description).toHaveClass('text-primary-foreground/90');
+      expect(description).toHaveClass('text-primary-foreground');
     });
 
     it('should apply correct text color for description with non-primary schemes', () => {
@@ -309,117 +278,27 @@ describe('Hero Component', () => {
     });
   });
 
-  describe('Media sections rendering', () => {
-    it('should render all four media sections', () => {
+  describe('Featured image rendering', () => {
+    it('should render the featured image', () => {
       render(<Hero {...defaultProps} />);
 
-      const mediaSections = screen.getAllByTestId('media-section');
-      expect(mediaSections).toHaveLength(4);
+      const featuredImage = screen.getByTestId('featured-image');
+      expect(featuredImage).toBeInTheDocument();
+      expect(featuredImage).toHaveAttribute('data-image', '/images/hero-image-1.jpg');
     });
 
-    it('should render media sections with videos', () => {
+    it('should render featured image with cover layout classes', () => {
       render(<Hero {...defaultProps} />);
 
-      const mediaSections = screen.getAllByTestId('media-section');
-      expect(mediaSections[0]).toHaveAttribute('data-video', '/videos/hero-video-1.mp4');
-      expect(mediaSections[1]).toHaveAttribute('data-video', '/videos/hero-video-2.mp4');
-      expect(mediaSections[2]).toHaveAttribute('data-video', '/videos/hero-video-3.mp4');
-      expect(mediaSections[3]).toHaveAttribute('data-video', '/videos/hero-video-4.mp4');
+      const featuredImage = screen.getByTestId('featured-image');
+      expect(featuredImage.className).toContain('object-cover');
+      expect(featuredImage).toHaveAttribute('data-priority', 'true');
     });
 
-    it('should render media sections with images', () => {
-      render(<Hero {...defaultProps} />);
+    it('should not render featured image when image is missing', () => {
+      render(<Hero {...propsWithoutFeaturedImage} />);
 
-      const mediaSections = screen.getAllByTestId('media-section');
-      expect(mediaSections[0]).toHaveAttribute('data-image', '/images/hero-image-1.jpg');
-      expect(mediaSections[1]).toHaveAttribute('data-image', '/images/hero-image-2.jpg');
-      expect(mediaSections[2]).toHaveAttribute('data-image', '/images/hero-image-3.jpg');
-      expect(mediaSections[3]).toHaveAttribute('data-image', '/images/hero-image-4.jpg');
-    });
-
-    it('should render media sections with correct layout classes', () => {
-      render(<Hero {...defaultProps} />);
-
-      const mediaSections = screen.getAllByTestId('media-section');
-      mediaSections.forEach((section) => {
-        expect(section.className).toContain('object-cover');
-      });
-    });
-
-    it('should render media sections with images only', () => {
-      render(<Hero {...propsWithImagesOnly} />);
-
-      const mediaSections = screen.getAllByTestId('media-section');
-      expect(mediaSections).toHaveLength(4);
-      // When no videos, data-video attribute might be undefined or empty
-      mediaSections.forEach((section) => {
-        const videoAttr = section.getAttribute('data-video');
-        expect(videoAttr === null || videoAttr === '' || videoAttr === 'undefined').toBe(true);
-      });
-    });
-  });
-
-  describe('Play/Pause control', () => {
-    it('should render play/pause button', () => {
-      render(<Hero {...defaultProps} />);
-
-      const controlButton = screen.getByTestId('control-button');
-      expect(controlButton).toBeInTheDocument();
-    });
-
-    it('should show pause icon when playing', () => {
-      render(<Hero {...defaultProps} />);
-
-      expect(screen.getByTestId('pause-icon')).toBeInTheDocument();
-    });
-
-    it('should toggle play/pause state on button click', () => {
-      render(<Hero {...defaultProps} />);
-
-      const controlButton = screen.getByTestId('control-button');
-      
-      // Initially showing pause icon (playing)
-      expect(screen.getByTestId('pause-icon')).toBeInTheDocument();
-      
-      // Click to pause
-      fireEvent.click(controlButton);
-      
-      // Should now show play icon
-      expect(screen.getByTestId('play-icon')).toBeInTheDocument();
-      expect(screen.queryByTestId('pause-icon')).not.toBeInTheDocument();
-    });
-
-    it('should have correct aria-label when playing', () => {
-      render(<Hero {...defaultProps} />);
-
-      const controlButton = screen.getByTestId('control-button');
-      expect(controlButton).toHaveAttribute('aria-label', 'Pause Ambient Video');
-    });
-
-    it('should have correct aria-label when paused', () => {
-      render(<Hero {...defaultProps} />);
-
-      const controlButton = screen.getByTestId('control-button');
-      fireEvent.click(controlButton);
-      
-      expect(controlButton).toHaveAttribute('aria-label', 'Play Ambient');
-    });
-
-    it('should not render control button when prefers-reduced-motion is set', () => {
-      window.matchMedia = jest.fn().mockImplementation((query) => ({
-        matches: query === '(prefers-reduced-motion: reduce)',
-        media: query,
-        onchange: null,
-        addListener: jest.fn(),
-        removeListener: jest.fn(),
-        addEventListener: jest.fn(),
-        removeEventListener: jest.fn(),
-        dispatchEvent: jest.fn(),
-      }));
-
-      render(<Hero {...defaultProps} />);
-
-      expect(screen.queryByTestId('control-button')).not.toBeInTheDocument();
+      expect(screen.queryByTestId('featured-image')).not.toBeInTheDocument();
     });
   });
 
@@ -438,16 +317,6 @@ describe('Hero Component', () => {
       const button = screen.getByTestId('hero-button');
       expect(button).toHaveAttribute('data-editing', 'true');
     });
-
-    it('should set reducedMotion to true in editing mode', () => {
-      mockUseSitecore.mockReturnValue(mockPageDataEditing);
-      render(<Hero {...propsEditing} />);
-
-      const mediaSections = screen.getAllByTestId('media-section');
-      mediaSections.forEach((section) => {
-        expect(section).toHaveAttribute('data-reduced-motion', 'true');
-      });
-    });
   });
 
   describe('AnimatedSection integration', () => {
@@ -457,13 +326,6 @@ describe('Hero Component', () => {
       const animatedSection = screen.getByTestId('animated-section');
       expect(animatedSection).toBeInTheDocument();
       expect(animatedSection).toHaveAttribute('data-direction', 'up');
-    });
-
-    it('should apply AnimatedSection wrapper for hero content', () => {
-      render(<Hero {...defaultProps} />);
-
-      const animatedSection = screen.getByTestId('animated-section');
-      expect(animatedSection).toBeInTheDocument();
     });
   });
 
@@ -482,10 +344,10 @@ describe('Hero Component', () => {
       expect(section).toHaveClass('@container');
     });
 
-    it('should use split hero layout grid', () => {
+    it('should use split hero layout grid with featured image proportions', () => {
       const { container } = render(<Hero {...defaultProps} />);
 
-      const grid = container.querySelector('.\\@lg\\:grid-cols-2');
+      const grid = container.querySelector('.\\@lg\\:grid-cols-\\[2fr_3fr\\]');
       expect(grid).toBeInTheDocument();
     });
 
@@ -526,7 +388,7 @@ describe('Hero Component', () => {
       const title = screen.getByText('Welcome to Our Platform');
       expect(title).toHaveClass(
         'font-heading',
-        'text-4xl',
+        'text-3xl',
         'font-bold',
         'leading-tight',
         'tracking-tight'
@@ -537,32 +399,18 @@ describe('Hero Component', () => {
       render(<Hero {...defaultProps} />);
 
       const description = screen.getByText(/Discover amazing features/);
-      expect(description).toHaveClass('font-body', '@md:text-xl', 'text-lg', 'leading-relaxed');
+      expect(description).toHaveClass('font-body', '@md:text-lg', 'text-base', 'leading-relaxed');
     });
 
-    it('should apply dot pattern to hero content panel', () => {
-      const { container } = render(<Hero {...defaultProps} />);
+    it('should apply solid primary background to hero content panel', () => {
+      const { container } = render(<Hero {...propsWithPrimaryScheme} />);
 
-      const contentPanel = container.querySelector('.ecolab-dot-pattern');
+      const contentPanel = container.querySelector('.bg-primary');
       expect(contentPanel).toBeInTheDocument();
-    });
-
-    it('should render secondary media strip when additional images exist', () => {
-      const { container } = render(<Hero {...defaultProps} />);
-
-      const mediaStrip = container.querySelector('.border-t');
-      expect(mediaStrip).toBeInTheDocument();
     });
   });
 
   describe('Accessibility', () => {
-    it('should render control button with proper aria-label', () => {
-      render(<Hero {...defaultProps} />);
-
-      const controlButton = screen.getByTestId('control-button');
-      expect(controlButton).toHaveAttribute('aria-label');
-    });
-
     it('should respect prefers-reduced-motion setting', () => {
       window.matchMedia = jest.fn().mockImplementation((query) => ({
         matches: query === '(prefers-reduced-motion: reduce)',
@@ -577,11 +425,32 @@ describe('Hero Component', () => {
 
       render(<Hero {...defaultProps} />);
 
-      const mediaSections = screen.getAllByTestId('media-section');
-      mediaSections.forEach((section) => {
-        expect(section).toHaveAttribute('data-reduced-motion', 'true');
-      });
+      const animatedSection = screen.getByTestId('animated-section');
+      expect(animatedSection).toHaveAttribute('data-reduced-motion', 'true');
+    });
+  });
+
+  describe('ImageLeft variant', () => {
+    it('should render hero content and featured image', () => {
+      render(<HeroImageLeft {...defaultProps} />);
+
+      expect(screen.getByText('Welcome to Our Platform')).toBeInTheDocument();
+      expect(screen.getByTestId('featured-image')).toBeInTheDocument();
+    });
+
+    it('should use image-left grid proportions', () => {
+      const { container } = render(<HeroImageLeft {...defaultProps} />);
+
+      const grid = container.querySelector('.\\@lg\\:grid-cols-\\[3fr_2fr\\]');
+      expect(grid).toBeInTheDocument();
+    });
+
+    it('should render image before text content in the DOM', () => {
+      const { container } = render(<HeroImageLeft {...defaultProps} />);
+
+      const grid = container.querySelector('.\\@lg\\:grid-cols-\\[3fr_2fr\\]');
+      expect(grid?.children[0]).toContainElement(screen.getByTestId('featured-image'));
+      expect(grid?.children[1]).toContainElement(screen.getByText('Welcome to Our Platform'));
     });
   });
 });
-

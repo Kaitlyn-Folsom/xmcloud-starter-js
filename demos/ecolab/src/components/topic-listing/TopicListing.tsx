@@ -44,18 +44,19 @@ export const Default: React.FC<TopicListingProps> = (props) => {
           </div>
         )}
         <div className="relative z-20 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center gap-16 text-center md:gap-24">
+          <div className="flex flex-col items-center gap-10 text-center @md:gap-12">
             <div className="flex max-w-4xl flex-col items-center gap-4">
               {titleField && (
                 <Text
                   tag="h2"
                   field={titleField}
-                  className="font-heading text-primary @sm:text-4xl @md:text-5xl text-3xl font-bold leading-tight"
+                  className="font-heading text-foreground @md:text-3xl text-2xl font-bold leading-tight"
                 />
               )}
+              {titleField && <div className="bg-accent h-1 w-16" aria-hidden="true" />}
             </div>
             {children?.results && (
-              <div className="flex flex-wrap items-center justify-center gap-6">
+              <div className="grid w-full grid-cols-1 gap-4 @sm:grid-cols-2 @lg:grid-cols-4">
                 {children.results.map((topic, index) => (
                   <TopicItem
                     key={index}

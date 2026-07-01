@@ -156,9 +156,9 @@ describe('TopicListing Component', () => {
       const title = screen.getByText('Explore Our Topics');
       expect(title).toHaveClass(
         'font-heading',
-        '@sm:text-4xl',
-        '@md:text-5xl',
-        'text-3xl',
+        'text-foreground',
+        '@md:text-3xl',
+        'text-2xl',
         'font-bold'
       );
     });
@@ -210,18 +210,19 @@ describe('TopicListing Component', () => {
       expect(screen.getByText('Technology')).toBeInTheDocument();
     });
 
-    it('should render topics in flex container', () => {
+    it('should render topics in grid container', () => {
       const { container } = render(<TopicListing {...defaultProps} />);
 
-      const topicsContainer = container.querySelector('.flex.flex-wrap.items-center.justify-center');
+      const topicsContainer = container.querySelector('.grid.w-full');
       expect(topicsContainer).toBeInTheDocument();
+      expect(topicsContainer).toHaveClass('grid-cols-1', '@sm:grid-cols-2', '@lg:grid-cols-4');
     });
 
     it('should apply gap between topics', () => {
       const { container } = render(<TopicListing {...defaultProps} />);
 
-      const topicsContainer = container.querySelector('.flex.flex-wrap');
-      expect(topicsContainer).toHaveClass('gap-6');
+      const topicsContainer = container.querySelector('.grid.w-full');
+      expect(topicsContainer).toHaveClass('gap-4');
     });
   });
 
@@ -308,7 +309,7 @@ describe('TopicListing Component', () => {
       const { container } = render(<TopicListing {...defaultProps} />);
 
       const flexContainer = container.querySelector('.flex.flex-col.items-center');
-      expect(flexContainer).toHaveClass('gap-16', 'md:gap-24');
+      expect(flexContainer).toHaveClass('gap-10', '@md:gap-12');
     });
 
     it('should apply max width to title container', () => {
@@ -331,7 +332,7 @@ describe('TopicListing Component', () => {
       render(<TopicListing {...defaultProps} />);
 
       const title = screen.getByText('Explore Our Topics');
-      expect(title).toHaveClass('text-primary');
+      expect(title).toHaveClass('text-foreground');
     });
   });
 

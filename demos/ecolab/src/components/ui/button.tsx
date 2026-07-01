@@ -17,7 +17,7 @@ const buttonVariants = cva(
         ghost: 'text-foreground hover:bg-secondary hover:text-primary',
         link: 'text-primary underline-offset-4 hover:text-primary-hover hover:underline',
         topic:
-          'border border-border bg-background text-primary font-heading rounded-md px-5 py-3 text-sm font-medium transition-colors hover:border-primary hover:bg-secondary',
+          'h-auto w-full justify-between gap-4 rounded-sm border-0 border-t-4 border-t-primary bg-white px-5 py-4 md:py-5 text-left font-heading text-md font-bold text-foreground shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition-colors hover:bg-white hover:text-primary whitespace-normal [&_svg]:text-foreground [&_svg]:transition-colors hover:[&_svg]:text-primary',
         'rounded-white':
           'rounded-full bg-white text-primary hover:bg-gray-100 transition-all duration-300',
       },

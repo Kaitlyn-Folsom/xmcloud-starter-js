@@ -226,14 +226,11 @@ describe('PromoAnimated Component - Default Variant', () => {
       expect(animatedSections.length).toBeGreaterThan(0);
     });
 
-    it('should render rotate animation for sprite', () => {
-      render(<PromoAnimated {...defaultProps} />);
+    it('should render rectangular image with landscape aspect ratio', () => {
+      const { container } = render(<PromoAnimated {...defaultProps} />);
 
-      const animatedSections = screen.getAllByTestId('animated-section');
-      const rotateSection = animatedSections.find(
-        (section) => section.getAttribute('data-animation-type') === 'rotate'
-      );
-      expect(rotateSection).toBeInTheDocument();
+      const img = container.querySelector('img');
+      expect(img).toHaveClass('aspect-560/356');
     });
   });
 

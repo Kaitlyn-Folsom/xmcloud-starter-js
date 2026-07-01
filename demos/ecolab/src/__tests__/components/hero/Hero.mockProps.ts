@@ -3,7 +3,6 @@ import { HeroProps } from '@/components/hero/hero.props';
 import { EnumValues } from '@/enumerations/generic.enum';
 import { ColorScheme } from '@/enumerations/CtaBannerColorScheme.enum';
 
-// Mock page data for useSitecore hook
 export const mockPageData = {
   page: {
     mode: {
@@ -44,7 +43,6 @@ export const mockPageDataEditing = {
   } as Page,
 };
 
-// Mock text fields
 export const mockTitleField: Field<string> = {
   value: 'Welcome to Our Platform',
 };
@@ -53,7 +51,6 @@ export const mockDescriptionField: Field<string> = {
   value: 'Discover amazing features and transform your experience with our innovative solutions.',
 };
 
-// Mock link field
 export const mockLinkField: LinkField = {
   value: {
     href: '/get-started',
@@ -64,140 +61,44 @@ export const mockLinkField: LinkField = {
   },
 };
 
-// Mock video links
-export const mockVideoLink1: LinkField = {
-  value: {
-    href: '/videos/hero-video-1.mp4',
-    text: 'Hero Video 1',
-    title: '',
-    target: '',
-    linktype: 'media',
-  },
-};
-
-export const mockVideoLink2: LinkField = {
-  value: {
-    href: '/videos/hero-video-2.mp4',
-    text: 'Hero Video 2',
-    title: '',
-    target: '',
-    linktype: 'media',
-  },
-};
-
-export const mockVideoLink3: LinkField = {
-  value: {
-    href: '/videos/hero-video-3.mp4',
-    text: 'Hero Video 3',
-    title: '',
-    target: '',
-    linktype: 'media',
-  },
-};
-
-export const mockVideoLink4: LinkField = {
-  value: {
-    href: '/videos/hero-video-4.mp4',
-    text: 'Hero Video 4',
-    title: '',
-    target: '',
-    linktype: 'media',
-  },
-};
-
-// Mock image fields
-export const mockImageField1: ImageField = {
+export const mockFeaturedImageField: ImageField = {
   value: {
     src: '/images/hero-image-1.jpg',
-    alt: 'Hero Image 1',
-    width: 280,
-    height: 356,
+    alt: 'Hero featured image',
+    width: 1200,
+    height: 800,
   },
 };
 
-export const mockImageField2: ImageField = {
-  value: {
-    src: '/images/hero-image-2.jpg',
-    alt: 'Hero Image 2',
-    width: 280,
-    height: 196,
-  },
-};
-
-export const mockImageField3: ImageField = {
-  value: {
-    src: '/images/hero-image-3.jpg',
-    alt: 'Hero Image 3',
-    width: 280,
-    height: 356,
-  },
-};
-
-export const mockImageField4: ImageField = {
-  value: {
-    src: '/images/hero-image-4.jpg',
-    alt: 'Hero Image 4',
-    width: 280,
-    height: 356,
-  },
-};
-
-// Complete fields data
 export const mockFields = {
   titleRequired: mockTitleField,
   descriptionOptional: mockDescriptionField,
   linkOptional: mockLinkField,
-  heroVideoOptional1: mockVideoLink1,
-  heroImageOptional1: mockImageField1,
-  heroVideoOptional2: mockVideoLink2,
-  heroImageOptional2: mockImageField2,
-  heroVideoOptional3: mockVideoLink3,
-  heroImageOptional3: mockImageField3,
-  heroVideoOptional4: mockVideoLink4,
-  heroImageOptional4: mockImageField4,
+  heroImageOptional1: mockFeaturedImageField,
 };
 
 export const mockFieldsWithoutDescription = {
   titleRequired: mockTitleField,
   linkOptional: mockLinkField,
-  heroVideoOptional1: mockVideoLink1,
-  heroImageOptional1: mockImageField1,
-  heroVideoOptional2: mockVideoLink2,
-  heroImageOptional2: mockImageField2,
-  heroVideoOptional3: mockVideoLink3,
-  heroImageOptional3: mockImageField3,
-  heroVideoOptional4: mockVideoLink4,
-  heroImageOptional4: mockImageField4,
+  heroImageOptional1: mockFeaturedImageField,
 };
 
 export const mockFieldsWithoutLink = {
   titleRequired: mockTitleField,
   descriptionOptional: mockDescriptionField,
-  heroVideoOptional1: mockVideoLink1,
-  heroImageOptional1: mockImageField1,
-  heroVideoOptional2: mockVideoLink2,
-  heroImageOptional2: mockImageField2,
-  heroVideoOptional3: mockVideoLink3,
-  heroImageOptional3: mockImageField3,
-  heroVideoOptional4: mockVideoLink4,
-  heroImageOptional4: mockImageField4,
+  heroImageOptional1: mockFeaturedImageField,
 };
 
 export const mockFieldsWithOnlyTitle = {
   titleRequired: mockTitleField,
 };
 
-export const mockFieldsWithImagesOnly = {
+export const mockFieldsWithoutFeaturedImage = {
   titleRequired: mockTitleField,
   descriptionOptional: mockDescriptionField,
   linkOptional: mockLinkField,
-  heroImageOptional1: mockImageField1,
-  heroImageOptional2: mockImageField2,
-  heroImageOptional3: mockImageField3,
-  heroImageOptional4: mockImageField4,
 };
 
-// Mock params for different color schemes
 export const mockParamsLight = {
   colorScheme: 'light' as EnumValues<typeof ColorScheme>,
   styles: 'custom-hero-style',
@@ -228,12 +129,10 @@ export const mockParamsWithoutColorScheme = {
   RenderingIdentifier: 'hero-rendering-id',
 };
 
-// Mock rendering
 const mockRendering: ComponentRendering = {
   componentName: 'Hero',
 };
 
-// Complete props combinations
 export const defaultProps: HeroProps = {
   params: mockParamsLight,
   fields: mockFields,
@@ -290,9 +189,9 @@ export const propsWithOnlyTitle: HeroProps = {
   page: mockPageData.page,
 };
 
-export const propsWithImagesOnly: HeroProps = {
+export const propsWithoutFeaturedImage: HeroProps = {
   params: mockParamsLight,
-  fields: mockFieldsWithImagesOnly,
+  fields: mockFieldsWithoutFeaturedImage,
   rendering: mockRendering,
   page: mockPageData.page,
 };
@@ -317,4 +216,3 @@ export const propsEditing: HeroProps = {
   rendering: mockRendering,
   page: mockPageDataEditing.page,
 };
-

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { Text, RichText } from '@sitecore-content-sdk/nextjs';
 import { ButtonBase as Button } from '@/components/button-component/ButtonComponent';
@@ -8,18 +8,11 @@ import { Default as ImageWrapper } from '@/components/image/ImageWrapper.dev';
 import { Default as AnimatedSection } from '@/components/animated-section/AnimatedSection.dev';
 import { NoDataFallback } from '@/utils/NoDataFallback';
 import { PromoAnimatedProps } from './promo-animated.props';
-import { EnumValues } from '@/enumerations/generic.enum';
-import { ColorSchemeLimited as ColorScheme } from '@/enumerations/ColorSchemeLimited.enum';
 import { PromoAnimatedEmptyImageEditing } from './PromoAnimatedEmptyImageEditing';
-import {
-  animatedSpriteRenderingParams as spriteOptions,
-  imageBgExtensionRenderingParams as imageBgOptions,
-} from './promo-animated.util';
 
 export const PromoAnimatedDefault: React.FC<PromoAnimatedProps> = (props) => {
   const { fields, params, isPageEditing } = props;
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-  const imageRef = useRef(null);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -29,55 +22,40 @@ export const PromoAnimatedDefault: React.FC<PromoAnimatedProps> = (props) => {
   if (fields) {
     const { image, title, description, primaryLink, secondaryLink } = fields;
 
-    const colorScheme = params.colorScheme as EnumValues<typeof ColorScheme>;
     const hasLinks = isPageEditing || primaryLink?.value?.href || secondaryLink?.value?.href;
 
     return (
-      <section data-component="PromoAnimated" className="@container">
+      <section data-component="PromoAnimated" className="@container bg-background py-12 @md:py-16">
         <div
           data-class-change
           className={cn(
-            'promo-animated__content-wrapper @md:grid-cols-2 @md:items-center @md:gap-10 @xl:gap-[135px] group grid grid-cols-1',
+            'promo-animated__content-wrapper group grid grid-cols-1 gap-8 @md:grid-cols-2 @md:items-center @md:gap-8 @lg:gap-12 @xl:gap-16',
             { [props?.params?.styles]: props?.params?.styles }
           )}
         >
-          <div className="promo-animated__image @md:flex @md:justify-end w-full">
+          <div className="promo-animated__image w-full @md:flex @md:justify-end">
             {image && (
-              <div
-                className="@md:max-w-[452px] @xs:mx-0 relative mx-auto aspect-square h-full w-full max-w-[350px] rounded-r-full group-[.position-center]:mx-auto group-[.position-right]:ml-auto"
-                ref={imageRef}
-              >
-                <div className={imageBgOptions({ colorScheme, className: 'right-1/2' })} />
-                <ImageWrapper
-                  image={image}
-                  className="@md:max-w-[452px] aspect-square w-full rounded-full object-cover"
-                  wrapperClass="relative aspect-square w-full overflow-hidden rounded-full"
-                  emptyFieldEditingComponent={PromoAnimatedEmptyImageEditing}
-                  sizes="(min-width: 768px) 452px, 350px"
-                  priority={true}
-                />
-                <AnimatedSection
-                  animationType="rotate"
-                  className="pointer-events-none absolute bottom-0 aspect-square h-full w-full rotate-0"
-                  divWithImage={imageRef}
-                  reducedMotion={prefersReducedMotion}
-                  isPageEditing={isPageEditing}
-                >
-                  <div
-                    className={spriteOptions({ colorScheme })}
-                    style={{ clipPath: 'polygon(0 0, 50% 0, 50% 100%, 0 100%)' }}
+              <AnimatedSection reducedMotion={prefersReducedMotion} isPageEditing={isPageEditing}>
+                <div className="relative mx-auto w-full max-w-[560px] overflow-hidden group-[.position-center]:mx-auto group-[.position-right]:ml-auto">
+                  <ImageWrapper
+                    image={image}
+                    className="aspect-560/356 w-full object-cover"
+                    wrapperClass="relative w-full overflow-hidden"
+                    emptyFieldEditingComponent={PromoAnimatedEmptyImageEditing}
+                    sizes="(min-width: 768px) 560px, 100vw"
+                    priority={true}
                   />
-                </AnimatedSection>
-              </div>
+                </div>
+              </AnimatedSection>
             )}
           </div>
 
-          <div className="promo-animated__content @md:flex @md:flex-col @md:justify-center @md:items-start min-w-0">
+          <div className="promo-animated__content min-w-0 @md:flex @md:flex-col @md:items-start @md:justify-center">
             {title && (
               <AnimatedSection reducedMotion={prefersReducedMotion} isPageEditing={isPageEditing}>
                 <Text
                   tag="h2"
-                  className="font-heading @sm:text-4xl @lg:text-5xl mt-6 max-w-[15.5ch] text-3xl font-bold leading-tight group-[.position-center]:mx-auto group-[.position-right]:ml-auto"
+                  className="font-heading text-primary mt-6 max-w-none text-2xl font-bold leading-tight @md:mt-0 @md:text-3xl group-[.position-center]:mx-auto group-[.position-right]:ml-auto"
                   field={title}
                 />
               </AnimatedSection>
@@ -90,7 +68,7 @@ export const PromoAnimatedDefault: React.FC<PromoAnimatedProps> = (props) => {
                 isPageEditing={isPageEditing}
               >
                 <RichText
-                  className="text-body text-secondary-foreground prose mt-6 max-w-[51.5ch] text-lg tracking-tight group-[.position-center]:mx-auto group-[.position-right]:ml-auto"
+                  className="prose text-foreground mt-4 max-w-none text-base font-normal leading-relaxed group-[.position-center]:mx-auto group-[.position-right]:ml-auto"
                   field={description}
                 />
               </AnimatedSection>
@@ -99,7 +77,7 @@ export const PromoAnimatedDefault: React.FC<PromoAnimatedProps> = (props) => {
             {hasLinks && (
               <AnimatedSection
                 delay={600}
-                className="@md:mb-0 mb-6 mt-10 flex w-full flex-wrap gap-2 group-[.position-right]:justify-end group-[.position-center]:justify-center"
+                className="@md:mb-0 mb-6 mt-8 flex w-full flex-wrap gap-3 group-[.position-center]:justify-center group-[.position-right]:justify-end"
                 reducedMotion={prefersReducedMotion}
                 isPageEditing={isPageEditing}
               >
@@ -108,7 +86,8 @@ export const PromoAnimatedDefault: React.FC<PromoAnimatedProps> = (props) => {
                     buttonLink={primaryLink}
                     isPageEditing={isPageEditing}
                     contextTitle={title?.value}
-                  ></Button>
+                    className="shadow-[0_4px_14px_rgba(0,87,150,0.3)] font-semibold"
+                  />
                 )}
                 {secondaryLink && (
                   <Button
@@ -116,7 +95,7 @@ export const PromoAnimatedDefault: React.FC<PromoAnimatedProps> = (props) => {
                     buttonLink={secondaryLink}
                     isPageEditing={isPageEditing}
                     contextTitle={title?.value}
-                  ></Button>
+                  />
                 )}
               </AnimatedSection>
             )}
