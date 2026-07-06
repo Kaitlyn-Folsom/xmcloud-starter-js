@@ -47,6 +47,11 @@ interface MockVideoBaseProps {
   playButtonClassName?: string;
 }
 
+interface MockButtonBaseProps {
+  buttonLink?: LinkField;
+  variant?: string;
+}
+
 interface MockNoDataFallbackProps {
   componentName?: string;
 }
@@ -148,6 +153,15 @@ jest.mock('@/components/video/Video', () => ({
   ),
 }));
 
+jest.mock('@/components/button-component/ButtonComponent', () => ({
+  ButtonBase: ({ buttonLink, variant }: MockButtonBaseProps) =>
+    buttonLink?.value?.href ? (
+      <a data-testid="cta-button" data-variant={variant} href={buttonLink.value.href}>
+        {buttonLink.value.text}
+      </a>
+    ) : null,
+}));
+
 jest.mock('@/utils/NoDataFallback', () => ({
   NoDataFallback: ({ componentName }: MockNoDataFallbackProps) => (
     <div data-testid="no-data-fallback">{componentName}</div>
@@ -226,19 +240,42 @@ describe('PageHeader Component', () => {
     });
   });
 
+  describe('CTA button (link1)', () => {
+    it('should render the CTA button when link1 is provided', () => {
+      render(<PageHeader {...defaultProps} />);
+
+      const cta = screen.getByTestId('cta-button');
+      expect(cta).toBeInTheDocument();
+      expect(cta).toHaveTextContent('Connect With An Expert');
+      expect(cta).toHaveAttribute('href', '/contact');
+    });
+
+    it('should render the CTA button with the rounded-white variant', () => {
+      render(<PageHeader {...defaultProps} />);
+
+      expect(screen.getByTestId('cta-button')).toHaveAttribute('data-variant', 'rounded-white');
+    });
+
+    it('should not render the CTA button when link1 is not provided', () => {
+      render(<PageHeader {...propsWithoutLogos} />);
+
+      expect(screen.queryByTestId('cta-button')).not.toBeInTheDocument();
+    });
+  });
+
   describe('Component structure', () => {
-    it('should apply container classes', () => {
+    it('should apply container classes on the section', () => {
       const { container } = render(<PageHeader {...defaultProps} />);
 
       const section = container.querySelector('section');
-      expect(section).toHaveClass('@container', 'my-10', 'flex', 'flex-col');
+      expect(section).toHaveClass('@container', 'overflow-hidden');
     });
 
-    it('should render grid layout', () => {
+    it('should render a two-column split grid', () => {
       const { container } = render(<PageHeader {...defaultProps} />);
 
       const grid = container.querySelector('.grid');
-      expect(grid).toHaveClass('grid-cols-1');
+      expect(grid).toHaveClass('grid-cols-1', '@md:grid-cols-2', 'items-stretch');
     });
 
     it('should render animated sections', () => {
@@ -250,25 +287,28 @@ describe('PageHeader Component', () => {
   });
 
   describe('Color schemes', () => {
-    it('should apply default color scheme', () => {
+    it('should apply the primary panel by default', () => {
       const { container } = render(<PageHeader {...defaultProps} />);
 
-      const section = container.querySelector('section');
-      expect(section).not.toHaveClass('bg-primary', 'bg-secondary');
+      const panel = container.querySelector('.bg-primary');
+      expect(panel).toBeInTheDocument();
+      expect(panel).toHaveClass('text-primary-foreground');
     });
 
     it('should apply primary color scheme', () => {
       const { container } = render(<PageHeader {...propsPrimaryColorScheme} />);
 
-      const section = container.querySelector('section');
-      expect(section).toHaveClass('bg-primary', 'text-primary-foreground');
+      const panel = container.querySelector('.bg-primary');
+      expect(panel).toBeInTheDocument();
+      expect(panel).toHaveClass('text-primary-foreground');
     });
 
     it('should apply secondary color scheme', () => {
       const { container } = render(<PageHeader {...propsSecondaryColorScheme} />);
 
-      const section = container.querySelector('section');
-      expect(section).toHaveClass('bg-secondary', 'text-secondary-foreground');
+      const panel = container.querySelector('.bg-secondary');
+      expect(panel).toBeInTheDocument();
+      expect(panel).toHaveClass('text-secondary-foreground');
     });
   });
 
@@ -419,4 +459,3 @@ describe('PageHeader Component', () => {
     });
   });
 });
-

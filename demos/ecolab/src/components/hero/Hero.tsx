@@ -94,7 +94,7 @@ const HeroSplit: React.FC<HeroSplitProps> = ({ fields, params, page, imagePositi
               className={
                 isDarkHero
                   ? 'rounded-full bg-white text-primary hover:bg-gray-100'
-                  : 'rounded-full'
+                  : 'rounded-full text-white'
               }
               isPageEditing={isPageEditing}
               contextTitle={titleField?.value}

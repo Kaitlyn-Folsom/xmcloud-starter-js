@@ -26,6 +26,9 @@ export interface PageHeaderProps extends ComponentProps {
         videoOptional?: {
           jsonValue: LinkField;
         };
+        link1?: {
+          jsonValue: LinkField;
+        };
         logoText?: {
           jsonValue: Field<string>;
         };

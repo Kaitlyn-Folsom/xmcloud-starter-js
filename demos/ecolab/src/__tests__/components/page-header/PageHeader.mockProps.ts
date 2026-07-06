@@ -61,6 +61,16 @@ export const mockVideoField: LinkField = {
   },
 };
 
+// Mock CTA link field (link1)
+export const mockLink1Field: LinkField = {
+  value: {
+    href: '/contact',
+    text: 'Connect With An Expert',
+    title: 'Connect With An Expert',
+    linktype: 'internal',
+  },
+};
+
 // Mock title fields
 export const mockPageTitleField: Field<string> = {
   value: 'Welcome to Our Platform',
@@ -117,6 +127,9 @@ export const mockFields = {
       },
       videoOptional: {
         jsonValue: mockVideoField,
+      },
+      link1: {
+        jsonValue: mockLink1Field,
       },
       logoText: {
         jsonValue: mockLogoTextField,
