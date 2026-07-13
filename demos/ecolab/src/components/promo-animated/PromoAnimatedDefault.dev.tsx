@@ -33,16 +33,20 @@ export const PromoAnimatedDefault: React.FC<PromoAnimatedProps> = (props) => {
             { [props?.params?.styles]: props?.params?.styles }
           )}
         >
-          <div className="promo-animated__image w-full @md:flex @md:justify-end">
+          <div className="promo-animated__image w-full">
             {image && (
-              <AnimatedSection reducedMotion={prefersReducedMotion} isPageEditing={isPageEditing}>
-                <div className="relative mx-auto w-full max-w-[560px] overflow-hidden group-[.position-center]:mx-auto group-[.position-right]:ml-auto">
+              <AnimatedSection
+                reducedMotion={prefersReducedMotion}
+                isPageEditing={isPageEditing}
+                className="w-full"
+              >
+                <div className="relative w-full overflow-hidden">
                   <ImageWrapper
                     image={image}
                     className="aspect-560/356 w-full object-cover"
                     wrapperClass="relative w-full overflow-hidden"
                     emptyFieldEditingComponent={PromoAnimatedEmptyImageEditing}
-                    sizes="(min-width: 768px) 560px, 100vw"
+                    sizes="(min-width: 768px) 50vw, 100vw"
                     priority={true}
                   />
                 </div>
