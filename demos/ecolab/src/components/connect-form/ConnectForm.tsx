@@ -137,7 +137,7 @@ export const Default: React.FC<MyChartFormProps> = () => {
                   )}
                 />
 
-                <Button type="submit" variant="magenta" className="w-auto block md:w-auto bg-blue-900 text-white cursor-pointer">
+                <Button type="submit" className="w-auto block md:w-auto bg-blue-900 text-white cursor-pointer">
                   Submit
                 </Button>
               </form>
