@@ -93,6 +93,7 @@ import * as Container4060 from 'src/components/container/container-4060/Containe
 import * as Container3070 from 'src/components/container/container-3070/Container3070';
 import * as Container303030 from 'src/components/container/container-303030/Container303030';
 import * as Container25252525 from 'src/components/container/container-25252525/Container25252525';
+import * as ConnectForm from 'src/components/connect-form/ConnectForm';
 import * as Carddev from 'src/components/card/Card.dev';
 import * as ButtonComponent from 'src/components/button-component/ButtonComponent';
 import * as Breadcrumbs from 'src/components/breadcrumbs/Breadcrumbs';
@@ -197,6 +198,7 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['Container3070', { ...Container3070 }],
   ['Container303030', { ...Container303030 }],
   ['Container25252525', { ...Container25252525 }],
+  ['ConnectForm', { ...ConnectForm, componentType: 'client' }],
   ['Card', { ...Carddev }],
   ['ButtonComponent', { ...ButtonComponent }],
   ['Breadcrumbs', { ...Breadcrumbs }],

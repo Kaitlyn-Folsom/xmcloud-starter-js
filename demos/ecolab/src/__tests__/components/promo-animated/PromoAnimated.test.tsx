@@ -33,12 +33,6 @@ interface MockImageWrapperProps {
   wrapperClass?: string;
 }
 
-interface MockAnimatedSectionProps {
-  children?: React.ReactNode;
-  className?: string;
-  animationType?: string;
-}
-
 interface MockButtonBaseProps {
   buttonLink?: LinkField;
   variant?: string;
@@ -102,14 +96,6 @@ jest.mock('@/components/image/ImageWrapper.dev', () => ({
   ),
 }));
 
-jest.mock('@/components/animated-section/AnimatedSection.dev', () => ({
-  Default: ({ children, className, animationType }: MockAnimatedSectionProps) => (
-    <div data-testid="animated-section" data-animation-type={animationType} className={className}>
-      {children}
-    </div>
-  ),
-}));
-
 jest.mock('@/components/button-component/ButtonComponent', () => ({
   ButtonBase: ({ buttonLink, variant, isPageEditing }: MockButtonBaseProps) => {
     if (!buttonLink?.value?.href && !isPageEditing) return null;
@@ -130,23 +116,6 @@ jest.mock('@/utils/NoDataFallback', () => ({
     <div data-testid="no-data-fallback">{componentName}</div>
   ),
 }));
-
-// Mock window.matchMedia
-beforeAll(() => {
-  Object.defineProperty(window, 'matchMedia', {
-    writable: true,
-    value: jest.fn().mockImplementation((query: string) => ({
-      matches: false,
-      media: query,
-      onchange: null,
-      addListener: jest.fn(),
-      removeListener: jest.fn(),
-      addEventListener: jest.fn(),
-      removeEventListener: jest.fn(),
-      dispatchEvent: jest.fn(),
-    })),
-  });
-});
 
 describe('PromoAnimated Component - Default Variant', () => {
   beforeEach(() => {
@@ -217,13 +186,6 @@ describe('PromoAnimated Component - Default Variant', () => {
 
       const contentWrapper = container.querySelector('.promo-animated__content-wrapper');
       expect(contentWrapper).toHaveClass('grid', 'grid-cols-1');
-    });
-
-    it('should render animated sections', () => {
-      render(<PromoAnimated {...defaultProps} />);
-
-      const animatedSections = screen.getAllByTestId('animated-section');
-      expect(animatedSections.length).toBeGreaterThan(0);
     });
 
     it('should render rectangular image with landscape aspect ratio', () => {
@@ -428,31 +390,6 @@ describe('PromoAnimated Component - ImageRight Variant', () => {
       expect(defaultImageContainer).not.toHaveClass('@md:order-2');
       expect(imageRightImageContainer).toHaveClass('@md:order-2');
     });
-  });
-});
-
-describe('PromoAnimated - Reduced Motion', () => {
-  beforeEach(() => {
-    jest.clearAllMocks();
-  });
-
-  it('should detect prefers-reduced-motion media query', () => {
-    const matchMediaMock = jest.fn().mockImplementation((query: string) => ({
-      matches: query === '(prefers-reduced-motion: reduce)',
-      media: query,
-      onchange: null,
-      addListener: jest.fn(),
-      removeListener: jest.fn(),
-      addEventListener: jest.fn(),
-      removeEventListener: jest.fn(),
-      dispatchEvent: jest.fn(),
-    }));
-
-    window.matchMedia = matchMediaMock as typeof window.matchMedia;
-
-    render(<PromoAnimated {...defaultProps} />);
-
-    expect(matchMediaMock).toHaveBeenCalledWith('(prefers-reduced-motion: reduce)');
   });
 });
 

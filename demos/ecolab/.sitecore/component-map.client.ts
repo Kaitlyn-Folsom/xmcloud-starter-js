@@ -16,8 +16,6 @@ import * as Image from 'src/components/sxa/Image';
 import * as ContentBlock from 'src/components/sxa/ContentBlock';
 import * as SubscriptionBanner from 'src/components/subscription-banner/SubscriptionBanner';
 import * as SecondaryNavigation from 'src/components/secondary-navigation/SecondaryNavigation';
-import * as PromoAnimatedImageRightdev from 'src/components/promo-animated/PromoAnimatedImageRight.dev';
-import * as PromoAnimatedDefaultdev from 'src/components/promo-animated/PromoAnimatedDefault.dev';
 import * as PromoAnimated from 'src/components/promo-animated/PromoAnimated';
 import * as portaldev from 'src/components/portal/portal.dev';
 import * as PageHeader from 'src/components/page-header/PageHeader';
@@ -34,6 +32,7 @@ import * as Hero from 'src/components/hero/Hero';
 import * as GlobalHeader from 'src/components/global-header/GlobalHeader';
 import * as FooterNavigationColumn from 'src/components/global-footer/FooterNavigationColumn';
 import * as floatingdockdev from 'src/components/floating-dock/floating-dock.dev';
+import * as ConnectForm from 'src/components/connect-form/ConnectForm';
 import * as ArticleListing from 'src/components/article-listing/ArticleListing';
 import * as ArticleHeader from 'src/components/article-header/ArticleHeader';
 import * as AnimatedSectiondev from 'src/components/animated-section/AnimatedSection.dev';
@@ -57,8 +56,6 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['ContentBlock', { ...ContentBlock }],
   ['SubscriptionBanner', { ...SubscriptionBanner }],
   ['SecondaryNavigation', { ...SecondaryNavigation }],
-  ['PromoAnimatedImageRight', { ...PromoAnimatedImageRightdev }],
-  ['PromoAnimatedDefault', { ...PromoAnimatedDefaultdev }],
   ['PromoAnimated', { ...PromoAnimated }],
   ['portal', { ...portaldev }],
   ['PageHeader', { ...PageHeader }],
@@ -75,6 +72,7 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['GlobalHeader', { ...GlobalHeader }],
   ['FooterNavigationColumn', { ...FooterNavigationColumn }],
   ['floating-dock', { ...floatingdockdev }],
+  ['ConnectForm', { ...ConnectForm }],
   ['ArticleListing', { ...ArticleListing }],
   ['ArticleHeader', { ...ArticleHeader }],
   ['AnimatedSection', { ...AnimatedSectiondev }],
