@@ -97,7 +97,6 @@ const HeroSplit: React.FC<HeroSplitProps> = ({ fields, params, page, imagePositi
                   : 'rounded-full text-white'
               }
               isPageEditing={isPageEditing}
-              contextTitle={titleField?.value}
             />
           </div>
         )}

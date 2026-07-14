@@ -21,7 +21,6 @@ export const Default: React.FC<FooterNavigationCalloutProps> = ({ fields }) => {
             <Button
               className="mt-6 block w-full rounded-full bg-white text-center text-primary hover:bg-gray-100"
               buttonLink={linkOptional}
-              contextTitle={title?.value}
             />
           )}
         </CardContent>

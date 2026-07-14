@@ -29,7 +29,7 @@ export const Default: React.FC<AlertBannerProps> = (props) => {
           </div>
           <div className="flex items-center gap-2">
             {link?.value?.href && (
-              <EditableButton buttonLink={link} variant="default" contextTitle={title?.value} />
+              <EditableButton buttonLink={link} variant="default" />
             )}
             <Button variant="default" size="icon" onClick={() => setIsHidden(true)}>
               <X className="h-4 w-4" />

@@ -10,7 +10,6 @@ import { ButtonVariants, ButtonSize } from '@/enumerations/ButtonStyle.enum';
 import { IconPosition } from '@/enumerations/IconPosition.enum';
 import { NoDataFallback } from '@/utils/NoDataFallback';
 import { Default as ImageWrapper } from '@/components/image/ImageWrapper.dev';
-import { getDescriptiveLinkText } from '@/utils/link-text';
 /**
  * Model used for Sitecore Component integration
  */
@@ -53,8 +52,6 @@ const ButtonBase = (
   props: ButtonFields['params'] &
     ButtonFields['fields'] & { variant?: EnumValues<typeof ButtonVariants> } & {
       className?: string;
-      // Context title for generating descriptive link text when link text is generic
-      contextTitle?: string | null;
     }
 ): JSX.Element | null => {
   const {
@@ -67,35 +64,19 @@ const ButtonBase = (
     isAriaHidden = true,
     className = '',
     isPageEditing,
-    contextTitle,
   } = props || {};
   const ariaHidden = typeof isAriaHidden === 'boolean' ? isAriaHidden : true;
   const iconName = icon?.value as EnumValues<typeof IconName>;
   if (!isPageEditing && !linkIsValid(buttonLink)) return null;
 
-  // Generate descriptive link text for SEO (only in production, preserve CMS text in editing mode)
-  const displayText = isPageEditing
-    ? buttonLink?.value?.text
-    : getDescriptiveLinkText(buttonLink, contextTitle);
-
-  // Create a modified link field with descriptive text for SEO
-  // This ensures the Link component uses descriptive text instead of generic "Learn More"
-  const enhancedButtonLink = !isPageEditing && displayText && displayText !== buttonLink?.value?.text
-    ? {
-        ...buttonLink,
-        value: {
-          ...buttonLink?.value,
-          text: displayText,
-        },
-      }
-    : buttonLink;
+  const displayText = buttonLink?.value?.text;
 
   return (
     <Button asChild variant={variant} size={size} className={className}>
       {isPageEditing ? (
         <Link field={buttonLink} editable={true} />
       ) : (
-        <Link field={enhancedButtonLink} editable={isPageEditing}>
+        <Link field={buttonLink} editable={isPageEditing}>
           {iconPosition === IconPosition.LEADING && icon ? (
             <Icon
               iconName={iconName ? iconName : IconName.ARROW_LEFT}
@@ -129,8 +110,6 @@ const EditableButton = (props: {
   size?: EnumValues<typeof ButtonSize>;
   //if asIconLink is set the text will not show up in the link but as an aria label
   asIconLink?: boolean;
-  // Context title for generating descriptive link text when link text is generic
-  contextTitle?: string | null;
   [key: string]: any;
 }): JSX.Element | null => {
   const {
@@ -144,28 +123,12 @@ const EditableButton = (props: {
     className,
     isPageEditing = false,
     asIconLink = false,
-    contextTitle,
   } = props || {};
   const ariaHidden = typeof isAriaHidden === 'boolean' ? isAriaHidden : true;
   const iconName = icon?.value as EnumValues<typeof IconName>;
   if (!isPageEditing && !linkIsValid(buttonLink)) return null;
 
-  // Generate descriptive link text for SEO (only in production, preserve CMS text in editing mode)
-  const displayText = isPageEditing
-    ? buttonLink?.value?.text
-    : getDescriptiveLinkText(buttonLink, contextTitle);
-
-  // Create a modified link field with descriptive text for SEO
-  // This ensures the Link component uses descriptive text instead of generic "Learn More"
-  const enhancedButtonLink = !isPageEditing && displayText && displayText !== buttonLink?.value?.text
-    ? {
-        ...buttonLink,
-        value: {
-          ...buttonLink?.value,
-          text: displayText,
-        },
-      }
-    : buttonLink;
+  const displayText = buttonLink?.value?.text;
 
   return (
     <Button asChild variant={variant} size={size} className={className}>
@@ -190,7 +153,7 @@ const EditableButton = (props: {
       ) : (
         <Link
           className={className}
-          field={enhancedButtonLink}
+          field={buttonLink}
           editable={isPageEditing}
           aria-label={asIconLink ? buttonLink?.value?.text : undefined}
         >
@@ -227,8 +190,6 @@ const EditableImageButton = (props: {
   size?: EnumValues<typeof ButtonSize>;
   //if asIconLink is set the text will not show up in the link but as an aria label
   asIconLink?: boolean;
-  // Context title for generating descriptive link text when link text is generic
-  contextTitle?: string | null;
   [key: string]: any;
 }): JSX.Element | null => {
   const {
@@ -242,28 +203,13 @@ const EditableImageButton = (props: {
     className,
     isPageEditing = false,
     asIconLink = false,
-    contextTitle,
   } = props || {};
   const ariaHidden = typeof isAriaHidden === 'boolean' ? isAriaHidden : true;
   if (!isPageEditing && !isValidEditableLink(buttonLink, icon)) {
     return null;
   }
 
-  // Generate descriptive link text for SEO (only in production, preserve CMS text in editing mode)
-  const displayText = isPageEditing
-    ? buttonLink?.value?.text
-    : getDescriptiveLinkText(buttonLink, contextTitle);
-
-  // Create a modified link field with descriptive text for SEO
-  const enhancedButtonLink = !isPageEditing && displayText && displayText !== buttonLink?.value?.text
-    ? {
-        ...buttonLink,
-        value: {
-          ...buttonLink?.value,
-          text: displayText,
-        },
-      }
-    : buttonLink;
+  const displayText = buttonLink?.value?.text;
 
   return (
     <Button asChild variant={variant} size={size} className={className}>
@@ -280,7 +226,7 @@ const EditableImageButton = (props: {
       ) : (
         <Link
           className={className}
-          field={enhancedButtonLink}
+          field={buttonLink}
           editable={isPageEditing}
           aria-label={asIconLink ? displayText : undefined}
         >
@@ -305,21 +251,7 @@ const Default = (props: ButtonComponentProps): JSX.Element | null => {
   const iconName = icon?.value as EnumValues<typeof IconName>;
   if (!isPageEditing && !linkIsValid(buttonLink)) return null;
 
-  // Generate descriptive link text for SEO (only in production, preserve CMS text in editing mode)
-  const displayText = isPageEditing
-    ? buttonLink?.value?.text
-    : getDescriptiveLinkText(buttonLink);
-
-  // Create a modified link field with descriptive text for SEO
-  const enhancedButtonLink = !isPageEditing && displayText && displayText !== buttonLink?.value?.text
-    ? {
-        ...buttonLink,
-        value: {
-          ...buttonLink?.value,
-          text: displayText,
-        },
-      }
-    : buttonLink;
+  const displayText = buttonLink?.value?.text;
 
   const buttonIcon: EnumValues<typeof IconName> =
     (buttonLink?.value?.linktype as EnumValues<typeof IconName>) ||
@@ -331,7 +263,7 @@ const Default = (props: ButtonComponentProps): JSX.Element | null => {
         {isPageEditing ? (
           <Link field={buttonLink} editable={true} />
         ) : (
-          <Link editable={isPageEditing} field={enhancedButtonLink}>
+          <Link editable={isPageEditing} field={buttonLink}>
             {iconPosition === IconPosition.LEADING && (
               <Icon iconName={buttonIcon} className={iconClassName} isAriaHidden={ariaHidden} />
             )}

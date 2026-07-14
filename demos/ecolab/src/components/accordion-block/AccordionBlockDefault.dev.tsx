@@ -105,7 +105,7 @@ export const AccordionBlockDefault: React.FC<AccordionProps> = (props) => {
               />
             )}
             {linkField && (
-              <Button buttonLink={linkField} contextTitle={headingField?.value} />
+              <Button buttonLink={linkField} />
             )}
           </div>
           <div className="w-full max-w-[787px] justify-self-end p-6">

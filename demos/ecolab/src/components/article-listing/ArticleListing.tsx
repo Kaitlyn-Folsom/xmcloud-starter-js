@@ -96,7 +96,6 @@ export const Default: React.FC<ArticleListingProps> = ({
                     }
                     isPageEditing={isPageEditing}
                     className="bg-primary hover:bg-primary/90 text-primary-foreground"
-                    contextTitle={titleOptional?.value}
                   />
                 </div>
               )}

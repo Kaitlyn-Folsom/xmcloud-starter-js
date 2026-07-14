@@ -135,7 +135,6 @@ export const Default: React.FC<VerticalImageAccordionProps> = ({ fields, isPageE
                           }
                           variant="secondary"
                           className="font-heading mt-4 inline-flex w-fit items-center justify-center px-8 py-2.5 text-sm font-medium"
-                          contextTitle={itemTitle?.value}
                           aria-label={`Learn more about ${itemTitle?.value || ''}`}
                         />
                       )}
@@ -310,7 +309,6 @@ export const Default: React.FC<VerticalImageAccordionProps> = ({ fields, isPageE
                             }
                             variant="secondary"
                             className="font-heading mt-4 inline-flex w-fit items-center justify-center px-8 py-2.5 text-sm font-medium"
-                            contextTitle={itemTitle?.value}
                             aria-label={`Learn more about ${itemTitle?.value || ''}`}
                           />
                         )}

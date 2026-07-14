@@ -89,7 +89,6 @@ export const PromoAnimatedDefault: React.FC<PromoAnimatedProps> = (props) => {
                   <Button
                     buttonLink={primaryLink}
                     isPageEditing={isPageEditing}
-                    contextTitle={title?.value}
                     className="shadow-[0_4px_14px_rgba(0,87,150,0.3)] font-semibold"
                   />
                 )}
@@ -98,7 +97,6 @@ export const PromoAnimatedDefault: React.FC<PromoAnimatedProps> = (props) => {
                     variant="secondary"
                     buttonLink={secondaryLink}
                     isPageEditing={isPageEditing}
-                    contextTitle={title?.value}
                   />
                 )}
               </AnimatedSection>
