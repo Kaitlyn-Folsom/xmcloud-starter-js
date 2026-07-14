@@ -82,7 +82,7 @@ export const Default: React.FC<MyChartFormProps> = () => {
 
         <div className="bg-background border-border border p-6 md:p-8">
           {isSubmitted ? (
-            <p className="text-foreground text-lg">An email was sent to the address provided. Please confirm your email address to complete your account setup.</p>
+            <p className="text-foreground text-lg">Thank you. Someone will get back to you shortly.</p>
           ) : (
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-6">
