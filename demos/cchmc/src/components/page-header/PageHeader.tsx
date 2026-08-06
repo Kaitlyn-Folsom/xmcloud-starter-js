@@ -50,9 +50,9 @@ export const Default: React.FC<PageHeaderProps> = ({
 
     return (
       <section className={containerClasses}>
-        <div className="@md:grid-cols-2 @lg:gap-12 mx-auto grid w-full grid-cols-1 gap-8">
+        <div className="@md:grid-cols-2 @lg:gap-12 mx-auto grid w-full grid-cols-1 gap-8 max-w-[1100px]">
           {/* Left */}
-          <div className="flex flex-col justify-between">
+          <div className="flex flex-col justify-center">
             <AnimatedSection
               reducedMotion={prefersReducedMotion}
               isPageEditing={isPageEditing}
@@ -63,7 +63,7 @@ export const Default: React.FC<PageHeaderProps> = ({
                 field={title}
               />
               <RichText
-                className="line-height[26px] @lg:ms-auto max-w-[547px] text-lg font-medium tracking-tight"
+                className="line-height[26px] max-w-[547px] text-lg font-medium tracking-tight [&_p]:mb-4 [&_p:last-child]:mb-0"
                 field={subtitle}
               />
             </AnimatedSection>

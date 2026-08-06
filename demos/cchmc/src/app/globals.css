@@ -77,6 +77,17 @@
     content: ' >';
     @apply font-normal;
   }
+
+  /* Rich text paragraph spacing (prose class is used without @tailwindcss/typography) */
+  .prose p,
+  .rich-text p {
+    @apply mb-4;
+  }
+
+  .prose p:last-child,
+  .rich-text p:last-child {
+    @apply mb-0;
+  }
 }
 
 @config '../assets/tailwind.config.cjs';
