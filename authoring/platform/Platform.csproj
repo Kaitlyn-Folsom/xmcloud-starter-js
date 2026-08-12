@@ -74,7 +74,9 @@
     <Folder Include="App_Config\Include\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\**" />
+    <Content Include="App_Data\**">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
