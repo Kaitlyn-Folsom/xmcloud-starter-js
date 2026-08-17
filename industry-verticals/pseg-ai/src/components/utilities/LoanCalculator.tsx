@@ -48,8 +48,11 @@ export const Default = (props: LoanCalculatorProps): JSX.Element => {
   useEffect(() => {
     const monthlyInterestRate = props.fields.InterestRate.value / 100 / 12;
 
+    // 0% offers are common for on-bill financing, and the amortization formula divides by zero there
     const monthlyPaymentCalculation =
-      (loanAmount * monthlyInterestRate) / (1 - Math.pow(1 + monthlyInterestRate, -loanTerm));
+      monthlyInterestRate === 0
+        ? loanAmount / loanTerm
+        : (loanAmount * monthlyInterestRate) / (1 - Math.pow(1 + monthlyInterestRate, -loanTerm));
     setMonthlyPayment(monthlyPaymentCalculation);
 
     const totalDebtCalculation = monthlyPaymentCalculation * loanTerm + props.fields.BankFee.value;
@@ -66,7 +69,7 @@ export const Default = (props: LoanCalculatorProps): JSX.Element => {
       <div className="loan-calculator-input-group">
         <div className="row justify-content-between">
           <div className="col-auto">
-            <label htmlFor="loan-amount">Amount</label>
+            <label htmlFor="loan-amount">Project cost</label>
           </div>
           <div className="col-auto">
             <div className="loan-calculator-input-wrapper">
@@ -136,7 +139,7 @@ export const Default = (props: LoanCalculatorProps): JSX.Element => {
       <div className="loan-calculator-input-group">
         <div className="row justify-content-between">
           <div className="col-auto">
-            <label htmlFor="loan-amount">Term of Repayment</label>
+            <label htmlFor="loan-amount">Repayment term</label>
           </div>
           <div className="col-auto">
             <div className="loan-calculator-input-wrapper">
@@ -206,7 +209,7 @@ export const Default = (props: LoanCalculatorProps): JSX.Element => {
       <div className="loan-calculator-results">
         <div className="loan-calculator-monthly-payment">
           <ResultLine
-            left={'Monthly Payment'}
+            left={'Monthly on-bill payment'}
             right={
               <>
                 {monthlyPayment.toFixed(2)} <Text field={props.fields.Currency} />
@@ -223,7 +226,7 @@ export const Default = (props: LoanCalculatorProps): JSX.Element => {
           }
         />
         <ResultLine
-          left={'Bank package fee'}
+          left={'Program fee'}
           right={
             <>
               <Text field={props.fields.BankFee} /> <Text field={props.fields.Currency} />
@@ -239,7 +242,7 @@ export const Default = (props: LoanCalculatorProps): JSX.Element => {
           }
         />
         <ResultLine
-          left={'Total debt'}
+          left={'Total repaid'}
           right={
             <>
               {totalDebt.toFixed(2)} <Text field={props.fields.Currency} />

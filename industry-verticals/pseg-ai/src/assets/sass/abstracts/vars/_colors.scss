@@ -37,6 +37,45 @@ body.site-financial.dark,
   --roundness: 1rem;
 }
 
+// PSE&G — layered over site-financial, so it must stay after it in the cascade
+body.site-pseg,
+.site-pseg {
+  --text-body: #231f20;
+  --text-body-inverted: #fff;
+  --text-colored: #1b3054;
+  --text-footer: #fff;
+  --text-accent: #c1531a;
+  --bg-body: #fff;
+  --bg-footer: #1b2a44;
+  --bg-main: #f2f4f6;
+  --bg-main-alt: #e9edf1;
+  --bg-color: #1b3054;
+  --bg-saturated: #1b2a44;
+  --bg-accent: #f37022;
+  --border-color: #d6dce2;
+  --hr-color: #fff;
+  --roundness: 0.25rem;
+}
+
+body.site-pseg.dark,
+.dark .site-pseg {
+  --text-body: #fff;
+  --text-body-inverted: #231f20;
+  --text-colored: #ff9455;
+  --text-footer: #fff;
+  --text-accent: #f37022;
+  --bg-body: #101a2e;
+  --bg-footer: #0b1220;
+  --bg-main: #1b2a44;
+  --bg-main-alt: #101a2e;
+  --bg-color: #1b3054;
+  --bg-saturated: #1b2a44;
+  --bg-accent: #f37022;
+  --border-color: #2c3e5c;
+  --hr-color: #fff;
+  --roundness: 0.25rem;
+}
+
 // Services
 body.site-services,
 .site-services {

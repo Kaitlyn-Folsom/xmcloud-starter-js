@@ -12,3 +12,30 @@
     }
   }
 }
+
+// PSE&G renders this band in deep navy in both light and dark themes,
+// so its content is always light-on-dark.
+.site-pseg .promo-cta.saturated {
+  color: #fff;
+
+  h1,
+  h2,
+  h3,
+  .promo-cta-text {
+    color: #fff;
+  }
+
+  .eyebrow-accent {
+    color: var(--bg-accent);
+  }
+
+  .button-main {
+    background-color: var(--bg-accent);
+    color: #fff;
+  }
+
+  .button-simple,
+  .button-simple a {
+    color: #fff;
+  }
+}

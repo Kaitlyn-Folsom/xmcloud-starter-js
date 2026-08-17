@@ -12,6 +12,18 @@
   --button-font-size: 1.125rem;
 }
 
+.site-pseg {
+  --button-main-color: #fff;
+  --button-main-bg-color: var(--bg-saturated);
+  --button-secondary-color: var(--text-colored);
+  --button-simple-color: var(--text-colored);
+  --button-padding: 0.875rem 2rem;
+  --button-roundness: var(--roundness);
+  --button-font-weight: 700;
+  --button-font-size: 1rem;
+  --button-text-transform: uppercase;
+}
+
 .site-services {
   --button-main-color: #fff;
   --button-main-bg-color: var(--bg-saturated);

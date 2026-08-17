@@ -106,3 +106,20 @@
     }
   }
 }
+
+// PSE&G specific styles
+.site-pseg .footer {
+  font-size: 1rem;
+
+  .content .title {
+    color: var(--bg-accent);
+    font-size: 0.875rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  hr {
+    border-top-width: 1px;
+    opacity: 0.35;
+  }
+}

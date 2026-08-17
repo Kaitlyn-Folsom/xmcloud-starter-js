@@ -5,12 +5,12 @@ import { getSiteThemeClass } from 'lib/site-theme';
 
 export function SiteTheme({ siteName }: { siteName: string | undefined }): JSX.Element | null {
   useEffect(() => {
-    const themeClass = getSiteThemeClass(siteName);
+    const themeClasses = getSiteThemeClass(siteName).split(' ');
 
-    document.body.classList.add(themeClass);
+    document.body.classList.add(...themeClasses);
 
     return () => {
-      document.body.classList.remove(themeClass);
+      document.body.classList.remove(...themeClasses);
     };
   }, [siteName]);
 

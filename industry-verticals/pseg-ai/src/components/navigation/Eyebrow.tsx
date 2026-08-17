@@ -13,6 +13,12 @@ export type EyebrowProps = ComponentProps & {
   componentMap: ComponentMap;
 };
 
+// The Search SDK widget throws when no Sitecore Search tenant is configured,
+// which would take the whole page down with it.
+const isSearchConfigured = Boolean(
+  process.env.NEXT_PUBLIC_SEARCH_CUSTOMER_KEY && process.env.NEXT_PUBLIC_SEARCH_API_KEY
+);
+
 export const Default = (props: EyebrowProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
   const { page } = useSitecore();
@@ -26,7 +32,8 @@ export const Default = (props: EyebrowProps): JSX.Element => {
             <AppPlaceholder name="eyebrow-left" rendering={props.rendering} page={page} componentMap={props.componentMap} />
             <AppPlaceholder name="eyebrow-right" rendering={props.rendering} page={page} componentMap={props.componentMap} />
           </div>
-          <div className="flex items-center gap-2">
+          {isSearchConfigured && (
+            <div className="flex items-center gap-2">
               <PreviewSearch rfkId={PREVIEW_WIDGET_ID} isOpen={isSearchOpen} setIsSearchOpen={setIsSearchOpen} />
 
               <button
@@ -38,6 +45,7 @@ export const Default = (props: EyebrowProps): JSX.Element => {
                 </svg>
               </button>
             </div>
+          )}
         </div>
       </div>
     </div>

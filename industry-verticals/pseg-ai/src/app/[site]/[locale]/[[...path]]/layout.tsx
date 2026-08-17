@@ -1,5 +1,6 @@
 import { setCachedPageParams } from '@sitecore-content-sdk/nextjs';
 import { SearchProvider } from 'components/search/SearchProvider';
+import { ScrollParallaxProvider } from 'components/non-sitecore/ScrollParallaxProvider';
 
 export default async function SiteLayout({
   children,
@@ -14,7 +15,7 @@ export default async function SiteLayout({
 
   return (
     <SearchProvider locale={locale}>
-      {children}
+      <ScrollParallaxProvider>{children}</ScrollParallaxProvider>
     </SearchProvider>
   );
 }

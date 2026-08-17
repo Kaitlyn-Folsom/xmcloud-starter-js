@@ -55,6 +55,49 @@
   }
 }
 
+// PSE&G specific styles
+.site-pseg .header {
+  background-color: var(--bg-body);
+  border-bottom: 1px solid var(--border-color);
+
+  h1 {
+    font-size: 1.75rem !important;
+    line-height: 1 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.625rem;
+    text-align: left;
+  }
+
+  .pseg-mark {
+    display: flex;
+    align-items: center;
+
+    svg {
+      width: 2.25rem;
+      height: 2.25rem;
+    }
+  }
+
+  .pseg-word {
+    color: var(--text-colored);
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+
+    .dark & {
+      color: #fff;
+    }
+  }
+
+  .pseg-amp {
+    color: var(--bg-accent);
+  }
+}
+
 // PLAY! services specific styles
 .site-services .header {
   h1 {

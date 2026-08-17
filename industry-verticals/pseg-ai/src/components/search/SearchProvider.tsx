@@ -9,6 +9,10 @@ const SEARCH_CONFIG = {
   apiKey: process.env.NEXT_PUBLIC_SEARCH_API_KEY!,
 };
 
+// WidgetsProvider throws when the tenant credentials are missing, which would
+// take down every page. Without Search configured, render the app without it.
+const isSearchConfigured = Boolean(SEARCH_CONFIG.customerKey && SEARCH_CONFIG.apiKey);
+
 function setSearchLocale(locale: string) {
   const context = PageController.getContext();
 
@@ -37,8 +41,16 @@ export function SearchProvider({
   locale,
 }: SearchProviderProps) {
   useEffect(() => {
+    if (!isSearchConfigured) {
+      return;
+    }
+
     setSearchLocale(locale);
   }, [locale]);
+
+  if (!isSearchConfigured) {
+    return <>{children}</>;
+  }
 
   return (
     <WidgetsProvider
