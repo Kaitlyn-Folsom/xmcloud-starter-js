@@ -89,7 +89,7 @@
       "type": "sxa",
       "buildCommand": "build",
       "runCommand": "next:start"
-    },
+    }
   },
   "postActions": {
     "actions": {
