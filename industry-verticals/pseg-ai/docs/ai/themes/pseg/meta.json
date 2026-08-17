@@ -1,0 +1,152 @@
+{
+  "title": "Residential Protection Plans | PSE&G WorryFree",
+  "themeColor": null,
+  "msColor": null,
+  "ogTitle": null,
+  "ogDescription": null,
+  "ogImage": null,
+  "ogSiteName": null,
+  "favicon": "https://worryfree.pseg.com/favicon.ico",
+  "googleFontsLinks": [
+    "https://fonts.googleapis.com/",
+    "https://fonts.gstatic.com/"
+  ],
+  "fontFaces": [
+    {
+      "family": "Outfit",
+      "src": "url(\"/assets/fonts/Outfit-VariableFont_wght.ttf\") format(\"truetype\")",
+      "weight": "400"
+    },
+    {
+      "family": "Alata",
+      "src": "url(\"/assets/fonts/Alata-Regular.ttf\") format(\"truetype\")",
+      "weight": "400"
+    },
+    {
+      "family": "Inter",
+      "src": "url(\"/assets/fonts/Inter-VariableFont_slnt,wght.ttf\") format(\"truetype\")",
+      "weight": "400"
+    },
+    {
+      "family": "DM Serif Display",
+      "src": "url(\"/assets/fonts/DMSerifDisplay-Regular.ttf\")",
+      "weight": "400"
+    },
+    {
+      "family": "DM Serif Display",
+      "src": "url(\"/assets/fonts/DMSerifDisplay-Italic.ttf\")",
+      "weight": "400"
+    },
+    {
+      "family": "Outfit",
+      "src": "url(\"https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2\") format(\"woff2\")",
+      "weight": "100"
+    },
+    {
+      "family": "Outfit",
+      "src": "url(\"https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2\") format(\"woff2\")",
+      "weight": "100"
+    },
+    {
+      "family": "Outfit",
+      "src": "url(\"https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2\") format(\"woff2\")",
+      "weight": "200"
+    },
+    {
+      "family": "Outfit",
+      "src": "url(\"https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2\") format(\"woff2\")",
+      "weight": "200"
+    },
+    {
+      "family": "Outfit",
+      "src": "url(\"https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2\") format(\"woff2\")",
+      "weight": "300"
+    },
+    {
+      "family": "Outfit",
+      "src": "url(\"https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2\") format(\"woff2\")",
+      "weight": "300"
+    },
+    {
+      "family": "Outfit",
+      "src": "url(\"https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2\") format(\"woff2\")",
+      "weight": "400"
+    },
+    {
+      "family": "Outfit",
+      "src": "url(\"https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2\") format(\"woff2\")",
+      "weight": "400"
+    },
+    {
+      "family": "Outfit",
+      "src": "url(\"https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2\") format(\"woff2\")",
+      "weight": "500"
+    },
+    {
+      "family": "Outfit",
+      "src": "url(\"https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2\") format(\"woff2\")",
+      "weight": "500"
+    },
+    {
+      "family": "Outfit",
+      "src": "url(\"https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2\") format(\"woff2\")",
+      "weight": "600"
+    },
+    {
+      "family": "Outfit",
+      "src": "url(\"https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2\") format(\"woff2\")",
+      "weight": "600"
+    },
+    {
+      "family": "Outfit",
+      "src": "url(\"https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2\") format(\"woff2\")",
+      "weight": "700"
+    },
+    {
+      "family": "Outfit",
+      "src": "url(\"https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2\") format(\"woff2\")",
+      "weight": "700"
+    },
+    {
+      "family": "Outfit",
+      "src": "url(\"https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2\") format(\"woff2\")",
+      "weight": "800"
+    },
+    {
+      "family": "Outfit",
+      "src": "url(\"https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2\") format(\"woff2\")",
+      "weight": "800"
+    },
+    {
+      "family": "Outfit",
+      "src": "url(\"https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJuktqUYLkn8BJ.woff2\") format(\"woff2\")",
+      "weight": "900"
+    },
+    {
+      "family": "Outfit",
+      "src": "url(\"https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2\") format(\"woff2\")",
+      "weight": "900"
+    },
+    {
+      "family": "Material Icons",
+      "src": "url(\"https://fonts.gstatic.com/s/materialicons/v145/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2\") format(\"woff2\")",
+      "weight": "400"
+    },
+    {
+      "family": "Material Icons Outlined",
+      "src": "url(\"https://fonts.gstatic.com/s/materialiconsoutlined/v110/gok-H7zzDkdnRel8-DQ6KAXJ69wP1tGnf4ZGhUcel5euIg.woff2\") format(\"woff2\")",
+      "weight": "400"
+    },
+    {
+      "family": "Material Symbols Outlined",
+      "src": "url(\"https://fonts.gstatic.com/s/materialsymbolsoutlined/v364/kJF1BvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oDMzByHX9rA6RzaxHMPdY43zj-jCxv3fzvRNU22ZXGJpEpjC_1v-p_4MrImHCIJIZrDCvHeelbd5zrDAt.woff\") format(\"woff\")",
+      "weight": "100"
+    }
+  ],
+  "logoCandidates": [
+    "https://worryfree.pseg.com/assets/images/header/PSEG-WF-logo-DarkSteel-CMYK-2.svg",
+    "https://worryfree.pseg.com/assets/images/PSEG-WF-logo-DarkSteel-stacked-RGB%201.svg",
+    "https://worryfree.pseg.com/assets/images/pseg-worryfree-sideways.svg"
+  ],
+  "heroBgImage": null
+}

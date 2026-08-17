@@ -1,0 +1,144 @@
+# Demo Progress Tracker
+# Created automatically at the start of a demo build.
+
+client:
+  name: "PSEG"
+  sourceUrl: "https://nj.pseg.com/"
+  startedAt: "2026-08-17T21:58:00Z"
+  lastUpdatedAt: "2026-08-17T22:40:00Z"
+
+phases:
+  phase0_inputs:
+    status: "complete"
+    screenshot: true
+    url: "https://nj.pseg.com/"
+
+  phase0_5_manifest:
+    status: "complete"
+    validationMode: "quick"
+    result: "pass-with-warnings"
+
+  phase1_theme:
+    status: "complete"
+    themeFile: "docs/ai/themes/pseg.theme.yaml"
+    userApproved: true
+
+  phase2_analysis:
+    status: "complete"
+    buildPlanFile: "docs/ai/demos/pseg/build-plan.yaml"
+    totalSections: 13
+    userApproved: true
+
+  phase2_5_content:
+    status: "complete"
+    contentMapFile: "docs/ai/demos/pseg/content-map.yaml"
+    extractorUsed: false
+    contentSource: "webfetch+screenshot"
+
+  phase3_content:
+    status: "complete"
+    completedSections: 11
+    totalSections: 11
+    imagesUploaded: 19
+    imagesFailed: 0
+
+  phase4_theme:
+    status: "complete"
+    themeDelivery: "site-pseg-scss"
+    cssWritten: true
+    fontsAdded: true
+
+  phase5_custom:
+    status: "complete"
+    customComponentsNeeded: 0
+    customComponentsBuilt: 0
+
+  phase5_5_variants:
+    status: "complete"
+    variantsNeeded: 10
+    variantsCreated: 10
+    variantSpecsFile: "docs/ai/demos/pseg/variant-specs.yaml"
+    skippedReason: ""
+    userDecision: "pixel-perfect"
+
+  phase6_assembly:
+    status: "failed"
+    componentsAdded: 0
+    datasourcesWired: 0
+    totalComponents: 11
+    error: "Presentation APIs 404 — no rendering host for ProsperaFinancial"
+
+  phase7_summary:
+    status: "complete"
+
+sections:
+  - position: 1
+    componentName: "Eyebrow"
+    kind: "context-only"
+    phase3: { status: "skipped", itemId: "", fieldsPopulated: false, childrenCreated: 0, childrenExpected: 0, error: "" }
+    phase6: { status: "skipped" }
+  - position: 2
+    componentName: "FourColumnCta"
+    kind: "simple"
+    phase3: { status: "populated", itemId: "239a21be-4b1b-42d8-ae3d-78a62274a844", fieldsPopulated: true, childrenCreated: 0, childrenExpected: 0, error: "" }
+    phase6: { status: "failed", error: "presentation API 404" }
+  - position: 3
+    componentName: "Navigation"
+    kind: "context-only"
+    phase3: { status: "skipped", itemId: "", fieldsPopulated: false, childrenCreated: 0, childrenExpected: 0, error: "" }
+    phase6: { status: "skipped" }
+  - position: 4
+    componentName: "Carousel"
+    kind: "list"
+    phase3: { status: "populated", itemId: "f6f6f52a-13a5-47bf-8861-f0a552473569", fieldsPopulated: true, childrenCreated: 5, childrenExpected: 5, error: "" }
+    phase6: { status: "failed", error: "presentation API 404" }
+  - position: 5
+    componentName: "FiveColumnCta"
+    kind: "simple"
+    phase3: { status: "populated", itemId: "1386e4b2-4a15-429b-826d-2e9c6b95a1ca", fieldsPopulated: true, childrenCreated: 0, childrenExpected: 0, error: "" }
+    phase6: { status: "failed", error: "presentation API 404" }
+  - position: 6
+    componentName: "TwoColumnCta"
+    kind: "simple"
+    phase3: { status: "populated", itemId: "3bb0eaf3-36ac-4bd7-b5ac-5fca11de20d3", fieldsPopulated: true, childrenCreated: 0, childrenExpected: 0, error: "" }
+    phase6: { status: "failed", error: "presentation API 404" }
+  - position: 7
+    componentName: "PromoCta"
+    kind: "simple"
+    phase3: { status: "populated", itemId: "01e839f7-04dd-4d79-a209-a1d06cc15da1", fieldsPopulated: true, childrenCreated: 0, childrenExpected: 0, error: "" }
+    phase6: { status: "failed", error: "presentation API 404" }
+  - position: 8
+    componentName: "HeadingCta"
+    kind: "simple"
+    phase3: { status: "populated", itemId: "8cda7068-a66f-4a98-bd02-034da8d90c9d", fieldsPopulated: true, childrenCreated: 0, childrenExpected: 0, error: "" }
+    phase6: { status: "failed", error: "presentation API 404" }
+  - position: 81
+    componentName: "ThreeColumnCta"
+    kind: "simple"
+    phase3: { status: "populated", itemId: "aecf2e4c-a372-4fa4-963d-75b540803f3c", fieldsPopulated: true, childrenCreated: 0, childrenExpected: 0, error: "" }
+    phase6: { status: "failed", error: "presentation API 404" }
+  - position: 9
+    componentName: "PromoCta"
+    kind: "simple"
+    phase3: { status: "populated", itemId: "400d28f2-baff-4315-8dd7-5aab4487c9a9", fieldsPopulated: true, childrenCreated: 0, childrenExpected: 0, error: "" }
+    phase6: { status: "failed", error: "presentation API 404" }
+  - position: 10
+    componentName: "CtaBanner"
+    kind: "simple"
+    phase3: { status: "populated", itemId: "486e167e-6f17-4638-be66-5f5b709457df", fieldsPopulated: true, childrenCreated: 0, childrenExpected: 0, error: "" }
+    phase6: { status: "failed", error: "presentation API 404" }
+  - position: 11
+    componentName: "PromoCta"
+    kind: "simple"
+    phase3: { status: "populated", itemId: "6b499e60-82f6-409d-bdf1-8dd4d4af8307", fieldsPopulated: true, childrenCreated: 0, childrenExpected: 0, error: "" }
+    phase6: { status: "failed", error: "presentation API 404" }
+  - position: 12
+    componentName: "PromoCta"
+    kind: "simple"
+    phase3: { status: "populated", itemId: "3926fafb-f074-41f2-83b3-6bd19570fcad", fieldsPopulated: true, childrenCreated: 0, childrenExpected: 0, error: "" }
+    phase6: { status: "failed", error: "presentation API 404" }
+  - position: 13
+    componentName: "Footer"
+    kind: "context-only"
+    phase3: { status: "skipped", itemId: "", fieldsPopulated: false, childrenCreated: 0, childrenExpected: 0, error: "" }
+    phase6: { status: "skipped" }

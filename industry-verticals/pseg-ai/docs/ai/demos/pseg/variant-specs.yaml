@@ -1,0 +1,76 @@
+variantSpecs:
+  - position: 2
+    componentName: "FourColumnCta"
+    variantName: "Pseg"
+    baseVariant: "Default"
+    visualDifferences:
+      layout: "Compact icon + uppercase label row, right-aligned in the header"
+      spacing: "Tight padding, no card chrome"
+      typography: "0.7rem uppercase navy labels"
+  - position: 4
+    componentName: "Carousel"
+    variantName: "Pseg"
+    baseVariant: "Default"
+    visualDifferences:
+      layout: "Navy gradient hero; left copy, center image, right Login/Register card"
+      spacing: "2.5rem padding, 22rem min height"
+      typography: "White 1.75rem headline, underlined text CTA"
+  - position: 5
+    componentName: "FiveColumnCta"
+    variantName: "Pseg"
+    baseVariant: "Default"
+    visualDifferences:
+      layout: "Text-only underline tabs, no images"
+      spacing: "Flush under hero, 0.85rem vertical padding"
+      typography: "600 weight navy labels, 3px underline on first tab"
+  - position: 6
+    componentName: "TwoColumnCta"
+    variantName: "Pseg"
+    baseVariant: "Default"
+    visualDifferences:
+      layout: "Two flat bordered white cards on gray band"
+      spacing: "No radius, image flush to card top"
+      typography: "Navy titles, blue text links instead of filled buttons"
+  - position: 7
+    componentName: "PromoCta"
+    variantName: "PsegOverlay"
+    baseVariant: "WithBackgroundImage"
+    visualDifferences:
+      layout: "Full-bleed photo with centered translucent navy panel"
+      spacing: "2rem panel padding, white rectangular button"
+  - position: 8
+    componentName: "HeadingCta"
+    variantName: "Pseg"
+    baseVariant: "Centered"
+    visualDifferences:
+      layout: "Centered WorryFree title, no CTA button"
+  - position: 8
+    componentName: "ThreeColumnCta"
+    variantName: "Pseg"
+    baseVariant: "Default"
+    visualDifferences:
+      layout: "Three photo cards, blue text links, no button chrome"
+  - position: 9
+    componentName: "PromoCta"
+    variantName: "Pseg"
+    baseVariant: "Default"
+    visualDifferences:
+      layout: "Text left / image right, dotted accents hidden"
+  - position: 10
+    componentName: "CtaBanner"
+    variantName: "Pseg"
+    baseVariant: "Default"
+    visualDifferences:
+      layout: "Dark navy band, no photo column, white Start Saving button"
+  - position: 11
+    componentName: "PromoCta"
+    variantName: "PsegImageLeft"
+    baseVariant: "Default"
+    visualDifferences:
+      layout: "Image left / copy right"
+  - position: 12
+    componentName: "PromoCta"
+    variantName: "Pseg"
+    baseVariant: "Default"
+    visualDifferences:
+      layout: "Text left / emergency-kit image right"

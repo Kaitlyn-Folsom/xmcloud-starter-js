@@ -86,6 +86,36 @@ export const Default = (props: CtaBannerProps): JSX.Element => {
   );
 };
 
+export const Pseg = (props: CtaBannerProps): JSX.Element => {
+  const id = props.params.RenderingIdentifier;
+  const { page } = useSitecore();
+  const isPageEditing = page.mode.isEditing;
+  const sxaStyles = `${props.params?.styles || ''}`;
+
+  return (
+    <div className={`component cta-banner pseg-energy ${sxaStyles}`} id={id ? id : undefined}>
+      <div className="container">
+        <div className="row align-items-center">
+          <div className="col-lg-7">
+            <h6 className="eyebrow-accent">
+              <Text field={props.fields.Eyebrow} />
+            </h6>
+            <h1 className="display-6 fw-bold mb-3">
+              <Text field={props.fields.Title} />
+            </h1>
+            <div className="fs-5">
+              <RichText field={props.fields.Text} />
+              {(isPageEditing || props.fields?.Link?.value?.href) && (
+                <Link field={props.fields.Link} className="button button-main mt-3" />
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export const LargeImage = (props: CtaBannerProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
   const { page } = useSitecore();

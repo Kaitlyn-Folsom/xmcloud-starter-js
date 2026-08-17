@@ -112,6 +112,15 @@ export const Default = (props: ThreeColumnCtaProps): JSX.Element => {
   );
 };
 
+export const Pseg = (props: ThreeColumnCtaProps): JSX.Element => {
+  return (
+    <Default
+      {...props}
+      params={{ ...props.params, styles: `${props.params?.styles || ''} pseg-cards` }}
+    />
+  );
+};
+
 export const WithIcons = (props: ThreeColumnCtaProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
   const { page } = useSitecore();

@@ -1,0 +1,386 @@
+# Demo Build Plan — PSEG / PSE&G homepage
+# Source of truth: user screenshot of https://nj.pseg.com/
+# Adaptation: leftover uiim registry (AnnouncementBar, etc.) is not in this app.
+# All matches use pseg-ai financial starter components under src/components/.
+
+client:
+  name: "PSEG"
+  sourceUrl: "https://nj.pseg.com/"
+  themeFile: "docs/ai/themes/pseg.theme.yaml"
+  analyzedAt: "2026-08-17T22:10:00Z"
+  contentRoot: "/sitecore/content/Financial/ProsperaFinancial"
+  codeRoot: "industry-verticals/pseg-ai"
+  libraryNote: "Mapped to pseg-ai components, not the leftover uiim catalog."
+
+pageAnalysis:
+  screenshotFiles:
+    desktop: "docs/ai/themes/pseg/screenshot-source.png"
+    mobile: ""
+    hero: "docs/ai/themes/pseg/screenshot-source.png"
+  totalSections: 13
+  templateMatches: 12
+  customRequired: 1
+
+sections:
+  - position: 1
+    description: "Dark navy utility bar with corporate site links on the left and search / Español / Contact Us / emergency CTA on the right."
+    matchedComponent:
+      registryId: "announcement-bar"
+      manifestName: "Eyebrow"
+      variant: "Default"
+      matchType: "template"
+      matchConfidence: "medium"
+      apiAddable: false
+      variantMatch: "none"
+    sectionBackground: "dark"
+    content:
+      LeftLinks: "PSEG Corporate | PSE&G | PSEG Long Island | PSEG Power"
+      RightLinks: "Search | Español | Contact Us"
+      EmergencyCta: "Report an Emergency"
+    contentNotes: "Eyebrow is placeholder-based (eyebrow-left / eyebrow-right), not a single datasource. Lives on the header partial. Do not add via add_component_on_page."
+    variantReason: "Default Eyebrow is a light financial-starter bar. Screenshot is a compact dark navy utility strip."
+    customVariantNeeded:
+      name: "UtilityBar"
+      description: "Dark navy (#1b2a44) compact bar; left text links with active PSE&G highlight; right search icon, Español, Contact Us, and a light-blue Report an Emergency CTA."
+      parentComponent: "Eyebrow"
+
+  - position: 2
+    description: "White header with orange sun + PSEG logo on the left and four icon shortcuts (Pay Bill, Outages, Safety, Help) on the right."
+    matchedComponent:
+      registryId: "navigation-header"
+      manifestName: "Header"
+      variant: "WithLogoImage"
+      matchType: "template"
+      matchConfidence: "medium"
+      apiAddable: false
+      variantMatch: "partial"
+    supportingComponent:
+      manifestName: "FourColumnCta"
+      variant: "Default"
+      apiAddable: true
+      role: "Icon shortcuts in header-right placeholder"
+    sectionBackground: "default"
+    content:
+      Logo: "PSEG wordmark with orange sun mark"
+      Shortcut1: "Pay Bill"
+      Shortcut2: "Outages"
+      Shortcut3: "Safety"
+      Shortcut4: "Help"
+    contentNotes: "Header WithLogoImage is context-only on the header partial. Shortcuts can be a FourColumnCta in header-right, or a Phase 5.5 HeaderShortcuts variant for compact icon+label pairs."
+    variantReason: "WithLogoImage already supports the logo. FourColumnCta Default renders large image cards, not compact header icons."
+    customVariantNeeded:
+      name: "HeaderShortcuts"
+      description: "Four compact vertical icon + uppercase label links (Pay Bill, Outages, Safety, Help) aligned right in the white header."
+      parentComponent: "FourColumnCta"
+
+  - position: 3
+    description: "White primary nav row of text links under the header."
+    matchedComponent:
+      registryId: "navigation-header"
+      manifestName: "Navigation"
+      variant: "Default"
+      matchType: "template"
+      matchConfidence: "high"
+      apiAddable: false
+      variantMatch: "exact"
+    sectionBackground: "default"
+    content:
+      Links: "My Account, Customer Support, PowerNow, Save Energy & Money, Safety & Reliability, Business & Resources, Home Services, In the Community"
+    contentNotes: "SXA Navigation on the header/main partial. Driven by Sitecore page tree, not a homepage datasource. Page titles/nav titles were already rewritten to PSE&G in a prior session."
+    variantReason: "Theme tone.navStyle is solid-bar; Default Navigation matches."
+
+  - position: 4
+    description: "Dark navy hero band with J.D. Power headline on the left, gold trophy in the center, and a Login / Register module on the right. Faint arrows indicate a carousel."
+    matchedComponent:
+      registryId: "hero-banner"
+      manifestName: "Carousel"
+      variant: "Default"
+      matchType: "custom"
+      matchConfidence: "low"
+      apiAddable: true
+      variantMatch: "none"
+    sectionBackground: "primary"
+    content:
+      Title: "#1 for Large Electric Utility Residential Customer Satisfaction in the East Region"
+      Link: "Find out more"
+      Image: "Gold J.D. Power trophy on a dark navy field"
+      LoginCta: "Login"
+      RegisterCta: "Register"
+    contentNotes: "Carousel Default is a full-bleed photo slider with overlay text — not a 3-column navy band. Do not build a working auth form. Login/Register are CTA buttons. Additional slides can reuse the same variant if content is extracted later."
+    variantReason: "tone.heroStyle is gradient (navy band), not a photo hero. No existing variant covers headline + trophy + login module."
+    customVariantNeeded:
+      name: "JdPowerHero"
+      description: "Full-width navy gradient slide; left headline + Find out more; center trophy image; right Login/Register card. Keep carousel arrows."
+      parentComponent: "Carousel"
+
+  - position: 5
+    description: "White tab strip under the hero with five text tabs; first tab active with an underline."
+    matchedComponent:
+      registryId: "tab-navigation"
+      manifestName: "FiveColumnCta"
+      variant: "Default"
+      matchType: "template"
+      matchConfidence: "medium"
+      apiAddable: true
+      variantMatch: "none"
+    sectionBackground: "default"
+    content:
+      Tab1: "Welcome"
+      Tab2: "Report an Outage"
+      Tab3: "Pay Bill / Billing"
+      Tab4: "Start/Stop/Move or Book Appointment"
+      Tab5: "Energy Efficiency Programs"
+    contentNotes: "FiveColumnCta Default is five image+label cards. Screenshot is a text-only underline tab row. Tabs can link to in-page anchors or existing child pages. Interactive tab panels are out of scope unless Phase 5.5 is requested."
+    variantReason: "Five items match FiveColumnCta field count. Visual treatment does not."
+    customVariantNeeded:
+      name: "UnderlineTabs"
+      description: "Horizontal text tabs, no images, navy underline on the active item, flush under the hero with no card chrome."
+      parentComponent: "FiveColumnCta"
+
+  - position: 6
+    description: "Two side-by-side white cards — My Account (man with phone) and Bill Advice (woman with laptop) — each with a Log In link."
+    matchedComponent:
+      registryId: "feature-cards-grid"
+      manifestName: "TwoColumnCta"
+      variant: "Default"
+      matchType: "template"
+      matchConfidence: "high"
+      apiAddable: true
+      variantMatch: "partial"
+    sectionBackground: "muted"
+    content:
+      Title1: "My Account"
+      Text1: "Manage your account, view bills, and update your information."
+      Link1: "Log In"
+      Image1: "Man using a smartphone"
+      Title2: "Bill Advice"
+      Text2: "Get help understanding your bill and payment options."
+      Link2: "Log In"
+      Image2: "Woman using a laptop"
+    contentNotes: "Body copy is inferred from the card titles; Phase 2.5 should replace with exact nj.pseg.com text. TwoColumnCta fields map 1:1."
+    variantReason: "Default is image + title + text + link in two columns. Card chrome (radius, shadow) will be flattened in Phase 4 theme."
+
+  - position: 7
+    description: "Full-width photo of a customer-service agent with a navy overlay, heading We Understand Your Needs, and a Find Help With Your Bill button."
+    matchedComponent:
+      registryId: "cta-banner"
+      manifestName: "PromoCta"
+      variant: "WithBackgroundImage"
+      matchType: "template"
+      matchConfidence: "high"
+      apiAddable: true
+      variantMatch: "partial"
+    sectionBackground: "primary"
+    content:
+      Eyebrow: "Customer Service"
+      Title: "We Understand Your Needs"
+      Link: "Find Help With Your Bill"
+      Image: "Female customer service representative wearing a headset"
+    contentNotes: "WithBackgroundImage already supports full-bleed photo + centered title/text/button. Screenshot uses a translucent navy overlay box rather than plain centered type."
+    variantReason: "Closest existing promo variant. Overlay treatment is a Phase 5.5 gap."
+    customVariantNeeded:
+      name: "OverlayCta"
+      description: "Full-bleed photo with a centered translucent navy panel, white headline, and solid white rectangular button."
+      parentComponent: "PromoCta"
+
+  - position: 8
+    description: "Centered WorryFree heading plus three photo cards — Repair, Protect, Replace — each with a text link."
+    matchedComponent:
+      registryId: "feature-cards-grid"
+      manifestName: "ThreeColumnCta"
+      variant: "Default"
+      matchType: "template"
+      matchConfidence: "high"
+      apiAddable: true
+      variantMatch: "partial"
+    supportingComponent:
+      manifestName: "HeadingCta"
+      variant: "Centered"
+      apiAddable: true
+      role: "Section title above the three cards"
+    sectionBackground: "default"
+    content:
+      Heading: "WorryFree® Appliance Service"
+      Text1: "Repair"
+      SubText1: "Get your appliances fixed by a trusted technician."
+      Link1: "Get a Quote"
+      Image1: "Technician working on an outdoor AC unit"
+      Text2: "Protect"
+      SubText2: "Protect your home systems with a WorryFree plan."
+      Link2: "Explore Plans"
+      Image2: "Technician standing beside a PSEG service van"
+      Text3: "Replace"
+      SubText3: "Replace aging equipment with a free estimate."
+      Link3: "Get Free Estimate"
+      Image3: "Technician examining indoor HVAC equipment"
+    contentNotes: "ThreeColumnCta has no section title field — pair with HeadingCta Centered. Card body copy is inferred; Phase 2.5 should replace."
+    variantReason: "Default three-up is photo + title + text + link. HeadingCta Centered already exists."
+
+  - position: 9
+    description: "Split band — Make an Appointment copy and navy button on the left, headset agent portrait on the right."
+    matchedComponent:
+      registryId: "feature-highlight"
+      manifestName: "PromoCta"
+      variant: "Default"
+      matchType: "template"
+      matchConfidence: "high"
+      apiAddable: true
+      variantMatch: "partial"
+    sectionBackground: "default"
+    content:
+      Title: "Make an Appointment"
+      Link: "Appointment Options"
+      Image: "Male service agent wearing a headset"
+    contentNotes: "PromoCta Default is text left / image right, which matches. Dotted accents from the financial starter should be suppressed in the pseg theme or a variant."
+    variantReason: "Split image+text mid-page promo. Default layout matches the screenshot."
+
+  - position: 10
+    description: "Full-width dark navy band — Save Energy and Money / Little Changes Mean Big Savings on the left, Energy Saving Tips link list on the right."
+    matchedComponent:
+      registryId: "cta-banner"
+      manifestName: "CtaBanner"
+      variant: "Default"
+      matchType: "template"
+      matchConfidence: "medium"
+      apiAddable: true
+      variantMatch: "none"
+    sectionBackground: "dark"
+    content:
+      Eyebrow: "Save Energy and Money"
+      Title: "Little Changes Mean Big Savings"
+      Link: "Learn More"
+      TipsHeading: "Energy Saving Tips"
+      Tips: "Residential energy efficiency | Business energy efficiency | Rebates"
+    contentNotes: "CtaBanner Default expects an image on one side. Screenshot has a link list, not a photo. Tips can live in the Text rich-text field as a fallback; a custom variant is needed for a true two-column tips list."
+    variantReason: "Dark conversion band with eyebrow + title + button matches CtaBanner. Right-side tips list does not."
+    customVariantNeeded:
+      name: "EnergyTips"
+      description: "Dark navy full-width band; left eyebrow/title/body/white Learn More button; right Energy Saving Tips heading + stacked text links. No photo."
+      parentComponent: "CtaBanner"
+
+  - position: 11
+    description: "White two-column band — community photo on the left, In the Community copy and Powering the Future link on the right."
+    matchedComponent:
+      registryId: "feature-highlight"
+      manifestName: "PromoCta"
+      variant: "Default"
+      matchType: "template"
+      matchConfidence: "medium"
+      apiAddable: true
+      variantMatch: "none"
+    sectionBackground: "default"
+    content:
+      Eyebrow: "In the Community"
+      Title: "PSE&G is Powering the Future"
+      Link: "Powering the Future"
+      Image: "Diverse group of people smiling and giving thumbs-up"
+    contentNotes: "PromoCta Default is text left / image right. Screenshot is image left / text right."
+    variantReason: "Same field set as other mid-page promos. Layout direction is reversed."
+    customVariantNeeded:
+      name: "ImageLeft"
+      description: "PromoCta with image in the left column and eyebrow/title/text/link on the right. No dotted accents."
+      parentComponent: "PromoCta"
+
+  - position: 12
+    description: "White two-column band — Storm Preparation copy on the left, emergency-kit photo on the right."
+    matchedComponent:
+      registryId: "feature-highlight"
+      manifestName: "PromoCta"
+      variant: "Default"
+      matchType: "template"
+      matchConfidence: "high"
+      apiAddable: true
+      variantMatch: "partial"
+    sectionBackground: "default"
+    content:
+      Eyebrow: "Safety and Reliability"
+      Title: "Storm Preparation"
+      Link: "Be Prepared"
+      Image: "Emergency kit with flashlight, backpack, bottled water, and radio"
+    contentNotes: "Layout matches PromoCta Default. Suppress dotted accents for a flat utility look."
+    variantReason: "Text left / image right mid-page feature."
+
+  - position: 13
+    description: "Dark navy footer with EnergyLink signup, latest news, links, logo/social, and a legal/copyright bar."
+    matchedComponent:
+      registryId: "footer"
+      manifestName: "Footer"
+      variant: "Default"
+      matchType: "template"
+      matchConfidence: "medium"
+      apiAddable: false
+      variantMatch: "partial"
+    sectionBackground: "dark"
+    content:
+      Title1: "Sign up for EnergyLink"
+      Title2: "Latest News"
+      Title3: "Links"
+      SocialsTitle: "Follow Us"
+      Copyright: "© Public Service Electric and Gas Company. All rights reserved."
+    contentNotes: "Footer is context-only on the footer partial. Four rich-text columns can hold EnergyLink copy, news links, and utility links. Do not build a working email form — use a signup CTA/link. Existing footer contact column was already rewritten to PSE&G."
+    variantReason: "Default Footer already has logo + 4 columns + socials + copyright. EnergyLink form and press-release list are content, not a new component."
+
+customComponents:
+  - name: "JdPowerHero"
+    parentComponent: "Carousel"
+    reason: "Navy 3-column hero with trophy and Login/Register card is not covered by Carousel Default or HeroBanner."
+    fieldsNeeded:
+      - "Existing Carousel item fields (Title, Text, Image, Link) plus Link2 for Register, or two CTAs in Text rich text"
+    approach: "Phase 5.5 variant on Carousel — not a net-new Sitecore rendering. Login/Register are buttons, not auth."
+
+customVariants:
+  - name: "UtilityBar"
+    parentComponent: "Eyebrow"
+    section: 1
+  - name: "HeaderShortcuts"
+    parentComponent: "FourColumnCta"
+    section: 2
+  - name: "JdPowerHero"
+    parentComponent: "Carousel"
+    section: 4
+  - name: "UnderlineTabs"
+    parentComponent: "FiveColumnCta"
+    section: 5
+  - name: "OverlayCta"
+    parentComponent: "PromoCta"
+    section: 7
+  - name: "EnergyTips"
+    parentComponent: "CtaBanner"
+    section: 10
+  - name: "ImageLeft"
+    parentComponent: "PromoCta"
+    section: 11
+
+buildOrder:
+  phase1_sitecore:
+    - "FourColumnCta (header shortcuts)"
+    - "Carousel (J.D. Power hero)"
+    - "FiveColumnCta (tab strip)"
+    - "TwoColumnCta (account cards)"
+    - "PromoCta (customer service overlay)"
+    - "HeadingCta (WorryFree title)"
+    - "ThreeColumnCta (WorryFree cards)"
+    - "PromoCta (appointment)"
+    - "CtaBanner (save energy)"
+    - "PromoCta (community, image left)"
+    - "PromoCta (storm preparation)"
+  phase2_theme: "Apply pseg.theme.yaml tokens to site-pseg SCSS (already close). Flatten cards, square buttons, Open Sans."
+  phase3_custom:
+    - "Carousel JdPowerHero variant"
+    - "FiveColumnCta UnderlineTabs variant"
+    - "PromoCta OverlayCta + ImageLeft variants"
+    - "CtaBanner EnergyTips variant"
+    - "Eyebrow UtilityBar + FourColumnCta HeaderShortcuts (if pixel-perfect)"
+
+imagesNeeded:
+  - { section: 2, field: "LogoImage", description: "PSEG logo — orange sun + wordmark" }
+  - { section: 4, field: "Image", description: "J.D. Power gold trophy" }
+  - { section: 6, field: "Image1", description: "Man using a smartphone" }
+  - { section: 6, field: "Image2", description: "Woman using a laptop" }
+  - { section: 7, field: "Image", description: "Female customer service agent with headset" }
+  - { section: 8, field: "Image1", description: "Technician repairing outdoor AC" }
+  - { section: 8, field: "Image2", description: "Technician beside PSEG service van" }
+  - { section: 8, field: "Image3", description: "Technician examining indoor HVAC" }
+  - { section: 9, field: "Image", description: "Male service agent with headset" }
+  - { section: 11, field: "Image", description: "Community group, thumbs-up" }
+  - { section: 12, field: "Image", description: "Emergency kit — flashlight, water, radio, backpack" }

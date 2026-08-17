@@ -109,3 +109,11 @@ export const Default = (props: TwoColumnCtaProps): JSX.Element => {
     </div>
   );
 };
+
+export const Pseg = (props: TwoColumnCtaProps): JSX.Element => {
+  return (
+    <div className="pseg-cards-wrap">
+      <Default {...props} params={{ ...props.params, styles: `${props.params?.styles || ''} pseg-cards` }} />
+    </div>
+  );
+};

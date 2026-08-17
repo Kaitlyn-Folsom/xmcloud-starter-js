@@ -1,0 +1,35 @@
+{
+  "colors": {
+    "bodyBackground": "rgb(250, 250, 250)",
+    "bodyColor": "rgb(0, 0, 0)",
+    "headerBackground": "rgba(0, 0, 0, 0)",
+    "headerColor": "rgb(0, 0, 0)",
+    "heroBackground": null,
+    "linkColor": "rgb(255, 255, 255)"
+  },
+  "typography": {
+    "bodyFontFamily": "Outfit",
+    "bodyFontSize": "14px",
+    "bodyFontWeight": "400",
+    "bodyLineHeight": "20px",
+    "h1FontFamily": "\"DM Serif Display\"",
+    "h1FontSize": "96px",
+    "h1FontWeight": "400",
+    "h1LetterSpacing": "normal",
+    "h1TextTransform": "none",
+    "pFontSize": "17.5px",
+    "pLineHeight": "20px"
+  },
+  "shape": {
+    "cardBorderRadius": "0px",
+    "cardBoxShadow": "none",
+    "cardBorder": "",
+    "imgBorderRadius": "0px"
+  },
+  "spacing": {
+    "heroMinHeight": "0px",
+    "heroPadding": "0px",
+    "containerMaxWidth": "1600px"
+  },
+  "cssVariables": {}
+}

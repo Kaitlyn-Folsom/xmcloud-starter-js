@@ -119,3 +119,12 @@ export const Default = (props: FourColumnCtaProps): JSX.Element => {
     </div>
   );
 };
+
+export const Pseg = (props: FourColumnCtaProps): JSX.Element => {
+  return (
+    <Default
+      {...props}
+      params={{ ...props.params, styles: `${props.params?.styles || ''} pseg-shortcuts` }}
+    />
+  );
+};

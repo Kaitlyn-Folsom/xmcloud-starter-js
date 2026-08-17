@@ -1,0 +1,478 @@
+# PSEG homepage content map
+# Content from https://nj.pseg.com/ (fetched 2026-08-17). Layout from screenshot.
+# Images use live media URLs. Phase 3 uploads them to Content Hub.
+
+client:
+  name: "PSEG"
+  sourceUrl: "https://nj.pseg.com/"
+  sourceLanguage: "en"
+  targetLanguage: "en"
+  translationApplied: false
+  extractedAt: "2026-08-17T22:15:00Z"
+  mappedAt: "2026-08-17T22:15:00Z"
+  contentRoot: "/sitecore/content/Financial/ProsperaFinancial"
+
+sections:
+  - position: 1
+    componentName: "Eyebrow"
+    manifestName: "Eyebrow"
+    kind: "context-only"
+    datasourceItemName: ""
+    apiAddable: false
+    fields: {}
+    children: []
+    imageFields: []
+    matchConfidence: "medium"
+    contentSource: "extractor"
+    notes: "Header partial. Corporate site links: PSEG Corporate, PSE&G, PSEG Long Island, PSEG Power."
+
+  - position: 2
+    componentName: "FourColumnCta"
+    manifestName: "FourColumnCta"
+    kind: "simple"
+    datasourceItemName: "PSEG - Header Shortcuts"
+    apiAddable: true
+    parentFolderId: "c252a182-50c2-4e48-8515-e86bd96cb5ce"
+    templateId: "1b694ef9-154d-429a-9c3f-d7774cd4a852"
+    renderingId: "35075000-760e-4ff3-bd1c-f2eeba251dcb"
+    fields:
+      Title1: "Pay My Bill"
+      Text1: ""
+      Link1:
+        text: "Pay My Bill"
+        href: "https://nj.myaccount.pseg.com/myaccountdashboard?LoginOverLay=true&ShowPay=true"
+        target: ""
+      Title2: "Moving"
+      Text2: ""
+      Link2:
+        text: "Moving"
+        href: "https://nj.myaccount.pseg.com/myservicedashboard/startstopservicedashboard"
+        target: ""
+      Title3: "Outage"
+      Text3: ""
+      Link3:
+        text: "Outage"
+        href: "https://nj.myaccount.pseg.com/myservicedashboard/outage"
+        target: ""
+      Title4: "Emergencies"
+      Text4: ""
+      Link4:
+        text: "Emergencies"
+        href: "https://nj.pseg.com/outageandgasleaks/ismellgas"
+        target: ""
+    children: []
+    imageFields:
+      - { field: "Image1", src: "https://nj.pseg.com/-/media/pseg/public-site/header/paybill.ashx", alt: "Pay My Bill" }
+      - { field: "Image2", src: "https://nj.pseg.com/-/media/pseg/public-site/header/moving.ashx", alt: "Moving" }
+      - { field: "Image3", src: "https://nj.pseg.com/-/media/pseg/public-site/header/outage.ashx", alt: "Outage" }
+      - { field: "Image4", src: "https://nj.pseg.com/-/media/pseg/public-site/header/alerts.ashx", alt: "Emergencies" }
+    matchConfidence: "medium"
+    contentSource: "extractor"
+
+  - position: 3
+    componentName: "Navigation"
+    manifestName: "Navigation"
+    kind: "context-only"
+    datasourceItemName: ""
+    apiAddable: false
+    fields: {}
+    children: []
+    imageFields: []
+    matchConfidence: "high"
+    contentSource: "extractor"
+
+  - position: 4
+    componentName: "Carousel"
+    manifestName: "Carousel"
+    kind: "list"
+    datasourceItemName: "PSEG - Home Carousel"
+    apiAddable: true
+    parentFolderId: "5109a19b-e647-4ef6-9b82-c6d8645fed58"
+    templateId: "c7b8468f-4290-400f-93bb-d46c5f8db126"
+    childTemplateId: "54db209d-cd0f-49d9-ae4e-ecb65d72cc4d"
+    renderingId: "8094185b-4c72-40c8-b005-c6ed91708754"
+    fields: {}
+    children:
+      - name: "PSEG - JD Power"
+        fields:
+          Title: "#1 for Large Electric Utility Residential Customer Satisfaction in the East Region"
+          Text: "<p></p>"
+          Link:
+            text: "Read Story"
+            href: "https://nj.pseg.com/newsroom/newsrelease473"
+            target: ""
+        imageFields:
+          - { field: "Image", src: "https://nj.pseg.com/-/media/pseg/public-site/carousel/homepage/herocarousel/jdp_homepage_aspot_1399x739_r2.ashx", alt: "J.D. Power ranks PSE&G as #1 for Large Electric Utility Residential Customer Satisfaction in the East Region - 2025." }
+      - name: "PSEG - Bill Help"
+        fields:
+          Title: "Get Help Paying Your Energy Bill"
+          Text: "<p>Learn about payment assistance programs, payment arrangements, and more. You can also view the Customer Bill of Rights, with translations available in multiple languages.</p>"
+          Link:
+            text: "Get Help"
+            href: "https://nj.pseg.com/saveenergyandmoney/gethelppayingyourbill"
+            target: ""
+        imageFields:
+          - { field: "Image", src: "https://nj.pseg.com/-/media/pseg/public-site/carousel/homepage/herocarousel/bott_homepage_banner2.ashx", alt: "Couple is shown reviewing their utility bill." }
+      - name: "PSEG - Marketplace"
+        fields:
+          Title: "No time for checkout lines?"
+          Text: "<p>Score great appliance deals on the PSE&amp;G Marketplace.</p>"
+          Link:
+            text: "Shop Now"
+            href: "https://marketplace.pseg.com/"
+            target: ""
+        imageFields:
+          - { field: "Image", src: "https://nj.pseg.com/-/media/pseg/global/gathercontentimages/aspot3-carousel/0-0utilityhomepage/apprecycling_homepage_slider_may_june_1399x739_v01_release.ashx", alt: "PSE&G Marketplace appliance deals" }
+      - name: "PSEG - FlexPower"
+        fields:
+          Title: "Shift your energy use. Get rewards."
+          Text: "<p>Earn up to $150 for helping reduce strain on New Jersey’s grid during peak energy periods. Join our FlexPower Program.</p>"
+          Link:
+            text: "Enroll Now"
+            href: "https://flexpower.pseg.com/pages/home/landing"
+            target: ""
+        imageFields:
+          - { field: "Image", src: "https://nj.pseg.com/-/media/pseg/global/gathercontentimages/aspot3-carousel/0-0utilityhomepage/flexpower_homepage_banner_july_1399x739_v03_release.ashx", alt: "FlexPower program" }
+      - name: "PSEG - Gas Safety"
+        fields:
+          Title: "Protect the ones you love"
+          Text: "<p>Learn about natural gas safety, including what to do if you smell gas, and carbon monoxide, gas heater/appliance safety and more.</p>"
+          Link:
+            text: "Stay Safe"
+            href: "https://nj.pseg.com/safetyandreliability/gassafety"
+            target: ""
+        imageFields:
+          - { field: "Image", src: "https://nj.pseg.com/-/media/pseg/public-site/carousel/homepage/herocarousel/gas_safety2_1399x739.ashx", alt: "Mother and daughter hugging. Gas safety." }
+    imageFields: []
+    matchConfidence: "high"
+    contentSource: "extractor"
+
+  - position: 5
+    componentName: "FiveColumnCta"
+    manifestName: "FiveColumnCta"
+    kind: "simple"
+    datasourceItemName: "PSEG - Welcome Tabs"
+    apiAddable: true
+    parentFolderId: "8522d94a-3b27-4e87-baa6-511f9068177b"
+    templateId: "3b41d9fc-0edf-48e1-966c-e260339ba815"
+    renderingId: "333def3e-c272-4ad9-a493-8d5ccae08312"
+    fields:
+      Text1: "Welcome"
+      Link1:
+        text: "Welcome"
+        href: "https://nj.pseg.com/"
+        target: ""
+      Text2: "Report or View Outages"
+      Link2:
+        text: "Report or View Outages"
+        href: "https://nj.pseg.com/outageandgasleaks"
+        target: ""
+      Text3: "Moving"
+      Link3:
+        text: "Moving"
+        href: "https://nj.myaccount.pseg.com/myservicepublic/startstopmoveservicepublic"
+        target: ""
+      Text4: "Submit Meter Reading"
+      Link4:
+        text: "Submit Meter Reading"
+        href: "https://nj.myaccount.pseg.com/viewmybill/meterreadingpublic"
+        target: ""
+      Text5: "Energy Efficiency Programs"
+      Link5:
+        text: "Energy Efficiency Programs"
+        href: "https://myhomeenergy.pseg.com/"
+        target: ""
+    children: []
+    imageFields: []
+    matchConfidence: "medium"
+    contentSource: "extractor"
+
+  - position: 6
+    componentName: "TwoColumnCta"
+    manifestName: "TwoColumnCta"
+    kind: "simple"
+    datasourceItemName: "PSEG - MyAlerts MyMeter"
+    apiAddable: true
+    parentFolderId: "8237a426-6c6a-4564-ab35-a6066a050f2e"
+    templateId: "1812bf3e-6bdd-466d-99b2-0d7cebb020fc"
+    renderingId: "3a9a9d22-c092-4b54-9511-eb202ceabe8d"
+    fields:
+      Title1: "MyAlerts"
+      Text1: "By enrolling in MyAlerts, you can report power outages and receive outage updates, check your balance, receive payment reminders, and pay your bill – all by text and/or email!"
+      Link1:
+        text: "Register"
+        href: "https://nj.myaccount.pseg.com/myalertsloggedout"
+        target: ""
+      Title2: "MyMeter"
+      Text2: "Take control of your electric use by setting usage thresholds in MyMeter and receiving alerts by email and/or text message when you exceed them. You can access MyMeter through My Account or our mobile app."
+      Link2:
+        text: "Learn More"
+        href: "https://nj.myaccount.pseg.com/myservicepublic/smartmeters#meter"
+        target: ""
+    children: []
+    imageFields:
+      - { field: "Image1", src: "https://nj.pseg.com/-/media/pseg/global/gathercontentimages/c-contentblk-5/0-0utilityhomepage/myalerts.ashx", alt: "Man using a smartphone" }
+      - { field: "Image2", src: "https://nj.pseg.com/-/media/pseg/global/gathercontentimages/c-contentblk-6/0-0utilityhomepage/myaccount.ashx", alt: "Woman using a laptop computer" }
+    matchConfidence: "high"
+    contentSource: "extractor"
+
+  - position: 7
+    componentName: "PromoCta"
+    manifestName: "PromoCta"
+    kind: "simple"
+    datasourceItemName: "PSEG - Business Needs"
+    apiAddable: true
+    parentFolderId: "bb81a942-713a-4da1-ab8e-e6d504899ed3"
+    templateId: "c0943942-ae0f-4205-86fa-84884cce4a53"
+    renderingId: "1a375fac-6cc1-4a5a-a159-9bc6dbc66b80"
+    variantName: "PsegOverlay"
+    fields:
+      Eyebrow: "Business"
+      Title: "We Understand Your Needs"
+      Subtitle: ""
+      Text: "<p>If you're one of our business customers, we know that you sometimes have very specific needs. That's why we have a dedicated customer service phone line just for you (855-BIZ-PSEG or 855-249-7734). Check our Business Resource Center for money-saving tips and special programs to help your business stay energized.</p>"
+      Link:
+        text: "Explore Business Resources"
+        href: "https://nj.pseg.com/businessandcontractorservices/saveenergyandmoneyforbusiness"
+        target: ""
+      Link2:
+        text: ""
+        href: ""
+        target: ""
+    children: []
+    imageFields:
+      - { field: "Image", src: "https://nj.pseg.com/-/media/pseg/global/gathercontentimages/c-contentblk-7/0-0utilityhomepage/business.ashx", alt: "Woman smiling while talking on the phone and looking at a computer" }
+    matchConfidence: "high"
+    contentSource: "extractor"
+
+  - position: 8
+    componentName: "HeadingCta"
+    manifestName: "HeadingCta"
+    kind: "simple"
+    datasourceItemName: "PSEG - WorryFree Heading"
+    apiAddable: true
+    parentFolderId: "5109a19b-e647-4ef6-9b82-c6d8645fed58"
+    templateId: "fa136527-6302-471d-83ab-e66fc72bda99"
+    renderingId: "89e1d547-7cd6-4ef0-9a27-1e99410797dd"
+    fields:
+      Eyebrow: ""
+      Heading: "WorryFree® Appliance Service"
+      Text: "PSE&G WorryFree offers Protection Plans for most major home appliances. We also provide timely, reliable appliance repair services, as well as replacements for heating systems, cooling systems and water heaters."
+      Link:
+        text: ""
+        href: ""
+        target: ""
+    children: []
+    imageFields: []
+    matchConfidence: "high"
+    contentSource: "extractor"
+
+  - position: 8
+    componentName: "ThreeColumnCta"
+    manifestName: "ThreeColumnCta"
+    kind: "simple"
+    datasourceItemName: "PSEG - WorryFree Cards"
+    apiAddable: true
+    parentFolderId: "03d1b052-3ec9-4196-abbe-45ef8863b50d"
+    templateId: "148d07ba-f923-4fb2-8907-0bd440d5db44"
+    renderingId: "ad385021-ce2b-4fc1-89aa-207d408034a8"
+    fields:
+      Text1: "Repair"
+      SubText1: "PSE&G's team of highly skilled technicians are available to fix your heating and cooling systems, as well as your home appliances."
+      Link1:
+        text: "Get It Fixed"
+        href: "https://worryfree.pseg.com/repairs"
+        target: ""
+      Text2: "Protect"
+      SubText2: "Enjoy the convenience of paying one low monthly fee to protect you from the cost of repairs (labor and covered parts) for your appliances or heating and cooling system."
+      Link2:
+        text: "Explore Our Plans"
+        href: "https://worryfree.pseg.com/residential"
+        target: ""
+      Text3: "Replace"
+      SubText3: "Need to replace your water heater or heating or cooling system? Call for a free estimate."
+      Link3:
+        text: "Get Free Estimate"
+        href: "https://worryfree.pseg.com/replacement-installation"
+        target: ""
+    children: []
+    imageFields:
+      - { field: "Image1", src: "https://nj.pseg.com/-/media/pseg/global/gathercontentimages/c-3upconent-3/0-0utilityhomepage/protect.ashx", alt: "PSE&G technician servicing an HVAC unit" }
+      - { field: "Image2", src: "https://nj.pseg.com/-/media/pseg/global/gathercontentimages/c-3upconent-3/0-0utilityhomepage/repair.ashx", alt: "PSE&G technician leaning out of a truck window and smiling" }
+      - { field: "Image3", src: "https://nj.pseg.com/-/media/pseg/global/gathercontentimages/c-3upconent-3/0-0utilityhomepage/replace.ashx", alt: "PSE&G technician kneeling in front of an HVAC unit" }
+    matchConfidence: "high"
+    contentSource: "extractor"
+
+  - position: 9
+    componentName: "PromoCta"
+    manifestName: "PromoCta"
+    kind: "simple"
+    datasourceItemName: "PSEG - Make an Appointment"
+    apiAddable: true
+    parentFolderId: "bb81a942-713a-4da1-ab8e-e6d504899ed3"
+    templateId: "c0943942-ae0f-4205-86fa-84884cce4a53"
+    renderingId: "1a375fac-6cc1-4a5a-a159-9bc6dbc66b80"
+    variantName: "Pseg"
+    fields:
+      Eyebrow: ""
+      Title: "Make an Appointment"
+      Subtitle: ""
+      Text: "<p>Schedule an appointment for appliance or heating and cooling system repair with one of our PSE&amp;G technicians.</p>"
+      Link:
+        text: "Schedule an Appointment"
+        href: "https://nj.myaccount.pseg.com/serviceappointments"
+        target: ""
+      Link2:
+        text: ""
+        href: ""
+        target: ""
+    children: []
+    imageFields:
+      - { field: "Image", src: "https://nj.pseg.com/-/media/pseg/public-site/carousel/homepage/herocarousel/content_makeappointment_409x181.ashx", alt: "Schedule a service appointment with one of our customer service representatives." }
+    matchConfidence: "high"
+    contentSource: "extractor"
+
+  - position: 10
+    componentName: "CtaBanner"
+    manifestName: "CtaBanner"
+    kind: "simple"
+    datasourceItemName: "PSEG - Save Energy"
+    apiAddable: true
+    parentFolderId: "5109a19b-e647-4ef6-9b82-c6d8645fed58"
+    templateId: "4900d7e5-61b0-483a-a9d6-69419d4d5982"
+    renderingId: "488b8ac0-0ef9-4f6f-8711-78ba182b2c4c"
+    fields:
+      Eyebrow: "Save Energy and Money"
+      Title: "Little Changes Mean Big Savings"
+      Text: "<p>Sometimes small changes, like sealing tiny air leaks around doors and windows, can make a big difference in energy use. Find out other ways you can save energy and money.</p><p><strong>Energy-Saving Tools</strong><br/>How does your household use energy? Use our Home Energy Assessment to find out.</p><p><strong>Rebate Programs</strong><br/>Learn how to receive valuable rebates on high efficiency home cooling, heating and water heating equipment.</p><p><strong>EnergyLink Newsletter</strong><br/>Sign up to receive our monthly e-newsletter, full of energy-saving tips delivered right to your inbox.</p>"
+      Link:
+        text: "Start Saving"
+        href: "https://nj.pseg.com/saveenergyandmoney"
+        target: ""
+    children: []
+    imageFields: []
+    matchConfidence: "medium"
+    contentSource: "extractor"
+
+  - position: 11
+    componentName: "PromoCta"
+    manifestName: "PromoCta"
+    kind: "simple"
+    datasourceItemName: "PSEG - In the Community"
+    apiAddable: true
+    parentFolderId: "bb81a942-713a-4da1-ab8e-e6d504899ed3"
+    templateId: "c0943942-ae0f-4205-86fa-84884cce4a53"
+    renderingId: "1a375fac-6cc1-4a5a-a159-9bc6dbc66b80"
+    variantName: "PsegImageLeft"
+    fields:
+      Eyebrow: "In the Community"
+      Title: "PSE&G is Powering the Future"
+      Subtitle: ""
+      Text: "<p>At PSE&amp;G, we believe in energizing youth. Find out what our PSEG Foundation is doing to empower future generations in the communities we serve.</p>"
+      Link:
+        text: "Empowering the Future"
+        href: "https://nj.pseg.com/inthecommunity"
+        target: ""
+      Link2:
+        text: ""
+        href: ""
+        target: ""
+    children: []
+    imageFields:
+      - { field: "Image", src: "https://nj.pseg.com/-/media/pseg/global/gathercontentimages/c-contentblk-7/0-0utilityhomepage/incommunity.ashx", alt: "A crowd of men and women smiling for the camera and giving thumbs-up" }
+    matchConfidence: "high"
+    contentSource: "extractor"
+
+  - position: 12
+    componentName: "PromoCta"
+    manifestName: "PromoCta"
+    kind: "simple"
+    datasourceItemName: "PSEG - Storm Preparation"
+    apiAddable: true
+    parentFolderId: "bb81a942-713a-4da1-ab8e-e6d504899ed3"
+    templateId: "c0943942-ae0f-4205-86fa-84884cce4a53"
+    renderingId: "1a375fac-6cc1-4a5a-a159-9bc6dbc66b80"
+    variantName: "Pseg"
+    fields:
+      Eyebrow: "Safety and Preparedness"
+      Title: "Storm Preparation"
+      Subtitle: ""
+      Text: "<p>Before the next major storm hits, find out how you can prepare your home, family, and business. Build your emergency kit, and learn how to keep yourself and your loved ones safe from electrical hazards caused by storm damage.</p>"
+      Link:
+        text: "Be Storm-Ready"
+        href: "https://nj.pseg.com/safetyandreliability/stormsafety"
+        target: ""
+      Link2:
+        text: ""
+        href: ""
+        target: ""
+    children: []
+    imageFields:
+      - { field: "Image", src: "https://nj.pseg.com/-/media/pseg/global/gathercontentimages/c-contentblk-8/0-0utilityhomepage/safety.ashx", alt: "An assortment of emergency supplies" }
+    matchConfidence: "high"
+    contentSource: "extractor"
+
+  - position: 13
+    componentName: "Footer"
+    manifestName: "Footer"
+    kind: "context-only"
+    datasourceItemName: ""
+    apiAddable: false
+    fields: {}
+    children: []
+    imageFields: []
+    matchConfidence: "medium"
+    contentSource: "extractor"
+    notes: "Footer partial. Existing PSE&G footer copy can stay. EnergyLink signup is a CTA, not a form."
+
+summary:
+  totalSections: 14
+  sectionsWithContent: 11
+  contextOnlySkipped: 3
+  fieldsPopulated: 48
+  imageFieldsMapped: 16
+  imagesSkipped: 0
+  videosFound: 0
+  translationApplied: false
+  sourceLanguage: "en"
+
+datasourceItems:
+  - componentName: "FourColumnCta"
+    itemName: "PSEG - Header Shortcuts"
+    itemId: "239a21be-4b1b-42d8-ae3d-78a62274a844"
+  - componentName: "Carousel"
+    itemName: "PSEG - Home Carousel"
+    itemId: "f6f6f52a-13a5-47bf-8861-f0a552473569"
+    children:
+      - { name: "PSEG - JD Power", itemId: "21748777-4675-40d3-b273-7dc2bbd5ae7d" }
+      - { name: "PSEG - Bill Help", itemId: "09d209de-c9fc-4119-bba2-df5b6514706c" }
+      - { name: "PSEG - Marketplace", itemId: "d2d1b6dd-0d82-4fa7-ad11-2474c25a866a" }
+      - { name: "PSEG - FlexPower", itemId: "d1ee3bb3-92e7-40eb-8a40-68ebe56ab8e1" }
+      - { name: "PSEG - Gas Safety", itemId: "ea5d9fef-97bc-4bb2-bc74-2e66fc6a2741" }
+  - componentName: "FiveColumnCta"
+    itemName: "PSEG - Welcome Tabs"
+    itemId: "1386e4b2-4a15-429b-826d-2e9c6b95a1ca"
+  - componentName: "TwoColumnCta"
+    itemName: "PSEG - MyAlerts MyMeter"
+    itemId: "3bb0eaf3-36ac-4bd7-b5ac-5fca11de20d3"
+  - componentName: "PromoCta"
+    itemName: "PSEG - Business Needs"
+    itemId: "01e839f7-04dd-4d79-a209-a1d06cc15da1"
+  - componentName: "HeadingCta"
+    itemName: "PSEG - WorryFree Heading"
+    itemId: "8cda7068-a66f-4a98-bd02-034da8d90c9d"
+  - componentName: "ThreeColumnCta"
+    itemName: "PSEG - WorryFree Cards"
+    itemId: "aecf2e4c-a372-4fa4-963d-75b540803f3c"
+  - componentName: "PromoCta"
+    itemName: "PSEG - Make an Appointment"
+    itemId: "400d28f2-baff-4315-8dd7-5aab4487c9a9"
+  - componentName: "CtaBanner"
+    itemName: "PSEG - Save Energy"
+    itemId: "486e167e-6f17-4638-be66-5f5b709457df"
+  - componentName: "PromoCta"
+    itemName: "PSEG - In the Community"
+    itemId: "6b499e60-82f6-409d-bdf1-8dd4d4af8307"
+  - componentName: "PromoCta"
+    itemName: "PSEG - Storm Preparation"
+    itemId: "3926fafb-f074-41f2-83b3-6bd19570fcad"

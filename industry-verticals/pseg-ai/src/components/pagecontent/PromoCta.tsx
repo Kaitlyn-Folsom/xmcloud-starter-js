@@ -190,3 +190,51 @@ export const WithBackgroundImage = (props: PromoCtaProps): JSX.Element => {
     </div>
   );
 };
+
+export const Pseg = (props: PromoCtaProps): JSX.Element => {
+  return (
+    <Default
+      {...props}
+      params={{ ...props.params, styles: `${props.params?.styles || ''} pseg-split` }}
+    />
+  );
+};
+
+export const PsegImageLeft = (props: PromoCtaProps): JSX.Element => {
+  return (
+    <Default
+      {...props}
+      params={{ ...props.params, styles: `${props.params?.styles || ''} pseg-image-left` }}
+    />
+  );
+};
+
+export const PsegOverlay = (props: PromoCtaProps): JSX.Element => {
+  const id = props.params.RenderingIdentifier;
+  const { page } = useSitecore();
+  const isPageEditing = page.mode.isEditing;
+  const sxaStyles = `${props.params?.styles || ''}`;
+
+  return (
+    <div
+      className={`component promo-cta pseg-overlay ${sxaStyles}`}
+      id={id ? id : undefined}
+      style={{
+        backgroundImage: `url("${props.fields.Image.value?.src}")`,
+      }}
+    >
+      <div className="pseg-overlay-panel">
+        <h6 className="eyebrow-accent">
+          <Text field={props.fields.Eyebrow} />
+        </h6>
+        <h1 className="display-6 fw-bold mb-3">
+          <Text field={props.fields.Title} />
+        </h1>
+        <RichText field={props.fields.Text} />
+        {(isPageEditing || props.fields?.Link?.value?.href) && (
+          <Link field={props.fields.Link} className="button button-main mt-3" />
+        )}
+      </div>
+    </div>
+  );
+};

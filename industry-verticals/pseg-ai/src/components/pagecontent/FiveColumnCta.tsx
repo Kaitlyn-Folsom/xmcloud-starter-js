@@ -107,3 +107,33 @@ export const Default = (props: FiveColumnCtaProps): JSX.Element => {
     </div>
   );
 };
+
+export const Pseg = (props: FiveColumnCtaProps): JSX.Element => {
+  const id = props.params.RenderingIdentifier;
+  const sxaStyles = `${props.params?.styles || ''}`;
+  const tabs = [
+    { text: props.fields.Text1, link: props.fields.Link1 },
+    { text: props.fields.Text2, link: props.fields.Link2 },
+    { text: props.fields.Text3, link: props.fields.Link3 },
+    { text: props.fields.Text4, link: props.fields.Link4 },
+    { text: props.fields.Text5, link: props.fields.Link5 },
+  ];
+
+  return (
+    <div className={`component five-column-cta pseg-tabs ${sxaStyles}`} id={id ? id : undefined}>
+      <div className="container">
+        <div className="row">
+          {tabs.map((tab, i) => (
+            <div className="col" key={i}>
+              <Link field={tab.link}>
+                <div className="text-container">
+                  <Text field={tab.text} />
+                </div>
+              </Link>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};

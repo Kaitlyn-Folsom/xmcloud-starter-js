@@ -124,6 +124,29 @@ export const PageHeading = (props: HeadingCtaProps): JSX.Element => {
   );
 };
 
+export const Pseg = (props: HeadingCtaProps): JSX.Element => {
+  const id = props.params.RenderingIdentifier;
+  const sxaStyles = `${props.params?.styles || ''}`;
+
+  return (
+    <div className={`component heading-cta pseg-centered ${sxaStyles}`} id={id ? id : undefined}>
+      <div className="container">
+        <div className="heading-content-wrapper">
+          <h6 className="eyebrow-accent">
+            <Text field={props.fields?.Eyebrow} />
+          </h6>
+          <h2 className="display-6 fw-bold">
+            <Text field={props.fields?.Heading} />
+          </h2>
+          <p>
+            <Text field={props.fields?.Text} />
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export const Centered = (props: HeadingCtaProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
   const { page } = useSitecore();
