@@ -121,35 +121,61 @@
 
   .four-column-cta.pseg-shortcuts {
     padding: 0;
+    width: 100%;
 
-    .row {
+    .pseg-shortcuts-row {
+      display: flex;
+      flex-wrap: nowrap;
       justify-content: flex-end;
-      gap: 0.5rem;
+      align-items: stretch;
+      gap: 0.25rem;
+      margin: 0;
+    }
+
+    .pseg-shortcut {
+      flex: 1 1 0;
+      min-width: 0;
+      max-width: 6.5rem;
     }
 
     .content-wrapper {
       text-align: center;
-      padding: 0.25rem 0.75rem;
+      padding: 0.25rem 0.35rem;
+      height: 100%;
     }
 
     img {
       width: 1.75rem;
       height: 1.75rem;
       margin: 0 auto 0.25rem;
+      object-fit: contain;
     }
 
     h2 {
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       font-weight: 700;
       letter-spacing: 0.04em;
       text-transform: uppercase;
       margin: 0;
       color: #1b3054;
+      line-height: 1.2;
     }
 
     p,
     .button {
       display: none;
+    }
+
+    @media (max-width: 991px) {
+      .pseg-shortcuts-row {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .pseg-shortcut {
+        flex: 1 1 calc(50% - 0.25rem);
+        max-width: none;
+      }
     }
   }
 

@@ -121,10 +121,43 @@ export const Default = (props: FourColumnCtaProps): JSX.Element => {
 };
 
 export const Pseg = (props: FourColumnCtaProps): JSX.Element => {
+  const id = props.params.RenderingIdentifier;
+  const { page } = useSitecore();
+  const isPageEditing = page.mode.isEditing;
+  const sxaStyles = `${props.params?.styles || ''}`;
+
+  const Shortcut = ({
+    image,
+    title,
+    link,
+  }: {
+    image: ImageField;
+    title: Field<string>;
+    link: LinkField;
+  }) => (
+    <div className="pseg-shortcut">
+      <Link field={link}>
+        <div className="content-wrapper">
+          <NextImage field={image} width={48} height={48} />
+          <h2>
+            <Text field={title} />
+          </h2>
+        </div>
+      </Link>
+    </div>
+  );
+
   return (
-    <Default
-      {...props}
-      params={{ ...props.params, styles: `${props.params?.styles || ''} pseg-shortcuts` }}
-    />
+    <div
+      className={`component four-column-cta pseg-shortcuts ${sxaStyles}`}
+      id={id ? id : undefined}
+    >
+      <div className={`pseg-shortcuts-row${isPageEditing ? ' is-editing' : ''}`}>
+        <Shortcut image={props.fields.Image1} title={props.fields.Title1} link={props.fields.Link1} />
+        <Shortcut image={props.fields.Image2} title={props.fields.Title2} link={props.fields.Link2} />
+        <Shortcut image={props.fields.Image3} title={props.fields.Title3} link={props.fields.Link3} />
+        <Shortcut image={props.fields.Image4} title={props.fields.Title4} link={props.fields.Link4} />
+      </div>
+    </div>
   );
 };
