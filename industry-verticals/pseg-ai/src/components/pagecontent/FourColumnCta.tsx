@@ -1,6 +1,6 @@
 'use client';
 
-import { JSX } from 'react';
+import type { JSX, ReactNode } from 'react';
 import {
   Field,
   ImageField,
@@ -11,6 +11,60 @@ import {
   NextImage,
 } from '@sitecore-content-sdk/nextjs';
 import useVisibility from 'src/hooks/useVisibility';
+
+type LinkFieldValue = {
+  href?: string;
+  url?: string;
+  target?: string;
+};
+
+type JsonLinkField = LinkField & { jsonValue?: { value?: LinkFieldValue } };
+
+const getLinkValue = (link?: LinkField): LinkFieldValue => {
+  if (!link) {
+    return {};
+  }
+
+  const withJson = link as JsonLinkField;
+  return (link.value ?? withJson.jsonValue?.value ?? {}) as LinkFieldValue;
+};
+
+const getLinkHref = (link?: LinkField): string => {
+  const value = getLinkValue(link);
+  return (value.href || value.url || '').trim();
+};
+
+const CardLink = ({
+  link,
+  isPageEditing,
+  children,
+}: {
+  link: LinkField;
+  isPageEditing: boolean;
+  children: ReactNode;
+}): JSX.Element => {
+  if (isPageEditing) {
+    return <Link field={link}>{children}</Link>;
+  }
+
+  const href = getLinkHref(link);
+  const target = getLinkValue(link).target;
+
+  if (!href) {
+    return <>{children}</>;
+  }
+
+  return (
+    <a
+      href={href}
+      target={target || undefined}
+      rel={target === '_blank' ? 'noopener noreferrer' : undefined}
+      className="wrapper-link"
+    >
+      {children}
+    </a>
+  );
+};
 
 interface Fields {
   Title1: Field<string>;
@@ -63,7 +117,7 @@ export const Default = (props: FourColumnCtaProps): JSX.Element => {
         }`}
         ref={domRef}
       >
-        <Link field={link}>
+        <CardLink link={link} isPageEditing={isPageEditing}>
           <div className="content-wrapper">
             <NextImage field={image} width={300} height={300} />
             <div className="text-wrapper">
@@ -75,7 +129,7 @@ export const Default = (props: FourColumnCtaProps): JSX.Element => {
               </p>
             </div>
           </div>
-        </Link>
+        </CardLink>
       </div>
     );
   };
@@ -136,14 +190,14 @@ export const Pseg = (props: FourColumnCtaProps): JSX.Element => {
     link: LinkField;
   }) => (
     <div className="pseg-shortcut">
-      <Link field={link}>
+      <CardLink link={link} isPageEditing={isPageEditing}>
         <div className="content-wrapper">
           <NextImage field={image} width={48} height={48} />
           <h2>
             <Text field={title} />
           </h2>
         </div>
-      </Link>
+      </CardLink>
     </div>
   );
 
