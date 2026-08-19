@@ -1,0 +1,533 @@
+@import 'src/assets/sass/abstracts/vars';
+@import 'src/assets/sass/abstracts/mixins';
+
+.my-account-dashboard {
+  $link: #00778b;
+  $navy: var(--brand-primary, #1b3054);
+  $orange: var(--brand-accent, #f37022);
+  $green: #2f9d55;
+  $card-border: #d5dde6;
+
+  width: 100%;
+  padding: 2rem 1.25rem 3rem;
+  background-color: #e9eff5;
+  color: var(--brand-fg, #231f20);
+  font-family: var(--brand-body-font, 'Open Sans', Arial, Helvetica, sans-serif);
+
+  &-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+  }
+
+  &-page-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &-eyebrow {
+    margin: 0 0 0.35rem;
+    color: $link;
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+
+  h1 {
+    margin: 0;
+    color: $navy;
+    font-family: var(--brand-heading-font, 'Open Sans', Arial, Helvetica, sans-serif);
+    font-size: clamp(1.65rem, 2vw, 2rem);
+    font-weight: 700;
+    line-height: 1.15;
+  }
+
+  &-appointments {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-top: 0.35rem;
+    padding: 0;
+    background: none;
+    border: 0;
+    color: var(--brand-fg, #231f20);
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: default;
+
+    svg {
+      width: 1.2rem;
+      height: 1.2rem;
+      color: $orange;
+    }
+  }
+
+  &-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.1fr) minmax(16.5rem, 0.9fr);
+    grid-template-areas:
+      'bill energy account'
+      'verify verify alerts';
+    gap: 1rem;
+    align-items: start;
+  }
+
+  &-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    padding: 1.15rem 1.2rem 1.25rem;
+    background: #fff;
+    border: 1px solid $card-border;
+    box-shadow: 0 1px 3px rgb(27 48 84 / 6%);
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 2.65rem;
+      background: $orange;
+    }
+
+    &--bill {
+      grid-area: bill;
+    }
+
+    &--energy {
+      grid-area: energy;
+    }
+
+    &--account {
+      grid-area: account;
+    }
+
+    &--verify {
+      grid-area: verify;
+    }
+
+    &--alerts {
+      grid-area: alerts;
+    }
+  }
+
+  &-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.85rem;
+
+    h2 {
+      margin: 0;
+      color: $navy;
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+  }
+
+  &-days-left {
+    margin: 0.1rem 0 0;
+    color: var(--brand-fg, #231f20);
+    font-size: 0.8rem;
+    line-height: 1.15;
+    text-align: right;
+    white-space: nowrap;
+
+    strong {
+      display: block;
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+  }
+
+  &-period {
+    margin: 0 0 1rem;
+    color: var(--brand-muted-fg, #5a6573);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  &-amount {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.15rem;
+
+    span {
+      display: block;
+      margin-bottom: 0.2rem;
+      color: var(--brand-muted-fg, #5a6573);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    strong {
+      display: block;
+      color: var(--brand-fg, #231f20);
+      font-size: 2.55rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    p {
+      max-width: 8.5rem;
+      margin: 0 0 0.35rem;
+      color: var(--brand-fg, #231f20);
+      font-size: 0.78rem;
+      line-height: 1.35;
+    }
+  }
+
+  &-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: auto;
+  }
+
+  &-actions-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+  }
+
+  &-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    width: 100%;
+    min-height: 2.65rem;
+    padding: 0.55rem 0.85rem !important;
+    border-radius: 2px !important;
+    box-shadow: none !important;
+    font-family: inherit;
+    font-size: 0.78rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    text-transform: uppercase;
+    cursor: default;
+
+    svg {
+      width: 0.95rem;
+      height: 0.95rem;
+    }
+  }
+
+  &-btn-primary {
+    background-color: $navy !important;
+    border: 0 !important;
+    color: #fff !important;
+
+    &:hover,
+    &:focus-visible {
+      background-color: var(--brand-secondary, #1b2a44) !important;
+      color: #fff !important;
+      filter: none;
+    }
+  }
+
+  &-btn-outline {
+    background-color: #fff !important;
+    border: 1px solid #1a1a1a !important;
+    color: var(--brand-fg, #231f20) !important;
+
+    &:hover,
+    &:focus-visible {
+      background-color: #f7f9fb !important;
+      color: var(--brand-fg, #231f20) !important;
+      filter: none;
+    }
+  }
+
+  &-energy {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-energy-row {
+    display: grid;
+    grid-template-columns: 5.25rem minmax(4.5rem, 1fr) minmax(0, 1.35fr);
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 0;
+
+    + .my-account-dashboard-energy-row {
+      border-top: 1px solid #e4eaef;
+    }
+  }
+
+  &-energy-service {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+    color: var(--brand-fg, #231f20);
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  &-energy-icon {
+    display: flex;
+    color: $orange;
+
+    svg {
+      width: 1.55rem;
+      height: 1.55rem;
+    }
+  }
+
+  &-energy-usage {
+    span {
+      display: block;
+      margin-bottom: 0.15rem;
+      color: var(--brand-muted-fg, #5a6573);
+      font-size: 0.8rem;
+    }
+
+    strong {
+      color: var(--brand-fg, #231f20);
+      font-size: 1.85rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+  }
+
+  &-energy-trend {
+    color: var(--brand-fg, #231f20);
+    font-size: 0.78rem;
+    line-height: 1.35;
+
+    svg {
+      width: 1.05rem;
+      height: 1.05rem;
+      color: $green;
+    }
+  }
+
+  &-energy-trend-label {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-bottom: 0.15rem;
+    color: $green;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  &-energy-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-top: auto;
+    padding-top: 1rem;
+
+    p {
+      margin: 0;
+      color: var(--brand-fg, #231f20);
+      font-size: 0.8rem;
+    }
+
+    .my-account-dashboard-btn {
+      width: auto;
+      min-width: 11.5rem;
+    }
+  }
+
+  &-profile {
+    margin-bottom: 1rem;
+    color: var(--brand-fg, #231f20);
+    font-size: 0.88rem;
+    line-height: 1.45;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &-name {
+    margin-bottom: 0.2rem !important;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  &-services {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    margin-bottom: 1rem;
+  }
+
+  &-service {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  &-service-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--brand-fg, #231f20);
+    font-size: 0.88rem;
+  }
+
+  &-check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 1.5px solid #9aa4af;
+    border-radius: 50%;
+    color: #9aa4af;
+    flex-shrink: 0;
+
+    svg {
+      width: 0.78rem;
+      height: 0.78rem;
+    }
+
+    &.is-active {
+      background: $green;
+      border-color: $green;
+      color: #fff;
+    }
+  }
+
+  &-text-link {
+    padding: 0;
+    background: none;
+    border: 0;
+    color: $link;
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-align: left;
+    white-space: nowrap;
+    cursor: default;
+  }
+
+  &-profile-link {
+    display: block;
+    width: 100%;
+    margin: 0.25rem 0 1rem;
+    text-align: center;
+  }
+
+  &-verify {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+
+    p {
+      margin: 0;
+      color: var(--brand-fg, #231f20);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .my-account-dashboard-btn {
+      width: auto;
+      min-width: 8.5rem;
+      flex-shrink: 0;
+    }
+  }
+
+  &-alert {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    color: var(--brand-fg, #231f20);
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+
+  &-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-width: 4.15rem;
+    padding: 0.22rem 0.55rem 0.22rem 0.28rem;
+    background: $green;
+    border-radius: 999px;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  &-toggle-knob {
+    width: 0.85rem;
+    height: 0.85rem;
+    background: #fff;
+    border-radius: 50%;
+  }
+
+  @include respond-to(mobile-large) {
+    &-grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        'bill energy'
+        'account alerts'
+        'verify verify';
+    }
+  }
+
+  @include respond-to(mobile-horizontal) {
+    padding: 1.5rem 1rem 2rem;
+
+    &-page-header {
+      flex-direction: column;
+    }
+
+    &-grid {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'bill'
+        'energy'
+        'account'
+        'verify'
+        'alerts';
+    }
+
+    &-amount {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &-energy-row {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+
+    &-energy-footer,
+    &-verify {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    &-energy-footer .my-account-dashboard-btn,
+    &-verify .my-account-dashboard-btn {
+      width: 100%;
+    }
+  }
+}
