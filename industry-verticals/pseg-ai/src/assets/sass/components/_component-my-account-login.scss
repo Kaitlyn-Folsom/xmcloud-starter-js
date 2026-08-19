@@ -123,6 +123,11 @@
       color: var(--brand-primary-foreground, #fff) !important;
       filter: none;
     }
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: wait;
+    }
   }
 
   &-links {

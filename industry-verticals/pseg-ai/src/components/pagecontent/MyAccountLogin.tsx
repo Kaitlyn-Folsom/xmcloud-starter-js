@@ -2,17 +2,20 @@
 
 import type { FormEvent, JSX } from 'react';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { useSitecore } from '@sitecore-content-sdk/nextjs';
 import { ComponentProps } from 'lib/component-props';
 
 type MyAccountLoginProps = ComponentProps;
 
 type FormValues = {
-  username: string;
+  email: string;
   password: string;
 };
 
 const ACCOUNT_BASE_URL = 'https://nj.myaccount.pseg.com';
+const MY_ACCOUNT_PATH = '/myaccount';
+const EMAIL_PATTERN = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
 
 const PsegLogo = (): JSX.Element => (
   <div className="pseg-login-logo" aria-label="PSE&G">
@@ -35,21 +38,20 @@ const PsegLogo = (): JSX.Element => (
   </div>
 );
 
-const sendIdentityEvent = async (username: string, pageName?: string, language?: string) => {
+const sendIdentityEvent = async (email: string, pageName?: string, language?: string) => {
   const { identity } = await import('@sitecore-content-sdk/events');
-  const identifier = username.toLowerCase();
-  const isEmail = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i.test(identifier);
+  const identifier = email.toLowerCase();
 
   await identity({
     channel: 'WEB',
     currency: 'USD',
     language: language || 'en',
     page: pageName,
-    ...(isEmail ? { email: identifier } : {}),
+    email: identifier,
     identifiers: [
       {
         id: identifier,
-        provider: isEmail ? 'email' : 'username',
+        provider: 'email',
       },
     ],
   });
@@ -58,45 +60,48 @@ const sendIdentityEvent = async (username: string, pageName?: string, language?:
 export const Default = (props: MyAccountLoginProps): JSX.Element => {
   const id = props.params?.RenderingIdentifier;
   const sxaStyles = `${props.params?.styles || ''}`;
-  const [values, setValues] = useState<FormValues>({ username: '', password: '' });
-  const [usernameError, setUsernameError] = useState('');
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const router = useRouter();
+  const [values, setValues] = useState<FormValues>({ email: '', password: '' });
+  const [emailError, setEmailError] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { page } = useSitecore() || {};
   const isEditing = Boolean(page?.mode?.isEditing);
-  const isPreview = Boolean(page?.mode?.isPreview);
-  const isNormal = Boolean(page?.mode?.isNormal);
   const route = page?.layout?.sitecore?.route;
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const username = values.username.trim();
+    const email = values.email.trim();
     // Demo login: any password is accepted and never sent with the identity event.
     void values.password;
 
-    if (!username) {
-      setUsernameError('Username is required');
+    if (!email) {
+      setEmailError('Email is required');
       return;
     }
 
-    setUsernameError('');
-
-    const shouldSendIdentityEvent =
-      process.env.NODE_ENV !== 'development' && isNormal && !isEditing && !isPreview;
-
-    if (shouldSendIdentityEvent) {
-      await sendIdentityEvent(username, route?.name, route?.itemLanguage).catch((error) => {
-        const status = (error as { status?: number })?.status;
-        if (status !== 404 && status !== 0) {
-          console.debug('My Account IDENTITY event error:', error);
-        }
-      });
+    if (!EMAIL_PATTERN.test(email)) {
+      setEmailError('Enter a valid email address');
+      return;
     }
 
-    setIsSubmitted(true);
-  };
+    setEmailError('');
 
-  const showSuccess = isSubmitted && !isEditing;
+    if (isEditing) {
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    await sendIdentityEvent(email, route?.name, route?.itemLanguage).catch((error) => {
+      const status = (error as { status?: number })?.status;
+      if (status !== 404 && status !== 0) {
+        console.debug('My Account IDENTITY event error:', error);
+      }
+    });
+
+    router.push(MY_ACCOUNT_PATH);
+  };
 
   return (
     <section className={`component my-account-login ${sxaStyles}`} id={id ? id : undefined}>
@@ -105,62 +110,60 @@ export const Default = (props: MyAccountLoginProps): JSX.Element => {
           <PsegLogo />
         </div>
 
-        {showSuccess ? (
-          <p className="my-account-login-success">
-            You are signed in. Continue to My Account to manage your service.
-          </p>
-        ) : (
-          <form onSubmit={handleSubmit} noValidate>
-            <h1 className="my-account-login-title">Login</h1>
+        <form onSubmit={handleSubmit} noValidate>
+          <h1 className="my-account-login-title">Login</h1>
 
-            <label className="my-account-login-label" htmlFor="my-account-username">
-              Username
-            </label>
-            <input
-              id="my-account-username"
-              className="my-account-login-input"
-              type="text"
-              name="username"
-              autoComplete="username"
-              value={values.username}
-              onChange={(event) =>
-                setValues((current) => ({ ...current, username: event.target.value }))
-              }
-            />
-            {usernameError && <p className="my-account-login-error">{usernameError}</p>}
+          <label className="my-account-login-label" htmlFor="my-account-email">
+            Email
+          </label>
+          <input
+            id="my-account-email"
+            className="my-account-login-input"
+            type="email"
+            name="email"
+            autoComplete="email"
+            value={values.email}
+            onChange={(event) =>
+              setValues((current) => ({ ...current, email: event.target.value }))
+            }
+          />
+          {emailError && <p className="my-account-login-error">{emailError}</p>}
 
-            <label className="my-account-login-label" htmlFor="my-account-password">
-              Password
-            </label>
-            <input
-              id="my-account-password"
-              className="my-account-login-input"
-              type="password"
-              name="password"
-              autoComplete="current-password"
-              value={values.password}
-              onChange={(event) =>
-                setValues((current) => ({ ...current, password: event.target.value }))
-              }
-            />
+          <label className="my-account-login-label" htmlFor="my-account-password">
+            Password
+          </label>
+          <input
+            id="my-account-password"
+            className="my-account-login-input"
+            type="password"
+            name="password"
+            autoComplete="current-password"
+            value={values.password}
+            onChange={(event) =>
+              setValues((current) => ({ ...current, password: event.target.value }))
+            }
+          />
 
-            <button type="submit" className="button button-main my-account-login-submit">
-              Login
-            </button>
+          <button
+            type="submit"
+            className="button button-main my-account-login-submit"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? 'Signing in…' : 'Login'}
+          </button>
 
-            <ul className="my-account-login-links">
-              <li>
-                <a href={`${ACCOUNT_BASE_URL}/user/unlock`}>Unlock account?</a>
-              </li>
-              <li>
-                <a href={`${ACCOUNT_BASE_URL}/user/forgot-username`}>Forgot username?</a>
-              </li>
-              <li>
-                <a href="/">Back to PSE&amp;G</a>
-              </li>
-            </ul>
-          </form>
-        )}
+          <ul className="my-account-login-links">
+            <li>
+              <a href={`${ACCOUNT_BASE_URL}/user/unlock`}>Unlock account?</a>
+            </li>
+            <li>
+              <a href={`${ACCOUNT_BASE_URL}/user/forgot-username`}>Forgot username?</a>
+            </li>
+            <li>
+              <a href="/">Back to PSE&amp;G</a>
+            </li>
+          </ul>
+        </form>
 
         <div className="my-account-login-register">
           Don&apos;t have an account?{' '}
