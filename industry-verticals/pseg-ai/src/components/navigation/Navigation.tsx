@@ -22,7 +22,17 @@ type NavigationProps = {
   relativeLevel: number;
 };
 
+const HEADER_LOGIN_PATH = '/login';
+const HEADER_LOGIN_LABEL = 'Login';
+
+const isHeaderCtaButton = (fields: Fields): boolean =>
+  Boolean(fields.Styles?.includes('button-nav-item'));
+
 const getNavigationText = function (props: NavigationProps): JSX.Element | string {
+  if (isHeaderCtaButton(props.fields)) {
+    return HEADER_LOGIN_LABEL;
+  }
+
   let text;
 
   if (props.fields.NavigationTitle) {
@@ -36,13 +46,24 @@ const getNavigationText = function (props: NavigationProps): JSX.Element | strin
   return text;
 };
 
-const getLinkField = (props: NavigationProps): LinkField => ({
-  value: {
-    href: props.fields.Href,
-    title: getLinkTitle(props),
-    querystring: props.fields.Querystring,
-  },
-});
+const getLinkField = (props: NavigationProps): LinkField => {
+  if (isHeaderCtaButton(props.fields)) {
+    return {
+      value: {
+        href: HEADER_LOGIN_PATH,
+        title: HEADER_LOGIN_LABEL,
+      },
+    };
+  }
+
+  return {
+    value: {
+      href: props.fields.Href,
+      title: getLinkTitle(props),
+      querystring: props.fields.Querystring,
+    },
+  };
+};
 
 export const Default = (props: NavigationProps): JSX.Element => {
   const [isPreviewSearchOpen, setIsPreviewSearchOpen] = useState(false);
