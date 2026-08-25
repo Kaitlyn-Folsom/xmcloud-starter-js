@@ -1,0 +1,152 @@
+# Client Brand Theme — Michigan State University
+# Extracted from: https://msu.edu
+# Official palette: https://brand.msu.edu/visual/color-palette
+# Official type: Metropolis — https://brand.msu.edu/visual/typography
+
+client:
+  name: "Michigan State University"
+  sourceUrl: "https://msu.edu"
+  extractedAt: "2026-08-25T19:10:00Z"
+  extractedBy: "cursor"
+
+colors:
+  primary: "#18453B"
+  primaryForeground: "#ffffff"
+  secondary: "#0B3D2E"
+  secondaryForeground: "#ffffff"
+  accent: "#7BBD00"
+  accentForeground: "#18453B"
+  background: "#ffffff"
+  foreground: "#212529"
+  muted: "#F3F3F3"
+  mutedForeground: "#5A6872"
+  headerBackground: "#18453B"
+  headerForeground: "#ffffff"
+  footerBackground: "#18453B"
+  footerForeground: "#ffffff"
+  border: "#D8D8D8"
+  ring: "#18453B"
+  extra:
+    - { name: "spartanGreen", value: "#18453B" }
+    - { name: "kellyGreen", value: "#008208" }
+    - { name: "limeGreen", value: "#7BBD00" }
+    - { name: "excellenceGreen", value: "#0B9A6D" }
+    - { name: "refreshGreen", value: "#008934" }
+    - { name: "black", value: "#000000" }
+
+typography:
+  headingFamily: "'Metropolis', 'Montserrat', sans-serif"
+  headingWeight: "700"
+  bodyFamily: "'Metropolis', 'Montserrat', sans-serif"
+  bodyWeight: "400"
+  monoFamily: "ui-monospace, SFMono-Regular, Menlo, monospace"
+  googleFontsUrl: "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;0,800;1,400&display=swap"
+  metropolisCssUrl: "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/1a1d46b45afb40eda6ebf4ed44077295"
+  scale:
+    hero: "3.75rem"
+    h1: "2.25rem"
+    h2: "1.75rem"
+    h3: "1.25rem"
+    body: "1rem"
+    small: "0.875rem"
+  headingTransform: "uppercase"
+  letterSpacing: "0.05em"
+  lineHeight: "relaxed"
+
+spacing:
+  density: "spacious"
+  sectionGap: "5rem"
+  containerMaxWidth: "1170px"
+  containerPadding: "1.5rem"
+
+shape:
+  borderRadius: "0px"
+  buttonRadius: "0px"
+  cardRadius: "0px"
+  imageRadius: "0px"
+  shadowStyle: "none"
+  borderStyle: "none"
+
+tone:
+  overall: "institutional"
+  colorMode: "mixed"
+  contrast: "high"
+  imagery: "photography"
+  heroStyle: "full-bleed-image"
+  cardStyle: "image-top"
+  navStyle: "solid-bar"
+
+tailwind:
+  colors:
+    brand:
+      primary: "#18453B"
+      secondary: "#0B3D2E"
+      accent: "#7BBD00"
+  fontFamily:
+    heading: ["Metropolis", "Montserrat", "sans-serif"]
+    body: ["Metropolis", "Montserrat", "sans-serif"]
+  borderRadius:
+    DEFAULT: "0px"
+    button: "0px"
+    card: "0px"
+
+cssVariables: |
+  :root {
+    --brand-primary: #18453B;
+    --brand-primary-foreground: #ffffff;
+    --brand-secondary: #0B3D2E;
+    --brand-secondary-foreground: #ffffff;
+    --brand-accent: #7BBD00;
+    --brand-accent-foreground: #18453B;
+    --brand-bg: #ffffff;
+    --brand-fg: #212529;
+    --brand-muted: #F3F3F3;
+    --brand-muted-fg: #5A6872;
+    --brand-header-bg: #18453B;
+    --brand-header-fg: #ffffff;
+    --brand-footer-bg: #18453B;
+    --brand-footer-fg: #ffffff;
+    --brand-border: #D8D8D8;
+    --brand-ring: #18453B;
+    --brand-heading-font: 'Metropolis', 'Montserrat', sans-serif;
+    --brand-body-font: 'Metropolis', 'Montserrat', sans-serif;
+    --brand-radius: 0px;
+    --brand-button-radius: 0px;
+    --brand-card-radius: 0px;
+  }
+
+# Maps onto the Financial/PLAY starter CSS variables in
+# src/assets/sass/abstracts/vars/_colors.scss
+starterThemeVariables: |
+  body.site-financial,
+  .site-financial {
+    --text-body: #212529;
+    --text-body-inverted: #ffffff;
+    --text-colored: #18453B;
+    --text-footer: #ffffff;
+    --text-accent: #7BBD00;
+    --bg-body: #ffffff;
+    --bg-footer: #18453B;
+    --bg-main: #F3F3F3;
+    --bg-main-alt: #F3F3F3;
+    --bg-color: #18453B;
+    --bg-saturated: #18453B;
+    --bg-accent: #7BBD00;
+    --border-color: #D8D8D8;
+    --hr-color: #ffffff;
+    --roundness: 0px;
+    --font-family: 'Metropolis', 'Montserrat', sans-serif;
+  }
+
+extraction:
+  confidence: "high"
+  method: "playwright-full"
+  notes:
+    - "Primary button computed style rgb(24, 69, 59) matches official Spartan Green #18453B."
+    - "Headings use Metropolis (official MSU brand font, hosted on MSU Content Hub). Montserrat is the Google Fonts fallback."
+    - "Buttons and cards are sharp-cornered (0px radius) — do not apply the starter's 1rem roundness."
+    - "Nav is a solid Spartan Green bar under a logo/search row (solid-bar, not transparent overlay)."
+    - "Hero is full-bleed photography with left-aligned white overlay and a green Apply Today button."
+    - "Accent greens (Lime #7BBD00, Excellence #0B9A6D) appear on ranking mosaic tiles, not on primary buttons."
+    - "Footer computed style came back white (scraper missed the dark footer). Screenshot + brand guidelines confirm footer is Spartan Green."
+    - "This starter applies theme via .site-financial CSS variables, not the UIIM --brand-* contract. Phase 4 should update _colors.scss and _fonts.scss."

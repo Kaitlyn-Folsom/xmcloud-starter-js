@@ -1,0 +1,1512 @@
+{
+  "url": "https://msu.edu",
+  "extractedAt": "2026-08-25T19:14:50.298Z",
+  "detectedLanguage": "en",
+  "targetLanguage": "en",
+  "translationNeeded": false,
+  "totalSections": 11,
+  "totalImages": 28,
+  "totalVideos": 0,
+  "interactionStats": {
+    "lazySourcesResolved": 13,
+    "tabsClicked": 0,
+    "accordionsExpanded": 0,
+    "carouselDotsClicked": 0,
+    "carouselArrowSlides": 0,
+    "backgroundImagesCollected": 15
+  },
+  "sections": [
+    {
+      "position": 1,
+      "tagName": "header",
+      "classHint": "",
+      "backgroundHint": "dark",
+      "headings": [
+        {
+          "tag": "h3",
+          "text": "Explore ways MSU is creating a stronger Michigan."
+        },
+        {
+          "tag": "h3",
+          "text": "Join the next generation of Spartans!"
+        },
+        {
+          "tag": "h3",
+          "text": "More than 400 programs of study"
+        },
+        {
+          "tag": "h3",
+          "text": "Federal investment in MSU research fuels solutions that make life better."
+        },
+        {
+          "tag": "h3",
+          "text": "More than 50,000 students from all 50 states and 133 other countries"
+        }
+      ],
+      "paragraphs": [
+        "< Admissions",
+        "< Academics",
+        "< Campus Life",
+        "< Athletics"
+      ],
+      "links": [
+        {
+          "text": "Michigan State University",
+          "href": "https://msu.edu/",
+          "target": ""
+        },
+        {
+          "text": "Future Students",
+          "href": "https://msu.edu/future-students",
+          "target": ""
+        },
+        {
+          "text": "Current Students",
+          "href": "https://msu.edu/students",
+          "target": ""
+        },
+        {
+          "text": "Alumni",
+          "href": "https://msu.edu/alumni",
+          "target": ""
+        },
+        {
+          "text": "Faculty & Staff",
+          "href": "https://msu.edu/faculty-staff",
+          "target": ""
+        },
+        {
+          "text": "Apply",
+          "href": "https://admissions.msu.edu/apply",
+          "target": ""
+        },
+        {
+          "text": "Visit",
+          "href": "https://msu.edu/visit",
+          "target": ""
+        },
+        {
+          "text": "Give",
+          "href": "https://givingto.msu.edu/causes-to-support/colleges-and-units?sa=UCOMMSWEB&utm_medium=referral&utm_source=msu&utm_campaign=ag&utm_content=give_home",
+          "target": ""
+        },
+        {
+          "text": "About",
+          "href": "https://msu.edu/about",
+          "target": ""
+        },
+        {
+          "text": "Admissions",
+          "href": "https://admissions.msu.edu/",
+          "target": ""
+        },
+        {
+          "text": "Academics",
+          "href": "https://msu.edu/academics",
+          "target": ""
+        },
+        {
+          "text": "Research",
+          "href": "https://msu.edu/research",
+          "target": ""
+        },
+        {
+          "text": "Campus Life",
+          "href": "https://msu.edu/campus-life",
+          "target": ""
+        },
+        {
+          "text": "Athletics",
+          "href": "https://msuspartans.com/",
+          "target": ""
+        },
+        {
+          "text": "MSUToday",
+          "href": "https://msutoday.msu.edu/",
+          "target": ""
+        },
+        {
+          "text": "Overview",
+          "href": "https://msu.edu/about",
+          "target": ""
+        },
+        {
+          "text": "MSU Facts",
+          "href": "https://msu.edu/about/facts",
+          "target": ""
+        },
+        {
+          "text": "Excellence",
+          "href": "https://msu.edu/excellence",
+          "target": ""
+        },
+        {
+          "text": "History",
+          "href": "https://msu.edu/about/history",
+          "target": ""
+        },
+        {
+          "text": "Leadership",
+          "href": "https://msu.edu/about/leadership",
+          "target": ""
+        },
+        {
+          "text": "Inclusion",
+          "href": "https://admissions.msu.edu/life-at-msu/inclusion",
+          "target": ""
+        },
+        {
+          "text": "Careers",
+          "href": "https://careers.msu.edu/",
+          "target": ""
+        },
+        {
+          "text": "Spartan Success",
+          "href": "https://careernetwork.msu.edu/outcomes/",
+          "target": ""
+        },
+        {
+          "text": "Mission Statement",
+          "href": "https://trustees.msu.edu/about/mission.html",
+          "target": ""
+        },
+        {
+          "text": "Learn more",
+          "href": "https://msu.edu/strongermichigan",
+          "target": ""
+        },
+        {
+          "text": "Overview",
+          "href": "https://admissions.msu.edu/",
+          "target": ""
+        },
+        {
+          "text": "First-Year Applicants",
+          "href": "https://admissions.msu.edu/apply/first-year",
+          "target": ""
+        },
+        {
+          "text": "Transfer Applicants",
+          "href": "https://admissions.msu.edu/apply/transfer",
+          "target": ""
+        },
+        {
+          "text": "International Applicants",
+          "href": "https://admissions.msu.edu/apply/international",
+          "target": ""
+        },
+        {
+          "text": "Graduate Applicants",
+          "href": "https://admissions.msu.edu/apply/graduate-students",
+          "target": ""
+        },
+        {
+          "text": "Other Applicants",
+          "href": "https://admissions.msu.edu/apply#otherapplicants",
+          "target": ""
+        },
+        {
+          "text": "Cost & Financial Aid",
+          "href": "https://admissions.msu.edu/cost-aid",
+          "target": ""
+        },
+        {
+          "text": "Majors, Degrees & Programs",
+          "href": "https://admissions.msu.edu/academics/majors-degrees-programs",
+          "target": ""
+        },
+        {
+          "text": "Career Interest Areas",
+          "href": "https://admissions.msu.edu/academics/career-interest-areas",
+          "target": ""
+        },
+        {
+          "text": "Life at MSU",
+          "href": "https://admissions.msu.edu/life-at-msu",
+          "target": ""
+        },
+        {
+          "text": "Schedule a Visit",
+          "href": "https://admissions.msu.edu/visit",
+          "target": ""
+        },
+        {
+          "text": "Admitted Students / Next Steps",
+          "href": "https://admissions.msu.edu/admitted",
+          "target": ""
+        },
+        {
+          "text": "Apply now",
+          "href": "https://admissions.msu.edu/apply",
+          "target": ""
+        },
+        {
+          "text": "Overview",
+          "href": "https://msu.edu/academics",
+          "target": ""
+        },
+        {
+          "text": "Colleges & Programs",
+          "href": "https://msu.edu/academics/colleges-programs",
+          "target": ""
+        },
+        {
+          "text": "Education Abroad",
+          "href": "https://educationabroad.isp.msu.edu/",
+          "target": ""
+        },
+        {
+          "text": "Graduate Programs",
+          "href": "https://grad.msu.edu/",
+          "target": ""
+        },
+        {
+          "text": "Honors College",
+          "href": "https://honorscollege.msu.edu/",
+          "target": ""
+        },
+        {
+          "text": "Undergraduate Research",
+          "href": "https://www.urca.msu.edu/",
+          "target": ""
+        },
+        {
+          "text": "Online Programs",
+          "href": "https://online.msu.edu/",
+          "target": ""
+        },
+        {
+          "text": "Academic Calendar",
+          "href": "https://reg.msu.edu/ROInfo/Calendar/academic.aspx",
+          "target": ""
+        },
+        {
+          "text": "Enrollment & Registration",
+          "href": "https://reg.msu.edu/roinfo/Enrollment.aspx",
+          "target": ""
+        },
+        {
+          "text": "Advising",
+          "href": "https://advising.msu.edu/",
+          "target": ""
+        },
+        {
+          "text": "Libraries",
+          "href": "https://lib.msu.edu/",
+          "target": ""
+        },
+        {
+          "text": "Resource Center for Persons with Disabilities",
+          "href": "https://www.rcpd.msu.edu/",
+          "target": ""
+        },
+        {
+          "text": "Find yours",
+          "href": "https://admissions.msu.edu/academics/majors-degrees-programs/default.aspx",
+          "target": ""
+        },
+        {
+          "text": "Overview",
+          "href": "https://msu.edu/research",
+          "target": ""
+        },
+        {
+          "text": "Global Impact Initiative",
+          "href": "https://research.msu.edu/global-impact/",
+          "target": ""
+        },
+        {
+          "text": "Centers & Institutes",
+          "href": "https://research.msu.edu/research-centers/",
+          "target": ""
+        },
+        {
+          "text": "Office of Research and Innovation",
+          "href": "https://research.msu.edu/",
+          "target": ""
+        },
+        {
+          "text": "Student Research",
+          "href": "http://research.msu.edu/student-research/",
+          "target": ""
+        },
+        {
+          "text": "AgBioResearch",
+          "href": "https://www.canr.msu.edu/research/",
+          "target": ""
+        },
+        {
+          "text": "MSU Innovation Center",
+          "href": "https://innovationcenter.msu.edu/",
+          "target": ""
+        },
+        {
+          "text": "University Research Corridor",
+          "href": "https://urcmich.org/",
+          "target": ""
+        },
+        {
+          "text": "/researchforyou",
+          "href": "https://msu.edu/researchforyou",
+          "target": "_blank"
+        },
+        {
+          "text": "Overview",
+          "href": "https://msu.edu/campus-life",
+          "target": ""
+        },
+        {
+          "text": "Live off Campus",
+          "href": "https://offcampushousing.msu.edu/",
+          "target": ""
+        },
+        {
+          "text": "Live on Campus",
+          "href": "https://liveon.msu.edu/",
+          "target": ""
+        },
+        {
+          "text": "Latest News",
+          "href": "https://msutoday.msu.edu/",
+          "target": ""
+        },
+        {
+          "text": "Arts",
+          "href": "https://arts.msu.edu/",
+          "target": ""
+        },
+        {
+          "text": "Institutional Diversity and Inclusion",
+          "href": "https://inclusion.msu.edu/",
+          "target": ""
+        },
+        {
+          "text": "Culture of Support",
+          "href": "https://supportmore.msu.edu/",
+          "target": ""
+        },
+        {
+          "text": "Office for Civil Rights & Title IX",
+          "href": "https://civilrights.msu.edu/",
+          "target": ""
+        },
+        {
+          "text": "Visit MSU",
+          "href": "https://msu.edu/visit",
+          "target": ""
+        },
+        {
+          "text": "Read More",
+          "href": "https://inclusion.msu.edu/",
+          "target": ""
+        }
+      ],
+      "images": [
+        {
+          "src": "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/thumbnail-8d39f57bfa8e449e813804ebaf35b6e8?v=164e6289",
+          "alt": "2024_Mackinac_Bridge_Aerial_00008.GM.jpg",
+          "type": "img",
+          "width": 500,
+          "height": 300
+        },
+        {
+          "src": "https://edge.sitecorecloud.io/michiganstab57e-msustrategi129d-prod9868-7e5e/media/project/msu/msu/student.jpg?h=496&iar=0&w=720",
+          "alt": "Student holding a Spartan flag. ",
+          "type": "img",
+          "width": 720,
+          "height": 496
+        },
+        {
+          "src": "https://edge.sitecorecloud.io/michiganstab57e-msustrategi129d-prod9868-7e5e/media/project/msu/msu/students-citizen-scholar-lecture-classroom.jpg?h=605&iar=0&w=1024",
+          "alt": "Students in classroom",
+          "type": "img",
+          "width": 1024,
+          "height": 605
+        },
+        {
+          "src": "https://edge.sitecorecloud.io/michiganstab57e-msustrategi129d-prod9868-7e5e/media/project/msu/msu/images/research/research-for-you-nav-graphic.jpg?h=800&iar=0&w=1000",
+          "alt": "Research for You",
+          "type": "img",
+          "width": 1000,
+          "height": 800
+        },
+        {
+          "src": "https://edge.sitecorecloud.io/michiganstab57e-msustrategi129d-prod9868-7e5e/media/project/msu/msu/images/campus-life/campus-life-students-walking.jpg?h=2236&iar=0&w=2450",
+          "alt": "Students walking and biking",
+          "type": "img",
+          "width": 2450,
+          "height": 2236
+        },
+        {
+          "src": "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/ef59ac8fa9e6491f8186787d4e738ae5?v=1eefe611",
+          "alt": "A005897 (1).jpg",
+          "type": "img",
+          "width": 1200,
+          "height": 600
+        },
+        {
+          "src": "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/abaf286cae754222b4902da2a9b1b9d0?v=64257edf",
+          "alt": "Two researchers stand beside a patient positioned inside MSU’s Biograph One imaging scanner as one points to projected medical data on the machine.",
+          "type": "img",
+          "width": 1200,
+          "height": 600
+        },
+        {
+          "src": "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/686cf9cec7ce4712a44b7e74ec591799?v=8c7710ec",
+          "alt": "A person stands knee-deep in a river, collecting water samples with a container. Surrounding environment includes dense green trees and a rocky riverbank.",
+          "type": "img",
+          "width": 1200,
+          "height": 600
+        }
+      ],
+      "listItems": [
+        {
+          "title": "Michigan State University",
+          "description": "For:",
+          "link": {
+            "text": "Michigan State University",
+            "href": "https://msu.edu/"
+          }
+        },
+        {
+          "title": "Michigan State University",
+          "link": {
+            "text": "Michigan State University",
+            "href": "https://msu.edu/"
+          }
+        }
+      ]
+    },
+    {
+      "position": 2,
+      "tagName": "section",
+      "classHint": "hero-banner  gradient  ",
+      "backgroundHint": "dark",
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "BE A SPARTAN"
+        }
+      ],
+      "paragraphs": [
+        "Are you ready to join the next generation of Spartans? Applications are now open for fall 2027."
+      ],
+      "links": [
+        {
+          "text": "Apply Today",
+          "href": "https://admissions.msu.edu/apply",
+          "target": ""
+        }
+      ],
+      "images": [
+        {
+          "src": "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/19a78794a4ea4244844888bcfa55ee03?v=d295c911",
+          "alt": "",
+          "type": "background",
+          "width": null,
+          "height": null
+        }
+      ]
+    },
+    {
+      "position": 3,
+      "tagName": "section",
+      "classHint": "component mixed-content columns ",
+      "backgroundHint": "dark",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Majors, degrees, programs"
+        },
+        {
+          "tag": "h2",
+          "text": "Request information"
+        },
+        {
+          "tag": "h2",
+          "text": "Visit campus"
+        }
+      ],
+      "paragraphs": [
+        "Future Spartans, We're Here For You",
+        "Choose from more than 400 areas of study across 16 colleges and unrivaled opportunities for undergraduate research.",
+        "Want to find out more about what life is like as a Spartan? We have the most up-to-date information you need on your journey to becoming a Spartan. We're always happy to help!",
+        "Attend an in-person or virtual tour, or sign up for a virtual admissions event. We can't wait to welcome you to campus, and show you around!"
+      ],
+      "links": [
+        {
+          "text": "Explore programs",
+          "href": "https://admissions.msu.edu/academics/majors-degrees-programs",
+          "target": ""
+        },
+        {
+          "text": "Contact Us",
+          "href": "https://admissions.msu.edu/request-information",
+          "target": ""
+        },
+        {
+          "text": "Get started",
+          "href": "https://admissions.msu.edu/visit",
+          "target": ""
+        }
+      ],
+      "images": [
+        {
+          "src": "https://edge.sitecorecloud.io/michiganstab57e-msustrategi129d-prod9868-7e5e/media/project/msu/msu/images/home/2021-03-01-lab-student-dlt1.jpg?h=1686&iar=0&w=3000",
+          "alt": "",
+          "type": "background",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "https://edge.sitecorecloud.io/michiganstab57e-msustrategi129d-prod9868-7e5e/media/project/msu/msu/images/home/2024-09-09-hat-dlt1.jpg?h=1686&iar=0&w=3000",
+          "alt": "",
+          "type": "background",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "https://edge.sitecorecloud.io/michiganstab57e-msustrategi129d-prod9868-7e5e/media/project/msu/msu/images/home/2024-06-24-aerial-gm1.jpg?h=1686&iar=0&w=3000",
+          "alt": "",
+          "type": "background",
+          "width": null,
+          "height": null
+        }
+      ],
+      "listItems": [
+        {
+          "title": "Majors, degrees, programs",
+          "description": "Choose from more than 400 areas of study across 16 colleges and unrivaled opportunities for undergraduate research.",
+          "link": {
+            "text": "",
+            "href": "https://admissions.msu.edu/academics/majors-degrees-programs"
+          },
+          "image": {
+            "src": "https://edge.sitecorecloud.io/michiganstab57e-msustrategi129d-prod9868-7e5e/media/project/msu/msu/images/home/2021-03-01-lab-student-dlt1.jpg?h=1686&iar=0&w=3000",
+            "alt": ""
+          }
+        },
+        {
+          "title": "Request information",
+          "description": "Want to find out more about what life is like as a Spartan? We have the most up-to-date information you need on your journey to becoming a Spartan. We're always happy to help!",
+          "link": {
+            "text": "",
+            "href": "https://admissions.msu.edu/request-information"
+          },
+          "image": {
+            "src": "https://edge.sitecorecloud.io/michiganstab57e-msustrategi129d-prod9868-7e5e/media/project/msu/msu/images/home/2024-09-09-hat-dlt1.jpg?h=1686&iar=0&w=3000",
+            "alt": ""
+          }
+        },
+        {
+          "title": "Visit campus",
+          "description": "Attend an in-person or virtual tour, or sign up for a virtual admissions event. We can't wait to welcome you to campus, and show you around!",
+          "link": {
+            "text": "",
+            "href": "https://admissions.msu.edu/visit"
+          },
+          "image": {
+            "src": "https://edge.sitecorecloud.io/michiganstab57e-msustrategi129d-prod9868-7e5e/media/project/msu/msu/images/home/2024-06-24-aerial-gm1.jpg?h=1686&iar=0&w=3000",
+            "alt": ""
+          }
+        }
+      ]
+    },
+    {
+      "position": 4,
+      "tagName": "section",
+      "classHint": "component mixed-content columns ",
+      "backgroundHint": "dark",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "New tools at MSU are helping engineer the future of medicine"
+        },
+        {
+          "tag": "h2",
+          "text": "This Spartan health entrepreneur is investing in MSU’s future innovators"
+        },
+        {
+          "tag": "h2",
+          "text": "Bringing butterflies back from the brink of extinction"
+        }
+      ],
+      "paragraphs": [
+        "Latest news"
+      ],
+      "links": [
+        {
+          "text": "Read more",
+          "href": "https://msutoday.msu.edu/news/2026/07/tools-drive-one-health-forward",
+          "target": ""
+        },
+        {
+          "text": "Read more",
+          "href": "https://msutoday.msu.edu/news/2026/07/spartan-health-entrepreneur-investing-future-innovators",
+          "target": ""
+        },
+        {
+          "text": "Read more",
+          "href": "https://msutoday.msu.edu/news/2026/08/bringing-butterflies-back-from-extinction",
+          "target": ""
+        }
+      ],
+      "images": [
+        {
+          "src": "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/aa6e57f7bb9542abb5b450386dde5831?v=27542548",
+          "alt": "",
+          "type": "background",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/b069bf4f59644561a19a713f7fa730ac?v=af0095fb",
+          "alt": "",
+          "type": "background",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/01a8f694c8ed450ca0f1882c7316b570?v=c7424f59",
+          "alt": "",
+          "type": "background",
+          "width": null,
+          "height": null
+        }
+      ],
+      "listItems": [
+        {
+          "title": "New tools at MSU are helping engineer the future of medicine",
+          "link": {
+            "text": "",
+            "href": "https://msutoday.msu.edu/news/2026/07/tools-drive-one-health-forward"
+          },
+          "image": {
+            "src": "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/aa6e57f7bb9542abb5b450386dde5831?v=27542548",
+            "alt": ""
+          }
+        },
+        {
+          "title": "This Spartan health entrepreneur is investing in MSU’s future innovators",
+          "link": {
+            "text": "",
+            "href": "https://msutoday.msu.edu/news/2026/07/spartan-health-entrepreneur-investing-future-innovators"
+          },
+          "image": {
+            "src": "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/b069bf4f59644561a19a713f7fa730ac?v=af0095fb",
+            "alt": ""
+          }
+        },
+        {
+          "title": "Bringing butterflies back from the brink of extinction",
+          "link": {
+            "text": "",
+            "href": "https://msutoday.msu.edu/news/2026/08/bringing-butterflies-back-from-extinction"
+          },
+          "image": {
+            "src": "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/01a8f694c8ed450ca0f1882c7316b570?v=c7424f59",
+            "alt": ""
+          }
+        }
+      ]
+    },
+    {
+      "position": 5,
+      "tagName": "section",
+      "classHint": "component grid-container",
+      "backgroundHint": "dark",
+      "headings": [
+        {
+          "tag": "h4",
+          "text": "U.S. News and World Report ranks MSU in top 6% of universities"
+        },
+        {
+          "tag": "h3",
+          "text": "Top 50"
+        },
+        {
+          "tag": "h4",
+          "text": "Green college"
+        },
+        {
+          "tag": "h3",
+          "text": "Top 30"
+        },
+        {
+          "tag": "h4",
+          "text": "Public university"
+        },
+        {
+          "tag": "h4",
+          "text": "MSU ranks No. 2 in nation for sustainability impact"
+        }
+      ],
+      "paragraphs": [],
+      "links": [
+        {
+          "text": "Story",
+          "href": "https://msutoday.msu.edu/news/2026/06/usnwr-2026-best-global-universities",
+          "target": ""
+        },
+        {
+          "text": "Story",
+          "href": "https://msutoday.msu.edu/news/2026/06/times-higher-ed-sustainability-impact-2026",
+          "target": ""
+        }
+      ],
+      "images": [
+        {
+          "src": "https://edge.sitecorecloud.io/michiganstab57e-msustrategi129d-prod9868-7e5e/media/project/msu/msu/images/home/beaumont1.jpg?h=627&iar=0&w=400",
+          "alt": "",
+          "type": "background",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/0ccd7735dabf4b78b36cd4dfd70698c3?v=1fc13b69",
+          "alt": "",
+          "type": "background",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/e47c3bf428d44319aa081f16a54942c0?v=e1184a32",
+          "alt": "",
+          "type": "background",
+          "width": null,
+          "height": null
+        }
+      ],
+      "listItems": [
+        {
+          "image": {
+            "src": "https://edge.sitecorecloud.io/michiganstab57e-msustrategi129d-prod9868-7e5e/media/project/msu/msu/images/home/beaumont1.jpg?h=627&iar=0&w=400",
+            "alt": ""
+          }
+        },
+        {
+          "title": "U.S. News and World Report ranks MSU in top 6% of universities",
+          "description": "",
+          "link": {
+            "text": "Story",
+            "href": "https://msutoday.msu.edu/news/2026/06/usnwr-2026-best-global-universities"
+          },
+          "image": {
+            "src": "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/0ccd7735dabf4b78b36cd4dfd70698c3?v=1fc13b69",
+            "alt": ""
+          }
+        }
+      ]
+    },
+    {
+      "position": 6,
+      "tagName": "section",
+      "classHint": "component mixed-content columns ",
+      "backgroundHint": "dark",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "IFL Science"
+        },
+        {
+          "tag": "h2",
+          "text": "The Conversation"
+        },
+        {
+          "tag": "h2",
+          "text": "CBC News"
+        }
+      ],
+      "paragraphs": [
+        "MSU IN THE NEWS",
+        "A new longest-living fish? Sturgeon could top 400 years – far longer than scientists believed: Assistant Professor Scott Colborne in the Department of Fisheries and Wildlife at the College of Agriculture and Natural Resources offers new research.",
+        "Detroit wants to elevate youth voices in leadership – that means giving them real power: Krista Mehari, associate professor in the Department of Public Health at the College of Human Medicine, published an article about how the city of Detroit's effort to engage young people must mean they are included at the decision table.",
+        "Canadian workers speak out against growing screen time surveillance: Tara Behrend, a professor in the School of Human Resources and Labor Relations, explains her research on monitoring and surveillance tools when it comes to employee anxiety and productivity."
+      ],
+      "links": [
+        {
+          "text": "Read more",
+          "href": "https://www.iflscience.com/a-new-longest-living-fish-sturgeon-could-top-400-years-far-longer-than-scientists-believed-but-something-indigenous-communities-had-long-understood-84308",
+          "target": "_blank"
+        },
+        {
+          "text": "Read more",
+          "href": "https://theconversation.com/detroit-wants-to-elevate-youth-voices-in-leadership-that-means-giving-them-real-power-284816",
+          "target": "_blank"
+        },
+        {
+          "text": "Read more",
+          "href": "https://www.cbc.ca/news/canada/td-bank-bell-workplace-screentime-monitoring-9.7296526",
+          "target": "_blank"
+        }
+      ],
+      "images": [],
+      "listItems": [
+        {
+          "title": "IFL Science",
+          "description": "A new longest-living fish? Sturgeon could top 400 years – far longer than scientists believed: Assistant Professor Scott Colborne in the Department of Fisheries and Wildlife at the College of Agriculture and Natural Resources offers new research.",
+          "link": {
+            "text": "Read more",
+            "href": "https://www.iflscience.com/a-new-longest-living-fish-sturgeon-could-top-400-years-far-longer-than-scientists-believed-but-something-indigenous-communities-had-long-understood-84308"
+          }
+        },
+        {
+          "title": "The Conversation",
+          "description": "Detroit wants to elevate youth voices in leadership – that means giving them real power: Krista Mehari, associate professor in the Department of Public Health at the College of Human Medicine, published an article about how the city of Detroit's effort to engage young people must mean they are included at the decision table.",
+          "link": {
+            "text": "Read more",
+            "href": "https://theconversation.com/detroit-wants-to-elevate-youth-voices-in-leadership-that-means-giving-them-real-power-284816"
+          }
+        },
+        {
+          "title": "CBC News",
+          "description": "Canadian workers speak out against growing screen time surveillance: Tara Behrend, a professor in the School of Human Resources and Labor Relations, explains her research on monitoring and surveillance tools when it comes to employee anxiety and productivity.",
+          "link": {
+            "text": "Read more",
+            "href": "https://www.cbc.ca/news/canada/td-bank-bell-workplace-screentime-monitoring-9.7296526"
+          }
+        }
+      ]
+    },
+    {
+      "position": 7,
+      "tagName": "section",
+      "classHint": "component mixed-content large-image ",
+      "backgroundHint": "dark",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Know a future Spartan?"
+        }
+      ],
+      "paragraphs": [
+        "We’re always looking for the next generation of Spartans. If you know a student who belongs at MSU, send us their name and we’ll reach out with an invitation to explore a university that’ll provide an experience unlike any other."
+      ],
+      "links": [
+        {
+          "text": "Refer a student",
+          "href": "https://admissions.msu.edu/refer-a-student",
+          "target": ""
+        }
+      ],
+      "images": [
+        {
+          "src": "https://msu.edu/_next/image?url=https%3A%2F%2Fmsu-p-001.sitecorecontenthub.cloud%2Fapi%2Fpublic%2Fcontent%2F42c22a5b94b94d289f4bb79f0b98d9a4%3Fv%3De929c2d8&w=1200&q=75",
+          "alt": "A group of smiling students lean in toward the camera outdoors on campus, joined by Sparty, with blue sky, trees and Beaumont Tower visible above them.",
+          "type": "img",
+          "width": 600,
+          "height": 400
+        }
+      ],
+      "listItems": [
+        {
+          "title": "Know a future Spartan?",
+          "description": "We’re always looking for the next generation of Spartans. If you know a student who belongs at MSU, send us their name and we’ll reach out with an invitation to explore a university that’ll provide an experience unlike any other.",
+          "link": {
+            "text": "Refer a student",
+            "href": "https://admissions.msu.edu/refer-a-student"
+          }
+        },
+        {
+          "link": {
+            "text": "",
+            "href": "https://admissions.msu.edu/refer-a-student"
+          },
+          "image": {
+            "src": "https://msu.edu/_next/image?url=https%3A%2F%2Fmsu-p-001.sitecorecontenthub.cloud%2Fapi%2Fpublic%2Fcontent%2F42c22a5b94b94d289f4bb79f0b98d9a4%3Fv%3De929c2d8&w=1200&q=75",
+            "alt": "A group of smiling students lean in toward the camera outdoors on campus, joined by Sparty, with blue sky, trees and Beaumont Tower visible above them."
+          }
+        }
+      ]
+    },
+    {
+      "position": 8,
+      "tagName": "section",
+      "classHint": "component grid-container",
+      "backgroundHint": "dark",
+      "headings": [
+        {
+          "tag": "h3",
+          "text": "What's happening on campus in August"
+        },
+        {
+          "tag": "h3",
+          "text": "MSU names Dan Bartholomae as next director of athletics"
+        }
+      ],
+      "paragraphs": [],
+      "links": [
+        {
+          "text": "List of events",
+          "href": "https://msutoday.msu.edu/news/2026/07/august-campus-events",
+          "target": ""
+        },
+        {
+          "text": "Story",
+          "href": "https://msutoday.msu.edu/news/2026/08/bartholomae-msu-ad",
+          "target": ""
+        }
+      ],
+      "images": [
+        {
+          "src": "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/4b4ba9d358e849bda7fc05c9b8de5513?v=157c903d",
+          "alt": "",
+          "type": "background",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/2d0807939295479594ffcca6cd4a59c1?v=05da8a77",
+          "alt": "",
+          "type": "background",
+          "width": null,
+          "height": null
+        }
+      ],
+      "listItems": [
+        {
+          "title": "What's happening on campus in August",
+          "description": "",
+          "link": {
+            "text": "List of events",
+            "href": "https://msutoday.msu.edu/news/2026/07/august-campus-events"
+          },
+          "image": {
+            "src": "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/4b4ba9d358e849bda7fc05c9b8de5513?v=157c903d",
+            "alt": ""
+          }
+        },
+        {
+          "title": "MSU names Dan Bartholomae as next director of athletics",
+          "description": "",
+          "link": {
+            "text": "Story",
+            "href": "https://msutoday.msu.edu/news/2026/08/bartholomae-msu-ad"
+          },
+          "image": {
+            "src": "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/2d0807939295479594ffcca6cd4a59c1?v=05da8a77",
+            "alt": ""
+          }
+        }
+      ]
+    },
+    {
+      "position": 9,
+      "tagName": "section",
+      "classHint": "component mixed-content columns ",
+      "backgroundHint": "dark",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "MSU 2030: Excellence for Global Impact"
+        },
+        {
+          "tag": "h2",
+          "text": "Uncommon Will, Far Better World"
+        },
+        {
+          "tag": "h2",
+          "text": "Know More Campus Survey"
+        }
+      ],
+      "paragraphs": [
+        "Campus initiatives",
+        "As MSU grows and continues to become more contemporary, connected and future-focused, the refreshed strategic plan introduces key themes that bridge organizational and planning structures.",
+        "MSU’s most ambitious multiyear comprehensive fundraising campaign will equip Spartans with the resources, experiences and knowledge to address the world’s greatest challenges, solidify MSU as a talent activator and create a thriving society.",
+        "The survey assesses the experiences of students, faculty and staff related to relationship violence and sexual misconduct, workplace incivility, help-seeking and perceptions of campus."
+      ],
+      "links": [
+        {
+          "text": "Learn more",
+          "href": "https://strategicplan.msu.edu/",
+          "target": ""
+        },
+        {
+          "text": "Learn more",
+          "href": "https://givingto.msu.edu/far-better-world",
+          "target": ""
+        },
+        {
+          "text": "Learn more",
+          "href": "https://msutoday.msu.edu/news/2026/01/know-more-survey",
+          "target": ""
+        }
+      ],
+      "images": [
+        {
+          "src": "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/original-5361953e86cc4ddaaea8ad28232bc376?v=abe2d697",
+          "alt": "",
+          "type": "background",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/95e17b87c0f14ba294319e8f9977bd77?v=f6ac847e",
+          "alt": "",
+          "type": "background",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/87ac902f0ab644829d7bb9c2771f6a8d?v=366f68b5",
+          "alt": "",
+          "type": "background",
+          "width": null,
+          "height": null
+        }
+      ],
+      "listItems": [
+        {
+          "title": "MSU 2030: Excellence for Global Impact",
+          "description": "As MSU grows and continues to become more contemporary, connected and future-focused, the refreshed strategic plan introduces key themes that bridge organizational and planning structures.",
+          "link": {
+            "text": "",
+            "href": "https://strategicplan.msu.edu/"
+          },
+          "image": {
+            "src": "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/original-5361953e86cc4ddaaea8ad28232bc376?v=abe2d697",
+            "alt": ""
+          }
+        },
+        {
+          "title": "Uncommon Will, Far Better World",
+          "description": "MSU’s most ambitious multiyear comprehensive fundraising campaign will equip Spartans with the resources, experiences and knowledge to address the world’s greatest challenges, solidify MSU as a talent activator and create a thriving society.",
+          "link": {
+            "text": "",
+            "href": "https://givingto.msu.edu/far-better-world"
+          },
+          "image": {
+            "src": "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/95e17b87c0f14ba294319e8f9977bd77?v=f6ac847e",
+            "alt": ""
+          }
+        },
+        {
+          "title": "Know More Campus Survey",
+          "description": "The survey assesses the experiences of students, faculty and staff related to relationship violence and sexual misconduct, workplace incivility, help-seeking and perceptions of campus.",
+          "link": {
+            "text": "",
+            "href": "https://msutoday.msu.edu/news/2026/01/know-more-survey"
+          },
+          "image": {
+            "src": "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/87ac902f0ab644829d7bb9c2771f6a8d?v=366f68b5",
+            "alt": ""
+          }
+        }
+      ]
+    },
+    {
+      "position": 10,
+      "tagName": "section",
+      "classHint": "text-cta",
+      "backgroundHint": "light",
+      "headings": [],
+      "paragraphs": [
+        "FIND OUT MORE",
+        "Learn about MSU",
+        "Explore our Academics",
+        "Discover our Research"
+      ],
+      "links": [
+        {
+          "text": "Learn about MSU",
+          "href": "https://msu.edu/about",
+          "target": "_blank"
+        },
+        {
+          "text": "Explore our Academics",
+          "href": "https://msu.edu/academics",
+          "target": "_blank"
+        },
+        {
+          "text": "Discover our Research",
+          "href": "https://msu.edu/research",
+          "target": "_blank"
+        }
+      ],
+      "images": [],
+      "listItems": [
+        {
+          "description": "Learn about MSU",
+          "link": {
+            "text": "Learn about MSU",
+            "href": "https://msu.edu/about"
+          }
+        },
+        {
+          "description": "Explore our Academics",
+          "link": {
+            "text": "Explore our Academics",
+            "href": "https://msu.edu/academics"
+          }
+        },
+        {
+          "description": "Discover our Research",
+          "link": {
+            "text": "Discover our Research",
+            "href": "https://msu.edu/research"
+          }
+        }
+      ]
+    },
+    {
+      "position": 11,
+      "tagName": "footer",
+      "classHint": "",
+      "backgroundHint": "dark",
+      "headings": [
+        {
+          "tag": "h3",
+          "text": "Resources"
+        },
+        {
+          "tag": "h3",
+          "text": "Health and Safety"
+        },
+        {
+          "tag": "h3",
+          "text": "Support Services"
+        },
+        {
+          "tag": "h3",
+          "text": "Working at MSU"
+        },
+        {
+          "tag": "h3",
+          "text": "Reports"
+        },
+        {
+          "tag": "h4",
+          "text": "Contact us"
+        },
+        {
+          "tag": "h4",
+          "text": "Address"
+        },
+        {
+          "tag": "h3",
+          "text": "Follow Us"
+        }
+      ],
+      "paragraphs": [
+        "Michigan State University 426 Auditorium Road East Lansing, MI 48824",
+        "If you're having accessibility issues, please let us know.",
+        "SPARTANS WILL|© Michigan State University|"
+      ],
+      "links": [
+        {
+          "text": "A to Z Index",
+          "href": "https://search.msu.edu/a-z/",
+          "target": "_blank"
+        },
+        {
+          "text": "Find People",
+          "href": "https://search.msu.edu/people/",
+          "target": "_blank"
+        },
+        {
+          "text": "Maps",
+          "href": "https://maps.msu.edu/",
+          "target": "_blank"
+        },
+        {
+          "text": "Email",
+          "href": "https://mail.msu.edu/locator.php",
+          "target": "_blank"
+        },
+        {
+          "text": "Student Information System (SIS)",
+          "href": "https://student.msu.edu/",
+          "target": "_blank"
+        },
+        {
+          "text": "D2L",
+          "href": "https://d2l.msu.edu/",
+          "target": "_blank"
+        },
+        {
+          "text": "Libraries",
+          "href": "https://lib.msu.edu/",
+          "target": "_blank"
+        },
+        {
+          "text": "Tech Support",
+          "href": "https://tech.msu.edu/",
+          "target": "_blank"
+        },
+        {
+          "text": "MSU Misconduct Hotline",
+          "href": "https://misconduct.msu.edu/",
+          "target": "_blank"
+        },
+        {
+          "text": "Social Media Directory",
+          "href": "https://msu.edu/social",
+          "target": "_blank"
+        },
+        {
+          "text": "Events Calendar",
+          "href": "https://events.msu.edu/",
+          "target": "_blank"
+        },
+        {
+          "text": "For Media",
+          "href": "https://msutoday.msu.edu/for-media",
+          "target": "_blank"
+        },
+        {
+          "text": "MSU Police and Public Safety",
+          "href": "https://dpps.msu.edu/",
+          "target": "_blank"
+        },
+        {
+          "text": "Olin Health Center",
+          "href": "https://olin.msu.edu/",
+          "target": "_blank"
+        },
+        {
+          "text": "Counseling & Psychiatric Services (CAPS)",
+          "href": "https://caps.msu.edu/",
+          "target": "_blank"
+        },
+        {
+          "text": "University Health and Wellbeing",
+          "href": "https://uhw.msu.edu/",
+          "target": "_blank"
+        },
+        {
+          "text": "MSU Health Care",
+          "href": "https://healthcare.msu.edu/",
+          "target": "_blank"
+        },
+        {
+          "text": "Civil Rights and Title IX",
+          "href": "https://civilrights.msu.edu/",
+          "target": "_blank"
+        },
+        {
+          "text": "Our Commitment",
+          "href": "https://msu.edu/ourcommitment/",
+          "target": "_blank"
+        },
+        {
+          "text": "Center for Survivors",
+          "href": "https://centerforsurvivors.msu.edu/",
+          "target": "_blank"
+        },
+        {
+          "text": "Security & Fire Safety Report",
+          "href": "https://dpps.msu.edu/safety-tools/security-fire-safety-report",
+          "target": "_blank"
+        },
+        {
+          "text": "University Policy on Relationship Violence and Sexual Misconduct",
+          "href": "https://civilrights.msu.edu/policies/relationship-violence-and-sexual-misconduct-and-title-ix-policy.html",
+          "target": "_blank"
+        },
+        {
+          "text": "Notice of Non-Discrimination, Anti-Harassment and Non-Retaliation",
+          "href": "https://civilrights.msu.edu/policies/",
+          "target": "_blank"
+        },
+        {
+          "text": "Health Care Non-Discrimination Notice",
+          "href": "https://healthcare.msu.edu/patients-visitors/non-discrimination-notice.aspx",
+          "target": "_blank"
+        },
+        {
+          "text": "Disability Resources",
+          "href": "https://www.rcpd.msu.edu/",
+          "target": "_blank"
+        },
+        {
+          "text": "Spartan One-Stop",
+          "href": "https://onestop.msu.edu/",
+          "target": "_blank"
+        },
+        {
+          "text": "Learning Resources",
+          "href": "https://liveon.msu.edu/neighborhoods",
+          "target": "_blank"
+        },
+        {
+          "text": "University Health & Wellbeing",
+          "href": "https://uhw.msu.edu/",
+          "target": "_blank"
+        },
+        {
+          "text": "Human Resources",
+          "href": "https://hr.msu.edu/",
+          "target": "_blank"
+        },
+        {
+          "text": "EBS Login",
+          "href": "https://secportal.ebsp.msu.edu/",
+          "target": "_blank"
+        },
+        {
+          "text": "Job Postings",
+          "href": "https://careers.msu.edu/",
+          "target": "_blank"
+        },
+        {
+          "text": "Employee Assistance Program",
+          "href": "https://eap.msu.edu/",
+          "target": "_blank"
+        },
+        {
+          "text": "CARES Act Funding",
+          "href": "https://finaid.msu.edu/references/CARES",
+          "target": "_blank"
+        },
+        {
+          "text": "Student Achievement and Outcomes",
+          "href": "https://ir.msu.edu/resources/student-achievement",
+          "target": "_blank"
+        },
+        {
+          "text": "517-355-1855",
+          "href": "tel:5173551855",
+          "target": ""
+        },
+        {
+          "text": "Releases and Statements",
+          "href": "https://msutoday.msu.edu/for-media/releases-statements",
+          "target": "_blank"
+        },
+        {
+          "text": "Visit our Facebook page",
+          "href": "https://www.facebook.com/spartans.msu/",
+          "target": "_blank"
+        },
+        {
+          "text": "Visit our page on X",
+          "href": "https://twitter.com/michiganstateu",
+          "target": "_blank"
+        },
+        {
+          "text": "Visit our Instagram page",
+          "href": "https://www.instagram.com/michiganstateu/",
+          "target": "_blank"
+        },
+        {
+          "text": "Visit our LinkedIn page",
+          "href": "https://www.linkedin.com/school/michigan-state-university/",
+          "target": "_blank"
+        },
+        {
+          "text": "Visit our YouTube page",
+          "href": "https://www.youtube.com/channel/UCwFnbW4MKB9EIrnd04ybQsQ",
+          "target": "_blank"
+        },
+        {
+          "text": "TikTok Link",
+          "href": "https://www.tiktok.com/@michiganstateu",
+          "target": ""
+        },
+        {
+          "text": "accessibility issues, please let us know.",
+          "href": "https://go.msu.edu/weba11y",
+          "target": "_blank"
+        },
+        {
+          "text": "Contact Information",
+          "href": "https://msu.edu/contact",
+          "target": ""
+        },
+        {
+          "text": "Site Map",
+          "href": "https://msu.edu/site-map",
+          "target": ""
+        },
+        {
+          "text": "Privacy Statement",
+          "href": "https://msu.edu/privacy",
+          "target": "_blank"
+        },
+        {
+          "text": "Site Accessibility",
+          "href": "https://msu.edu/accessibility",
+          "target": "_blank"
+        },
+        {
+          "text": "(517) 355-1855",
+          "href": "tel:5173551855",
+          "target": ""
+        },
+        {
+          "text": "msu.edu",
+          "href": "https://msu.edu/visit/",
+          "target": "_blank"
+        },
+        {
+          "text": "Notice of Nondiscrimination",
+          "href": "https://civilrights.msu.edu/policies/Notice-of-Non-Discrimination-Anti-Harassment-and-Non-Retaliation.html",
+          "target": ""
+        }
+      ],
+      "images": [
+        {
+          "src": "https://edge.sitecorecloud.io/michiganstab57e-msustrategi129d-prod9868-7e5e/media/project/msu/shared/logos/msu_logo_white.svg?iar=0",
+          "alt": "Michigan State University",
+          "type": "img",
+          "width": 296,
+          "height": 33
+        },
+        {
+          "src": "https://edge.sitecorecloud.io/michiganstab57e-msustrategi129d-prod9868-7e5e/media/project/msu/shared/footer/knowmore-green-2.png?h=288&iar=0&w=280",
+          "alt": "Know More: Campus Safety Information and Resources",
+          "type": "img",
+          "width": 280,
+          "height": 288
+        },
+        {
+          "src": "https://edge.sitecorecloud.io/michiganstab57e-msustrategi129d-prod9868-7e5e/media/project/msu/shared/footer/budget-performance-transparency-logo-2.png?iar=0",
+          "alt": "Transparency Reporting: Budget & Salary/Compensation",
+          "type": "img",
+          "width": 290,
+          "height": 290
+        },
+        {
+          "src": "https://edge.sitecorecloud.io/michiganstab57e-msustrategi129d-prod9868-7e5e/media/project/msu/shared/logos/msu_wordmark_green.svg?iar=0",
+          "alt": "Michigan State University",
+          "type": "img",
+          "width": 265,
+          "height": 56
+        }
+      ],
+      "listItems": [
+        {
+          "link": {
+            "text": "",
+            "href": "https://msu.edu/"
+          },
+          "image": {
+            "src": "https://edge.sitecorecloud.io/michiganstab57e-msustrategi129d-prod9868-7e5e/media/project/msu/shared/logos/msu_logo_white.svg?iar=0",
+            "alt": "Michigan State University"
+          }
+        },
+        {
+          "title": "Resources",
+          "description": "Michigan State University 426 Auditorium Road East Lansing, MI 48824",
+          "link": {
+            "text": "A to Z Index",
+            "href": "https://search.msu.edu/a-z/"
+          }
+        },
+        {
+          "title": "Follow Us",
+          "description": "Visit our Facebook page",
+          "badge": "",
+          "link": {
+            "text": "Visit our Facebook page",
+            "href": "https://www.facebook.com/spartans.msu/"
+          },
+          "image": {
+            "src": "https://edge.sitecorecloud.io/michiganstab57e-msustrategi129d-prod9868-7e5e/media/project/msu/shared/footer/knowmore-green-2.png?h=288&iar=0&w=280",
+            "alt": "Know More: Campus Safety Information and Resources"
+          }
+        }
+      ]
+    }
+  ]
+}

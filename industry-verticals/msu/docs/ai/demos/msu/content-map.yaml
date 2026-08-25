@@ -1,0 +1,433 @@
+client:
+  name: "Michigan State University"
+  sourceUrl: "https://msu.edu"
+  sourceLanguage: "en"
+  targetLanguage: "en"
+  translationApplied: false
+  extractedAt: "2026-08-25T19:14:50.298Z"
+  mappedAt: "2026-08-25T19:16:00Z"
+
+sections:
+  - position: 1
+    componentName: "Header"
+    manifestName: "Header"
+    kind: "simple"
+    datasourceItemName: "MSU - Header"
+    apiAddable: false
+    fields: {}
+    children: []
+    imageFields:
+      - field: "LogoImage"
+        src: "https://edge.sitecorecloud.io/michiganstab57e-msustrategi129d-prod9868-7e5e/media/project/msu/shared/logos/msu_logo_white.svg?iar=0"
+        alt: "Michigan State University"
+        localFile: "section11-img25.svg"
+    matchConfidence: "high"
+    contentSource: "extractor"
+    notes: "Partial Design. Nav links are Sitecore Navigation items, not this datasource."
+
+  - position: 2
+    componentName: "Hero"
+    manifestName: "Hero"
+    kind: "simple"
+    datasourceItemName: "MSU - Hero"
+    apiAddable: true
+    fields:
+      Title: "BE A SPARTAN"
+      Text: "<p>Are you ready to join the next generation of Spartans? Applications are now open for fall 2027.</p>"
+      Link:
+        text: "Apply Today"
+        href: "https://admissions.msu.edu/apply"
+        target: ""
+    children: []
+    imageFields:
+      - field: "Image"
+        src: "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/19a78794a4ea4244844888bcfa55ee03?v=d295c911"
+        alt: "Students walking on the MSU campus"
+        localFile: "section2-img9.jpg"
+    matchConfidence: "high"
+    contentSource: "extractor"
+
+  - position: 3
+    componentName: "Heading CTA"
+    manifestName: "Heading CTA"
+    kind: "simple"
+    datasourceItemName: "MSU - Future Spartans Heading"
+    apiAddable: true
+    fields:
+      Eyebrow: ""
+      Heading: "Future Spartans, We're Here For You"
+      Text: ""
+      Link:
+        text: ""
+        href: ""
+        target: ""
+    children: []
+    imageFields: []
+    matchConfidence: "high"
+    contentSource: "extractor"
+
+  - position: 4
+    componentName: "Three Column CTA"
+    manifestName: "Three Column CTA"
+    kind: "simple"
+    datasourceItemName: "MSU - Future Spartans Cards"
+    apiAddable: true
+    fields:
+      Text1: "Majors, degrees, programs"
+      SubText1: "<p>Choose from more than 400 areas of study across 16 colleges and unrivaled opportunities for undergraduate research.</p>"
+      Link1:
+        text: "Explore programs"
+        href: "https://admissions.msu.edu/academics/majors-degrees-programs"
+        target: ""
+      Text2: "Request information"
+      SubText2: "<p>Want to find out more about what life is like as a Spartan? We have the most up-to-date information you need on your journey to becoming a Spartan. We're always happy to help!</p>"
+      Link2:
+        text: "Contact Us"
+        href: "https://admissions.msu.edu/request-information"
+        target: ""
+      Text3: "Visit campus"
+      SubText3: "<p>Attend an in-person or virtual tour, or sign up for a virtual admissions event. We can't wait to welcome you to campus, and show you around!</p>"
+      Link3:
+        text: "Get started"
+        href: "https://admissions.msu.edu/visit"
+        target: ""
+    children: []
+    imageFields:
+      - field: "Image1"
+        src: "https://edge.sitecorecloud.io/michiganstab57e-msustrategi129d-prod9868-7e5e/media/project/msu/msu/images/home/2021-03-01-lab-student-dlt1.jpg?h=1686&iar=0&w=3000"
+        alt: "Student in a science lab"
+        localFile: "section3-img10.jpg"
+      - field: "Image2"
+        src: "https://edge.sitecorecloud.io/michiganstab57e-msustrategi129d-prod9868-7e5e/media/project/msu/msu/images/home/2024-09-09-hat-dlt1.jpg?h=1686&iar=0&w=3000"
+        alt: "Graduate in a Spartan hat"
+        localFile: "section3-img11.jpg"
+      - field: "Image3"
+        src: "https://edge.sitecorecloud.io/michiganstab57e-msustrategi129d-prod9868-7e5e/media/project/msu/msu/images/home/2024-06-24-aerial-gm1.jpg?h=1686&iar=0&w=3000"
+        alt: "Aerial view of MSU campus"
+        localFile: "section3-img12.jpg"
+    matchConfidence: "high"
+    contentSource: "extractor"
+
+  - position: 5
+    componentName: "Heading CTA"
+    manifestName: "Heading CTA"
+    kind: "simple"
+    datasourceItemName: "MSU - Latest News Heading"
+    apiAddable: true
+    fields:
+      Eyebrow: ""
+      Heading: "Latest news"
+      Text: ""
+      Link:
+        text: ""
+        href: ""
+        target: ""
+    children: []
+    imageFields: []
+    matchConfidence: "high"
+    contentSource: "extractor"
+
+  - position: 6
+    componentName: "Three Column CTA"
+    manifestName: "Three Column CTA"
+    kind: "simple"
+    datasourceItemName: "MSU - Latest News Cards"
+    apiAddable: true
+    fields:
+      Text1: "New tools at MSU are helping engineer the future of medicine"
+      SubText1: ""
+      Link1:
+        text: "Read more"
+        href: "https://msutoday.msu.edu/news/2026/07/tools-drive-one-health-forward"
+        target: ""
+      Text2: "This Spartan health entrepreneur is investing in MSU’s future innovators"
+      SubText2: ""
+      Link2:
+        text: "Read more"
+        href: "https://msutoday.msu.edu/news/2026/07/spartan-health-entrepreneur-investing-future-innovators"
+        target: ""
+      Text3: "Bringing butterflies back from the brink of extinction"
+      SubText3: ""
+      Link3:
+        text: "Read more"
+        href: "https://msutoday.msu.edu/news/2026/08/bringing-butterflies-back-from-extinction"
+        target: ""
+    children: []
+    imageFields:
+      - field: "Image1"
+        src: "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/aa6e57f7bb9542abb5b450386dde5831?v=27542548"
+        alt: "Researchers using medical imaging tools"
+        localFile: "section4-img13.jpg"
+      - field: "Image2"
+        src: "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/b069bf4f59644561a19a713f7fa730ac?v=af0095fb"
+        alt: "Spartan health entrepreneur"
+        localFile: "section4-img14.jpg"
+      - field: "Image3"
+        src: "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/01a8f694c8ed450ca0f1882c7316b570?v=c7424f59"
+        alt: "Butterfly conservation research"
+        localFile: "section4-img15.jpg"
+    matchConfidence: "high"
+    contentSource: "extractor"
+
+  - position: 7
+    componentName: "Stats Counter"
+    manifestName: "Stats Counter"
+    kind: "simple"
+    datasourceItemName: "MSU - Rankings Mosaic"
+    apiAddable: true
+    fields:
+      Value1: "Top 6%"
+      Symbol1: ""
+      Caption1: "U.S. News and World Report ranks MSU in top 6% of universities"
+      Value2: "Top 50"
+      Symbol2: ""
+      Caption2: "Green college"
+      Value3: "Top 30"
+      Symbol3: ""
+      Caption3: "Public university"
+    children: []
+    imageFields:
+      - field: "Image1"
+        src: "https://edge.sitecorecloud.io/michiganstab57e-msustrategi129d-prod9868-7e5e/media/project/msu/msu/images/home/beaumont1.jpg?h=627&iar=0&w=400"
+        alt: "Beaumont Tower"
+        localFile: "section5-img16.jpg"
+      - field: "Image2"
+        src: "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/0ccd7735dabf4b78b36cd4dfd70698c3?v=1fc13b69"
+        alt: "Campus ranking mosaic"
+        localFile: "section5-img17.jpg"
+    matchConfidence: "medium"
+    contentSource: "extractor"
+    notes: "Mosaic has more tiles than 3 slots. Extra tile 'MSU ranks No. 2 in nation for sustainability impact' noted for variant layout."
+
+  - position: 8
+    componentName: "Heading CTA"
+    manifestName: "Heading CTA"
+    kind: "simple"
+    datasourceItemName: "MSU - In The News Heading"
+    apiAddable: true
+    fields:
+      Eyebrow: ""
+      Heading: "MSU IN THE NEWS"
+      Text: ""
+      Link:
+        text: ""
+        href: ""
+        target: ""
+    children: []
+    imageFields: []
+    matchConfidence: "high"
+    contentSource: "extractor"
+
+  - position: 9
+    componentName: "Features"
+    manifestName: "Features"
+    kind: "simple"
+    datasourceItemName: "MSU - In The News Features"
+    apiAddable: true
+    fields:
+      Title1: "IFL Science"
+      Text1: "<p>A new longest-living fish? Sturgeon could top 400 years – far longer than scientists believed: Assistant Professor Scott Colborne in the Department of Fisheries and Wildlife at the College of Agriculture and Natural Resources offers new research.</p>"
+      Link1:
+        text: "Read more"
+        href: "https://www.iflscience.com/a-new-longest-living-fish-sturgeon-could-top-400-years-far-longer-than-scientists-believed-but-something-indigenous-communities-had-long-understood-84308"
+        target: "_blank"
+      Title2: "The Conversation"
+      Text2: "<p>Detroit wants to elevate youth voices in leadership – that means giving them real power: Krista Mehari, associate professor in the Department of Public Health at the College of Human Medicine, published an article about how the city of Detroit's effort to engage young people must mean they are included at the decision table.</p>"
+      Link2:
+        text: "Read more"
+        href: "https://theconversation.com/detroit-wants-to-elevate-youth-voices-in-leadership-that-means-giving-them-real-power-284816"
+        target: "_blank"
+      Title3: "CBC News"
+      Text3: "<p>Canadian workers speak out against growing screen time surveillance: Tara Behrend, a professor in the School of Human Resources and Labor Relations, explains her research on monitoring and surveillance tools when it comes to employee anxiety and productivity.</p>"
+      Link3:
+        text: "Read more"
+        href: "https://www.cbc.ca/news/canada/td-bank-bell-workplace-screentime-monitoring-9.7296526"
+        target: "_blank"
+    children: []
+    imageFields: []
+    matchConfidence: "high"
+    contentSource: "extractor"
+
+  - position: 10
+    componentName: "CTA Banner"
+    manifestName: "CTA Banner"
+    kind: "simple"
+    datasourceItemName: "MSU - Refer a Student"
+    apiAddable: true
+    fields:
+      Eyebrow: ""
+      Title: "Know a future Spartan?"
+      Text: "<p>We’re always looking for the next generation of Spartans. If you know a student who belongs at MSU, send us their name and we’ll reach out with an invitation to explore a university that’ll provide an experience unlike any other.</p>"
+      Link:
+        text: "Refer a student"
+        href: "https://admissions.msu.edu/refer-a-student"
+        target: ""
+    children: []
+    imageFields:
+      - field: "Image"
+        src: "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/42c22a5b94b94d289f4bb79f0b98d9a4?v=e929c2d8"
+        alt: "A group of smiling students lean in toward the camera outdoors on campus, joined by Sparty, with blue sky, trees and Beaumont Tower visible above them."
+        localFile: "section7-img19.jpg"
+    matchConfidence: "high"
+    contentSource: "extractor"
+
+  - position: 11
+    componentName: "Two Column CTA"
+    manifestName: "Two Column CTA"
+    kind: "simple"
+    datasourceItemName: "MSU - Campus Stories"
+    apiAddable: true
+    fields:
+      Title1: "What's happening on campus in August"
+      Text1: ""
+      Link1:
+        text: "List of events"
+        href: "https://msutoday.msu.edu/news/2026/07/august-campus-events"
+        target: ""
+      Title2: "MSU names Dan Bartholomae as next director of athletics"
+      Text2: ""
+      Link2:
+        text: "Story"
+        href: "https://msutoday.msu.edu/news/2026/08/bartholomae-msu-ad"
+        target: ""
+    children: []
+    imageFields:
+      - field: "Image1"
+        src: "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/4b4ba9d358e849bda7fc05c9b8de5513?v=157c903d"
+        alt: "Campus events in August"
+        localFile: "section8-img20.jpg"
+      - field: "Image2"
+        src: "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/2d0807939295479594ffcca6cd4a59c1?v=05da8a77"
+        alt: "Dan Bartholomae named athletics director"
+        localFile: "section8-img21.jpg"
+    matchConfidence: "high"
+    contentSource: "extractor"
+
+  - position: 12
+    componentName: "Heading CTA"
+    manifestName: "Heading CTA"
+    kind: "simple"
+    datasourceItemName: "MSU - Campus Initiatives Heading"
+    apiAddable: true
+    fields:
+      Eyebrow: ""
+      Heading: "Campus initiatives"
+      Text: ""
+      Link:
+        text: ""
+        href: ""
+        target: ""
+    children: []
+    imageFields: []
+    matchConfidence: "high"
+    contentSource: "extractor"
+
+  - position: 13
+    componentName: "Three Column CTA"
+    manifestName: "Three Column CTA"
+    kind: "simple"
+    datasourceItemName: "MSU - Campus Initiatives Cards"
+    apiAddable: true
+    fields:
+      Text1: "MSU 2030: Excellence for Global Impact"
+      SubText1: "<p>As MSU grows and continues to become more contemporary, connected and future-focused, the refreshed strategic plan introduces key themes that bridge organizational and planning structures.</p>"
+      Link1:
+        text: "Learn more"
+        href: "https://strategicplan.msu.edu/"
+        target: ""
+      Text2: "Uncommon Will, Far Better World"
+      SubText2: "<p>MSU’s most ambitious multiyear comprehensive fundraising campaign will equip Spartans with the resources, experiences and knowledge to address the world’s greatest challenges, solidify MSU as a talent activator and create a thriving society.</p>"
+      Link2:
+        text: "Learn more"
+        href: "https://givingto.msu.edu/far-better-world"
+        target: ""
+      Text3: "Know More Campus Survey"
+      SubText3: "<p>The survey assesses the experiences of students, faculty and staff related to relationship violence and sexual misconduct, workplace incivility, help-seeking and perceptions of campus.</p>"
+      Link3:
+        text: "Learn more"
+        href: "https://msutoday.msu.edu/news/2026/01/know-more-survey"
+        target: ""
+    children: []
+    imageFields:
+      - field: "Image1"
+        src: "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/original-5361953e86cc4ddaaea8ad28232bc376?v=abe2d697"
+        alt: "MSU 2030 strategic plan"
+        localFile: "section9-img22.jpg"
+      - field: "Image2"
+        src: "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/95e17b87c0f14ba294319e8f9977bd77?v=f6ac847e"
+        alt: "Uncommon Will, Far Better World campaign"
+        localFile: "section9-img23.jpg"
+      - field: "Image3"
+        src: "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/87ac902f0ab644829d7bb9c2771f6a8d?v=366f68b5"
+        alt: "Know More Campus Survey"
+        localFile: "section9-img24.jpg"
+    matchConfidence: "high"
+    contentSource: "extractor"
+
+  - position: 14
+    componentName: "Three Column CTA"
+    manifestName: "Three Column CTA"
+    kind: "simple"
+    datasourceItemName: "MSU - Find Out More Links"
+    apiAddable: true
+    fields:
+      Text1: "Learn about MSU"
+      SubText1: ""
+      Link1:
+        text: "Learn about MSU"
+        href: "https://msu.edu/about"
+        target: ""
+      Text2: "Explore our Academics"
+      SubText2: ""
+      Link2:
+        text: "Explore our Academics"
+        href: "https://msu.edu/academics"
+        target: ""
+      Text3: "Discover our Research"
+      SubText3: ""
+      Link3:
+        text: "Discover our Research"
+        href: "https://msu.edu/research"
+        target: ""
+    children: []
+    imageFields: []
+    matchConfidence: "high"
+    contentSource: "extractor"
+
+  - position: 15
+    componentName: "Footer"
+    manifestName: "Footer"
+    kind: "simple"
+    datasourceItemName: "MSU - Footer"
+    apiAddable: false
+    fields:
+      Title1: "Resources"
+      Text1: "<p><a href=\"https://search.msu.edu/a-z/\">A to Z Index</a><br/><a href=\"https://search.msu.edu/people/\">Find People</a><br/><a href=\"https://maps.msu.edu/\">Maps</a><br/><a href=\"https://mail.msu.edu/locator.php\">Email</a><br/><a href=\"https://lib.msu.edu/\">Libraries</a><br/><a href=\"https://tech.msu.edu/\">Tech Support</a></p>"
+      Title2: "Health and Safety"
+      Text2: "<p><a href=\"https://dpps.msu.edu/\">MSU Police and Public Safety</a><br/><a href=\"https://olin.msu.edu/\">Olin Health Center</a><br/><a href=\"https://caps.msu.edu/\">Counseling &amp; Psychiatric Services (CAPS)</a><br/><a href=\"https://uhw.msu.edu/\">University Health and Wellbeing</a><br/><a href=\"https://civilrights.msu.edu/\">Civil Rights and Title IX</a></p>"
+      Title3: "Support Services"
+      Text3: "<p><a href=\"https://student.msu.edu/\">Student Information System (SIS)</a><br/><a href=\"https://d2l.msu.edu/\">D2L</a><br/><a href=\"https://centerforsurvivors.msu.edu/\">Center for Survivors</a><br/><a href=\"https://www.rcpd.msu.edu/\">Disability Resources</a></p>"
+      Title4: "Working at MSU"
+      Text4: "<p><a href=\"https://careers.msu.edu/\">Careers</a><br/><a href=\"https://hr.msu.edu/\">Human Resources</a></p>"
+      Copyright: "SPARTANS WILL | © Michigan State University"
+      SocialsTitle: "Follow Us"
+    children: []
+    imageFields:
+      - field: "Image1"
+        src: "https://edge.sitecorecloud.io/michiganstab57e-msustrategi129d-prod9868-7e5e/media/project/msu/shared/logos/msu_wordmark_green.svg?iar=0"
+        alt: "Michigan State University"
+        localFile: "section11-img28.svg"
+    matchConfidence: "high"
+    contentSource: "extractor"
+    notes: "Partial Design. Footer has more columns than 4 slots; extra columns (Reports, Contact) folded into Support/Resources."
+
+summary:
+  totalSections: 15
+  sectionsWithContent: 15
+  contextOnlySkipped: 0
+  fieldsPopulated: 68
+  imageFieldsMapped: 18
+  imagesSkipped: 10
+  videosFound: 0
+  translationApplied: false
+  sourceLanguage: "en"

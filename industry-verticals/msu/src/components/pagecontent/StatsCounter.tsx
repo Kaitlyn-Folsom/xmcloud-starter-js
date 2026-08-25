@@ -99,3 +99,60 @@ export const Default = (props: StatsCounterProps): JSX.Element => {
     </div>
   );
 };
+
+/* Msu variant — ranking mosaic tiles with text values (not numeric count-up) */
+export const Msu = (props: StatsCounterProps): JSX.Element => {
+  const id = props.params.RenderingIdentifier;
+  const { page } = useSitecore();
+  const isPageEditing = page.mode.isEditing;
+  const sxaStyles = `${props.params?.styles || ''}`;
+
+  return (
+    <div
+      className={`component stats-counter component-spaced msu ${sxaStyles}`}
+      id={id ? id : undefined}
+    >
+      <div className="container">
+        <div className="row g-0">
+          <div className="col-lg-4 mosaic-photo">
+            <NextImage field={props.fields?.Image1} width={600} height={800} />
+          </div>
+          <div className="col-lg-8">
+            <div className="row g-0 h-100">
+              <div className="col-md-6 mosaic-tile">
+                <p className="mosaic-value">
+                  <Text field={props.fields?.Value1} />
+                  <Text field={props.fields?.Symbol1} />
+                </p>
+                <p className="mosaic-caption">
+                  <Text field={props.fields?.Caption1} />
+                </p>
+              </div>
+              <div className="col-md-6 mosaic-photo">
+                <NextImage field={props.fields?.Image2} width={600} height={400} />
+              </div>
+              <div className="col-md-6 mosaic-tile alt">
+                <p className="mosaic-value">
+                  <Text field={props.fields?.Value2} />
+                  <Text field={props.fields?.Symbol2} />
+                </p>
+                <p className="mosaic-caption">
+                  <Text field={props.fields?.Caption2} />
+                </p>
+              </div>
+              <div className="col-md-6 mosaic-tile">
+                <p className="mosaic-value">
+                  <Text field={props.fields?.Value3} />
+                  <Text field={props.fields?.Symbol3} />
+                </p>
+                <p className="mosaic-caption">
+                  <Text field={props.fields?.Caption3} />
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};

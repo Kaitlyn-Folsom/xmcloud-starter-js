@@ -1,21 +1,41 @@
-// Financial
+// Financial (MSU Spartan Green)
 body.site-financial,
 .site-financial {
-  --text-body: #333;
+  --text-body: #212529;
   --text-body-inverted: #fff;
-  --text-colored: #034c81;
+  --text-colored: #18453b;
   --text-footer: #fff;
-  --text-accent: #a82a39;
+  --text-accent: #7bbd00;
   --bg-body: #fff;
-  --bg-footer: #333;
-  --bg-main: #f0f5f7;
-  --bg-main-alt: #f0f5f7;
-  --bg-color: #c5e4f3;
-  --bg-saturated: #034c81;
-  --bg-accent: #c03021;
-  --border-color: #f0f5f7;
+  --bg-footer: #18453b;
+  --bg-main: #f3f3f3;
+  --bg-main-alt: #f3f3f3;
+  --bg-color: #18453b;
+  --bg-saturated: #18453b;
+  --bg-accent: #7bbd00;
+  --border-color: #d8d8d8;
   --hr-color: #fff;
-  --roundness: 1rem;
+  --roundness: 0px;
+  --brand-primary: #18453b;
+  --brand-primary-foreground: #ffffff;
+  --brand-secondary: #0b3d2e;
+  --brand-accent: #7bbd00;
+  --brand-accent-foreground: #18453b;
+  --brand-bg: #ffffff;
+  --brand-fg: #212529;
+  --brand-muted: #f3f3f3;
+  --brand-muted-fg: #5a6872;
+  --brand-header-bg: #18453b;
+  --brand-header-fg: #ffffff;
+  --brand-footer-bg: #18453b;
+  --brand-footer-fg: #ffffff;
+  --brand-border: #d8d8d8;
+  --brand-ring: #18453b;
+  --brand-heading-font: 'Metropolis', 'Montserrat', sans-serif;
+  --brand-body-font: 'Metropolis', 'Montserrat', sans-serif;
+  --brand-radius: 0px;
+  --brand-button-radius: 0px;
+  --brand-card-radius: 0px;
 }
 
 body.site-financial.dark,

@@ -151,3 +151,36 @@ export const Centered = (props: HeadingCtaProps): JSX.Element => {
     </div>
   );
 };
+
+/* Msu variant — left-aligned institutional heading, no extra CTA column */
+export const Msu = (props: HeadingCtaProps): JSX.Element => {
+  const id = props.params.RenderingIdentifier;
+  const { page } = useSitecore();
+  const isPageEditing = page.mode.isEditing;
+  const sxaStyles = `${props.params?.styles || ''}`;
+
+  return (
+    <div className={`component heading-cta msu ${sxaStyles}`} id={id ? id : undefined}>
+      <div className="container">
+        <div className="heading-content-wrapper">
+          {(isPageEditing || props.fields?.Eyebrow?.value) && (
+            <h6 className="eyebrow-accent">
+              <Text field={props.fields?.Eyebrow} />
+            </h6>
+          )}
+          <h2>
+            <Text field={props.fields?.Heading} />
+          </h2>
+          {(isPageEditing || props.fields?.Text?.value) && (
+            <p>
+              <Text field={props.fields?.Text} />
+            </p>
+          )}
+          {(isPageEditing || props.fields?.Link?.value?.href) && (
+            <Link field={props.fields.Link} className="button button-main" />
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};

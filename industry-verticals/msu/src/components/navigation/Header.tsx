@@ -53,3 +53,25 @@ export const WithLogoImage = (props: HeaderProps): JSX.Element => {
     </div>
   );
 };
+
+/* Msu variant — Spartan Green bar with wordmark and nav placeholders */
+export const Msu = (props: HeaderProps): JSX.Element => {
+  const id = props.params.RenderingIdentifier;
+  const sxaStyles = `${props.params?.styles || ''}`;
+  const { page } = useSitecore();
+
+  return (
+    <div className={`component header msu ${sxaStyles}`} id={id ? id : undefined}>
+      <div className={`container container-${props.params?.ContainerWidth?.toLowerCase()}-fluid`}>
+        <div className="row align-items-center">
+          <div className="col-auto">
+            <NextImage field={props.fields.LogoImage} width={220} height={56} />
+          </div>
+          <div className="col">
+            <AppPlaceholder name="header-right" rendering={props.rendering} page={page} componentMap={props.componentMap} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
