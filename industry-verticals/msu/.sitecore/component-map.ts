@@ -1,9 +1,11 @@
 // Below are built-in components that are available in the app, it's recommended to keep them as is
+import { NextjsContentSdkComponent } from '@sitecore-content-sdk/nextjs';
 
-import { BYOCServerWrapper, NextjsContentSdkComponent, FEaaSServerWrapper } from '@sitecore-content-sdk/nextjs';
+
+import { BYOCServerWrapper, FEaaSServerWrapper } from '@sitecore-content-sdk/nextjs';
 import { Form } from '@sitecore-content-sdk/nextjs';
 
-// end of built-in components
+// end of built-in import section
 import * as ThemeSwitcher from 'src/components/utilities/ThemeSwitcher';
 import * as SiteTheme from 'src/components/utilities/SiteTheme';
 import * as LoanCalculator from 'src/components/utilities/LoanCalculator';
