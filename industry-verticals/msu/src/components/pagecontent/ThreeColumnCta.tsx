@@ -267,3 +267,77 @@ export const WithIconsCompact = (props: ThreeColumnCtaProps): JSX.Element => {
     </div>
   );
 };
+
+/* Msu variant — sharp photo cards, title + body + text link */
+export const Msu = (props: ThreeColumnCtaProps): JSX.Element => {
+  const id = props.params.RenderingIdentifier;
+  const { page } = useSitecore();
+  const isPageEditing = page.mode.isEditing;
+  const sxaStyles = `${props.params?.styles || ''}`;
+
+  const Column = ({
+    image,
+    text,
+    subText,
+    link,
+  }: {
+    image: ImageField;
+    text: Field<string>;
+    subText: Field<string>;
+    link: LinkField;
+  }) => {
+    const hasImage = Boolean(image?.value?.src) || isPageEditing;
+    const buttonStyle = props.params?.ButtonStyle
+      ? `button-${props.params.ButtonStyle.toLowerCase()}`
+      : 'button-main';
+
+    return (
+      <div className="col-sm-12 col-lg-4">
+        <div className="content-wrapper">
+          {hasImage && <NextImage field={image} width={720} height={480} />}
+          <h2>
+            <Text field={text} />
+          </h2>
+          {(isPageEditing || subText?.value) && (
+            <p>
+              <Text field={subText} />
+            </p>
+          )}
+          {(isPageEditing || link?.value?.href) && (
+            <Link field={link} className={`button ${buttonStyle}`} />
+          )}
+        </div>
+      </div>
+    );
+  };
+
+  return (
+    <div
+      className={`component component-spaced three-column-cta msu ${sxaStyles}`}
+      id={id ? id : undefined}
+    >
+      <div className="container">
+        <div className="row">
+          <Column
+            image={props.fields.Image1}
+            text={props.fields.Text1}
+            subText={props.fields.SubText1}
+            link={props.fields.Link1}
+          />
+          <Column
+            image={props.fields.Image2}
+            text={props.fields.Text2}
+            subText={props.fields.SubText2}
+            link={props.fields.Link2}
+          />
+          <Column
+            image={props.fields.Image3}
+            text={props.fields.Text3}
+            subText={props.fields.SubText3}
+            link={props.fields.Link3}
+          />
+        </div>
+      </div>
+    </div>
+  );
+};

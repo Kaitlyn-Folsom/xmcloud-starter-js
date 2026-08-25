@@ -1,0 +1,72 @@
+# Demo Progress Tracker
+# Created automatically at the start of a demo build.
+# Updated after each MCP call or phase completion.
+
+client:
+  name: "Michigan State University"
+  sourceUrl: "https://msu.edu"
+  startedAt: "2026-08-25T19:00:00Z"
+  lastUpdatedAt: "2026-08-25T19:45:00Z"
+
+phases:
+  phase0_inputs:
+    status: "complete"
+    screenshot: true
+    url: "https://msu.edu"
+
+  phase0_5_manifest:
+    status: "complete"
+    validationMode: "quick"
+    result: "pass-with-warnings"
+
+  phase1_theme:
+    status: "complete"
+    themeFile: "docs/ai/themes/msu.theme.yaml"
+    userApproved: true
+
+  phase2_analysis:
+    status: "complete"
+    buildPlanFile: "docs/ai/demos/msu/build-plan.yaml"
+    totalSections: 15
+    userApproved: true
+
+  phase2_5_content:
+    status: "complete"
+    contentMapFile: "docs/ai/demos/msu/content-map.yaml"
+    extractorUsed: true
+
+  phase3_content:
+    status: "complete"
+    completedSections: 15
+    totalSections: 15
+    notes: "Datasources created under Home/Data and site Data. Images uploaded to Content Hub (28/28) and written as DAM XML."
+
+  phase4_theme:
+    status: "complete"
+    themeDelivery: "scss-variables"
+    cssWritten: true
+    fontsAdded: true
+
+  phase5_custom:
+    status: "skipped"
+    customComponentsNeeded: 0
+    customComponentsBuilt: 0
+
+  phase5_5_variants:
+    status: "complete"
+    variantsNeeded: 8
+    variantsCreated: 8
+    variantSpecsFile: "docs/ai/demos/msu/variant-specs.yaml"
+    skippedReason: ""
+
+  phase6_assembly:
+    status: "blocked"
+    componentsAdded: 0
+    datasourcesWired: 0
+    totalComponents: 13
+    notes: "add_component_on_page and set_component_datasource returned Agent API 500. Datasources and Msu variant definitions exist. Assemble in Pages using variant-checklist.md."
+
+  phase7_summary:
+    status: "complete"
+
+sections: []

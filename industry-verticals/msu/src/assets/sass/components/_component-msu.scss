@@ -1,0 +1,219 @@
+@import 'src/assets/sass/abstracts/vars';
+
+.site-financial {
+  .header.msu {
+    background-color: var(--brand-header-bg, var(--bg-saturated));
+    color: var(--brand-header-fg, #fff);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    img {
+      height: 48px;
+      width: auto;
+    }
+
+    a {
+      color: var(--brand-header-fg, #fff);
+    }
+  }
+
+  .hero.msu {
+    height: 72vh;
+    min-height: 520px;
+    color: #fff;
+
+    picture,
+    img {
+      height: 100%;
+    }
+
+    .content-container {
+      background: linear-gradient(90deg, rgb(0 0 0 / 55%) 0%, rgb(0 0 0 / 0%) 70%);
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    .title {
+      font-family: var(--brand-heading-font, inherit);
+      font-size: clamp(2.5rem, 6vw, 3.75rem);
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      line-height: 1.05;
+      text-transform: uppercase;
+    }
+
+    .subtitle {
+      max-width: 36rem;
+      font-size: 1.125rem;
+    }
+
+    .button-main {
+      background-color: var(--brand-primary, var(--bg-saturated));
+      border-radius: 0;
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+  }
+
+  .heading-cta.msu {
+    padding-top: 4rem;
+    padding-bottom: 0.5rem;
+
+    h2 {
+      color: var(--brand-primary, var(--text-colored));
+      font-family: var(--brand-heading-font, inherit);
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+  }
+
+  .three-column-cta.msu {
+    padding-top: 1.5rem;
+
+    .content-wrapper {
+      height: 100%;
+    }
+
+    img {
+      border-radius: 0;
+      height: 220px;
+      margin-bottom: 1.25rem;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    h2 {
+      color: var(--brand-primary, var(--text-colored));
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
+
+    .button {
+      background: none;
+      border: 0;
+      border-radius: 0;
+      color: var(--brand-primary, var(--text-colored));
+      font-weight: 700;
+      padding-left: 0;
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+    }
+  }
+
+  .stats-counter.msu {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    .mosaic-photo img {
+      display: block;
+      height: 100%;
+      min-height: 220px;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .mosaic-tile {
+      background-color: var(--brand-primary, var(--bg-saturated));
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 220px;
+      padding: 2rem;
+
+      &.alt {
+        background-color: var(--brand-accent, var(--bg-accent));
+        color: var(--brand-accent-foreground, var(--brand-primary, #18453b));
+      }
+    }
+
+    .mosaic-value {
+      font-family: var(--brand-heading-font, inherit);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+
+    .mosaic-caption {
+      font-size: 1rem;
+      margin-bottom: 0;
+    }
+  }
+
+  .cta-banner.msu {
+    h2 {
+      color: var(--brand-primary, var(--text-colored));
+      font-family: var(--brand-heading-font, inherit);
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 700;
+    }
+
+    .button-main {
+      background-color: var(--brand-primary, var(--bg-saturated));
+      border-radius: 0;
+      color: #fff;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    img {
+      border-radius: 0;
+    }
+  }
+
+  .two-column-cta.msu {
+    img {
+      border-radius: 0;
+      height: 280px;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    h2 {
+      color: var(--brand-primary, var(--text-colored));
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .button {
+      background: none;
+      border: 0;
+      color: var(--brand-primary, var(--text-colored));
+      font-weight: 700;
+      padding-left: 0;
+      text-decoration: underline;
+    }
+  }
+
+  .footer.msu {
+    background-color: var(--brand-footer-bg, var(--bg-footer));
+    color: var(--brand-footer-fg, #fff);
+    margin-bottom: 0;
+
+    .title,
+    a,
+    p {
+      color: var(--brand-footer-fg, #fff);
+    }
+
+    .title {
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    hr {
+      border-color: rgb(255 255 255 / 25%);
+    }
+  }
+
+  .button,
+  .button-main {
+    border-radius: var(--brand-button-radius, 0);
+  }
+}

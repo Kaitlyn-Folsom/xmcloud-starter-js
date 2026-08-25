@@ -25,6 +25,16 @@ const nextConfig: NextConfig = {
         hostname: 'xmc-*.**',
         port: '',
       },
+      {
+        protocol: 'https',
+        hostname: 'fols-ch.sitecoresandbox.cloud',
+        port: '',
+      },
+      {
+        protocol: 'https',
+        hostname: 'prosperabank.dev',
+        port: '',
+      },
     ],
   },
   // use this configuration to serve the sitemap.xml and robots.txt files from the API route handlers

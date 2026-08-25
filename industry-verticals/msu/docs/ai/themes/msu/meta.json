@@ -1,0 +1,119 @@
+{
+  "title": "Michigan State University | Michigan State University",
+  "themeColor": null,
+  "msColor": null,
+  "ogTitle": "Michigan State University | Michigan State University",
+  "ogDescription": null,
+  "ogImage": null,
+  "ogSiteName": "Michigan State University",
+  "favicon": "https://msu.edu/favicon.ico?favicon.0y..~kgy54v6~.ico",
+  "googleFontsLinks": [],
+  "fontFaces": [
+    {
+      "family": "Metropolis",
+      "src": "url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/9ca3a7d21a2849feaf766669e65c3fda?v=d2f9ab77\") format(\"woff2\"), url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/9020cd5b332d495b8956e20100688964?v=76b8e703\") format(\"woff\")",
+      "weight": "100"
+    },
+    {
+      "family": "Metropolis",
+      "src": "url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/209db6ecfa174e778eff3e42e6b2d2f4?v=9eceed2e\") format(\"woff2\"), url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/019b6f939ee145869680405ffc2a4889?v=d1b619e1\") format(\"woff\")",
+      "weight": "200"
+    },
+    {
+      "family": "Metropolis",
+      "src": "url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/ce35f285f42242a48df791a4e532092d?v=e5a411c5\") format(\"woff2\"), url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/8b3aa99e4f5c45ac98103bd68a7e06f0?v=48571bda\") format(\"woff\")",
+      "weight": "300"
+    },
+    {
+      "family": "Metropolis",
+      "src": "url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/9c02072eb2da4a0098ecad26b19cd361?v=a17c0104\") format(\"woff2\"), url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/d9d221201133445f86e83a0b930dc3a7?v=ae56e3d7\") format(\"woff\")",
+      "weight": "400"
+    },
+    {
+      "family": "Metropolis",
+      "src": "url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/2ed1578be92b4d3e9ec5d8501f3fd2c2?v=3837a180\") format(\"woff2\"), url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/38fc20b0b7f54913b396f31efb575064?v=440ee5d8\") format(\"woff\")",
+      "weight": "500"
+    },
+    {
+      "family": "Metropolis",
+      "src": "url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/10e34d698e804facae165c30adadf860?v=6c43e98a\") format(\"woff2\"), url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/6943af5bcae04b86bf3fd53af59a5e3a?v=696c1b80\") format(\"woff\")",
+      "weight": "600"
+    },
+    {
+      "family": "Metropolis",
+      "src": "url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/be8857f5c0f2455ba0c6b93367927150?v=78acbf81\") format(\"woff2\"), url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/a077671051eb4e5795f931e53519d27d?v=dfbec24e\") format(\"woff\")",
+      "weight": "700"
+    },
+    {
+      "family": "Metropolis",
+      "src": "url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/d2cdc506222d465cb0906feb8e5a001f?v=996a4ef7\") format(\"woff2\"), url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/d360e7cb53c54af7b77286bfcec2ea71?v=b1e6dc35\") format(\"woff\")",
+      "weight": "800"
+    },
+    {
+      "family": "Metropolis",
+      "src": "url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/4051a69bae1945f7bef4e7976b32d428?v=4adf021a\") format(\"woff2\"), url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/1100841542ea474683ad567bdcec0887?v=a10ed48f\") format(\"woff\")",
+      "weight": "900"
+    },
+    {
+      "family": "Metropolis",
+      "src": "url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/490787f610b74e6f8d1f922396d6ff85?v=fc3a55ce\") format(\"woff2\"), url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/ac28de85aa4d431195362cef05ebff6f?v=94fc46d7\") format(\"woff\")",
+      "weight": "100"
+    },
+    {
+      "family": "Metropolis",
+      "src": "url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/881775eaf6ff4d25ab63b62e57f0f334?v=46dcea86\") format(\"woff2\"), url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/970f4271212c458b81184fee4e4858a6?v=04587134\") format(\"woff\")",
+      "weight": "200"
+    },
+    {
+      "family": "Metropolis",
+      "src": "url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/744689063ab44346bd72369209cd2270?v=1a052071\") format(\"woff2\"), url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/ed8c9d18a4224e4d82280b1301a4185c?v=41410e74\") format(\"woff\")",
+      "weight": "300"
+    },
+    {
+      "family": "Metropolis",
+      "src": "url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/f6eac32fcc3d4de5b52c4934e850c153?v=c1d55014\") format(\"woff2\"), url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/4771044b95ac4e68980001f329e9b102?v=181e50cb\") format(\"woff\")",
+      "weight": "400"
+    },
+    {
+      "family": "Metropolis",
+      "src": "url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/fcff204269814a7c8bfba2cb98342225?v=3e5b5161\") format(\"woff2\"), url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/79de9fdfaba14641831a0ab47f8fece9?v=7f8e0ec1\") format(\"woff\")",
+      "weight": "500"
+    },
+    {
+      "family": "Metropolis",
+      "src": "url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/81c933a2dc634000b4091c3ce02a2342?v=2e46fb39\") format(\"woff2\"), url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/a4e692be90104495b713bb370a7891c4?v=9dbc07b7\") format(\"woff\")",
+      "weight": "600"
+    },
+    {
+      "family": "Metropolis",
+      "src": "url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/08cfdd1d527c4f47a88c7e17f73f7429?v=76fbac24\") format(\"woff2\"), url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/2a9b97f1c415479fadde598a9f7a04e9?v=6aa96510\") format(\"woff\")",
+      "weight": "700"
+    },
+    {
+      "family": "Metropolis",
+      "src": "url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/32728fc3026d40739ca080aba1e6f832?v=1c357c2a\") format(\"woff2\"), url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/bb4d63ed551e49be90130d7f430bb699?v=3a2672b5\") format(\"woff\")",
+      "weight": "800"
+    },
+    {
+      "family": "Metropolis",
+      "src": "url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/ab203960edc145e782f179ba84b41f4e?v=bb768853\") format(\"woff2\"), url(\"https://msu-p-001.sitecorecontenthub.cloud/api/public/content/c81688b5cfb1463d9e4f9bc51f7b44d7?v=f4f7781a\") format(\"woff\")",
+      "weight": "900"
+    }
+  ],
+  "logoCandidates": [
+    "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/thumbnail-8d39f57bfa8e449e813804ebaf35b6e8?v=164e6289",
+    "https://edge.sitecorecloud.io/michiganstab57e-msustrategi129d-prod9868-7e5e/media/project/msu/msu/student.jpg?h=496&iar=0&w=720",
+    "https://edge.sitecorecloud.io/michiganstab57e-msustrategi129d-prod9868-7e5e/media/project/msu/msu/students-citizen-scholar-lecture-classroom.jpg?h=605&iar=0&w=1024",
+    "https://edge.sitecorecloud.io/michiganstab57e-msustrategi129d-prod9868-7e5e/media/project/msu/msu/images/research/research-for-you-nav-graphic.jpg?h=800&iar=0&w=1000",
+    "https://edge.sitecorecloud.io/michiganstab57e-msustrategi129d-prod9868-7e5e/media/project/msu/msu/images/campus-life/campus-life-students-walking.jpg?h=2236&iar=0&w=2450",
+    "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/ef59ac8fa9e6491f8186787d4e738ae5?v=1eefe611",
+    "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/abaf286cae754222b4902da2a9b1b9d0?v=64257edf",
+    "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/686cf9cec7ce4712a44b7e74ec591799?v=8c7710ec",
+    "https://msu-p-001.sitecorecontenthub.cloud/api/public/content/thumbnail-8d39f57bfa8e449e813804ebaf35b6e8?v=164e6289",
+    "https://edge.sitecorecloud.io/michiganstab57e-msustrategi129d-prod9868-7e5e/media/project/msu/msu/student.jpg?h=496&iar=0&w=720",
+    "https://edge.sitecorecloud.io/michiganstab57e-msustrategi129d-prod9868-7e5e/media/project/msu/msu/students-citizen-scholar-lecture-classroom.jpg?h=605&iar=0&w=1024",
+    "https://edge.sitecorecloud.io/michiganstab57e-msustrategi129d-prod9868-7e5e/media/project/msu/msu/images/research/research-for-you-nav-graphic.jpg?h=800&iar=0&w=1000",
+    "https://edge.sitecorecloud.io/michiganstab57e-msustrategi129d-prod9868-7e5e/media/project/msu/msu/images/campus-life/campus-life-students-walking.jpg?h=2236&iar=0&w=2450"
+  ],
+  "heroBgImage": null
+}

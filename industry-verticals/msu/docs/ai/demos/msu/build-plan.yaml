@@ -1,0 +1,523 @@
+# Demo Build Plan — Michigan State University
+# Mapped to the Financial/PLAY component library (not the unused UIIM catalog).
+
+client:
+  name: "Michigan State University"
+  sourceUrl: "https://msu.edu"
+  themeFile: "docs/ai/themes/msu.theme.yaml"
+  analyzedAt: "2026-08-25T19:20:00Z"
+  contentRoot: "/sitecore/content/education/msu"
+  homePageId: "69a0fa33-c819-4b00-bb5f-db2b9d39de15"
+  homePagePath: "/sitecore/content/education/msu/Home"
+  dataRoot: "/sitecore/content/education/msu/Data"
+
+pageAnalysis:
+  screenshotFiles:
+    desktop: "docs/ai/themes/msu/screenshot-desktop.png"
+    mobile: "docs/ai/themes/msu/screenshot-mobile.png"
+    hero: "docs/ai/themes/msu/screenshot-hero.png"
+    userProvided: "user-attached msu.edu homepage screenshot"
+  totalSections: 15
+  templateMatches: 15
+  customRequired: 0
+  existingHomePageNotes: >
+    Home currently has leftover PLAY Financial components (Carousel, Comparison x2,
+    Four Column CTA, Five Column CTA, Article List, Documents List, App Promo,
+    three Promo CTAs, one Three Column CTA, one Two Column CTA). Matching
+    instances will be rewired; leftovers go on the manual cleanup list.
+
+sections:
+  - position: 1
+    description: "Solid Spartan Green header with wordmark, search, and main nav links"
+    matchedComponent:
+      registryId: "header"
+      manifestName: "Header"
+      displayName: "Header"
+      componentName: "Header"
+      renderingId: "81317d3b-f929-426a-83ec-421982f8f1e6"
+      templateId: "0da7aa52-0c24-4721-9b6c-f6d8d9faaaa0"
+      variant: "WithLogoImage"
+      matchType: "template"
+      matchConfidence: "high"
+      kind: "simple"
+      apiAddable: false
+      livesIn: "partial-design"
+      partialPath: "/sitecore/content/education/msu/Presentation/Partial Designs/Header"
+    sectionBackground: "primary"
+    variantMatch: "partial"
+    customVariantNeeded:
+      name: "Msu"
+      description: "Two-tier header — logo + search row, then solid green nav (About, Admissions, Academics, Research, Campus Life, Athletics) and MSUToday chip"
+      parentComponent: "Header"
+    content:
+      LogoImage: "Michigan State University wordmark + Spartan helmet, white on green"
+    contentNotes: "Utility links (For: Future Students / Current Students / Alumni / Faculty & Staff, Apply / Visit / Give) sit above the main header. Nav is context-driven. Do not add via API — already on the Header partial."
+    variantReason: "WithLogoImage is the closest existing export; a custom Msu variant is needed for the two-tier green bar."
+
+  - position: 2
+    description: "Full-bleed campus photo of students with Sparty, white BE A SPARTAN overlay and Apply Today button"
+    matchedComponent:
+      registryId: "hero"
+      manifestName: "Hero"
+      displayName: "Hero"
+      componentName: "Hero"
+      renderingId: "b7cdf75e-716a-4c59-b9b1-cd970ae0a4ae"
+      templateId: "90d315e8-aa42-4b23-a7eb-4491396453f8"
+      variant: "Default"
+      matchType: "template"
+      matchConfidence: "high"
+      kind: "simple"
+      apiAddable: true
+    sectionBackground: "dark"
+    variantMatch: "partial"
+    customVariantNeeded:
+      name: "Msu"
+      description: "Left-aligned white overlay on full-bleed photo, sharp-corner green CTA, no dotted accents"
+      parentComponent: "Hero"
+    content:
+      Title: "BE A SPARTAN"
+      Text: "Are you ready to join the next generation of Spartans? Applications are now open for fall 2027."
+      Link: { text: "Apply Today", href: "https://msu.edu/admissions" }
+      Image: "Group of students with Sparty on a campus walkway"
+    contentNotes: "Hero (full-bleed overlay) is the correct match — not HeroBanner, which is a 50/50 split. Copy will be confirmed in Phase 2.5 from the live DOM."
+    variantReason: "Default Hero already uses a background image + overlay. Custom Msu variant tightens alignment, type, and button chrome."
+
+  - position: 3
+    description: "Small uppercase section heading above the first card row"
+    matchedComponent:
+      registryId: "heading-cta"
+      manifestName: "HeadingCta"
+      displayName: "Heading CTA"
+      componentName: "HeadingCta"
+      renderingId: "89e1d547-7cd6-4ef0-9a27-1e99410797dd"
+      templateId: "fa136527-6302-471d-83ab-e66fc72bda99"
+      variant: "Compact"
+      matchType: "template"
+      matchConfidence: "high"
+      kind: "simple"
+      apiAddable: true
+    sectionBackground: "muted"
+    variantMatch: "exact"
+    content:
+      Eyebrow: ""
+      Heading: "FUTURE SPARTANS, WE'RE HERE FOR YOU"
+      Text: ""
+      Link: { text: "", href: "" }
+    contentNotes: "Section title only — no body or button."
+    variantReason: "Compact is a heading-only block without the large display treatment."
+
+  - position: 4
+    description: "Three image-top cards — majors, request info, visit campus — each with a green button"
+    matchedComponent:
+      registryId: "three-column-cta"
+      manifestName: "ThreeColumnCta"
+      displayName: "Three Column CTA"
+      componentName: "ThreeColumnCta"
+      renderingId: "ad385021-ce2b-4fc1-89aa-207d408034a8"
+      templateId: "148d07ba-f923-4fb2-8907-0bd440d5db44"
+      variant: "Default"
+      matchType: "template"
+      matchConfidence: "high"
+      kind: "simple"
+      apiAddable: true
+      alreadyOnPage: true
+      existingInstanceId: "d54d53b4-1aa4-4998-9bdf-eb934c32cfb6"
+    sectionBackground: "muted"
+    variantMatch: "partial"
+    customVariantNeeded:
+      name: "Msu"
+      description: "Equal image-top cards, sharp corners, Spartan Green rectangular buttons, generous card gap"
+      parentComponent: "ThreeColumnCta"
+    content:
+      Text1: "Majors, degrees, programs"
+      SubText1: "Find a degree program that matches your goals."
+      Link1: { text: "Explore programs", href: "https://msu.edu/academics" }
+      Image1: "Student or researcher in a lab"
+      Text2: "Request information"
+      SubText2: "Tell us what you want to know and we'll follow up."
+      Link2: { text: "Get info", href: "https://msu.edu/admissions" }
+      Image2: "Student walking on campus"
+      Text3: "Visit campus"
+      SubText3: "See East Lansing in person and picture yourself here."
+      Link3: { text: "Plan a visit", href: "https://msu.edu/visit" }
+      Image3: "Aerial campus greenery"
+    contentNotes: "Exact card copy will be taken from the live site in Phase 2.5. One Three Column CTA is already on Home and can be rewired."
+    variantReason: "Default already renders image + title + text + button in three columns."
+
+  - position: 5
+    description: "LATEST NEWS section heading"
+    matchedComponent:
+      registryId: "heading-cta"
+      manifestName: "HeadingCta"
+      displayName: "Heading CTA"
+      componentName: "HeadingCta"
+      renderingId: "89e1d547-7cd6-4ef0-9a27-1e99410797dd"
+      templateId: "fa136527-6302-471d-83ab-e66fc72bda99"
+      variant: "Compact"
+      matchType: "template"
+      matchConfidence: "high"
+      kind: "simple"
+      apiAddable: true
+    sectionBackground: "default"
+    variantMatch: "exact"
+    content:
+      Heading: "LATEST NEWS"
+    contentNotes: ""
+    variantReason: "Same compact heading pattern as other MSU section titles."
+
+  - position: 6
+    description: "Three news story cards with photos, headlines, and Read more buttons"
+    matchedComponent:
+      registryId: "three-column-cta"
+      manifestName: "ThreeColumnCta"
+      displayName: "Three Column CTA"
+      componentName: "ThreeColumnCta"
+      renderingId: "ad385021-ce2b-4fc1-89aa-207d408034a8"
+      templateId: "148d07ba-f923-4fb2-8907-0bd440d5db44"
+      variant: "Default"
+      matchType: "template"
+      matchConfidence: "high"
+      kind: "simple"
+      apiAddable: true
+    sectionBackground: "default"
+    variantMatch: "partial"
+    customVariantNeeded:
+      name: "Msu"
+      description: "Reuse the Msu card treatment from section 4"
+      parentComponent: "ThreeColumnCta"
+    content:
+      Text1: "New tools at MSU are helping engineer the future of medicine"
+      SubText1: ""
+      Link1: { text: "Read more", href: "https://msu.edu" }
+      Image1: "Students in a lab"
+      Text2: "This Spartan health entrepreneur is investing in MSU's future innovators"
+      SubText2: ""
+      Link2: { text: "Read more", href: "https://msu.edu" }
+      Image2: "Portrait of a person in an office"
+      Text3: "Bringing butterflies back from the brink of extinction"
+      SubText3: ""
+      Link3: { text: "Read more", href: "https://msu.edu" }
+      Image3: "Hands working with plants"
+    contentNotes: "Headlines are screenshot-extracted and will be replaced with live MSU Today stories in Phase 2.5."
+    variantReason: "Same three-up image card pattern as the admissions row."
+
+  - position: 7
+    description: "Asymmetric mosaic of campus photos and green ranking tiles (Top 50 / Top 30)"
+    matchedComponent:
+      registryId: "stats-counter"
+      manifestName: "StatsCounter"
+      displayName: "Stats Counter"
+      componentName: "StatsCounter"
+      renderingId: "316889fa-fdd4-42a6-a034-201124fe54e8"
+      templateId: "c24bfc74-c6e2-413a-aebd-903180dfaff7"
+      variant: "Default"
+      matchType: "template"
+      matchConfidence: "medium"
+      kind: "simple"
+      apiAddable: true
+    sectionBackground: "primary"
+    variantMatch: "none"
+    customVariantNeeded:
+      name: "Msu"
+      description: "2x3 mosaic — photo tiles mixed with solid Spartan Green ranking blocks and lime/white stat type. Default Stats Counter is a 3-number row with side images."
+      parentComponent: "StatsCounter"
+    content:
+      Value1: "50"
+      Symbol1: ""
+      Caption1: "Top 50 Global college"
+      Value2: "30"
+      Symbol2: ""
+      Caption2: "Top 30 Public university"
+      Value3: "2"
+      Symbol3: ""
+      Caption3: "No. 2 in nation for sustainability impact"
+      Image1: "Beaumont Tower against the sky"
+      Image2: "Spartan helmet relief carved in wood or stone"
+    contentNotes: "Live mosaic also includes a statue photo with a U.S. News overlay. Stats Counter only has two image fields — extra photo tiles need the custom variant or will be dropped. Low visual fidelity without Phase 5.5."
+    variantReason: "Closest template that holds large ranking numbers plus photography. Not a grid mosaic out of the box."
+
+  - position: 8
+    description: "MSU IN THE NEWS section heading"
+    matchedComponent:
+      registryId: "heading-cta"
+      manifestName: "HeadingCta"
+      displayName: "Heading CTA"
+      componentName: "HeadingCta"
+      renderingId: "89e1d547-7cd6-4ef0-9a27-1e99410797dd"
+      templateId: "fa136527-6302-471d-83ab-e66fc72bda99"
+      variant: "Compact"
+      matchType: "template"
+      matchConfidence: "high"
+      kind: "simple"
+      apiAddable: true
+    sectionBackground: "default"
+    variantMatch: "exact"
+    content:
+      Heading: "MSU IN THE NEWS"
+    contentNotes: ""
+    variantReason: "Compact section title."
+
+  - position: 9
+    description: "Three text columns of press mentions (outlet name, blurb, Read more)"
+    matchedComponent:
+      registryId: "three-column-cta"
+      manifestName: "ThreeColumnCta"
+      displayName: "Three Column CTA"
+      componentName: "ThreeColumnCta"
+      renderingId: "ad385021-ce2b-4fc1-89aa-207d408034a8"
+      templateId: "148d07ba-f923-4fb2-8907-0bd440d5db44"
+      variant: "WithIconsCompact"
+      matchType: "template"
+      matchConfidence: "medium"
+      kind: "simple"
+      apiAddable: true
+    sectionBackground: "default"
+    variantMatch: "partial"
+    customVariantNeeded:
+      name: "MsuStories"
+      description: "Text-only three-up with outlet name as heading, blurb, and green Read more — no card images"
+      parentComponent: "ThreeColumnCta"
+    content:
+      Text1: "IFL Science"
+      SubText1: "Coverage of MSU research and campus stories."
+      Link1: { text: "Read more", href: "https://msu.edu" }
+      Text2: "The Conversation"
+      SubText2: "Faculty experts on issues that matter."
+      Link2: { text: "Read more", href: "https://msu.edu" }
+      Text3: "CBC News"
+      SubText3: "MSU in national and international headlines."
+      Link3: { text: "Read more", href: "https://msu.edu" }
+    contentNotes: "Outlet names vary by scrape vs user screenshot (MSU Stories / The Spartan Way / MSU News also appeared). Phase 2.5 will lock live copy."
+    variantReason: "WithIconsCompact is the least image-heavy three-up. A text-only variant would match better."
+
+  - position: 10
+    description: "Know a future Spartan? — text and button on the left, circular student photo on the right"
+    matchedComponent:
+      registryId: "cta-banner"
+      manifestName: "CtaBanner"
+      displayName: "CTA Banner"
+      componentName: "CtaBanner"
+      renderingId: "488b8ac0-0ef9-4f6f-8711-78ba182b2c4c"
+      templateId: "4900d7e5-61b0-483a-a9d6-69419d4d5982"
+      variant: "Default"
+      matchType: "template"
+      matchConfidence: "high"
+      kind: "simple"
+      apiAddable: true
+    sectionBackground: "default"
+    variantMatch: "partial"
+    customVariantNeeded:
+      name: "Msu"
+      description: "Circular crop on the student photo, no dotted accents, sharp green button"
+      parentComponent: "CtaBanner"
+    content:
+      Eyebrow: ""
+      Title: "Know a future Spartan?"
+      Text: "Share your MSU story and help the next student find their place."
+      Link: { text: "Refer a student", href: "https://msu.edu" }
+      Image: "Low-angle photo of smiling students looking toward the camera"
+    contentNotes: "User screenshot used 'Find out how'; live scrape used 'Refer a student'. Phase 2.5 will confirm."
+    variantReason: "CTA Banner is text-left / image-right with a single button — the right shape for this callout."
+
+  - position: 11
+    description: "Two large side-by-side photo tiles with overlay headlines and buttons"
+    matchedComponent:
+      registryId: "two-column-cta"
+      manifestName: "TwoColumnCta"
+      displayName: "Two Column CTA"
+      componentName: "TwoColumnCta"
+      renderingId: "3a9a9d22-c092-4b54-9511-eb202ceabe8d"
+      templateId: "1812bf3e-6bdd-466d-99b2-0d7cebb020fc"
+      variant: "Default"
+      matchType: "template"
+      matchConfidence: "high"
+      kind: "simple"
+      apiAddable: true
+      alreadyOnPage: true
+      existingInstanceId: "0ed2d2c2-e9ef-4e40-b040-6289cb174e03"
+    sectionBackground: "dark"
+    variantMatch: "none"
+    customVariantNeeded:
+      name: "Msu"
+      description: "Full-bleed image tiles with white text overlay and a button on the photo — Default stacks image then text below"
+      parentComponent: "TwoColumnCta"
+    content:
+      Title1: "WHAT'S HAPPENING ON CAMPUS IN AUGUST"
+      Text1: ""
+      Link1: { text: "List of events", href: "https://msu.edu" }
+      Image1: "Green bridge over water surrounded by trees"
+      Title2: "MSU NAMES DAN BARTHOLOMAE AS NEXT DIRECTOR OF ATHLETICS"
+      Text2: ""
+      Link2: { text: "Story", href: "https://msu.edu" }
+      Image2: "Outdoor digital board showing the Spartan logo"
+    contentNotes: "Already on Home — rewire datasource. Overlay treatment needs the custom variant."
+    variantReason: "Two Column CTA is the only two-up image+CTA component in the library."
+
+  - position: 12
+    description: "CAMPUS INITIATIVES section heading"
+    matchedComponent:
+      registryId: "heading-cta"
+      manifestName: "HeadingCta"
+      displayName: "Heading CTA"
+      componentName: "HeadingCta"
+      renderingId: "89e1d547-7cd6-4ef0-9a27-1e99410797dd"
+      templateId: "fa136527-6302-471d-83ab-e66fc72bda99"
+      variant: "Compact"
+      matchType: "template"
+      matchConfidence: "high"
+      kind: "simple"
+      apiAddable: true
+    sectionBackground: "default"
+    variantMatch: "exact"
+    content:
+      Heading: "CAMPUS INITIATIVES"
+    contentNotes: ""
+    variantReason: "Compact section title."
+
+  - position: 13
+    description: "Three initiative cards — MSU 2030, uncommon will, campus survey"
+    matchedComponent:
+      registryId: "three-column-cta"
+      manifestName: "ThreeColumnCta"
+      displayName: "Three Column CTA"
+      componentName: "ThreeColumnCta"
+      renderingId: "ad385021-ce2b-4fc1-89aa-207d408034a8"
+      templateId: "148d07ba-f923-4fb2-8907-0bd440d5db44"
+      variant: "Default"
+      matchType: "template"
+      matchConfidence: "high"
+      kind: "simple"
+      apiAddable: true
+    sectionBackground: "default"
+    variantMatch: "partial"
+    customVariantNeeded:
+      name: "Msu"
+      description: "Same Msu card treatment as sections 4 and 6"
+      parentComponent: "ThreeColumnCta"
+    content:
+      Text1: "MSU 2030: Excellence for Global Impact"
+      SubText1: "The university's strategic plan for the decade ahead."
+      Link1: { text: "Learn more", href: "https://msu.edu" }
+      Image1: "MSU seal"
+      Text2: "Uncommon Will, For a Better World"
+      SubText2: "How Spartans show up for communities on campus and beyond."
+      Link2: { text: "Learn more", href: "https://msu.edu" }
+      Image2: "People working in a community garden"
+      Text3: "Know More Campus Survey"
+      SubText3: "First-year and campus community feedback that shapes student life."
+      Link3: { text: "Learn more", href: "https://msu.edu" }
+      Image3: "Two people holding hands"
+    contentNotes: ""
+    variantReason: "Third three-up image card row."
+
+  - position: 14
+    description: "Three large text links with arrows — Learn about MSU, Academics, Research"
+    matchedComponent:
+      registryId: "three-column-cta"
+      manifestName: "ThreeColumnCta"
+      displayName: "Three Column CTA"
+      componentName: "ThreeColumnCta"
+      renderingId: "ad385021-ce2b-4fc1-89aa-207d408034a8"
+      templateId: "148d07ba-f923-4fb2-8907-0bd440d5db44"
+      variant: "WithIconsCompact"
+      matchType: "template"
+      matchConfidence: "medium"
+      kind: "simple"
+      apiAddable: true
+    sectionBackground: "default"
+    variantMatch: "partial"
+    customVariantNeeded:
+      name: "MsuLinks"
+      description: "Large text links with a right arrow, no images or body copy"
+      parentComponent: "ThreeColumnCta"
+    content:
+      Text1: "Learn about MSU"
+      SubText1: ""
+      Link1: { text: "Learn about MSU", href: "https://msu.edu/about" }
+      Text2: "Explore our Academics"
+      SubText2: ""
+      Link2: { text: "Explore our Academics", href: "https://msu.edu/academics" }
+      Text3: "Discover our Research"
+      SubText3: ""
+      Link3: { text: "Discover our Research", href: "https://msu.edu/research" }
+    contentNotes: "Default/WithIconsCompact still expect images. Custom variant should hide images and render arrow links."
+    variantReason: "Only three-up link component available."
+
+  - position: 15
+    description: "Dark green multi-column footer with logo, resource links, contact, social icons, and legal bar"
+    matchedComponent:
+      registryId: "footer"
+      manifestName: "Footer"
+      displayName: "Footer"
+      componentName: "Footer"
+      renderingId: "771a3f27-6448-44ac-add0-e5de311c6e3b"
+      templateId: "947db8f8-dc76-453f-aca1-a27babfe633b"
+      variant: "WithSocials"
+      matchType: "template"
+      matchConfidence: "high"
+      kind: "simple"
+      apiAddable: false
+      livesIn: "partial-design"
+      partialPath: "/sitecore/content/education/msu/Presentation/Partial Designs/Footer"
+    sectionBackground: "primary"
+    variantMatch: "partial"
+    customVariantNeeded:
+      name: "Msu"
+      description: "Four-plus link columns, contact block, social row, Spartans Will badge, thin white legal bar"
+      parentComponent: "Footer"
+    content:
+      Title1: "Resources"
+      Text1: "A-Z Index, MSU Today, Libraries"
+      Title2: "Health and Safety"
+      Text2: "MSU Police, Counseling Services, University Health"
+      Title3: "Support Services"
+      Text3: "Directory, Diversity Resources"
+      Title4: "Working at MSU"
+      Text4: "Human Resources, Job Postings"
+      Copyright: "© Michigan State University"
+      SocialsTitle: "Follow Us"
+    contentNotes: "Footer already lives on the Footer partial. Default Footer supports 4 columns; WithSocials supports 2 columns + socials. Live site has 5 columns — custom variant or consolidate."
+    variantReason: "WithSocials is the only export that includes social icons."
+
+customComponents: []
+
+existingOnHomeToRewire:
+  - componentName: "ThreeColumnCta"
+    instanceId: "d54d53b4-1aa4-4998-9bdf-eb934c32cfb6"
+    mapsToPosition: 4
+  - componentName: "TwoColumnCta"
+    instanceId: "0ed2d2c2-e9ef-4e40-b040-6289cb174e03"
+    mapsToPosition: 11
+  - componentName: "PromoCta"
+    instanceId: "d49a8931-f041-4988-9cc3-f2400e6422d0"
+    note: "Optional — CtaBanner is a better match for section 10; leftover Promo CTAs should be removed"
+
+oobToRemoveManually:
+  - "Carousel"
+  - "Comparison (x2, nested in Two Column CTA placeholders)"
+  - "Four Column CTA"
+  - "Five Column CTA"
+  - "Article List"
+  - "Documents List"
+  - "App Promo"
+  - "Extra Promo CTA instances (2)"
+
+buildOrder:
+  phase1_sitecore:
+    - "Hero (Be a Spartan)"
+    - "HeadingCta (Future Spartans)"
+    - "ThreeColumnCta (Future Spartans cards)"
+    - "HeadingCta (Latest News)"
+    - "ThreeColumnCta (Latest News cards)"
+    - "StatsCounter (Rankings mosaic)"
+    - "HeadingCta (MSU in the News)"
+    - "ThreeColumnCta (Press mentions)"
+    - "CtaBanner (Know a future Spartan)"
+    - "TwoColumnCta (Campus tiles)"
+    - "HeadingCta (Campus Initiatives)"
+    - "ThreeColumnCta (Initiatives cards)"
+    - "ThreeColumnCta (Pre-footer links)"
+    - "Footer datasource (partial — populate only)"
+    - "Header logo (partial — populate only)"
+  phase2_theme: "Apply Spartan Green + Metropolis to .site-financial in _colors.scss and _fonts.scss"
+  phase3_custom: []

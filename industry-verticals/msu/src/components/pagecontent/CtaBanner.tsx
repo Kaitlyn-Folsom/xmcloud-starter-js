@@ -86,6 +86,42 @@ export const Default = (props: CtaBannerProps): JSX.Element => {
   );
 };
 
+/* Msu variant — 50/50 text + photo, no dotted accents */
+export const Msu = (props: CtaBannerProps): JSX.Element => {
+  const id = props.params.RenderingIdentifier;
+  const { page } = useSitecore();
+  const isPageEditing = page.mode.isEditing;
+  const sxaStyles = `${props.params?.styles || ''}`;
+
+  return (
+    <div className={`component cta-banner component-spaced msu ${sxaStyles}`} id={id ? id : undefined}>
+      <div className="container">
+        <div className="row row-gap-4 main-content align-items-center">
+          <div className="col-lg-6">
+            <div className="content-wrapper">
+              {(isPageEditing || props.fields.Eyebrow?.value) && (
+                <h6 className="eyebrow-accent">
+                  <Text field={props.fields.Eyebrow} />
+                </h6>
+              )}
+              <h2>
+                <Text field={props.fields.Title} />
+              </h2>
+              <RichText field={props.fields.Text} className="text-content" />
+              {(isPageEditing || props.fields?.Link?.value?.href) && (
+                <Link field={props.fields.Link} className="button button-main mt-3" />
+              )}
+            </div>
+          </div>
+          <div className="col-lg-6">
+            <NextImage field={props.fields.Image} className="img-fluid" width={800} height={560} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export const LargeImage = (props: CtaBannerProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
   const { page } = useSitecore();

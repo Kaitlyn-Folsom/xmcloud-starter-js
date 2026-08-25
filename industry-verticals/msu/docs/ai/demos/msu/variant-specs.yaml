@@ -1,0 +1,72 @@
+variantSpecs:
+  - position: 1
+    componentName: "Header"
+    variantName: "Msu"
+    baseVariant: "WithLogoImage"
+    variantId: "f18b8f8f-c895-4fec-b0e4-f2d5c27c9306"
+    visualDifferences:
+      layout: "logo left, nav placeholders right"
+      background: "solid Spartan Green bar"
+      distinctive: "white wordmark on green"
+
+  - position: 2
+    componentName: "Hero"
+    variantName: "Msu"
+    baseVariant: "Default"
+    variantId: "121db35e-f1e7-4119-a455-7b55f78e24aa"
+    visualDifferences:
+      layout: "full-bleed photo, left-aligned overlay"
+      typography: "uppercase 3.75rem hero, white text"
+      buttons: "Spartan Green Apply Today, sharp corners"
+
+  - position: 3
+    componentName: "Heading CTA"
+    variantName: "Msu"
+    baseVariant: "Default"
+    variantId: "5e6c801c-4aaa-4151-b1ae-d10fe3c77b71"
+    visualDifferences:
+      layout: "single left-aligned heading, no CTA column"
+      typography: "institutional heading scale"
+
+  - position: 4
+    componentName: "Three Column CTA"
+    variantName: "Msu"
+    baseVariant: "Default"
+    variantId: "62cad8af-2419-4c12-b080-3268cb2876ee"
+    visualDifferences:
+      layout: "three sharp photo cards, title + body + underline link"
+      spacing: "220px image crop, no card radius"
+
+  - position: 7
+    componentName: "Stats Counter"
+    variantName: "Msu"
+    baseVariant: "Default"
+    variantId: "18a6255b-689e-4ce3-ba62-ebf512bfce22"
+    visualDifferences:
+      layout: "ranking mosaic tiles, text values instead of count-up"
+      background: "Spartan Green / Lime tiles + photography"
+
+  - position: 10
+    componentName: "CTA Banner"
+    variantName: "Msu"
+    baseVariant: "Default"
+    variantId: "8b37e029-d67f-4928-a0aa-8d3d7c9ecd65"
+    visualDifferences:
+      layout: "50/50 text + photo, no dotted accents"
+
+  - position: 11
+    componentName: "Two Column CTA"
+    variantName: "Msu"
+    baseVariant: "Default"
+    variantId: "56889b59-3ec2-4659-b847-3ab1baeb8128"
+    visualDifferences:
+      layout: "two large photo stories"
+
+  - position: 15
+    componentName: "Footer"
+    variantName: "Msu"
+    baseVariant: "Default"
+    variantId: "2340ca7b-2229-4730-89f0-ed033d2051ad"
+    visualDifferences:
+      layout: "four link columns + wordmark"
+      background: "Spartan Green"

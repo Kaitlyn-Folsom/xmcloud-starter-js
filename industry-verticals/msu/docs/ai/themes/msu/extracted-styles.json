@@ -1,0 +1,43 @@
+{
+  "colors": {
+    "bodyBackground": "rgb(255, 255, 255)",
+    "bodyColor": "rgb(33, 37, 41)",
+    "headerBackground": "rgba(0, 0, 0, 0)",
+    "headerColor": "rgb(33, 37, 41)",
+    "footerBackground": "rgb(255, 255, 255)",
+    "footerColor": "rgb(33, 37, 41)",
+    "heroBackground": "rgb(255, 255, 255)",
+    "primaryButtonBackground": "rgb(24, 69, 59)",
+    "primaryButtonColor": "rgb(255, 255, 255)",
+    "primaryButtonBorderRadius": "0px",
+    "linkColor": "rgb(21, 26, 34)"
+  },
+  "typography": {
+    "bodyFontFamily": "system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", \"Noto Sans\", \"Liberation Sans\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+    "bodyFontSize": "16.7501px",
+    "bodyFontWeight": "400",
+    "bodyLineHeight": "26.1301px",
+    "h1FontFamily": "Metropolis, sans-serif",
+    "h1FontSize": "60px",
+    "h1FontWeight": "700",
+    "h1LetterSpacing": "0.75px",
+    "h1TextTransform": "none",
+    "h2FontFamily": "Metropolis, sans-serif",
+    "h2FontSize": "15px",
+    "h2FontWeight": "500",
+    "h3FontFamily": "Metropolis, sans-serif",
+    "h3FontSize": "17.008px",
+    "h3FontWeight": "800",
+    "pFontSize": "15px",
+    "pLineHeight": "normal"
+  },
+  "shape": {
+    "imgBorderRadius": "0px"
+  },
+  "spacing": {
+    "heroMinHeight": "0px",
+    "heroPadding": "0px",
+    "containerMaxWidth": "1170px"
+  },
+  "cssVariables": {}
+}
