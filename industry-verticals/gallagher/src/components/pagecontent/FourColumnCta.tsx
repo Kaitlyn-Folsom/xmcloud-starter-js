@@ -119,3 +119,55 @@ export const Default = (props: FourColumnCtaProps): JSX.Element => {
     </div>
   );
 };
+
+export const Gallagher = (props: FourColumnCtaProps): JSX.Element => {
+  const id = props.params.RenderingIdentifier;
+  const { page } = useSitecore();
+  const isPageEditing = page.mode.isEditing;
+  const sxaStyles = `${props.params?.styles || ''}`;
+
+  const Column = ({
+    title,
+    text,
+    delay,
+  }: {
+    title: Field<string>;
+    text: Field<string>;
+    delay?: number;
+  }) => {
+    const [isVisible, domRef] = useVisibility(delay);
+    return (
+      <div
+        className={`col-sm-12 col-lg-3 ${
+          !isPageEditing ? `fade-section ${isVisible ? 'is-visible' : ''}` : ''
+        }`}
+        ref={domRef}
+      >
+        <div className="content-wrapper">
+          <h2>
+            <Text field={title} />
+          </h2>
+          <p>
+            <Text field={text} />
+          </p>
+        </div>
+      </div>
+    );
+  };
+
+  return (
+    <div
+      className={`component component-spaced four-column-cta gallagher ${sxaStyles}`}
+      id={id ? id : undefined}
+    >
+      <div className="container">
+        <div className="row">
+          <Column title={props.fields.Title1} text={props.fields.Text1} />
+          <Column title={props.fields.Title2} text={props.fields.Text2} delay={200} />
+          <Column title={props.fields.Title3} text={props.fields.Text3} delay={400} />
+          <Column title={props.fields.Title4} text={props.fields.Text4} delay={600} />
+        </div>
+      </div>
+    </div>
+  );
+};

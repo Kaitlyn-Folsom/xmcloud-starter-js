@@ -15,6 +15,9 @@
 .env.*.local
 .env
 
+# demo builder secrets
+docs/ai/config/credentials.local.yaml
+
 # Log files
 *.log*
 

@@ -1,0 +1,802 @@
+{
+  "url": "https://www.ajg.com",
+  "extractedAt": "2026-08-26T14:22:36.533Z",
+  "detectedLanguage": "en",
+  "targetLanguage": "en",
+  "translationNeeded": false,
+  "totalSections": 9,
+  "totalImages": 23,
+  "totalVideos": 1,
+  "interactionStats": {
+    "lazySourcesResolved": 0,
+    "tabsClicked": 1,
+    "accordionsExpanded": 5,
+    "carouselDotsClicked": 5,
+    "carouselArrowSlides": 12,
+    "backgroundImagesCollected": 1
+  },
+  "sections": [
+    {
+      "position": 1,
+      "tagName": "nav",
+      "classHint": "gsc-skip-links",
+      "backgroundHint": "dark",
+      "headings": [],
+      "paragraphs": [],
+      "links": [
+        {
+          "text": "Skip to main content",
+          "href": "https://www.ajg.com/#main",
+          "target": ""
+        },
+        {
+          "text": "Skip to Search",
+          "href": "https://www.ajg.com/#gsc-global-search",
+          "target": ""
+        }
+      ],
+      "images": []
+    },
+    {
+      "position": 2,
+      "tagName": "section",
+      "classHint": "ajg-2-alternative-carousel-hero-comp mb-0 lg:mb-0 bg-primary-5 border-b-4 border-primary-20",
+      "backgroundHint": "light",
+      "headings": [
+        {
+          "tag": "h3",
+          "text": "When Hackers Don't Need Humans: Is Your Organization Ready?"
+        },
+        {
+          "tag": "h3",
+          "text": "Turn Risk into a Competitive Advantage"
+        },
+        {
+          "tag": "h3",
+          "text": "AI Adoption in 2026: Turning Insight Into Impact"
+        },
+        {
+          "tag": "h3",
+          "text": "Supply Chain Lessons From Business Leaders Across Industries"
+        }
+      ],
+      "paragraphs": [
+        "Gallagher helps you face your future with confidence.",
+        "to learn how about the rise of autonomous cyber threats and what leaders can do to protect their organizations.",
+        "See how risk forecasting sharpens strategy, manages talent, cuts reputational risk and turns uncertainty into advantage.",
+        "Gallagher’s AI survey explores AI adoption, key risks and why most leaders expect ROI in two to three years.",
+        "Gallagher’s global survey shows how 1,200 leaders build resilient supply chains and manage disruption with confidence."
+      ],
+      "links": [
+        {
+          "text": "Discover our Solutions",
+          "href": "https://www.ajg.com/insurance/",
+          "target": ""
+        },
+        {
+          "text": "Connect with Us",
+          "href": "https://www.ajg.com/connect-with-us/",
+          "target": ""
+        }
+      ],
+      "images": [
+        {
+          "src": "https://bynder.ajg.com/transform/7e6cfea9-be5d-44d7-8008-56dd191a9797/shutterstock_2079730714?io=transform:fill,width:399,height:224",
+          "alt": "",
+          "type": "img",
+          "width": 1440,
+          "height": 808
+        },
+        {
+          "src": "https://bynder.ajg.com/transform/904970fa-78f7-49ec-9c25-5e24bdb80d8c/Shutterstock-2306470919-jpg?io=transform:fill,width:399,height:224",
+          "alt": "",
+          "type": "img",
+          "width": 1440,
+          "height": 808
+        },
+        {
+          "src": "https://bynder.ajg.com/transform/bd77c37f-a851-4c2f-8d1f-b8dd8e7fa848/Shutterstock-2587226133-jpg?io=transform:fill,width:399,height:224",
+          "alt": "",
+          "type": "img",
+          "width": 1440,
+          "height": 808
+        },
+        {
+          "src": "https://bynder.ajg.com/transform/ba434521-0fd6-45e6-b28c-c2725e6ef461/Shutterstock-1908682591-jpg?io=transform:fill,width:399,height:224",
+          "alt": "",
+          "type": "img",
+          "width": 1440,
+          "height": 808
+        },
+        {
+          "src": "height:484",
+          "alt": "",
+          "type": "srcset",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "height:1620",
+          "alt": "",
+          "type": "srcset",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "height:644",
+          "alt": "",
+          "type": "srcset",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "height:892",
+          "alt": "",
+          "type": "srcset",
+          "width": null,
+          "height": null
+        }
+      ],
+      "listItems": [
+        {
+          "description": "Your Trusted Partner for Insurance & Consulting",
+          "link": {
+            "text": "Discover our Solutions",
+            "href": "https://www.ajg.com/insurance/"
+          }
+        },
+        {
+          "title": "When Hackers Don't Need Humans: Is Your Organization Ready?",
+          "description": "When Hackers Don't Need Humans: Is Your Organization Ready?",
+          "link": {
+            "text": "When Hackers Don't Need Humans: Is Your Organization Ready? to learn how about the rise of autonomous cyber threats and what leaders can do to protect their organizations. Register now",
+            "href": "https://event.on24.com/wcc/r/5463367/4968E9A8882FBB8AE507B3A2647FDCA7?partnerref=HomepageHero"
+          },
+          "image": {
+            "src": "https://bynder.ajg.com/transform/7e6cfea9-be5d-44d7-8008-56dd191a9797/shutterstock_2079730714?io=transform:fill,width:399,height:224",
+            "alt": ""
+          }
+        }
+      ]
+    },
+    {
+      "position": 3,
+      "tagName": "section",
+      "classHint": "ajg-2-facts-cards bg-neutral-5 py-10 lg:py-20",
+      "backgroundHint": "light",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Forge ahead knowing Gallagher helps you face any risk, anywhere in the world."
+        }
+      ],
+      "paragraphs": [
+        "We understand the significance of having a trusted partner by your side. We'll be there through every decision, every challenge, every step of the way.",
+        "95+ years in business",
+        "130+ countries served",
+        "1,116 offices globally",
+        "$13.8B in revenue*",
+        "*Includes Brokerage and Risk Management segments for the 12 months ended December 31, 2025. Adjusted revenue shown before reimbursements."
+      ],
+      "links": [],
+      "images": [],
+      "listItems": [
+        {
+          "title": "Forge ahead knowing Gallagher helps you face any risk, anywhere in the world.",
+          "description": "Forge ahead knowing Gallagher helps you face any risk, anywhere in the world."
+        },
+        {
+          "description": "95+ years in business"
+        }
+      ]
+    },
+    {
+      "position": 4,
+      "tagName": "section",
+      "classHint": "ajg-2-featured-content-comp py-10 lg:py-20",
+      "backgroundHint": "dark",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Insurance and Risk Management"
+        },
+        {
+          "tag": "h2",
+          "text": "Benefits and Human Resources Consulting"
+        }
+      ],
+      "paragraphs": [
+        "Solutions to Fit Your Needs",
+        "Proactive People Strategies"
+      ],
+      "links": [
+        {
+          "text": "Industries",
+          "href": "https://www.ajg.com/industries/",
+          "target": ""
+        },
+        {
+          "text": "Solutions",
+          "href": "https://www.ajg.com/insurance/",
+          "target": ""
+        },
+        {
+          "text": "Benefits and HR Consulting",
+          "href": "https://www.ajg.com/services/",
+          "target": ""
+        }
+      ],
+      "images": [
+        {
+          "src": "https://bynder.ajg.com/transform/edc24a39-8a15-4839-acef-1435fcddab43/shutterstock_2303085359?io=transform:fill,width:673,height:500",
+          "alt": "",
+          "type": "img",
+          "width": 647,
+          "height": 481
+        },
+        {
+          "src": "https://bynder.ajg.com/transform/808d67e8-d12b-48aa-92b9-6c4d637fb5e3/Shutterstock-2014536974-jpg?io=transform:fill,width:673,height:500",
+          "alt": "",
+          "type": "img",
+          "width": 647,
+          "height": 481
+        }
+      ],
+      "listItems": [
+        {
+          "title": "Insurance and Risk Management",
+          "description": "Solutions to Fit Your Needs",
+          "link": {
+            "text": "Industries",
+            "href": "https://www.ajg.com/industries/"
+          },
+          "image": {
+            "src": "https://bynder.ajg.com/transform/edc24a39-8a15-4839-acef-1435fcddab43/shutterstock_2303085359?io=transform:fill,width:673,height:500",
+            "alt": ""
+          }
+        }
+      ]
+    },
+    {
+      "position": 5,
+      "tagName": "section",
+      "classHint": "ajg-2-featured-media bg-primary-5 py-0 lg:py-0",
+      "backgroundHint": "light",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "The Gallagher Way leads to better client outcomes."
+        },
+        {
+          "tag": "h3",
+          "text": "Pat Gallagher on Culture"
+        }
+      ],
+      "paragraphs": [
+        "\"It's our attitude toward clients, our capabilities and our accessibility — that culture of working together, of supporting each other — that makes the best outcome for the client.\"",
+        "Descriptions",
+        "This is a modal window.",
+        "Beginning of dialog window. Escape will cancel and close the window.",
+        "End of dialog window.",
+        "This is a modal window. This modal can be closed by pressing the Escape key or activating the close button.",
+        "In order to view this video, please adjust your cookie consent preferences."
+      ],
+      "links": [
+        {
+          "text": "The Gallagher Way",
+          "href": "https://www.ajg.com/about-us/the-gallagher-way/",
+          "target": ""
+        },
+        {
+          "text": "MANAGE PREFERENCES",
+          "href": "#",
+          "target": ""
+        }
+      ],
+      "images": [
+        {
+          "src": "https://cf-images.us-east-1.prod.boltdns.net/v1/static/972303393001/ec6b6efc-0b49-4f85-b49d-a37fabbfbaa1/8ad7c02f-ae93-4662-8888-88a33a2885c8/1280x720/match/image.jpg",
+          "alt": "",
+          "type": "img",
+          "width": 1280,
+          "height": 720
+        }
+      ],
+      "listItems": [
+        {
+          "title": "The Gallagher Way leads to better client outcomes.",
+          "description": "The Gallagher Way leads to better client outcomes.",
+          "link": {
+            "text": "The Gallagher Way",
+            "href": "https://www.ajg.com/about-us/the-gallagher-way/"
+          }
+        },
+        {
+          "title": "",
+          "description": "Video Player is loading.Play VideoPlaySkip BackwardSkip ForwardMuteCurrent Time 0:00/Duration 0:47Loaded: 20.92%0:00Stream Type LIVESeek to live, currently behind liveLIVERemaining Time -0:47 1xPlayback RateChaptersChaptersDescriptionsdescriptions off, selectedCaptionscaptions settings, opens captions settings dialogcaptions off, selectedAudio Tracken (Main), selectedPicture-in-PictureFullscreenThis is a modal window.Beginning of dialog window. Escape will cancel and close the window.TextColorWhiteBlackRedGreenBlueYellowMagentaCyanOpacityOpaqueSemi-TransparentText BackgroundColorBlackWhiteRedGreenBlueYellowMagentaCyanOpacityOpaqueSemi-TransparentTransparentCaption Area BackgroundColorBlackWhiteRedGreenBlueYellowMagentaCyanOpacityTransparentSemi-TransparentOpaqueFont Size50%75%100%125%150%175%200%300%400%Text Edge StyleNoneRaisedDepressedUniformDrop shadowFont FamilyProportional Sans-SerifMonospace Sans-SerifProportional SerifMonospace SerifCasualScriptSmall CapsResetDoneClose Modal DialogEnd of dialog window.Close Modal DialogThis is a modal window. This modal can be closed by pressing the Escape key or activating the close button.",
+          "badge": "20.92%",
+          "link": {
+            "text": "MANAGE PREFERENCES",
+            "href": "#"
+          },
+          "image": {
+            "src": "https://cf-images.us-east-1.prod.boltdns.net/v1/static/972303393001/ec6b6efc-0b49-4f85-b49d-a37fabbfbaa1/8ad7c02f-ae93-4662-8888-88a33a2885c8/1280x720/match/image.jpg",
+            "alt": ""
+          }
+        }
+      ],
+      "videos": [
+        {
+          "type": "video",
+          "poster": "https://cf-images.us-east-1.prod.boltdns.net/v1/static/972303393001/ec6b6efc-0b49-4f85-b49d-a37fabbfbaa1/8ad7c02f-ae93-4662-8888-88a33a2885c8/1280x720/match/image.jpg",
+          "sources": [
+            {
+              "src": "blob:https://www.ajg.com/7746ebef-6932-4bc9-b1e3-4b25d5e12370",
+              "type": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "position": 6,
+      "tagName": "section",
+      "classHint": "ajg-2-insights-showcase-comp py-10 lg:py-20",
+      "backgroundHint": "dark",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Insights"
+        },
+        {
+          "tag": "h3",
+          "text": "Navigating Now: Commercial Insurance Trends for Spring 2026"
+        },
+        {
+          "tag": "h4",
+          "text": "How Litigation Financing Is Reshaping Real Estate Claims"
+        },
+        {
+          "tag": "h4",
+          "text": "Interview: What Businesses Should Know About AI Liability"
+        },
+        {
+          "tag": "h3",
+          "text": "Latest Insights"
+        },
+        {
+          "tag": "h4",
+          "text": "HOA Replacement Cost Appraisals: Keeping Coverage Aligned with Rebuilding Costs"
+        },
+        {
+          "tag": "h4",
+          "text": "The Rising Cost of Product Recalls in Life Sciences: What’s Driving Risk and How to Respond"
+        },
+        {
+          "tag": "h4",
+          "text": "Governing AI in Oil and Gas: Closing the Gap Between Adoption and Oversight"
+        }
+      ],
+      "paragraphs": [
+        "At Gallagher, our industry specialists are passionate about sharing their depth and breadth of knowledge — providing thought leadership and a fresh perspective on topics that matter, so you can make confident decisions for your business, your employees and your community.",
+        "Gallagher explores key insurance trends shaping the Spring 2026 market, including supply chain risks, AI liability, and property and casualty market dynamics.",
+        "Funded litigation is a concern for multifamily and hospitality property owners. Learn how to mitigate the risk.",
+        "Learn why AI liability matters and how business leaders can mitigate their exposures through proactive incident response planning.",
+        "Homeowners Association replacement-cost appraisals don’t always receive the attention they deserve.",
+        "What was once viewed as an operational challenge has evolved into a strategic business risk for life sciences organizations. g",
+        "AI adoption is accelerating across the oil and gas industry. Learn how stronger governance can improve oversight, accountability and risk management."
+      ],
+      "links": [
+        {
+          "text": "Learn More",
+          "href": "https://www.ajg.com/news-and-insights/navigating-now-commercial-insurance-trends-for-spring-2026/",
+          "target": ""
+        },
+        {
+          "text": "Learn More",
+          "href": "https://www.ajg.com/news-and-insights/how-litigation-financing-is-reshaping-real-estate-claims/",
+          "target": ""
+        },
+        {
+          "text": "Learn More",
+          "href": "https://www.ajg.com/news-and-insights/features/ai-liability-what-business-leaders-should-know/",
+          "target": ""
+        },
+        {
+          "text": "Learn More",
+          "href": "https://www.ajg.com/news-and-insights/hoa-replacement-cost-appraisals/",
+          "target": ""
+        },
+        {
+          "text": "Learn More",
+          "href": "https://www.ajg.com/news-and-insights/the-rising-cost-of-product-recalls-in-life-sciences/",
+          "target": ""
+        },
+        {
+          "text": "Learn More",
+          "href": "https://www.ajg.com/news-and-insights/governing-ai-oil-gas-closing-gap-adoption-oversight/",
+          "target": ""
+        },
+        {
+          "text": "VIEW ALL INSIGHTS",
+          "href": "https://www.ajg.com/news-and-insights/",
+          "target": ""
+        }
+      ],
+      "images": [
+        {
+          "src": "https://www.ajg.com/assetbundles/GSC.Common/img/lazyload/transparent-loader.png",
+          "alt": "Tablet, business people and walking in office, advice and conversation with creativity. Employees, research and journalist with review for article, tech or feedback with help, smile or online reading",
+          "type": "img",
+          "width": 921,
+          "height": 517
+        }
+      ],
+      "listItems": [
+        {
+          "title": "Insights",
+          "description": "Insights"
+        },
+        {
+          "title": "Navigating Now: Commercial Insurance Trends for Spring 2026",
+          "description": "Risk Management 10 mins",
+          "badge": "Reports",
+          "link": {
+            "text": "Learn More",
+            "href": "https://www.ajg.com/news-and-insights/navigating-now-commercial-insurance-trends-for-spring-2026/"
+          },
+          "image": {
+            "src": "https://www.ajg.com/assetbundles/GSC.Common/img/lazyload/transparent-loader.png",
+            "alt": "Tablet, business people and walking in office, advice and conversation with creativity. Employees, research and journalist with review for article, tech or feedback with help, smile or online reading"
+          }
+        }
+      ]
+    },
+    {
+      "position": 7,
+      "tagName": "section",
+      "classHint": "ajg-2-slider-wrapper links-comp ajg-2-pt-0, ajg-2-pb-20",
+      "backgroundHint": "dark",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Gallagher Solutions Span the Industry"
+        },
+        {
+          "tag": "h3",
+          "text": "Global Reinsurance Brokerage"
+        },
+        {
+          "tag": "h3",
+          "text": "Claims and Risk Management"
+        },
+        {
+          "tag": "h3",
+          "text": "Alternative Risk Solutions"
+        },
+        {
+          "tag": "h3",
+          "text": "Wholesale Insurance Brokerage"
+        },
+        {
+          "tag": "h3",
+          "text": "Creative Underwriting Solutions"
+        },
+        {
+          "tag": "h3",
+          "text": "London Market Risk Management"
+        }
+      ],
+      "paragraphs": [
+        "Whether you are a business owner, an insurance broker, an insurance carrier or a re-insurer, there is a Gallagher company ready to serve you.",
+        "Leveraging data & analytics to tailor the right reinsurance for you.",
+        "Delivering the outcomes that matter most to your organization.",
+        "Pioneering ways to reduce risk in today's competitive market.",
+        "Making coverage for the impossible, possible.",
+        "Protecting people & organizations across industry sectors.",
+        "Guiding you through complex risk landscapes."
+      ],
+      "links": [
+        {
+          "text": "Discover Our Companies",
+          "href": "https://www.ajg.com/about-us/gallagher-companies/",
+          "target": ""
+        }
+      ],
+      "images": [
+        {
+          "src": "https://bynder.ajg.com/transform/4137f4ee-9b2d-491a-b644-3c2aa778f68a/103605-CRP-US-2025-GRE_520x96_WEB_FINAL",
+          "alt": "",
+          "type": "img",
+          "width": 520,
+          "height": 96
+        },
+        {
+          "src": "https://bynder.ajg.com/transform/e821caaa-3dd9-4660-9ed3-1f21db991a19/103605-CRP-US-2025-GB_520x96_WEB_FINAL",
+          "alt": "",
+          "type": "img",
+          "width": 520,
+          "height": 96
+        },
+        {
+          "src": "https://bynder.ajg.com/transform/20e8dc3d-b4ee-4afc-80f3-2b14bcebd931/103605-CRP-US-2025-Artex_520x96_WEB_FINAL",
+          "alt": "",
+          "type": "img",
+          "width": 520,
+          "height": 96
+        },
+        {
+          "src": "https://bynder.ajg.com/transform/6f6532b1-85bb-4103-b9e2-5852bf58e2ae/103605-CRP-US-2025-RPS_520x96_WEB_FINAL",
+          "alt": "",
+          "type": "img",
+          "width": 520,
+          "height": 96
+        },
+        {
+          "src": "https://bynder.ajg.com/transform/c7c20450-3d5c-467b-b555-1eba91c867f1/103605-CRP-US-2025-Pen_520x96_WEB_FINAL",
+          "alt": "",
+          "type": "img",
+          "width": 520,
+          "height": 96
+        },
+        {
+          "src": "https://bynder.ajg.com/transform/321a952a-dceb-4819-b0b9-6957b07fc4f3/103605-CRP-US-2025-Alesco_520x96_WEB_FINAL",
+          "alt": "",
+          "type": "img",
+          "width": 520,
+          "height": 96
+        }
+      ],
+      "listItems": [
+        {
+          "title": "Gallagher Solutions Span the Industry",
+          "description": "Gallagher Solutions Span the Industry",
+          "link": {
+            "text": "Discover Our Companies",
+            "href": "https://www.ajg.com/about-us/gallagher-companies/"
+          }
+        },
+        {
+          "title": "Global Reinsurance Brokerage",
+          "description": "Global Reinsurance Brokerage",
+          "image": {
+            "src": "https://bynder.ajg.com/transform/4137f4ee-9b2d-491a-b644-3c2aa778f68a/103605-CRP-US-2025-GRE_520x96_WEB_FINAL",
+            "alt": ""
+          }
+        }
+      ]
+    },
+    {
+      "position": 8,
+      "tagName": "section",
+      "classHint": "ajg-2-display-cards-comp bg-primary-5 py-10 lg:py-20",
+      "backgroundHint": "light",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Join Gallagher"
+        },
+        {
+          "tag": "h3",
+          "text": "Careers at Gallagher"
+        },
+        {
+          "tag": "h3",
+          "text": "Merge with Gallagher"
+        }
+      ],
+      "paragraphs": [
+        "Are you ready to thrive both professionally and personally within our inclusive workplace? Unlock your full potential with Gallagher. Explore our career opportunities across the globe.",
+        "You've worked hard to build a successful business and an experienced talented team. Discover how Gallagher can further invest in your business and empower your people for long-term success."
+      ],
+      "links": [
+        {
+          "text": "View Careers",
+          "href": "https://jobs.ajg.com/ajg-home/",
+          "target": "_blank"
+        },
+        {
+          "text": "Learn More",
+          "href": "https://www.ajg.com/about-us/mergers-acquisitions/",
+          "target": ""
+        }
+      ],
+      "images": [
+        {
+          "src": "https://bynder.ajg.com/transform/35b7932b-5e77-46df-aebb-059c1d5c283d/103717-CRP-GLOB-2025-Component-2-0-v1-4704x4900_LPG_FINAL?io=transform:fill,width:640,height:360",
+          "alt": "",
+          "type": "img",
+          "width": 604,
+          "height": 629
+        },
+        {
+          "src": "https://bynder.ajg.com/transform/efb86439-ced6-4b70-bf40-b20692d8e9f1/103717-CRP-GLOB-2025-Component-2-0-v1-4704x4900_LPG?io=transform:fill,width:640,height:360",
+          "alt": "",
+          "type": "img",
+          "width": 604,
+          "height": 629
+        },
+        {
+          "src": "height:2536",
+          "alt": "",
+          "type": "srcset",
+          "width": null,
+          "height": null
+        },
+        {
+          "src": "height:2796",
+          "alt": "",
+          "type": "srcset",
+          "width": null,
+          "height": null
+        }
+      ],
+      "listItems": [
+        {
+          "title": "Join Gallagher",
+          "description": "Join Gallagher"
+        },
+        {
+          "title": "Careers at Gallagher",
+          "description": "Careers at Gallagher",
+          "link": {
+            "text": "View Careers",
+            "href": "https://jobs.ajg.com/ajg-home/"
+          },
+          "image": {
+            "src": "https://bynder.ajg.com/transform/35b7932b-5e77-46df-aebb-059c1d5c283d/103717-CRP-GLOB-2025-Component-2-0-v1-4704x4900_LPG_FINAL?io=transform:fill,width:640,height:360",
+            "alt": ""
+          }
+        }
+      ]
+    },
+    {
+      "position": 9,
+      "tagName": "footer",
+      "classHint": "ajg-2-footer-comp bg-neutral-5 py-10 md:pt-20 md:pb-10",
+      "backgroundHint": "light",
+      "headings": [
+        {
+          "tag": "h5",
+          "text": "Explore"
+        },
+        {
+          "tag": "h5",
+          "text": "Connect with Gallagher"
+        },
+        {
+          "tag": "h5",
+          "text": "Quick Links"
+        },
+        {
+          "tag": "h5",
+          "text": "Find us on social media"
+        }
+      ],
+      "paragraphs": [],
+      "links": [
+        {
+          "text": "Industries",
+          "href": "https://www.ajg.com/industries/",
+          "target": ""
+        },
+        {
+          "text": "Solutions",
+          "href": "https://www.ajg.com/insurance/",
+          "target": ""
+        },
+        {
+          "text": "HR & Benefits Consulting",
+          "href": "https://www.ajg.com/services/",
+          "target": ""
+        },
+        {
+          "text": "News & Insights",
+          "href": "https://www.ajg.com/news-and-insights/",
+          "target": ""
+        },
+        {
+          "text": "About Gallagher",
+          "href": "https://www.ajg.com/about-us/",
+          "target": ""
+        },
+        {
+          "text": "Investor Relations",
+          "href": "https://investor.ajg.com/",
+          "target": "_blank"
+        },
+        {
+          "text": "Contact Us",
+          "href": "https://www.ajg.com/contact-us/",
+          "target": ""
+        },
+        {
+          "text": "US Locations",
+          "href": "https://www.ajg.com/locations/",
+          "target": ""
+        },
+        {
+          "text": "View All Regions",
+          "href": "https://www.ajg.com/region-and-language-selector/",
+          "target": ""
+        },
+        {
+          "text": "Linkedin",
+          "href": "https://www.linkedin.com/company/gallagher-global",
+          "target": "_blank"
+        },
+        {
+          "text": "Twitter",
+          "href": "https://twitter.com/GallagherGlobal",
+          "target": "_blank"
+        },
+        {
+          "text": "Youtube",
+          "href": "https://www.youtube.com/GallagherGlobal",
+          "target": "_blank"
+        },
+        {
+          "text": "Instagram",
+          "href": "https://www.instagram.com/gallagherglobal/",
+          "target": "_blank"
+        },
+        {
+          "text": "Facebook",
+          "href": "https://www.facebook.com/GallagherGlobal/",
+          "target": "_blank"
+        },
+        {
+          "text": "Terms of Use",
+          "href": "https://www.ajg.com/terms-of-use/",
+          "target": ""
+        },
+        {
+          "text": "Global Privacy Notice",
+          "href": "https://www.ajg.com/global-privacy-notice/",
+          "target": ""
+        },
+        {
+          "text": "Cookie Policy",
+          "href": "https://policy.cookiereports.com/7ec1a71b-en-gb.html",
+          "target": ""
+        },
+        {
+          "text": "Do Not Sell or Share My Personal Information - US Residents",
+          "href": "https://policy.cookiereports.com/7ec1a71b-en-gb.html",
+          "target": ""
+        }
+      ],
+      "images": [
+        {
+          "src": "https://www.ajg.com/-/media/images/gallagher/us/logos/gallagher_horizontalsmall-3d.svg?iar=0&hash=3DBD434EEABC120AE6A320D573E52FF5",
+          "alt": "Gallagher Logo",
+          "type": "img",
+          "width": 300,
+          "height": 51
+        }
+      ],
+      "listItems": [
+        {
+          "title": "Explore",
+          "description": "Explore",
+          "badge": "Instagram",
+          "link": {
+            "text": "Industries",
+            "href": "https://www.ajg.com/industries/"
+          },
+          "image": {
+            "src": "https://www.ajg.com/-/media/images/gallagher/us/logos/gallagher_horizontalsmall-3d.svg?iar=0&hash=3DBD434EEABC120AE6A320D573E52FF5",
+            "alt": "Gallagher Logo"
+          }
+        },
+        {
+          "description": "Contact Us Terms of Use Global Privacy Notice Cookie Policy Do Not Sell or Share My Personal Information - US Residents",
+          "link": {
+            "text": "Contact Us",
+            "href": "https://www.ajg.com/contact-us/"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -109,3 +109,148 @@ export const Default = (props: TwoColumnCtaProps): JSX.Element => {
     </div>
   );
 };
+
+export const Gallagher = (props: TwoColumnCtaProps): JSX.Element => {
+  const id = props.params.RenderingIdentifier;
+  const { page } = useSitecore();
+  const isPageEditing = page.mode.isEditing;
+  const sxaStyles = `${props.params?.styles || ''}`;
+
+  const Column = ({
+    image,
+    title,
+    text,
+    link,
+    delay,
+  }: {
+    image: ImageField;
+    title: Field<string>;
+    text: Field<string>;
+    link: LinkField;
+    delay?: number;
+  }) => {
+    const [isVisible, domRef] = useVisibility(delay);
+    return (
+      <div
+        className={`col-sm-12 col-lg-6 ${
+          !isPageEditing ? `fade-section ${isVisible ? 'is-visible' : ''}` : ''
+        }`}
+        ref={domRef}
+      >
+        <div className="content-wrapper">
+          <NextImage field={image} width={800} height={450} />
+          {(isPageEditing || title?.value) && (
+            <h2>
+              <Text field={title} />
+            </h2>
+          )}
+          {(isPageEditing || text?.value) && (
+            <p>
+              <Text field={text} />
+            </p>
+          )}
+          {(isPageEditing || link?.value?.href) && (
+            <Link field={link} className="button button-text" />
+          )}
+        </div>
+      </div>
+    );
+  };
+
+  return (
+    <div className={`component two-column-cta gallagher pb-5 ${sxaStyles}`} id={id ? id : undefined}>
+      <div className="container">
+        <div className="row">
+          <Column
+            image={props.fields.Image1}
+            title={props.fields.Title1}
+            text={props.fields.Text1}
+            link={props.fields.Link1}
+          />
+          <Column
+            image={props.fields.Image2}
+            title={props.fields.Title2}
+            text={props.fields.Text2}
+            link={props.fields.Link2}
+            delay={300}
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export const GallagherTiles = (props: TwoColumnCtaProps): JSX.Element => {
+  const id = props.params.RenderingIdentifier;
+  const { page } = useSitecore();
+  const isPageEditing = page.mode.isEditing;
+  const sxaStyles = `${props.params?.styles || ''}`;
+
+  const Tile = ({
+    image,
+    title,
+    text,
+    link,
+    delay,
+  }: {
+    image: ImageField;
+    title: Field<string>;
+    text: Field<string>;
+    link: LinkField;
+    delay?: number;
+  }) => {
+    const [isVisible, domRef] = useVisibility(delay);
+    return (
+      <div
+        className={`col-sm-12 col-lg-6 ${
+          !isPageEditing ? `fade-section ${isVisible ? 'is-visible' : ''}` : ''
+        }`}
+        ref={domRef}
+      >
+        <div className="content-wrapper">
+          <NextImage field={image} width={800} height={800} />
+          <div className="tile-copy">
+            {(isPageEditing || title?.value) && (
+              <h2>
+                <Text field={title} />
+              </h2>
+            )}
+            {(isPageEditing || text?.value) && (
+              <p>
+                <Text field={text} />
+              </p>
+            )}
+            {(isPageEditing || link?.value?.href) && (
+              <Link field={link} className="button button-text" />
+            )}
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  return (
+    <div
+      className={`component two-column-cta gallagher-tiles pb-5 ${sxaStyles}`}
+      id={id ? id : undefined}
+    >
+      <div className="container">
+        <div className="row">
+          <Tile
+            image={props.fields.Image1}
+            title={props.fields.Title1}
+            text={props.fields.Text1}
+            link={props.fields.Link1}
+          />
+          <Tile
+            image={props.fields.Image2}
+            title={props.fields.Title2}
+            text={props.fields.Text2}
+            link={props.fields.Link2}
+            delay={300}
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
