@@ -1,0 +1,434 @@
+client:
+  name: "Gallagher"
+  sourceUrl: "https://www.ajg.com"
+  sourceLanguage: "en"
+  targetLanguage: "en"
+  translationApplied: false
+  extractedAt: "2026-08-26T14:22:36.533Z"
+  mappedAt: "2026-08-26T14:40:00Z"
+  homeDataFolder: "bec27579-2495-46d2-9501-1a010d59c90e"
+
+contentSource: "extractor"
+
+manualVideoTasks:
+  - section: 7
+    componentName: "PromoCta"
+    datasourceItemName: "Gallagher - Gallagher Way"
+    posterLocalFile: "section5-img11.jpg"
+    notes: "Brightcove CEO video. Poster is on Image. Do not download the mp4."
+
+sections:
+  - position: 1
+    componentName: "Header"
+    manifestName: "Header"
+    kind: "simple"
+    datasourceItemName: "Gallagher - Header"
+    apiAddable: false
+    fields: {}
+    children: []
+    imageFields:
+      - field: "LogoImage"
+        src: "https://www.ajg.com/-/media/images/gallagher/us/logos/gallagher_horizontalsmall-3d.svg?iar=0&hash=3DBD434EEABC120AE6A320D573E52FF5"
+        alt: "Gallagher Logo"
+        localFile: "section9-img23.svg"
+    matchConfidence: "high"
+    contentSource: "extractor"
+
+  - position: 2
+    componentName: "HeroBanner"
+    manifestName: "Hero Banner"
+    kind: "simple"
+    datasourceItemName: "Gallagher - Hero Banner"
+    apiAddable: true
+    fields:
+      Title: "Your Trusted Partner for Insurance & Consulting"
+      Text: "<p>Gallagher helps you face your future with confidence.</p>"
+      Cta1: { text: "Our Solutions", href: "https://www.ajg.com/insurance/", target: "" }
+      Cta2: { text: "Find an Office", href: "https://www.ajg.com/office-locations/", target: "" }
+    children: []
+    imageFields:
+      - field: "Image"
+        src: "local://hero-professional.jpg"
+        alt: "Professional working at monitors"
+        localFile: "hero-professional.jpg"
+    matchConfidence: "high"
+    contentSource: "extractor"
+
+  - position: 3
+    componentName: "HeadingCta"
+    manifestName: "Heading CTA"
+    kind: "simple"
+    datasourceItemName: "Gallagher - Forge Ahead Heading"
+    apiAddable: true
+    fields:
+      Heading: "Forge ahead knowing Gallagher helps you face any risk, anywhere in the world."
+    children: []
+    imageFields: []
+    matchConfidence: "high"
+    contentSource: "extractor"
+
+  - position: 4
+    componentName: "FourColumnCta"
+    manifestName: "Four Column CTA"
+    kind: "simple"
+    datasourceItemName: "Gallagher - Stats"
+    apiAddable: true
+    fields:
+      Title1: "95+"
+      Text1: "years in business"
+      Title2: "130+"
+      Text2: "countries served"
+      Title3: "1,116"
+      Text3: "offices globally"
+      Title4: "$13.8B"
+      Text4: "in revenue"
+    children: []
+    imageFields: []
+    matchConfidence: "high"
+    contentSource: "extractor"
+
+  - position: 5
+    componentName: "PromoCta"
+    manifestName: "Promo CTA"
+    kind: "simple"
+    datasourceItemName: "Gallagher - Insurance"
+    apiAddable: true
+    fields:
+      Eyebrow: "Solutions to Fit Your Needs"
+      Title: "Insurance and Risk Management"
+      Text: "<p>Protect your people and reduce your total cost of risk with Gallagher's innovative, industry-leading insurance and risk management solutions.</p>"
+      Link: { text: "View all", href: "https://www.ajg.com/insurance/", target: "" }
+    children: []
+    imageFields:
+      - field: "Image"
+        src: "https://bynder.ajg.com/transform/edc24a39-8a15-4839-acef-1435fcddab43/shutterstock_2303085359?io=transform:fill,width:673,height:500"
+        alt: "Insurance and risk professionals"
+        localFile: "section4-img9.jpg"
+    matchConfidence: "high"
+    contentSource: "extractor"
+
+  - position: 6
+    componentName: "PromoCta"
+    manifestName: "Promo CTA"
+    kind: "simple"
+    datasourceItemName: "Gallagher - Benefits"
+    apiAddable: true
+    fields:
+      Eyebrow: "Proactive People Strategies"
+      Title: "Benefits and Human Resources Consulting"
+      Text: "<p>Put your people at the center of your customized benefits and HR programs with Gallagher's holistic approach to organizational wellbeing.</p>"
+      Link: { text: "View all", href: "https://www.ajg.com/services/", target: "" }
+    children: []
+    imageFields:
+      - field: "Image"
+        src: "https://bynder.ajg.com/transform/808d67e8-d12b-48aa-92b9-6c4d637fb5e3/Shutterstock-2014536974-jpg?io=transform:fill,width:673,height:500"
+        alt: "Benefits and HR consulting"
+        localFile: "section4-img10.jpg"
+    matchConfidence: "high"
+    contentSource: "extractor"
+
+  - position: 7
+    componentName: "PromoCta"
+    manifestName: "Promo CTA"
+    kind: "simple"
+    datasourceItemName: "Gallagher - Gallagher Way"
+    apiAddable: true
+    fields:
+      Title: "The Gallagher Way leads to better client outcomes."
+      Subtitle: "It's our attitude toward clients, our capabilities and our accessibility — that culture of working together, of supporting each other — that makes the best outcome for the client."
+      Text: "<p>Pat Gallagher, Chairman and CEO</p>"
+      Link: { text: "See Who We Are", href: "https://www.ajg.com/about-us/the-gallagher-way/", target: "" }
+    children: []
+    imageFields:
+      - field: "Image"
+        src: "https://cf-images.us-east-1.prod.boltdns.net/v1/static/972303393001/ec6b6efc-0b49-4f85-b49d-a37fabbfbaa1/8ad7c02f-ae93-4662-8888-88a33a2885c8/1280x720/match/image.jpg"
+        alt: "Pat Gallagher, Chairman and CEO"
+        localFile: "section5-img11.jpg"
+    matchConfidence: "high"
+    contentSource: "extractor"
+
+  - position: 8
+    componentName: "HeadingCta"
+    manifestName: "Heading CTA"
+    kind: "simple"
+    datasourceItemName: "Gallagher - Insights Heading"
+    apiAddable: true
+    fields:
+      Heading: "Insights"
+      Text: "At Gallagher, our industry specialists share thought leadership so you can make confident decisions."
+      Link: { text: "View all insights", href: "https://www.ajg.com/news-and-insights/", target: "" }
+    children: []
+    imageFields: []
+    matchConfidence: "high"
+    contentSource: "extractor"
+
+  - position: 9
+    componentName: "PromoCta"
+    manifestName: "Promo CTA"
+    kind: "simple"
+    datasourceItemName: "Gallagher - Featured Insight"
+    apiAddable: true
+    fields:
+      Eyebrow: "Reports"
+      Title: "Navigating Now: Commercial Insurance Trends for Spring 2026"
+      Subtitle: "Gallagher explores key insurance trends shaping the Spring 2026 market, including supply chain risks, AI liability, and property and casualty market dynamics."
+      Link: { text: "Read more", href: "https://www.ajg.com/news-and-insights/navigating-now-commercial-insurance-trends-for-spring-2026/", target: "" }
+    children: []
+    imageFields:
+      - field: "Image"
+        src: "https://bynder.ajg.com/transform/7e6cfea9-be5d-44d7-8008-56dd191a9797/shutterstock_2079730714?io=transform:fill,width:399,height:224"
+        alt: "Colleagues reviewing insights"
+        localFile: "section2-img1.jpg"
+    matchConfidence: "high"
+    contentSource: "extractor"
+
+  - position: 10
+    componentName: "TwoColumnCta"
+    manifestName: "Two Column CTA"
+    kind: "simple"
+    datasourceItemName: "Gallagher - Insight Cards"
+    apiAddable: true
+    fields:
+      Title1: "How Litigation Financing Is Reshaping Real Estate Claims"
+      Text1: "Funded litigation is a concern for multifamily and hospitality property owners."
+      Link1: { text: "Read more", href: "https://www.ajg.com/news-and-insights/how-litigation-financing-is-reshaping-real-estate-claims/", target: "" }
+      Title2: "Interview: What Businesses Should Know About AI Liability"
+      Text2: "Learn why AI liability matters and how business leaders can mitigate their exposures."
+      Link2: { text: "Read more", href: "https://www.ajg.com/news-and-insights/features/ai-liability-what-business-leaders-should-know/", target: "" }
+    children: []
+    imageFields:
+      - field: "Image1"
+        src: "https://bynder.ajg.com/transform/904970fa-78f7-49ec-9c25-5e24bdb80d8c/Shutterstock-2306470919-jpg?io=transform:fill,width:399,height:224"
+        alt: "Real estate claims insight"
+        localFile: "section2-img2.jpg"
+      - field: "Image2"
+        src: "https://bynder.ajg.com/transform/bd77c37f-a851-4c2f-8d1f-b8dd8e7fa848/Shutterstock-2587226133-jpg?io=transform:fill,width:399,height:224"
+        alt: "AI liability insight"
+        localFile: "section2-img3.jpg"
+    matchConfidence: "high"
+    contentSource: "extractor"
+
+  - position: 11
+    componentName: "HeadingCta"
+    manifestName: "Heading CTA"
+    kind: "simple"
+    datasourceItemName: "Gallagher - Industry Heading"
+    apiAddable: true
+    fields:
+      Heading: "Gallagher's Solutions for Your Industry"
+      Text: "Whether you are a business owner, an insurance broker, an insurance carrier or a re-insurer, there is a Gallagher company ready to serve you."
+    children: []
+    imageFields: []
+    matchConfidence: "high"
+    contentSource: "extractor"
+
+  - position: 12
+    componentName: "FiveColumnCta"
+    manifestName: "Five Column CTA"
+    kind: "simple"
+    datasourceItemName: "Gallagher - Industries"
+    apiAddable: true
+    fields:
+      Text1: "Construction"
+      Link1: { text: "Construction", href: "https://www.ajg.com/industries/construction/", target: "" }
+      Text2: "Education"
+      Link2: { text: "Education", href: "https://www.ajg.com/industries/education/", target: "" }
+      Text3: "Healthcare"
+      Link3: { text: "Healthcare", href: "https://www.ajg.com/industries/healthcare/", target: "" }
+      Text4: "Public Sector"
+      Link4: { text: "Public Sector", href: "https://www.ajg.com/industries/public-sector/", target: "" }
+      Text5: "Real Estate"
+      Link5: { text: "Real Estate", href: "https://www.ajg.com/industries/real-estate/", target: "" }
+    children: []
+    imageFields:
+      - field: "Image1"
+        src: "local://industry-construction.svg"
+        alt: "Construction"
+        localFile: "industry-construction.svg"
+      - field: "Image2"
+        src: "local://industry-education.svg"
+        alt: "Education"
+        localFile: "industry-education.svg"
+      - field: "Image3"
+        src: "local://industry-healthcare.svg"
+        alt: "Healthcare"
+        localFile: "industry-healthcare.svg"
+      - field: "Image4"
+        src: "local://industry-public-sector.svg"
+        alt: "Public Sector"
+        localFile: "industry-public-sector.svg"
+      - field: "Image5"
+        src: "local://industry-real-estate.svg"
+        alt: "Real Estate"
+        localFile: "industry-real-estate.svg"
+    matchConfidence: "medium"
+    contentSource: "extractor"
+    notes: "Five Column CTA has five slots; Transportation from the screenshot is omitted."
+
+  - position: 13
+    componentName: "TwoColumnCta"
+    manifestName: "Two Column CTA"
+    kind: "simple"
+    datasourceItemName: "Gallagher - Join Gallagher"
+    apiAddable: true
+    fields:
+      Title1: "Careers at Gallagher"
+      Text1: "Are you ready to thrive both professionally and personally within our inclusive workplace?"
+      Link1: { text: "Explore careers", href: "https://jobs.ajg.com/ajg-home/", target: "_blank" }
+      Title2: "Merge with Gallagher"
+      Text2: "Discover how Gallagher can further invest in your business and empower your people."
+      Link2: { text: "Learn more", href: "https://www.ajg.com/about-us/mergers-acquisitions/", target: "" }
+    children: []
+    imageFields:
+      - field: "Image1"
+        src: "https://bynder.ajg.com/transform/35b7932b-5e77-46df-aebb-059c1d5c283d/103717-CRP-GLOB-2025-Component-2-0-v1-4704x4900_LPG_FINAL?io=transform:fill,width:640,height:360"
+        alt: "Careers at Gallagher"
+        localFile: "section8-img19.jpg"
+      - field: "Image2"
+        src: "https://bynder.ajg.com/transform/efb86439-ced6-4b70-bf40-b20692d8e9f1/103717-CRP-GLOB-2025-Component-2-0-v1-4704x4900_LPG?io=transform:fill,width:640,height:360"
+        alt: "Merge with Gallagher"
+        localFile: "section8-img20.jpg"
+    matchConfidence: "high"
+    contentSource: "extractor"
+
+  - position: 14
+    componentName: "HeadingCta"
+    manifestName: "Heading CTA"
+    kind: "simple"
+    datasourceItemName: "Gallagher - Find an Office"
+    apiAddable: true
+    fields:
+      Heading: "Start your journey today."
+      Link: { text: "Find an office", href: "https://www.ajg.com/office-locations/", target: "" }
+    children: []
+    imageFields: []
+    matchConfidence: "high"
+    contentSource: "extractor"
+
+  - position: 15
+    componentName: "Footer"
+    manifestName: "Footer"
+    kind: "simple"
+    datasourceItemName: "Gallagher - Footer"
+    apiAddable: false
+    fields:
+      Title1: "Who We Are"
+      Title2: "What We Do"
+      Title3: "Industries"
+      Title4: "Insights"
+      Copyright: "© Arthur J. Gallagher & Co."
+    children: []
+    imageFields:
+      - field: "Image1"
+        src: "https://www.ajg.com/-/media/images/gallagher/us/logos/gallagher_horizontalsmall-3d.svg?iar=0&hash=3DBD434EEABC120AE6A320D573E52FF5"
+        alt: "Gallagher Logo"
+        localFile: "section9-img23.svg"
+    matchConfidence: "high"
+    contentSource: "extractor"
+
+datasourceItems:
+  - componentName: "Header"
+    itemName: "Gallagher - Header"
+    itemId: "7f3efaa6-8f5a-47a1-90da-0cc5a2b98e01"
+    parentFolder: "bec27579-2495-46d2-9501-1a010d59c90e"
+    fieldsPopulated: ["LogoImage"]
+    imageFieldsPending: []
+    children: []
+  - componentName: "HeroBanner"
+    itemName: "Gallagher - Hero Banner"
+    itemId: "87d38337-9873-4843-af46-47da8f4907ad"
+    parentFolder: "bec27579-2495-46d2-9501-1a010d59c90e"
+    fieldsPopulated: ["Title", "Text", "Cta1", "Cta2", "Image"]
+    imageFieldsPending: []
+    children: []
+  - componentName: "HeadingCta"
+    itemName: "Gallagher - Forge Ahead Heading"
+    itemId: "0cc13da0-8c53-48c1-b32d-1a848e470c00"
+    parentFolder: "bec27579-2495-46d2-9501-1a010d59c90e"
+    fieldsPopulated: ["Heading"]
+    imageFieldsPending: []
+    children: []
+  - componentName: "FourColumnCta"
+    itemName: "Gallagher - Stats"
+    itemId: "9a9e933b-9801-4db6-8390-dfd24e9c0a1e"
+    parentFolder: "bec27579-2495-46d2-9501-1a010d59c90e"
+    fieldsPopulated: ["Title1", "Text1", "Title2", "Text2", "Title3", "Text3", "Title4", "Text4"]
+    imageFieldsPending: []
+    children: []
+  - componentName: "PromoCta"
+    itemName: "Gallagher - Insurance"
+    itemId: "e026fe6b-82e3-4819-ae03-96daa50b92bb"
+    parentFolder: "bec27579-2495-46d2-9501-1a010d59c90e"
+    fieldsPopulated: ["Eyebrow", "Title", "Text", "Link", "Image"]
+    imageFieldsPending: []
+    children: []
+  - componentName: "PromoCta"
+    itemName: "Gallagher - Benefits"
+    itemId: "7d7a9840-e202-4713-8c8a-fbc08fc23c12"
+    parentFolder: "bec27579-2495-46d2-9501-1a010d59c90e"
+    fieldsPopulated: ["Eyebrow", "Title", "Text", "Link", "Image"]
+    imageFieldsPending: []
+    children: []
+  - componentName: "PromoCta"
+    itemName: "Gallagher - Gallagher Way"
+    itemId: "e09637cb-d19e-4876-9987-14cbcb4fb3fe"
+    parentFolder: "bec27579-2495-46d2-9501-1a010d59c90e"
+    fieldsPopulated: ["Title", "Subtitle", "Text", "Link", "Image"]
+    imageFieldsPending: []
+    children: []
+  - componentName: "HeadingCta"
+    itemName: "Gallagher - Insights Heading"
+    itemId: "d1671dc7-a51f-43ff-a4ee-d09578f1dd38"
+    parentFolder: "bec27579-2495-46d2-9501-1a010d59c90e"
+    fieldsPopulated: ["Heading", "Text", "Link"]
+    imageFieldsPending: []
+    children: []
+  - componentName: "PromoCta"
+    itemName: "Gallagher - Featured Insight"
+    itemId: "05a6cf74-de35-421d-ad84-403698a59bd6"
+    parentFolder: "bec27579-2495-46d2-9501-1a010d59c90e"
+    fieldsPopulated: ["Eyebrow", "Title", "Subtitle", "Link", "Image"]
+    imageFieldsPending: []
+    children: []
+  - componentName: "TwoColumnCta"
+    itemName: "Gallagher - Insight Cards"
+    itemId: "75c9eea4-73e7-43bb-9ae2-234faf1dadb2"
+    parentFolder: "bec27579-2495-46d2-9501-1a010d59c90e"
+    fieldsPopulated: ["Title1", "Text1", "Link1", "Image1", "Title2", "Text2", "Link2", "Image2"]
+    imageFieldsPending: []
+    children: []
+  - componentName: "HeadingCta"
+    itemName: "Gallagher - Industry Heading"
+    itemId: "71aefe9e-f058-4264-8d0f-5adc3c9198a6"
+    parentFolder: "bec27579-2495-46d2-9501-1a010d59c90e"
+    fieldsPopulated: ["Heading", "Text"]
+    imageFieldsPending: []
+    children: []
+  - componentName: "FiveColumnCta"
+    itemName: "Gallagher - Industries"
+    itemId: "e53c18e4-a2de-436c-89fd-496a46537df5"
+    parentFolder: "bec27579-2495-46d2-9501-1a010d59c90e"
+    fieldsPopulated: ["Text1", "Link1", "Image1", "Text2", "Link2", "Image2", "Text3", "Link3", "Image3", "Text4", "Link4", "Image4", "Text5", "Link5", "Image5"]
+    imageFieldsPending: []
+    children: []
+  - componentName: "TwoColumnCta"
+    itemName: "Gallagher - Join Gallagher"
+    itemId: "3a41b7f9-8ece-4201-a7f3-183e78cb0b9c"
+    parentFolder: "bec27579-2495-46d2-9501-1a010d59c90e"
+    fieldsPopulated: ["Title1", "Text1", "Link1", "Image1", "Title2", "Text2", "Link2", "Image2"]
+    imageFieldsPending: []
+    children: []
+  - componentName: "HeadingCta"
+    itemName: "Gallagher - Find an Office"
+    itemId: "9d4168d1-8607-4397-99e2-66639e0b3e73"
+    parentFolder: "bec27579-2495-46d2-9501-1a010d59c90e"
+    fieldsPopulated: ["Heading", "Link"]
+    imageFieldsPending: []
+    children: []
+  - componentName: "Footer"
+    itemName: "Gallagher - Footer"
+    itemId: "4ced1862-4805-47f6-a934-a4e851d5c3d3"
+    parentFolder: "bec27579-2495-46d2-9501-1a010d59c90e"
+    fieldsPopulated: ["Title1", "Text1", "Title2", "Text2", "Title3", "Text3", "Title4", "Text4", "Copyright", "Link1", "Link2", "Image1"]
+    imageFieldsPending: []
+    children: []

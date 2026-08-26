@@ -1,0 +1,57 @@
+# Gallagher pixel-perfect variant specs
+
+variants:
+  - name: Gallagher
+    parentComponent: Header
+    className: header gallagher
+    description: White bar, navy wordmark from LogoImage, nav in header-right.
+
+  - name: Gallagher
+    parentComponent: HeroBanner
+    className: hero-banner gallagher
+    description: Split text/image hero, light-blue accent on Trusted Partner, no dotted accents.
+
+  - name: Gallagher
+    parentComponent: HeadingCta
+    className: heading-cta gallagher
+    description: Left-aligned section heading with optional text link.
+
+  - name: GallagherCentered
+    parentComponent: HeadingCta
+    className: heading-cta gallagher-centered
+    description: Centered intro or CTA band. Adds has-cta muted background when a link is present.
+
+  - name: Gallagher
+    parentComponent: FourColumnCta
+    className: four-column-cta gallagher
+    description: Four large navy stats; Title is the number, Text is the label. No images.
+
+  - name: Gallagher
+    parentComponent: PromoCta
+    className: promo-cta gallagher
+    description: Service-pillar / featured-article split. No dotted accents. Text-style links.
+
+  - name: GallagherVideo
+    parentComponent: PromoCta
+    className: promo-cta gallagher-video
+    description: Quote + CEO portrait with circular play overlay. Poster only.
+
+  - name: Gallagher
+    parentComponent: TwoColumnCta
+    className: two-column-cta gallagher
+    description: Equal image-top insight cards with text links.
+
+  - name: GallagherTiles
+    parentComponent: TwoColumnCta
+    className: two-column-cta gallagher-tiles
+    description: Full-bleed photo tiles with white copy box overlay.
+
+  - name: Gallagher
+    parentComponent: FiveColumnCta
+    className: five-column-cta gallagher
+    description: Five industry icon + label tiles.
+
+  - name: Gallagher
+    parentComponent: Footer
+    className: footer gallagher
+    description: Navy footer, four link columns, inverted wordmark.

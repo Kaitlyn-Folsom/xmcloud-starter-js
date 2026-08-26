@@ -1,0 +1,266 @@
+# Demo Progress Tracker — Gallagher
+
+client:
+  name: "Gallagher"
+  sourceUrl: "https://www.ajg.com"
+  startedAt: "2026-08-26T13:20:00Z"
+  lastUpdatedAt: "2026-08-26T14:50:00Z"
+
+phases:
+  phase0_inputs:
+    status: "complete"
+    screenshot: true
+    url: "https://www.ajg.com"
+
+  phase0_5_manifest:
+    status: "complete"
+    validationMode: "quick"
+    result: "pass"
+
+  phase1_theme:
+    status: "complete"
+    themeFile: "docs/ai/themes/gallagher.theme.yaml"
+    userApproved: true
+
+  phase2_analysis:
+    status: "complete"
+    buildPlanFile: "docs/ai/demos/gallagher/build-plan.yaml"
+    totalSections: 15
+    userApproved: true
+
+  phase2_5_content:
+    status: "complete"
+    contentMapFile: "docs/ai/demos/gallagher/content-map.yaml"
+    extractorUsed: true
+
+  phase3_content:
+    status: "complete"
+    completedSections: 15
+    totalSections: 15
+    imagesUploaded: 22
+
+  phase4_theme:
+    status: "complete"
+    themeDelivery: "site-financial-scss"
+    cssWritten: true
+    fontsAdded: true
+
+  phase5_custom:
+    status: "skipped"
+    customComponentsNeeded: 0
+    customComponentsBuilt: 0
+    skippedReason: "No custom components; pixel-perfect variants on PLAY components."
+
+  phase5_5_variants:
+    status: "complete"
+    variantsNeeded: 8
+    variantsCreated: 8
+    variantSpecsFile: "docs/ai/demos/gallagher/variant-specs.yaml"
+    skippedReason: ""
+
+  phase6_assembly:
+    status: "partial"
+    componentsAdded: 0
+    datasourcesWired: 1
+    totalComponents: 15
+    notes: "Agent API 500 on Home add/wire. Footer datasource wired. Header 422. See variant-checklist.md."
+
+  phase7_summary:
+    status: "complete"
+
+sections:
+  - position: 1
+    componentName: "Header"
+    kind: "simple"
+    phase3:
+      status: "populated"
+      itemId: "7f3efaa6-8f5a-47a1-90da-0cc5a2b98e01"
+      fieldsPopulated: true
+      childrenCreated: 0
+      childrenExpected: 0
+      error: ""
+    phase6:
+      status: "failed"
+      error: "422 Header rendering does not accept a datasource via API"
+  - position: 2
+    componentName: "HeroBanner"
+    kind: "simple"
+    phase3:
+      status: "populated"
+      itemId: "87d38337-9873-4843-af46-47da8f4907ad"
+      fieldsPopulated: true
+      childrenCreated: 0
+      childrenExpected: 0
+      error: ""
+    phase6:
+      status: "failed"
+      error: "add_component_on_page 500"
+  - position: 3
+    componentName: "HeadingCta"
+    kind: "simple"
+    phase3:
+      status: "populated"
+      itemId: "0cc13da0-8c53-48c1-b32d-1a848e470c00"
+      fieldsPopulated: true
+      childrenCreated: 0
+      childrenExpected: 0
+      error: ""
+    phase6:
+      status: "failed"
+      error: "set_component_datasource 500"
+  - position: 4
+    componentName: "FourColumnCta"
+    kind: "simple"
+    phase3:
+      status: "populated"
+      itemId: "9a9e933b-9801-4db6-8390-dfd24e9c0a1e"
+      fieldsPopulated: true
+      childrenCreated: 0
+      childrenExpected: 0
+      error: ""
+    phase6:
+      status: "failed"
+      error: "set_component_datasource 500"
+  - position: 5
+    componentName: "PromoCta"
+    kind: "simple"
+    phase3:
+      status: "populated"
+      itemId: "e026fe6b-82e3-4819-ae03-96daa50b92bb"
+      fieldsPopulated: true
+      childrenCreated: 0
+      childrenExpected: 0
+      error: ""
+    phase6:
+      status: "failed"
+      error: "set_component_datasource 500"
+  - position: 6
+    componentName: "PromoCta"
+    kind: "simple"
+    phase3:
+      status: "populated"
+      itemId: "7d7a9840-e202-4713-8c8a-fbc08fc23c12"
+      fieldsPopulated: true
+      childrenCreated: 0
+      childrenExpected: 0
+      error: ""
+    phase6:
+      status: "failed"
+      error: "set_component_datasource 500"
+  - position: 7
+    componentName: "PromoCta"
+    kind: "simple"
+    phase3:
+      status: "populated"
+      itemId: "e09637cb-d19e-4876-9987-14cbcb4fb3fe"
+      fieldsPopulated: true
+      childrenCreated: 0
+      childrenExpected: 0
+      error: ""
+    phase6:
+      status: "failed"
+      error: "set_component_datasource 500"
+  - position: 8
+    componentName: "HeadingCta"
+    kind: "simple"
+    phase3:
+      status: "populated"
+      itemId: "d1671dc7-a51f-43ff-a4ee-d09578f1dd38"
+      fieldsPopulated: true
+      childrenCreated: 0
+      childrenExpected: 0
+      error: ""
+    phase6:
+      status: "failed"
+      error: "add_component_on_page 500"
+  - position: 9
+    componentName: "PromoCta"
+    kind: "simple"
+    phase3:
+      status: "populated"
+      itemId: "05a6cf74-de35-421d-ad84-403698a59bd6"
+      fieldsPopulated: true
+      childrenCreated: 0
+      childrenExpected: 0
+      error: ""
+    phase6:
+      status: "failed"
+      error: "add_component_on_page 500"
+  - position: 10
+    componentName: "TwoColumnCta"
+    kind: "simple"
+    phase3:
+      status: "populated"
+      itemId: "75c9eea4-73e7-43bb-9ae2-234faf1dadb2"
+      fieldsPopulated: true
+      childrenCreated: 0
+      childrenExpected: 0
+      error: ""
+    phase6:
+      status: "failed"
+      error: "add_component_on_page 500"
+  - position: 11
+    componentName: "HeadingCta"
+    kind: "simple"
+    phase3:
+      status: "populated"
+      itemId: "71aefe9e-f058-4264-8d0f-5adc3c9198a6"
+      fieldsPopulated: true
+      childrenCreated: 0
+      childrenExpected: 0
+      error: ""
+    phase6:
+      status: "failed"
+      error: "add_component_on_page 500"
+  - position: 12
+    componentName: "FiveColumnCta"
+    kind: "simple"
+    phase3:
+      status: "populated"
+      itemId: "e53c18e4-a2de-436c-89fd-496a46537df5"
+      fieldsPopulated: true
+      childrenCreated: 0
+      childrenExpected: 0
+      error: ""
+    phase6:
+      status: "failed"
+      error: "set_component_datasource 500"
+  - position: 13
+    componentName: "TwoColumnCta"
+    kind: "simple"
+    phase3:
+      status: "populated"
+      itemId: "3a41b7f9-8ece-4201-a7f3-183e78cb0b9c"
+      fieldsPopulated: true
+      childrenCreated: 0
+      childrenExpected: 0
+      error: ""
+    phase6:
+      status: "failed"
+      error: "set_component_datasource 500"
+  - position: 14
+    componentName: "HeadingCta"
+    kind: "simple"
+    phase3:
+      status: "populated"
+      itemId: "9d4168d1-8607-4397-99e2-66639e0b3e73"
+      fieldsPopulated: true
+      childrenCreated: 0
+      childrenExpected: 0
+      error: ""
+    phase6:
+      status: "failed"
+      error: "add_component_on_page 500"
+  - position: 15
+    componentName: "Footer"
+    kind: "simple"
+    phase3:
+      status: "populated"
+      itemId: "4ced1862-4805-47f6-a934-a4e851d5c3d3"
+      fieldsPopulated: true
+      childrenCreated: 0
+      childrenExpected: 0
+      error: ""
+    phase6:
+      status: "wired"
+      error: ""

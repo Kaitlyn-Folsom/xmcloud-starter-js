@@ -1,21 +1,42 @@
-// Financial
+// Financial (Gallagher Dark Blue)
 body.site-financial,
 .site-financial {
-  --text-body: #333;
+  --text-body: #00263e;
   --text-body-inverted: #fff;
-  --text-colored: #034c81;
+  --text-colored: #00263e;
   --text-footer: #fff;
-  --text-accent: #a82a39;
+  --text-accent: #6facde;
   --bg-body: #fff;
-  --bg-footer: #333;
-  --bg-main: #f0f5f7;
-  --bg-main-alt: #f0f5f7;
-  --bg-color: #c5e4f3;
-  --bg-saturated: #034c81;
-  --bg-accent: #c03021;
-  --border-color: #f0f5f7;
+  --bg-footer: #00263e;
+  --bg-main: #f4f7fa;
+  --bg-main-alt: #f4f7fa;
+  --bg-color: #00263e;
+  --bg-saturated: #00263e;
+  --bg-accent: #6facde;
+  --border-color: #d6dee6;
   --hr-color: #fff;
-  --roundness: 1rem;
+  --roundness: 4px;
+  --brand-primary: #00263e;
+  --brand-primary-foreground: #ffffff;
+  --brand-secondary: #0075bc;
+  --brand-secondary-foreground: #ffffff;
+  --brand-accent: #6facde;
+  --brand-accent-foreground: #00263e;
+  --brand-bg: #ffffff;
+  --brand-fg: #00263e;
+  --brand-muted: #f4f7fa;
+  --brand-muted-fg: #4a5b68;
+  --brand-header-bg: #ffffff;
+  --brand-header-fg: #00263e;
+  --brand-footer-bg: #00263e;
+  --brand-footer-fg: #ffffff;
+  --brand-border: #d6dee6;
+  --brand-ring: #00263e;
+  --brand-heading-font: 'Gotham Narrow', 'Montserrat', sans-serif;
+  --brand-body-font: 'Gotham Narrow', 'Montserrat', sans-serif;
+  --brand-radius: 4px;
+  --brand-button-radius: 4px;
+  --brand-card-radius: 4px;
 }
 
 body.site-financial.dark,

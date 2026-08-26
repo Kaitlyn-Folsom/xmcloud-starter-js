@@ -83,3 +83,71 @@ export const Default = (props: HeroBannerProps): JSX.Element => {
     </div>
   );
 };
+
+const renderGallagherTitle = (field: Field<string>, isPageEditing: boolean) => {
+  const value = field?.value || '';
+  const accent = 'Trusted Partner';
+  const idx = value.indexOf(accent);
+  if (isPageEditing || idx < 0) {
+    return <Text field={field} />;
+  }
+  return (
+    <>
+      {value.slice(0, idx)}
+      <span className="hero-accent">{accent}</span>
+      {value.slice(idx + accent.length)}
+    </>
+  );
+};
+
+export const Gallagher = (props: HeroBannerProps): JSX.Element => {
+  const id = props.params.RenderingIdentifier;
+  const { page } = useSitecore();
+  const isPageEditing = page.mode.isEditing;
+  const sxaStyles = `${props.params?.styles || ''}`;
+
+  return (
+    <div className={`component hero-banner gallagher ${sxaStyles}`} id={id ? id : undefined}>
+      <div className="container container-wide">
+        <div className="hero-row">
+          <div className="content-column">
+            {(isPageEditing || props.fields?.Tagline?.value) && (
+              <h6 className="eyebrow-accent">
+                <Text field={props.fields.Tagline} />
+              </h6>
+            )}
+            <h1 className="display-2 fw-bold">
+              {renderGallagherTitle(props.fields.Title, isPageEditing)}
+            </h1>
+            {(isPageEditing || props.fields?.Text?.value) && (
+              <div className="rich-content mb-4">
+                <RichText field={props.fields.Text} />
+              </div>
+            )}
+            <div className="btn-array pt-3 pb-4">
+              {(isPageEditing || props.fields?.Cta1?.value?.href) && (
+                <Link field={props.fields.Cta1} className="button button-main" />
+              )}
+              {(isPageEditing || props.fields?.Cta2?.value?.href) && (
+                <Link field={props.fields.Cta2} className="button button-simple mx-4" />
+              )}
+            </div>
+            <div className="row mt-2">
+              <Placeholder name="hero-banner" rendering={props.rendering} />
+            </div>
+          </div>
+          <div className="img-column">
+            <div className="img-wrapper">
+              <NextImage
+                field={props.fields.Image}
+                className="img-fluid"
+                width={700}
+                height={700}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};

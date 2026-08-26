@@ -1,0 +1,149 @@
+# Client Brand Theme — Arthur J. Gallagher & Co.
+# Extracted from: https://www.ajg.com
+# Official palette: Dark Blue #00263E (PMS 2965 C), Primary Blue #6FACDE (PMS 2142 C)
+# Official type: Gotham Narrow (Arial / Montserrat substitute for demo)
+
+client:
+  name: "Gallagher"
+  sourceUrl: "https://www.ajg.com"
+  extractedAt: "2026-08-26T13:20:00Z"
+  extractedBy: "cursor"
+
+colors:
+  primary: "#00263E"
+  primaryForeground: "#ffffff"
+  secondary: "#0075BC"
+  secondaryForeground: "#ffffff"
+  accent: "#6FACDE"
+  accentForeground: "#00263E"
+  background: "#ffffff"
+  foreground: "#00263E"
+  muted: "#F4F7FA"
+  mutedForeground: "#4A5B68"
+  headerBackground: "#ffffff"
+  headerForeground: "#00263E"
+  footerBackground: "#00263E"
+  footerForeground: "#ffffff"
+  border: "#D6DEE6"
+  ring: "#00263E"
+  extra:
+    - { name: "darkBlue", value: "#00263E" }
+    - { name: "primaryBlue", value: "#6FACDE" }
+    - { name: "midBlue", value: "#0075BC" }
+    - { name: "logoLightBlue", value: "#A4C8E1" }
+    - { name: "ice", value: "#F4F7FA" }
+
+typography:
+  headingFamily: "'Gotham Narrow', 'Montserrat', sans-serif"
+  headingWeight: "700"
+  bodyFamily: "'Gotham Narrow', 'Montserrat', sans-serif"
+  bodyWeight: "400"
+  monoFamily: "ui-monospace, SFMono-Regular, Menlo, monospace"
+  googleFontsUrl: "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+  scale:
+    hero: "3.25rem"
+    h1: "2.5rem"
+    h2: "2rem"
+    h3: "1.25rem"
+    body: "1rem"
+    small: "0.875rem"
+  headingTransform: "none"
+  letterSpacing: "-0.02em"
+  lineHeight: "relaxed"
+
+spacing:
+  density: "spacious"
+  sectionGap: "5rem"
+  containerMaxWidth: "1200px"
+  containerPadding: "1.5rem"
+
+shape:
+  borderRadius: "4px"
+  buttonRadius: "4px"
+  cardRadius: "4px"
+  imageRadius: "4px"
+  shadowStyle: "none"
+  borderStyle: "subtle"
+
+tone:
+  overall: "corporate"
+  colorMode: "light"
+  contrast: "high"
+  imagery: "photography"
+  heroStyle: "split-image-text"
+  cardStyle: "image-top"
+  navStyle: "solid-bar"
+
+tailwind:
+  colors:
+    brand:
+      primary: "#00263E"
+      secondary: "#0075BC"
+      accent: "#6FACDE"
+  fontFamily:
+    heading: ["Gotham Narrow", "Montserrat", "sans-serif"]
+    body: ["Gotham Narrow", "Montserrat", "sans-serif"]
+  borderRadius:
+    DEFAULT: "4px"
+    button: "4px"
+    card: "4px"
+
+cssVariables: |
+  :root {
+    --brand-primary: #00263E;
+    --brand-primary-foreground: #ffffff;
+    --brand-secondary: #0075BC;
+    --brand-secondary-foreground: #ffffff;
+    --brand-accent: #6FACDE;
+    --brand-accent-foreground: #00263E;
+    --brand-bg: #ffffff;
+    --brand-fg: #00263E;
+    --brand-muted: #F4F7FA;
+    --brand-muted-fg: #4A5B68;
+    --brand-header-bg: #ffffff;
+    --brand-header-fg: #00263E;
+    --brand-footer-bg: #00263E;
+    --brand-footer-fg: #ffffff;
+    --brand-border: #D6DEE6;
+    --brand-ring: #00263E;
+    --brand-heading-font: 'Gotham Narrow', 'Montserrat', sans-serif;
+    --brand-body-font: 'Gotham Narrow', 'Montserrat', sans-serif;
+    --brand-radius: 4px;
+    --brand-button-radius: 4px;
+    --brand-card-radius: 4px;
+  }
+
+# Maps onto the Financial/PLAY starter CSS variables in
+# src/assets/sass/abstracts/vars/_colors.scss
+starterThemeVariables: |
+  body.site-financial,
+  .site-financial {
+    --text-body: #00263E;
+    --text-body-inverted: #ffffff;
+    --text-colored: #00263E;
+    --text-footer: #ffffff;
+    --text-accent: #6FACDE;
+    --bg-body: #ffffff;
+    --bg-footer: #00263E;
+    --bg-main: #F4F7FA;
+    --bg-main-alt: #F4F7FA;
+    --bg-color: #00263E;
+    --bg-saturated: #00263E;
+    --bg-accent: #6FACDE;
+    --border-color: #D6DEE6;
+    --hr-color: #ffffff;
+    --roundness: 4px;
+    --font-family: 'Gotham Narrow', 'Montserrat', sans-serif;
+  }
+
+extraction:
+  confidence: "high"
+  method: "screenshot-plus-brand-guidelines"
+  notes:
+    - "Primary brand colors from Gallagher guidelines: Dark Blue #00263E (PMS 2965 C) and Primary Blue #6FACDE (PMS 2142 C)."
+    - "User screenshot shows a white header, navy primary buttons, light-blue headline accent on 'Trusted Partner', and a navy footer."
+    - "Live ajg.com copy used for stats and section text; screenshot used for layout (split hero, four-up stats, icon industries, two career tiles)."
+    - "Official type is Gotham Narrow. Montserrat is the Google Fonts substitute (Arial is the print substitute)."
+    - "Buttons are rectangular with a slight 4px radius — not the starter's 1rem roundness."
+    - "This starter applies theme via .site-financial CSS variables, not the UIIM --brand-* contract. Phase 4 should update _colors.scss and load Montserrat."
+    - "Playwright scraper was not required; screenshot + live page fetch + official palette were sufficient."

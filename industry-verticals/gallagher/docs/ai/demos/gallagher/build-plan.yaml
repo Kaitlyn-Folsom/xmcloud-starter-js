@@ -1,0 +1,521 @@
+# Demo Build Plan — Gallagher
+# Mapped to the Financial/PLAY component library (not the unused UIIM catalog).
+
+client:
+  name: "Gallagher"
+  sourceUrl: "https://www.ajg.com"
+  themeFile: "docs/ai/themes/gallagher.theme.yaml"
+  analyzedAt: "2026-08-26T13:20:00Z"
+  contentRoot: "/sitecore/content/finance/gallagher"
+  homePageId: "36df23f4-3e6b-4e90-8800-bf7ecaddccc7"
+  homePagePath: "/sitecore/content/finance/gallagher/Home"
+  dataRoot: "/sitecore/content/finance/gallagher/Data"
+
+pageAnalysis:
+  screenshotFiles:
+    desktop: "docs/ai/themes/gallagher/screenshot-desktop.jpg"
+    userProvided: "user-attached ajg.com homepage screenshot"
+  totalSections: 15
+  templateMatches: 15
+  customRequired: 0
+  existingHomePageNotes: >
+    Home currently has leftover PLAY Financial components (Carousel, Comparison x2,
+    Four Column CTA, Five Column CTA, Article List, Documents List, App Promo,
+    three Promo CTAs, one Three Column CTA, one Two Column CTA). Matching
+    instances will be rewired; leftovers go on the manual cleanup list.
+
+sections:
+  - position: 1
+    description: "White header with Gallagher wordmark, Who We Are / What We Do / Industries We Serve / Insights, search, and a navy CTA"
+    matchedComponent:
+      registryId: "header"
+      manifestName: "Header"
+      displayName: "Header"
+      componentName: "Header"
+      renderingId: "81317d3b-f929-426a-83ec-421982f8f1e6"
+      templateId: "0da7aa52-0c24-4721-9b6c-f6d8d9faaaa0"
+      variant: "WithLogoImage"
+      matchType: "template"
+      matchConfidence: "high"
+      kind: "simple"
+      apiAddable: false
+      livesIn: "partial-design"
+      partialPath: "/sitecore/content/finance/gallagher/Presentation/Partial Designs/Header"
+    sectionBackground: "default"
+    variantMatch: "partial"
+    customVariantNeeded:
+      name: "Gallagher"
+      description: "White bar, navy wordmark, text nav, search icon, solid navy CTA. Utility row (Locations, Newsroom, Investors, Careers) sits above."
+      parentComponent: "Header"
+    content:
+      LogoImage: "Gallagher wordmark in navy"
+    contentNotes: "Nav is context-driven on the Header partial. Do not add via API. Utility eyebrow links live on the same partial."
+    variantReason: "WithLogoImage is the only export that renders a logo image field."
+
+  - position: 2
+    description: "Split hero — headline and two CTAs on the left, professional-at-monitors photo on the right"
+    matchedComponent:
+      registryId: "hero-banner"
+      manifestName: "HeroBanner"
+      displayName: "Hero Banner"
+      componentName: "HeroBanner"
+      renderingId: "0e8cc47e-32d6-4f55-a7bf-e713abd06323"
+      templateId: "0089bcb3-0117-43f2-a760-0771d5ff7417"
+      variant: "Default"
+      matchType: "template"
+      matchConfidence: "high"
+      kind: "simple"
+      apiAddable: true
+    sectionBackground: "default"
+    variantMatch: "partial"
+    customVariantNeeded:
+      name: "Gallagher"
+      description: "Left-aligned navy headline with light-blue accent on Trusted Partner, two CTAs (solid + outline), no dotted accents, slightly rounded photo"
+      parentComponent: "HeroBanner"
+    content:
+      Tagline: ""
+      Title: "Your Trusted Partner for Insurance & Consulting"
+      Text: "Gallagher helps you face your future with confidence."
+      Cta1: { text: "Our Solutions", href: "https://www.ajg.com" }
+      Cta2: { text: "Find an Office", href: "https://www.ajg.com/office-locations/" }
+      Image: "Professional working at a desk with multiple monitors"
+    contentNotes: "HeroBanner is the 50/50 split — not Hero, which is a full-bleed overlay. Live site subcopy is 'Gallagher helps you face your future with confidence.'"
+    variantReason: "Default HeroBanner is already text-left / image-right with two CTAs."
+
+  - position: 3
+    description: "Centered intro line above the stats row"
+    matchedComponent:
+      registryId: "heading-cta"
+      manifestName: "HeadingCta"
+      displayName: "Heading CTA"
+      componentName: "HeadingCta"
+      renderingId: "89e1d547-7cd6-4ef0-9a27-1e99410797dd"
+      templateId: "fa136527-6302-471d-83ab-e66fc72bda99"
+      variant: "Centered"
+      matchType: "template"
+      matchConfidence: "high"
+      kind: "simple"
+      apiAddable: true
+    sectionBackground: "default"
+    variantMatch: "exact"
+    content:
+      Eyebrow: ""
+      Heading: "Forge ahead knowing Gallagher helps you face any risk, anywhere in the world."
+      Text: ""
+      Link: { text: "", href: "" }
+    contentNotes: "Section title only — no body or button."
+    variantReason: "Centered matches the screenshot's intro line above the metrics."
+
+  - position: 4
+    description: "Four-up metrics — years, countries, offices, revenue"
+    matchedComponent:
+      registryId: "four-column-cta"
+      manifestName: "FourColumnCta"
+      displayName: "Four Column CTA"
+      componentName: "FourColumnCta"
+      renderingId: "35075000-760e-4ff3-bd1c-f2eeba251dcb"
+      templateId: "1b694ef9-154d-429a-9c3f-d7774cd4a852"
+      variant: "Default"
+      matchType: "template"
+      matchConfidence: "high"
+      kind: "simple"
+      apiAddable: true
+      alreadyOnPage: true
+      existingInstanceId: "09cfd835-87f6-4d58-9681-9c6ea1a3228b"
+    sectionBackground: "default"
+    variantMatch: "none"
+    customVariantNeeded:
+      name: "Gallagher"
+      description: "Four large navy numbers with short labels, no images or buttons. Default Four Column CTA expects image + title + text + link per column."
+      parentComponent: "FourColumnCta"
+    content:
+      Title1: "95+"
+      Text1: "years in business"
+      Title2: "130+"
+      Text2: "countries served"
+      Title3: "1,116"
+      Text3: "offices globally"
+      Title4: "$13.8B"
+      Text4: "in revenue"
+    contentNotes: "Live ajg.com numbers as of Aug 2026. Stats Counter only holds 3 metrics — Four Column CTA is the right 4-up and is already on Home."
+    variantReason: "Only 4-column component in the library. Custom variant should drop images and treat Title as the stat."
+
+  - position: 5
+    description: "Insurance and Risk Management — promo split with heading, copy, view-all link, and supporting image"
+    matchedComponent:
+      registryId: "promo-cta"
+      manifestName: "PromoCta"
+      displayName: "Promo CTA"
+      componentName: "PromoCta"
+      renderingId: "1a375fac-6cc1-4a5a-a159-9bc6dbc66b80"
+      templateId: "c0943942-ae0f-4205-86fa-84884cce4a53"
+      variant: "Gallagher"
+      matchType: "template"
+      matchConfidence: "high"
+      kind: "simple"
+      apiAddable: true
+      alreadyOnPage: true
+      existingInstanceId: "d49a8931-f041-4988-9cc3-f2400e6422d0"
+    sectionBackground: "default"
+    variantMatch: "partial"
+    customVariantNeeded:
+      name: "Gallagher"
+      description: "Service-pillar promo — navy heading, body, text-style View all link, optional image, no dotted accents, generous whitespace"
+      parentComponent: "PromoCta"
+    content:
+      Eyebrow: "Solutions to Fit Your Needs"
+      Title: "Insurance and Risk Management"
+      Subtitle: ""
+      Text: "Protect your people and reduce your total cost of risk with Gallagher's innovative, industry-leading insurance and risk management solutions."
+      Link: { text: "View all", href: "https://www.ajg.com" }
+      Image: "Insurance / risk professionals in a workplace setting"
+    contentNotes: "Rewire existing Promo CTA 1. Same Gallagher variant as section 6. Image from live site / Content Hub in Phase 3."
+    variantReason: "Promo CTA is the split text + image + link block these service pillars need."
+
+  - position: 6
+    description: "Benefits and Human Resources Consulting — matching promo split"
+    matchedComponent:
+      registryId: "promo-cta"
+      manifestName: "PromoCta"
+      displayName: "Promo CTA"
+      componentName: "PromoCta"
+      renderingId: "1a375fac-6cc1-4a5a-a159-9bc6dbc66b80"
+      templateId: "c0943942-ae0f-4205-86fa-84884cce4a53"
+      variant: "Gallagher"
+      matchType: "template"
+      matchConfidence: "high"
+      kind: "simple"
+      apiAddable: true
+      alreadyOnPage: true
+      existingInstanceId: "633506e7-54d0-4410-9051-72fb4c9fecb4"
+    sectionBackground: "default"
+    variantMatch: "partial"
+    customVariantNeeded:
+      name: "Gallagher"
+      description: "Reuse the Gallagher service-pillar treatment from section 5; flip image side if the screenshot alternates"
+      parentComponent: "PromoCta"
+    content:
+      Eyebrow: "Proactive People Strategies"
+      Title: "Benefits and Human Resources Consulting"
+      Subtitle: ""
+      Text: "Put your people at the center of your customized benefits and HR programs with Gallagher's holistic approach to organizational wellbeing."
+      Link: { text: "View all", href: "https://www.ajg.com" }
+      Image: "HR / benefits conversation in a modern office"
+    contentNotes: "Rewire existing Promo CTA 2. Same Gallagher variant as Insurance."
+    variantReason: "Same Promo CTA treatment as section 5."
+
+  - position: 7
+    description: "The Gallagher Way — text and quote on the left, CEO portrait with play button on the right"
+    matchedComponent:
+      registryId: "promo-cta"
+      manifestName: "PromoCta"
+      displayName: "Promo CTA"
+      componentName: "PromoCta"
+      renderingId: "1a375fac-6cc1-4a5a-a159-9bc6dbc66b80"
+      templateId: "c0943942-ae0f-4205-86fa-84884cce4a53"
+      variant: "GallagherVideo"
+      matchType: "template"
+      matchConfidence: "high"
+      kind: "simple"
+      apiAddable: true
+      alreadyOnPage: true
+      existingInstanceId: "1a516b9b-cc7b-49c9-a8eb-5be281a98612"
+    sectionBackground: "default"
+    variantMatch: "none"
+    customVariantNeeded:
+      name: "GallagherVideo"
+      description: "Same Promo fields as Gallagher, plus a circular play-button overlay on the portrait. No dotted accents. Quote-style body, See Who We Are link."
+      parentComponent: "PromoCta"
+    content:
+      Eyebrow: ""
+      Title: "The Gallagher Way leads to better client outcomes."
+      Subtitle: "It's our attitude toward clients, our capabilities and our accessibility — that culture of working together, of supporting each other — that makes the best outcome for the client."
+      Text: "Pat Gallagher, Chairman and CEO"
+      Link: { text: "See Who We Are", href: "https://www.ajg.com" }
+      Image: "Portrait of Pat Gallagher in a navy suit"
+    contentNotes: "Rewire the third existing Promo CTA. Poster image on Image; video URL goes on the manual-tasks list — do not download the mp4. Distinct GallagherVideo variant vs the Gallagher service-pillar variant on 5 and 6."
+    variantReason: "Needs a play overlay the shared Gallagher promo variant should not have."
+
+  - position: 8
+    description: "Insights section heading"
+    matchedComponent:
+      registryId: "heading-cta"
+      manifestName: "HeadingCta"
+      displayName: "Heading CTA"
+      componentName: "HeadingCta"
+      renderingId: "89e1d547-7cd6-4ef0-9a27-1e99410797dd"
+      templateId: "fa136527-6302-471d-83ab-e66fc72bda99"
+      variant: "Compact"
+      matchType: "template"
+      matchConfidence: "high"
+      kind: "simple"
+      apiAddable: true
+    sectionBackground: "default"
+    variantMatch: "exact"
+    content:
+      Heading: "Insights"
+      Text: "At Gallagher, our industry specialists share thought leadership so you can make confident decisions."
+      Link: { text: "View all insights", href: "https://www.ajg.com" }
+    contentNotes: ""
+    variantReason: "Compact section title with optional body and link."
+
+  - position: 9
+    description: "Featured insight — large photo of colleagues with tablet, title and summary beside it"
+    matchedComponent:
+      registryId: "promo-cta"
+      manifestName: "PromoCta"
+      displayName: "Promo CTA"
+      componentName: "PromoCta"
+      renderingId: "1a375fac-6cc1-4a5a-a159-9bc6dbc66b80"
+      templateId: "c0943942-ae0f-4205-86fa-84884cce4a53"
+      variant: "Gallagher"
+      matchType: "template"
+      matchConfidence: "high"
+      kind: "simple"
+      apiAddable: true
+    sectionBackground: "default"
+    variantMatch: "partial"
+    customVariantNeeded:
+      name: "Gallagher"
+      description: "Horizontal featured-article card — image left, category + title + summary right. Same Gallagher promo chrome as sections 5–6."
+      parentComponent: "PromoCta"
+    content:
+      Eyebrow: "Reports"
+      Title: "Navigating Now: Commercial Insurance Trends for Spring 2026"
+      Subtitle: "Gallagher explores key insurance trends shaping the Spring 2026 market, including supply chain risks, AI liability, and property and casualty market dynamics."
+      Link: { text: "Read more", href: "https://www.ajg.com" }
+      Image: "Two colleagues reviewing a tablet in a modern office"
+    contentNotes: "New Promo CTA — the three existing instances are used for sections 5, 6, and 7."
+    variantReason: "Promo CTA already supports a wide image + title + body + link."
+
+  - position: 10
+    description: "Two secondary insight cards — Public Sector / Real Estate style photo cards"
+    matchedComponent:
+      registryId: "two-column-cta"
+      manifestName: "TwoColumnCta"
+      displayName: "Two Column CTA"
+      componentName: "TwoColumnCta"
+      renderingId: "3a9a9d22-c092-4b54-9511-eb202ceabe8d"
+      templateId: "1812bf3e-6bdd-466d-99b2-0d7cebb020fc"
+      variant: "Default"
+      matchType: "template"
+      matchConfidence: "high"
+      kind: "simple"
+      apiAddable: true
+    sectionBackground: "default"
+    variantMatch: "partial"
+    customVariantNeeded:
+      name: "Gallagher"
+      description: "Equal image-top article cards with category, title, and Read more — no large display headings"
+      parentComponent: "TwoColumnCta"
+    content:
+      Title1: "How Litigation Financing Is Reshaping Real Estate Claims"
+      Text1: "Funded litigation is a concern for multifamily and hospitality property owners."
+      Link1: { text: "Read more", href: "https://www.ajg.com" }
+      Image1: "Neoclassical government or civic building"
+      Title2: "Interview: What Businesses Should Know About AI Liability"
+      Text2: "Learn why AI liability matters and how business leaders can mitigate their exposures."
+      Link2: { text: "Read more", href: "https://www.ajg.com" }
+      Image2: "Two professionals in discussion"
+    contentNotes: "Live secondary stories as of Aug 2026. This is a new Two Column CTA — the existing instance is reserved for Join Gallagher."
+    variantReason: "Two Column CTA is the only two-up image + title + CTA component."
+
+  - position: 11
+    description: "Industry / solutions section heading"
+    matchedComponent:
+      registryId: "heading-cta"
+      manifestName: "HeadingCta"
+      displayName: "Heading CTA"
+      componentName: "HeadingCta"
+      renderingId: "89e1d547-7cd6-4ef0-9a27-1e99410797dd"
+      templateId: "fa136527-6302-471d-83ab-e66fc72bda99"
+      variant: "Compact"
+      matchType: "template"
+      matchConfidence: "high"
+      kind: "simple"
+      apiAddable: true
+    sectionBackground: "default"
+    variantMatch: "exact"
+    content:
+      Heading: "Gallagher's Solutions for Your Industry"
+      Text: "Whether you are a business owner, an insurance broker, an insurance carrier or a re-insurer, there is a Gallagher company ready to serve you."
+    contentNotes: "Screenshot uses industry verticals; live site uses 'Gallagher Solutions Span the Industry'."
+    variantReason: "Compact section title."
+
+  - position: 12
+    description: "Six icon tiles — Construction, Education, Healthcare, Public Sector, Real Estate, Transportation"
+    matchedComponent:
+      registryId: "five-column-cta"
+      manifestName: "FiveColumnCta"
+      displayName: "Five Column CTA"
+      componentName: "FiveColumnCta"
+      renderingId: "333def3e-c272-4ad9-a493-8d5ccae08312"
+      templateId: "3b41d9fc-0edf-48e1-966c-e260339ba815"
+      variant: "Default"
+      matchType: "template"
+      matchConfidence: "medium"
+      kind: "simple"
+      apiAddable: true
+      alreadyOnPage: true
+      existingInstanceId: "b882746c-c313-4283-8f58-b9402bcf9c6a"
+    sectionBackground: "default"
+    variantMatch: "none"
+    customVariantNeeded:
+      name: "Gallagher"
+      description: "Icon + title + short description row that can show six items. Default Five Column CTA is five image tiles."
+      parentComponent: "FiveColumnCta"
+    content:
+      Text1: "Construction"
+      Text2: "Education"
+      Text3: "Healthcare"
+      Text4: "Public Sector"
+      Text5: "Real Estate"
+    contentNotes: "Library only has 5 image/text slots — Transportation is the sixth on the screenshot and needs the custom variant or will be dropped. Already on Home — rewire."
+    variantReason: "Closest multi-item icon/image row. Four Column CTA is used for stats."
+
+  - position: 13
+    description: "Join Gallagher — two large side-by-side photo tiles (Careers / Merge)"
+    matchedComponent:
+      registryId: "two-column-cta"
+      manifestName: "TwoColumnCta"
+      displayName: "Two Column CTA"
+      componentName: "TwoColumnCta"
+      renderingId: "3a9a9d22-c092-4b54-9511-eb202ceabe8d"
+      templateId: "1812bf3e-6bdd-466d-99b2-0d7cebb020fc"
+      variant: "Default"
+      matchType: "template"
+      matchConfidence: "high"
+      kind: "simple"
+      apiAddable: true
+      alreadyOnPage: true
+      existingInstanceId: "0ed2d2c2-e9ef-4e40-b040-6289cb174e03"
+    sectionBackground: "default"
+    variantMatch: "none"
+    customVariantNeeded:
+      name: "GallagherTiles"
+      description: "Full-bleed photo tiles with overlay headline — Default stacks image then text below"
+      parentComponent: "TwoColumnCta"
+    content:
+      Title1: "Careers at Gallagher"
+      Text1: "Are you ready to thrive both professionally and personally within our inclusive workplace?"
+      Link1: { text: "Explore careers", href: "https://www.ajg.com/careers/" }
+      Image1: "Two colleagues collaborating over a laptop"
+      Title2: "Merge with Gallagher"
+      Text2: "Discover how Gallagher can further invest in your business and empower your people."
+      Link2: { text: "Learn more", href: "https://www.ajg.com" }
+      Image2: "Professionals talking in an office lobby"
+    contentNotes: "Screenshot labels the right tile 'Life at Gallagher'; live site uses 'Merge with Gallagher'. Using live copy. Already on Home — rewire."
+    variantReason: "Two Column CTA is the only two-up image+CTA component."
+
+  - position: 14
+    description: "Find your local office / start your journey CTA bar"
+    matchedComponent:
+      registryId: "heading-cta"
+      manifestName: "HeadingCta"
+      displayName: "Heading CTA"
+      componentName: "HeadingCta"
+      renderingId: "89e1d547-7cd6-4ef0-9a27-1e99410797dd"
+      templateId: "fa136527-6302-471d-83ab-e66fc72bda99"
+      variant: "Centered"
+      matchType: "template"
+      matchConfidence: "high"
+      kind: "simple"
+      apiAddable: true
+    sectionBackground: "muted"
+    variantMatch: "partial"
+    customVariantNeeded:
+      name: "Gallagher"
+      description: "Light-blue band, centered heading, solid navy button"
+      parentComponent: "HeadingCta"
+    content:
+      Heading: "Start your journey today."
+      Text: ""
+      Link: { text: "Find an office", href: "https://www.ajg.com/office-locations/" }
+    contentNotes: "Screenshot shows 'Find your local office' / Search Jobs. Live site uses 'Start your journey today.'"
+    variantReason: "Centered Heading CTA is heading + button without an image."
+
+  - position: 15
+    description: "Navy multi-column footer with logo, link columns, social icons, and legal bar"
+    matchedComponent:
+      registryId: "footer"
+      manifestName: "Footer"
+      displayName: "Footer"
+      componentName: "Footer"
+      renderingId: "771a3f27-6448-44ac-add0-e5de311c6e3b"
+      templateId: "947db8f8-dc76-453f-aca1-a27babfe633b"
+      variant: "Default"
+      matchType: "template"
+      matchConfidence: "high"
+      kind: "simple"
+      apiAddable: false
+      livesIn: "partial-design"
+      partialPath: "/sitecore/content/finance/gallagher/Presentation/Partial Designs/Footer"
+    sectionBackground: "dark"
+    variantMatch: "partial"
+    customVariantNeeded:
+      name: "Gallagher"
+      description: "Navy background, white wordmark, four link columns (Who We Are, What We Do, Industries, Insights), social row, thin legal bar"
+      parentComponent: "Footer"
+    content:
+      Title1: "Who We Are"
+      Text1: "About Us, Leadership, The Gallagher Way"
+      Title2: "What We Do"
+      Text2: "Insurance, Risk Management, Benefits, Consulting"
+      Title3: "Industries"
+      Text3: "Healthcare, Public Sector, Education, Real Estate, Construction"
+      Title4: "Insights"
+      Text4: "Reports, Articles, Newsroom"
+      Copyright: "© Arthur J. Gallagher & Co."
+      SocialsTitle: "Follow Us"
+    contentNotes: "Footer already lives on the Footer partial. Default supports 4 columns; WithSocials only supports 2 + socials. Custom Gallagher variant can combine 4 columns with socials."
+    variantReason: "Default Footer is the 4-column layout that matches the screenshot."
+
+customComponents: []
+
+existingOnHomeToRewire:
+  - componentName: "FourColumnCta"
+    instanceId: "09cfd835-87f6-4d58-9681-9c6ea1a3228b"
+    mapsToPosition: 4
+  - componentName: "PromoCta"
+    instanceId: "d49a8931-f041-4988-9cc3-f2400e6422d0"
+    mapsToPosition: 5
+  - componentName: "PromoCta"
+    instanceId: "633506e7-54d0-4410-9051-72fb4c9fecb4"
+    mapsToPosition: 6
+  - componentName: "PromoCta"
+    instanceId: "1a516b9b-cc7b-49c9-a8eb-5be281a98612"
+    mapsToPosition: 7
+  - componentName: "FiveColumnCta"
+    instanceId: "b882746c-c313-4283-8f58-b9402bcf9c6a"
+    mapsToPosition: 12
+  - componentName: "TwoColumnCta"
+    instanceId: "0ed2d2c2-e9ef-4e40-b040-6289cb174e03"
+    mapsToPosition: 13
+
+oobToRemoveManually:
+  - "Carousel"
+  - "Comparison (x2, nested in Two Column CTA placeholders)"
+  - "Three Column CTA"
+  - "Article List"
+  - "Documents List"
+  - "App Promo"
+
+buildOrder:
+  phase1_sitecore:
+    - "HeroBanner (Trusted Partner)"
+    - "HeadingCta (Forge ahead intro)"
+    - "FourColumnCta (stats — rewire existing)"
+    - "PromoCta (Insurance — rewire existing)"
+    - "PromoCta (Benefits — rewire existing)"
+    - "PromoCta (Gallagher Way video — rewire existing)"
+    - "HeadingCta (Insights)"
+    - "PromoCta (Featured insight — new)"
+    - "TwoColumnCta (Insight cards)"
+    - "HeadingCta (Industry heading)"
+    - "FiveColumnCta (Industry icons — rewire existing)"
+    - "TwoColumnCta (Join Gallagher — rewire existing)"
+    - "HeadingCta (Find an office CTA)"
+    - "Footer datasource (partial — populate only)"
+    - "Header logo (partial — populate only)"
+  phase2_theme: "Apply Gallagher Dark Blue + Montserrat to .site-financial in _colors.scss"
+  phase3_custom: []

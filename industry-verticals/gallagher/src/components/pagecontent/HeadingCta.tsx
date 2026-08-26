@@ -151,3 +151,69 @@ export const Centered = (props: HeadingCtaProps): JSX.Element => {
     </div>
   );
 };
+
+export const Gallagher = (props: HeadingCtaProps): JSX.Element => {
+  const id = props.params.RenderingIdentifier;
+  const { page } = useSitecore();
+  const isPageEditing = page.mode.isEditing;
+  const sxaStyles = `${props.params?.styles || ''}`;
+
+  return (
+    <div className={`component heading-cta gallagher ${sxaStyles}`} id={id ? id : undefined}>
+      <div className="container">
+        <div className="heading-content-wrapper">
+          {(isPageEditing || props.fields?.Eyebrow?.value) && (
+            <h6 className="eyebrow-accent">
+              <Text field={props.fields?.Eyebrow} />
+            </h6>
+          )}
+          <h2>
+            <Text field={props.fields?.Heading} />
+          </h2>
+          {(isPageEditing || props.fields?.Text?.value) && (
+            <p>
+              <Text field={props.fields?.Text} />
+            </p>
+          )}
+          {(isPageEditing || props.fields?.Link?.value?.href) && (
+            <Link field={props.fields.Link} className="button button-text" />
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export const GallagherCentered = (props: HeadingCtaProps): JSX.Element => {
+  const id = props.params.RenderingIdentifier;
+  const { page } = useSitecore();
+  const isPageEditing = page.mode.isEditing;
+  const sxaStyles = `${props.params?.styles || ''}`;
+  const hasCta = Boolean(isPageEditing || props.fields?.Link?.value?.href);
+
+  return (
+    <div
+      className={`component heading-cta gallagher-centered ${hasCta ? 'has-cta' : ''} ${sxaStyles}`}
+      id={id ? id : undefined}
+    >
+      <div className="container">
+        <div className="heading-content-wrapper mx-auto text-center">
+          {(isPageEditing || props.fields?.Eyebrow?.value) && (
+            <h6 className="eyebrow-accent">
+              <Text field={props.fields?.Eyebrow} />
+            </h6>
+          )}
+          <h2>
+            <Text field={props.fields?.Heading} />
+          </h2>
+          {(isPageEditing || props.fields?.Text?.value) && (
+            <p>
+              <Text field={props.fields?.Text} />
+            </p>
+          )}
+          {hasCta && <Link field={props.fields.Link} className="button button-main" />}
+        </div>
+      </div>
+    </div>
+  );
+};
