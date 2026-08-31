@@ -28,14 +28,16 @@ type ArticleModel = {
 
 type PreviewSearchComponentProps = {
   defaultItemsPerPage?: number;
-  isOpen: boolean;
-  setIsSearchOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  placeholder?: string;
+  isOpen?: boolean;
+  setIsSearchOpen?: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 type InitialState = PreviewSearchInitialState<'itemsPerPage' | 'suggestionsList'>;
 
 export const PreviewSearchComponent = ({
   defaultItemsPerPage = 6,
+  placeholder = 'Search',
   isOpen,
   setIsSearchOpen,
 }: PreviewSearchComponentProps) => {
@@ -77,7 +79,7 @@ export const PreviewSearchComponent = ({
 
   const handleSubmit = (e: SyntheticEvent): void => {
     e.preventDefault();
-    if (isOpen) setIsSearchOpen(false);
+    if (isOpen) setIsSearchOpen?.(false);
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     const target = e.target.query as HTMLInputElement;
@@ -87,14 +89,26 @@ export const PreviewSearchComponent = ({
 
   return (
     <PreviewSearch.Root>
-      <form onSubmit={handleSubmit} className="flex-1">
+      <form onSubmit={handleSubmit} className="preview-search-form">
         <PreviewSearch.Input
           name="query"
-          className="w-full rounded-md border border-gray-300 px-4 py-3 text-lg focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          className="preview-search-input"
           onChange={keyphraseHandler}
           autoComplete="off"
-          placeholder="Ask me anything"
+          placeholder={placeholder}
         />
+        <button type="submit" className="preview-search-submit" aria-label="Search">
+          <svg
+            aria-hidden="true"
+            className="h-5 w-5"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
+          </svg>
+        </button>
       </form>
 
       <PreviewSearch.Content className="z-50 flex h-[400px] w-[var(--radix-popover-trigger-width)] justify-center bg-gray-100 pt-0 shadow-[2px_5px_5px_5px_rgba(0,0,0,0.3)] transition-opacity dark:bg-gray-800">
