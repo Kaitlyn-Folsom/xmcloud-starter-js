@@ -91,7 +91,7 @@ export const PageHeading = (props: HeadingCtaProps): JSX.Element => {
   return (
     <>
       <Head>
-        <meta property="og:description" content={props.fields?.Text.value} />
+        <meta property="og:description" content={props.fields?.Text?.value} />
         <meta property="og:name" content={props.fields?.Heading?.value} />
         <meta property="og:title" content={props.fields?.Heading?.value} />
         <meta property="og:type" content="page" />

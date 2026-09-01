@@ -5,7 +5,7 @@ import { ImageField, Image, useSitecore } from '@sitecore-content-sdk/nextjs';
 import { ParallaxBanner } from 'react-scroll-parallax';
 
 export type ParallaxImageProps = {
-  BackgroundImage: ImageField;
+  BackgroundImage?: ImageField;
 };
 
 export const ParallaxBackgroundImage = (props: ParallaxImageProps): JSX.Element => {
@@ -18,7 +18,7 @@ export const ParallaxBackgroundImage = (props: ParallaxImageProps): JSX.Element 
     <ParallaxBanner
       layers={[
         {
-          image: `${props.BackgroundImage.value?.src}`,
+          image: `${props.BackgroundImage?.value?.src ?? ''}`,
           speed: -15,
         },
       ]}
