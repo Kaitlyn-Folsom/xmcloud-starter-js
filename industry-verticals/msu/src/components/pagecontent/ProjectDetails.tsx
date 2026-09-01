@@ -46,7 +46,7 @@ export const Default = (props: ProjectDetailsProps): JSX.Element => {
   return (
     <>
       <Head>
-        <meta property="og:description" content={props.fields?.Abstract.value} />
+        <meta property="og:description" content={props.fields?.Abstract?.value} />
         <meta property="og:name" content={props.fields?.Title?.value} />
         <meta property="og:title" content={props.fields?.Title?.value} />
         <meta property="og:image" content={props.fields?.Thumbnail?.value?.src} />

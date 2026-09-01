@@ -170,6 +170,9 @@ export const WithSocials = (props: FooterProps): JSX.Element => {
   );
 };
 
+/* Gallagher uses the Default four-column layout via FieldNames */
+export const Gallagher = Default;
+
 /* Msu variant — Spartan Green footer with wordmark and four link columns */
 export const Msu = (props: FooterProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
