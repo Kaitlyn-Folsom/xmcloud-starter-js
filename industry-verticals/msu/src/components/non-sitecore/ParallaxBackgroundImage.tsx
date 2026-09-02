@@ -11,22 +11,24 @@ export type ParallaxImageProps = {
 export const ParallaxBackgroundImage = (props: ParallaxImageProps): JSX.Element => {
   const { page } = useSitecore();
   const isPageEditing = page.mode.isEditing;
+  const imageSrc = props.BackgroundImage?.value?.src ?? '';
 
   return (
-    <div className="parallax-background-image">
+    <>
       {isPageEditing ? (
         <Image field={props.BackgroundImage} className="background-image" />
       ) : (
         <ParallaxBanner
           layers={[
             {
-              image: `${props.BackgroundImage?.value?.src ?? ''}`,
+              image: imageSrc,
               speed: -15,
             },
           ]}
+          className="parallax-background-image"
         />
       )}
       <div className="parallax-background-overlay" aria-hidden="true" />
-    </div>
+    </>
   );
 };
