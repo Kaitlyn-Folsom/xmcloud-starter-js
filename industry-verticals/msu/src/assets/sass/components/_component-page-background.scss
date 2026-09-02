@@ -15,6 +15,7 @@
     width: 100%;
     height: 50vh;
     object-fit: cover;
+    z-index: 0;
     /* stylelint-disable */
     mask-image: linear-gradient(
       to right,
@@ -25,7 +26,19 @@
   }
 
   .parallax-background-overlay {
+    position: absolute !important;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 50vh;
+    z-index: 0;
+    pointer-events: none;
     background-color: rgba(0, 0, 0, 0.25);
+  }
+
+  > .container,
+  .background-content-wrapper {
+    z-index: 1;
   }
 
   .rounded-corners {
