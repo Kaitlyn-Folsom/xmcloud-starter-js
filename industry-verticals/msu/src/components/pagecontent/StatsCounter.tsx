@@ -112,7 +112,7 @@ export const Msu = (props: StatsCounterProps): JSX.Element => {
       className={`component stats-counter component-spaced msu ${sxaStyles}`}
       id={id ? id : undefined}
     >
-      <div className="container">
+      <div className="">
         <div className="row g-0">
           <div className="col-lg-4 mosaic-photo">
             <NextImage field={props.fields?.Image1} width={600} height={800} />

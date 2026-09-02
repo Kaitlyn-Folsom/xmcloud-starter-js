@@ -12,17 +12,21 @@ export const ParallaxBackgroundImage = (props: ParallaxImageProps): JSX.Element 
   const { page } = useSitecore();
   const isPageEditing = page.mode.isEditing;
 
-  return isPageEditing ? (
-    <Image field={props.BackgroundImage} className="background-image"></Image>
-  ) : (
-    <ParallaxBanner
-      layers={[
-        {
-          image: `${props.BackgroundImage?.value?.src ?? ''}`,
-          speed: -15,
-        },
-      ]}
-      className="parallax-background-image"
-    />
+  return (
+    <div className="parallax-background-image">
+      {isPageEditing ? (
+        <Image field={props.BackgroundImage} className="background-image" />
+      ) : (
+        <ParallaxBanner
+          layers={[
+            {
+              image: `${props.BackgroundImage?.value?.src ?? ''}`,
+              speed: -15,
+            },
+          ]}
+        />
+      )}
+      <div className="parallax-background-overlay" aria-hidden="true" />
+    </div>
   );
 };
