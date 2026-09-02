@@ -1,5 +1,9 @@
 .dark .page-background {
   .background-content {
     background-color: var(--bg-main-alt, #031827);
+
+    &.bg-white {
+      background-color: #fff;
+    }
   }
 }

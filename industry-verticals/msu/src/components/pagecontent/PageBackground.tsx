@@ -44,16 +44,16 @@ export const Default = (props: PageBackgroundProps): JSX.Element => {
         <div className="container">
           <Placeholder name="page-navigation" rendering={props.rendering} />
 
-          <h1 className="display-6 fw-bold">
+          <h1 className="display-6 fw-bold text-white">
             <Text field={props.fields.Title}></Text>
           </h1>
-          <div className="fs-2">
+          <div className="fs-2 text-white">
             <RichText field={props.fields.Content}></RichText>
           </div>
         </div>
 
         <div className="background-content-wrapper">
-          <div className="background-content component-spaced container rounded-corners">
+          <div className="background-content component-spaced container rounded-corners bg-white">
             <div className="p-3 p-sm-5">
               <div className="row">
                 <Placeholder name="background-page-content" rendering={props.rendering} />
