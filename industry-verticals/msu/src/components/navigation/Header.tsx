@@ -1,6 +1,7 @@
 'use client';
 
 import { AppPlaceholder, ComponentMap, ImageField, NextImage, useSitecore } from '@sitecore-content-sdk/nextjs';
+import Link from 'next/link';
 import { ComponentProps } from 'lib/component-props';
 import { JSX } from 'react';
 import PreviewSearch from '../search/PreviewSearch';
@@ -45,7 +46,9 @@ export const WithLogoImage = (props: HeaderProps): JSX.Element => {
       <div className={`container container-${props.params?.ContainerWidth?.toLowerCase()}-fluid`}>
         <div className="row align-items-center">
           <div className="col-auto">
-            <NextImage field={props.fields.LogoImage} width={200} height={50} />
+            <Link href="/" aria-label="Home">
+              <NextImage field={props.fields.LogoImage} width={200} height={50} />
+            </Link>
           </div>
           <div className="col">
             <AppPlaceholder name="header-right" rendering={props.rendering} page={page} componentMap={props.componentMap} />
@@ -67,7 +70,9 @@ export const Msu = (props: HeaderProps): JSX.Element => {
       <div className={`container container-${props.params?.ContainerWidth?.toLowerCase()}-fluid`}>
         <div className="header-brand-row">
           <div className="header-logo">
-            <NextImage field={props.fields.LogoImage} width={220} height={56} />
+            <Link href="/" aria-label="Home">
+              <NextImage field={props.fields.LogoImage} width={220} height={56} />
+            </Link>
           </div>
           <div className="header-search">
             <PreviewSearch rfkId={PREVIEW_WIDGET_ID} placeholder="Search" />
