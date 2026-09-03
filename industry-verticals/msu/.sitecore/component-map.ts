@@ -30,6 +30,7 @@ import * as CardViewSwitcher from 'src/components/search/CardViewSwitcher';
 import * as ArticleHorizontalCard from 'src/components/search/ArticleHorizontalCard';
 import * as ArticleCard from 'src/components/search/ArticleCard';
 import * as ColumnSplitter from 'src/components/pagestructure/ColumnSplitter';
+import * as WebinarForm from 'src/components/pagecontent/WebinarForm';
 import * as TwoColumnCta from 'src/components/pagecontent/TwoColumnCta';
 import * as ThreeColumnCta from 'src/components/pagecontent/ThreeColumnCta';
 import * as Testimonials from 'src/components/pagecontent/Testimonials';
@@ -99,6 +100,7 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['ArticleHorizontalCard', { ...ArticleHorizontalCard, componentType: 'client' }],
   ['ArticleCard', { ...ArticleCard, componentType: 'client' }],
   ['ColumnSplitter', { ...ColumnSplitter, componentType: 'client' }],
+  ['WebinarForm', { ...WebinarForm, componentType: 'client' }],
   ['TwoColumnCta', { ...TwoColumnCta, componentType: 'client' }],
   ['ThreeColumnCta', { ...ThreeColumnCta, componentType: 'client' }],
   ['Testimonials', { ...Testimonials, componentType: 'client' }],
