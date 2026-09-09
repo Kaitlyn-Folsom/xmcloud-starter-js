@@ -35,7 +35,7 @@ const WEBINAR_CONTENT = {
   subtitle:
     'Discover the many paths into veterinary medicine and learn how students prepare for careers in animal health.',
   description:
-    "Whether you're beginning your research or actively exploring veterinary programs, this virtual information session will introduce you to the field of veterinary medicine and the opportunities available through Michigan State University.",
+    "Whether you're beginning your research or actively exploring veterinary programs, this virtual session will introduce you to the field of veterinary medicine and the opportunities available through Michigan State University.",
   agendaHeading: "During this session you'll learn about:",
   agenda: [
     'Veterinary career pathways and specialties',
