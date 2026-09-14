@@ -1,8 +1,18 @@
----
-ID: "b5180579-bbec-49b6-817d-b4c058a5d236"
-Parent: "e5d3f1ec-a7bb-42ee-88f7-22a1f13468b7"
-Template: "4d50cdae-c2d9-4de8-b080-8f992bfb1b55"
-Path: /sitecore/content/Financial/ProsperaFinancial/Presentation/Headless Variants/StatsCounter/Progressive
+﻿---
+ID: "5d706d45-3625-43ac-84f1-cc4391af2f4c"
+Parent: "f7a48cd6-130b-450e-ac6d-99bd5a569e7a"
+Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
+Path: /sitecore/templates/Project/Financial/Atoms/SEO/SEO Metadata/pageDescription
+SharedFields:
+- ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
+  Hint: Type
+  Value: "Multi-Line Text"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 200
+- ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
+  Hint: __Shared revision
+  Value: "f3dcb8ab-a4bc-4df5-bedf-dbdaf1dd13e5"
 Languages:
 - Language: en
   Versions:
@@ -10,7 +20,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20260707T195238Z
+      Value: 20260905T121100Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -21,11 +31,11 @@ Languages:
         sitecore\johannes.zijlstra@sitecore.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "2b39e55c-b111-430e-a56f-7dd7f67ec071"
+      Value: "4de09e10-7d47-447d-a4b5-2405b559099e"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\johannes.zijlstra@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20260707T195238Z
+      Value: 20260905T121100Z

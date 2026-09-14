@@ -1,8 +1,8 @@
----
-ID: "65aa51fc-ba7e-4d86-ad6f-fdd589c55f28"
-Parent: "bde4315e-6fda-437d-a2b0-a27d7967d7df"
+﻿---
+ID: "87820231-325a-4113-9276-cb5f66456a6b"
+Parent: "6ac3f934-7a5b-440c-8fb9-c9adb351af4b"
 Template: "4d50cdae-c2d9-4de8-b080-8f992bfb1b55"
-Path: /sitecore/content/Financial/ProsperaFinancial/Presentation/Headless Variants/Features/Progressive
+Path: /sitecore/content/Financial/ProsperaFinancial/Presentation/Headless Variants/Hero/Default
 Languages:
 - Language: en
   Versions:
@@ -10,7 +10,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20260707T195238Z
+      Value: 20260905T114707Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -21,11 +21,11 @@ Languages:
         sitecore\johannes.zijlstra@sitecore.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "92a2c285-8026-4167-aa25-3612519b05dc"
+      Value: "802a2aff-b794-46df-af76-b9c135409168"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\johannes.zijlstra@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20260707T195238Z
+      Value: 20260905T114707Z
