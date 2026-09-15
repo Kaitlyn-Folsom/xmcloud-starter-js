@@ -14,17 +14,15 @@ import {
   NextImage,
 } from '@sitecore-content-sdk/nextjs';
 import { ComponentProps } from 'lib/component-props';
-import { IconAccent } from 'components/non-sitecore/IconAccent';
-import { DottedAccent } from 'components/non-sitecore/DottedAccent';
 
 interface Fields {
-  Tagline: Field<string>;
+  Tagline?: Field<string>;
   Title: Field<string>;
   Text: RichTextField;
   Image: ImageField;
   Cta1: LinkField;
   Cta2: LinkField;
-  Icon: ImageField;
+  Icon?: ImageField;
 }
 
 export type HeroBannerProps = ComponentProps & {
@@ -32,122 +30,86 @@ export type HeroBannerProps = ComponentProps & {
   fields: Fields;
 };
 
-export const Default = (props: HeroBannerProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
-  const { page } = useSitecore();
-  const isPageEditing = page.mode.isEditing;
-  const sxaStyles = `${props.params?.styles || ''}`;
+type GallagherHeroVariant = 'default' | 'blue';
 
-  return (
-    <div className={`component hero-banner ${sxaStyles}`} id={id ? id : undefined}>
-      <div className="container container-wide">
-        <div className="hero-row">
-          <div className="content-column">
-            <h6 className="eyebrow-accent">
-              <Text field={props.fields.Tagline} />
-            </h6>
-            <h1 className="display-2 fw-bold">
-              <Text field={props.fields.Title} />
-            </h1>
+const TITLE_ACCENT = 'Trusted Partner';
 
-            <div className="rich-content mb-4">
-              <RichText field={props.fields.Text} />
-            </div>
-            <div className="btn-array pt-3 pb-4">
-              {(isPageEditing || props.fields?.Cta1?.value?.href) && (
-                <Link field={props.fields.Cta1} className="button button-main" />
-              )}
-              {(isPageEditing || props.fields?.Cta2?.value?.href) && (
-                <Link field={props.fields.Cta2} className="button button-simple mx-4" />
-              )}
-            </div>
-            <div className="row mt-2">
-              <Placeholder name="hero-banner" rendering={props.rendering} />
-            </div>
-            <IconAccent image={props.fields.Icon} />
-          </div>
-          <div className="img-column">
-            <div className="img-wrapper">
-              <DottedAccent className="dotted-accent-top" />
-              <NextImage
-                field={props.fields.Image}
-                className="img-fluid"
-                width={700}
-                height={700}
-              />
-              <DottedAccent className="dotted-accent-bottom" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const renderGallagherTitle = (field: Field<string>, isPageEditing: boolean) => {
+const renderGallagherTitle = (field: Field<string> | undefined, isPageEditing: boolean) => {
   const value = field?.value || '';
-  const accent = 'Trusted Partner';
-  const idx = value.indexOf(accent);
+  const idx = value.indexOf(TITLE_ACCENT);
+
   if (isPageEditing || idx < 0) {
     return <Text field={field} />;
   }
+
   return (
     <>
       {value.slice(0, idx)}
-      <span className="hero-accent">{accent}</span>
-      {value.slice(idx + accent.length)}
+      <span className="hero-accent">{TITLE_ACCENT}</span>
+      {value.slice(idx + TITLE_ACCENT.length)}
     </>
   );
 };
 
-export const Gallagher = (props: HeroBannerProps): JSX.Element => {
+const GallagherHero = ({
+  props,
+  variant,
+}: {
+  props: HeroBannerProps;
+  variant: GallagherHeroVariant;
+}): JSX.Element => {
   const id = props.params.RenderingIdentifier;
   const { page } = useSitecore();
   const isPageEditing = page.mode.isEditing;
   const sxaStyles = `${props.params?.styles || ''}`;
+  const { Title, Text: body, Image, Cta1, Cta2 } = props.fields || {};
+  const variantClass = variant === 'blue' ? 'hero-banner-blue' : 'hero-banner-white';
 
   return (
-    <div className={`component hero-banner gallagher ${sxaStyles}`} id={id ? id : undefined}>
+    <div
+      className={`component hero-banner gallagher ${variantClass} ${sxaStyles}`}
+      id={id ? id : undefined}
+    >
       <div className="container container-wide">
         <div className="hero-row">
           <div className="content-column">
-            {(isPageEditing || props.fields?.Tagline?.value) && (
-              <h6 className="eyebrow-accent">
-                <Text field={props.fields.Tagline} />
-              </h6>
+            {(isPageEditing || Title?.value) && (
+              <h1>{renderGallagherTitle(Title, isPageEditing)}</h1>
             )}
-            <h1 className="display-2 fw-bold">
-              {renderGallagherTitle(props.fields.Title, isPageEditing)}
-            </h1>
-            {(isPageEditing || props.fields?.Text?.value) && (
-              <div className="rich-content mb-4">
-                <RichText field={props.fields.Text} />
+            {(isPageEditing || body?.value) && (
+              <div className="rich-content">
+                <RichText field={body} />
               </div>
             )}
-            <div className="btn-array pt-3 pb-4">
-              {(isPageEditing || props.fields?.Cta1?.value?.href) && (
-                <Link field={props.fields.Cta1} className="button button-main" />
+            <div className="hero-ctas">
+              {(isPageEditing || Cta1?.value?.href) && (
+                <Link field={Cta1} className="hero-cta hero-cta-outline" />
               )}
-              {(isPageEditing || props.fields?.Cta2?.value?.href) && (
-                <Link field={props.fields.Cta2} className="button button-simple mx-4" />
+              {(isPageEditing || Cta2?.value?.href) && (
+                <Link field={Cta2} className="hero-cta hero-cta-solid" />
               )}
             </div>
-            <div className="row mt-2">
-              <Placeholder name="hero-banner" rendering={props.rendering} />
-            </div>
+            <Placeholder name="hero-banner" rendering={props.rendering} />
           </div>
-          <div className="img-column">
-            <div className="img-wrapper">
-              <NextImage
-                field={props.fields.Image}
-                className="img-fluid"
-                width={700}
-                height={700}
-              />
+          {(isPageEditing || Image?.value?.src) && (
+            <div className="img-column">
+              <div className="img-wrapper">
+                <NextImage field={Image} className="img-fluid" width={700} height={700} />
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </div>
   );
 };
+
+export const Default = (props: HeroBannerProps): JSX.Element => (
+  <GallagherHero props={props} variant="default" />
+);
+
+export const Blue = (props: HeroBannerProps): JSX.Element => (
+  <GallagherHero props={props} variant="blue" />
+);
+
+export const Gallagher = Blue;

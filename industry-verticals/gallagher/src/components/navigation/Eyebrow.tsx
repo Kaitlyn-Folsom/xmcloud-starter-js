@@ -2,9 +2,7 @@
 
 import { AppPlaceholder, ComponentMap, ImageField, useSitecore } from '@sitecore-content-sdk/nextjs';
 import { ComponentProps } from 'lib/component-props';
-import { JSX, useState } from 'react';
-import PreviewSearch from "../search/PreviewSearch"
-import { PREVIEW_WIDGET_ID } from "../../_data/customizations";
+import { JSX } from 'react';
 
 export type EyebrowProps = ComponentProps & {
   fields: {
@@ -13,33 +11,63 @@ export type EyebrowProps = ComponentProps & {
   componentMap: ComponentMap;
 };
 
-export const Default = (props: EyebrowProps): JSX.Element => {
+type EyebrowLink = {
+  label: string;
+  href: string;
+};
+
+const UTILITY_LINKS: EyebrowLink[] = [
+  { label: 'Careers', href: '#' },
+  { label: 'Investor Relations', href: '#' },
+  { label: 'Locations', href: '#' },
+];
+
+const GlobeIcon = (): JSX.Element => (
+  <svg aria-hidden="true" viewBox="0 0 24 24" width={16} height={16} fill="none" stroke="currentColor" strokeWidth={1.75}>
+    <circle cx="12" cy="12" r="9" />
+    <path strokeLinecap="round" d="M3 12h18M12 3c2.5 3 3.7 6 3.7 9s-1.2 6-3.7 9c-2.5-3-3.7-6-3.7-9s1.2-6 3.7-9z" />
+  </svg>
+);
+
+export const Gallagher = (props: EyebrowProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
+  const sxaStyles = `${props.params?.styles || ''}`;
   const { page } = useSitecore();
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   return (
-    <div className={`component eyebrow	${props.params.styles?.trimEnd()}`} id={id ? id : undefined}>
+    <div className={`component eyebrow gallagher ${sxaStyles}`} id={id ? id : undefined}>
       <div className={`container container-${props.params?.ContainerWidth?.toLowerCase()}-fluid`}>
-        <div className="row">
-          <div className="col col-placeholder">
-            <AppPlaceholder name="eyebrow-left" rendering={props.rendering} page={page} componentMap={props.componentMap} />
-            <AppPlaceholder name="eyebrow-right" rendering={props.rendering} page={page} componentMap={props.componentMap} />
-          </div>
-          <div className="flex items-center gap-2">
-              <PreviewSearch rfkId={PREVIEW_WIDGET_ID} isOpen={isSearchOpen} setIsSearchOpen={setIsSearchOpen} />
-
-              <button
-                onClick={() => setIsSearchOpen(false)}
-                className="p-3 text-gray-500 hover:text-gray-700 transition-colors"
-              >
-                <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
+        <div className="eyebrow-bar">
+          <nav className="eyebrow-links" aria-label="Utility links">
+            <ul>
+              {UTILITY_LINKS.map((link) => (
+                <li key={link.label}>
+                  <a href={link.href}>{link.label}</a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <div className="eyebrow-meta">
+            <div className="eyebrow-region" aria-label="Region">
+              <GlobeIcon />
+              <span>United States</span>
             </div>
+            <span className="eyebrow-divider" aria-hidden="true">
+              |
+            </span>
+            <div className="eyebrow-tools">
+              <AppPlaceholder
+                name="eyebrow-right"
+                rendering={props.rendering}
+                page={page}
+                componentMap={props.componentMap}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
   );
 };
+
+export const Default = Gallagher;

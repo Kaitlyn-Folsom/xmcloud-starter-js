@@ -31,32 +31,50 @@ export type CarouselItemProps = {
 interface CarouselComponentProps {
   rendering: ComponentRendering & { params: ComponentParams };
   params: ComponentParams;
-  fields: {
-    items: CarouselItemProps[];
+  fields?: {
+    items?: CarouselItemProps[];
   };
 }
 
 export const Default = (props: CarouselComponentProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props.params?.RenderingIdentifier;
   const [index, setIndex] = useState(0);
   const { page } = useSitecore();
   const isPageEditing = page.mode.isEditing;
+  const items = props.fields?.items || [];
+  const sxaStyles = `${props.params?.styles || ''}`;
 
   const handleNext = () => {
-    setIndex((prevIndex) => (prevIndex < props.fields.items.length - 1 ? prevIndex + 1 : 0));
+    if (items.length === 0) {
+      return;
+    }
+    setIndex((prevIndex) => (prevIndex < items.length - 1 ? prevIndex + 1 : 0));
   };
 
   const handlePrev = () => {
-    setIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : props.fields.items.length - 1));
+    if (items.length === 0) {
+      return;
+    }
+    setIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : items.length - 1));
   };
 
-  const sxaStyles = `${props.params?.styles || ''}`;
+  if (items.length === 0) {
+    return (
+      <section className={`component carousel ${sxaStyles}`} id={id ? id : undefined}>
+        {isPageEditing && (
+          <div className="container py-5">
+            Carousel: assign a datasource with slide items, or delete this component.
+          </div>
+        )}
+      </section>
+    );
+  }
 
   return (
     <section className={`component carousel ${sxaStyles}`} id={id ? id : undefined}>
       <div className="carousel-inner">
-        {props.fields.items.map((item, i) => (
-          <div key={i} className={'carousel-item ' + (i == index ? 'active' : '')}>
+        {items.map((item, i) => (
+          <div key={item.id || i} className={'carousel-item ' + (i == index ? 'active' : '')}>
             {!isPageEditing && item.fields?.Video?.value?.src ? (
               <video
                 className="object-fit-cover d-block w-100 h-100"
@@ -71,7 +89,7 @@ export const Default = (props: CarouselComponentProps): JSX.Element => {
               </video>
             ) : (
               <NextImage
-                field={item.fields.Image}
+                field={item.fields?.Image}
                 className="object-fit-cover d-block w-100 h-100"
                 width={1920}
                 height={800}
@@ -82,9 +100,9 @@ export const Default = (props: CarouselComponentProps): JSX.Element => {
               <div className="container">
                 <div className="col-lg-5 col-md-6 offset-md-6 offset-lg-7">
                   <h1 className="display-6 fw-bold">
-                    <Text field={item.fields.Title}></Text>
+                    <Text field={item.fields?.Title}></Text>
                   </h1>
-                  <RichText field={item.fields.Text}></RichText>
+                  <RichText field={item.fields?.Text}></RichText>
                   {!isPageEditing && item.fields?.Link?.value?.href && (
                     <Link field={item.fields.Link} className="button button-accent"></Link>
                   )}
@@ -95,9 +113,9 @@ export const Default = (props: CarouselComponentProps): JSX.Element => {
         ))}
       </div>
       <ol className="carousel-indicators">
-        {props.fields.items.map((_item, i) => (
+        {items.map((item, i) => (
           <li
-            key={i}
+            key={item.id || i}
             aria-label="Slide"
             className={i == index ? 'active' : ''}
             onClick={() => setIndex(i)}
