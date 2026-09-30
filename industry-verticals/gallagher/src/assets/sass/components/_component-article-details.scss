@@ -1,4 +1,11 @@
 .article-details {
+  background-color: transparent;
+
+  &.page-background,
+  &.page-background .background-content {
+    background-color: transparent !important;
+  }
+
   .article-content {
     .article-img {
       border-radius: var(--roundness);

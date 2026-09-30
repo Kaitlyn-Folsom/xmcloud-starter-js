@@ -51,7 +51,7 @@ export const Default = (props: PageBackgroundProps): JSX.Element => {
         </div>
 
         <div>
-          <div className="background-content component-spaced container rounded-corners">
+          <div className="component-spaced container rounded-corners">
             <div className="p-3 p-sm-5">
               <div className="article-content">
                 <div className="row row-gap-4 gx-5">
