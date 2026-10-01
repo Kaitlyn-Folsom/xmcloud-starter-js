@@ -27,7 +27,7 @@ SharedFields:
   Value: "{A65AEA73-8224-408B-913C-B1CEDAE0C443}"
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
-  Value: "query:$site/*[@@name='Data']/*[@@templatename='Promo Folder']|query:$sharedSites/*[@@name='Data']/*[@@templatename='Promo Folder']"
+  Value: "query:./ancestor-or-self::*[@@templatename='Headless Site']/*[@@name='Data']/*[@@name='Promos']/*[@@name='Promo CTA']|query:$site/*[@@name='Data']/*[@@name='Promos']/*[@@name='Promo CTA']|query:$sharedSites/*[@@name='Data']/*[@@name='Promos']/*[@@name='Promo CTA']"
 - ID: "c39a90ce-0035-41bb-90f6-3c8a6ea87797"
   Hint: AddFieldEditorButton
   Value: 

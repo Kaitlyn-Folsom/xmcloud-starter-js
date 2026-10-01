@@ -10,7 +10,6 @@ import {
   Link,
   LinkField,
   useSitecore,
-  Placeholder,
   NextImage,
 } from '@sitecore-content-sdk/nextjs';
 import useVisibility from 'src/hooks/useVisibility';
@@ -56,10 +55,6 @@ export const Default = (props: PromoCtaProps): JSX.Element => {
               </p>
 
               <RichText field={props.fields.Text} className="text-content" />
-
-              <div className="row mt-2">
-                <Placeholder name="promo-cta" rendering={props.rendering} />
-              </div>
 
               {(isPageEditing || props.fields?.Link?.value?.href) && (
                 <Link field={props.fields.Link} className="button button-main mt-3 me-4" />
@@ -129,14 +124,6 @@ export const WithPlaceholderColumn = (props: PromoCtaProps): JSX.Element => {
 
           <div className="col-md-12 mx-auto col-lg-7 mx-lg-0">
             <div className="row align-items-center">
-              <div className="promo-cta-placeholder col-12 col-md-9">
-                <div className="promo-cta-placeholder-inner">
-                  <div className="row">
-                    <Placeholder name="promo-cta" rendering={props.rendering} />
-                  </div>
-                </div>
-              </div>
-
               <div className="image-wrapper d-none d-md-block col-md-8">
                 <DottedAccent className="dotted-accent-top" />
                 <NextImage
@@ -218,9 +205,6 @@ export const Gallagher = (props: PromoCtaProps): JSX.Element => {
                 </p>
               )}
               <RichText field={props.fields.Text} className="text-content" />
-              <div className="row mt-2">
-                <Placeholder name="promo-cta" rendering={props.rendering} />
-              </div>
               {(isPageEditing || props.fields?.Link?.value?.href) && (
                 <Link field={props.fields.Link} className="button button-text mt-3 me-4" />
               )}

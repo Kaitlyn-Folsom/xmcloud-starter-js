@@ -10,7 +10,6 @@ import {
   useSitecore,
   Link,
   LinkField,
-  Placeholder,
   NextImage,
 } from '@sitecore-content-sdk/nextjs';
 import { ComponentProps } from 'lib/component-props';
@@ -89,7 +88,6 @@ const GallagherHero = ({
                 <Link field={Cta2} className="hero-cta hero-cta-solid" />
               )}
             </div>
-            <Placeholder name="hero-banner" rendering={props.rendering} />
           </div>
           {(isPageEditing || Image?.value?.src) && (
             <div className="img-column">
