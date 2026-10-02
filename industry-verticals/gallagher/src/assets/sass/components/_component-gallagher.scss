@@ -532,8 +532,34 @@
     }
   }
 
-  .promo-cta.gallagher,
-  .promo-cta.gallagher-video {
+  .promo-cta.promo-default {
+    h1 {
+      color: var(--brand-secondary, #0075bc);
+    }
+
+    .button,
+    .button-main,
+    .button-simple {
+      border-radius: 0;
+    }
+
+    .button-main {
+      background-color: var(--brand-secondary, #0075bc);
+      color: var(--brand-secondary-foreground, #fff);
+    }
+
+    .button-simple {
+      border-color: var(--brand-secondary, #0075bc);
+      color: var(--brand-secondary, #0075bc);
+    }
+
+    .image-wrapper img {
+      border-radius: 0;
+    }
+  }
+
+  .promo-cta.arrow-link,
+  .promo-cta.with-video {
     padding-bottom: 3rem;
     padding-top: 3rem;
 
@@ -564,7 +590,7 @@
     }
   }
 
-  .promo-cta.gallagher-video {
+  .promo-cta.with-video {
     background-color: var(--brand-muted, var(--bg-main));
 
     .image-wrapper {

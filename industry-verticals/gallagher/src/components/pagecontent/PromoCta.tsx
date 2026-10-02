@@ -39,7 +39,11 @@ export const Default = (props: PromoCtaProps): JSX.Element => {
   const sxaStyles = `${props.params?.styles || ''}`;
 
   return (
-    <div className={`component promo-cta ${sxaStyles}`} id={id ? id : undefined} ref={domRef}>
+    <div
+      className={`component promo-cta promo-default ${sxaStyles}`}
+      id={id ? id : undefined}
+      ref={domRef}
+    >
       <div className="container">
         <div className="row row-gap-4 main-content align-items-center">
           <div className="col-lg-5 text-center text-lg-start">
@@ -50,18 +54,13 @@ export const Default = (props: PromoCtaProps): JSX.Element => {
               <Text field={props.fields.Title} />
             </h1>
             <div className="promo-cta-text">
-              <p className="fs-5">
-                <Text field={props.fields.Subtitle} />
-              </p>
 
               <RichText field={props.fields.Text} className="text-content" />
 
               {(isPageEditing || props.fields?.Link?.value?.href) && (
                 <Link field={props.fields.Link} className="button button-main mt-3 me-4" />
               )}
-              {(isPageEditing || props.fields?.Link2?.value?.href) && (
-                <Link field={props.fields.Link2} className="button button-simple mt-3 " />
-              )}
+
             </div>
           </div>
           <div className="col-md-10 mx-auto col-lg-7 mx-lg-0">
@@ -178,7 +177,7 @@ export const WithBackgroundImage = (props: PromoCtaProps): JSX.Element => {
   );
 };
 
-export const Gallagher = (props: PromoCtaProps): JSX.Element => {
+export const arrowLink = (props: PromoCtaProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
   const { page } = useSitecore();
   const isPageEditing = page.mode.isEditing;
@@ -186,7 +185,11 @@ export const Gallagher = (props: PromoCtaProps): JSX.Element => {
   const sxaStyles = `${props.params?.styles || ''}`;
 
   return (
-    <div className={`component promo-cta gallagher ${sxaStyles}`} id={id ? id : undefined} ref={domRef}>
+    <div
+      className={`component promo-cta arrow-link ${sxaStyles}`}
+      id={id ? id : undefined}
+      ref={domRef}
+    >
       <div className="container">
         <div className="row row-gap-4 main-content align-items-center">
           <div className="col-lg-5 text-center text-lg-start">
@@ -231,7 +234,7 @@ export const Gallagher = (props: PromoCtaProps): JSX.Element => {
   );
 };
 
-export const GallagherVideo = (props: PromoCtaProps): JSX.Element => {
+export const WithVideo = (props: PromoCtaProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
   const { page } = useSitecore();
   const isPageEditing = page.mode.isEditing;
@@ -240,7 +243,7 @@ export const GallagherVideo = (props: PromoCtaProps): JSX.Element => {
 
   return (
     <div
-      className={`component promo-cta gallagher-video ${sxaStyles}`}
+      className={`component promo-cta with-video ${sxaStyles}`}
       id={id ? id : undefined}
       ref={domRef}
     >
