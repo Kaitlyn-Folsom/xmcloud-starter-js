@@ -1,0 +1,739 @@
+{
+  "schema_version": "2.0",
+  "id": "bulk-content-generator-gallagher",
+  "name": "Bulk Content Generator (Gallagher)",
+  "description": "Creates Arthur J. Gallagher & Co. content variations based on agent config parameters. Single Foreach loop that handles all variants. Voice, color, and logo follow the Gallagher brand used on ajg.com.",
+  "gettingStarted": {
+    "title": "What is Bulk Content Generator?",
+    "howItWorks": "Describe your content requirements and specify the variations you need. The agent will generate Gallagher content for each combination of channels and audiences you define, in an authoritative yet approachable voice.",
+    "whatIsItFor": "The Bulk Content Generator creates multiple Gallagher content variations at scale for insurance, risk management, and consulting — across channels, audiences, and formats — grounded in The Gallagher Way."
+  },
+  "inputs": [
+    {
+      "type": "prompt",
+      "label": "Content Requirements",
+      "minLines": 3,
+      "required": true,
+      "description": "Describe the content you want to generate",
+      "placeholder": "Tell us about the Gallagher insight, offer, or story you need..."
+    },
+    {
+      "type": "context",
+      "label": "Ground with context",
+      "required": false,
+      "description": "Optionally select artifacts or knowledge to provide additional context"
+    },
+    {
+      "type": "file-upload",
+      "label": "Add more context",
+      "required": false,
+      "description": "Please add any reference materials"
+    }
+  ],
+  "contextParameters": [
+    {
+      "key": "channels",
+      "type": "array",
+      "label": "Channels",
+      "options": [
+        {
+          "label": "LinkedIn",
+          "value": "linkedin",
+          "metadata": {
+            "dos": [
+              "Share risk, insurance, and workforce insights that help leaders decide with confidence",
+              "Write as Gallagher: authoritative yet approachable, in plain speech, always as we",
+              "Include one clear next step such as Read the insight, Find an expert, or Talk with us",
+              "Tag industry specialists and partners only when it adds real context"
+            ],
+            "donts": [
+              "Don't be hard-sell or boastful, and spare exclamation marks",
+              "Don't use jokey, punny, or consumer-retail insurance language",
+              "Don't use too many hashtags (3-5 max)",
+              "Don't invent rankings, client outcomes, quotes, or statistics",
+              "Don't write Gallagher plus a region (Gallagher Australia) or mimic the logo as typed text"
+            ],
+            "schema": "linkedin_post_schema",
+            "toneOfVoice": "Authoritative yet approachable, knowledgeable, confident, and conversational — The Gallagher Way",
+            "htmlTemplate": "linkedin_post_template",
+            "bestPractices": [
+              "Lead with a useful point for risk managers, business leaders, or HR decision-makers",
+              "Use industry insight and client-relevant stories, not generic slogans",
+              "Use a few relevant hashtags such as #TheGallagherWay when they fit",
+              "Ask a practical question that invites a professional comment"
+            ],
+            "characterLimit": 3000
+          }
+        },
+        {
+          "label": "Twitter/X",
+          "value": "twitter",
+          "metadata": {
+            "dos": [
+              "Use hashtags sparingly (1-2), including #TheGallagherWay only when it fits",
+              "Point to a timely risk, benefits, or workforce insight from ajg.com",
+              "Stay brisk, professional, and optimistic — confident without shouting"
+            ],
+            "donts": [
+              "Don't exceed the character limit",
+              "Avoid walls of text, jargon, and exclamation marks",
+              "Don't overuse hashtags or competitor trash talk",
+              "Don't sound like a personal-lines advertiser, a university, or a hospital"
+            ],
+            "schema": "twitter_post_schema",
+            "toneOfVoice": "Concise, timely, and confident in Gallagher’s plain-spoken voice",
+            "htmlTemplate": "twitter_post_template",
+            "bestPractices": [
+              "Lead with the decision the reader can make",
+              "Use a thread for a longer risk or benefits explainer",
+              "Pair the post with people-first or industry photography, not a logo watermark",
+              "Engage with current risk and workforce moments without jokes or puns"
+            ],
+            "characterLimit": 280
+          }
+        },
+        {
+          "label": "Instagram",
+          "value": "instagram",
+          "metadata": {
+            "dos": [
+              "Lead with people-first photography of colleagues, clients, and communities",
+              "Use a genuine, approachable Gallagher voice — we, not it",
+              "Include one call-to-action such as Read the insight, Find an office, or Explore careers",
+              "Use Stories and Reels for The Gallagher Way, office life, and community impact"
+            ],
+            "donts": [
+              "Don't be stiff, brochure-like, or jokey",
+              "Avoid link-heavy captions and stacked exclamation marks",
+              "Don't use irrelevant hashtags or separate the globe badge from the Gallagher name",
+              "Don't rely on dark, staged stock or place the logo over a busy photo"
+            ],
+            "schema": "instagram_post_schema",
+            "toneOfVoice": "Visual-first, authentic, optimistic, and people-centered",
+            "htmlTemplate": "instagram_post_template",
+            "bestPractices": [
+              "Show real Gallagher people and the work of helping clients face risk",
+              "Tell a short story about a client industry, a colleague, or a community",
+              "Use a focused set of hashtags led by #TheGallagherWay and #Gallagher",
+              "Use emojis sparingly; the brand does not shout"
+            ],
+            "characterLimit": 2200
+          }
+        },
+        {
+          "label": "Facebook",
+          "value": "facebook",
+          "metadata": {
+            "dos": [
+              "Use a conversational tone for business owners, HR leaders, and local communities",
+              "Include an insight, office, or careers link with plain-language context",
+              "Reply in a helpful, respectful way that sounds like a trusted partner"
+            ],
+            "donts": [
+              "Don't be stiff, institutional, or hard-sell",
+              "Avoid clickbait, puns, and exaggerated claims",
+              "Don't ignore questions from clients, candidates, or community partners"
+            ],
+            "schema": "facebook_post_schema",
+            "toneOfVoice": "Friendly, community-minded, and professionally conversational",
+            "htmlTemplate": "facebook_post_template",
+            "bestPractices": [
+              "Invite engagement from the people Gallagher serves and employs",
+              "Use photography and short video of colleagues, industries, and communities",
+              "Ask a practical question about risk, benefits, or growing a career",
+              "Share content about partnership, The Gallagher Way, and useful expertise"
+            ],
+            "characterLimit": 63206
+          }
+        },
+        {
+          "label": "Email",
+          "value": "email",
+          "metadata": {
+            "dos": [
+              "Get to the point quickly (the risk, the decision, or the next conversation)",
+              "Use clear formatting, flush-left copy, and one primary CTA",
+              "Personalize for the audience (risk leader, HR leader, or candidate)",
+              "Segment by industry, solution, or relationship stage"
+            ],
+            "donts": [
+              "Don't bury the lead or stack competing CTAs",
+              "Avoid spam triggers, all caps, and exclamation marks",
+              "Don't dazzle with jargon or invent figures",
+              "Don't use a regional brand name such as Gallagher Canada in the subject or headline"
+            ],
+            "schema": "email_content_schema",
+            "toneOfVoice": "Direct, personal, and confident in Gallagher’s conversational voice",
+            "htmlTemplate": "email_content_template",
+            "bestPractices": [
+              "Write a subject line that names the reader’s decision or outcome",
+              "Use one clear call-to-action (Find an expert, Read the insight, Explore careers)",
+              "Personalize with industry, role, or office when it is known",
+              "Keep the layout mobile-friendly, with the Gallagher logo clear of other elements"
+            ]
+          }
+        },
+        {
+          "label": "Blog",
+          "value": "blog",
+          "metadata": {
+            "dos": [
+              "Provide depth on risk, insurance, benefits, and workforce decisions",
+              "Use sentence-case headings and scannable, flush-left formatting",
+              "Include a meta description written for search and AI summaries",
+              "Use insurance, risk management, and consulting keywords naturally"
+            ],
+            "donts": [
+              "Don't keyword stuff or recycle brochure copy",
+              "Don't ignore readability or write in newspaper title case",
+              "Don't fabricate rankings, quotes, client results, or statistics",
+              "Don't attach a tagline to the Gallagher logo or rename the brand by region"
+            ],
+            "schema": "blog_post_schema",
+            "toneOfVoice": "Informative and authoritative, ajg.com Insights style, plain-spoken and SEO-aware",
+            "htmlTemplate": "blog_post_template",
+            "bestPractices": [
+              "Open with the reader’s challenge, then show how Gallagher helps them face it",
+              "Use keywords naturally (risk management, insurance brokerage, employee benefits, Gallagher)",
+              "Link to relevant pages on ajg.com such as insights, industries, and find an office",
+              "Use original people and industry photography with sufficient logo contrast"
+            ]
+          }
+        }
+      ],
+      "required": false,
+      "description": "Specify the channels or platforms for content"
+    },
+    {
+      "key": "audiences",
+      "type": "array",
+      "label": "Audiences",
+      "options": [
+        {
+          "label": "Business and Risk Leaders",
+          "value": "business-and-risk-leaders",
+          "metadata": {
+            "dos": [
+              "Speak to the risk, insurance, and operating decisions they own for the business",
+              "Show Gallagher as a trusted partner with industry specialists, not a product catalog",
+              "Make the next step easy: Find an expert, Talk with us, or Read the insight"
+            ],
+            "donts": [
+              "Overwhelm with broker jargon, acronyms, or insider Gallagher references",
+              "Push a hard close before they understand fit",
+              "Assume they already know The Gallagher Way, CORE360, or how to find an office"
+            ],
+            "context": "Business and risk leaders are owners, CFOs, risk managers, and operators who need a partner for insurance brokerage and risk management. They arrive from search, referrals, industry events, or an existing Gallagher relationship and are judging expertise, access, and whether Gallagher understands their industry. They need plain-language clarity, proof of partnership, and a low-pressure way to talk with a specialist. Gallagher’s public promise is to help them face any risk, anywhere, and move forward with confidence.",
+            "toneOfVoice": "confident, clear, partnership-oriented, knowledgeable, optimistic",
+            "bestPractices": [
+              "Lead with the business outcome, then the Gallagher point of view",
+              "Use real industry context such as construction, healthcare, education, public sector, or real estate",
+              "Reinforce trust with longevity, global reach, and local specialists without inventing figures",
+              "Offer one next step: Find an expert, Find an office, or Read the insight on ajg.com"
+            ]
+          }
+        },
+        {
+          "label": "HR and Benefits Leaders",
+          "value": "hr-and-benefits-leaders",
+          "metadata": {
+            "dos": [
+              "Lead with workforce decisions: benefits, wellbeing, cost, and how people experience work",
+              "Write as a consulting partner who already understands HR pressure",
+              "Point to practical Gallagher benefits and HR consulting expertise"
+            ],
+            "donts": [
+              "Treat them like first-time visitors who need Gallagher explained from 1927",
+              "Reduce people strategy to a premium quote or a hard sell",
+              "Use consumer-insurance or campus-recruiting language"
+            ],
+            "context": "HR and benefits leaders design employee benefits, rewards, and people programs for their organizations. They already know the category and expect relevant consulting, data, and a partner who puts employees at the center. Content should help them make confident decisions for their people and their organization, in the voice of Gallagher Benefit Services going to market as Gallagher.",
+            "toneOfVoice": "consultative, practical, human, confident, respectful",
+            "bestPractices": [
+              "Prioritize the employee and employer outcome over product names",
+              "Connect benefits guidance to cost, compliance, and workforce experience",
+              "Use we and your people language rather than transactional phrasing",
+              "Offer a single next step such as Talk with a benefits consultant or Read the insight"
+            ]
+          }
+        },
+        {
+          "label": "Prospective Colleagues",
+          "value": "prospective-colleagues",
+          "metadata": {
+            "dos": [
+              "Lead with The Gallagher Way: ethics, service, and doing business the right way",
+              "Show real colleague stories before any application ask",
+              "Invite exploration of careers, teams, and locations"
+            ],
+            "donts": [
+              "Write copy that reads like a client sales pitch",
+              "Reduce culture to a slogan or an exclamation",
+              "Over-explain Arthur J. Gallagher & Co. as if it were only a legal entity"
+            ],
+            "context": "Prospective colleagues are experienced professionals and early-career candidates considering brokerage, benefits and HR consulting, or corporate roles at Gallagher. They care about culture, growth, and whether the work has purpose. Content should feel like an invitation into a close-knit, global firm — nearly a century of shared values — and should respect their time with a clear way to explore roles at jobs.ajg.com.",
+            "toneOfVoice": "warm, proud, straightforward, people-first",
+            "bestPractices": [
+              "Write as Gallagher colleagues speaking to a future colleague",
+              "Use we and together language grounded in The Gallagher Way",
+              "Speak to growth, expertise, and community impact",
+              "Keep the ask secondary to the story: Explore careers, Join our talent community"
+            ]
+          }
+        }
+      ],
+      "required": false,
+      "description": "Specify the target Gallagher audience"
+    }
+  ],
+  "contextRequirements": {
+    "allowedItems": [
+      {
+        "type": "sitecore_page",
+        "label": "Pages"
+      },
+      {
+        "type": "sitecore_item",
+        "label": "Content Items"
+      },
+      {
+        "type": "brief",
+        "label": "Briefs"
+      },
+      {
+        "type": "brand_context",
+        "label": "Brand Context"
+      },
+      {
+        "type": "artifact",
+        "label": "Artifacts"
+      }
+    ],
+    "autoDeriveVariants": true
+  },
+  "schemas": [
+    {
+      "id": "linkedin_post_schema",
+      "name": "LinkedIn Post Schema",
+      "schema": {
+        "type": "object",
+        "required": [
+          "body",
+          "hashtags",
+          "headline",
+          "mentions",
+          "call_to_action",
+          "image_description"
+        ],
+        "properties": {
+          "body": {
+            "type": "string",
+            "description": "Main content (max 3000 characters)"
+          },
+          "hashtags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Relevant hashtags (3-5 recommended)"
+          },
+          "headline": {
+            "type": "string",
+            "description": "Attention-grabbing headline or opening line"
+          },
+          "mentions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "People or companies to tag"
+          },
+          "call_to_action": {
+            "type": "string",
+            "description": "Clear call-to-action"
+          },
+          "image_description": {
+            "type": "string",
+            "description": "description of relevant image to be used (max 100 characters))"
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "Schema for LinkedIn professional content"
+    },
+    {
+      "id": "twitter_post_schema",
+      "name": "Twitter/X Post Schema",
+      "schema": {
+        "type": "object",
+        "required": [
+          "text",
+          "hashtags",
+          "thread"
+        ],
+        "properties": {
+          "text": {
+            "type": "string",
+            "maxLength": 280,
+            "description": "Tweet content (max 280 characters)"
+          },
+          "thread": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Additional tweets for thread (optional)"
+          },
+          "hashtags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 2,
+            "description": "Hashtags (1-2 recommended)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "Schema for Twitter/X concise content"
+    },
+    {
+      "id": "instagram_post_schema",
+      "name": "Instagram Post Schema",
+      "schema": {
+        "type": "object",
+        "required": [
+          "caption",
+          "image_description",
+          "hashtags",
+          "call_to_action"
+        ],
+        "properties": {
+          "caption": {
+            "type": "string",
+            "description": "Post caption (max 2200 characters)"
+          },
+          "hashtags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Relevant hashtags (10-30 recommended)"
+          },
+          "call_to_action": {
+            "type": "string",
+            "description": "Call-to-action in caption"
+          },
+          "image_description": {
+            "type": "string",
+            "description": "Description of ideal image/visual"
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "Schema for Instagram visual-first content"
+    },
+    {
+      "id": "facebook_post_schema",
+      "name": "Facebook Post Schema",
+      "schema": {
+        "type": "object",
+        "required": [
+          "link",
+          "text",
+          "question",
+          "call_to_action",
+          "headline"
+        ],
+        "properties": {
+          "link": {
+            "type": "string",
+            "description": "URL to share (optional)"
+          },
+          "text": {
+            "type": "string",
+            "description": "Post text content (max 150 characters with ellipses)"
+          },
+          "headline": {
+            "type": "string",
+            "description": "promotional title or headline for shared post"
+          },
+          "question": {
+            "type": "string",
+            "description": "Engagement question (optional)"
+          },
+          "call_to_action": {
+            "type": "string",
+            "description": "Call-to-action or link context"
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "Schema for Facebook community content"
+    },
+    {
+      "id": "email_content_schema",
+      "name": "Email Content Schema",
+      "schema": {
+        "type": "object",
+        "required": [
+          "subject_line",
+          "body",
+          "call_to_action",
+          "preview_text",
+          "greeting",
+          "cta_url",
+          "closing"
+        ],
+        "properties": {
+          "body": {
+            "type": "string",
+            "description": "Main email content"
+          },
+          "closing": {
+            "type": "string",
+            "description": "Email closing/signature"
+          },
+          "cta_url": {
+            "type": "string",
+            "description": "CTA button URL"
+          },
+          "greeting": {
+            "type": "string",
+            "description": "Email greeting"
+          },
+          "preview_text": {
+            "type": "string",
+            "description": "Preview/preheader text"
+          },
+          "subject_line": {
+            "type": "string",
+            "description": "Email subject line (50-60 characters recommended)"
+          },
+          "call_to_action": {
+            "type": "string",
+            "description": "Primary CTA text"
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "Schema for email marketing content"
+    },
+    {
+      "id": "blog_post_schema",
+      "name": "Blog Post Schema",
+      "schema": {
+        "type": "object",
+        "required": [
+          "title",
+          "introduction",
+          "body",
+          "conclusion",
+          "meta_description",
+          "call_to_action",
+          "keywords"
+        ],
+        "properties": {
+          "body": {
+            "type": "string",
+            "description": "Main content with headers and sections"
+          },
+          "title": {
+            "type": "string",
+            "description": "SEO-optimized blog title"
+          },
+          "keywords": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "SEO keywords"
+          },
+          "conclusion": {
+            "type": "string",
+            "description": "Closing paragraph"
+          },
+          "introduction": {
+            "type": "string",
+            "description": "Opening paragraph/hook"
+          },
+          "call_to_action": {
+            "type": "string",
+            "description": "CTA at end of post"
+          },
+          "meta_description": {
+            "type": "string",
+            "description": "Meta description (150-160 characters)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "Schema for blog content"
+    }
+  ],
+  "htmlTemplates": [
+    {
+      "id": "linkedin_post_template",
+      "name": "LinkedIn Post Template",
+      "template": "<div style=\"background:#f3f2ef; display:flex; justify-content:center; padding:40px 16px; margin:0;\">\n\n  <div style=\"background:#fff; border-radius:8px; box-shadow:0 1px 3px rgba(0,0,0,0.12); width:100%; max-width:520px; overflow:hidden;\">\n\n    <!-- Header -->\n    <div style=\"display:flex; align-items:flex-start; gap:10px; padding:12px 16px 8px;\">\n      <div style=\"width:48px; height:48px; border-radius:50%; color:#ffffff; font-size:22px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0;\"><img src=\"https://www.ajg.com/assetbundles/GSC.Site.Gallagher.2/img/favicon/favicon.ico\" /></div>\n      <div style=\"flex:1; line-height:1.3;\">\n        <div style=\"font-size:15px; font-weight:600; color:#000;\">Gallagher</div>\n        <div style=\"font-size:12px; color:#666;\">Arthur J. Gallagher & Co.</div>\n        <div style=\"font-size:12px; color:#666;\">6d &nbsp;·&nbsp; 🌐</div>\n      </div>\n      <div style=\"font-size:20px; color:#666; cursor:pointer; padding:0 4px; line-height:1; user-select:none;\">···</div>\n    </div>\n\n    <!-- Post text -->\n    <div style=\"padding:0 16px 12px; font-size:14px; color:#1a1a1a; line-height:1.5;\">\n      {{body}}&nbsp;<span style=\"color:#666; cursor:pointer;\">...more</span>\n    </div>\n\n    <!-- Article preview -->\n    <div style=\"border:1px solid #e0e0e0; margin:0 0 8px;\">\n      <img src=\"https://placehold.co/1080x1080?text=Placeholder\" style=\"max-width:100%;\" />\n      <div style=\"padding:10px 14px 12px; border-top:1px solid #e0e0e0; background:#f9f9f9;\">\n        <div style=\"font-size:14px; font-weight:600; color:#1a1a1a; margin-bottom:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;\">{{Headline}}</div>\n        <div style=\"font-size:12px; color:#666;\">Gallagher</div>\n      </div>\n    </div>\n\n    <!-- Engagement stats -->\n    <div style=\"padding:4px 16px 8px; font-size:12px; color:#666; display:flex; align-items:center; gap:6px;\">\n      <div style=\"display:flex; gap:2px; font-size:14px;\"><span>👍</span><span>❤️</span></div>\n      <span>95 &nbsp;·&nbsp; 1 comment &nbsp;·&nbsp; 12 reposts</span>\n    </div>\n\n    <div style=\"height:1px; background:#e0e0e0; margin:0 16px;\"></div>\n\n    <!-- Action buttons -->\n    <div style=\"display:flex; justify-content:space-around; padding:4px 8px;\">\n      <button style=\"flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; padding:8px 4px; border:none; background:none; cursor:pointer; border-radius:4px; font-size:12px; color:#666; font-weight:600;\">\n        <span style=\"font-size:18px;\">👍</span>\n        <span>Like</span>\n      </button>\n      <button style=\"flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; padding:8px 4px; border:none; background:none; cursor:pointer; border-radius:4px; font-size:12px; color:#666; font-weight:600;\">\n        <span style=\"font-size:18px;\">💬</span>\n        <span>Comment</span>\n      </button>\n      <button style=\"flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; padding:8px 4px; border:none; background:none; cursor:pointer; border-radius:4px; font-size:12px; color:#666; font-weight:600;\">\n        <span style=\"font-size:18px;\">🔁</span>\n        <span>Repost</span>\n      </button>\n      <button style=\"flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; padding:8px 4px; border:none; background:none; cursor:pointer; border-radius:4px; font-size:12px; color:#666; font-weight:600;\">\n        <span style=\"font-size:18px;\">✉️</span>\n        <span>Send</span>\n      </button>\n    </div>\n {{#if mentions}}<div class=\"mentions\" style=\"padding: 4px 12px;\">{{#each mentions}}<span class=\"mention\">@{{this}}</span> {{/each}}</div>{{/if}}\n     <div class=\"hashtags\" style=\"padding: 4px 12px;\">{{#each hashtags}}<span class=\"hashtag\">#{{this}}</span> {{/each}}</div>\n  </div>\n</div>"
+    },
+    {
+      "id": "twitter_post_template",
+      "name": "Twitter/X Post Template",
+      "template": "<div style=\"background:#f7f9f9; display:flex; justify-content:center; padding:40px 16px; margin:0; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;\">\n\n  <div style=\"background:#fff; border:1px solid #eff3f4; border-radius:16px; width:100%; max-width:500px; overflow:hidden;\">\n\n    <!-- Header -->\n    <div style=\"display:flex; align-items:flex-start; gap:12px; padding:12px 16px 0;\">\n      <img src=\"https://www.ajg.com/assetbundles/GSC.Site.Gallagher.2/img/favicon/favicon.ico\" alt=\"\" style=\"width:48px; height:48px; border-radius:50%; object-fit:cover; flex-shrink:0;\" />\n      <div style=\"flex:1; min-width:0;\">\n        <div style=\"display:flex; align-items:center; justify-content:space-between; gap:8px;\">\n          <div style=\"min-width:0; line-height:1.25;\">\n            <div style=\"display:flex; align-items:center; gap:4px; flex-wrap:wrap;\">\n              <span style=\"font-size:15px; font-weight:700; color:#0f1419;\">Gallagher</span>\n              <span style=\"display:inline-flex; align-items:center; justify-content:center; width:18px; height:18px; background:#1d9bf0; border-radius:50%; flex-shrink:0;\" aria-hidden=\"true\"><svg width=\"10\" height=\"10\" viewBox=\"0 0 24 24\" fill=\"#fff\"><path d=\"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\"/></svg></span>\n              <span style=\"font-size:15px; color:#536471;\">@GallagherGlobal</span>\n              <span style=\"font-size:15px; color:#536471;\">·</span>\n              <span style=\"font-size:15px; color:#536471;\">2h</span>\n            </div>\n          </div>\n          <div style=\"font-size:20px; color:#536471; line-height:1; padding:0 4px; flex-shrink:0;\">···</div>\n        </div>\n\n        <!-- Tweet text -->\n        <div style=\"padding:4px 0 12px; font-size:15px; color:#0f1419; line-height:1.5; white-space:pre-wrap; word-wrap:break-word;\">{{text}}{{#if hashtags}} {{#each hashtags}}<span style=\"color:#1d9bf0;\">#{{this}}</span>{{#unless @last}} {{/unless}}{{/each}}{{/if}}</div>\n\n        <!-- Media placeholder -->\n        <div style=\"border:1px solid #cfd9de; border-radius:16px; overflow:hidden; margin-bottom:12px;\">\n          <img src=\"https://placehold.co/1080x608?text=Placeholder\" alt=\"\" style=\"display:block; width:100%; max-width:100%; height:auto;\" />\n        </div>\n\n        <!-- Engagement stats -->\n        <div style=\"display:flex; align-items:center; justify-content:space-between; padding:0 4px 4px; max-width:425px;\">\n          <button type=\"button\" style=\"display:flex; align-items:center; gap:4px; border:none; background:none; cursor:pointer; color:#536471; font-size:13px; padding:8px 0;\">\n            <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M1.751 10c0-4.42 3.584-8 8.005-8h4.366c4.49 0 8.129 3.64 8.129 8.13 0 2.96-1.607 5.68-4.196 7.11l-8.054 4.46v-3.69h-.067c-4.49.1-8.183-3.51-8.183-8.01zm8.005-6c-3.317 0-6.005 2.69-6.005 6 0 3.37 2.77 6.08 6.138 6.01l.351-.01h1.761v2.3l5.087-2.81c1.951-1.08 3.163-3.13 3.163-5.36 0-3.39-2.744-6.13-6.129-6.13H9.756z\"/></svg>\n            <span>24</span>\n          </button>\n          <button type=\"button\" style=\"display:flex; align-items:center; gap:4px; border:none; background:none; cursor:pointer; color:#536471; font-size:13px; padding:8px 0;\">\n            <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5c-2.209 0-4-1.79-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 6H11V4h5.5c2.209 0 4 1.79 4 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2z\"/></svg>\n            <span>12</span>\n          </button>\n          <button type=\"button\" style=\"display:flex; align-items:center; gap:4px; border:none; background:none; cursor:pointer; color:#536471; font-size:13px; padding:8px 0;\">\n            <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M16.697 5.5c-1.222-.06-2.679.51-3.89 2.16l-.805 1.09-.806-1.09C9.984 6.01 8.526 5.44 7.304 5.5c-1.243.07-2.349.78-2.91 1.91-.552 1.12-.563 2.7.403 4.55 1.043 1.99 2.91 3.99 5.777 6.5l.334.294a.998.998 0 0 0 1.304 0l.334-.294c2.867-2.51 4.734-4.51 5.777-6.5.966-1.85.955-3.43.403-4.55-.561-1.13-1.667-1.84-2.91-1.91zm4.187 7.69c-1.351 2.57-3.54 4.9-6.266 7.33-1.215 1.076-2.827 1.09-4.041.014C7.768 18.099 5.578 15.77 4.226 13.2c-1.4-2.67-1.51-5.2-.503-7.23.986-1.98 2.9-3.15 5.085-3.25 1.63-.08 3.37.56 4.796 2.01 1.427-1.45 3.165-2.09 4.796-2.01 2.185.1 4.099 1.27 5.085 3.25 1.007 2.03.897 4.56-.503 7.23z\"/></svg>\n            <span>186</span>\n          </button>\n          <button type=\"button\" style=\"display:flex; align-items:center; gap:4px; border:none; background:none; cursor:pointer; color:#536471; font-size:13px; padding:8px 0;\">\n            <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M8.75 21V3h2v18h-2zM18 21V8.5h2V21h-2zM13 21V12h2v9h-2z\"/></svg>\n            <span>14.2K</span>\n          </button>\n          <button type=\"button\" style=\"display:flex; align-items:center; gap:4px; border:none; background:none; cursor:pointer; color:#536471; font-size:13px; padding:8px 0;\">\n            <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M12 2.59l5.7 5.7-1.41 1.42L13 6.41V16h-2V6.41l-3.3 3.3-1.41-1.42L12 2.59zM21 15l-.02 3.51c0 1.38-1.12 2.49-2.5 2.49H5.5C4.11 21 3 19.88 3 18.5V15h2v3.5c0 .28.22.5.5.5h12.98c.28 0 .5-.22.5-.5L19 15h2z\"/></svg>\n          </button>\n        </div>\n      </div>\n    </div>\n\n    {{#if thread}}\n    <div style=\"border-top:1px solid #eff3f4; padding:0 16px;\">\n      {{#each thread}}\n      <div style=\"display:flex; gap:12px; padding:12px 0; {{#unless @last}}border-bottom:1px solid #eff3f4;{{/unless}}\">\n        <img src=\"https://www.ajg.com/assetbundles/GSC.Site.Gallagher.2/img/favicon/favicon.ico\" alt=\"\" style=\"width:40px; height:40px; border-radius:50%; object-fit:cover; flex-shrink:0;\" />\n        <div style=\"flex:1; min-width:0;\">\n          <div style=\"display:flex; align-items:center; gap:4px; margin-bottom:2px;\">\n            <span style=\"font-size:15px; font-weight:700; color:#0f1419;\">Gallagher</span>\n            <span style=\"font-size:15px; color:#536471;\">@GallagherGlobal</span>\n          </div>\n          <div style=\"font-size:15px; color:#0f1419; line-height:1.5; white-space:pre-wrap; word-wrap:break-word;\">{{this}}</div>\n        </div>\n      </div>\n      {{/each}}\n    </div>\n    {{/if}}\n\n  </div>\n</div>"
+    },
+    {
+      "id": "instagram_post_template",
+      "name": "Instagram Post Template",
+      "template": "<div class=\"instagram-post\">\n  <div class=\"image-placeholder\">📷 {{image_description}}</div>\n  <div class=\"caption\">{{caption}}</div>\n  <div class=\"hashtags\">{{#each hashtags}}<span class=\"hashtag\">#{{this}}</span> {{/each}}</div>\n  {{#if call_to_action}}<div class=\"cta\">{{call_to_action}}</div>{{/if}}\n</div>\n\n<div style=\"background:#fafafa; display:flex; justify-content:center; padding:40px 16px; margin:0; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;\">\n\n  <div style=\"background:#fff; border:1px solid #dbdbdb; border-radius:8px; width:100%; max-width:470px; overflow:hidden;\">\n\n    <!-- Header -->\n    <div style=\"display:flex; align-items:center; gap:10px; padding:12px 14px;\">\n      <div style=\"width:38px; height:38px; border-radius:50%; padding:2px; background:linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); flex-shrink:0;\">\n        <div style=\"width:100%; height:100%; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center; overflow:hidden;\">\n          <img src=\"https://www.ajg.com/assetbundles/GSC.Site.Gallagher.2/img/favicon/favicon.ico\" alt=\"\" style=\"width:28px; height:28px; object-fit:contain;\" />\n        </div>\n      </div>\n      <div style=\"flex:1; min-width:0; line-height:1.25;\">\n        <div style=\"font-size:14px; font-weight:600; color:#262626;\">gallagherglobal</div>\n        <div style=\"font-size:12px; color:#8e8e8e;\">Rolling Meadows, Illinois</div>\n      </div>\n      <div style=\"width:28px; height:28px; border-radius:8px; background:linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); flex-shrink:0; display:flex; align-items:center; justify-content:center;\" aria-hidden=\"true\">\n        <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"#fff\"><path d=\"M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM17.5 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z\"/></svg>\n      </div>\n      <div style=\"font-size:20px; color:#262626; line-height:1; padding:0 2px 8px; flex-shrink:0;\">···</div>\n    </div>\n\n    <!-- Square image -->\n    <div style=\"position:relative; background:#efefef; aspect-ratio:1/1;\">\n      <img src=\"https://placehold.co/1080x1080?text=Placeholder\" alt=\"{{image_description}}\" style=\"display:block; width:100%; height:100%; object-fit:cover;\" />\n      <div style=\"position:absolute; left:0; right:0; bottom:0; padding:10px 14px; background:linear-gradient(transparent,rgba(0,0,0,0.55)); color:#fff; font-size:12px; line-height:1.4;\">📷 {{image_description}}</div>\n    </div>\n\n    <!-- Action bar -->\n    <div style=\"display:flex; align-items:center; gap:14px; padding:10px 14px 6px;\">\n      <button type=\"button\" style=\"border:none; background:none; padding:0; cursor:pointer; color:#262626; display:flex; align-items:center;\" aria-label=\"Like\">\n        <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z\"/></svg>\n      </button>\n      <button type=\"button\" style=\"border:none; background:none; padding:0; cursor:pointer; color:#262626; display:flex; align-items:center;\" aria-label=\"Comment\">\n        <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\"/></svg>\n      </button>\n      <button type=\"button\" style=\"border:none; background:none; padding:0; cursor:pointer; color:#262626; display:flex; align-items:center;\" aria-label=\"Share\">\n        <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M22 2 11 13\"/><path d=\"M22 2 15 22 11 13 2 9z\"/></svg>\n      </button>\n      <button type=\"button\" style=\"border:none; background:none; padding:0; cursor:pointer; color:#262626; margin-left:auto; display:flex; align-items:center;\" aria-label=\"Save\">\n        <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z\"/></svg>\n      </button>\n    </div>\n\n    <div style=\"padding:0 14px 8px; font-size:14px; font-weight:600; color:#262626;\">1,284 likes</div>\n\n    <!-- Caption, hashtags, CTA -->\n    <div style=\"padding:0 14px 8px; font-size:14px; color:#262626; line-height:1.45;\">\n      <span style=\"font-weight:600;\">gallagherglobal</span>&nbsp;{{caption}}&nbsp;<span style=\"color:#8e8e8e; cursor:pointer;\">...more</span>\n      <div style=\"margin-top:6px; color:#0075BC;\">{{#each hashtags}}<span class=\"hashtag\">#{{this}}</span>{{#unless @last}} {{/unless}}{{/each}}</div>\n      {{#if call_to_action}}<div class=\"cta\" style=\"margin-top:6px; font-weight:600; color:#00263E;\">{{call_to_action}}</div>{{/if}}\n    </div>\n\n    <div style=\"padding:0 14px 14px; font-size:12px; color:#8e8e8e;\">View all 48 comments<br><span style=\"font-size:10px; letter-spacing:0.04em; text-transform:uppercase;\">2 hours ago</span></div>\n  </div>\n</div>\n"
+    },
+    {
+      "id": "facebook_post_template",
+      "name": "Facebook Post Template",
+      "template": "<div class=\"facebook-post\">\n  <div class=\"text\">{{text}}</div>\n  {{#if question}}<div class=\"question\">❓ {{question}}</div>{{/if}}\n  {{#if link}}<div class=\"link\">🔗 <a href=\"{{link}}\">{{call_to_action}}</a></div>{{else}}<div class=\"cta\">{{call_to_action}}</div>{{/if}}\n</div>\n\n<div style=\"background:#f0f2f5; display:flex; justify-content:center; padding:40px 16px; margin:0; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;\">\n\n  <div style=\"background:#fff; border:1px solid #dddfe2; border-radius:8px; box-shadow:0 1px 2px rgba(0,0,0,0.1); width:100%; max-width:500px; overflow:hidden;\">\n\n    <!-- Header -->\n    <div style=\"display:flex; align-items:flex-start; gap:10px; padding:12px 16px 10px;\">\n      <div style=\"width:48px; height:48px; border-radius:50%; color:#ffffff; font-size:22px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0;\"><img src=\"https://www.ajg.com/assetbundles/GSC.Site.Gallagher.2/img/favicon/favicon.ico\" />\n      </div>\n      <div style=\"flex:1; min-width:0; line-height:1.3;\">\n        <div style=\"font-size:15px; font-weight:600; color:#000;\">Gallagher</div>\n        <div style=\"font-size:12px; color:#666;\">Arthur J. Gallagher & Co.</div>\n        <div style=\"font-size:12px; color:#666;\">1d &nbsp;·&nbsp; 🌐</div>\n      </div>\n      <div style=\"width:28px; height:28px; border-radius:50%; background:#1877f2; flex-shrink:0; display:flex; align-items:center; justify-content:center;\" aria-hidden=\"true\">\n        <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"#fff\"><path d=\"M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z\"/></svg>\n      </div>\n    </div>\n\n    <!-- Post text -->\n    <div style=\"padding:0 16px 12px; font-size:14px; color:#050505; line-height:1.5;\">\n       {{#if question}}<div class=\"question\">{{question}}</div>{{/if}}<br>\n      {{text}}&nbsp;<span style=\"color:#666; cursor:pointer;\">...more</span>\n    </div>\n\n    <!-- Main image + link preview -->\n    <div style=\"border-top:1px solid #dddfe2;\">\n      <img src=\"https://placehold.co/1080x1080?text=Placeholder\" alt=\"\" style=\"display:block; width:100%; max-width:100%; height:auto; vertical-align:bottom;\" />\n      <div style=\"padding:10px 14px 12px; border-top:1px solid #ccd0d5; background:#f2f3f5;\">\n        <div style=\"font-size:14px; font-weight:600; color:#1a1a1a; margin-bottom:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;\">{{headline}}</div>\n        <div style=\"font-size:12px; color:#666;\">ajg.com</div>\n      </div>\n    </div>\n\n    <!-- Action bar -->\n    <div style=\"border-top:1px solid #ccd0d5; padding:8px 12px 10px; display:flex; align-items:center; justify-content:space-around;\">\n      <button type=\"button\" style=\"flex:1; display:flex; align-items:center; justify-content:center; gap:6px; padding:6px 4px; border:none; background:none; cursor:pointer; font-size:15px; font-weight:600; color:#606770;\">\n        <span style=\"font-size:18px; line-height:1;\">👍</span>\n        <span>Like</span>\n      </button>\n      <button type=\"button\" style=\"flex:1; display:flex; align-items:center; justify-content:center; gap:6px; padding:6px 4px; border:none; background:none; cursor:pointer; font-size:15px; font-weight:600; color:#606770;\">\n        <span style=\"font-size:18px; line-height:1;\">💬</span>\n        <span>Comment</span>\n      </button>\n      <button type=\"button\" style=\"flex:1; display:flex; align-items:center; justify-content:center; gap:6px; padding:6px 4px; border:none; background:none; cursor:pointer; font-size:15px; font-weight:600; color:#606770;\">\n        <span style=\"font-size:18px; line-height:1;\">↗</span>\n        <span>Share <span style=\"font-weight:600;\">1</span></span>\n      </button>\n    </div>\n  </div>\n</div>\n"
+    },
+    {
+      "id": "email_content_template",
+      "name": "Email Content Template",
+      "template": "<div style=\"margin:0; padding:40px 16px; background:#F4F7FA; color:#00263E;\">\n  <div style=\"max-width:600px; margin:0 auto 8px; font-size:13px; color:#4A5B68;\">\n    <div style=\"margin-bottom:4px;\"><strong>Subject:</strong> {{subject_line}}</div>\n    <div style=\"color:#888; font-style:italic;\">{{preview_text}}</div>\n  </div>\n  <div style=\"max-width:600px; margin:0 auto; background:#fff; border-radius:6px; box-shadow:0 1px 4px rgba(0,0,0,0.1); overflow:hidden;\">\n    <div style=\"background:#fff; padding:28px 40px 20px; text-align:center; border-bottom:1px solid #eeeeee;\">\n      <div style=\"width:220px; display:inline-flex; align-items:center; justify-content:center; color:#999; font-size:12px;\"><img src=\"https://www.ajg.com/-/media/images/gallagher/us/logos/gallagher_horizontalsmall-3d.svg?iar=0&hash=3DBD434EEABC120AE6A320D573E52FF5\" alt=\"Gallagher\" style=\"width:220px; height:auto; display:block;\"/></div>\n    </div>\n\n    <!-- Email body -->\n    <div style=\"padding:32px 40px;\">\n      <img src=\"https://placehold.co/600x400?text=Placeholder\" style=\"max-width:100%;\"/>\n\n      <div style=\"font-size:15px; line-height:1.7; color:#00263E; margin-bottom:28px;\">{{body}}</div>\n\n      <div style=\"text-align:center; margin:32px 0;\">\n        <a href=\"{{cta_url}}\" style=\"display:inline-block; background:#00263E; color:#fff; text-decoration:none; font-size:15px; font-weight:600; padding:12px 32px; border-radius:4px;\">{{call_to_action}}</a>\n      </div>\n\n      <p style=\"margin:28px 0 0; font-size:14px; color:#4A5B68; line-height:1.6;\">{{closing}}</p>\n\n    </div>\n    <div style=\"background:#eee; border-top:1px solid #ffffff; padding:16px 40px; text-align:center; font-size:12px; color:#aaa;\">\n      &copy; 2026 Arthur J. Gallagher &amp; Co. &nbsp;·&nbsp; <a href=\"#\" style=\"color:#aaa; text-decoration:underline;\">Unsubscribe</a> &nbsp;·&nbsp; <a href=\"#\" style=\"color:#aaa; text-decoration:underline;\">Privacy Policy</a>\n    </div>\n  </div>\n</div>\n\n"
+    },
+    {
+      "id": "blog_post_template",
+      "name": "Blog Post Template",
+      "template": "<div style=\"margin:0; padding:0; background:#fff; color:#00263E; font-family:'Gotham Narrow', 'Montserrat', Arial, Helvetica, sans-serif;\">\n  <style>\n    .blog-article-body h1,\n    .blog-article-body h2,\n    .blog-article-body h3,\n    .blog-article-body h4 {\n      font-family: 'Gotham Narrow', 'Montserrat', Arial, Helvetica, sans-serif;\n      font-weight: 700;\n      letter-spacing: -0.02em;\n      color: #00263E;\n      line-height: 1.25;\n    }\n    .blog-article-body h1 { font-size: 2rem; margin: 0 0 2rem; }\n    .blog-article-body h2 { font-size: 1.75rem; margin: 2rem 0 1.5rem; }\n    .blog-article-body h3 { font-size: 1.375rem; margin: 1.75rem 0 1.25rem; }\n    .blog-article-body h4 { font-size: 1.125rem; margin: 1.5rem 0 1rem; }\n    .blog-article-body p {\n      margin: 0 0 1rem;\n      font-size: 1.0625rem;\n      line-height: 1.7;\n      color: #00263E;\n    }\n    .blog-article-body p:last-child { margin-bottom: 0; }\n    .blog-article-body ul,\n    .blog-article-body ol {\n      margin: 0 0 1.5rem;\n      padding-left: 1.5rem;\n    }\n    .blog-article-body ul { list-style: disc; }\n    .blog-article-body ol { list-style: decimal; }\n    .blog-article-body li {\n      margin: 0 0 0.5rem;\n      padding-left: 0.25rem;\n      font-size: 1.0625rem;\n      line-height: 1.7;\n      color: #00263E;\n    }\n    .blog-article-body ul ::marker,\n    .blog-article-body ol ::marker { color: #00263E; }\n    .blog-article-body a { color: #00263E; text-decoration: underline; }\n    .blog-article-body strong { font-weight: 600; }\n    .blog-article-body blockquote {\n      margin: 1.5rem 0;\n      padding: 0.75rem 0 0.75rem 1.25rem;\n      border-left: 3px solid #00263E;\n      color: #555;\n      font-style: italic;\n    }\n  </style>\n\n  <article style=\"max-width:100%; margin:0 auto; overflow:hidden;\" itemscope itemtype=\"https://schema.org/Article\">\n    <meta itemprop=\"description\" content=\"{{meta_description}}\" />\n\n    <!-- Hero -->\n    <div style=\"background:#F4F7FA; position:relative; overflow:hidden;\">\n      <div style=\"position:absolute; left:0; right:0; bottom:0; height:90px; background:#fff;\"></div>\n\n      <div style=\"position:relative; z-index:1; max-width:960px; margin:0 auto; padding:48px 24px 0; text-align:center;\">\n        <div style=\"text-align:left; margin-bottom:28px;\"><img src=\"https://www.ajg.com/-/media/images/gallagher/us/logos/gallagher_horizontalsmall-3d.svg?iar=0&hash=3DBD434EEABC120AE6A320D573E52FF5\" alt=\"Gallagher\" style=\"width:180px; height:auto; display:block; margin-bottom:20px;\" />\n          <a href=\"#\" style=\"color:#00263E; font-size:14px; font-weight:500; text-decoration:none;\">← Back to insights</a>\n        </div>\n\n        <h1 itemprop=\"headline\" style=\"margin:0 auto 20px; max-width:800px; font-size:clamp(2rem, 5vw, 3.875rem); line-height:1.15; font-weight:400; letter-spacing:-0.03em; color:#00263E; text-wrap:pretty;\">{{title}}</h1>\n\n        <div style=\"margin:0 auto 20px; max-width:720px; font-size:18px; line-height:1.6; color:#4A5B68; text-wrap:pretty;\">{{introduction}}</div>\n\n        <div style=\"display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:8px; margin-bottom:28px; font-size:14px; color:#4A5B68;\">\n          <span>X min read</span>\n          <span aria-hidden=\"true\">•</span>\n          <time datetime=\"2021-04-07\" itemprop=\"datePublished\">MM DD, YYYY</time>\n          <span aria-hidden=\"true\">•</span>\n          <span>XX</span>\n        </div>\n\n        <div style=\"display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:20px;\">\n          <span style=\"color:#00263E; font-size:14px; font-weight:500;\">Share</span>\n          <span style=\"display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:50%; color:#00263E;\" aria-hidden=\"true\">\n            <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"18\" cy=\"5\" r=\"3\"></circle><circle cx=\"6\" cy=\"12\" r=\"3\"></circle><circle cx=\"18\" cy=\"19\" r=\"3\"></circle><line x1=\"8.59\" x2=\"15.42\" y1=\"13.51\" y2=\"17.49\"></line><line x1=\"15.41\" x2=\"8.59\" y1=\"6.51\" y2=\"10.49\"></line></svg>\n          </span>\n        </div>\n\n        <figure style=\"position:relative; z-index:2; margin:0 auto; max-width:800px; width:100%; aspect-ratio:16/7; overflow:hidden; background:#D6DEE6;\">\n          <img src=\"https://placehold.co/1280x566?text=Placeholder\" alt=\"{{title}}\" style=\"display:block; width:100%; height:100%; object-fit:cover;\" />\n        </figure>\n      </div>\n    </div>\n\n    <!-- Body -->\n    <div class=\"blog-article-body\" itemprop=\"articleBody\" style=\"max-width:800px; margin:0 auto; padding:48px 24px 24px;\">\n      <div>{{body}}</div>\n\n      <div style=\"margin-top:1.5rem;\">{{conclusion}}</div>\n\n      <div style=\"margin:40px 0 24px; text-align:center;\">\n        <a href=\"#\" style=\"display:inline-block; background:#00263E; color:#fff; text-decoration:none; font-size:15px; font-weight:600; padding:12px 32px; border-radius:4px;\">{{call_to_action}}</a>\n      </div>\n\n      {{#if keywords}}\n      <div style=\"margin-top:32px; padding-top:20px; border-top:1px solid #D6DEE6; font-size:13px; color:#4A5B68; line-height:1.6;\">\n        <span style=\"font-weight:600; color:#00263E;\">Keywords:</span>\n        {{#each keywords}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}\n      </div>\n      {{/if}}\n    </div>\n  </article>\n</div>"
+    }
+  ],
+  "actions": [
+    {
+      "id": "initialize_flow",
+      "kind": "InitializeFlow",
+      "displayName": "Initialize",
+      "showToUser": false
+    },
+    {
+      "id": "retrieve_context_params",
+      "kind": "RetrieveContextParameterDocs",
+      "config": {
+        "outputVarName": "contextParameterDocuments",
+        "workflowTypeFilter": "account-enrichment",
+        "filterByCurrentFlow": true
+      },
+      "showToUser": false,
+      "displayName": "Retrieve Context Parameters"
+    },
+    {
+      "id": "extract_params",
+      "kind": "ExtractContextParams",
+      "config": {
+        "inputVarName": "__messages__",
+        "outputVarName": "contextParams"
+      },
+      "showToUser": false,
+      "displayName": "Extract Parameters"
+    },
+    {
+      "id": "review_params",
+      "kind": "ReviewContextParams",
+      "config": {
+        "inputVarName": "vars.contextParams",
+        "outputVarName": "reviewedContextParams"
+      },
+      "showToUser": true,
+      "displayName": "Review Parameters"
+    },
+    {
+      "id": "normalize_params",
+      "kind": "NormalizeParams",
+      "config": {
+        "inputVarName": "vars.reviewedContextParams",
+        "outputVarName": "normalizedParams"
+      },
+      "showToUser": false,
+      "displayName": "Normalize Parameters"
+    },
+    {
+      "id": "expand_variants",
+      "kind": "ExpandVariants",
+      "config": {
+        "inputVarName": "vars.normalizedParams",
+        "outputVarName": "variants",
+        "contextParamsVarName": "contextParameterDocuments"
+      },
+      "showToUser": false,
+      "displayName": "Expand Variants"
+    },
+    {
+      "id": "content_generation_loop",
+      "kind": "Foreach",
+      "index": "variantIndex",
+      "items": "=variants",
+      "value": "currentVariant",
+      "actions": [
+        {
+          "id": "extract_variant_structure",
+          "kind": "ExtractVariantStructure",
+          "config": {
+            "loopVarName": "loop_content_generation_loop",
+            "structureKey": "channels",
+            "outputSchemaVarName": "structuredSchema",
+            "outputHtmlTemplateVarName": "htmlTemplate"
+          },
+          "showToUser": false,
+          "displayName": "Extract Structure"
+        },
+        {
+          "id": "compose_variant_message",
+          "kind": "ComposeMessageForVariant",
+          "config": {
+            "loopVarName": "loop_content_generation_loop",
+            "systemPrompt": "Generate Gallagher content for ajg.com based on the user request and the provided variant parameters. Write as Gallagher (we, never it): authoritative yet approachable, plain-spoken, confident, and optimistic. Do not invent statistics, quotes, or client results. Do not use regional brand names such as Gallagher Canada, jokes, puns, or a tagline locked to the logo. Use one clear next step.",
+            "outputVarName": "variantMessage",
+            "messageTemplate": "Generate content for: {variantDescription}",
+            "includeOptionDetails": true
+          },
+          "showToUser": false,
+          "displayName": "Compose Message"
+        },
+        {
+          "id": "generate_content",
+          "kind": "GenerateContent",
+          "config": {
+            "model": "workflow-fast-model",
+            "loopVarName": "loop_content_generation_loop",
+            "temperature": 0.7,
+            "artifactKind": "content_item",
+            "inputVarName": "vars.variantMessage",
+            "outputVarName": "generatedContent",
+            "htmlTemplateVar": "vars.htmlTemplate",
+            "structuredSchemaVar": "vars.structuredSchema"
+          },
+          "showToUser": true,
+          "displayName": "Generate Content"
+        },
+        {
+          "id": "save_document",
+          "kind": "SaveDocument",
+          "config": {
+            "kind": "content_item",
+            "titlePrefix": "Generated Content",
+            "contentVarName": "vars.generatedContent",
+            "documentIdVarName": "vars.documentId",
+            "titleSuffixVarName": "vars.variantDescription"
+          },
+          "showToUser": false,
+          "displayName": "Save Document"
+        }
+      ],
+      "showToUser": false,
+      "displayName": "Generate Content for Each Variant"
+    },
+    {
+      "id": "workflow_end",
+      "kind": "WorkflowEnd",
+      "displayName": "Complete",
+      "showToUser": false
+    }
+  ],
+  "version": 2,
+  "is_active": true
+}
