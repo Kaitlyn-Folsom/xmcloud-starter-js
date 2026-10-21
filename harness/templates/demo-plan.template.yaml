@@ -1,0 +1,147 @@
+# demo-plan.yaml — the ONE file the SE approves. Copy to industry-verticals/<customer>/docs/ai/demos/<customer>/demo-plan.yaml.
+# Every page has displayName (readable title) next to path (lower-case-hyphen name). Method: harness/reference/demo-method.md. Check with:
+#   node harness/scripts/validate-story.mjs <customer>
+#   node harness/scripts/validate-site-plan.mjs <customer>
+# Never invent facts or figures. Quote the transcript in `evidence`; mark stated or inferred; write "not given" for gaps.
+
+# Written after the SE approves at the gate (create-site --apply refuses without it):
+userApproved: false
+approvedAt: ""
+
+client:
+  name: "Example Corp"
+  kebab: "example-corp"   # = the folder name under industry-verticals/
+  sourceUrl: "https://www.example.com"
+
+story:
+  situation: "Example Corp runs eight regional sites on three different platforms and needs one governed way to launch campaigns. Marketing waits weeks for IT for every change, and the compliance team cannot see what is live. Success is launching a regional campaign in days, with approval trails."
+  audiences:
+    - id: a1
+      name: "Dana Reyes, VP Digital Marketing"
+      annoyance: "Waits two to three weeks for IT to publish a campaign page"
+      afterward: "Builds and publishes a regional campaign page herself in a day"
+    - id: a2
+      name: "Sam Okoye, Head of Compliance"
+      annoyance: "Cannot see what is live or who approved it"
+      afterward: "Sees every change, approver and publish time in one place"
+  chainOfPain:
+    - id: c1
+      issue: "Campaigns launch weeks late"
+      owners: [a1]
+      reason: "Every page change goes through an IT ticket queue"
+      evidence: "\"It takes us two to three weeks to get a landing page live.\""
+      evidenceType: stated
+      impact: "not given"
+    - id: c2
+      issue: "No audit trail for regulated content"
+      owners: [a2]
+      reason: "Three platforms, three approval processes"
+      evidence: "\"We cannot tell you what was live on a given day.\""
+      evidenceType: stated
+      impact: "not given"
+  messageMap:
+    before: "Campaigns wait on IT; compliance has no single view; regional teams copy pages by hand."
+    requiredCapabilities:
+      - "Marketers assemble and publish pages without IT"
+      - "A single approval and audit trail"
+    after: "Campaigns live in days with a full approval history."
+    metrics: ["Days from brief to live page"]
+    differentiators: ["One governed platform instead of three"]
+    proofPoints: ["none yet"]
+    whyNow: "not given"
+  moments:
+    - id: m1
+      title: "A finished regional campaign page, built by marketing"
+      wow: true
+      cbi: [c1]
+      audience: [a1]
+      annoyance: "Waiting weeks for IT"
+      afterward: "Publishes in a day"
+      capability: "Composable page building by marketers"
+      mustSee: "Finished campaign page on the live site, then the editor showing it was assembled without code"
+      clickPath: ["/Home", "/Home/products (click: Products in the header)"]   # EVERY page the SE clicks through for this moment, in order, incl. landing/intermediate pages; each must be linked from the page before. These pages mirror the live site (P14/P15)
+      checkIn: "Is this how you would want your team to launch a regional campaign?"
+    - id: m2
+      title: "Approvals and audit trail"
+      cbi: [c2]
+      audience: [a2]
+      annoyance: "No view of what is live"
+      afterward: "One audit trail"
+      capability: "Workflow and publish history"
+      mustSee: "Page in review state with approver and history"
+      checkIn: "Would this answer the question you get from auditors?"
+    - id: m3
+      title: "Product information the customer sees"
+      cbi: [c1]
+      audience: [a1]
+      annoyance: "Pages copied by hand"
+      afterward: "Reusable content blocks"
+      capability: "Reusable components"
+      mustSee: "Products page built from shared blocks"
+      checkIn: "Does this match how you would want product pages to behave?"
+  recap: "c1 (campaigns launch late): we showed a regional page built by marketing in a day (m1) and reusable product blocks (m3). c2 (no audit trail): we showed approvals and history on one page (m2)."
+
+site:
+  # Set from the SE's answers (collection and template are ALWAYS asked, never chosen by the agent). create-site checks these.
+  collection: ""          # collection name
+  collectionMode: ""      # new | existing
+  template: ""            # site template NAME, e.g. Empty
+  siteName: ""
+  variantName: ""      # PascalCase client name used for EVERY component's pixel-matching variant (e.g. AcmeCorp). Empty = derived from client.name. Section `variant:` below is the BASE variant the code starts from.
+  chrome:
+    # Header-area features of the prospect's page and how each is delivered (site-analyzer step 4): reuse | hardcoded-variant | new | not-built
+    - { feature: eyebrow-links-phone-search-cta, delivery: hardcoded-variant, note: "client Eyebrow variant from header-kit.mjs; not editable in the CMS" }
+    - { feature: language-switcher, delivery: reuse, component: LanguageSwitcher }
+    - feature: login-menu
+      delivery: new
+      fitReason: "Prospect's header has a Login dropdown; the library has no account menu"
+      new: { name: AccountMenu, kind: context, cms: false, fields: [], behaviour: "Login link with a two-item dropdown, hardcoded", placement: eyebrow-right }
+    - { feature: mega-menu-panels, delivery: not-built, fitReason: "Header shows the top level only; second level is built as pages but not shown" }
+  pages:
+    # Order matters: parents first. Plan /Home first; demo-site-bootstrap probes whether the template already created it.
+    - path: /Home
+      displayName: "Home"
+      pageType: page            # page | article | landing
+      purpose: "Landing view in the prospect's brand; the WOW result in the first minute"
+      proves: [m1]
+      sections:
+        - { position: 1, component: hero-banner, fit: reuse, variant: Default, contentSource: site, note: "Campaign headline" }
+        - { position: 2, component: three-column-cta, fit: variant, fitReason: "icons instead of images", variant: WithIcons, contentSource: transcript, note: "Speaks to c1" }
+        - { position: 3, component: cta-banner, fit: reuse, variant: Default, contentSource: transcript }
+        # Mirrored pages (the prospect has this page: Home, or `liveUrl:` on the page): every section carries `liveSection: <# in sections.md>`; a section the live page does not have is `added: true` + `addedReason: "moment 2 needs it"` (keep these to the minimum).
+        # look: optional PascalCase. Sections of the same component that look different on the prospect site (image left vs right) get their own client variant <variantName><look>, e.g. look: ImageLeft -> AcmeCorpImageLeft
+        # fit says why this component: reuse = fits as is | variant = same function/fields, different look (fitReason says what differs) | new = a function or field is missing (needs a new: spec)
+        # - { position: 4, component: branch-finder, fit: new, contentSource: site, fitReason: "Branch finder with postcode search; no registry component searches", new: { name: BranchFinder, kind: list, cms: true, fields: [Title, Text], children: [Name, Address, Phone], behaviour: "Postcode filters the list", placement: body } }
+    - path: /Home/products
+      displayName: "Products"
+      pageType: page
+      purpose: "Product page built from reusable blocks"
+      proves: [m3]
+      why: "m3 needs a page that is clearly assembled from shared blocks"
+      sections:
+        - { position: 1, component: heading-cta, fit: reuse, variant: PageHeading, contentSource: site }
+        - { position: 2, component: four-column-cta, fit: reuse, variant: Default, contentSource: site }
+    # navGroup says where a page may appear in navigation (default for every page that does not set it: none).
+    #   main    = TOP-LEVEL item of the prospect's MAIN header menu, directly under /Home (the Header's Navigation shows these only)
+    #   eyebrow = link of the small utility bar above the header (About us, Join our team, Locations, Contact us). The eyebrow bar is HARDCODED in the client Eyebrow variant (header-kit.mjs); this value only keeps the page out of the main menu
+    #   none    = everything else (story pages, dropdown children, second level and deeper): hidden from navigation
+    # The build ticks the page's NavigationFilter 'Main Navigation' for everything that is not main (demo-build-pages step 3), and gives every page a nice __Display name.
+    # Navigation page: a menu item of the prospect's header that no moment needs. Built as a placeholder so the header navigation matches theirs.
+    - path: /Home/about
+      displayName: "About"
+      pageType: page
+      purpose: "Mirrors the prospect's header menu"
+      navTarget: true
+      navGroup: main
+      navReason: "Header menu item"
+      proves: []
+      sections:
+        - { position: 1, component: heading-cta, fit: reuse, variant: PageHeading, contentSource: illustrative, note: "Title only (placeholder)" }
+    - path: /Home/governance
+      displayName: "Governance"
+      pageType: page
+      purpose: "Approvals and audit story"
+      proves: [m2]
+      sections:
+        - { position: 1, component: heading-cta, fit: reuse, variant: PageHeading, contentSource: transcript }
+        - { position: 2, component: questions, fit: reuse, variant: Default, contentSource: illustrative, note: "Labelled illustrative" }

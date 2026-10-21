@@ -1,0 +1,91 @@
+# Marketer MCP tools available in this environment
+
+Generated from the connected `user-marketer` MCP namespace on 2026-10-09; re-validated against the docs and the 2026-10-12 release on 2026-10-14 (three tools added, see NEW). Regenerate from the live list at the start of the next run. Parameters marked **layout-sensitive** can select a rendering variant or non-page item.
+
+- `list_sites()` — list sites.
+- `get_site_information(siteId)` — get site metadata.
+- `get_site_id_from_item(itemId)` — resolve a site from an item.
+- `search_site(searchQuery, siteName, language?)` — search page names.
+- `get_all_languages()` — list languages.
+- `list_brandkits()` — list Brand Kits.
+- `get_brandkit_by_id(brandkitId)` — get a Brand Kit.
+- `list_brand_contexts()` — list brand contexts.
+- `get_brand_context(brandContextId)` — get a brand-context tree.
+- `get_brand_context_items(brandContextId, itemIds)` — get brand-context documents.
+- `get_all_pages_by_site(siteName, language?)` — list site pages.
+- `get_page_path_by_live_url(liveUrl)` — resolve a live URL.
+- `get_page_html(pageId, language, version?, variantId?)` — get rendered HTML; `variantId` is **layout-sensitive**.
+- `get_page_preview_url(pageId, language, variantId?)` — get preview URL; `variantId` is **layout-sensitive**.
+- `get_page_template_by_id(templateId)` — get a page template; `templateId` accepts a non-page item id.
+- `create_page(templateId, parentId, name, language?, fields?)` — create a page; `templateId` and `parentId` accept non-page item ids.
+- `get_page(pageId, language?)` — get a page.
+- `add_language_to_page(pageId, languageRequest)` — add a page language.
+- `get_page_screenshot(pageId, version, language?, width?, height?, variantId?)` — capture a page; `variantId` is **layout-sensitive**.
+- `add_component_on_page(pageId, componentRenderingId, placeholderPath, componentItemName, language?, fields?, insertBeforeComponentId?, insertAfterComponentId?)` — add a rendering (before/after ids are mutually exclusive); `componentRenderingId` and `placeholderPath` are **layout-sensitive** and `componentItemName` sets the instance name.
+- `get_allowed_comps_by_ph(pageId, placeholderName, language?, variantId?)` — list allowed renderings; `placeholderName` and `variantId` are **layout-sensitive**.
+- `list_components(siteName)` — list site renderings.
+- `get_component(componentId)` — get rendering details; `componentId` accepts a rendering item id.
+- `get_components_on_page(pageId, language?, version?, variantId?, includeRenderingDetails?)` — inspect placed renderings; `variantId` is **layout-sensitive**.
+- `set_component_datasource(pageId, componentId, datasourceId, variantId?, language?)` — wire a datasource; `datasourceId` accepts a non-page item id and `variantId` is **layout-sensitive**.
+- `create_component_ds(siteName, componentId, dataFields, language?, children?)` — create a rendering datasource; child `location` accepts an item location.
+- `search_component_ds(componentId, term)` — search rendering datasources.
+- `list_avail_insertopts(itemId, language?)` — list insert options for an item; `itemId` accepts a non-page item id.
+- `create_content_item(name, templateId, parentId, language?, fields?)` — create an item; `templateId` and `parentId` accept non-page item ids.
+- `update_fields_on_item(itemId, fields)` — update item fields; `itemId` accepts a non-page item id.
+- `update_content(itemId, siteName, fields?, language?, createNewVersion?)` — update item fields; `itemId` accepts a non-page item id.
+- `delete_content(itemId, language?)` — delete an item; `itemId` accepts a non-page item id. Since 2026-10-12 it reports referencing pages/components/experiments and asks whether to remove references or only delete the item; `language` is ignored (the whole item goes).
+- `get_content_references(itemId, ...)` — NEW 2026-10-12, read-only: pages/components/items that reference an item (names, paths, fields, kinds). Run before any delete.
+- `move_component_on_page(pageId, componentId, ...)` — NEW 2026-10-12: move a component before/after another component or to a target placeholder; needs explicit confirmation, one mutation per call, no auto-retry.
+- `remove_component_on_page(pageId, componentId, ...)` — NEW 2026-10-12: remove a component; checks affected A/B/n tests and asks for confirmation. Parameter names for these three were taken from the docs, not from the live schema: regenerate this file from the live tool list.
+- `get_content_item_by_path(itemPath, language?, failOnNotFound?)` — get any content item by path.
+- `get_content_item_by_id(itemId, language?)` — get any content item by id.
+- `search_assets(query?, type?, language?, tags?)` — search assets.
+- `get_asset_information(assetId)` — get an asset.
+- `update_asset(assetId, fields, language, name?, altText?)` — update an asset.
+- `create_perso_version(pageId, name, variantName, audienceName, conditionTemplateId, language?, conditionParams?)` — create one-condition personalization; `variantName` sets the display name and `conditionTemplateId` accepts a non-page item id.
+- `create_perso_version_multi(pageId, name, variantName, audienceName, conditionGroups, language?, userConfirmation?)` — create multi-condition personalization; `variantName` sets the display name and condition template ids accept non-page item ids.
+- `update_perso_version(pageId, variantId, variantName, audienceName, conditionGroups, language?, userConfirmation?)` — update personalization; `variantId` is **layout-sensitive**, `variantName` sets the display name, and condition template ids accept non-page item ids.
+- `get_perso_ver_by_page(pageId, language?)` — list personalization versions.
+- `get_perso_cond_tmpls()` — list personalization condition templates.
+- `get_perso_cond_tmpl_by_id(templateId)` — get a condition template; `templateId` accepts a non-page item id.
+- `create_component_ab_test(siteId, pageId, componentId, name, goalType, targetedPages, variants, userConfirmed, language?)` — create an A/B test; variant `name` values set display names.
+- `update_ab_test(flowId, name, archived, goalType, targetedPages, variants, userConfirmed)` — update an A/B test; variant `name` values set display names.
+- `list_page_flows(pageId, language?, status?)` — list page flows.
+- `set_component_variant(flowId, pageId, componentId, variantId, variantStrategy, pageVersion?, language?, swappedComponent?, userConfirmed?)` — configure COPY/SWAP/HIDE; `variantId`, strategy, swapped rendering id, and datasource path are **layout-sensitive**.
+- `reset_component_variant(flowId, pageId, componentId, variantId?, language?, pageVersion?)` — reset a component variant; `variantId` is **layout-sensitive**.
+- `get_flow_definition(flowId)` — get a flow.
+- `get_flow_variant_by_id(flowId, variantId, language?, version?)` — get a flow variant; `variantId` is **layout-sensitive**.
+- `hide_component_perso_default_page(pageId, componentId, language?, pageVersion?)` — hide a rendering on the default personalized page.
+- `list_brief_types()` — list brief types.
+- `get_brief_type_by_id(briefTypeId)` — get a brief type.
+- `get_brief_by_id(briefId)` — get a brief.
+- `list_briefs(name?, status?, creatorId?, typeId?, sortBy?)` — list briefs.
+- `generate_brief_draft(brandkitId, brieftypeId, prompt, userConfirmed?)` — generate a brief draft.
+- `generate_brief_revision(brandkitId, brieftypeId, prompt, currentBrief)` — revise a brief draft.
+- `create_brief_from_draft(brandkitId, briefTypeId, name, locale?, fieldsData?, isApproved?)` — save an approved brief.
+- `update_brief_from_revision(briefId, name?, fieldsData?, isApproved?)` — save an approved brief revision.
+
+## Service limits (from the tool reference, 2026-10-14)
+- Rate limit 50 requests per 10 seconds: batch work, do not poll in tight loops.
+- `search_site` matches page NAMES only. `get_page_html` is commonly several hundred KB: prefer `get_components_on_page` / `get_page_screenshot` for checks.
+- Sitecore documents the server as reliable only for the listed use cases; anything else is unvalidated, so every non-trivial write is followed by a read-back.
+- No tool uploads assets (Content Hub uploader script does that), none sets rendering parameters/variants (see `placeholders-and-variants.md`), `update_content` does not publish.
+
+## Verified methods (fill in as soon as something is proven in this environment; read this FIRST in later demos)
+How-to and ladder: `.cursor/skills/sitecore-reference/references/placeholders-and-variants.md`. Record each line as `date — what — exact call shape — result`.
+- Nested placeholder key format that rendered: 2026-10-14 (an earlier demo run, SE screenshots) — `/headless-header/eyebrow-right-0-1` and `/headless-header/header-right-0-3` rendered; format `<host path>/<name>-0-<host DynamicPlaceholderId>`. `/headless-header/eyebrow-links-0-1` did NOT render anything: no Eyebrow variant has an `eyebrow-links` placeholder (the name must exist in the code of the variant that is set).
+- Datasource on a partial design component (`set_component_datasource` with a partial design id): the tool answers 'no datasource template' for context-only renderings (Header, Navigation), but Pages lets the SE set the Header datasource by hand, so `s:ds` is valid on the instance; use layout XML (`update_fields_on_item` + `layout-variant.mjs patch --ds`). Layout-XML write itself verified 2026-10-20 via Authoring GraphQL `updateItem` (see the variant line below).
+- Headless Variants container name: 2026-10-15 (an earlier demo run) — a container named like the React component (`FourColumnCta`) does not match the rendering `Four Column CTA`; the variant picker offers the variants but the page renders "Content SDK component is missing React implementation". The container must carry the rendering ITEM name.
+- Variant selected in Sitecore but not exported in the TSX (Features / `AcmeCorp`): same orange error box. `variants-verify.mjs` guards it.
+- `add_component_on_page` with `fields`: creates a page-local `<page>/Data/<item>` (run 2: content ended up under page/data). Never pass `fields`; create the site-level item, place, `set_component_datasource`, delete the local item.
+- NavigationFilter write (checklist field on a page): works (about-us showed Main Navigation ticked) but the Navigation component ignored it until its filter rendering parameter was set.
+- `__Display name`: _(run 2: not set; language/version hypothesis untested; write in `en`, read back)_
+- Variant (`FieldNames`) route that worked: 2026-10-20 (apexus run) — Authoring GraphQL `updateItem` on `__Final Renderings` (en, latest version), replacing `FieldNames=%7B<variant id>%7D` inside the rendering's `s:par`, then read back. Pages and the rendering host picked it up immediately. On a page with an empty `__Final Renderings`, write a delta `<r xmlns:p="p" xmlns:s="s" p:p="1"><d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"><r uid=… p:before="*" s:ds=… s:id=… s:par="…FieldNames=%7B…%7D…" s:ph="headless-main" /></d></r>`; to place a rendering mid-page, set the new one's `p:after="r[@uid='{prev}']"` and repoint the next one's `p:after` at the new uid.
+- `add_component_on_page`: 2026-10-20 — returns the RENDERING id, not the instance uid; read the uid from `__Final Renderings`. Without before/after it appends at the end of the placeholder.
+- `set_component_datasource(pageId, componentUid, itemId)`: 2026-10-20 — works for datasource renderings; read back with `get_components_on_page`.
+- `create_content_item`: 2026-10-20 — the new item inherits the template's sample standard values (e.g. Quote AuthorPosition), so every field outside the content spec must be blanked explicitly after creation.
+- `delete_content`: 2026-10-20 — succeeds cleanly once `get_content_references` returns 0 (used to remove the page-local `Data` folders).
+- Accordion branch: 2026-10-20 — `/sitecore/templates/Branches/Project/Verticals/Accordion` returns 404 in this environment; place Accordion via layout XML with a site-level datasource instead.
+- `create_perso_version` / `_multi`: 2026-10-20 — 400 "Failed to update flow definition" whenever `variantName` or `audienceName` contain spaces or parentheses. Create with a simple name (`CoveredEntity`), then `update_perso_version` to set the readable names and the condition groups. Condition params that worked: utm_value `d62f7a25-7a56-43c9-82f3-a40f94c98a00` with `{"compares to":"is equal to","type":"campaign","UTM value":"covered-entity"}`; page_view `6c2051b7-8f2b-48f5-898c-2491c7d18171` with `{"has":"has","page name(s)":"<item name>,<item name>"}` (page ITEM names, comma-separated). Two condition groups with `unionType: "OR"` on the second give "utm OR page visit".
+- `set_component_variant` SWAP: 2026-10-20 — the `<rls>` rule's Parameters action (`{525C7B5A-8FD2-4B99-89F6-4F3F6D23BB02}`) is written with the DEFAULT `FieldNames`, so the swapped rendering loses its variant. Copy the original `s:par` into the action's parameters via `__Final Renderings` and read back.
+- No publish tool: personalization written this way only shows in Pages persona preview until the site is published to Edge.
