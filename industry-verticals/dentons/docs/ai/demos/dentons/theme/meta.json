@@ -1,0 +1,80 @@
+{
+  "title": "Dentons - Home",
+  "themeColor": null,
+  "msColor": null,
+  "ogTitle": "Home",
+  "ogDescription": "Dentons is a global law firm driven to provide you with the competitive edge in an increasingly complex and interconnected marketplace. We were formed by the March 2013 combination of international law firm Salans LLP, Canadian law firm Fraser Milner Casgrain LLP (FMC) and international law firm SNR Denton.",
+  "ogImage": "https://www.dentons.com/en/-/media/images/website/opengraph-images/landing-pages/brand-163009-dentons-homepage.ashx",
+  "ogSiteName": null,
+  "favicon": "https://www.dentons.com/favicon.ico",
+  "googleFontsLinks": [],
+  "fontFaces": [
+    {
+      "family": "Dentons Sans Web Light",
+      "src": "url(\"../fonts/Dentons Sans Web-Light.woff\") format(\"woff\"), url(\"../fonts/Dentons Sans Web-Light.ttf\") format(\"truetype\")",
+      "weight": "300"
+    },
+    {
+      "family": "Dentons Sans Web Semibold",
+      "src": "url(\"../fonts/Dentons Sans Web-Semibold.woff\") format(\"woff\"), url(\"../fonts/Dentons Sans Web-Semibold.ttf\") format(\"truetype\")",
+      "weight": "600"
+    },
+    {
+      "family": "Dentons Sans Web Medium",
+      "src": "url(\"../fonts/Dentons Sans Web-Medium.woff\") format(\"woff\"), url(\"../fonts/Dentons Sans Web-Medium.ttf\") format(\"truetype\")",
+      "weight": "600"
+    },
+    {
+      "family": "Dentons Sans Web Bold",
+      "src": "url(\"../fonts/Dentons Sans Web-Bold.woff\") format(\"woff\"), url(\"../fonts/Dentons Sans Web-Bold.ttf\") format(\"truetype\")",
+      "weight": "700"
+    },
+    {
+      "family": "FranklinGothicURW-Boo",
+      "src": "url(\"../fonts/36766A_0_0.woff2\") format(\"woff2\"), url(\"../fonts/36766A_0_0.woff\") format(\"woff\"), url(\"../fonts/36766A_0_0.ttf\") format(\"truetype\")",
+      "weight": ""
+    },
+    {
+      "family": "BebasKai",
+      "src": "url(\"../fonts/BebasKai/366ADB_0_0.woff2\") format(\"woff2\"), url(\"../fonts/BebasKai/366ADB_0_0.woff\") format(\"woff\"), url(\"../fonts/BebasKai/366ADB_0_0.ttf\") format(\"truetype\")",
+      "weight": ""
+    },
+    {
+      "family": "FontAwesome",
+      "src": "url(\"../fonts/fontawesome-webfont.woff2?v=4.7.0\") format(\"woff2\"), url(\"../fonts/fontawesome-webfont.woff?v=4.7.0\") format(\"woff\"), url(\"../fonts/fontawesome-webfont.ttf?v=4.7.0\") format(\"truetype\")",
+      "weight": "normal"
+    },
+    {
+      "family": "Glyphicons Halflings",
+      "src": "url(\"../fonts/glyphicons-halflings-regular.woff2\") format(\"woff2\"), url(\"../fonts/glyphicons-halflings-regular.woff\") format(\"woff\"), url(\"../fonts/glyphicons-halflings-regular.ttf\") format(\"truetype\")",
+      "weight": ""
+    },
+    {
+      "family": "icomoon",
+      "src": "url(\"../fonts/icomoon.ttf?dur4gz\") format(\"truetype\"), url(\"../fonts/icomoon.woff?dur4gz\") format(\"woff\")",
+      "weight": "normal"
+    },
+    {
+      "family": "FranklinGothicURW-Boo",
+      "src": "url(\"/assets/fonts/36766A_0_0.woff2\") format(\"woff2\"), url(\"/assets/fonts/36766A_0_0.woff\") format(\"woff\"), url(\"/assets/fonts/36766A_0_0.ttf\") format(\"truetype\")",
+      "weight": ""
+    },
+    {
+      "family": "BebasKai",
+      "src": "url(\"/assets/fonts/BebasKai/366ADB_0_0.woff2\") format(\"woff2\"), url(\"/assets/fonts/BebasKai/366ADB_0_0.woff\") format(\"woff\"), url(\"/assets/fonts/BebasKai/366ADB_0_0.ttf\") format(\"truetype\")",
+      "weight": ""
+    }
+  ],
+  "logoCandidates": [
+    "https://www.dentons.com/-/media/images/website/logos/logos_svg/dentons-hong-kong-logo-rgb.ashx",
+    "https://www.dentons.com/assets/images/image/searchicon.svg",
+    "https://www.dentons.com/assets/images/image/menu.svg",
+    "https://www.dentons.com/assets/images/icon/cross-blueviolet.svg",
+    "https://www.dentons.com/assets/images/image/buttonsearch.jpg",
+    "https://www.dentons.com/-/media/images/website/logos/logos_svg/dentons-hong-kong-logo-rgb.ashx",
+    "https://www.dentons.com/-/media/images/website/logos/logos_svg/dentons-hong-kong-logo-rgb.ashx",
+    "https://www.dentons.com/assets/images/gpof/Icons/Burger-Close.svg",
+    "https://www.dentons.com/-/media/images/website/logos/logos_svg/dentons-hong-kong-logo-rgb.ashx"
+  ],
+  "heroBgImage": "https://www.dentons.com/-/media/images/website/background-images/gpof/hamburger-locator.ashx?crop=1&h=169&w=1000&hash=125E466CFC32916C6992132FEE66201A"
+}

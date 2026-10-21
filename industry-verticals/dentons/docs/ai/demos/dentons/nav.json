@@ -1,0 +1,28 @@
+{
+  "url": "https://www.dentons.com/en",
+  "source": "nested lists",
+  "items": [
+    {
+      "label": "Global sectors",
+      "href": "https://www.dentons.com/en/global-sectors",
+      "children": []
+    },
+    {
+      "label": "Global solutions",
+      "href": "https://www.dentons.com/en/global-solutions",
+      "children": []
+    },
+    {
+      "label": "Client experience",
+      "href": "https://www.dentons.com/en/client-experience",
+      "children": []
+    },
+    {
+      "label": "Our people",
+      "href": "https://www.dentons.com/en/our-professionals",
+      "children": []
+    }
+  ],
+  "eyebrow": [],
+  "eyebrowExtras": []
+}

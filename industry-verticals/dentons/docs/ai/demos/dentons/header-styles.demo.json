@@ -1,0 +1,61 @@
+{
+  "url": "http://localhost:3000/",
+  "measuredAt": "2026-10-21T21:11:26.244Z",
+  "width": 1440,
+  "labels": {
+    "eyebrow": [],
+    "main": [
+      "Global sectors",
+      "Global solutions",
+      "Client experience",
+      "Our people"
+    ],
+    "cta": [],
+    "phone": []
+  },
+  "viewport": 1440,
+  "eyebrow": null,
+  "header": {
+    "band": {
+      "background": "#000000",
+      "height": 102,
+      "borderBottom": null,
+      "boxShadow": null
+    },
+    "logo": {
+      "width": 180,
+      "height": 45,
+      "left": 107,
+      "url": "http://localhost:3000/_next/image?url=https%3A%2F%2Ffols-ch.sitecoresandbox.cloud%2Fapi%2Fpublic%2Fcontent%2F94163-unknown-image2%3Fv%3Dd93f90e1&w=256&q=75",
+      "source": "img",
+      "imgSrc": "http://localhost:3000/_next/image?url=https%3A%2F%2Ffols-ch.sitecoresandbox.cloud%2Fapi%2Fpublic%2Fcontent%2F94163-unknown-image2%3Fv%3Dd93f90e1&w=256&q=75",
+      "cssBackground": null,
+      "differs": false
+    },
+    "nav": {
+      "fontFamily": "Source Sans 3",
+      "fontSize": 15,
+      "fontWeight": "600",
+      "textTransform": "none",
+      "letterSpacing": 0,
+      "lineHeight": 22.5,
+      "color": "#ffffff",
+      "gap": 30,
+      "hasChevron": false,
+      "count": 4,
+      "groupLeft": 818,
+      "groupRight": 1333,
+      "contrastOnBand": 21,
+      "paddingX": 0,
+      "paddingY": 0
+    },
+    "bands": [
+      {
+        "top": 0,
+        "height": 102,
+        "background": "#000000"
+      }
+    ]
+  },
+  "clipHeight": 112
+}

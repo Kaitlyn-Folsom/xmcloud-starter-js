@@ -1,0 +1,115 @@
+# Client Brand Theme — Dentons
+# Measured from https://www.dentons.com/en. Not applied until the plan is approved.
+
+client:
+  name: "Dentons"
+  sourceUrl: "https://www.dentons.com/en"
+  extractedAt: "2026-10-21T18:58:10.002Z"
+  extractedBy: "site-scraper.mjs + section-capture.mjs + header-styles.mjs"
+
+colors:
+  primary: "#702082"
+  primaryForeground: "#ffffff"
+  secondary: "#333333"
+  secondaryForeground: "#ffffff"
+  accent: "#702082"
+  accentForeground: "#ffffff"
+  background: "#ffffff"
+  foreground: "#545859"
+  muted: "#efefef"
+  mutedForeground: "#545859"
+  headerBackground: "#000000"
+  headerForeground: "#ffffff"
+  footerBackground: "#efefef"
+  footerForeground: "#545859"
+  border: "#efefef"
+  ring: "#702082"
+  extra:
+    - { name: "button-purple", hex: "#702082" }
+    - { name: "scraper-button", hex: "#71298e" }
+
+typography:
+  headingFamily: "Dentons Sans"
+  headingWeight: "600"
+  bodyFamily: "Dentons Sans"
+  bodyWeight: "400"
+  monoFamily: ""
+  googleFontsUrl: "https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap"
+  scale:
+    hero: "35px"
+    h1: "35px"
+    h2: "30px"
+    h3: "18px"
+    body: "16px"
+    small: "14px"
+  headingTransform: "none"
+  letterSpacing: "0"
+  lineHeight: "1.3"
+
+spacing:
+  density: "regular"
+  sectionGap: ""
+  containerMaxWidth: "1170px"
+  containerPadding: ""
+
+shape:
+  borderRadius: "8px"
+  buttonRadius: "30px"
+  cardRadius: "8px"
+  imageRadius: "0px"
+  shadowStyle: "none"
+  borderStyle: "none"
+
+tone:
+  overall: "Global law firm. Dark header, purple actions, photographic heroes, light card grids."
+  colorMode: "light"
+  contrast: "high on the black header and purple buttons"
+  imagery: "Full-bleed photography in the hero and on cards"
+  heroStyle: "Left-aligned headline on a photo, pill button, tile row underneath"
+  cardStyle: "Image on top, eyebrow, title, short text, purple pill button, on a light gray card"
+  navStyle: "Black bar, purple wordmark, four text links, language pill, search, hamburger"
+
+siteThemeScss: |
+  body.site-dentons, .site-dentons {
+    --text-body: #545859;
+    --text-body-inverted: #ffffff;
+    --text-colored: #702082;
+    --text-footer: #545859;
+    --text-accent: #702082;
+    --bg-body: #ffffff;
+    --bg-footer: #efefef;
+    --bg-main: #ffffff;
+    --bg-main-alt: #efefef;
+    --bg-color: #f6f0f8;
+    --bg-saturated: #702082;
+    --bg-accent: #702082;
+    --border-color: #efefef;
+    --hr-color: #efefef;
+    --roundness: 30px;
+  }
+  body.site-dentons.dark, .dark .site-dentons {
+    --text-body: #f0f0f0;
+    --text-body-inverted: #1a1a1a;
+    --text-colored: #d7a4e6;
+    --text-footer: #f0f0f0;
+    --text-accent: #d7a4e6;
+    --bg-body: #1a1a1a;
+    --bg-footer: #111111;
+    --bg-main: #1a1a1a;
+    --bg-main-alt: #2a2a2a;
+    --bg-color: #2a2030;
+    --bg-saturated: #702082;
+    --bg-accent: #702082;
+    --border-color: #3a3a3a;
+    --hr-color: #3a3a3a;
+    --roundness: 30px;
+  }
+
+extraction:
+  confidence: "medium"
+  method: "Playwright scrape of https://www.dentons.com/en, plus header-styles and section-capture"
+  notes:
+    - "Dentons Sans is a proprietary webfont. Source Sans 3 is the Google Fonts substitute."
+    - "Button fill #702082 and radius 30px come from section-capture. The scraper sampled a nearby purple #71298e and a 0px radius."
+    - "Header band is #000000, 102px (header-styles). The crop shows light nav labels. header-styles recorded nav color #4c4c4c; that hex does not match the crop. The theme uses white header text from the crop."
+    - "A cookie dialog covered several section crops. Colours above are from computed styles, not from the dialog."

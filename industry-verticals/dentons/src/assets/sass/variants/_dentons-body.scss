@@ -1,0 +1,283 @@
+.component.hero-banner.variant-dentons {
+  position: relative;
+  background: #111111;
+  color: #ffffff;
+  margin-bottom: 0;
+
+  .hero-media {
+    position: relative;
+  }
+
+  .hero-photo {
+    display: block;
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+  }
+
+  .hero-copy {
+    position: absolute;
+    left: 8%;
+    bottom: 28%;
+    max-width: 560px;
+    color: #ffffff;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 35px;
+    font-weight: 400;
+    line-height: 1.15;
+    color: #ffffff;
+  }
+
+  .hero-text {
+    margin-top: 0.75rem;
+    font-size: 18px;
+    line-height: 1.4;
+    color: #f0f0f0;
+  }
+}
+
+.component.four-column-cta.variant-dentons {
+  position: relative;
+  z-index: 2;
+  margin-top: -88px;
+  margin-bottom: 2.5rem;
+
+  .tile {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    min-height: 148px;
+    border-radius: 18px;
+    background-position: center;
+    background-size: cover;
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  .col-6:nth-child(1) .tile {
+    background-image: url('https://www.dentons.com/-/media/images/website/background-images/gpof/growtile.ashx');
+  }
+
+  .col-6:nth-child(2) .tile {
+    background-image: url('https://www.dentons.com/-/media/images/website/background-images/gpof/protecttile.ashx');
+  }
+
+  .col-6:nth-child(3) .tile {
+    background-image: url('https://www.dentons.com/-/media/images/website/background-images/gpof/operatetile.ashx');
+  }
+
+  .col-6:nth-child(4) .tile {
+    background-image: url('https://www.dentons.com/-/media/images/website/background-images/gpof/financetile.ashx');
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 148px;
+    object-fit: cover;
+  }
+
+  span {
+    position: absolute;
+    right: 0;
+    bottom: 16px;
+    left: 0;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.55);
+  }
+}
+
+.component.three-column-cta.variant-dentons,
+.component.three-column-cta.variant-dentons-card-row,
+.component.three-column-cta.variant-dentons-news,
+.component.three-column-cta.variant-dentons-news-row,
+.component.two-column-cta.variant-dentons,
+.component.two-column-cta.variant-dentons-pair {
+  .row {
+    --bs-gutter-x: 30px;
+    --bs-gutter-y: 30px;
+  }
+
+  .col-md-4,
+  .col-lg-6 {
+    display: flex;
+  }
+
+  .card,
+  .col-lg-6 {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+    border: 0;
+    border-radius: 8px;
+    background: #efefef;
+    padding: 0 0 29px;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 135px;
+    margin: 0;
+    border-radius: 0;
+    object-fit: cover;
+  }
+
+  h2,
+  h3 {
+    margin: 29px 29px 0;
+    padding-bottom: 20px;
+    color: #545859;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.15;
+  }
+
+  p {
+    flex: 1;
+    margin: 0 29px;
+    padding-bottom: 15px;
+    color: #545859;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.5px;
+  }
+
+  .button.button-pill {
+    align-self: flex-start;
+    margin: auto 29px 0;
+  }
+}
+
+.component.heading-cta.variant-dentons,
+.component.heading-cta.variant-dentons-page-title {
+  padding: 2.5rem 0 0.5rem;
+  text-align: center;
+
+  h1,
+  h2 {
+    margin: 0;
+    color: #545859;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+}
+
+.site-dentons .component.heading-cta.compact {
+  padding: 0.5rem 0 2.5rem;
+  text-align: center;
+
+  .heading-content-wrapper {
+    display: none;
+  }
+
+  .button-main {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 30px;
+    background: #707372;
+    color: #ffffff;
+    font-size: 16px;
+    text-decoration: none;
+  }
+}
+
+.component.cta-banner.variant-dentons {
+  background-color: #333333;
+  background-image: url('https://www.dentons.com/-/media/images/website/background-images/gpof/gpof-footer.ashx');
+  background-position: center;
+  background-size: cover;
+  padding: 56px 0;
+  color: #f0f0f0;
+  text-align: center;
+
+  h2 {
+    margin: 0 0 0.75rem;
+    color: #f0f0f0;
+    font-size: 30px;
+    font-weight: 400;
+  }
+
+  a,
+  .contact-link {
+    color: #ffffff;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+  }
+}
+
+.component.footer.variant-dentons {
+  background: #efefef;
+  padding: 40px 0 48px;
+  color: #545859;
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1.25rem;
+  }
+
+  .col {
+    flex: 0 0 auto;
+    width: auto;
+  }
+
+  .col > div:last-child {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1.25rem;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    color: #545859;
+    font-size: 14px;
+    text-decoration: none;
+  }
+
+  .footnote {
+    max-width: 760px;
+    margin-top: 1.75rem;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+}
+
+.button-pill {
+  display: inline-flex;
+  align-items: center;
+  width: auto;
+  height: 50px;
+  padding: 0 22px 0 25px;
+  border-radius: 30px;
+  background: #702082;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: none;
+}
+
+.button-pill::after {
+  content: '→';
+  margin-left: 14px;
+}
+
+.component.hero-banner.variant-dentons .button-pill {
+  margin-top: 1rem;
+  background: #ffffff;
+  color: #702082;
+}

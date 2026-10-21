@@ -1,0 +1,223 @@
+.component.professional-directory,
+.component.professional-profile,
+.component.sector-group-list,
+.component.insight-results,
+.component.insight-article {
+  padding: 2.5rem 0 3rem;
+  color: #545859;
+
+  h1,
+  h2,
+  h3 {
+    color: #545859;
+    font-weight: 400;
+  }
+
+  a {
+    color: #702082;
+    text-decoration: none;
+  }
+}
+
+.component.professional-directory {
+  h1 {
+    font-size: 35px;
+  }
+
+  .directory-filters,
+  .letters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.5rem;
+    align-items: center;
+    margin: 1rem 0;
+  }
+
+  input,
+  select {
+    margin-left: 0.5rem;
+    padding: 0.35rem 0.6rem;
+    border: 1px solid #d5d5d5;
+    border-radius: 4px;
+  }
+
+  .letters button {
+    min-width: 1.6rem;
+    padding: 0.15rem;
+    border: 0;
+    background: transparent;
+    color: #702082;
+    font-weight: 600;
+  }
+
+  .letters button[aria-pressed='true'] {
+    text-decoration: underline;
+  }
+
+  .person-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    height: 100%;
+    padding: 1rem 0;
+    border: 0;
+    border-bottom: 1px solid #efefef;
+    background: transparent;
+  }
+
+  .person-card img {
+    width: 96px;
+    height: 120px;
+    object-fit: cover;
+  }
+
+  .person-card h2 {
+    margin: 0 0 0.25rem;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .person-card p {
+    margin: 0;
+    font-size: 14px;
+  }
+
+  .button-main {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: #702082;
+    font-size: 14px;
+    background: transparent;
+  }
+}
+
+.component.professional-profile {
+  h1 {
+    font-size: 32px;
+  }
+
+  .role,
+  .col-md-8 > p {
+    color: #545859;
+  }
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    margin: 1.25rem 0;
+  }
+
+  .tabs button {
+    padding: 0.7rem 1.1rem;
+    border: 0;
+    background: #5a2a6e;
+    color: #ffffff;
+  }
+
+  .tabs button[aria-selected='true'] {
+    background: #ffffff;
+    color: #702082;
+    box-shadow: inset 0 -3px 0 #702082;
+  }
+
+  img {
+    width: 151px;
+    height: 181px;
+    object-fit: cover;
+  }
+}
+
+.component.sector-group-list {
+  .sector-card {
+    height: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+
+  h3 {
+    margin-bottom: 0.75rem;
+    font-size: 24px;
+  }
+
+  li {
+    margin: 0.35rem 0;
+  }
+}
+
+.component.insight-results {
+  .hubs a {
+    display: block;
+    padding: 1.5rem;
+    background: #efefef;
+    color: #545859;
+    font-size: 20px;
+  }
+
+  .result-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1.5rem 0 1rem;
+  }
+
+  article {
+    padding: 1.25rem 0;
+    border: 0;
+    border-bottom: 1px solid #efefef;
+    background: transparent;
+  }
+
+  h3 {
+    margin: 0 0 0.35rem;
+    font-size: 22px;
+  }
+}
+
+.component.insight-article {
+  h1 {
+    max-width: 860px;
+    font-size: 32px;
+    line-height: 1.2;
+  }
+
+  h2 {
+    margin-top: 2rem;
+    font-size: 24px;
+  }
+
+  p,
+  li {
+    max-width: 760px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+.component.site-search {
+  display: flex;
+  align-items: center;
+
+  button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    border: 0;
+    background: transparent;
+    color: #702082;
+    font-size: 14px;
+  }
+
+  input {
+    margin-left: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    border: 0;
+    border-bottom: 1px solid #4c4c4c;
+    border-radius: 0;
+    background: transparent;
+    color: #4c4c4c;
+  }
+}

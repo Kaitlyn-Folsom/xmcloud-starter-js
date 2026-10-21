@@ -1,0 +1,131 @@
+{
+  "capturedAt": "2026-10-21T22:46:15.778Z",
+  "people": [
+    {
+      "slug": "martin-abadi",
+      "name": "Martin Abadi",
+      "pagePath": "/sitecore/content/Dentons/Dentons/Home/our-professionals/martin-abadi",
+      "childId": "D1C62813-3FBD-4013-97DC-A97682D8B9EE"
+    },
+    {
+      "slug": "nathan-abbott",
+      "name": "Nathan Abbott",
+      "pagePath": "/sitecore/content/Dentons/Dentons/Home/our-professionals/nathan-abbott",
+      "childId": "61AF310D-9615-4FAA-9437-836A7F2D75F6"
+    },
+    {
+      "slug": "majd-abdelhalim",
+      "name": "Majd Abd Elhalim",
+      "pagePath": "/sitecore/content/Dentons/Dentons/Home/our-professionals/majd-abdelhalim",
+      "childId": "10D970A1-2B82-49E3-AC40-E92657268F43"
+    },
+    {
+      "slug": "ulugbek-abdullaev",
+      "name": "Ulugbek Abdullaev",
+      "pagePath": "/sitecore/content/Dentons/Dentons/Home/our-professionals/ulugbek-abdullaev",
+      "childId": "5919F70F-7848-422B-BFD9-DE73218778E6"
+    },
+    {
+      "slug": "sadaf-abkenar",
+      "name": "Sadaf Abkenar",
+      "pagePath": "/sitecore/content/Dentons/Dentons/Home/our-professionals/sadaf-abkenar",
+      "childId": "BE458E5A-6341-4791-96F2-A0F125219BE8"
+    },
+    {
+      "slug": "dounia-abouarab",
+      "name": "Dounia Abouarab",
+      "pagePath": "/sitecore/content/Dentons/Dentons/Home/our-professionals/dounia-abouarab",
+      "childId": "FEBAC968-2F2A-45D9-9024-52E01CCEDC0F"
+    },
+    {
+      "slug": "seth-abrams",
+      "name": "Seth K. Abrams",
+      "pagePath": "/sitecore/content/Dentons/Dentons/Home/our-professionals/seth-abrams",
+      "childId": "EF4BA4DA-72AB-423F-9025-432DC622AD09"
+    },
+    {
+      "slug": "stephanie-abrutyn",
+      "name": "Stephanie Abrutyn",
+      "pagePath": "/sitecore/content/Dentons/Dentons/Home/our-professionals/stephanie-abrutyn",
+      "childId": "63F6DC3F-4A35-4D64-96B0-3C31F11007CA"
+    },
+    {
+      "slug": "roger-abseher",
+      "name": "Roger Abseher",
+      "pagePath": "/sitecore/content/Dentons/Dentons/Home/our-professionals/roger-abseher",
+      "childId": "AD9F7E18-CE37-44E6-8408-217D4388B1E0"
+    },
+    {
+      "slug": "diego-abuauad",
+      "name": "Diego Abuauad Truffello",
+      "pagePath": "/sitecore/content/Dentons/Dentons/Home/our-professionals/diego-abuauad",
+      "childId": "1DB570F3-7517-4E48-9B5A-AC48B592C59B"
+    },
+    {
+      "slug": "luisabundio-maldonado",
+      "name": "Luis Abundio Maldonado",
+      "pagePath": "/sitecore/content/Dentons/Dentons/Home/our-professionals/luisabundio-maldonado",
+      "childId": "4ECAE11E-D6C0-4548-B868-B921CFB375BE"
+    },
+    {
+      "slug": "roberto-aburto",
+      "name": "Roberto Aburto",
+      "pagePath": "/sitecore/content/Dentons/Dentons/Home/our-professionals/roberto-aburto",
+      "childId": "C8190DEF-85F8-4F02-99F8-AC8A66AEAAC1"
+    },
+    {
+      "slug": "daniela-acevedo",
+      "name": "Daniela Acevedo",
+      "pagePath": "/sitecore/content/Dentons/Dentons/Home/our-professionals/daniela-acevedo",
+      "childId": "05DB87ED-7EF0-441D-8DFF-76E732E01BAD"
+    },
+    {
+      "slug": "nastasia-achilles",
+      "name": "Dr. Nastasia Achilles",
+      "pagePath": "/sitecore/content/Dentons/Dentons/Home/our-professionals/nastasia-achilles",
+      "childId": "206A2FEC-69E1-4FE3-92C7-9776A8555F8C"
+    }
+  ],
+  "articles": [
+    {
+      "slug": "balancing-innovation-and-competition",
+      "date": "October 21, 2026",
+      "body": 12262
+    },
+    {
+      "slug": "ir-insights-podcast-industrial-relations-update",
+      "date": "October 21, 2026",
+      "body": 814
+    },
+    {
+      "slug": "misrepresentations-in-disclosure",
+      "date": "October 21, 2026",
+      "body": 15980
+    },
+    {
+      "slug": "queensland-mining-reforms",
+      "date": "October 21, 2026",
+      "body": 11386
+    },
+    {
+      "slug": "related-party-transactions-in-canada",
+      "date": "October 21, 2026",
+      "body": 9958
+    },
+    {
+      "slug": "dcaa-signals",
+      "date": "October 20, 2026",
+      "body": 6085
+    },
+    {
+      "slug": "dentons-digital-infrastructure-dispatch-october-2026",
+      "date": "October 20, 2026",
+      "body": 11710
+    },
+    {
+      "slug": "the-government-postpones-the-entry-into-force-of-the-labor-assistance-fund",
+      "date": "October 20, 2026",
+      "body": 2008
+    }
+  ]
+}

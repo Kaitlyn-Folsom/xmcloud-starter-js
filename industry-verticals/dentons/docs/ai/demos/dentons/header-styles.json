@@ -1,0 +1,61 @@
+{
+  "url": "https://www.dentons.com/en",
+  "measuredAt": "2026-10-21T18:55:18.155Z",
+  "width": 1440,
+  "labels": {
+    "eyebrow": [],
+    "main": [
+      "Global sectors",
+      "Global solutions",
+      "Client experience",
+      "Our people"
+    ],
+    "cta": [],
+    "phone": []
+  },
+  "viewport": 1440,
+  "eyebrow": null,
+  "header": {
+    "band": {
+      "background": "#000000",
+      "height": 102,
+      "borderBottom": null,
+      "boxShadow": null
+    },
+    "logo": {
+      "width": 180,
+      "height": 45,
+      "left": 135,
+      "url": "https://www.dentons.com/-/media/images/website/logos/logos_svg/dentons-hong-kong-logo-rgb.ashx",
+      "source": "img",
+      "imgSrc": "https://www.dentons.com/-/media/images/website/logos/logos_svg/dentons-hong-kong-logo-rgb.ashx",
+      "cssBackground": null,
+      "differs": false
+    },
+    "nav": {
+      "fontFamily": "Dentons Sans Web Semibold",
+      "fontSize": 15,
+      "fontWeight": "600",
+      "textTransform": "none",
+      "letterSpacing": 0,
+      "lineHeight": 15,
+      "color": "#4c4c4c",
+      "gap": 30,
+      "hasChevron": false,
+      "count": 4,
+      "groupLeft": 524,
+      "groupRight": 1054,
+      "contrastOnBand": 8.59,
+      "paddingX": 0,
+      "paddingY": 0
+    },
+    "bands": [
+      {
+        "top": 0,
+        "height": 102,
+        "background": "#000000"
+      }
+    ]
+  },
+  "clipHeight": 111
+}

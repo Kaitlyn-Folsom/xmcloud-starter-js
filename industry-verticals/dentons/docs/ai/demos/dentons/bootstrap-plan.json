@@ -1,0 +1,351 @@
+{
+  "customer": "dentons",
+  "generatedAt": "2026-10-21T20:24:45.111Z",
+  "sharedLayer": {
+    "renderingsRoot": "/sitecore/layout/Renderings/Project/Financial",
+    "projectTemplatesRoot": "/sitecore/templates/Project/Financial",
+    "note": "shared, already registered — reuse, never recreate"
+  },
+  "siteLevelSteps": [
+    "A. availableRenderings: every rendering id below must be listed in <site>/Presentation/Available Renderings/Page Content (CONCATENATE — never replace)",
+    "B. dataRoot: <site>/Data exists (create with the Data folder template the probe finds if missing)",
+    "C. for each component with a datasource: <site>/Data/<datasourceFolderName> as an instance of folderTemplateId",
+    "D. for each component: <site>/Presentation/Headless Variants/<container> (container = headlessVariantContainer = the RENDERING ITEM name with spaces, e.g. `Four Column CTA`, never the PascalCase component name; reuse existing containers) with one Variant Definition per variant (Default always, and the client variant `Dentons` for EVERY component incl. Header, Eyebrow and SiteFooter; its code comes from phase 5.5)",
+    "E. derived page templates: for each page type in the plan, a new template under /sitecore/templates/Project/<collection>/Pages whose Base template is the shared one",
+    "F. Header and Footer partial designs in <site>/Presentation/Partial Designs. Header design = Eyebrow [client variant; ThemeSwitcher at eyebrow-left-0-<id>, LanguageSwitcher at eyebrow-right-0-<id>; the eyebrow links/phone/search/CTA are HARDCODED in the client Eyebrow variant, no Navigation inside it] above Header [client variant, datasource = the design's own Data/Header item with the logo] containing Navigation at header-right-0-<id> [client variant, datasource = Home, top level only]. Footer design = SiteFooter [client variant]. The client variants of Eyebrow/Header/Navigation are generated BEFORE placement by header-styles.mjs + header-kit.mjs (demo-site-bootstrap step 5). Datasource/variant/params on partial-design renderings: the ladder in placeholders-and-variants.md (a 'no datasource template' message is not an answer: go to layout XML). Plus a derived Header component template under /sitecore/templates/Project/<collection>/Components (try via the MCP; manual task only for what is refused)",
+    "F2. Navigation Filters: find the site's filter items (Main Navigation, ...). No Eyebrow filter (the eyebrow is hardcoded). Main Navigation is visible ONLY for navGroup: main pages directly under Home; every other page gets Main Navigation ticked. The Navigation rendering must also carry the filter/levels rendering parameters (layout-variant.mjs patch --param), otherwise the filter is ignored (see demo-site-bootstrap step 5b)",
+    "H. NEW components (newComponents above, from `new:` specs): built in phase 5 with the create-* skills; afterwards re-run bootstrap-plan.mjs and do steps A-D for them (Available Renderings, Data folder, container named like the rendering item, Default + client variant); header-area ones are then placed in the partial design placeholder named in their spec (demo-build-pages step 0)",
+    "G. Page Designs for Page and Article that use those partials, mapped to the derived templates (Template To Design)"
+  ],
+  "newComponents": [
+    {
+      "name": "ProfessionalDirectory",
+      "kind": "list",
+      "cms": true,
+      "where": "/Home/our-professionals"
+    },
+    {
+      "name": "ProfessionalProfile",
+      "kind": "context",
+      "cms": true,
+      "where": "/Home/our-professionals/nastasia-achilles"
+    },
+    {
+      "name": "SectorGroupList",
+      "kind": "list",
+      "cms": true,
+      "where": "/Home/global-sectors"
+    },
+    {
+      "name": "InsightResults",
+      "kind": "list",
+      "cms": true,
+      "where": "/Home/insights"
+    },
+    {
+      "name": "InsightArticle",
+      "kind": "simple",
+      "cms": true,
+      "where": "/Home/insights/the-government-postpones-the-entry-into-force-of-the-labor-assistance-fund"
+    },
+    {
+      "name": "SiteSearch",
+      "kind": "context",
+      "cms": false,
+      "where": "(header area)"
+    }
+  ],
+  "availableRenderings": {
+    "ids": [
+      "{A7343C45-4438-441E-967E-C2CB350DDA75}",
+      "{52733592-6F5D-4FB4-8003-9B8223C5BC76}",
+      "{F7BB574A-E5C1-4475-A07E-0EBF590CC50E}",
+      "{69E8A90F-59CA-4638-B53E-BDCE65835230}",
+      "{9D7DE58D-9DA4-43D8-8371-3C728A582ADC}",
+      "{613A1798-71DD-4A5C-A183-A3BAB92289C4}",
+      "{771A3F27-6448-44AC-ADD0-E5DE311C6E3B}",
+      "{1DEB067F-0BB1-405E-94F5-2ABB537A6160}",
+      "{F9905F68-21E8-4C6F-8B89-56BB99020D31}",
+      "{8094185B-4C72-40C8-B005-C6ED91708754}",
+      "{20E5EA95-6B50-49CD-8852-433B7C565F06}",
+      "{488B8AC0-0EF9-4F6F-8711-78BA182B2C4C}",
+      "{CCC3A815-5DE9-4529-BAD5-874548667D66}",
+      "{333DEF3E-C272-4AD9-A493-8D5CCAE08312}",
+      "{35075000-760E-4FF3-BD1C-F2EEBA251DCB}",
+      "{89E1D547-7CD6-4EF0-9A27-1E99410797DD}",
+      "{B7CDF75E-716A-4C59-B9B1-CD970AE0A4AE}",
+      "{1F52FB4E-FB4B-40ED-A5D8-F8F9784B36F2}",
+      "{200920AD-9645-4CB2-B72A-C7D8278E709F}",
+      "{1A375FAC-6CC1-4A5A-A159-9BC6DBC66B80}",
+      "{75464A5E-CBB7-4F96-BBBC-104AFE57923A}",
+      "{9C6D53E3-FE57-4638-AF7B-6D68304C7A94}",
+      "{AD385021-CE2B-4FC1-89AA-207D408034A8}",
+      "{3A9A9D22-C092-4B54-9511-EB202CEABE8D}",
+      "{15CABDFF-FFD9-48F4-826D-A4C3D7868D3A}",
+      "{E4B51F7C-EF5D-4621-A05B-A0080826E54D}",
+      "{0F8E13AA-7CBE-4D00-AE30-4F0BC26870F6}",
+      "{A9598B40-14D5-47FC-B183-0B9FF10B90D3}",
+      "{5558C08C-3DC9-4F6E-B492-F4316C712826}"
+    ],
+    "count": 29
+  },
+  "components": [
+    {
+      "name": "HeroBanner",
+      "kind": "simple",
+      "status": "complete",
+      "contextOnly": false,
+      "renderingId": "{0E8CC47E-32D6-4F55-A7BF-E713ABD06323}",
+      "renderingPath": "/sitecore/layout/Renderings/Project/Financial/Page Content/HeroBanner",
+      "folderTemplateId": null,
+      "folderTemplateName": null,
+      "datasourceFolderName": null,
+      "headlessVariantContainer": "HeroBanner",
+      "reactFilePath": "src/components/pagecontent/HeroBanner.tsx",
+      "variants": [
+        "Default",
+        "Dentons"
+      ],
+      "pages": [
+        "/Home",
+        "/Home/client-experience",
+        "/Home/global-sectors",
+        "/Home/insights"
+      ]
+    },
+    {
+      "name": "FourColumnCta",
+      "kind": "simple",
+      "status": "complete",
+      "contextOnly": false,
+      "renderingId": "{35075000-760E-4FF3-BD1C-F2EEBA251DCB}",
+      "renderingPath": "/sitecore/layout/Renderings/Project/Financial/Page Content/Four Column CTA",
+      "folderTemplateId": "{{8FE7F8DC-CB5D-42C2-99F8-76608C243F10}}",
+      "folderTemplateName": "Promo Folder",
+      "datasourceFolderName": "Promos",
+      "headlessVariantContainer": "Four Column CTA",
+      "reactFilePath": "src/components/pagecontent/FourColumnCta.tsx",
+      "variants": [
+        "Default",
+        "Dentons",
+        "DentonsTiles"
+      ],
+      "pages": [
+        "/Home",
+        "/Home/insights"
+      ]
+    },
+    {
+      "name": "ThreeColumnCta",
+      "kind": "simple",
+      "status": "complete",
+      "contextOnly": false,
+      "renderingId": "{AD385021-CE2B-4FC1-89AA-207D408034A8}",
+      "renderingPath": "/sitecore/layout/Renderings/Project/Financial/Page Content/Three Column CTA",
+      "folderTemplateId": "{{8FE7F8DC-CB5D-42C2-99F8-76608C243F10}}",
+      "folderTemplateName": "Promo Folder",
+      "datasourceFolderName": "Promos",
+      "headlessVariantContainer": "Three Column CTA",
+      "reactFilePath": "src/components/pagecontent/ThreeColumnCta.tsx",
+      "variants": [
+        "Default",
+        "Dentons",
+        "DentonsCardRow",
+        "DentonsNews",
+        "DentonsNewsRow"
+      ],
+      "pages": [
+        "/Home"
+      ]
+    },
+    {
+      "name": "HeadingCta",
+      "kind": "simple",
+      "status": "complete",
+      "contextOnly": false,
+      "renderingId": "{89E1D547-7CD6-4EF0-9A27-1E99410797DD}",
+      "renderingPath": "/sitecore/layout/Renderings/Project/Financial/Page Content/Heading CTA",
+      "folderTemplateId": null,
+      "folderTemplateName": null,
+      "datasourceFolderName": null,
+      "headlessVariantContainer": "Heading CTA",
+      "reactFilePath": "src/components/pagecontent/HeadingCta.tsx",
+      "variants": [
+        "Default",
+        "PageHeading",
+        "Compact",
+        "Dentons",
+        "DentonsPageTitle"
+      ],
+      "pages": [
+        "/Home",
+        "/Home/global-solutions",
+        "/Home/featured-insights",
+        "/Home/about-dentons",
+        "/Home/global-presence",
+        "/Home/careers",
+        "/Home/find-your-dentons-team",
+        "/Home/services-and-solutions",
+        "/Home/events",
+        "/Home/recognition",
+        "/Home/news"
+      ]
+    },
+    {
+      "name": "CtaBanner",
+      "kind": "simple",
+      "status": "complete",
+      "contextOnly": false,
+      "renderingId": "{488B8AC0-0EF9-4F6F-8711-78BA182B2C4C}",
+      "renderingPath": "/sitecore/layout/Renderings/Project/Financial/Page Content/CTA Banner",
+      "folderTemplateId": null,
+      "folderTemplateName": null,
+      "datasourceFolderName": null,
+      "headlessVariantContainer": "CTA Banner",
+      "reactFilePath": "src/components/pagecontent/CtaBanner.tsx",
+      "variants": [
+        "Default",
+        "Dentons"
+      ],
+      "pages": [
+        "/Home",
+        "/Home/our-professionals",
+        "/Home/our-professionals/martin-abadi",
+        "/Home/our-professionals/nathan-abbott",
+        "/Home/our-professionals/majd-abdelhalim",
+        "/Home/our-professionals/ulugbek-abdullaev",
+        "/Home/our-professionals/sadaf-abkenar",
+        "/Home/our-professionals/dounia-abouarab",
+        "/Home/our-professionals/seth-abrams",
+        "/Home/our-professionals/stephanie-abrutyn",
+        "/Home/our-professionals/roger-abseher",
+        "/Home/our-professionals/diego-abuauad",
+        "/Home/our-professionals/luisabundio-maldonado",
+        "/Home/our-professionals/roberto-aburto",
+        "/Home/our-professionals/daniela-acevedo",
+        "/Home/our-professionals/nastasia-achilles",
+        "/Home/client-experience",
+        "/Home/global-sectors",
+        "/Home/insights",
+        "/Home/insights/balancing-innovation-and-competition",
+        "/Home/insights/ir-insights-podcast-industrial-relations-update",
+        "/Home/insights/misrepresentations-in-disclosure",
+        "/Home/insights/queensland-mining-reforms",
+        "/Home/insights/related-party-transactions-in-canada",
+        "/Home/insights/dcaa-signals",
+        "/Home/insights/dentons-digital-infrastructure-dispatch-october-2026",
+        "/Home/insights/the-government-postpones-the-entry-into-force-of-the-labor-assistance-fund"
+      ]
+    },
+    {
+      "name": "TwoColumnCta",
+      "kind": "simple",
+      "status": "complete",
+      "contextOnly": false,
+      "renderingId": "{3A9A9D22-C092-4B54-9511-EB202CEABE8D}",
+      "renderingPath": "/sitecore/layout/Renderings/Project/Financial/Page Content/Two Column CTA",
+      "folderTemplateId": "{{8FE7F8DC-CB5D-42C2-99F8-76608C243F10}}",
+      "folderTemplateName": "Promo Folder",
+      "datasourceFolderName": "Promos",
+      "headlessVariantContainer": "Two Column CTA",
+      "reactFilePath": "src/components/pagecontent/TwoColumnCta.tsx",
+      "variants": [
+        "Default",
+        "Dentons",
+        "DentonsPair"
+      ],
+      "pages": [
+        "/Home/client-experience"
+      ]
+    },
+    {
+      "name": "Eyebrow",
+      "kind": "simple",
+      "status": "complete",
+      "contextOnly": false,
+      "headerArea": true,
+      "renderingId": "{5F765231-1DA9-467A-8B35-2171CCE313C1}",
+      "renderingPath": "/sitecore/layout/Renderings/Project/Financial/Navigation/Eyebrow",
+      "folderTemplateId": null,
+      "folderTemplateName": null,
+      "datasourceFolderName": null,
+      "headlessVariantContainer": "Eyebrow",
+      "reactFilePath": "src/components/navigation/Eyebrow.tsx",
+      "variants": [
+        "Default",
+        "Dentons"
+      ],
+      "pages": [
+        "(partial designs)"
+      ]
+    },
+    {
+      "name": "Header",
+      "kind": "context-only",
+      "status": "complete",
+      "contextOnly": true,
+      "headerArea": true,
+      "renderingId": "{81317D3B-F929-426A-83EC-421982F8F1E6}",
+      "renderingPath": "/sitecore/layout/Renderings/Project/Financial/Navigation/Header",
+      "folderTemplateId": null,
+      "folderTemplateName": null,
+      "datasourceFolderName": null,
+      "headlessVariantContainer": "Header",
+      "reactFilePath": "src/components/navigation/Header.tsx",
+      "variants": [
+        "Default",
+        "WithLogoImage",
+        "Dentons"
+      ],
+      "pages": [
+        "(partial designs)"
+      ]
+    },
+    {
+      "name": "Navigation",
+      "kind": "context-only",
+      "status": "complete",
+      "contextOnly": true,
+      "headerArea": true,
+      "renderingId": "{1DEB067F-0BB1-405E-94F5-2ABB537A6160}",
+      "renderingPath": "/sitecore/layout/Renderings/Feature/JSS Experience Accelerator/Navigation/Navigation",
+      "folderTemplateId": null,
+      "folderTemplateName": null,
+      "datasourceFolderName": null,
+      "headlessVariantContainer": "Navigation",
+      "reactFilePath": "src/components/navigation/Navigation.tsx",
+      "variants": [
+        "Default",
+        "Dentons"
+      ],
+      "pages": [
+        "(partial designs)"
+      ]
+    },
+    {
+      "name": "Footer",
+      "kind": "simple",
+      "status": "complete",
+      "contextOnly": false,
+      "headerArea": true,
+      "renderingId": "{771A3F27-6448-44AC-ADD0-E5DE311C6E3B}",
+      "renderingPath": "/sitecore/layout/Renderings/Project/Financial/Navigation/Footer",
+      "folderTemplateId": null,
+      "folderTemplateName": null,
+      "datasourceFolderName": null,
+      "headlessVariantContainer": "Footer",
+      "reactFilePath": "src/components/navigation/Footer.tsx",
+      "variants": [
+        "Default",
+        "Dentons"
+      ],
+      "pages": [
+        "(partial designs)"
+      ]
+    }
+  ],
+  "warnings": [
+    "6 NEW component(s) still to build in phase 5: ProfessionalDirectory, ProfessionalProfile, SectorGroupList, InsightResults, InsightArticle, SiteSearch. Build them (sitecore-component-router -> create-*), add them to the customer's manifest, then RE-RUN this script so their Data folders, Headless Variants containers (named like the rendering item), client variants and Available Renderings ids are included.",
+    "HeadingCta: variants PageHeading, Compact are not in the manifest/TSX (have Default)"
+  ]
+}
