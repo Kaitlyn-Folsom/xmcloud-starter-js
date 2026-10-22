@@ -30,17 +30,12 @@ if (process.argv[2] === "hook") {
   const out = (o) => { process.stdout.write(JSON.stringify(o)); process.exit(0); };
   let input = {}; try { input = JSON.parse(readFileSync(0, "utf8") || "{}"); } catch { /* no stdin */ }
   if (input.status && input.status !== "completed") out({});   // the SE pressed stop, or an error: never fight them
-  const vroot = join(ROOT, "industry-verticals");
-  let best = null;
-  for (const c of existsSync(vroot) ? readdirSync(vroot) : []) {
-    if (c === ENV.BASE_APP_FOLDER) continue;
-    const d = join(vroot, c, "docs", "ai", "demos", c), plan = join(d, "demo-plan.yaml");
-    if (!existsSync(plan) || !/^userApproved:\s*true/m.test(readFileSync(plan, "utf8"))) continue;
-    if (existsSync(join(d, ".run-complete"))) continue;
-    const t = Math.max(...["demo-plan.yaml", "demo-progress.yaml", "manual-tasks.md"].map((f) => { try { return statSync(join(d, f)).mtimeMs; } catch { return 0; } }));
-    if (!best || t > best.t) best = { c, t, d };
-  }
-  if (!best) out({});   // no approved, unfinished demo: nothing to do
+  // Only the run that `init` started (harness/.active-run.json) is ever restarted. Other approved but unfinished demos are never touched.
+  let active = null; try { active = JSON.parse(readFileSync(join(ROOT, "harness", ".active-run.json"), "utf8")); } catch { /* none */ }
+  if (!active?.customer || Date.now() - Date.parse(active.startedAt || 0) > 24 * 3600 * 1000) out({});   // no active run, or abandoned for a day
+  const d = join(ROOT, "industry-verticals", active.customer, "docs", "ai", "demos", active.customer), plan = join(d, "demo-plan.yaml");
+  if (!existsSync(plan) || !/^userApproved:\s*true/m.test(readFileSync(plan, "utf8")) || existsSync(join(d, ".run-complete"))) out({});
+  const best = { c: active.customer, d };
   const r = spawnSync(process.execPath, [fileURLToPath(import.meta.url), "check", best.c], { encoding: "utf8" });
   if (r.status === 0) { writeFileSync(join(best.d, ".run-complete"), new Date().toISOString()); out({}); }
   out({ followup_message: `The demo run for "${best.c}" is NOT finished (automatic restart ${Number(input.loop_count ?? 0) + 1}). Do not summarise or hand over. Run \`node harness/scripts/run-gate.mjs check ${best.c}\`, do the first failing item now, and keep going until it exits 0. If it needs a decision only the SE can make, ask that one question.\n\n${r.stdout.trim().slice(0, 1500)}` });
@@ -76,6 +71,7 @@ if (cmd === "init") {
   const cur = read(mt);
   if (!cur) writeFileSync(mt, SKELETON);
   else if (!/^## Always \(every demo\)/m.test(cur)) writeFileSync(mt, cur.replace(/\s*$/, "\n\n") + ALWAYS);
+  writeFileSync(join(ROOT, "harness", ".active-run.json"), JSON.stringify({ customer, startedAt: new Date().toISOString() }));   // the stop hook only restarts THIS run
   console.log(`✔ ${mt.slice(ROOT.length + 1).replace(/\\/g, "/")} ready (fixed "Always" section in place)`);
   process.exit(0);
 }
@@ -112,9 +108,32 @@ if (url && !/example\.com/.test(url)) {
   if (!crops.length) fail("no section crops in sections/", `node harness/scripts/section-capture.mjs --customer ${customer} --url ${url}`);
   const lookWaived = /BLOCKED after 2 attempts:.*(looks gate|rendering host|screenshot)/i.test(read(mt));
   if (!lookWaived) for (const f of ["header-styles.demo.json", "sections.demo.json"]) if (!existsSync(join(demo, f))) fail(`looks gate not run on the built site: ${f}`, "sitecore-create-demo-variants step 7 items 3 and 3b (needs the built page URL: rendering host or preview).");
-  for (const [v, what] of [["header-styles.demo.verdict.json", "header"], ["sections.demo.verdict.json", "sections"]]) {
+  const dropped = new Set([...plan.matchAll(/^\s*droppedLiveSections:\s*\[([^\]]*)\]/gm)].flatMap((m) => m[1].split(",").map((x) => Number(x.trim()))));
+  // every mirrored page (Home + each page with a sectionsFile) needs its own built-vs-live comparison
+  const pageFiles = [...new Set([...plan.matchAll(/^\s*sectionsFile:\s*"?([\w.-]+\.json)/gm)].map((m) => m[1]))];
+  const verdicts = [["header-styles.demo.verdict.json", "header"], ["sections.demo.verdict.json", "sections"], ...pageFiles.map((f) => [f.replace(/\.json$/, ".demo.verdict.json"), f.replace(/\.json$/, "")])];
+  for (const [v, what] of verdicts) {
+    if (!existsSync(join(demo, v))) { if (!lookWaived && pageFiles.some((f) => f.replace(/\.json$/, ".demo.verdict.json") === v)) fail(`looks gate not run for the mirrored page ${what}`, `node harness/scripts/section-capture.mjs --customer ${customer} --url <the BUILT page url> --out ${what}.demo.json --compare ${what}.json (then fix, one more pass)`); continue; }
     const r = readJson(join(demo, v)); if (!r || lookWaived) continue;
-    if (!r.pass && (r.attempts ?? 1) < 2) fail(`${what} looks gate failed (${(r.diffs ?? []).length} difference(s): ${(r.diffs ?? []).slice(0, 2).join("; ").slice(0, 160)})`, `Fix the SCSS/variant/measurement cause (never hand-edit the reference JSON to match), rebuild, re-run the ${what} compare once more; leftovers after that second run go to manual-tasks.md.`);
+    const diffs = (r.diffs ?? []).filter((d) => !dropped.has(Number((String(d).match(/^#(\d+)/) ?? [])[1])));
+    const missingSec = diffs.filter((d) => /not found in the demo/i.test(d));
+    if (missingSec.length) fail(`${what} looks gate: a live section or the footer is MISSING from the built page (${missingSec.slice(0, 3).join("; ").slice(0, 200)})`, "Build it (component, variant, partial) and re-run the compare. Never waived by attempts. Only if the live section is deliberately not part of the demo: site.droppedLiveSections + droppedReason in demo-plan.yaml.");
+    else if (diffs.length && (r.attempts ?? 1) < 2) fail(`${what} looks gate failed (${diffs.length} difference(s): ${diffs.slice(0, 2).join("; ").slice(0, 160)})`, `Fix the SCSS/variant/measurement cause (never hand-edit the reference JSON to match), rebuild, re-run the ${what} compare once more.`);
+    else if (diffs.length && !/^##\s+Looks leftovers[\s\S]*?^\s*[-*]\s+\S/m.test(read(mt))) fail(`${what} looks gate still shows ${diffs.length} difference(s) after ${r.attempts} runs and manual-tasks.md has no "Looks leftovers" list`, "Add a section `## Looks leftovers` to manual-tasks.md with one bullet per remaining difference (what differs, why it could not be matched).");
+  }
+  // every image the live site shows in the mirrored sections must be downloaded (and, below, uploaded)
+  {
+    const want = new Map();
+    for (const f of readdirSync(demo).filter((x) => /^sections.*\.json$/.test(x) && !/\.demo\./.test(x))) {
+      for (const sct of readJson(join(demo, f))?.sections ?? []) for (const im of [...(sct.images ?? []).map((x) => x.src), ...(sct.backgroundImages ?? [])]) {
+        const u = String(im?.url ?? im ?? ""); if (!/^https?:/.test(u)) continue;
+        let b = u.split("?")[0].split("/").pop(); try { b = decodeURIComponent(b); } catch { /* keep */ }
+        want.set(b.toLowerCase().replace(/\.[a-z0-9]+$/, ""), u);
+      }
+    }
+    const have = JSON.stringify(readJson(join(demo, "images", "image-manifest.json")) ?? []).toLowerCase().replace(/%20/g, " ");
+    const absent = [...want].filter(([k]) => !have.includes(k.replace(/%20/g, " "))).map(([, u]) => u);
+    if (absent.length) fail(`${absent.length} image(s) of the live sections are not in images/image-manifest.json (e.g. ${absent[0].slice(0, 90)})`, `Download every image of sections*.json (images[] and backgroundImages), then node harness/scripts/content-hub-upload.mjs ${customer} and attach each image to its datasource.`);
   }
   const man = readJson(join(demo, "images", "image-manifest.json"));
   if (!man) fail("images not downloaded (images/image-manifest.json missing)", `node harness/scripts/download-images.mjs ... from content-map.yaml (images come from sections.json images[] / backgroundImages)`);

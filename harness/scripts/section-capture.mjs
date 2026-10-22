@@ -5,6 +5,7 @@
  *
  *   node harness/scripts/section-capture.mjs --customer <customer> --url <prospect page> [--width 1440] [--selector "main > section"] [--out sections.json]
  *   node harness/scripts/section-capture.mjs --customer <customer> --url <DEMO page> --out sections.demo.json --compare sections.json     (gate, exit 4 on differences)
+ *   other mirrored pages: live  --url <live page> --out sections-<slug>.json ; built  --url <built page> --out sections-<slug>.demo.json --compare sections-<slug>.json (crops in sections-<slug>/ and sections-<slug>.demo/)
  *
  * Writes in <demo folder>: sections.json, sections/NN-<slug>.png (one crop per section), sections.md (one table the agent and the SE can read).
  * Per section: effective background colour + CSS background image, content width, top/bottom padding, the elements in visual order with their ROLE
@@ -24,8 +25,11 @@ const customer = flags.customer, url = flags.url;
 if (!customer || !url) die("need --customer and --url");
 let chromium; try { ({ chromium } = await import("playwright")); } catch { die("Playwright is not installed: run node harness/scripts/deps-check.mjs --fix"); }
 const demo = demoDir(customer), outName = String(flags.out ?? "sections.json"), width = Number(flags.width ?? 1440);
+const stem = outName.replace(/\.json$/, "");
 const isDemoRun = outName !== "sections.json";
-const shotDir = join(demo, isDemoRun ? "sections-demo" : "sections");
+// crops go next to their own json so live references and built-page captures never mix: sections/ (home, live), sections-demo/ (home, built), <stem>/ (any other page, live or built)
+const shotName = stem === "sections" ? "sections" : stem === "sections.demo" ? "sections-demo" : stem;
+const shotDir = join(demo, shotName);
 mkdirSync(shotDir, { recursive: true });
 
 const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
@@ -146,7 +150,7 @@ try {
       const logoish = el.querySelector("footer img, img[alt*=logo i], img[src*=logo i]");
       return {
         background: secBg, backgroundImage: bgImage, backgroundImages: bgImages,
-        contentLeft: Math.round(cL), contentRight: Math.round(cR), contentWidth: Math.round(cR - cL), fullWidth: (cR - cL) >= vw * 0.9,
+        contentLeft: Math.round(cL), contentRight: Math.round(cR), contentWidth: Math.round(cR - cL), fullWidth: (cR - cL) >= vw * 0.9, scroller: el.scrollWidth > el.clientWidth + 20 || (cR - cL) > vw * 1.05,
         paddingTop: Math.max(0, Math.round(cT - sr.top)), paddingBottom: Math.max(0, Math.round(sr.bottom - cB)),
         order: elements.map((x) => x.role).filter((r, i, a) => r !== a[i - 1]).join(","),
         heading: first("heading") ? { text: first("heading").text, ...(({ role, text, x, y, w, h, ...s }) => s)(first("heading")) } : null,
@@ -162,7 +166,7 @@ try {
     const slug = ((m.heading?.text || f.tag).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "section").slice(0, 32);
     const nn = String(f.i + 1).padStart(2, "0"), shot = `${nn}-${slug}.png`;
     try { await page.locator(`[data-hsec="${f.i}"]`).screenshot({ path: join(shotDir, shot), timeout: 15000 }); } catch { /* very tall or detached */ }
-    sections.push({ index: f.i + 1, kind: f.isFooter ? "footer" : "section", top: f.top, height: f.height, screenshot: `${isDemoRun ? "sections-demo" : "sections"}/${shot}`, ...m });
+    sections.push({ index: f.i + 1, kind: f.isFooter ? "footer" : "section", top: f.top, height: f.height, screenshot: `${shotName}/${shot}`, ...m });
   }
   result = { url, viewport: width, capturedAt: new Date().toISOString(), sections };
 } finally { await browser.close(); }
