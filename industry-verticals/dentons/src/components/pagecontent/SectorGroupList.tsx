@@ -81,8 +81,8 @@ export const Default = ({ fields, params }: SectorGroupListProps): JSX.Element =
                 <ul>
                   {group.links.map((item) => (
                     <li key={item.id}>
-                      {(isPageEditing || item.link?.jsonValue?.value?.href) ? (
-                        <Link field={item.link?.jsonValue} />
+                      {item.link?.jsonValue && (isPageEditing || item.link.jsonValue.value?.href) ? (
+                        <Link field={item.link.jsonValue} />
                       ) : (
                         <Text field={item.label?.jsonValue} />
                       )}

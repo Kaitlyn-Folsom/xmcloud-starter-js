@@ -69,11 +69,14 @@ export const Default = ({ fields, params }: InsightResultsProps): JSX.Element =>
       <div className="container">
         <h2>Trending</h2>
         <div className="row g-3 hubs">
-          {hubs.map((item) => (
-            <div className="col-md-4" key={item.id}>
-              <Link field={item.link?.jsonValue} />
-            </div>
-          ))}
+          {hubs.map((item) => {
+            const link = item.link?.jsonValue;
+            return (
+              <div className="col-md-4" key={item.id}>
+                {link && <Link field={link} />}
+              </div>
+            );
+          })}
         </div>
         <form className="result-filters" onSubmit={(event) => event.preventDefault()}>
           <label>
@@ -93,16 +96,17 @@ export const Default = ({ fields, params }: InsightResultsProps): JSX.Element =>
         </form>
         <p>{isPageEditing ? '' : `${results.length} results`}</p>
         <div className="results">
-          {results.map((item) => (
-            <article key={item.id}>
-              <h3>
-                <Link field={item.link?.jsonValue} />
-              </h3>
-              {(isPageEditing || textOf(item.date)) && <Text tag="p" field={item.date?.jsonValue} />}
-              {(isPageEditing || textOf(item.type)) && <Text tag="p" field={item.type?.jsonValue} />}
-              {(isPageEditing || textOf(item.summary)) && <Text tag="p" field={item.summary?.jsonValue} />}
-            </article>
-          ))}
+          {results.map((item) => {
+            const link = item.link?.jsonValue;
+            return (
+              <article key={item.id}>
+                <h3>{link && <Link field={link} />}</h3>
+                {(isPageEditing || textOf(item.date)) && <Text tag="p" field={item.date?.jsonValue} />}
+                {(isPageEditing || textOf(item.type)) && <Text tag="p" field={item.type?.jsonValue} />}
+                {(isPageEditing || textOf(item.summary)) && <Text tag="p" field={item.summary?.jsonValue} />}
+              </article>
+            );
+          })}
         </div>
       </div>
     </div>

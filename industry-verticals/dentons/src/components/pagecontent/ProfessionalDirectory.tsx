@@ -134,16 +134,16 @@ export const Default = ({ fields, params }: ProfessionalDirectoryProps): JSX.Ele
                   <NextImage field={person.photo?.jsonValue} width={151} height={181} />
                 )}
                 <h2>
-                  {(isPageEditing || person.link?.jsonValue?.value?.href) ? (
-                    <Link field={person.link?.jsonValue} />
+                  {person.link?.jsonValue && (isPageEditing || person.link.jsonValue.value?.href) ? (
+                    <Link field={person.link.jsonValue} />
                   ) : (
                     <Text field={person.name?.jsonValue} />
                   )}
                 </h2>
                 {(isPageEditing || valueOf(person.role)) && <Text tag="p" field={person.role?.jsonValue} />}
                 {(isPageEditing || valueOf(person.office)) && <Text tag="p" field={person.office?.jsonValue} />}
-                {(isPageEditing || person.email?.jsonValue?.value?.href) && (
-                  <Link field={person.email?.jsonValue} className="button button-main" />
+                {person.email?.jsonValue && (isPageEditing || person.email.jsonValue.value?.href) && (
+                  <Link field={person.email.jsonValue} className="button button-main" />
                 )}
               </article>
             </div>

@@ -20,22 +20,22 @@ import * as TwoColumnCta from 'src/components/pagecontent/TwoColumnCta';
 import * as ThreeColumnCta from 'src/components/pagecontent/ThreeColumnCta';
 import * as Testimonials from 'src/components/pagecontent/Testimonials';
 import * as StatsCounter from 'src/components/pagecontent/StatsCounter';
+import * as SiteSearch from 'src/components/pagecontent/SiteSearch';
+import * as SectorGroupList from 'src/components/pagecontent/SectorGroupList';
 import * as RichText from 'src/components/pagecontent/RichText';
 import * as Quote from 'src/components/pagecontent/Quote';
 import * as Questions from 'src/components/pagecontent/Questions';
 import * as PromoCta from 'src/components/pagecontent/PromoCta';
 import * as ProjectList from 'src/components/pagecontent/ProjectList';
 import * as ProjectDetails from 'src/components/pagecontent/ProjectDetails';
+import * as ProfessionalProfile from 'src/components/pagecontent/ProfessionalProfile';
+import * as ProfessionalDirectory from 'src/components/pagecontent/ProfessionalDirectory';
 import * as ParallaxBanner from 'src/components/pagecontent/ParallaxBanner';
 import * as PageBackground from 'src/components/pagecontent/PageBackground';
+import * as InsightResults from 'src/components/pagecontent/InsightResults';
+import * as InsightArticle from 'src/components/pagecontent/InsightArticle';
 import * as ImageGallery from 'src/components/pagecontent/ImageGallery';
 import * as HeroBanner from 'src/components/pagecontent/HeroBanner';
-import * as InsightArticle from 'src/components/pagecontent/InsightArticle';
-import * as InsightResults from 'src/components/pagecontent/InsightResults';
-import * as ProfessionalDirectory from 'src/components/pagecontent/ProfessionalDirectory';
-import * as ProfessionalProfile from 'src/components/pagecontent/ProfessionalProfile';
-import * as SectorGroupList from 'src/components/pagecontent/SectorGroupList';
-import * as SiteSearch from 'src/components/pagecontent/SiteSearch';
 import * as Hero from 'src/components/pagecontent/Hero';
 import * as HeadingCta from 'src/components/pagecontent/HeadingCta';
 import * as FourColumnCta from 'src/components/pagecontent/FourColumnCta';
@@ -82,22 +82,22 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['ThreeColumnCta', { ...ThreeColumnCta }],
   ['Testimonials', { ...Testimonials }],
   ['StatsCounter', { ...StatsCounter }],
+  ['SiteSearch', { ...SiteSearch }],
+  ['SectorGroupList', { ...SectorGroupList }],
   ['RichText', { ...RichText }],
   ['Quote', { ...Quote }],
   ['Questions', { ...Questions }],
   ['PromoCta', { ...PromoCta }],
   ['ProjectList', { ...ProjectList }],
   ['ProjectDetails', { ...ProjectDetails }],
+  ['ProfessionalProfile', { ...ProfessionalProfile }],
+  ['ProfessionalDirectory', { ...ProfessionalDirectory }],
   ['ParallaxBanner', { ...ParallaxBanner }],
   ['PageBackground', { ...PageBackground }],
+  ['InsightResults', { ...InsightResults }],
+  ['InsightArticle', { ...InsightArticle }],
   ['ImageGallery', { ...ImageGallery }],
   ['HeroBanner', { ...HeroBanner }],
-  ['InsightArticle', { ...InsightArticle }],
-  ['InsightResults', { ...InsightResults }],
-  ['ProfessionalDirectory', { ...ProfessionalDirectory }],
-  ['ProfessionalProfile', { ...ProfessionalProfile }],
-  ['SectorGroupList', { ...SectorGroupList }],
-  ['SiteSearch', { ...SiteSearch }],
   ['Hero', { ...Hero }],
   ['HeadingCta', { ...HeadingCta }],
   ['FourColumnCta', { ...FourColumnCta }],

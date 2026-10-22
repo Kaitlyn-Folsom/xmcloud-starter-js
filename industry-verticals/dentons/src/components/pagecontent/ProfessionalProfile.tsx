@@ -71,7 +71,7 @@ export const Default = ({ params }: ProfessionalProfileProps): JSX.Element => {
             {(isPageEditing || fields.Photo?.value?.src) && (
               <NextImage field={fields.Photo} width={151} height={181} />
             )}
-            {(isPageEditing || fields.Email?.value?.href) && (
+            {fields.Email && (isPageEditing || fields.Email.value?.href) && (
               <Link field={fields.Email} className="button button-main" />
             )}
             {(isPageEditing || fields.Phone?.value) && <Text tag="p" field={fields.Phone} />}
