@@ -1809,7 +1809,10 @@ components:
       path: "/sitecore/templates/Project/Financial/Components/Three Column CTA"
       itemId: "{148D07BA-F923-4FB2-8907-0BD440D5DB44}"
       sectionName: ""
-      fields: []
+      fields:
+        - { name: "Eyebrow1", type: "Single-Line Text", itemId: "{2AE1392D-DA64-4E2E-9A9B-04C89149D71D}", section: "Column 1" }
+        - { name: "Eyebrow2", type: "Single-Line Text", itemId: "{E9F9A744-7B2F-4AE3-AF30-12E800A9B5E8}", section: "Column 2" }
+        - { name: "Eyebrow3", type: "Single-Line Text", itemId: "{A2F18D34-CA21-49F3-95BF-8B4A8FF8C7D6}", section: "Column 3" }
       baseTemplatesSet: true
       standardValues:
         itemId: ""

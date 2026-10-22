@@ -21,10 +21,14 @@
 }
 
 .component.header.variant-dentons {
+  --v-icon: #702082;
+  position: relative;
+  z-index: 40;
   background: #ffffff;
   margin: 0;
   padding: 0;
   height: 101px;
+  overflow: visible;
   border-bottom: 1px solid #efefef;
 
   .container { max-width: 1170px; }
@@ -32,7 +36,10 @@
   .col { display: flex; align-items: center; min-width: 0; }
   img { max-width: none; height: 45px; width: 180px; object-fit: contain; }
   .component.navigation { flex: 1 1 auto; order: 1; width: auto; }
-  .component.site-search { order: 2; flex: 0 0 auto; width: auto; margin-left: 1.5rem; }
+  .component.site-search { order: 3; flex: 0 0 auto; width: auto; margin-left: 0.35rem; }
+  .header-tools { display: contents; }
+  .header-language { order: 2; }
+  .header-menu { order: 4; }
 }
 
 @media (min-width: 992px) {
@@ -56,4 +63,121 @@
       white-space: nowrap;
     }
   }
+}
+
+.component.header.variant-dentons {
+  .menu-humburger { display: none; }
+
+  .component.site-search {
+    position: relative;
+
+    button {
+      width: 40px;
+      height: 40px;
+      color: var(--v-icon);
+    }
+
+    svg { width: 22px; height: 22px; }
+
+    form {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      z-index: 30;
+      min-width: 16rem;
+      padding: 0.75rem;
+      background: #ffffff;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+  }
+
+  .header-language,
+  .header-menu {
+    position: relative;
+    flex: 0 0 auto;
+  }
+
+  .header-language { margin-left: 16px; }
+
+  .header-language-toggle,
+  .header-menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--v-icon);
+  }
+
+  .header-language-toggle { width: auto; padding: 0 4px 0 0; }
+
+  .header-language-toggle { padding-right: 2px; }
+
+  .header-language-bubble {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 26px;
+    padding: 0 6px 2px;
+    border: 1.6px solid currentColor;
+    border-radius: 7px 7px 7px 2px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+
+  .header-language-menu,
+  .header-menu-panel {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    z-index: 30;
+    margin: 0;
+    padding: 0.5rem 0;
+    background: #ffffff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    list-style: none;
+  }
+
+  .header-language-menu {
+    min-width: 5rem;
+
+    button {
+      width: 100%;
+      padding: 0.4rem 0.9rem;
+      border: 0;
+      background: transparent;
+      color: #4c4c4c;
+      font-weight: 600;
+      text-align: left;
+    }
+  }
+
+  .header-menu-panel {
+    min-width: 16rem;
+    padding: 0.75rem 0;
+
+    ul { margin: 0; padding: 0; list-style: none; }
+
+    a {
+      display: block;
+      padding: 0.45rem 1.25rem;
+      color: #545859;
+      font-size: 16px;
+      text-decoration: none;
+      white-space: nowrap;
+
+      &:hover { color: var(--v-icon); }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .component.header.variant-dentons .menu-humburger { display: flex; }
 }
