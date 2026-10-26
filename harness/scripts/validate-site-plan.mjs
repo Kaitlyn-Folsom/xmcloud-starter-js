@@ -17,10 +17,16 @@
  *  P7 (page type "page") each page has 2-12 sections; (landing) none, content lives on the page template fields
  *  P8 every section says where its content comes from (transcript | site | illustrative)
  *  P9 (when nav.json exists) every top-level item of the prospect's header menu has a page; menu-only pages are `navTarget: true`
+ *  P0 the story was approved on its own before the site plan was written (storyApproved: true, demo-from-transcript T2b)
+ *  P12b/P12c every live band of every mirrored page is built (liveSection) or dropped with a reason; the header and footer bands are
+ *      never body sections and the footer is never droppable (it is built by the Footer partial and always compared by the gate)
+ *  P16 Rich Text carries prose only (a heading and paragraphs): never a live band with images, buttons, cards, a form, a video,
+ *      a carousel, a repeated item (FAQ, logo wall, link list), and never with a look
  */
 import { existsSync, readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
-import { die, demoDir, registryPath, rootRel } from "./_lib.mjs";
+import { die, demoDir, registryPath, rootRel, readJson, chromeBands, notProse, isAdBand, readRegistry } from "./_lib.mjs";
+import { parseYaml } from "./_yaml.mjs";
 
 const client = process.argv[2];
 if (!client) die("Usage: validate-site-plan.mjs <customer>");
@@ -29,50 +35,7 @@ const planPath = join(demo, "demo-plan.yaml");
 if (!existsSync(planPath)) die(`${rootRel(planPath)} not found`);
 const regPath = registryPath(client);
 
-// ── YAML subset reader (same as validate-story.mjs) ──
-function parseYaml(text) {
-  const lines = text.replace(/^﻿/, "").split(/\r?\n/).map((raw) => ({ raw, indent: raw.match(/^ */)[0].length, t: raw.trim() })).filter((l) => l.t && !l.t.startsWith("#"));
-  let i = 0;
-  const scalar = (v) => {
-    v = v.trim();
-    if (/^\{.*\}$/.test(v)) { // inline map { a: 1, b: "x, y" }
-      const o = {}, inner = v.slice(1, -1); let depth = 0, q = null, cur = ""; const parts = [];
-      for (const ch of inner) { if (q) { if (ch === q) q = null; cur += ch; continue; } if (ch === '"' || ch === "'") { q = ch; cur += ch; continue; } if (ch === "[" || ch === "{") depth++; if (ch === "]" || ch === "}") depth--; if (ch === "," && depth === 0) { parts.push(cur); cur = ""; continue; } cur += ch; }
-      if (cur.trim()) parts.push(cur);
-      for (const p of parts) { const k = p.indexOf(":"); if (k > 0) o[p.slice(0, k).trim()] = scalar(p.slice(k + 1)); }
-      return o;
-    }
-    if (/^\[.*\]$/.test(v)) return v.slice(1, -1).split(",").map((x) => scalar(x)).filter((x) => x !== "");
-    { const qm = v.match(/^("(?:[^"\\]|\\.)*"|'(?:[^']|'')*')\s+#.*$/); if (qm) v = qm[1]; }   // quoted value followed by a comment
-    if (/^".*"$/.test(v)) { try { return JSON.parse(v); } catch { return v.slice(1, -1); } }
-    if (/^'.*'$/.test(v)) return v.slice(1, -1).replace(/''/g, "'");
-    if (v === "true") return true; if (v === "false") return false; if (v === "null" || v === "~") return null;
-    return v.replace(/\s+#.*$/, "");
-  };
-  function block() { if (i >= lines.length) return null; return lines[i].t.startsWith("- ") || lines[i].t === "-" ? list(lines[i].indent) : map(lines[i].indent); }
-  function map(indent) {
-    const o = {};
-    while (i < lines.length && lines[i].indent === indent && !lines[i].t.startsWith("- ")) {
-      const m = lines[i].t.match(/^([^:]+?):\s*(.*)$/); if (!m) { i++; continue; }
-      i++;
-      if (m[2] === "") o[m[1]] = i < lines.length && lines[i].indent > indent ? block() : (i < lines.length && lines[i].indent === indent && lines[i].t.startsWith("- ") ? list(indent) : null);
-      else o[m[1]] = scalar(m[2]);
-    }
-    return o;
-  }
-  function list(indent) {
-    const a = [];
-    while (i < lines.length && lines[i].indent === indent && lines[i].t.startsWith("-")) {
-      const rest = lines[i].t.replace(/^-\s*/, "");
-      if (!rest) { i++; a.push(i < lines.length && lines[i].indent > indent ? block() : null); continue; }
-      const m = rest.match(/^([^:"'\[{]+?):\s*(.*)$/);
-      if (m) { const ci = indent + (lines[i].t.length - rest.length); lines[i] = { raw: lines[i].raw, indent: ci, t: rest }; a.push(map(ci)); }
-      else { a.push(scalar(rest)); i++; }
-    }
-    return a;
-  }
-  return map(lines[0]?.indent ?? 0);
-}
+
 
 let plan;
 try { plan = parseYaml(readFileSync(planPath, "utf8")); } catch (e) { die(`Could not read demo-plan.yaml: ${e.message}`); }
@@ -81,19 +44,17 @@ const has = (v) => v != null && String(v).trim() !== "" && !/^(tbd|todo)$/i.test
 const moments = arr(plan.story?.moments), pages = arr(plan.site?.pages);
 const momentIds = new Set(moments.map((m) => m.id));
 
-// registry: id -> variants[]
-const reg = new Map();
-for (const blk of readFileSync(regPath, "utf8").split(/\n  - id:\s*/).slice(1)) {
-  const id = blk.split(/\r?\n/)[0].trim();
-  const v = (blk.match(/^\s*variants:\s*\[([^\]]*)\]/m) ?? [])[1];
-  reg.set(id, v ? v.split(",").map((x) => x.trim()).filter(Boolean) : []);
-}
+// registry: id -> variants[] (the shared reader: inline and block variant lists)
+const reg = new Map([...readRegistry(client)].map(([id, e]) => [id, e.variants]));
 const CHROME = new Set(["navigation-header", "footer", "announcement-bar-nav"]);
 
 const newComps = [];   // sections / chrome entries that specify a NEW component
 const results = []; const add = (id, level, ok, detail = "") => results.push({ id, level, ok, detail });
 const norm = (p) => String(p ?? "").replace(/\/+$/, "") || "/";
 const paths = pages.map((p) => norm(p.path));
+
+// P0: the story gate (T2b) comes first. A plan approved before this gate existed (userApproved) is accepted.
+add("P0 the story was approved before the site plan (storyApproved: true)", "required", plan.storyApproved === true || plan.userApproved === true, plan.storyApproved === true ? "" : "show the story (demo-from-transcript T2b), ask the SE, then write storyApproved: true and storyApprovedAt");
 
 // P1
 const homes = pages.filter((p) => norm(p.path).toLowerCase() === "/home");
@@ -219,8 +180,10 @@ add("P14 pages the demo navigates to mirror their live page; menu-only pages are
 {
   const srcUrl = String(plan.client?.sourceUrl ?? ""), real = /^https?:\/\//.test(srcUrl) && !/example\.com/.test(srcUrl);
   let live = null; try { live = JSON.parse(readFileSync(join(demo, "sections.json"), "utf8")); } catch { /* not captured yet */ }
-  const idxOf = (f) => { let j = null; try { j = JSON.parse(readFileSync(join(demo, f), "utf8")); } catch { /* not captured */ } return new Set(arr(j?.sections).filter((x) => x.kind !== "footer").map((x) => x.index)); };
-  const liveIdx = new Set(arr(live?.sections).filter((x) => x.kind !== "footer").map((x) => x.index)), p12 = [], covered = new Set(), added = [];
+  // body bands only: the header band (header-styles gate), the footer band (Footer partial) and advertisement slots are never sections of a page
+  const bodyIdx = (j) => { const b = chromeBands(j); return new Set(arr(j?.sections).filter((x) => !isAdBand(x)).map((x) => x.index).filter((i) => i !== b.headerIdx && i !== b.footerIdx)); };
+  const idxOf = (f) => bodyIdx(readJson(join(demo, f)));
+  const liveIdx = bodyIdx(live), p12 = [], covered = new Set(), added = [], p12c = [];
   for (const p of pages) {
     const mirrored = has(p.liveUrl) || (real && norm(p.path).toLowerCase() === "/home");
     if (!mirrored) continue;
@@ -236,12 +199,43 @@ add("P14 pages the demo navigates to mirror their live page; menu-only pages are
       else if (!has(p.sectionsFile)) covered.add(Number(s.liveSection));
       if (s.contentSource === "illustrative") p12.push(`${at}: a mirrored section uses the live copy (contentSource: site), not illustrative text`);
     }
+    // P12c: the other mirrored pages are built out completely too (same rule as /Home)
+    if (has(p.sectionsFile) && pIdx.size) {
+      const cap = readJson(join(demo, String(p.sectionsFile))), foot = chromeBands(cap).footerIdx;
+      const built = new Set(arr(p.sections).map((s) => Number(s?.liveSection)));
+      const dropped = new Set(arr(p.droppedLiveSections).map(Number));
+      const still = [...pIdx].filter((i) => !built.has(i) && !dropped.has(i));
+      if (still.length) p12c.push(`${norm(p.path)}: live sections ${still.join(", ")} of ${p.sectionsFile} are not planned (build them, or droppedLiveSections + droppedReason on the page)`);
+      if (dropped.size && !has(p.droppedReason)) p12c.push(`${norm(p.path)}: droppedLiveSections needs droppedReason`);
+      if (foot != null && dropped.has(foot)) p12c.push(`${norm(p.path)}: section ${foot} is the footer: it is built by the Footer partial and is never dropped`);
+    }
   }
   add("P12 pages that exist on the prospect's site mirror it (every section = a live section, or explicitly added with a reason)", real ? "required" : "recommended", p12.length === 0, p12.slice(0, 6).join("; "));
   const missing = [...liveIdx].filter((i) => !covered.has(i));
-  if (live && real) add("P12b every live homepage section is in the plan (or consciously dropped)", "recommended", missing.length === 0, missing.length ? `live sections not planned: ${missing.join(", ")}` : `${liveIdx.size} live sections covered, ${added.length} added`);
+  if (live && real) {
+    const dropped = new Set(arr(plan.site?.droppedLiveSections).map(Number)), still = missing.filter((i) => !dropped.has(i));
+    const dropOk = !dropped.size || has(plan.site?.droppedReason);
+    const foot = chromeBands(live).footerIdx, footDropped = foot != null && dropped.has(foot);
+    add("P12b every live homepage section is in the plan, or listed in site.droppedLiveSections with site.droppedReason; the footer is never dropped", "required", still.length === 0 && dropOk && !footDropped,
+      footDropped ? `section ${foot} is the footer: remove it from droppedLiveSections (the Footer partial builds it and the gate always compares it; header and footer need no entry)` : !dropOk ? "droppedLiveSections needs droppedReason" : still.length ? `live sections not planned: ${still.join(", ")} (add them, or drop them on purpose)` : `${liveIdx.size} live sections covered, ${added.length} added, ${dropped.size} dropped`);
+  }
+  add("P12c every mirrored page other than /Home is built out completely (each live section planned, or dropped with a reason; never the footer)", real ? "required" : "recommended", p12c.length === 0, p12c.slice(0, 4).join("; "));
   const need = ["header-styles.json", "nav.json", "sections.json"].filter((f) => !existsSync(join(demo, f)));
   if (real) add("P13 prospect measurements exist (header-styles, nav, sections + crops: Phase T3a)", "required", need.length === 0, need.length ? `missing ${need.join(", ")}: run Phase T3a` : "ok");
+}
+// P16: Rich Text is prose only. The live band is checked from its capture; a look on Rich Text means a layout, which Rich Text cannot carry.
+{
+  const p16 = [];
+  for (const p of pages) for (const s of arr(p.sections)) {
+    if (typeof s !== "object" || s == null || s.component !== "rich-text") continue;
+    const at = `${norm(p.path)} #${s.position ?? "?"}`;
+    if (has(s.look)) p16.push(`${at}: Rich Text with look "${s.look}": a layout is a component (reuse one, or fit: new), not Rich Text`);
+    if (s.liveSection == null) continue;
+    const cap = readJson(join(demo, has(p.sectionsFile) ? String(p.sectionsFile) : "sections.json"));
+    const why = notProse(arr(cap?.sections).find((x) => x.index === Number(s.liveSection)));
+    if (why.length) p16.push(`${at} (${s.note ?? "live " + s.liveSection}): the live band has ${why.join(", ")}: reuse a component of that shape or specify fit: new`);
+  }
+  add("P16 Rich Text only for prose (a heading and paragraphs): never for images, buttons, cards, lists, FAQs, logo walls, video or forms", "required", p16.length === 0, p16.slice(0, 6).join("; "));
 }
 // P11: header-area features (site.chrome): eyebrow, search, language, login ... each with a delivery
 const chrome = arr(plan.site?.chrome), p11 = [];
