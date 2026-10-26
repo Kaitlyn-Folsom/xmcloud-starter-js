@@ -36,7 +36,8 @@ the client variant.
 ## 3. Images (R8): collect → upload → (after placement) attach
 1. `node harness/scripts/collect-images.mjs <customer>`: every image of every planned section on every mirrored page (and the footer), downloaded
    once, each manifest entry carrying its live URL and the page/section that uses it (`uses`). Re-running merges; nothing is uploaded twice.
-2. Upload: `node harness/scripts/content-hub-upload.mjs <customer>` when `CH_ENABLED=true`, else `node harness/scripts/media-upload.mjs <customer>`
+2. Before either upload command, both scripts rename a local file whose name ends in `.ashx` per R8. An `.ashx` file is never passed to Content Hub.
+   Upload: `node harness/scripts/content-hub-upload.mjs <customer>` when `CH_ENABLED=true`, else `node harness/scripts/media-upload.mjs <customer>`
    (Media Library; files over 50 MB are listed under `## Missing assets` and the run carries on). Every entry ends with `uploadStatus: uploaded` and an
    `imageFieldXml`, or `too-large`. Exit 3 / failures: retry once, then fix the cause (download URL, size, format).
 3. Attaching happens once the components are placed (`demo-build-pages` step 4): `attach-images.mjs <customer> --page <path>` proposes each Image

@@ -32,8 +32,11 @@ disagree, **this file wins** and the skill is the bug. Change a rule here, once.
   path such as `/about-us` is always an internal link with the page id. *Enforced: link-xml check, link-audit, run-gate (links).*
 - **R8 Image fields hold image XML, never a URL.** Upload first (Content Hub, or the Media Library when `CH_ENABLED=false`), then write the manifest's
   `imageFieldXml`; images enter a demo only through `collect-images.mjs` (each traced to its page and section). A file over 50 MB is not uploaded to the Media Library (Experience Edge cannot publish it) and is listed under `## Missing assets`;
-  the run carries on. Uploaded is not attached: every image of a built section ends up in that component's Image field (`attach-images.mjs` proposes
-  each write; make it with `update_fields_on_item`, R5). *Enforced: run-gate (images, looks IMAGES).*
+  the run carries on. A local file whose name ends in `.ashx` is not uploaded under that name: the upload scripts sniff its bytes and rename it in place
+  (JPEG `FF D8` → `.jpg`, PNG `89 50 4E 47` → `.png`, GIF `GIF87a`/`GIF89a` → `.gif`, WebP `RIFF`…`WEBP` → `.webp`, SVG after an optional XML declaration → `.svg`),
+  updating `localPath`, `localFileName` and `localFile`. Bytes that match none of those fail that entry (`uploadStatus: "failed"`, a short `uploadError`) and are not
+  renamed to `.jpg`; an HTML error page is not treated as SVG. Uploaded is not attached: every image of a built section ends up in that component's Image field
+  (`attach-images.mjs` proposes each write; make it with `update_fields_on_item`, R5). *Enforced: content-hub-upload.mjs, media-upload.mjs, run-gate (images, looks IMAGES).*
 - **R9 Header and footer are partial designs** on template `{FD2059FD-6043-4DFE-8C04-E2437CE87634}`, listed in every Page Design. `{C3CEB23C-...}` is the
   Partial Designs folder, not a partial. Never copy header or footer renderings onto a page. *Enforced: run-gate (partials, placement).*
 - **R10 Pages.** Item names are lower-case-hyphen; the display name (`__Display name`, en) is the plan's `displayName`, or else the item name in Title Case
