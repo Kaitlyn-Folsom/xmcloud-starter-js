@@ -12,6 +12,16 @@ interface LayoutProps {
 export interface RouteFields {
   [key: string]: unknown;
   Title?: Field;
+  SchemaJson?: Field<string>;
+}
+
+function schemaJsonLd(value: string | undefined): string | null {
+  if (!value?.trim()) return null;
+  try {
+    return JSON.stringify(JSON.parse(value)).replace(/</g, '\\u003c');
+  } catch {
+    return null;
+  }
 }
 
 const Layout = ({ page }: LayoutProps): JSX.Element => {
@@ -19,8 +29,12 @@ const Layout = ({ page }: LayoutProps): JSX.Element => {
   const { route } = layout.sitecore;
   const mainClassPageEditing = mode.isEditing ? 'editing-mode' : 'prod-mode';
   const siteThemeClass = getSiteThemeClass(page.siteName);
+  const schemaLd = schemaJsonLd((route?.fields as RouteFields | undefined)?.SchemaJson?.value);
   return (
     <>
+      {schemaLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaLd }} />
+      )}
       <Scripts />
       <SitecoreStyles layoutData={layout} />
       {/* root placeholder for the app, which we add components to using route data */}
@@ -60,18 +74,21 @@ const Layout = ({ page }: LayoutProps): JSX.Element => {
                 )}
               </div>
             </main>
-            <footer>
-              <div id="footer">
-                {route && (
-                  <AppPlaceholder
-                    page={page}
-                    componentMap={componentMap}
-                    name="headless-footer"
-                    rendering={route}
-                  />
-                )}
-              </div>
-            </footer>
+            <section className="component load-more" style={{ minHeight: 80 }}>
+              <a className="button" href="/insights">
+                Load more
+              </a>
+            </section>
+            <div id="footer">
+              {route && (
+                <AppPlaceholder
+                  page={page}
+                  componentMap={componentMap}
+                  name="headless-footer"
+                  rendering={route}
+                />
+              )}
+            </div>
           </>
         )}
       </div>

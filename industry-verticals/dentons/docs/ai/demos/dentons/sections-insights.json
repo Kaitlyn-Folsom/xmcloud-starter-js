@@ -1,21 +1,230 @@
 {
   "url": "https://www.dentons.com/en/insights",
   "viewport": 1440,
-  "capturedAt": "2026-10-21T19:52:42.109Z",
+  "capturedAt": "2026-10-26T18:50:27.215Z",
+  "renderErrors": [],
   "sections": [
+    {
+      "index": 1,
+      "kind": "header",
+      "top": 0,
+      "height": 101,
+      "screenshot": "sections-insights/01-ng-container.png",
+      "background": "#ffffff",
+      "backgroundImage": null,
+      "backgroundImages": [],
+      "contentLeft": 135,
+      "contentRight": 1290,
+      "contentWidth": 1155,
+      "fullWidth": false,
+      "scroller": false,
+      "paddingTop": 0,
+      "paddingBottom": 1,
+      "order": "button,image,link,image",
+      "heading": null,
+      "eyebrow": null,
+      "text": null,
+      "button": {
+        "text": "EN English",
+        "fontFamily": "Open Sans",
+        "fontSize": 13.3,
+        "fontWeight": "400",
+        "textTransform": "none",
+        "letterSpacing": 0,
+        "lineHeight": null,
+        "color": "#000000",
+        "textAlign": "center",
+        "background": null,
+        "borderRadius": 0,
+        "paddingX": 15,
+        "paddingY": 0,
+        "border": null
+      },
+      "buttons": 1,
+      "links": [
+        {
+          "text": "Global sectors",
+          "href": "https://www.dentons.com/en/global-sectors"
+        },
+        {
+          "text": "Global solutions",
+          "href": "https://www.dentons.com/en/global-solutions"
+        },
+        {
+          "text": "Client experience",
+          "href": "https://www.dentons.com/en/client-experience"
+        },
+        {
+          "text": "Our people",
+          "href": "https://www.dentons.com/en/our-professionals"
+        }
+      ],
+      "columns": 8,
+      "imageSide": "left",
+      "cards": [],
+      "images": [
+        {
+          "src": "https://www.dentons.com/-/media/images/website/logos/logos_svg/dentons-hong-kong-logo-rgb.ashx",
+          "alt": "Dentons",
+          "w": 180,
+          "h": 45
+        },
+        {
+          "src": "https://www.dentons.com/assets/images/image/searchicon.svg",
+          "alt": "Search this site",
+          "w": 24,
+          "h": 25
+        },
+        {
+          "src": "https://www.dentons.com/assets/images/image/menu.svg",
+          "alt": "\n\t\t\t\t\t\t\tMENU",
+          "w": 27,
+          "h": 22
+        }
+      ],
+      "form": null,
+      "hasLogo": true,
+      "lowContrast": [],
+      "elements": [
+        {
+          "role": "button",
+          "text": "EN English",
+          "x": 1129,
+          "y": 0,
+          "w": 65,
+          "h": 100,
+          "fontFamily": "Open Sans",
+          "fontSize": 13.3,
+          "fontWeight": "400",
+          "textTransform": "none",
+          "letterSpacing": 0,
+          "lineHeight": null,
+          "color": "#000000",
+          "textAlign": "center",
+          "background": null,
+          "borderRadius": 0,
+          "paddingX": 15,
+          "paddingY": 0,
+          "border": null
+        },
+        {
+          "role": "image",
+          "text": "",
+          "x": 135,
+          "y": 29,
+          "w": 180,
+          "h": 45,
+          "src": "https://www.dentons.com/-/media/images/website/logos/logos_svg/dentons-hong-kong-logo-rgb.ashx",
+          "alt": "Dentons"
+        },
+        {
+          "role": "link",
+          "text": "Global sectors",
+          "x": 524,
+          "y": 44,
+          "w": 107,
+          "h": 15,
+          "fontFamily": "Dentons Sans Web Semibold",
+          "fontSize": 15,
+          "fontWeight": "600",
+          "textTransform": "none",
+          "letterSpacing": 0,
+          "lineHeight": 15,
+          "color": "#4c4c4c",
+          "textAlign": "start",
+          "href": "https://www.dentons.com/en/global-sectors"
+        },
+        {
+          "role": "link",
+          "text": "Global solutions",
+          "x": 661,
+          "y": 44,
+          "w": 119,
+          "h": 15,
+          "fontFamily": "Dentons Sans Web Semibold",
+          "fontSize": 15,
+          "fontWeight": "600",
+          "textTransform": "none",
+          "letterSpacing": 0,
+          "lineHeight": 15,
+          "color": "#4c4c4c",
+          "textAlign": "start",
+          "href": "https://www.dentons.com/en/global-solutions"
+        },
+        {
+          "role": "link",
+          "text": "Client experience",
+          "x": 810,
+          "y": 44,
+          "w": 131,
+          "h": 15,
+          "fontFamily": "Dentons Sans Web Semibold",
+          "fontSize": 15,
+          "fontWeight": "600",
+          "textTransform": "none",
+          "letterSpacing": 0,
+          "lineHeight": 15,
+          "color": "#4c4c4c",
+          "textAlign": "start",
+          "href": "https://www.dentons.com/en/client-experience"
+        },
+        {
+          "role": "link",
+          "text": "Our people",
+          "x": 971,
+          "y": 44,
+          "w": 83,
+          "h": 15,
+          "fontFamily": "Dentons Sans Web Semibold",
+          "fontSize": 15,
+          "fontWeight": "600",
+          "textTransform": "none",
+          "letterSpacing": 0,
+          "lineHeight": 15,
+          "color": "#4c4c4c",
+          "textAlign": "start",
+          "href": "https://www.dentons.com/en/our-professionals"
+        },
+        {
+          "role": "image",
+          "text": "",
+          "x": 1209,
+          "y": 38,
+          "w": 24,
+          "h": 25,
+          "src": "https://www.dentons.com/assets/images/image/searchicon.svg",
+          "alt": "Search this site"
+        },
+        {
+          "role": "image",
+          "text": "",
+          "x": 1263,
+          "y": 39,
+          "w": 27,
+          "h": 22,
+          "src": "https://www.dentons.com/assets/images/image/menu.svg",
+          "alt": "\n\t\t\t\t\t\t\tMENU"
+        }
+      ],
+      "adSlot": false,
+      "video": false
+    },
     {
       "index": 2,
       "kind": "section",
-      "top": 218,
-      "height": 331,
-      "screenshot": "sections-demo/02-knowledge.png",
-      "background": "#333333",
-      "backgroundImage": null,
-      "backgroundImages": [],
+      "top": 198,
+      "height": 351,
+      "screenshot": "sections-insights/02-knowledge.png",
+      "background": "#ffffff",
+      "backgroundImage": "https://www.dentons.com/-/media/images/website/background-images/gpof/whitewash/image.ashx?crop=1&h=497&w=1000&hash=F298A35E0DDE6E2929901A1FFD8C3B06",
+      "backgroundImages": [
+        "https://www.dentons.com/-/media/images/website/background-images/gpof/whitewash/image.ashx?crop=1&h=497&w=1000&hash=F298A35E0DDE6E2929901A1FFD8C3B06"
+      ],
       "contentLeft": 135,
       "contentRight": 1305,
       "contentWidth": 1170,
       "fullWidth": false,
+      "scroller": false,
       "paddingTop": 0,
       "paddingBottom": 93,
       "order": "link,heading,text",
@@ -63,7 +272,40 @@
       ],
       "columns": 5,
       "imageSide": "above-or-behind",
-      "cards": [],
+      "cards": [
+        {
+          "background": "#333333",
+          "radius": 10,
+          "border": null,
+          "w": 281,
+          "h": 95,
+          "childText": "Grow"
+        },
+        {
+          "background": "#333333",
+          "radius": 10,
+          "border": null,
+          "w": 281,
+          "h": 95,
+          "childText": "Protect"
+        },
+        {
+          "background": "#333333",
+          "radius": 10,
+          "border": null,
+          "w": 281,
+          "h": 95,
+          "childText": "Operate"
+        },
+        {
+          "background": "#333333",
+          "radius": 10,
+          "border": null,
+          "w": 281,
+          "h": 95,
+          "childText": "Finance"
+        }
+      ],
       "images": [],
       "form": null,
       "hasLogo": false,
@@ -73,7 +315,7 @@
           "role": "link",
           "text": "Grow",
           "x": 155,
-          "y": -35,
+          "y": -15,
           "w": 48,
           "h": 30,
           "fontFamily": "Dentons Sans Web Semibold",
@@ -90,7 +332,7 @@
           "role": "link",
           "text": "Protect",
           "x": 451,
-          "y": -35,
+          "y": -15,
           "w": 66,
           "h": 30,
           "fontFamily": "Dentons Sans Web Semibold",
@@ -107,7 +349,7 @@
           "role": "link",
           "text": "Operate",
           "x": 748,
-          "y": -35,
+          "y": -15,
           "w": 73,
           "h": 30,
           "fontFamily": "Dentons Sans Web Semibold",
@@ -124,7 +366,7 @@
           "role": "link",
           "text": "Finance",
           "x": 1044,
-          "y": -35,
+          "y": -15,
           "w": 70,
           "h": 30,
           "fontFamily": "Dentons Sans Web Semibold",
@@ -141,7 +383,7 @@
           "role": "heading",
           "text": "Knowledge",
           "x": 135,
-          "y": 90,
+          "y": 110,
           "w": 1170,
           "h": 66,
           "fontFamily": "Dentons Sans Web Bold",
@@ -157,7 +399,7 @@
           "role": "text",
           "text": "We know how important it is to have fast access to relevant knowledge. In this s",
           "x": 135,
-          "y": 156,
+          "y": 176,
           "w": 1170,
           "h": 82,
           "fontFamily": "Dentons Sans Web Medium",
@@ -169,14 +411,16 @@
           "color": "#666666",
           "textAlign": "start"
         }
-      ]
+      ],
+      "adSlot": false,
+      "video": false
     },
     {
       "index": 3,
       "kind": "section",
       "top": 589,
-      "height": 4171,
-      "screenshot": "sections-demo/03-trending.png",
+      "height": 277,
+      "screenshot": "sections-insights/03-trending.png",
       "background": "#ffffff",
       "backgroundImage": null,
       "backgroundImages": [],
@@ -184,9 +428,10 @@
       "contentRight": 1431,
       "contentWidth": 1422,
       "fullWidth": true,
+      "scroller": false,
       "paddingTop": 20,
-      "paddingBottom": 15,
-      "order": "heading,link,image,link,image,link,image,heading,image,heading,image,heading,image,field,image,text,link,heading,text,field,text,field,text,field",
+      "paddingBottom": 30,
+      "order": "heading,link,image,link,image,link,image,heading,image,heading,image,heading,image",
       "heading": {
         "text": "Trending",
         "fontFamily": "Dentons Sans Web Semibold",
@@ -199,16 +444,7 @@
         "textAlign": "start"
       },
       "eyebrow": null,
-      "text": {
-        "fontFamily": "Dentons Sans Web Semibold",
-        "fontSize": 14,
-        "fontWeight": "400",
-        "textTransform": "none",
-        "letterSpacing": 0,
-        "lineHeight": null,
-        "color": "#333333",
-        "textAlign": "left"
-      },
+      "text": null,
       "button": null,
       "buttons": 0,
       "links": [
@@ -223,47 +459,60 @@
         {
           "text": "Global in-house legal insights survey 2023",
           "href": "https://www.dentons.com/en/client-experience/clientsurvey2023"
-        },
-        {
-          "text": "Balancing innovation and competition: intellectual",
-          "href": "https://www.dentons.com/en/insights/articles/2026/october/21/balancing-innovation-and-competition"
-        },
-        {
-          "text": "Read more",
-          "href": "https://www.dentons.com/en/insights/articles/2026/october/21/balancing-innovation-and-competition"
-        },
-        {
-          "text": "IR Insights Podcast: Industrial relations update –",
-          "href": "https://www.dentons.com/en/insights/newsletters/2026/october/21/dentons-ir-insights-podcast-australia/ir-insights-podcast-industrial-relations-update"
-        },
-        {
-          "text": "Knowledge Hubs",
-          "href": "https://www.dentons.com/en/services-and-solutions/digital-solutions/all-knowledge-hubs"
-        },
-        {
-          "text": "Rules, regulations and laws trackers",
-          "href": "https://www.dentons.com/en/global-solutions/rules-regulations-and-laws-trackers"
-        },
-        {
-          "text": "Digital Solutions (all)",
-          "href": "https://www.dentons.com/en/services-and-solutions/digital-solutions"
-        },
-        {
-          "text": "Blogs",
-          "href": "https://www.dentons.com/en/insights/blogs-and-resources"
-        },
-        {
-          "text": "Podcasts",
-          "href": "https://www.dentons.com/en/insights/podcasts"
-        },
-        {
-          "text": "Newsletters",
-          "href": "https://www.dentons.com/en/insights/newsletters"
         }
       ],
-      "columns": 11,
-      "imageSide": "left",
-      "cards": [],
+      "columns": 9,
+      "imageSide": "above-or-behind",
+      "cards": [
+        {
+          "background": "#efefef",
+          "radius": 8,
+          "border": null,
+          "w": 462,
+          "h": 154,
+          "childText": "AI – everything you need to know"
+        },
+        {
+          "background": "#f6f6f6",
+          "radius": 0,
+          "border": null,
+          "w": 462,
+          "h": 79,
+          "childText": "AI – everything you need to know"
+        },
+        {
+          "background": "#efefef",
+          "radius": 8,
+          "border": null,
+          "w": 462,
+          "h": 154,
+          "childText": "Global tax guide to doing business in..."
+        },
+        {
+          "background": "#f6f6f6",
+          "radius": 0,
+          "border": null,
+          "w": 462,
+          "h": 79,
+          "childText": "Global tax guide to doing business in..."
+        },
+        {
+          "background": "#efefef",
+          "radius": 8,
+          "border": null,
+          "w": 462,
+          "h": 154,
+          "childText": "Global in-house legal insights survey 20"
+        },
+        {
+          "background": "#f6f6f6",
+          "radius": 0,
+          "border": null,
+          "w": 462,
+          "h": 79,
+          "childText": "Global in-house legal insights survey 20"
+        }
+      ],
       "images": [
         {
           "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/abstract/adobestock_109156518.ashx?crop=1&h=375&w=475&hash=1C24C73298AB8783CD8D792EC7AAD3E2",
@@ -300,19 +549,9 @@
           "alt": "",
           "w": 24,
           "h": 24
-        },
-        {
-          "src": "https://www.dentons.com/assets/images/image/buttonsearch.jpg",
-          "alt": "Search",
-          "w": 20,
-          "h": 20
         }
       ],
-      "form": {
-        "fields": 5,
-        "submit": false,
-        "fieldBackground": "#ffffff"
-      },
+      "form": null,
       "hasLogo": false,
       "lowContrast": [],
       "elements": [
@@ -490,294 +729,17 @@
           "h": 24,
           "src": "https://www.dentons.com/assets/images/gpof/Icons/right-arrow-grey.svg",
           "alt": ""
-        },
-        {
-          "role": "field",
-          "text": "",
-          "x": 15,
-          "y": 277,
-          "w": 1410,
-          "h": 50,
-          "fontFamily": "Arial",
-          "fontSize": 14,
-          "fontWeight": "400",
-          "textTransform": "none",
-          "letterSpacing": 0,
-          "lineHeight": null,
-          "color": "#000000",
-          "textAlign": "left",
-          "type": "text",
-          "placeholder": "Search by keyword...",
-          "background": "#ffffff"
-        },
-        {
-          "role": "image",
-          "text": "",
-          "x": 1393,
-          "y": 292,
-          "w": 20,
-          "h": 20,
-          "src": "https://www.dentons.com/assets/images/image/buttonsearch.jpg",
-          "alt": "Search"
-        },
-        {
-          "role": "text",
-          "text": "Total results (10970)",
-          "x": 480,
-          "y": 360,
-          "w": 480,
-          "h": 19,
-          "fontFamily": "Dentons Sans Web Semibold",
-          "fontSize": 14,
-          "fontWeight": "400",
-          "textTransform": "none",
-          "letterSpacing": 0,
-          "lineHeight": null,
-          "color": "#333333",
-          "textAlign": "left"
-        },
-        {
-          "role": "text",
-          "text": "Want some help finding content relevant to you?",
-          "x": 15,
-          "y": 383,
-          "w": 465,
-          "h": 21,
-          "fontFamily": "Dentons Sans Web Semibold",
-          "fontSize": 15,
-          "fontWeight": "400",
-          "textTransform": "none",
-          "letterSpacing": 0,
-          "lineHeight": 21,
-          "color": "#333333",
-          "textAlign": "start"
-        },
-        {
-          "role": "text",
-          "text": "Select from the options below. Search results will be updated automatically",
-          "x": 15,
-          "y": 404,
-          "w": 465,
-          "h": 42,
-          "fontFamily": "Dentons Sans Web Light",
-          "fontSize": 15,
-          "fontWeight": "400",
-          "textTransform": "none",
-          "letterSpacing": 0,
-          "lineHeight": 21,
-          "color": "#333333",
-          "textAlign": "start"
-        },
-        {
-          "role": "link",
-          "text": "Balancing innovation and competition: intellectual property rights under Tanzani",
-          "x": 883,
-          "y": 399,
-          "w": 523,
-          "h": 59,
-          "fontFamily": "icomoon",
-          "fontSize": 15,
-          "fontWeight": "400",
-          "textTransform": "none",
-          "letterSpacing": 0,
-          "lineHeight": 15,
-          "color": "#646568",
-          "textAlign": "start",
-          "href": "https://www.dentons.com/en/insights/articles/2026/october/21/balancing-innovation-and-competition"
-        },
-        {
-          "role": "heading",
-          "text": "Balancing innovation and competition: intellectual property rights under Tanzani",
-          "x": 883,
-          "y": 399,
-          "w": 523,
-          "h": 59,
-          "fontFamily": "Dentons Sans Web Bold",
-          "fontSize": 18,
-          "fontWeight": "700",
-          "textTransform": "none",
-          "letterSpacing": 0,
-          "lineHeight": 18,
-          "color": "#6e2d91",
-          "textAlign": "left"
-        },
-        {
-          "role": "text",
-          "text": "October 21, 2026",
-          "x": 883,
-          "y": 463,
-          "w": 523,
-          "h": 24,
-          "fontFamily": "Arial",
-          "fontSize": 16,
-          "fontWeight": "400",
-          "textTransform": "none",
-          "letterSpacing": 0,
-          "lineHeight": 24,
-          "color": "#545859",
-          "textAlign": "start"
-        },
-        {
-          "role": "text",
-          "text": "show Content Type",
-          "x": 15,
-          "y": 486,
-          "w": 465,
-          "h": 46,
-          "fontFamily": "Dentons Sans Web Medium",
-          "fontSize": 14,
-          "fontWeight": "600",
-          "textTransform": "none",
-          "letterSpacing": 0,
-          "lineHeight": null,
-          "color": "#6e2d91",
-          "textAlign": "left"
-        },
-        {
-          "role": "text",
-          "text": "Article",
-          "x": 883,
-          "y": 487,
-          "w": 523,
-          "h": 24,
-          "fontFamily": "Arial",
-          "fontSize": 16,
-          "fontWeight": "400",
-          "textTransform": "none",
-          "letterSpacing": 0,
-          "lineHeight": 24,
-          "color": "#545859",
-          "textAlign": "start"
-        },
-        {
-          "role": "text",
-          "text": "show",
-          "x": 34,
-          "y": 499,
-          "w": 1,
-          "h": 1,
-          "fontFamily": "Dentons Sans Web Medium",
-          "fontSize": 14,
-          "fontWeight": "600",
-          "textTransform": "none",
-          "letterSpacing": 0,
-          "lineHeight": null,
-          "color": "#6e2d91",
-          "textAlign": "left"
-        },
-        {
-          "role": "field",
-          "text": "",
-          "x": 30,
-          "y": 545,
-          "w": 13,
-          "h": 13,
-          "fontFamily": "Dentons Sans Web Medium",
-          "fontSize": 14,
-          "fontWeight": "400",
-          "textTransform": "none",
-          "letterSpacing": 0,
-          "lineHeight": null,
-          "color": "#000000",
-          "textAlign": "start",
-          "type": "checkbox",
-          "placeholder": "",
-          "background": null
-        },
-        {
-          "role": "text",
-          "text": "Alerts and Articles",
-          "x": 46,
-          "y": 545,
-          "w": 398,
-          "h": 14,
-          "fontFamily": "Dentons Sans Web Medium",
-          "fontSize": 14,
-          "fontWeight": "400",
-          "textTransform": "none",
-          "letterSpacing": 0,
-          "lineHeight": 14,
-          "color": "#333333",
-          "textAlign": "left"
-        },
-        {
-          "role": "text",
-          "text": "Tanzania: Tanzania recently enacted the Fair Competition (Abuse of Dominant Posi",
-          "x": 883,
-          "y": 534,
-          "w": 518,
-          "h": 281,
-          "fontFamily": "Arial",
-          "fontSize": 16,
-          "fontWeight": "400",
-          "textTransform": "none",
-          "letterSpacing": 0,
-          "lineHeight": 24,
-          "color": "#545859",
-          "textAlign": "start"
-        },
-        {
-          "role": "field",
-          "text": "",
-          "x": 30,
-          "y": 578,
-          "w": 13,
-          "h": 13,
-          "fontFamily": "Dentons Sans Web Medium",
-          "fontSize": 14,
-          "fontWeight": "400",
-          "textTransform": "none",
-          "letterSpacing": 0,
-          "lineHeight": null,
-          "color": "#000000",
-          "textAlign": "start",
-          "type": "checkbox",
-          "placeholder": "",
-          "background": null
-        },
-        {
-          "role": "text",
-          "text": "Guides, Reports and Whitepapers",
-          "x": 46,
-          "y": 578,
-          "w": 398,
-          "h": 14,
-          "fontFamily": "Dentons Sans Web Medium",
-          "fontSize": 14,
-          "fontWeight": "400",
-          "textTransform": "none",
-          "letterSpacing": 0,
-          "lineHeight": 14,
-          "color": "#333333",
-          "textAlign": "left"
-        },
-        {
-          "role": "field",
-          "text": "",
-          "x": 30,
-          "y": 611,
-          "w": 13,
-          "h": 13,
-          "fontFamily": "Dentons Sans Web Medium",
-          "fontSize": 14,
-          "fontWeight": "400",
-          "textTransform": "none",
-          "letterSpacing": 0,
-          "lineHeight": null,
-          "color": "#000000",
-          "textAlign": "start",
-          "type": "checkbox",
-          "placeholder": "",
-          "background": null
         }
-      ]
+      ],
+      "adSlot": false,
+      "video": false
     },
     {
       "index": 4,
       "kind": "section",
-      "top": 4800,
+      "top": 4614,
       "height": 208,
-      "screenshot": "sections-demo/04-how-can-the-world-s-largest-glob.png",
+      "screenshot": "sections-insights/04-how-can-the-world-s-largest-glob.png",
       "background": "#333333",
       "backgroundImage": "https://www.dentons.com/-/media/images/website/background-images/gpof/gpof-footer.ashx",
       "backgroundImages": [
@@ -787,6 +749,7 @@
       "contentRight": 1425,
       "contentWidth": 1410,
       "fullWidth": true,
+      "scroller": false,
       "paddingTop": 40,
       "paddingBottom": 40,
       "order": "heading,link",
@@ -889,14 +852,16 @@
           "textAlign": "center",
           "href": "https://www.dentons.com/en/global-presence"
         }
-      ]
+      ],
+      "adSlot": false,
+      "video": false
     },
     {
       "index": 5,
       "kind": "footer",
-      "top": 5008,
+      "top": 4822,
       "height": 344,
-      "screenshot": "sections-demo/05-footer.png",
+      "screenshot": "sections-insights/05-footer.png",
       "background": "#efefef",
       "backgroundImage": null,
       "backgroundImages": [],
@@ -904,6 +869,7 @@
       "contentRight": 1425,
       "contentWidth": 1410,
       "fullWidth": true,
+      "scroller": false,
       "paddingTop": 60,
       "paddingBottom": 62,
       "order": "image,link,button,text",
@@ -1306,7 +1272,9 @@
           "color": "#545859",
           "textAlign": "start"
         }
-      ]
+      ],
+      "adSlot": false,
+      "video": false
     }
   ]
 }

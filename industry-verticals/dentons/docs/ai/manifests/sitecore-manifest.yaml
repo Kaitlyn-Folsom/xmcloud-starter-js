@@ -13,11 +13,11 @@ project:
   siteCollection: "Financial"
   siteName: "ProsperaFinancial"
   sdk: "@sitecore-content-sdk/nextjs"
-  renderingsRoot: "/sitecore/layout/Renderings/Project/Dentons"
-  projectTemplatesRoot: "/sitecore/templates/Project/Dentons"
+  renderingsRoot: "/sitecore/layout/Renderings/Project/Legal"
+  projectTemplatesRoot: "/sitecore/templates/Project/Legal"
   dataRoot: "/sitecore/content/Financial/ProsperaFinancial/Data"
   projectFoldersRoot: "/sitecore/templates/Project/Financial/Folders"
-  renderingParamsRoot: "/sitecore/templates/Project/Dentons/Rendering Parameters"
+  renderingParamsRoot: "/sitecore/templates/Project/Legal/Rendering Parameters"
   headlessVariantsRoot: "/sitecore/content/Financial/ProsperaFinancial/Presentation/Headless Variants"
 
 inventoryNotes:
@@ -1809,10 +1809,7 @@ components:
       path: "/sitecore/templates/Project/Financial/Components/Three Column CTA"
       itemId: "{148D07BA-F923-4FB2-8907-0BD440D5DB44}"
       sectionName: ""
-      fields:
-        - { name: "Eyebrow1", type: "Single-Line Text", itemId: "{2AE1392D-DA64-4E2E-9A9B-04C89149D71D}", section: "Column 1" }
-        - { name: "Eyebrow2", type: "Single-Line Text", itemId: "{E9F9A744-7B2F-4AE3-AF30-12E800A9B5E8}", section: "Column 2" }
-        - { name: "Eyebrow3", type: "Single-Line Text", itemId: "{A2F18D34-CA21-49F3-95BF-8B4A8FF8C7D6}", section: "Column 3" }
+      fields: []
       baseTemplatesSet: true
       standardValues:
         itemId: ""
@@ -2314,14 +2311,6 @@ components:
     pendingManual: []
   notes: 
     - "Context item resolver {6CCCBCDE-5E95-44E4-AE66-CFE7D3A0589E}."
-
-dentonsComponents:
-  - { name: ProfessionalDirectory, kind: list, renderingId: "7b581d6b-6eac-4c01-95cc-d79e155abe42", status: complete }
-  - { name: SectorGroupList, kind: list, renderingId: "db56c8ac-f32e-43c8-a4b8-6a9e68388dc1", status: complete }
-  - { name: InsightResults, kind: list, renderingId: "215f38cb-8dda-4d5f-93d5-8b9493dc0df3", status: complete }
-  - { name: InsightArticle, kind: simple, renderingId: "edfcc671-b008-40ff-ac2f-c86f79698602", status: complete }
-  - { name: ProfessionalProfile, kind: context-only, renderingId: "b5c52132-9f7f-4ef9-a388-918080977af6", status: complete }
-  - { name: SiteSearch, kind: context-only, renderingId: "b2162133-7661-49e0-bdd0-2c04093b84a5", status: complete }
 
 lookups:
   - path: "/sitecore/content/Financial/ProsperaFinancial/Data"

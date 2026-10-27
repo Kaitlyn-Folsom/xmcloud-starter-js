@@ -1,38 +1,40 @@
 # Theme proposal — Dentons
 
-Source: https://www.dentons.com/en. Compare with `theme/screenshot-desktop.png` and `header-reference.png`.
-
-Confidence: **medium**. Dentons Sans is proprietary, a cookie dialog covered some crops, and the header script's nav colour does not match the header crop.
+Source: https://www.dentons.com/en/  
+Screenshot: `industry-verticals/dentons/docs/ai/demos/dentons/theme/screenshot-desktop.png`  
+Confidence: **medium**. Purple, white, and the card pattern are consistent. The header background in `header-styles.json` (`#000000`) does not match the white bar in the crop or in `extracted-styles.json`.
 
 ## Colours
 
-| Variable | Hex | Where it comes from |
+| Variable | Hex | Where it shows |
 |---|---|---|
-| `--text-body` | `#545859` | Section headings and body text |
-| `--text-body-inverted` | `#ffffff` | Text on purple buttons and dark bands |
-| `--text-colored` / `--text-accent` | `#702082` | Purple links and buttons |
-| `--bg-body` / `--bg-main` | `#ffffff` | Page background |
-| `--bg-main-alt` / `--bg-footer` | `#efefef` | Cards and footer |
-| `--bg-saturated` / `--bg-accent` | `#702082` | Buttons |
+| `--text-body` | `#545859` | Headings and card text |
+| `--text-body-inverted` | `#FFFFFF` | Text on purple and on the hero |
+| `--text-colored` | `#702082` | Links and the brand purple |
+| `--text-accent` | `#702082` | Buttons and the logo |
 | `--text-footer` | `#545859` | Footer text |
-| `--bg-color` | `#f6f0f8` | Light purple tint for alternate bands |
-| `--border-color` / `--hr-color` | `#efefef` | Dividers |
-| `--roundness` | `30px` | Pill buttons (section-capture border radius) |
-| Header background | `#000000` | Header band, 102px tall |
-| Header text | `#ffffff` | Header crop. The style script recorded `#4c4c4c`, which does not match that crop |
+| `--bg-body` | `#FFFFFF` | Page background |
+| `--bg-footer` | `#EFEFEF` | Footer |
+| `--bg-main` | `#FFFFFF` | Default sections |
+| `--bg-main-alt` | `#EFEFEF` | Card wells |
+| `--bg-color` | `#F6F0F8` | Light purple tint |
+| `--bg-saturated` | `#702082` | Purple buttons and the help band |
+| `--bg-accent` | `#702082` | Same purple |
+| `--border-color` | `#E5E5E5` | Dividers |
+| `--hr-color` | `#E5E5E5` | Rules |
+| `--roundness` | `30px` | Pill buttons |
 
 ## Type
 
-| Role | Face |
-|---|---|
-| Headings | Dentons Sans Semibold (proprietary) |
-| Body | Dentons Sans (proprietary). The scraper also saw Arial on some buttons |
-| Substitute | Source Sans 3 (Google Fonts), weights 400, 600 and 700 |
+| Role | Face | Substitute |
+|---|---|---|
+| Headings | Dentons Sans, 600 | Source Sans 3 |
+| Body | Dentons Sans, 400 | Source Sans 3 |
 
-Hero headline on the homepage is 35px. Section headings are 30px.
+Dentons Sans is a proprietary webfont. The demo loads Source Sans 3 from Google Fonts.
 
 ## Tone
 
-Light page, black header, purple pill buttons, photo heroes, image cards on a light gray ground. The header is a wordmark, four links (Global sectors, Global solutions, Client experience, Our people), an EN pill, search and a hamburger. There is no utility bar above the header.
+Light, formal, photographic. The hero is a full-bleed carousel with one pill button and four topic tiles. Cards are image, eyebrow, title, excerpt, and a purple pill. The header is a white bar: purple logo, four links, language, search, hamburger.
 
-Nothing in the app or in Sitecore has been changed. This draft is applied only after you approve the plan.
+Compare the screenshot above with the live site before the build is approved.

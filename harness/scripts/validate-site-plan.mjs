@@ -9,7 +9,7 @@
  * Exit 1 if a REQUIRED rule fails. Dependency-free.
  *
  *  P1 exactly one /Home; every other page's parent is in the plan and listed before it
- *  P2 page names unique per parent, kebab-case; pageType is page | article | landing
+ *  P2 page names unique per parent, kebab-case; pageType is page | article | person | landing
  *  P3 every page has a purpose and proves >=1 valid moment (or is a navTarget with a reason)
  *  P4 every moment is proved by >=1 page; the WOW moment is on /Home or one click away
  *  P5 every section uses a component id from component-registry.yaml and one of its variants
@@ -76,9 +76,9 @@ for (const p of pages) {
   const path = norm(p.path), name = path.split("/").pop();
   if (seen.has(path.toLowerCase())) p2.push(`${path}: duplicate`); seen.add(path.toLowerCase());
   if (path.toLowerCase() !== "/home" && !/^[a-z0-9]+(-[a-z0-9]+)*$/.test(name)) p2.push(`${path}: name must be lower-case kebab`);
-  if (!["page", "article", "landing"].includes(p.pageType)) p2.push(`${path}: pageType must be page|article|landing`);
+  if (!["page", "article", "person", "landing"].includes(p.pageType)) p2.push(`${path}: pageType must be page|article|person|landing`);
 }
-add("P2 unique kebab-case names; pageType page|article|landing", "required", p2.length === 0, p2.join("; "));
+add("P2 unique kebab-case names; pageType page|article|person|landing", "required", p2.length === 0, p2.join("; "));
 
 // P3
 const p3 = [];

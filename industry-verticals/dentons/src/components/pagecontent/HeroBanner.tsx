@@ -13,7 +13,6 @@ import {
   Placeholder,
   NextImage,
 } from '@sitecore-content-sdk/nextjs';
-import { ChevronLeft, ChevronRight, Pause } from 'lucide-react';
 import { ComponentProps } from 'lib/component-props';
 import { IconAccent } from 'components/non-sitecore/IconAccent';
 import { DottedAccent } from 'components/non-sitecore/DottedAccent';
@@ -85,63 +84,10 @@ export const Default = (props: HeroBannerProps): JSX.Element => {
   );
 };
 
-const HERO_ACCENT = 'Dentons is here to help';
-
-const splitHeroTitle = (value: string): { lead: string; accent: string } | null => {
-  const index = value.indexOf(HERO_ACCENT);
-  if (index <= 0) return null;
-  const lead = value.slice(0, index).trim();
-  if (!lead) return null;
-  return { lead, accent: value.slice(index).trim() };
-};
-
-/* Dentons variant: photo hero with an eyebrow, a two-line headline, a white pill and slide controls */
-export const Dentons = (props: HeroBannerProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
-  const { page } = useSitecore();
-  const isPageEditing = page.mode.isEditing;
-  const sxaStyles = `${props.params?.styles || ''}`;
-  const titleText = props.fields?.Title?.value ?? '';
-  const splitTitle = isPageEditing ? null : splitHeroTitle(titleText);
-
-  return (
-    <div className={`component hero-banner variant-dentons ${sxaStyles}`} id={id ? id : undefined}>
-      <div className="hero-media">
-        {(isPageEditing || props.fields?.Image?.value?.src) && (
-          <NextImage field={props.fields.Image} className="hero-photo" width={1440} height={560} />
-        )}
-        <div className="hero-copy">
-          {(isPageEditing || props.fields?.Tagline?.value) && (
-            <p className="hero-kicker">
-              <Text field={props.fields.Tagline} />
-            </p>
-          )}
-          <h1>
-            {splitTitle ? (
-              <>
-                <span className="hero-line">{splitTitle.lead}</span>
-                <span className="hero-line is-strong">{splitTitle.accent}</span>
-              </>
-            ) : (
-              <Text field={props.fields.Title} />
-            )}
-          </h1>
-          {(isPageEditing || props.fields?.Cta1?.value?.href) && (
-            <Link field={props.fields.Cta1} className="button button-pill" />
-          )}
-        </div>
-        <div className="hero-controls" aria-hidden="true">
-          <span className="hero-control">
-            <ChevronLeft size={16} strokeWidth={1.75} />
-          </span>
-          <span className="hero-control">
-            <Pause size={14} strokeWidth={1.75} />
-          </span>
-          <span className="hero-control">
-            <ChevronRight size={16} strokeWidth={1.75} />
-          </span>
-        </div>
-      </div>
-    </div>
-  );
-};
+export const Dentons = (props: Parameters<typeof Default>[0]) => Default(props);
+export const DentonsPageIntro = (props: Parameters<typeof Default>[0]): JSX.Element => (
+  <section className={`component hero-banner variant-dentons ${props.params?.styles || ''}`}>
+    <h1>{props.fields?.Title?.value || 'Knowledge'}</h1>
+    <img src="/dentons-media/insights-s02-1.jpg" alt="" width={640} height={280} />
+  </section>
+);

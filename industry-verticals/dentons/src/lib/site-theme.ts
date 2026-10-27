@@ -1,10 +1,10 @@
 const SITE_THEME_CLASS_MAP: Record<string, string> = {
-  Dentons: 'site-dentons',
   Financial: 'site-financial',
   Services: 'site-services',
+  Dentons: 'site-dentons',
 };
 
-const DEFAULT_SITE_THEME_CLASS = 'site-dentons';
+const DEFAULT_SITE_THEME_CLASS = 'site-financial';
 
 export function getSiteThemeClass(siteName: string | undefined): string {
   if (!siteName) {

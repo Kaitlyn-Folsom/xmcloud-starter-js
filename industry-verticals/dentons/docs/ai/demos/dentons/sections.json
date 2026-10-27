@@ -1,11 +1,12 @@
 {
-  "url": "https://www.dentons.com/en",
+  "url": "https://www.dentons.com/en/",
   "viewport": 1440,
-  "capturedAt": "2026-10-21T18:54:52.850Z",
+  "capturedAt": "2026-10-26T18:48:15.278Z",
+  "renderErrors": [],
   "sections": [
     {
       "index": 1,
-      "kind": "section",
+      "kind": "header",
       "top": 0,
       "height": 101,
       "screenshot": "sections/01-ng-container.png",
@@ -16,6 +17,7 @@
       "contentRight": 1290,
       "contentWidth": 1155,
       "fullWidth": false,
+      "scroller": false,
       "paddingTop": 0,
       "paddingBottom": 1,
       "order": "button,image,link,image",
@@ -203,7 +205,9 @@
           "src": "https://www.dentons.com/assets/images/image/menu.svg",
           "alt": "\n\t\t\t\t\t\t\tMENU"
         }
-      ]
+      ],
+      "adSlot": false,
+      "video": false
     },
     {
       "index": 2,
@@ -220,6 +224,7 @@
       "contentRight": 1305,
       "contentWidth": 1170,
       "fullWidth": false,
+      "scroller": false,
       "paddingTop": 30,
       "paddingBottom": 4,
       "order": "text,heading,button,image,button",
@@ -260,13 +265,13 @@
         "paddingX": 25,
         "paddingY": 0,
         "border": null,
-        "href": "https://s10-eucd1.dentons.com/en/services-and-solutions/grow"
+        "href": "https://www.dentons.com/en/services-and-solutions/grow"
       },
       "buttons": 5,
       "links": [
         {
           "text": "Learn more",
-          "href": "https://s10-eucd1.dentons.com/en/services-and-solutions/grow"
+          "href": "https://www.dentons.com/en/services-and-solutions/grow"
         }
       ],
       "columns": 6,
@@ -302,7 +307,7 @@
           "x": 135,
           "y": 30,
           "w": 1170,
-          "h": 42,
+          "h": 27,
           "fontFamily": "Dentons Sans Web Medium",
           "fontSize": 18,
           "fontWeight": "400",
@@ -316,7 +321,7 @@
           "role": "heading",
           "text": "However you need to grow Dentons is here to help",
           "x": 135,
-          "y": 112,
+          "y": 97,
           "w": 1170,
           "h": 111,
           "fontFamily": "Dentons Sans Web Light",
@@ -332,7 +337,7 @@
           "role": "button",
           "text": "Learn more",
           "x": 135,
-          "y": 253,
+          "y": 238,
           "w": 263,
           "h": 50,
           "fontFamily": "Dentons Sans Web Semibold",
@@ -348,7 +353,7 @@
           "paddingX": 25,
           "paddingY": 0,
           "border": null,
-          "href": "https://s10-eucd1.dentons.com/en/services-and-solutions/grow"
+          "href": "https://www.dentons.com/en/services-and-solutions/grow"
         },
         {
           "role": "image",
@@ -464,13 +469,15 @@
           "paddingY": 0,
           "border": null
         }
-      ]
+      ],
+      "adSlot": false,
+      "video": false
     },
     {
       "index": 3,
       "kind": "section",
       "top": 638,
-      "height": 1246,
+      "height": 1186,
       "screenshot": "sections/03-register-now-for-our-cx-webinar-.png",
       "background": "#ffffff",
       "backgroundImage": null,
@@ -479,6 +486,7 @@
       "contentRight": 1425,
       "contentWidth": 1410,
       "fullWidth": true,
+      "scroller": false,
       "paddingTop": 0,
       "paddingBottom": 59,
       "order": "image,text,link,heading,link,heading,link,heading,text,button,image,text,link,heading,link,heading,link,heading",
@@ -580,7 +588,7 @@
           "radius": 8,
           "border": null,
           "w": 450,
-          "h": 581,
+          "h": 551,
           "childText": "New Register now for our CX webinar prog"
         },
         {
@@ -588,7 +596,7 @@
           "radius": 8,
           "border": null,
           "w": 450,
-          "h": 581,
+          "h": 551,
           "childText": "Report Global supply chain disruption re"
         },
         {
@@ -596,7 +604,7 @@
           "radius": 8,
           "border": null,
           "w": 450,
-          "h": 581,
+          "h": 551,
           "childText": "New Global class and collective actions "
         },
         {
@@ -604,7 +612,7 @@
           "radius": 8,
           "border": null,
           "w": 450,
-          "h": 605,
+          "h": 575,
           "childText": "Trends and insights 2026 global AI trend"
         },
         {
@@ -612,7 +620,7 @@
           "radius": 8,
           "border": null,
           "w": 450,
-          "h": 605,
+          "h": 575,
           "childText": "Opportunity Ukraine transformation and r"
         },
         {
@@ -620,7 +628,7 @@
           "radius": 8,
           "border": null,
           "w": 450,
-          "h": 605,
+          "h": 575,
           "childText": "Finance Global tax guide to doing busine"
         }
       ],
@@ -702,7 +710,7 @@
           "x": 44,
           "y": 164,
           "w": 392,
-          "h": 39,
+          "h": 24,
           "fontFamily": "Dentons Sans Web Semibold",
           "fontSize": 16,
           "fontWeight": "400",
@@ -718,7 +726,7 @@
           "x": 524,
           "y": 164,
           "w": 392,
-          "h": 39,
+          "h": 24,
           "fontFamily": "Dentons Sans Web Semibold",
           "fontSize": 16,
           "fontWeight": "400",
@@ -734,7 +742,7 @@
           "x": 1004,
           "y": 164,
           "w": 392,
-          "h": 39,
+          "h": 24,
           "fontFamily": "Dentons Sans Web Semibold",
           "fontSize": 16,
           "fontWeight": "400",
@@ -748,7 +756,7 @@
           "role": "link",
           "text": "Register now for our CX webinar program",
           "x": 44,
-          "y": 203,
+          "y": 188,
           "w": 392,
           "h": 86,
           "fontFamily": "Arial",
@@ -765,7 +773,7 @@
           "role": "heading",
           "text": "Register now for our CX webinar program",
           "x": 44,
-          "y": 203,
+          "y": 188,
           "w": 392,
           "h": 86,
           "fontFamily": "Dentons Sans Web Semibold",
@@ -781,7 +789,7 @@
           "role": "link",
           "text": "Global supply chain disruption report",
           "x": 524,
-          "y": 203,
+          "y": 188,
           "w": 392,
           "h": 86,
           "fontFamily": "Arial",
@@ -798,7 +806,7 @@
           "role": "heading",
           "text": "Global supply chain disruption report",
           "x": 524,
-          "y": 203,
+          "y": 188,
           "w": 392,
           "h": 86,
           "fontFamily": "Dentons Sans Web Semibold",
@@ -814,7 +822,7 @@
           "role": "link",
           "text": "Global class and collective actions",
           "x": 1004,
-          "y": 203,
+          "y": 188,
           "w": 392,
           "h": 86,
           "fontFamily": "Arial",
@@ -831,7 +839,7 @@
           "role": "heading",
           "text": "Global class and collective actions",
           "x": 1004,
-          "y": 203,
+          "y": 188,
           "w": 392,
           "h": 86,
           "fontFamily": "Dentons Sans Web Semibold",
@@ -847,9 +855,9 @@
           "role": "text",
           "text": "Designed for General Counsel and in-house legal teams, our award-winning global ",
           "x": 44,
-          "y": 289,
+          "y": 274,
           "w": 392,
-          "h": 141,
+          "h": 126,
           "fontFamily": "Dentons Sans Web Medium",
           "fontSize": 14,
           "fontWeight": "400",
@@ -863,9 +871,9 @@
           "role": "text",
           "text": "This report, based on analysis conducted in April 2026, provides a sector-by-sec",
           "x": 524,
-          "y": 289,
+          "y": 274,
           "w": 392,
-          "h": 183,
+          "h": 168,
           "fontFamily": "Dentons Sans Web Medium",
           "fontSize": 14,
           "fontWeight": "400",
@@ -879,9 +887,9 @@
           "role": "text",
           "text": "Visit our Class & Collective Actions hub for insights, credentials and our lates",
           "x": 1004,
-          "y": 289,
+          "y": 274,
           "w": 392,
-          "h": 162,
+          "h": 147,
           "fontFamily": "Dentons Sans Web Medium",
           "fontSize": 14,
           "fontWeight": "400",
@@ -895,7 +903,7 @@
           "role": "button",
           "text": "Explore more",
           "x": 44,
-          "y": 502,
+          "y": 472,
           "w": 263,
           "h": 50,
           "fontFamily": "Arial",
@@ -917,7 +925,7 @@
           "role": "button",
           "text": "Learn more",
           "x": 524,
-          "y": 502,
+          "y": 472,
           "w": 263,
           "h": 50,
           "fontFamily": "Arial",
@@ -939,7 +947,7 @@
           "role": "button",
           "text": "Visit here",
           "x": 1004,
-          "y": 502,
+          "y": 472,
           "w": 263,
           "h": 50,
           "fontFamily": "Arial",
@@ -961,7 +969,7 @@
           "role": "image",
           "text": "",
           "x": 15,
-          "y": 611,
+          "y": 581,
           "w": 450,
           "h": 135,
           "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/patterns/adobestock_114680146.ashx?crop=1&h=135&w=1000&hash=78A6C49608940171C96E4D660DB21FF5",
@@ -971,7 +979,7 @@
           "role": "image",
           "text": "",
           "x": 495,
-          "y": 611,
+          "y": 581,
           "w": 450,
           "h": 135,
           "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/aerial/adobestock_289880144.ashx?crop=1&h=135&w=1000&hash=3B6840AC832BF23335E547D9BF2BCC87",
@@ -981,7 +989,7 @@
           "role": "image",
           "text": "",
           "x": 975,
-          "y": 611,
+          "y": 581,
           "w": 450,
           "h": 135,
           "src": "https://www.dentons.com/-/media/images/website/background-images/practices/tax/global-tax.ashx?crop=1&h=135&w=1000&hash=2400E20DD175C9D2BF6623F3D8A43FBD",
@@ -991,9 +999,9 @@
           "role": "text",
           "text": "Trends and insights",
           "x": 44,
-          "y": 775,
+          "y": 745,
           "w": 392,
-          "h": 39,
+          "h": 24,
           "fontFamily": "Dentons Sans Web Semibold",
           "fontSize": 16,
           "fontWeight": "400",
@@ -1007,9 +1015,9 @@
           "role": "text",
           "text": "Opportunity",
           "x": 524,
-          "y": 775,
+          "y": 745,
           "w": 392,
-          "h": 39,
+          "h": 24,
           "fontFamily": "Dentons Sans Web Semibold",
           "fontSize": 16,
           "fontWeight": "400",
@@ -1023,9 +1031,9 @@
           "role": "text",
           "text": "Finance",
           "x": 1004,
-          "y": 775,
+          "y": 745,
           "w": 392,
-          "h": 39,
+          "h": 24,
           "fontFamily": "Dentons Sans Web Semibold",
           "fontSize": 16,
           "fontWeight": "400",
@@ -1039,7 +1047,7 @@
           "role": "link",
           "text": "2026 global AI trends: Six key developments shaping the next phase of AI",
           "x": 44,
-          "y": 814,
+          "y": 769,
           "w": 392,
           "h": 152,
           "fontFamily": "Arial",
@@ -1056,7 +1064,7 @@
           "role": "heading",
           "text": "2026 global AI trends: Six key developments shaping the next phase of AI",
           "x": 44,
-          "y": 814,
+          "y": 769,
           "w": 392,
           "h": 152,
           "fontFamily": "Dentons Sans Web Semibold",
@@ -1072,7 +1080,7 @@
           "role": "link",
           "text": "Ukraine transformation and rebuild",
           "x": 524,
-          "y": 814,
+          "y": 769,
           "w": 392,
           "h": 86,
           "fontFamily": "Arial",
@@ -1089,7 +1097,7 @@
           "role": "heading",
           "text": "Ukraine transformation and rebuild",
           "x": 524,
-          "y": 814,
+          "y": 769,
           "w": 392,
           "h": 86,
           "fontFamily": "Dentons Sans Web Semibold",
@@ -1105,7 +1113,7 @@
           "role": "link",
           "text": "Global tax guide to doing business in...",
           "x": 1004,
-          "y": 814,
+          "y": 769,
           "w": 392,
           "h": 86,
           "fontFamily": "Arial",
@@ -1122,7 +1130,7 @@
           "role": "heading",
           "text": "Global tax guide to doing business in...",
           "x": 1004,
-          "y": 814,
+          "y": 769,
           "w": 392,
           "h": 86,
           "fontFamily": "Dentons Sans Web Semibold",
@@ -1134,12 +1142,14 @@
           "color": "#545859",
           "textAlign": "start"
         }
-      ]
+      ],
+      "adSlot": false,
+      "video": false
     },
     {
       "index": 4,
       "kind": "section",
-      "top": 1884,
+      "top": 1824,
       "height": 103,
       "screenshot": "sections/04-dentons-news-from-around-the-wor.png",
       "background": "#ffffff",
@@ -1149,6 +1159,7 @@
       "contentRight": 565,
       "contentWidth": 550,
       "fullWidth": false,
+      "scroller": false,
       "paddingTop": 30,
       "paddingBottom": 40,
       "order": "heading",
@@ -1192,13 +1203,15 @@
           "color": "#545859",
           "textAlign": "start"
         }
-      ]
+      ],
+      "adSlot": false,
+      "video": false
     },
     {
       "index": 5,
       "kind": "section",
-      "top": 1987,
-      "height": 1226,
+      "top": 1927,
+      "height": 1192,
       "screenshot": "sections/05-leading-with-clarity-in-times-of.png",
       "background": "#ffffff",
       "backgroundImage": null,
@@ -1207,9 +1220,10 @@
       "contentRight": 1425,
       "contentWidth": 1410,
       "fullWidth": true,
+      "scroller": false,
       "paddingTop": 0,
       "paddingBottom": 59,
-      "order": "image,text,link,heading,text,link,heading,link,heading,text,button,image,text,link,heading,link,heading,link,heading,text",
+      "order": "image,text,link,heading,text,eyebrow,link,heading,link,heading,text,button,image,text,link,heading,link,heading,link,heading,text",
       "heading": {
         "text": "Leading with Clarity in Times of Complexity",
         "fontFamily": "Dentons Sans Web Semibold",
@@ -1221,7 +1235,17 @@
         "color": "#545859",
         "textAlign": "start"
       },
-      "eyebrow": null,
+      "eyebrow": {
+        "text": "UKME",
+        "fontFamily": "Dentons Sans Web Semibold",
+        "fontSize": 16,
+        "fontWeight": "400",
+        "textTransform": "none",
+        "letterSpacing": -0.5,
+        "lineHeight": 24,
+        "color": "#545859",
+        "textAlign": "start"
+      },
       "text": {
         "fontFamily": "Dentons Sans Web Semibold",
         "fontSize": 16,
@@ -1247,7 +1271,7 @@
         "paddingX": 25,
         "paddingY": 0,
         "border": null,
-        "href": "https://dentons.hprplawyers.com/en/about-dentons-hprp/news/2026/october/dentons-hprp-joins-the-conversation-on-the-future-of-indonesias-film-industry"
+        "href": "https://www.dentons.com/en/about-dentons/news-events-and-awards/news/2026/october/dentons-advises-csg"
       },
       "buttons": 2,
       "links": [
@@ -1256,44 +1280,44 @@
           "href": ""
         },
         {
-          "text": "Behind the big screen: Dentons HPRP joins the conv",
-          "href": "https://dentons.hprplawyers.com/en/about-dentons-hprp/news/2026/october/dentons-hprp-joins-the-conversation-on-the-future-of-indonesias-film-industry"
+          "text": "Dentons advises CSG on acquisition of 9.5% stake i",
+          "href": "https://www.dentons.com/en/about-dentons/news-events-and-awards/news/2026/october/dentons-advises-csg"
         },
         {
-          "text": "Dentons advises mBank and Bank Millennium on finan",
-          "href": "https://www.dentons.com/en/about-dentons/news-events-and-awards/news/2026/october/dentons-advises-mbank-and-bank-millennium-on-financing--of-135-mw-solar-photovoltaic-project"
-        },
-        {
-          "text": "Read more",
-          "href": "https://dentons.hprplawyers.com/en/about-dentons-hprp/news/2026/october/dentons-hprp-joins-the-conversation-on-the-future-of-indonesias-film-industry"
+          "text": "Dentons advises FAB on AED 1 billion MENA-first di",
+          "href": "https://www.dentons.com/en/about-dentons/news-events-and-awards/news/2026/october/dentons-advises-fab-on-aed-1-billion-mena-first-digitally-native-green-bond"
         },
         {
           "text": "Read more",
-          "href": "https://www.dentons.com/en/about-dentons/news-events-and-awards/news/2026/october/dentons-advises-mbank-and-bank-millennium-on-financing--of-135-mw-solar-photovoltaic-project"
-        },
-        {
-          "text": "Dentons Prevails at the Iowa Court of Appeals",
-          "href": "https://www.dentons.com/en/about-dentons/news-events-and-awards/news/2026/october/dentons-prevails-at-the-iowa-court-of-appeals"
-        },
-        {
-          "text": "IFLR1000 2027 recognizes Dentons’ transactional st",
-          "href": "https://www.dentons.com/en/about-dentons/news-events-and-awards/news/2026/october/iflr1000-2027-recognizes-dentons-transactional-strength-across-western-europe"
-        },
-        {
-          "text": "Dentons advises Uzbekistans Tourism and Entertainm",
-          "href": "https://www.dentons.com/en/about-dentons/news-events-and-awards/news/2026/october/dentons-advises-uzbekistans-tourism-and-entertainment-group"
+          "href": "https://www.dentons.com/en/about-dentons/news-events-and-awards/news/2026/october/dentons-advises-csg"
         },
         {
           "text": "Read more",
-          "href": "https://www.dentons.com/en/about-dentons/news-events-and-awards/news/2026/october/dentons-prevails-at-the-iowa-court-of-appeals"
+          "href": "https://www.dentons.com/en/about-dentons/news-events-and-awards/news/2026/october/dentons-advises-fab-on-aed-1-billion-mena-first-digitally-native-green-bond"
+        },
+        {
+          "text": "Dentons Cárdenas & Cárdenas Advises DEG on US$150 ",
+          "href": "https://dentons.cardenas-cardenas.com/en/about-dentons-cardenas-and-cardenas/news/2026/october/dentons-cardenas-advises-deg-on-us-150-million-financing-to-banco-de-occidente"
+        },
+        {
+          "text": "Dentons advises HRI Hospitality on transformative ",
+          "href": "https://www.dentons.com/en/about-dentons/news-events-and-awards/news/2026/october/dentons-advises-hri-hospitality-on-transformative-hotel-redevelopment"
+        },
+        {
+          "text": "Dentons Rodyk recognised as a Top Tier Firm in asi",
+          "href": "https://dentons.rodyk.com/en/about-dentons-rodyk/news/2026/october/dentons-rodyk-recognised-as-a-top-tier-firm-in-asialaw-2026-rankings"
         },
         {
           "text": "Read more",
-          "href": "https://www.dentons.com/en/about-dentons/news-events-and-awards/news/2026/october/iflr1000-2027-recognizes-dentons-transactional-strength-across-western-europe"
+          "href": "https://dentons.cardenas-cardenas.com/en/about-dentons-cardenas-and-cardenas/news/2026/october/dentons-cardenas-advises-deg-on-us-150-million-financing-to-banco-de-occidente"
         },
         {
           "text": "Read more",
-          "href": "https://www.dentons.com/en/about-dentons/news-events-and-awards/news/2026/october/dentons-advises-uzbekistans-tourism-and-entertainment-group"
+          "href": "https://www.dentons.com/en/about-dentons/news-events-and-awards/news/2026/october/dentons-advises-hri-hospitality-on-transformative-hotel-redevelopment"
+        },
+        {
+          "text": "Read more",
+          "href": "https://dentons.rodyk.com/en/about-dentons-rodyk/news/2026/october/dentons-rodyk-recognised-as-a-top-tier-firm-in-asialaw-2026-rankings"
         }
       ],
       "columns": 6,
@@ -1304,7 +1328,7 @@
           "radius": 8,
           "border": null,
           "w": 450,
-          "h": 602,
+          "h": 557,
           "childText": "Global Leading with Clarity in Times of "
         },
         {
@@ -1312,69 +1336,69 @@
           "radius": 8,
           "border": null,
           "w": 450,
-          "h": 602,
-          "childText": "Indonesia Behind the big screen: Dentons"
+          "h": 557,
+          "childText": "North America Dentons advises CSG on acq"
         },
         {
           "background": "#efefef",
           "radius": 8,
           "border": null,
           "w": 450,
-          "h": 602,
-          "childText": "Poland Dentons advises mBank and Bank Mi"
+          "h": 557,
+          "childText": "UKME Dentons advises FAB on AED 1 billio"
         },
         {
           "background": "#efefef",
           "radius": 8,
           "border": null,
           "w": 450,
-          "h": 564,
-          "childText": "United States Dentons Prevails at the Io"
+          "h": 575,
+          "childText": "Latin America Dentons Cárdenas & Cárdena"
         },
         {
           "background": "#efefef",
           "radius": 8,
           "border": null,
           "w": 450,
-          "h": 564,
-          "childText": "Europe IFLR1000 2027 recognizes Dentons’"
+          "h": 575,
+          "childText": "United States Dentons advises HRI Hospit"
         },
         {
           "background": "#efefef",
           "radius": 8,
           "border": null,
           "w": 450,
-          "h": 564,
-          "childText": "Uzbekistan Dentons advises Uzbekistans T"
+          "h": 575,
+          "childText": "Singapore Dentons Rodyk recognised as a "
         }
       ],
       "images": [
         {
-          "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/abstract/adobestock_495404709.ashx?crop=1&h=135&w=1000&hash=0EA287D34964659F46D8D522ECCEC477",
+          "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/space/adobestock_479117563.ashx?crop=1&h=135&w=1000&hash=FCEE4EBE7BAAB8AF8D2EF5D553A2B37D",
           "alt": "",
           "w": 450,
           "h": 135
         },
         {
-          "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/plants/adobestock_101098994.ashx?crop=1&h=135&w=1000&hash=F752C3F736C5974D6EA0785A56F2F8F9",
+          "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/aerial/adobestock_157428251.ashx?crop=1&h=135&w=1000&hash=E5962D2554049BBD0B2636CCF64DE8DF",
           "alt": "",
           "w": 450,
           "h": 135
         },
         {
-          "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/abstract/istock-1152338619.ashx?crop=1&h=135&w=1000&hash=4E4106B3822440134B1EB8A7CC6C353B",
+          "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/texture/istock-182408424.ashx?crop=1&h=135&w=1000&hash=98F95681A66F1CD83182C867DFFAA84E",
           "alt": "",
           "w": 450,
           "h": 135
         },
         {
-          "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/abstract/adobestock_362570416.ashx?crop=1&h=135&w=1000&hash=545600BF7FB7D3172C51A5DB8B45C7B0",
+          "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/abstract/istock-495669078.ashx?crop=1&h=135&w=1000&hash=BAFACB59682FA3B60F3C37AF89F8457E",
           "alt": "",
           "w": 450,
           "h": 135
         },
         {
-          "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/abstract/adobestock_131495735.ashx?crop=1&h=135&w=1000&hash=D7ECAFEE037680717D29BB2A26DBFE8D",
+          "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/geology/istock-490105818.ashx?crop=1&h=135&w=1000&hash=635DF97DA4512C4D05063A39E0F1D241",
           "alt": "",
           "w": 450,
           "h": 135
@@ -1391,7 +1415,7 @@
           "y": 0,
           "w": 450,
           "h": 135,
-          "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/abstract/adobestock_495404709.ashx?crop=1&h=135&w=1000&hash=0EA287D34964659F46D8D522ECCEC477",
+          "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/space/adobestock_479117563.ashx?crop=1&h=135&w=1000&hash=FCEE4EBE7BAAB8AF8D2EF5D553A2B37D",
           "alt": ""
         },
         {
@@ -1401,7 +1425,7 @@
           "y": 0,
           "w": 450,
           "h": 135,
-          "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/plants/adobestock_101098994.ashx?crop=1&h=135&w=1000&hash=F752C3F736C5974D6EA0785A56F2F8F9",
+          "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/aerial/adobestock_157428251.ashx?crop=1&h=135&w=1000&hash=E5962D2554049BBD0B2636CCF64DE8DF",
           "alt": ""
         },
         {
@@ -1410,7 +1434,7 @@
           "x": 44,
           "y": 29,
           "w": 392,
-          "h": 39,
+          "h": 24,
           "fontFamily": "Dentons Sans Web Semibold",
           "fontSize": 16,
           "fontWeight": "400",
@@ -1424,7 +1448,7 @@
           "role": "link",
           "text": "Leading with Clarity in Times of Complexity",
           "x": 44,
-          "y": 68,
+          "y": 53,
           "w": 392,
           "h": 86,
           "fontFamily": "Arial",
@@ -1441,7 +1465,7 @@
           "role": "heading",
           "text": "Leading with Clarity in Times of Complexity",
           "x": 44,
-          "y": 68,
+          "y": 53,
           "w": 392,
           "h": 86,
           "fontFamily": "Dentons Sans Web Semibold",
@@ -1455,99 +1479,131 @@
         },
         {
           "role": "text",
-          "text": "Indonesia",
+          "text": "North America",
           "x": 524,
           "y": 164,
           "w": 392,
-          "h": 39,
+          "h": 24,
           "fontFamily": "Dentons Sans Web Semibold",
           "fontSize": 16,
           "fontWeight": "400",
           "textTransform": "none",
           "letterSpacing": -0.5,
           "lineHeight": 24,
+          "color": "#545859",
+          "textAlign": "start"
+        },
+        {
+          "role": "eyebrow",
+          "text": "UKME",
+          "x": 1004,
+          "y": 164,
+          "w": 392,
+          "h": 24,
+          "fontFamily": "Dentons Sans Web Semibold",
+          "fontSize": 16,
+          "fontWeight": "400",
+          "textTransform": "none",
+          "letterSpacing": -0.5,
+          "lineHeight": 24,
+          "color": "#545859",
+          "textAlign": "start"
+        },
+        {
+          "role": "link",
+          "text": "Dentons advises CSG on acquisition of 9.5% stake in MDA Space",
+          "x": 524,
+          "y": 188,
+          "w": 392,
+          "h": 119,
+          "fontFamily": "Arial",
+          "fontSize": 15,
+          "fontWeight": "400",
+          "textTransform": "none",
+          "letterSpacing": 0,
+          "lineHeight": null,
+          "color": "#646568",
+          "textAlign": "start",
+          "href": "https://www.dentons.com/en/about-dentons/news-events-and-awards/news/2026/october/dentons-advises-csg"
+        },
+        {
+          "role": "heading",
+          "text": "Dentons advises CSG on acquisition of 9.5% stake in MDA Space",
+          "x": 524,
+          "y": 188,
+          "w": 392,
+          "h": 119,
+          "fontFamily": "Dentons Sans Web Semibold",
+          "fontSize": 30,
+          "fontWeight": "400",
+          "textTransform": "none",
+          "letterSpacing": 0,
+          "lineHeight": 33,
+          "color": "#545859",
+          "textAlign": "start"
+        },
+        {
+          "role": "link",
+          "text": "Dentons advises FAB on AED 1 billion MENA-first digitally native green bond",
+          "x": 1004,
+          "y": 188,
+          "w": 392,
+          "h": 152,
+          "fontFamily": "Arial",
+          "fontSize": 15,
+          "fontWeight": "400",
+          "textTransform": "none",
+          "letterSpacing": 0,
+          "lineHeight": null,
+          "color": "#646568",
+          "textAlign": "start",
+          "href": "https://www.dentons.com/en/about-dentons/news-events-and-awards/news/2026/october/dentons-advises-fab-on-aed-1-billion-mena-first-digitally-native-green-bond"
+        },
+        {
+          "role": "heading",
+          "text": "Dentons advises FAB on AED 1 billion MENA-first digitally native green bond",
+          "x": 1004,
+          "y": 188,
+          "w": 392,
+          "h": 152,
+          "fontFamily": "Dentons Sans Web Semibold",
+          "fontSize": 30,
+          "fontWeight": "400",
+          "textTransform": "none",
+          "letterSpacing": 0,
+          "lineHeight": 33,
           "color": "#545859",
           "textAlign": "start"
         },
         {
           "role": "text",
-          "text": "Poland",
-          "x": 1004,
-          "y": 164,
+          "text": "Dentons is pleased to have advised CSG on its acquisition of approximately 9.5% ",
+          "x": 524,
+          "y": 307,
           "w": 392,
-          "h": 39,
-          "fontFamily": "Dentons Sans Web Semibold",
-          "fontSize": 16,
+          "h": 63,
+          "fontFamily": "Dentons Sans Web Medium",
+          "fontSize": 14,
           "fontWeight": "400",
           "textTransform": "none",
-          "letterSpacing": -0.5,
-          "lineHeight": 24,
+          "letterSpacing": 0,
+          "lineHeight": 21,
           "color": "#545859",
           "textAlign": "start"
         },
         {
-          "role": "link",
-          "text": "Behind the big screen: Dentons HPRP joins the conversation on the Future of Indo",
-          "x": 524,
-          "y": 203,
-          "w": 392,
-          "h": 185,
-          "fontFamily": "Arial",
-          "fontSize": 15,
-          "fontWeight": "400",
-          "textTransform": "none",
-          "letterSpacing": 0,
-          "lineHeight": null,
-          "color": "#646568",
-          "textAlign": "start",
-          "href": "https://dentons.hprplawyers.com/en/about-dentons-hprp/news/2026/october/dentons-hprp-joins-the-conversation-on-the-future-of-indonesias-film-industry"
-        },
-        {
-          "role": "heading",
-          "text": "Behind the big screen: Dentons HPRP joins the conversation on the Future of Indo",
-          "x": 524,
-          "y": 203,
-          "w": 392,
-          "h": 185,
-          "fontFamily": "Dentons Sans Web Semibold",
-          "fontSize": 30,
-          "fontWeight": "400",
-          "textTransform": "none",
-          "letterSpacing": 0,
-          "lineHeight": 33,
-          "color": "#545859",
-          "textAlign": "start"
-        },
-        {
-          "role": "link",
-          "text": "Dentons advises mBank and Bank Millennium on financing of 135 MW solar photovolt",
+          "role": "text",
+          "text": "Dentons, the world's largest global law firm, has advised First Abu Dhabi Bank P",
           "x": 1004,
-          "y": 203,
+          "y": 340,
           "w": 392,
-          "h": 185,
-          "fontFamily": "Arial",
-          "fontSize": 15,
+          "h": 105,
+          "fontFamily": "Dentons Sans Web Medium",
+          "fontSize": 14,
           "fontWeight": "400",
           "textTransform": "none",
           "letterSpacing": 0,
-          "lineHeight": null,
-          "color": "#646568",
-          "textAlign": "start",
-          "href": "https://www.dentons.com/en/about-dentons/news-events-and-awards/news/2026/october/dentons-advises-mbank-and-bank-millennium-on-financing--of-135-mw-solar-photovoltaic-project"
-        },
-        {
-          "role": "heading",
-          "text": "Dentons advises mBank and Bank Millennium on financing of 135 MW solar photovolt",
-          "x": 1004,
-          "y": 203,
-          "w": 392,
-          "h": 185,
-          "fontFamily": "Dentons Sans Web Semibold",
-          "fontSize": 30,
-          "fontWeight": "400",
-          "textTransform": "none",
-          "letterSpacing": 0,
-          "lineHeight": 33,
+          "lineHeight": 21,
           "color": "#545859",
           "textAlign": "start"
         },
@@ -1555,41 +1611,9 @@
           "role": "text",
           "text": "As global markets become increasingly complex, leaders are navigating shifting r",
           "x": 44,
-          "y": 389,
+          "y": 374,
           "w": 392,
-          "h": 99,
-          "fontFamily": "Dentons Sans Web Medium",
-          "fontSize": 14,
-          "fontWeight": "400",
-          "textTransform": "none",
-          "letterSpacing": 0,
-          "lineHeight": 21,
-          "color": "#545859",
-          "textAlign": "start"
-        },
-        {
-          "role": "text",
-          "text": "The forum provided an opportunity to bring the practical concerns of film busine",
-          "x": 524,
-          "y": 388,
-          "w": 392,
-          "h": 99,
-          "fontFamily": "Dentons Sans Web Medium",
-          "fontSize": 14,
-          "fontWeight": "400",
-          "textTransform": "none",
-          "letterSpacing": 0,
-          "lineHeight": 21,
-          "color": "#545859",
-          "textAlign": "start"
-        },
-        {
-          "role": "text",
-          "text": "Dentons has advised mBank and Bank Millennium, acting as lenders, on financing f",
-          "x": 1004,
-          "y": 388,
-          "w": 392,
-          "h": 99,
+          "h": 84,
           "fontFamily": "Dentons Sans Web Medium",
           "fontSize": 14,
           "fontWeight": "400",
@@ -1603,9 +1627,9 @@
           "role": "text",
           "text": "In our latest video, Global CEO Kate Barton shares why, in moments like these, c",
           "x": 44,
-          "y": 488,
+          "y": 458,
           "w": 392,
-          "h": 99,
+          "h": 84,
           "fontFamily": "Dentons Sans Web Medium",
           "fontSize": 14,
           "fontWeight": "400",
@@ -1619,7 +1643,7 @@
           "role": "button",
           "text": "Read more",
           "x": 524,
-          "y": 523,
+          "y": 478,
           "w": 263,
           "h": 50,
           "fontFamily": "Arial",
@@ -1635,13 +1659,13 @@
           "paddingX": 25,
           "paddingY": 0,
           "border": null,
-          "href": "https://dentons.hprplawyers.com/en/about-dentons-hprp/news/2026/october/dentons-hprp-joins-the-conversation-on-the-future-of-indonesias-film-industry"
+          "href": "https://www.dentons.com/en/about-dentons/news-events-and-awards/news/2026/october/dentons-advises-csg"
         },
         {
           "role": "button",
           "text": "Read more",
           "x": 1004,
-          "y": 523,
+          "y": 478,
           "w": 263,
           "h": 50,
           "fontFamily": "Arial",
@@ -1657,61 +1681,61 @@
           "paddingX": 25,
           "paddingY": 0,
           "border": null,
-          "href": "https://www.dentons.com/en/about-dentons/news-events-and-awards/news/2026/october/dentons-advises-mbank-and-bank-millennium-on-financing--of-135-mw-solar-photovoltaic-project"
+          "href": "https://www.dentons.com/en/about-dentons/news-events-and-awards/news/2026/october/dentons-advises-fab-on-aed-1-billion-mena-first-digitally-native-green-bond"
         },
         {
           "role": "image",
           "text": "",
           "x": 15,
-          "y": 632,
+          "y": 587,
           "w": 450,
           "h": 135,
-          "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/abstract/istock-1152338619.ashx?crop=1&h=135&w=1000&hash=4E4106B3822440134B1EB8A7CC6C353B",
+          "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/texture/istock-182408424.ashx?crop=1&h=135&w=1000&hash=98F95681A66F1CD83182C867DFFAA84E",
           "alt": ""
         },
         {
           "role": "image",
           "text": "",
           "x": 495,
-          "y": 632,
+          "y": 587,
           "w": 450,
           "h": 135,
-          "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/abstract/adobestock_362570416.ashx?crop=1&h=135&w=1000&hash=545600BF7FB7D3172C51A5DB8B45C7B0",
+          "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/abstract/istock-495669078.ashx?crop=1&h=135&w=1000&hash=BAFACB59682FA3B60F3C37AF89F8457E",
           "alt": ""
         },
         {
           "role": "image",
           "text": "",
           "x": 975,
-          "y": 632,
+          "y": 587,
           "w": 450,
           "h": 135,
-          "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/abstract/adobestock_131495735.ashx?crop=1&h=135&w=1000&hash=D7ECAFEE037680717D29BB2A26DBFE8D",
+          "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/geology/istock-490105818.ashx?crop=1&h=135&w=1000&hash=635DF97DA4512C4D05063A39E0F1D241",
           "alt": ""
         },
         {
           "role": "text",
+          "text": "Latin America",
+          "x": 44,
+          "y": 751,
+          "w": 392,
+          "h": 24,
+          "fontFamily": "Dentons Sans Web Semibold",
+          "fontSize": 16,
+          "fontWeight": "400",
+          "textTransform": "none",
+          "letterSpacing": -0.5,
+          "lineHeight": 24,
+          "color": "#545859",
+          "textAlign": "start"
+        },
+        {
+          "role": "text",
           "text": "United States",
-          "x": 44,
-          "y": 796,
-          "w": 392,
-          "h": 39,
-          "fontFamily": "Dentons Sans Web Semibold",
-          "fontSize": 16,
-          "fontWeight": "400",
-          "textTransform": "none",
-          "letterSpacing": -0.5,
-          "lineHeight": 24,
-          "color": "#545859",
-          "textAlign": "start"
-        },
-        {
-          "role": "text",
-          "text": "Europe",
           "x": 524,
-          "y": 796,
+          "y": 751,
           "w": 392,
-          "h": 39,
+          "h": 24,
           "fontFamily": "Dentons Sans Web Semibold",
           "fontSize": 16,
           "fontWeight": "400",
@@ -1723,11 +1747,11 @@
         },
         {
           "role": "text",
-          "text": "Uzbekistan",
+          "text": "Singapore",
           "x": 1004,
-          "y": 796,
+          "y": 751,
           "w": 392,
-          "h": 39,
+          "h": 24,
           "fontFamily": "Dentons Sans Web Semibold",
           "fontSize": 16,
           "fontWeight": "400",
@@ -1739,42 +1763,9 @@
         },
         {
           "role": "link",
-          "text": "Dentons Prevails at the Iowa Court of Appeals",
+          "text": "Dentons Cárdenas & Cárdenas Advises DEG on US$150 Million Financing to Banco de ",
           "x": 44,
-          "y": 835,
-          "w": 392,
-          "h": 86,
-          "fontFamily": "Arial",
-          "fontSize": 15,
-          "fontWeight": "400",
-          "textTransform": "none",
-          "letterSpacing": 0,
-          "lineHeight": null,
-          "color": "#646568",
-          "textAlign": "start",
-          "href": "https://www.dentons.com/en/about-dentons/news-events-and-awards/news/2026/october/dentons-prevails-at-the-iowa-court-of-appeals"
-        },
-        {
-          "role": "heading",
-          "text": "Dentons Prevails at the Iowa Court of Appeals",
-          "x": 44,
-          "y": 835,
-          "w": 392,
-          "h": 86,
-          "fontFamily": "Dentons Sans Web Semibold",
-          "fontSize": 30,
-          "fontWeight": "400",
-          "textTransform": "none",
-          "letterSpacing": 0,
-          "lineHeight": 33,
-          "color": "#545859",
-          "textAlign": "start"
-        },
-        {
-          "role": "link",
-          "text": "IFLR1000 2027 recognizes Dentons’ transactional strength across Western Europe",
-          "x": 524,
-          "y": 835,
+          "y": 775,
           "w": 392,
           "h": 152,
           "fontFamily": "Arial",
@@ -1785,13 +1776,13 @@
           "lineHeight": null,
           "color": "#646568",
           "textAlign": "start",
-          "href": "https://www.dentons.com/en/about-dentons/news-events-and-awards/news/2026/october/iflr1000-2027-recognizes-dentons-transactional-strength-across-western-europe"
+          "href": "https://dentons.cardenas-cardenas.com/en/about-dentons-cardenas-and-cardenas/news/2026/october/dentons-cardenas-advises-deg-on-us-150-million-financing-to-banco-de-occidente"
         },
         {
           "role": "heading",
-          "text": "IFLR1000 2027 recognizes Dentons’ transactional strength across Western Europe",
-          "x": 524,
-          "y": 835,
+          "text": "Dentons Cárdenas & Cárdenas Advises DEG on US$150 Million Financing to Banco de ",
+          "x": 44,
+          "y": 775,
           "w": 392,
           "h": 152,
           "fontFamily": "Dentons Sans Web Semibold",
@@ -1805,11 +1796,11 @@
         },
         {
           "role": "link",
-          "text": "Dentons advises Uzbekistans Tourism and Entertainment Group",
-          "x": 1004,
-          "y": 835,
+          "text": "Dentons advises HRI Hospitality on transformative hotel redevelopment",
+          "x": 524,
+          "y": 775,
           "w": 392,
-          "h": 119,
+          "h": 152,
           "fontFamily": "Arial",
           "fontSize": 15,
           "fontWeight": "400",
@@ -1818,15 +1809,48 @@
           "lineHeight": null,
           "color": "#646568",
           "textAlign": "start",
-          "href": "https://www.dentons.com/en/about-dentons/news-events-and-awards/news/2026/october/dentons-advises-uzbekistans-tourism-and-entertainment-group"
+          "href": "https://www.dentons.com/en/about-dentons/news-events-and-awards/news/2026/october/dentons-advises-hri-hospitality-on-transformative-hotel-redevelopment"
         },
         {
           "role": "heading",
-          "text": "Dentons advises Uzbekistans Tourism and Entertainment Group",
-          "x": 1004,
-          "y": 835,
+          "text": "Dentons advises HRI Hospitality on transformative hotel redevelopment",
+          "x": 524,
+          "y": 775,
           "w": 392,
-          "h": 119,
+          "h": 152,
+          "fontFamily": "Dentons Sans Web Semibold",
+          "fontSize": 30,
+          "fontWeight": "400",
+          "textTransform": "none",
+          "letterSpacing": 0,
+          "lineHeight": 33,
+          "color": "#545859",
+          "textAlign": "start"
+        },
+        {
+          "role": "link",
+          "text": "Dentons Rodyk recognised as a Top Tier Firm in asialaw 2026 rankings",
+          "x": 1004,
+          "y": 775,
+          "w": 392,
+          "h": 152,
+          "fontFamily": "Arial",
+          "fontSize": 15,
+          "fontWeight": "400",
+          "textTransform": "none",
+          "letterSpacing": 0,
+          "lineHeight": null,
+          "color": "#646568",
+          "textAlign": "start",
+          "href": "https://dentons.rodyk.com/en/about-dentons-rodyk/news/2026/october/dentons-rodyk-recognised-as-a-top-tier-firm-in-asialaw-2026-rankings"
+        },
+        {
+          "role": "heading",
+          "text": "Dentons Rodyk recognised as a Top Tier Firm in asialaw 2026 rankings",
+          "x": 1004,
+          "y": 775,
+          "w": 392,
+          "h": 152,
           "fontFamily": "Dentons Sans Web Semibold",
           "fontSize": 30,
           "fontWeight": "400",
@@ -1838,11 +1862,11 @@
         },
         {
           "role": "text",
-          "text": "Dentons Davis Brown shareholders Spencer Willems and Sarah Franklin secured a wi",
+          "text": "Dentons Cárdenas & Cárdenas acted as legal counsel to DEG in its US$150 million ",
           "x": 44,
-          "y": 921,
+          "y": 927,
           "w": 392,
-          "h": 78,
+          "h": 84,
           "fontFamily": "Dentons Sans Web Medium",
           "fontSize": 14,
           "fontWeight": "400",
@@ -1852,12 +1876,14 @@
           "color": "#545859",
           "textAlign": "start"
         }
-      ]
+      ],
+      "adSlot": false,
+      "video": true
     },
     {
       "index": 6,
       "kind": "section",
-      "top": 3213,
+      "top": 3119,
       "height": 80,
       "screenshot": "sections/06-div.png",
       "background": "#ffffff",
@@ -1867,6 +1893,7 @@
       "contentRight": 863,
       "contentWidth": 285,
       "fullWidth": false,
+      "scroller": false,
       "paddingTop": 0,
       "paddingBottom": 30,
       "order": "button",
@@ -1920,13 +1947,15 @@
           "paddingY": 1,
           "border": null
         }
-      ]
+      ],
+      "adSlot": false,
+      "video": false
     },
     {
       "index": 7,
       "kind": "section",
-      "top": 3333,
-      "height": 208,
+      "top": 3239,
+      "height": 198,
       "screenshot": "sections/07-how-can-the-world-s-largest-glob.png",
       "background": "#333333",
       "backgroundImage": "https://www.dentons.com/-/media/images/website/background-images/gpof/gpof-footer.ashx",
@@ -1937,6 +1966,7 @@
       "contentRight": 1425,
       "contentWidth": 1410,
       "fullWidth": true,
+      "scroller": false,
       "paddingTop": 40,
       "paddingBottom": 40,
       "order": "heading,link",
@@ -1979,7 +2009,7 @@
           "x": 15,
           "y": 40,
           "w": 1410,
-          "h": 63,
+          "h": 53,
           "fontFamily": "Dentons Sans Web Semibold",
           "fontSize": 30,
           "fontWeight": "400",
@@ -1993,7 +2023,7 @@
           "role": "heading",
           "text": "Contact us or find an office in your location.",
           "x": 15,
-          "y": 103,
+          "y": 93,
           "w": 1410,
           "h": 65,
           "fontFamily": "Dentons Sans Web Medium",
@@ -2009,7 +2039,7 @@
           "role": "link",
           "text": "Contact us",
           "x": 479,
-          "y": 103,
+          "y": 93,
           "w": 120,
           "h": 45,
           "fontFamily": "Dentons Sans Web Medium",
@@ -2026,7 +2056,7 @@
           "role": "link",
           "text": "find an office",
           "x": 634,
-          "y": 103,
+          "y": 93,
           "w": 144,
           "h": 45,
           "fontFamily": "Dentons Sans Web Medium",
@@ -2039,12 +2069,14 @@
           "textAlign": "center",
           "href": "https://www.dentons.com/en/global-presence"
         }
-      ]
+      ],
+      "adSlot": false,
+      "video": false
     },
     {
       "index": 8,
       "kind": "footer",
-      "top": 3541,
+      "top": 3437,
       "height": 344,
       "screenshot": "sections/08-footer.png",
       "background": "#efefef",
@@ -2054,8 +2086,9 @@
       "contentRight": 1425,
       "contentWidth": 1410,
       "fullWidth": true,
+      "scroller": false,
       "paddingTop": 60,
-      "paddingBottom": 62,
+      "paddingBottom": 77,
       "order": "image,link,button,text",
       "heading": null,
       "eyebrow": null,
@@ -2446,7 +2479,7 @@
           "x": 368,
           "y": 204,
           "w": 1058,
-          "h": 78,
+          "h": 63,
           "fontFamily": "Dentons Sans Web Medium",
           "fontSize": 14,
           "fontWeight": "400",
@@ -2456,7 +2489,9 @@
           "color": "#545859",
           "textAlign": "start"
         }
-      ]
+      ],
+      "adSlot": false,
+      "video": false
     }
   ]
 }

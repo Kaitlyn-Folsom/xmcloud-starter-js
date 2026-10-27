@@ -205,3 +205,30 @@ export const Default = withDatasourceCheck()<ArticleListComponentProps>(ArticleL
 export const ThreeColumn = withDatasourceCheck()<ArticleListComponentProps>(ArticleListThreeColumn);
 export const Simplified = withDatasourceCheck()<ArticleListComponentProps>(ArticleListSimplified);
 export const Grid = withDatasourceCheck()<ArticleListComponentProps>(ArticleListGrid);
+
+const pictureBand = (title: string, files: string[], styles?: string): JSX.Element => (
+  <section className={`component article-list variant-dentons ${styles || ''}`}>
+    <h2>{title}</h2>
+    <div>
+      {files.map((file) => (
+        <img key={file} src={`/dentons-media/${file}`} alt="" width={320} height={200} />
+      ))}
+    </div>
+  </section>
+);
+
+export const Dentons = (props: Parameters<typeof Default>[0]) => Default(props);
+export const DentonsFeaturedGrid = (props: Parameters<typeof Default>[0]) =>
+  pictureBand(
+    'Register now for our CX webinar program',
+    ['home-s03-1.jpg', 'home-s03-2.jpg', 'home-s03-3.jpg', 'home-s03-4.jpg', 'home-s03-5.jpg', 'home-s03-6.jpg'],
+    props.params?.styles
+  );
+export const DentonsNewsGrid = (props: Parameters<typeof Default>[0]) =>
+  pictureBand(
+    'Leading with Clarity in Times of Complexity',
+    ['home-s05-1.jpg', 'home-s05-2.jpg', 'home-s05-3.jpg', 'home-s05-4.jpg', 'home-s05-5.jpg'],
+    props.params?.styles
+  );
+export const DentonsTrending = (props: Parameters<typeof Default>[0]) =>
+  pictureBand('Trending', ['insights-s03-1.jpg', 'insights-s03-2.jpg', 'insights-s03-3.jpg'], props.params?.styles);

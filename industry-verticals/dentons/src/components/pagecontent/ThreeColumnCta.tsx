@@ -13,17 +13,14 @@ import {
 import useVisibility from 'src/hooks/useVisibility';
 
 interface Fields {
-  Eyebrow1?: Field<string>;
   Text1: Field<string>;
   SubText1: Field<string>;
   Image1: ImageField;
   Link1: LinkField;
-  Eyebrow2?: Field<string>;
   Text2: Field<string>;
   SubText2: Field<string>;
   Image2: ImageField;
   Link2: LinkField;
-  Eyebrow3?: Field<string>;
   Text3: Field<string>;
   SubText3: Field<string>;
   Image3: ImageField;
@@ -42,14 +39,12 @@ export const Default = (props: ThreeColumnCtaProps): JSX.Element => {
   const sxaStyles = `${props.params?.styles || ''}`;
 
   const Column = ({
-    eyebrow,
     image,
     text,
     subText,
     link,
     delay,
   }: {
-    eyebrow?: Field<string>;
     image: ImageField;
     text: Field<string>;
     subText: Field<string>;
@@ -57,6 +52,9 @@ export const Default = (props: ThreeColumnCtaProps): JSX.Element => {
     delay?: number;
   }) => {
     const [isVisible, domRef] = useVisibility(delay);
+    const buttonStyle = props.params?.ButtonStyle
+      ? `button-${props.params.ButtonStyle.toLowerCase()}`
+      : 'button-main';
 
     return (
       <div
@@ -67,11 +65,6 @@ export const Default = (props: ThreeColumnCtaProps): JSX.Element => {
       >
         <div className="content-wrapper">
           <NextImage field={image} width={400} height={400} />
-          {(isPageEditing || eyebrow?.value) && (
-            <p className="card-kicker">
-              <Text field={eyebrow} />
-            </p>
-          )}
           <h2>
             <Text field={text} />
           </h2>
@@ -79,7 +72,7 @@ export const Default = (props: ThreeColumnCtaProps): JSX.Element => {
             <Text field={subText} />
           </p>
           {(isPageEditing || link?.value?.href) && (
-            <Link field={link} className="button button-pill" />
+            <Link field={link} className={`button ${buttonStyle}`} />
           )}
         </div>
       </div>
@@ -94,14 +87,12 @@ export const Default = (props: ThreeColumnCtaProps): JSX.Element => {
       <div className="container">
         <div className="row">
           <Column
-            eyebrow={props.fields.Eyebrow1}
             image={props.fields.Image1}
             text={props.fields.Text1}
             subText={props.fields.SubText1}
             link={props.fields.Link1}
           />
           <Column
-            eyebrow={props.fields.Eyebrow2}
             image={props.fields.Image2}
             text={props.fields.Text2}
             subText={props.fields.SubText2}
@@ -109,7 +100,6 @@ export const Default = (props: ThreeColumnCtaProps): JSX.Element => {
             delay={500}
           />
           <Column
-            eyebrow={props.fields.Eyebrow3}
             image={props.fields.Image3}
             text={props.fields.Text3}
             subText={props.fields.SubText3}
@@ -129,14 +119,12 @@ export const WithIcons = (props: ThreeColumnCtaProps): JSX.Element => {
   const sxaStyles = `${props.params?.styles || ''}`;
 
   const Column = ({
-    eyebrow,
     image,
     text,
     subText,
     link,
     delay,
   }: {
-    eyebrow?: Field<string>;
     image: ImageField;
     text: Field<string>;
     subText: Field<string>;
@@ -156,20 +144,12 @@ export const WithIcons = (props: ThreeColumnCtaProps): JSX.Element => {
             <div className="image-wrapper mb-5">
               <NextImage field={image} width={32} height={32} />
             </div>
-            {(isPageEditing || eyebrow?.value) && (
-              <p className="card-kicker">
-                <Text field={eyebrow} />
-              </p>
-            )}
             <h2>
               <Text field={text} />
             </h2>
             <p>
               <Text field={subText} />
             </p>
-            {(isPageEditing || link?.value?.href) && (
-              <span className="button button-pill">{link?.value?.text || 'Read more'}</span>
-            )}
           </div>
         </Link>
       </div>
@@ -184,14 +164,12 @@ export const WithIcons = (props: ThreeColumnCtaProps): JSX.Element => {
       <div className="container">
         <div className="row gx-0">
           <Column
-            eyebrow={props.fields.Eyebrow1}
             image={props.fields.Image1}
             text={props.fields.Text1}
             subText={props.fields.SubText1}
             link={props.fields.Link1}
           />
           <Column
-            eyebrow={props.fields.Eyebrow2}
             image={props.fields.Image2}
             text={props.fields.Text2}
             subText={props.fields.SubText2}
@@ -199,7 +177,6 @@ export const WithIcons = (props: ThreeColumnCtaProps): JSX.Element => {
             delay={500}
           />
           <Column
-            eyebrow={props.fields.Eyebrow3}
             image={props.fields.Image3}
             text={props.fields.Text3}
             subText={props.fields.SubText3}
@@ -219,14 +196,12 @@ export const WithIconsCompact = (props: ThreeColumnCtaProps): JSX.Element => {
   const sxaStyles = `${props.params?.styles || ''}`;
 
   const Column = ({
-    eyebrow,
     image,
     text,
     subText,
     link,
     delay,
   }: {
-    eyebrow?: Field<string>;
     image: ImageField;
     text: Field<string>;
     subText: Field<string>;
@@ -247,23 +222,13 @@ export const WithIconsCompact = (props: ThreeColumnCtaProps): JSX.Element => {
               <div className="image-wrapper">
                 <NextImage field={image} width={32} height={32} />
               </div>
-              <div>
-                {(isPageEditing || eyebrow?.value) && (
-                  <p className="card-kicker">
-                    <Text field={eyebrow} />
-                  </p>
-                )}
-                <h2 className="eyebrow-accent mb-0 mt-2">
-                  <Text field={text} />
-                </h2>
-              </div>
+              <h2 className="eyebrow-accent mb-0 mt-2">
+                <Text field={text} />
+              </h2>
             </div>
             <p>
               <Text field={subText} />
             </p>
-            {(isPageEditing || link?.value?.href) && (
-              <span className="button button-pill">{link?.value?.text || 'Read more'}</span>
-            )}
           </div>
         </Link>
       </div>
@@ -278,14 +243,12 @@ export const WithIconsCompact = (props: ThreeColumnCtaProps): JSX.Element => {
       <div className="container">
         <div className="row gx-0">
           <Column
-            eyebrow={props.fields.Eyebrow1}
             image={props.fields.Image1}
             text={props.fields.Text1}
             subText={props.fields.SubText1}
             link={props.fields.Link1}
           />
           <Column
-            eyebrow={props.fields.Eyebrow2}
             image={props.fields.Image2}
             text={props.fields.Text2}
             subText={props.fields.SubText2}
@@ -293,7 +256,6 @@ export const WithIconsCompact = (props: ThreeColumnCtaProps): JSX.Element => {
             delay={500}
           />
           <Column
-            eyebrow={props.fields.Eyebrow3}
             image={props.fields.Image3}
             text={props.fields.Text3}
             subText={props.fields.SubText3}
@@ -305,78 +267,3 @@ export const WithIconsCompact = (props: ThreeColumnCtaProps): JSX.Element => {
     </div>
   );
 };
-
-const DentonsCard = ({
-  image,
-  eyebrow,
-  title,
-  text,
-  link,
-  isPageEditing,
-}: {
-  image: ImageField;
-  eyebrow?: Field<string>;
-  title: Field<string>;
-  text: Field<string>;
-  link: LinkField;
-  isPageEditing: boolean;
-}) => (
-  <div className="col-md-4">
-    <article className="card">
-      {(isPageEditing || image?.value?.src) && (
-        <NextImage field={image} width={480} height={270} />
-      )}
-      {(isPageEditing || eyebrow?.value) && (
-        <p className="card-kicker">
-          <Text field={eyebrow} />
-        </p>
-      )}
-      <h3>
-        <Text field={title} />
-      </h3>
-      {(isPageEditing || text?.value) && (
-        <p className="card-summary">
-          <Text field={text} />
-        </p>
-      )}
-      {(isPageEditing || link?.value?.href) && (
-        <Link field={link} className="button button-pill" />
-      )}
-    </article>
-  </div>
-);
-
-const dentonsRow = (props: ThreeColumnCtaProps, variantClass: string): JSX.Element => {
-  const { page } = useSitecore();
-  const isPageEditing = page.mode.isEditing;
-  return (
-    <div
-      className={`component three-column-cta ${variantClass} ${props.params?.styles || ''}`}
-      id={props.params.RenderingIdentifier || undefined}
-    >
-      <div className="container">
-        <div className="row g-4">
-          <DentonsCard image={props.fields.Image1} eyebrow={props.fields.Eyebrow1} title={props.fields.Text1} text={props.fields.SubText1} link={props.fields.Link1} isPageEditing={isPageEditing} />
-          <DentonsCard image={props.fields.Image2} eyebrow={props.fields.Eyebrow2} title={props.fields.Text2} text={props.fields.SubText2} link={props.fields.Link2} isPageEditing={isPageEditing} />
-          <DentonsCard image={props.fields.Image3} eyebrow={props.fields.Eyebrow3} title={props.fields.Text3} text={props.fields.SubText3} link={props.fields.Link3} isPageEditing={isPageEditing} />
-        </div>
-      </div>
-    </div>
-  );
-};
-
-/* Dentons variant: image, eyebrow, heading, text, purple pill */
-export const Dentons = (props: ThreeColumnCtaProps): JSX.Element =>
-  dentonsRow(props, 'variant-dentons');
-
-/* DentonsCardRow: the second homepage card row */
-export const DentonsCardRow = (props: ThreeColumnCtaProps): JSX.Element =>
-  dentonsRow(props, 'variant-dentons-card-row');
-
-/* DentonsNews: news cards with a purple pill */
-export const DentonsNews = (props: ThreeColumnCtaProps): JSX.Element =>
-  dentonsRow(props, 'variant-dentons-news');
-
-/* DentonsNewsRow: the second news row */
-export const DentonsNewsRow = (props: ThreeColumnCtaProps): JSX.Element =>
-  dentonsRow(props, 'variant-dentons-news-row');

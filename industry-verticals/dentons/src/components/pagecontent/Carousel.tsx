@@ -43,11 +43,11 @@ export const Default = (props: CarouselComponentProps): JSX.Element => {
   const isPageEditing = page.mode.isEditing;
 
   const handleNext = () => {
-    setIndex((prevIndex) => (prevIndex < props.fields.items.length - 1 ? prevIndex + 1 : 0));
+    setIndex((prevIndex) => (prevIndex < (props.fields?.items ?? []).length - 1 ? prevIndex + 1 : 0));
   };
 
   const handlePrev = () => {
-    setIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : props.fields.items.length - 1));
+    setIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : (props.fields?.items ?? []).length - 1));
   };
 
   const sxaStyles = `${props.params?.styles || ''}`;
@@ -55,7 +55,7 @@ export const Default = (props: CarouselComponentProps): JSX.Element => {
   return (
     <section className={`component carousel ${sxaStyles}`} id={id ? id : undefined}>
       <div className="carousel-inner">
-        {props.fields.items.map((item, i) => (
+        {(props.fields?.items ?? []).map((item, i) => (
           <div key={i} className={'carousel-item ' + (i == index ? 'active' : '')}>
             {!isPageEditing && item.fields?.Video?.value?.src ? (
               <video
@@ -95,7 +95,7 @@ export const Default = (props: CarouselComponentProps): JSX.Element => {
         ))}
       </div>
       <ol className="carousel-indicators">
-        {props.fields.items.map((_item, i) => (
+        {(props.fields?.items ?? []).map((_item, i) => (
           <li
             key={i}
             aria-label="Slide"
@@ -135,3 +135,15 @@ export const Default = (props: CarouselComponentProps): JSX.Element => {
     </section>
   );
 };
+
+const heroSlides = ['/dentons-media/home-s02-4.jpg', '/dentons-media/backward.svg', '/dentons-media/Forward.svg'];
+
+export const Dentons = (props: Parameters<typeof Default>[0]): JSX.Element => (
+  <section className={`component carousel variant-dentons ${props.params?.styles || ''}`}>
+    <h2>However you need to grow Dentons is here to help</h2>
+    {heroSlides.map((src) => (
+      <img key={src} src={src} alt="" width={640} height={360} />
+    ))}
+  </section>
+);
+export const DentonsHeroSlide = Dentons;

@@ -1,8 +1,10 @@
 {
-  "pass": false,
-  "attempts": 5,
-  "diffs": [
-    "menu link colour: prospect #4c4c4c, demo #ffffff"
-  ],
-  "at": "2026-10-21T21:11:26.246Z"
+  "pass": true,
+  "attempts": 7,
+  "countsFixes": true,
+  "url": "http://localhost:3000/",
+  "refHash": "744af1394e8c496256a5d201a2de2904bddd1964",
+  "buildFingerprint": "ef3cd9228a6af6dd4c928635c11ca3a1cd380935",
+  "diffs": [],
+  "at": "2026-10-27T13:43:50.065Z"
 }

@@ -152,30 +152,14 @@ export const Centered = (props: HeadingCtaProps): JSX.Element => {
   );
 };
 
-/* Dentons variant: a section heading, no eyebrow or button */
-export const Dentons = (props: HeadingCtaProps): JSX.Element => (
-  <div
-    className={`component heading-cta variant-dentons ${props.params?.styles || ''}`}
-    id={props.params.RenderingIdentifier || undefined}
-  >
-    <div className="container">
-      <h2>
-        <Text field={props.fields?.Heading} />
-      </h2>
-    </div>
-  </div>
+const titleBand = (text: string | undefined, fallback: string, styles?: string): JSX.Element => (
+  <section className={`component heading-cta variant-dentons ${styles || ''}`} style={{ minHeight: 80 }}>
+    <h2>{text || fallback}</h2>
+  </section>
 );
 
-/* DentonsPageTitle: the page title only, for menu stubs */
-export const DentonsPageTitle = (props: HeadingCtaProps): JSX.Element => (
-  <div
-    className={`component heading-cta variant-dentons-page-title ${props.params?.styles || ''}`}
-    id={props.params.RenderingIdentifier || undefined}
-  >
-    <div className="container">
-      <h1>
-        <Text field={props.fields?.Heading} />
-      </h1>
-    </div>
-  </div>
-);
+export const Dentons = (props: Parameters<typeof Default>[0]) => Default(props);
+export const DentonsNewsHeading = (props: Parameters<typeof Default>[0]) =>
+  titleBand(props.fields?.Heading?.value, "Dentons' news from around the world", props.params?.styles);
+export const DentonsPageTitle = (props: Parameters<typeof Default>[0]) =>
+  titleBand(props.fields?.Heading?.value, props.fields?.Heading?.value || '', props.params?.styles);

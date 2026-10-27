@@ -127,7 +127,7 @@ site:
     # Order matters: parents first. Plan /Home first; demo-site-bootstrap probes whether the template already created it.
     - path: /Home
       displayName: "Home"
-      pageType: page            # page | article | landing
+      pageType: page            # page | article | person | landing
       purpose: "Landing view in the prospect's brand; the WOW result in the first minute"
       proves: [m1]
       sections:

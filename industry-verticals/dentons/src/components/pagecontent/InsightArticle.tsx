@@ -1,71 +1,36 @@
 'use client';
 
 import { JSX } from 'react';
-import {
-  Field,
-  RichTextField,
-  Text,
-  RichText,
-  useSitecore,
-} from '@sitecore-content-sdk/nextjs';
-import { ComponentProps } from 'lib/component-props';
+import { Field, ImageField, LinkField, NextImage, RichText, Text, useSitecore } from '@sitecore-content-sdk/nextjs';
 
-type ArticleFields = {
+interface InsightArticleFields {
   Title?: Field<string>;
-  Date?: Field<string>;
-  Type?: Field<string>;
-  Body?: RichTextField;
-  Authors?: RichTextField;
-  Related?: RichTextField;
+  Text?: Field<string>;
+  Image?: ImageField;
+  Lawyer?: LinkField;
+}
+
+export type InsightArticleProps = {
+  params: { [key: string]: string };
+  fields?: InsightArticleFields;
 };
 
-export type InsightArticleProps = ComponentProps & { fields: ArticleFields };
-
-const InsightArticleEmpty = (): JSX.Element => (
-  <div className="component insight-article">
-    <div className="component-content">
-      <span className="is-empty-hint">InsightArticle</span>
-    </div>
-  </div>
-);
-
-export const Default = ({ fields, params }: InsightArticleProps): JSX.Element => {
+const Article = (props: InsightArticleProps): JSX.Element => {
   const { page } = useSitecore();
-  const isPageEditing = page.mode.isEditing;
-  if (!fields?.Title) return <InsightArticleEmpty />;
-  const shareUrl = typeof window === 'undefined' ? '' : window.location.href;
+  const isEditing = page.mode.isEditing;
+  const fields = props.fields;
+  const id = props.params?.RenderingIdentifier;
 
   return (
-    <article
-      className={`component insight-article ${params?.styles || ''}`}
-      id={params?.RenderingIdentifier || undefined}
-    >
+    <article className={`component insight-article ${props.params?.styles || ''}`} id={id || undefined}>
       <div className="container">
-        <h1>
-          <Text field={fields.Title} />
-        </h1>
-        {(isPageEditing || fields.Date?.value) && <Text tag="p" field={fields.Date} />}
-        {(isPageEditing || fields.Type?.value) && <Text tag="p" field={fields.Type} />}
-        {(isPageEditing || fields.Body?.value) && <RichText field={fields.Body} />}
-        <h2>Key contacts</h2>
-        {(isPageEditing || fields.Authors?.value) && <RichText field={fields.Authors} />}
-        {(isPageEditing || fields.Related?.value) && (
-          <>
-            <h2>Related</h2>
-            <RichText field={fields.Related} />
-          </>
-        )}
-        {shareUrl && (
-          <p className="share">
-            Share{' '}
-            <a href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(shareUrl)}`}>LinkedIn</a>
-            {' '}
-            <a href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}`}>X</a>
-          </p>
-        )}
+        {(fields?.Title?.value || isEditing) && <Text tag="h1" field={fields?.Title} />}
+        {(fields?.Image?.value?.src || isEditing) && fields?.Image && <NextImage field={fields.Image} />}
+        {(fields?.Text?.value || isEditing) && <RichText field={fields?.Text} />}
       </div>
     </article>
   );
 };
 
-export const Dentons = (props: InsightArticleProps): JSX.Element => <Default {...props} />;
+export const Default = Article;
+export const Dentons = Article;

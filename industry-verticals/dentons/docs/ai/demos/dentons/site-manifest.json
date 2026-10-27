@@ -1,35 +1,97 @@
 {
-  "siteRoot": "/sitecore/content/Dentons/Dentons",
-  "siteId": "2e0cdf9d-d0d9-4807-9c9f-9499f72cd8d5",
-  "homeId": "81637c8d-9500-4432-bca6-f441fe782f41",
-  "dataRoot": "/sitecore/content/Dentons/Dentons/Data",
-  "dataRootId": "59289f38-6d05-448b-89c4-bb67d8a641e8",
-  "dataFolders": {
-    "Promos": "e1591fe1-0901-4da5-b751-96b8aefcc769"
+  "siteId": "3db1711d-578c-44c8-8216-38a187b7d70a",
+  "siteRoot": "/sitecore/content/Legal/Dentons",
+  "home": {
+    "id": "f5d21305-f90c-436f-8024-7a12f50e0b76",
+    "path": "/sitecore/content/Legal/Dentons/Home"
   },
-  "navigationFilter": {
-    "main": "d063e9d1-c7b5-4b1e-b31e-69886c9c59f5"
+  "dataRoot": {
+    "id": "ca0000e4-533b-44dd-95a5-8c4239b6b0e5",
+    "path": "/sitecore/content/Legal/Dentons/Data"
+  },
+  "dataFolders": {
+    "Promos": "6519df1d-9dac-423f-9fb3-ccb811226d27"
+  },
+  "pageTemplates": {
+    "page": "275268ab-8c84-4f5f-8386-f4f0f9cf3b3b",
+    "article": "26655b75-9157-41b4-8868-f671150a9bd5",
+    "person": "93a02700-e6df-4964-b18b-50344cd48d3d",
+    "sitePage": "a29cc127-d202-43a6-8589-0478df128f9a"
+  },
+  "schemaField": {
+    "page": "e0c8a93e-7b22-4012-ad26-53b66e7e1dcc",
+    "article": "002f721e-32cd-445f-8192-40dbc89faa88"
   },
   "partialDesigns": {
-    "header": "00cf5f86-7fbf-4a61-862c-4ffd09107aac",
-    "footer": "b0da18a1-402f-4e91-ade1-5e76e29a5b6f"
+    "Header": {
+      "id": "510956e5-a077-42f2-835d-c93393c48a96",
+      "templateId": "fd2059fd-6043-4dfe-8c04-e2437ce87634"
+    },
+    "Footer": {
+      "id": "78f42ea0-cf3b-4809-8f43-01732de3dd96",
+      "templateId": "fd2059fd-6043-4dfe-8c04-e2437ce87634"
+    }
   },
-  "pagesFile": "assemble-pages-result.json",
-  "pageTemplates": {
-    "page": "97e1aa43-074c-44ed-a71a-ccc9f8ec037f",
-    "article": "a017fd28-e461-4e27-aabd-2c0be8ab1ae2",
-    "person": "aabea580-3918-41c7-8228-c4757d50c0d8"
+  "pageDesigns": {
+    "Page": "49baea89-d1f8-4c04-a36f-20df362d281d",
+    "Article": "8e263f2a-e099-4a63-b128-1909036326f4",
+    "Person": "5881ce31-4663-40b8-b69f-0218aef6ea2f"
   },
+  "availableRenderingsItem": "d4a85ec5-460f-43b6-be1e-b96fa943048e",
   "variants": {
-    "HeroBanner": { "Default": "d53f3f3e-b69e-4c4a-8dd7-7bc96fbb4aa7", "Dentons": "5bea04bd-7818-498e-9341-4119a4c73091" },
-    "Four Column CTA": { "Default": "aba30eae-be6b-456b-81fe-986d1199eb77", "Dentons": "68ae51ef-8a86-4391-a50c-9746b906f877", "DentonsTiles": "55021545-caaf-4445-99e5-da9fc5bdb374" },
-    "Three Column CTA": { "Default": "4ea834a7-5833-471c-8869-27e01fe25760", "Dentons": "539b82cb-3202-461e-8dd5-57637954c9ab", "DentonsCardRow": "085ea446-3650-4790-847f-3733c5caf886", "DentonsNews": "7c9f336a-abc8-4445-8aac-76b6f45d6a33", "DentonsNewsRow": "2658e244-4b90-42e0-9677-15340a1cb8bf" },
-    "Heading CTA": { "Default": "9aa55aee-4906-4d72-bcba-5ec420c988ac", "PageHeading": "1afa7585-d4d4-42c6-b79c-5a4737897885", "Compact": "26f5630d-8f4e-4c86-b5d5-fe3ae647099d", "Dentons": "fd10da43-b0b4-42a6-b168-f6ac4f3f47d7", "DentonsPageTitle": "92de728b-f057-4ded-9e79-03a97beef01e" },
-    "CTA Banner": { "Default": "cf69f418-7001-497c-a7cc-c24faec84592", "Dentons": "1bc103f0-0037-41d7-a4c2-39d199230805" },
-    "Two Column CTA": { "Default": "08fd5727-58ac-4618-870f-72360c03b62a", "Dentons": "2685c58d-6b22-45a0-9dd5-67ea0e320920", "DentonsPair": "fabd3574-7dbc-4af7-ba22-cba95b4703ad" },
-    "Eyebrow": { "Default": "eb914dbe-99c0-43b4-848b-33608add7e4c", "Dentons": "36fcca9c-fbbf-401e-af65-0b92fa66ec73" },
-    "Header": { "Default": "681e49a9-bffe-4e07-b94e-f115fbfb7bbb", "WithLogoImage": "07bf3234-16c0-4deb-91bf-a11a1af14a05", "Dentons": "420fdbbd-ca2c-43e5-9182-e3b12c0ec926" },
-    "Navigation": { "Default": "f5e63bd9-feb4-45be-8217-af3f1b97a512", "Dentons": "b96529fd-5333-4d54-ace9-0724bce00ade" },
-    "Footer": { "Default": "24b5f50d-51d5-4e3f-909c-db7c3babfdbf", "Dentons": "03f41725-e8bc-458f-bf58-2a5c2d384ffe" }
+    "Carousel": {
+      "Default": "d1346fab-f855-4ffe-94ba-31854e99f3d7",
+      "Dentons": "c9540e2a-0906-4ec2-924c-99867e22c986",
+      "DentonsHeroSlide": "ca2de8bb-8dbe-478d-bac2-0dafa8a0b624"
+    },
+    "Article List": {
+      "Default": "94f85ba7-63af-4435-8d03-c2e87ea53e91",
+      "ThreeColumn": "180ed168-39f9-45d5-9382-37d1fc311033",
+      "Dentons": "4504a134-ac75-48bf-8195-c61eec2cdcf8",
+      "DentonsFeaturedGrid": "6be04fb5-55ae-4159-b52c-a3b4d5d44ae7",
+      "DentonsNewsGrid": "0342b2e9-1ebe-4c90-acce-f4b39f2f620b",
+      "DentonsTrending": "8b800464-1985-4e4c-9e4c-919f5ae5e3d6"
+    },
+    "Heading CTA": {
+      "Default": "4e34bfad-1782-48d3-9fbe-e119043f67a8",
+      "Dentons": "9504d66c-529c-408b-9f68-50a0a33bf846",
+      "DentonsNewsHeading": "8392ec27-15e6-413f-8aab-1a0f2c466c79",
+      "DentonsPageTitle": "f687a670-5e0b-4811-9dd3-4a84b2514d5c"
+    },
+    "HeroBanner": {
+      "Default": "52f89ecb-104c-40f4-87d4-33320c541f9b",
+      "Dentons": "b3a4f00d-eaf5-4395-bb7b-26b9d86bb729",
+      "DentonsPageIntro": "aa9f1452-34df-4f9e-9006-51c30151fde2"
+    },
+    "Header": {
+      "Default": "048b5d11-ee8e-480e-8979-89460583383f",
+      "Dentons": "3864704b-9ffb-421f-8bb4-b49e19ea8308"
+    },
+    "Navigation": {
+      "Default": "4a2fb1bb-8b67-4ecd-ab80-76bf8adda742",
+      "Dentons": "b54b11e4-20a4-48d6-a582-08042ba36ef0"
+    },
+    "Language Switcher": {
+      "Default": "d6239dca-ac48-441d-857d-011c92e68e59",
+      "Dentons": "43f5ed9a-b312-41d7-811d-32bcaf23d34d"
+    },
+    "Promo CTA": {
+      "Default": "00040a9e-9f7a-486b-a135-90ce4939c59d",
+      "WithBackgroundImage": "ec687362-c010-4bc8-a3d4-258832572f13",
+      "Dentons": "8d354ff9-ca78-4c07-a91c-4745c69d2732",
+      "DentonsHelpToday": "c955243e-5905-4931-8eff-f9909ae11c4e"
+    },
+    "Eyebrow": {
+      "Default": "efbeba09-7cf2-48fe-a53c-1b88f319adfe",
+      "Dentons": "75ff3bea-41e1-4227-9058-aa0fd8472304"
+    },
+    "Footer": {
+      "Default": "1151badd-b29e-446d-b3f2-99a0990641ad",
+      "Dentons": "41a5061d-fffa-4a0e-9e4a-5fca34225c88"
+    }
+  },
+  "siteRootItem": {
+    "id": "3db1711d-578c-44c8-8216-38a187b7d70a",
+    "path": "/sitecore/content/Legal/Dentons"
   }
 }

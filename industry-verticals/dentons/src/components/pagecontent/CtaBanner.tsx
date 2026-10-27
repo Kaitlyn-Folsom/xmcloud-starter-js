@@ -140,25 +140,3 @@ export const LargeImage = (props: CtaBannerProps): JSX.Element => {
     </div>
   );
 };
-
-/* Dentons variant: dark centered contact band */
-export const Dentons = (props: CtaBannerProps): JSX.Element => {
-  const { page } = useSitecore();
-  const isPageEditing = page.mode.isEditing;
-  return (
-    <div
-      className={`component cta-banner variant-dentons ${props.params?.styles || ''}`}
-      id={props.params.RenderingIdentifier || undefined}
-    >
-      <div className="container">
-        <h2>
-          <Text field={props.fields.Title} />
-        </h2>
-        {(isPageEditing || props.fields?.Text?.value) && <RichText field={props.fields.Text} />}
-        {(isPageEditing || props.fields?.Link?.value?.href) && (
-          <Link field={props.fields.Link} className="contact-link" />
-        )}
-      </div>
-    </div>
-  );
-};

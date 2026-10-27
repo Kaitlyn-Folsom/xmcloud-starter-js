@@ -10,6 +10,16 @@
   "googleFontsLinks": [],
   "fontFaces": [
     {
+      "family": "Glyphicons Halflings",
+      "src": "url(\"../fonts/glyphicons-halflings-regular.woff2\") format(\"woff2\"), url(\"../fonts/glyphicons-halflings-regular.woff\") format(\"woff\"), url(\"../fonts/glyphicons-halflings-regular.ttf\") format(\"truetype\")",
+      "weight": ""
+    },
+    {
+      "family": "icomoon",
+      "src": "url(\"../fonts/icomoon.ttf?dur4gz\") format(\"truetype\"), url(\"../fonts/icomoon.woff?dur4gz\") format(\"woff\")",
+      "weight": "normal"
+    },
+    {
       "family": "Dentons Sans Web Light",
       "src": "url(\"../fonts/Dentons Sans Web-Light.woff\") format(\"woff\"), url(\"../fonts/Dentons Sans Web-Light.ttf\") format(\"truetype\")",
       "weight": "300"
@@ -28,41 +38,6 @@
       "family": "Dentons Sans Web Bold",
       "src": "url(\"../fonts/Dentons Sans Web-Bold.woff\") format(\"woff\"), url(\"../fonts/Dentons Sans Web-Bold.ttf\") format(\"truetype\")",
       "weight": "700"
-    },
-    {
-      "family": "FranklinGothicURW-Boo",
-      "src": "url(\"../fonts/36766A_0_0.woff2\") format(\"woff2\"), url(\"../fonts/36766A_0_0.woff\") format(\"woff\"), url(\"../fonts/36766A_0_0.ttf\") format(\"truetype\")",
-      "weight": ""
-    },
-    {
-      "family": "BebasKai",
-      "src": "url(\"../fonts/BebasKai/366ADB_0_0.woff2\") format(\"woff2\"), url(\"../fonts/BebasKai/366ADB_0_0.woff\") format(\"woff\"), url(\"../fonts/BebasKai/366ADB_0_0.ttf\") format(\"truetype\")",
-      "weight": ""
-    },
-    {
-      "family": "FontAwesome",
-      "src": "url(\"../fonts/fontawesome-webfont.woff2?v=4.7.0\") format(\"woff2\"), url(\"../fonts/fontawesome-webfont.woff?v=4.7.0\") format(\"woff\"), url(\"../fonts/fontawesome-webfont.ttf?v=4.7.0\") format(\"truetype\")",
-      "weight": "normal"
-    },
-    {
-      "family": "Glyphicons Halflings",
-      "src": "url(\"../fonts/glyphicons-halflings-regular.woff2\") format(\"woff2\"), url(\"../fonts/glyphicons-halflings-regular.woff\") format(\"woff\"), url(\"../fonts/glyphicons-halflings-regular.ttf\") format(\"truetype\")",
-      "weight": ""
-    },
-    {
-      "family": "icomoon",
-      "src": "url(\"../fonts/icomoon.ttf?dur4gz\") format(\"truetype\"), url(\"../fonts/icomoon.woff?dur4gz\") format(\"woff\")",
-      "weight": "normal"
-    },
-    {
-      "family": "FranklinGothicURW-Boo",
-      "src": "url(\"/assets/fonts/36766A_0_0.woff2\") format(\"woff2\"), url(\"/assets/fonts/36766A_0_0.woff\") format(\"woff\"), url(\"/assets/fonts/36766A_0_0.ttf\") format(\"truetype\")",
-      "weight": ""
-    },
-    {
-      "family": "BebasKai",
-      "src": "url(\"/assets/fonts/BebasKai/366ADB_0_0.woff2\") format(\"woff2\"), url(\"/assets/fonts/BebasKai/366ADB_0_0.woff\") format(\"woff\"), url(\"/assets/fonts/BebasKai/366ADB_0_0.ttf\") format(\"truetype\")",
-      "weight": ""
     }
   ],
   "logoCandidates": [

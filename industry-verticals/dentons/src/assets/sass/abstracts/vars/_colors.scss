@@ -1,3 +1,23 @@
+// Dentons
+body.site-dentons,
+.site-dentons {
+  --text-body: #545859;
+  --text-body-inverted: #fff;
+  --text-colored: #702082;
+  --text-footer: #545859;
+  --text-accent: #702082;
+  --bg-body: #fff;
+  --bg-footer: #efefef;
+  --bg-main: #fff;
+  --bg-main-alt: #fff;
+  --bg-color: #fff;
+  --bg-saturated: #702082;
+  --bg-accent: #702082;
+  --border-color: #efefef;
+  --hr-color: #efefef;
+  --roundness: 30px;
+}
+
 // Financial
 body.site-financial,
 .site-financial {
@@ -72,45 +92,6 @@ body.site-services.dark,
   --border-color: #5d5f7f;
   --hr-color: #fff;
   --roundness: 0.375rem;
-}
-
-// Dentons
-body.site-dentons,
-.site-dentons {
-  --text-body: #545859;
-  --text-body-inverted: #ffffff;
-  --text-colored: #702082;
-  --text-footer: #545859;
-  --text-accent: #702082;
-  --bg-body: #ffffff;
-  --bg-footer: #efefef;
-  --bg-main: #ffffff;
-  --bg-main-alt: #efefef;
-  --bg-color: #f6f0f8;
-  --bg-saturated: #702082;
-  --bg-accent: #702082;
-  --border-color: #efefef;
-  --hr-color: #efefef;
-  --roundness: 30px;
-}
-
-body.site-dentons.dark,
-.dark .site-dentons {
-  --text-body: #f0f0f0;
-  --text-body-inverted: #1a1a1a;
-  --text-colored: #d7a4e6;
-  --text-footer: #f0f0f0;
-  --text-accent: #d7a4e6;
-  --bg-body: #1a1a1a;
-  --bg-footer: #111111;
-  --bg-main: #1a1a1a;
-  --bg-main-alt: #2a2a2a;
-  --bg-color: #2a2030;
-  --bg-saturated: #702082;
-  --bg-accent: #702082;
-  --border-color: #3a3a3a;
-  --hr-color: #3a3a3a;
-  --roundness: 30px;
 }
 
 // Backgrounds colors

@@ -1,6 +1,6 @@
 {
   "url": "http://localhost:3000/",
-  "measuredAt": "2026-10-21T21:11:26.244Z",
+  "measuredAt": "2026-10-27T13:43:49.916Z",
   "width": 1440,
   "labels": {
     "eyebrow": [],
@@ -26,36 +26,45 @@
       "width": 180,
       "height": 45,
       "left": 107,
-      "url": "http://localhost:3000/_next/image?url=https%3A%2F%2Ffols-ch.sitecoresandbox.cloud%2Fapi%2Fpublic%2Fcontent%2F94163-unknown-image2%3Fv%3Dd93f90e1&w=256&q=75",
+      "url": "http://localhost:3000/dentons-logo.svg",
       "source": "img",
-      "imgSrc": "http://localhost:3000/_next/image?url=https%3A%2F%2Ffols-ch.sitecoresandbox.cloud%2Fapi%2Fpublic%2Fcontent%2F94163-unknown-image2%3Fv%3Dd93f90e1&w=256&q=75",
+      "imgSrc": "http://localhost:3000/dentons-logo.svg",
       "cssBackground": null,
       "differs": false
     },
     "nav": {
-      "fontFamily": "Source Sans 3",
+      "fontFamily": "Dentons Sans Web Semibold",
       "fontSize": 15,
       "fontWeight": "600",
       "textTransform": "none",
       "letterSpacing": 0,
       "lineHeight": 22.5,
-      "color": "#ffffff",
+      "color": "#4c4c4c",
       "gap": 30,
       "hasChevron": false,
       "count": 4,
-      "groupLeft": 818,
-      "groupRight": 1333,
-      "contrastOnBand": 21,
+      "groupLeft": 913,
+      "groupRight": 1428,
+      "contrastOnBand": 8.59,
       "paddingX": 0,
       "paddingY": 0
+    },
+    "menuBand": {
+      "background": "#ffffff",
+      "height": 36
     },
     "bands": [
       {
         "top": 0,
         "height": 102,
         "background": "#000000"
+      },
+      {
+        "top": 102,
+        "height": 36,
+        "background": "#ffffff"
       }
     ]
   },
-  "clipHeight": 112
+  "clipHeight": 136
 }

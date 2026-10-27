@@ -1,15 +1,20 @@
 {
   "customer": "dentons",
   "siteName": "Dentons",
-  "siteId": "2e0cdf9d-d0d9-4807-9c9f-9499f72cd8d5",
-  "collection": "Dentons",
-  "collectionId": "18cf072a3a6143cfbce8eca6f3a1c996",
+  "siteId": "3db1711d-578c-44c8-8216-38a187b7d70a",
+  "collection": "Legal",
+  "collectionId": "b14fa924b8f040ca92b3d451480e31df",
   "collectionIsNew": true,
   "templateId": "{2867D289-8951-458A-AF19-CE93A67BB494}",
   "templateName": "Empty",
   "languages": [
     "en"
   ],
-  "jobHandle": "3d66bee7-8598-4344-8371-018368881e07;sitecoresaab70c-folsstartera3cd-folsstarter6866-8488457c55nmrwc",
-  "createdAt": "2026-10-21T20:40:45.424Z"
+  "jobHandle": "b68184d8-77d8-4019-be8d-12618737e017;sitecoresaab70c-folsstartera3cd-folsstarter6866-6744667f5c92255",
+  "createdAt": "2026-10-27T13:05:59.067Z",
+  "editingHost": {
+    "created": true,
+    "name": "dentons",
+    "at": "2026-10-27T13:51:23.322Z"
+  }
 }

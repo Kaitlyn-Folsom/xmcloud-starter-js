@@ -131,3 +131,5 @@ export const Default = (): JSX.Element => (
     <LanguageSwitcherInner />
   </Suspense>
 );
+
+export const Dentons = (): JSX.Element => Default();
