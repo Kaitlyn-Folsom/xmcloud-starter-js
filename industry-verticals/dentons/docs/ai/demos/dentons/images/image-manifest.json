@@ -1072,5 +1072,21 @@
     "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/84079/thumbnail",
     "width": 151,
     "height": 181
+  },
+  {
+    "field": "fatima-al-sabahi",
+    "localFileName": "fatima-al-sabahi.jpg",
+    "localPath": "/Users/fols/sitecore/sitecoreAI/xmcloud-starter-js/industry-verticals/dentons/docs/ai/demos/dentons/images/fatima-al-sabahi.jpg",
+    "status": "downloaded",
+    "alt": "Fatima Al-Sabahi",
+    "approved": true,
+    "uploadStatus": "uploaded",
+    "assetId": 84141,
+    "assetIdentifier": "eDu5OY6oSxeY2QC0ey5-XQ",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/84141-fatima-al-sabahi?v=38547ece",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/84141/thumbnail",
+    "width": 151,
+    "height": 181,
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/84141-fatima-al-sabahi?v=38547ece\" dam-id=\"eDu5OY6oSxeY2QC0ey5-XQ\" width=\"151\" height=\"181\" alt=\"Fatima Al-Sabahi\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/84141/thumbnail\" />"
   }
 ]

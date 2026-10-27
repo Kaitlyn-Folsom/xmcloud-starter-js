@@ -26,6 +26,7 @@ inventoryNotes:
   - "ProsperaFinancial/Data has no per-component folders except shared Promos and Texts. Location queries that select @@templatename equal to the component template have no separate folder template under /sitecore/templates/Project/Financial/Folders (only MetisNation Folder and Video Folder)."
   - "Component rendering-parameter templates live under /sitecore/templates/Project/Financial/Components/Rendering Parameters. The derived Rendering Parameters folder contains only Video."
   - "Project-layer renderings with no matching code component: DoctorDetails (componentName AuthorDetails), FeaturedProductsCarousel, IndustryList, KalTireFinderHero, KalTirePromoMosaic, MetisNation, MoreLikeThis, ProgramCarousel, SearchResults, Video."
+  - "Article Page {26655B75-9157-41B4-8868-F671150A9BD5} section Article {4017AC4C-2750-4524-9FC1-62054A3404B3}: PublicationDate {48659AED-E8AB-4C15-9F41-AAD44FC9798E} (Date), Author {A1E24018-A57C-4363-889D-D6F23B04D72C} (Droptree to /Home/our-professionals). Placeholder Article Body {290E4879-8022-40FE-A809-A64EC41510A9} key article-body. Knowledge insert options are Article Page only. Person Page section Profile {41C42047-6AFF-451D-81B8-4CAF935E975D}: Role {A2CFB6A1-445B-436E-95C7-AE81099B2F63}, Photo {99BD4145-8C6A-47DB-945D-75F4A2319661}."
 
 availableRenderings:
   itemId: "{0D181447-7CA1-4661-9F55-D752460957B4}"
