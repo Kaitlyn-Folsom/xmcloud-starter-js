@@ -63,20 +63,39 @@ export const Dentons = (props: HeaderProps): JSX.Element => {
 
   return (
     <div className={`component header variant-dentons ${sxaStyles}`} id={id ? id : undefined}>
-      <div className={`container container-${props.params?.ContainerWidth?.toLowerCase()}-fluid`}>
-        <div className="row align-items-center">
-          <div className="col-auto">
-            <a href="/">
-              {props.fields?.LogoImage?.value?.src ? (
-                <NextImage field={props.fields.LogoImage} width={180} height={45} />
-              ) : (
-                <img src="/dentons-logo.svg" alt="Dentons" width={180} height={45} />
-              )}
-            </a>
-          </div>
-          <div className="col">
-            <AppPlaceholder name="header-right" rendering={props.rendering} page={page} componentMap={props.componentMap} />
-          </div>
+      <div className="dentons-header-bar">
+        <a className="dentons-logo" href="/">
+          <img
+            src={String(props.fields?.LogoImage?.value?.src || '/dentons-logo.svg')}
+            alt={String(props.fields?.LogoImage?.value?.alt || 'Dentons')}
+            width={160}
+            height={40}
+          />
+        </a>
+        <div className="dentons-header-nav">
+          <AppPlaceholder name="header-right" rendering={props.rendering} page={page} componentMap={props.componentMap} />
+        </div>
+        <div className="dentons-header-tools">
+          <span className="dentons-lang" aria-label="English">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M5 4h10a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H9l-4 3v-3H5a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3z"
+              />
+            </svg>
+            EN
+          </span>
+          <a className="dentons-icon-button" href="/search-results" aria-label="Search">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+              <circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" strokeWidth="2" />
+              <path d="M15.5 15.5 21 21" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            </svg>
+          </a>
+          <button className="dentons-icon-button" type="button" aria-label="Menu">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+              <path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            </svg>
+          </button>
         </div>
       </div>
     </div>

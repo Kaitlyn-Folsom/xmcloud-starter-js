@@ -74,11 +74,6 @@ const Layout = ({ page }: LayoutProps): JSX.Element => {
                 )}
               </div>
             </main>
-            <section className="component load-more" style={{ minHeight: 80 }}>
-              <a className="button" href="/insights">
-                Load more
-              </a>
-            </section>
             <div id="footer">
               {route && (
                 <AppPlaceholder

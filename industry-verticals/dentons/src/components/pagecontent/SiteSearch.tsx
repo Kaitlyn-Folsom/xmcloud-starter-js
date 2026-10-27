@@ -25,8 +25,8 @@ const Search = (props: SiteSearchProps): JSX.Element => {
   const id = props.params?.RenderingIdentifier;
 
   return (
-    <section className={`component site-search ${props.params?.styles || ''}`} id={id || undefined}>
-      <div className="container">
+    <section className={`component site-search variant-dentons ${props.params?.styles || ''}`} id={id || undefined}>
+      <div className="dentons-search">
         {(fields?.Title?.value || isEditing) && <Text tag="h1" field={fields?.Title} />}
         <input
           type="search"

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, JSX } from 'react';
+import { useEffect, useState, JSX } from 'react';
 import {
   ComponentParams,
   ComponentRendering,
@@ -136,14 +136,104 @@ export const Default = (props: CarouselComponentProps): JSX.Element => {
   );
 };
 
-const heroSlides = ['/dentons-media/home-s02-4.jpg', '/dentons-media/backward.svg', '/dentons-media/Forward.svg'];
+type HeroSlide = {
+  id?: string;
+  fields?: {
+    Label?: Field<string>;
+    Eyebrow?: Field<string>;
+    Title?: Field<string>;
+    Image?: ImageField;
+    Link?: LinkField;
+  };
+};
 
-export const Dentons = (props: Parameters<typeof Default>[0]): JSX.Element => (
-  <section className={`component carousel variant-dentons ${props.params?.styles || ''}`}>
-    <h2>However you need to grow Dentons is here to help</h2>
-    {heroSlides.map((src) => (
-      <img key={src} src={src} alt="" width={640} height={360} />
-    ))}
-  </section>
-);
-export const DentonsHeroSlide = Dentons;
+const TITLE_EMPHASIS = 'Dentons is here to help';
+
+const DentonsHero = (props: CarouselComponentProps): JSX.Element => {
+  const { page } = useSitecore();
+  const isEditing = page.mode.isEditing;
+  const items = (props.fields?.items ?? []) as HeroSlide[];
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const count = items.length;
+  const slide = items[count ? index % count : 0];
+  const image = slide?.fields?.Image;
+  const title = slide?.fields?.Title?.value || '';
+  const emphasisAt = title.indexOf(TITLE_EMPHASIS);
+  const titleLead = emphasisAt > 0 ? title.slice(0, emphasisAt).trim() : title;
+
+  useEffect(() => {
+    if (paused || count < 2) return undefined;
+    const timer = window.setInterval(() => setIndex((current) => (current + 1) % count), 7000);
+    return () => window.clearInterval(timer);
+  }, [paused, count]);
+
+  const step = (dir: number) => {
+    if (!count) return;
+    setIndex((current) => (current + dir + count) % count);
+  };
+
+  return (
+    <section className={`component carousel variant-dentons ${props.params?.styles || ''}`}>
+      <div
+        className="dentons-hero"
+        style={image?.value?.src ? { backgroundImage: `url(${image.value.src})` } : undefined}
+      >
+        <div className="dentons-hero-copy">
+          {(slide?.fields?.Eyebrow?.value || isEditing) && (
+            <p className="dentons-hero-eyebrow">
+              <Text field={slide?.fields?.Eyebrow} />
+            </p>
+          )}
+          <h1>
+            {emphasisAt > 0 && !isEditing ? (
+              <>
+                <span>{titleLead}</span>
+                <span className="is-strong">{TITLE_EMPHASIS}</span>
+              </>
+            ) : (
+              <Text field={slide?.fields?.Title} />
+            )}
+          </h1>
+          {slide?.fields?.Link?.value?.href && (
+            <Link field={slide.fields.Link} className="dentons-hero-cta" />
+          )}
+        </div>
+        <div className="dentons-hero-controls">
+          <button type="button" aria-label="Previous Item" onClick={() => step(-1)}>
+            ‹
+          </button>
+          <button type="button" aria-label={paused ? 'Play' : 'Pause'} onClick={() => setPaused((value) => !value)}>
+            {paused ? '▶' : '❚❚'}
+          </button>
+          <button type="button" aria-label="Next Item" onClick={() => step(1)}>
+            ›
+          </button>
+        </div>
+        <div className="dentons-hero-tabs">
+          {items.map((item, itemIndex) => {
+            const thumb = item.fields?.Image?.value?.src;
+            return (
+              <button
+                key={item.id || itemIndex}
+                type="button"
+                className={itemIndex === index ? 'is-active' : undefined}
+                aria-label={item.fields?.Label?.value}
+                style={thumb ? { backgroundImage: `url(${thumb})` } : undefined}
+                onClick={() => {
+                  setIndex(itemIndex);
+                  setPaused(true);
+                }}
+              >
+                <span>{item.fields?.Label?.value}</span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export const Dentons = DentonsHero;
+export const DentonsHeroSlide = DentonsHero;

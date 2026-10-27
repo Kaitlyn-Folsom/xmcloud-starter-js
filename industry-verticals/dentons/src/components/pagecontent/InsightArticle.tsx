@@ -22,11 +22,13 @@ const Article = (props: InsightArticleProps): JSX.Element => {
   const id = props.params?.RenderingIdentifier;
 
   return (
-    <article className={`component insight-article ${props.params?.styles || ''}`} id={id || undefined}>
-      <div className="container">
+    <article className={`component insight-article variant-dentons ${props.params?.styles || ''}`} id={id || undefined}>
+      <div className="dentons-article">
         {(fields?.Title?.value || isEditing) && <Text tag="h1" field={fields?.Title} />}
-        {(fields?.Image?.value?.src || isEditing) && fields?.Image && <NextImage field={fields.Image} />}
-        {(fields?.Text?.value || isEditing) && <RichText field={fields?.Text} />}
+        {(fields?.Image?.value?.src || isEditing) && fields?.Image && (
+          <NextImage field={fields.Image} width={960} height={540} className="dentons-article-image" />
+        )}
+        {(fields?.Text?.value || isEditing) && <RichText className="dentons-article-body" field={fields?.Text} />}
       </div>
     </article>
   );

@@ -193,8 +193,20 @@ export const WithBackgroundImage = (props: PromoCtaProps): JSX.Element => {
 
 export const Dentons = (props: Parameters<typeof Default>[0]) => Default(props);
 export const DentonsHelpToday = (props: Parameters<typeof Default>[0]): JSX.Element => (
-  <section className={`component promo-cta variant-dentons ${props.params?.styles || ''}`}>
-    <h2>{props.fields?.Title?.value || "How can the world's largest global law firm help you today ?"}</h2>
-    <img src="/dentons-media/home-s02-4.jpg" alt="" width={640} height={280} />
+  <section
+    className={`component promo-cta variant-dentons dentons-help ${props.params?.styles || ''}`}
+    style={props.fields?.Image?.value?.src ? { backgroundImage: `url(${props.fields.Image.value.src})` } : undefined}
+  >
+    <div className="dentons-help-copy">
+      <h2>
+        <Text field={props.fields?.Title} />
+      </h2>
+      <p>
+        {props.fields?.Link?.value?.href && <Link field={props.fields.Link} />}
+        {props.fields?.Link?.value?.href && props.fields?.Link2?.value?.href ? ' or ' : null}
+        {props.fields?.Link2?.value?.href && <Link field={props.fields.Link2} />}
+        {' in your location.'}
+      </p>
+    </div>
   </section>
 );

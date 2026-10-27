@@ -131,6 +131,7 @@ components:
     pendingManual: []
   notes: 
     - "No datasource template. Children resolver {2F5C334E-5615-423C-8281-9FC180191302}. Datasource location is query:$site/*."
+    - "Story Card description field Text {06AA033B-48E6-409F-AF70-318FC537F4C8} at /sitecore/templates/Project/Legal/Components/Story Card/Content/Text. Type Multi-Line Text. CTA uses the existing Link field."
 - name: "AuthorDetails"
   kind: "context-only"
   category: "Articles"

@@ -8,8 +8,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{F51FB6B1-6A71-4EA5-BDA5-F4A89D1706C0}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/logo",
-    "imageFieldXml": "<image mediaid=\"{F51FB6B1-6A71-4EA5-BDA5-F4A89D1706C0}\" />",
-    "uploadedAt": "2026-10-27T13:24:58.088Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83604-logo?v=6410bb7d\" dam-id=\"3mhBVeYMTfCmK3OsfgNFaQ\" width=\"216\" height=\"54\" alt=\"Dentons logo\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83604/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:24:58.088Z",
+    "approved": true,
+    "assetId": 83604,
+    "assetIdentifier": "3mhBVeYMTfCmK3OsfgNFaQ",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83604-logo?v=6410bb7d",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83604/thumbnail",
+    "width": 216,
+    "height": 54
   },
   {
     "src": "https://www.dentons.com/assets/images/gpof/Icons/backward.svg",
@@ -28,8 +35,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{829E68A8-A5C9-4EA1-8E26-C2A65CE36172}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/backward",
-    "imageFieldXml": "<image mediaid=\"{829E68A8-A5C9-4EA1-8E26-C2A65CE36172}\" />",
-    "uploadedAt": "2026-10-27T13:24:58.108Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83611-backward?v=fa05d29a\" dam-id=\"JJivCh2dSWGFX9K-hotnHw\" width=\"27\" height=\"27\" alt=\"Previous Item\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83611/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:24:58.108Z",
+    "approved": true,
+    "assetId": 83611,
+    "assetIdentifier": "JJivCh2dSWGFX9K-hotnHw",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83611-backward?v=fa05d29a",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83611/thumbnail",
+    "width": 27,
+    "height": 27
   },
   {
     "src": "https://www.dentons.com/assets/images/gpof/Icons/pause.svg",
@@ -47,8 +61,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{98CCC560-1820-44AE-A880-E4BAC58BE8AE}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/pause",
-    "imageFieldXml": "<image mediaid=\"{98CCC560-1820-44AE-A880-E4BAC58BE8AE}\" />",
-    "uploadedAt": "2026-10-27T13:24:58.085Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83618-pause?v=0908efa0\" dam-id=\"rI8Y3GFSQzC6M0OeFGm5QA\" width=\"27\" height=\"27\" alt=\"pause.svg\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83618/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:24:58.085Z",
+    "approved": true,
+    "assetId": 83618,
+    "assetIdentifier": "rI8Y3GFSQzC6M0OeFGm5QA",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83618-pause?v=0908efa0",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83618/thumbnail",
+    "width": 27,
+    "height": 27
   },
   {
     "src": "https://www.dentons.com/assets/images/gpof/Icons/Forward.svg",
@@ -67,8 +88,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{685F9B26-6CB8-4977-912E-077B7B74C627}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/forward",
-    "imageFieldXml": "<image mediaid=\"{685F9B26-6CB8-4977-912E-077B7B74C627}\" />",
-    "uploadedAt": "2026-10-27T13:24:58.083Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83625-Forward?v=9109f692\" dam-id=\"YzMiu-GSScema3mgBrVGXQ\" width=\"27\" height=\"27\" alt=\"Next Item\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83625/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:24:58.083Z",
+    "approved": true,
+    "assetId": 83625,
+    "assetIdentifier": "YzMiu-GSScema3mgBrVGXQ",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83625-Forward?v=9109f692",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83625/thumbnail",
+    "width": 27,
+    "height": 27
   },
   {
     "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/grow.ashx",
@@ -87,8 +115,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{3DC5F12D-C1AD-4F4C-818D-C7CCC8D23C9D}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/home-s02-4",
-    "imageFieldXml": "<image mediaid=\"{3DC5F12D-C1AD-4F4C-818D-C7CCC8D23C9D}\" />",
-    "uploadedAt": "2026-10-27T13:24:58.956Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83634-home-s02-4?v=8ddd2086\" dam-id=\"o4D17CixR5COfOWd_BBy7Q\" width=\"1900\" height=\"1500\" alt=\"/Home\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83634/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:24:58.956Z",
+    "approved": true,
+    "assetId": 83634,
+    "assetIdentifier": "o4D17CixR5COfOWd_BBy7Q",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83634-home-s02-4?v=8ddd2086",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83634/thumbnail",
+    "width": 1900,
+    "height": 1500
   },
   {
     "src": "https://www.dentons.com/-/media/images/website/background-images/other/cx-webinar.ashx?crop=1&h=135&w=1000&hash=98F5418733FB02848A9C70CF4D1127CE",
@@ -107,8 +142,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{CA986489-70BD-4C39-99B6-7C8F42A4E256}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/home-s03-1",
-    "imageFieldXml": "<image mediaid=\"{CA986489-70BD-4C39-99B6-7C8F42A4E256}\" />",
-    "uploadedAt": "2026-10-27T13:24:58.634Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83643-home-s03-1?v=bce1a1ee\" dam-id=\"CM8jDnvySjekRn3cP3anrQ\" width=\"1000\" height=\"135\" alt=\"/Home\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83643/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:24:58.634Z",
+    "approved": true,
+    "assetId": 83643,
+    "assetIdentifier": "CM8jDnvySjekRn3cP3anrQ",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83643-home-s03-1?v=bce1a1ee",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83643/thumbnail",
+    "width": 1000,
+    "height": 135
   },
   {
     "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/nature/butterflies.ashx?crop=1&h=135&w=1000&hash=3F8E590F5E04729ABCF0C9BCF13BCC0D",
@@ -127,8 +169,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{2138F240-81D3-4E09-A942-3BAED5DCC38E}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/home-s03-2",
-    "imageFieldXml": "<image mediaid=\"{2138F240-81D3-4E09-A942-3BAED5DCC38E}\" />",
-    "uploadedAt": "2026-10-27T13:24:58.838Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83651-home-s03-2?v=1f6a0d29\" dam-id=\"oUdJI-piQkybVYfcQesZcw\" width=\"1000\" height=\"135\" alt=\"/Home\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83651/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:24:58.838Z",
+    "approved": true,
+    "assetId": 83651,
+    "assetIdentifier": "oUdJI-piQkybVYfcQesZcw",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83651-home-s03-2?v=1f6a0d29",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83651/thumbnail",
+    "width": 1000,
+    "height": 135
   },
   {
     "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/ocean/adobestock_134537443.ashx?crop=1&h=135&w=1000&hash=F4626FBBC68BF7345F527403BF87EAC9",
@@ -147,8 +196,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{EDEDC313-94F5-40B0-8087-F2305B937F33}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/home-s03-3",
-    "imageFieldXml": "<image mediaid=\"{EDEDC313-94F5-40B0-8087-F2305B937F33}\" />",
-    "uploadedAt": "2026-10-27T13:24:58.631Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83659-home-s03-3?v=f6cbaa4b\" dam-id=\"N7yjbUjERb2zyFPbP2lkRQ\" width=\"1000\" height=\"135\" alt=\"/Home\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83659/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:24:58.631Z",
+    "approved": true,
+    "assetId": 83659,
+    "assetIdentifier": "N7yjbUjERb2zyFPbP2lkRQ",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83659-home-s03-3?v=f6cbaa4b",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83659/thumbnail",
+    "width": 1000,
+    "height": 135
   },
   {
     "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/patterns/adobestock_114680146.ashx?crop=1&h=135&w=1000&hash=78A6C49608940171C96E4D660DB21FF5",
@@ -167,8 +223,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{6F1F1B8C-ADFC-45D0-A0C8-4DB9835D67AC}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/home-s03-4",
-    "imageFieldXml": "<image mediaid=\"{6F1F1B8C-ADFC-45D0-A0C8-4DB9835D67AC}\" />",
-    "uploadedAt": "2026-10-27T13:24:59.147Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83667-home-s03-4?v=85b85b72\" dam-id=\"O6kiYKfLSQuyE-VgyW1CSw\" width=\"1000\" height=\"135\" alt=\"/Home\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83667/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:24:59.147Z",
+    "approved": true,
+    "assetId": 83667,
+    "assetIdentifier": "O6kiYKfLSQuyE-VgyW1CSw",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83667-home-s03-4?v=85b85b72",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83667/thumbnail",
+    "width": 1000,
+    "height": 135
   },
   {
     "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/aerial/adobestock_289880144.ashx?crop=1&h=135&w=1000&hash=3B6840AC832BF23335E547D9BF2BCC87",
@@ -187,8 +250,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{8E655E45-B439-4128-A4D0-2D0142661CCF}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/home-s03-5",
-    "imageFieldXml": "<image mediaid=\"{8E655E45-B439-4128-A4D0-2D0142661CCF}\" />",
-    "uploadedAt": "2026-10-27T13:24:59.200Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83683-home-s03-5?v=4ef1ae34\" dam-id=\"nk-dWmO4SEWn-jww3iylZQ\" width=\"1000\" height=\"135\" alt=\"/Home\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83683/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:24:59.200Z",
+    "approved": true,
+    "assetId": 83683,
+    "assetIdentifier": "nk-dWmO4SEWn-jww3iylZQ",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83683-home-s03-5?v=4ef1ae34",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83683/thumbnail",
+    "width": 1000,
+    "height": 135
   },
   {
     "src": "https://www.dentons.com/-/media/images/website/background-images/practices/tax/global-tax.ashx?crop=1&h=135&w=1000&hash=2400E20DD175C9D2BF6623F3D8A43FBD",
@@ -207,8 +277,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{BE99EF42-E635-4BD4-945F-BD2683810553}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/home-s03-6",
-    "imageFieldXml": "<image mediaid=\"{BE99EF42-E635-4BD4-945F-BD2683810553}\" />",
-    "uploadedAt": "2026-10-27T13:24:59.425Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83695-home-s03-6?v=559f0d14\" dam-id=\"6bYklwIsSHijLfOpzHiEXw\" width=\"1000\" height=\"135\" alt=\"/Home\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83695/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:24:59.425Z",
+    "approved": true,
+    "assetId": 83695,
+    "assetIdentifier": "6bYklwIsSHijLfOpzHiEXw",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83695-home-s03-6?v=559f0d14",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83695/thumbnail",
+    "width": 1000,
+    "height": 135
   },
   {
     "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/space/adobestock_479117563.ashx?crop=1&h=135&w=1000&hash=FCEE4EBE7BAAB8AF8D2EF5D553A2B37D",
@@ -227,8 +304,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{432A0A19-C460-455D-81CE-87C194C97D01}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/home-s05-1",
-    "imageFieldXml": "<image mediaid=\"{432A0A19-C460-455D-81CE-87C194C97D01}\" />",
-    "uploadedAt": "2026-10-27T13:24:59.433Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83702-home-s05-1?v=1f7b5a32\" dam-id=\"M9mPaAgpQ5C0Ejp6tA1-QA\" width=\"1000\" height=\"135\" alt=\"/Home\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83702/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:24:59.433Z",
+    "approved": true,
+    "assetId": 83702,
+    "assetIdentifier": "M9mPaAgpQ5C0Ejp6tA1-QA",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83702-home-s05-1?v=1f7b5a32",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83702/thumbnail",
+    "width": 1000,
+    "height": 135
   },
   {
     "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/aerial/adobestock_157428251.ashx?crop=1&h=135&w=1000&hash=E5962D2554049BBD0B2636CCF64DE8DF",
@@ -247,8 +331,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{F1EAF57F-5A8B-4716-9014-2255821172F6}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/home-s05-2",
-    "imageFieldXml": "<image mediaid=\"{F1EAF57F-5A8B-4716-9014-2255821172F6}\" />",
-    "uploadedAt": "2026-10-27T13:24:59.760Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83709-home-s05-2?v=3a97a88a\" dam-id=\"vR1SWcVQT9mt2C1nQlg1kg\" width=\"1000\" height=\"135\" alt=\"/Home\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83709/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:24:59.760Z",
+    "approved": true,
+    "assetId": 83709,
+    "assetIdentifier": "vR1SWcVQT9mt2C1nQlg1kg",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83709-home-s05-2?v=3a97a88a",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83709/thumbnail",
+    "width": 1000,
+    "height": 135
   },
   {
     "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/texture/istock-182408424.ashx?crop=1&h=135&w=1000&hash=98F95681A66F1CD83182C867DFFAA84E",
@@ -267,8 +358,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{C4023397-D912-4117-B4BE-458D3D574F15}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/home-s05-3",
-    "imageFieldXml": "<image mediaid=\"{C4023397-D912-4117-B4BE-458D3D574F15}\" />",
-    "uploadedAt": "2026-10-27T13:24:59.649Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83716-home-s05-3?v=f023ba38\" dam-id=\"AKkupcqkSo6ldIQd9xfP4Q\" width=\"1000\" height=\"135\" alt=\"/Home\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83716/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:24:59.649Z",
+    "approved": true,
+    "assetId": 83716,
+    "assetIdentifier": "AKkupcqkSo6ldIQd9xfP4Q",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83716-home-s05-3?v=f023ba38",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83716/thumbnail",
+    "width": 1000,
+    "height": 135
   },
   {
     "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/abstract/istock-495669078.ashx?crop=1&h=135&w=1000&hash=BAFACB59682FA3B60F3C37AF89F8457E",
@@ -287,8 +385,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{6723CA5C-4678-4AC0-B537-FADB6B58985D}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/home-s05-4",
-    "imageFieldXml": "<image mediaid=\"{6723CA5C-4678-4AC0-B537-FADB6B58985D}\" />",
-    "uploadedAt": "2026-10-27T13:24:59.927Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83729-home-s05-4?v=16fb3cf8\" dam-id=\"b3GdisNwT9248rofaOOOtg\" width=\"1000\" height=\"135\" alt=\"/Home\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83729/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:24:59.927Z",
+    "approved": true,
+    "assetId": 83729,
+    "assetIdentifier": "b3GdisNwT9248rofaOOOtg",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83729-home-s05-4?v=16fb3cf8",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83729/thumbnail",
+    "width": 1000,
+    "height": 135
   },
   {
     "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/geology/istock-490105818.ashx?crop=1&h=135&w=1000&hash=635DF97DA4512C4D05063A39E0F1D241",
@@ -307,8 +412,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{189B4B00-6052-46CF-A83F-460FADA44983}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/home-s05-5",
-    "imageFieldXml": "<image mediaid=\"{189B4B00-6052-46CF-A83F-460FADA44983}\" />",
-    "uploadedAt": "2026-10-27T13:24:59.952Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83743-home-s05-5?v=30592d45\" dam-id=\"TvL6LllOQHWIbhLRPi3B5Q\" width=\"1000\" height=\"135\" alt=\"/Home\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83743/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:24:59.952Z",
+    "approved": true,
+    "assetId": 83743,
+    "assetIdentifier": "TvL6LllOQHWIbhLRPi3B5Q",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83743-home-s05-5?v=30592d45",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83743/thumbnail",
+    "width": 1000,
+    "height": 135
   },
   {
     "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/whitewash/image.ashx?crop=1&h=497&w=1000&hash=F298A35E0DDE6E2929901A1FFD8C3B06",
@@ -327,8 +439,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{67F29FDC-B174-4D86-98AE-9A89F1C32AF3}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/insights-s02-1",
-    "imageFieldXml": "<image mediaid=\"{67F29FDC-B174-4D86-98AE-9A89F1C32AF3}\" />",
-    "uploadedAt": "2026-10-27T13:25:00.202Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83752-insights-s02-1?v=0f0b09b8\" dam-id=\"bXwdi4mKRwSlmWpWmiyEww\" width=\"1000\" height=\"497\" alt=\"/Home/insights\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83752/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:25:00.202Z",
+    "approved": true,
+    "assetId": 83752,
+    "assetIdentifier": "bXwdi4mKRwSlmWpWmiyEww",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83752-insights-s02-1?v=0f0b09b8",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83752/thumbnail",
+    "width": 1000,
+    "height": 497
   },
   {
     "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/abstract/adobestock_109156518.ashx?crop=1&h=375&w=475&hash=1C24C73298AB8783CD8D792EC7AAD3E2",
@@ -347,8 +466,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{DC745B99-C14B-49AF-BED1-28848349FEC1}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/insights-s03-1",
-    "imageFieldXml": "<image mediaid=\"{DC745B99-C14B-49AF-BED1-28848349FEC1}\" />",
-    "uploadedAt": "2026-10-27T13:25:00.324Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83762-insights-s03-1?v=bffd4e6b\" dam-id=\"tDjkwLfOQRyJ26TEZUV6dQ\" width=\"475\" height=\"375\" alt=\"/Home/insights\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83762/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:25:00.324Z",
+    "approved": true,
+    "assetId": 83762,
+    "assetIdentifier": "tDjkwLfOQRyJ26TEZUV6dQ",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83762-insights-s03-1?v=bffd4e6b",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83762/thumbnail",
+    "width": 475,
+    "height": 375
   },
   {
     "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/patterns/adobestock_121851914.ashx?crop=1&h=375&w=475&hash=86557C8BA061DF5383088C76DD8B3C4D",
@@ -367,8 +493,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{9E55C03F-3C0C-41F0-9162-BB795FE92235}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/insights-s03-2",
-    "imageFieldXml": "<image mediaid=\"{9E55C03F-3C0C-41F0-9162-BB795FE92235}\" />",
-    "uploadedAt": "2026-10-27T13:25:00.426Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83769-insights-s03-2?v=7207a404\" dam-id=\"RjCYO2gCTvGw6VOMFJqXvg\" width=\"475\" height=\"375\" alt=\"/Home/insights\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83769/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:25:00.426Z",
+    "approved": true,
+    "assetId": 83769,
+    "assetIdentifier": "RjCYO2gCTvGw6VOMFJqXvg",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83769-insights-s03-2?v=7207a404",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83769/thumbnail",
+    "width": 475,
+    "height": 375
   },
   {
     "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/abstract/adobestock_130882366.ashx?crop=1&h=375&w=475&hash=A6E6E49483905E19D726B7A95C3B4E97",
@@ -387,8 +520,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{106F0D04-467F-40B8-9D27-5097003F0D6A}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/insights-s03-3",
-    "imageFieldXml": "<image mediaid=\"{106F0D04-467F-40B8-9D27-5097003F0D6A}\" />",
-    "uploadedAt": "2026-10-27T13:25:00.396Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83793-insights-s03-3?v=b79eb258\" dam-id=\"iOmDWbEwTXmDQfM-boEFOg\" width=\"475\" height=\"375\" alt=\"/Home/insights\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83793/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:25:00.396Z",
+    "approved": true,
+    "assetId": 83793,
+    "assetIdentifier": "iOmDWbEwTXmDQfM-boEFOg",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83793-insights-s03-3?v=b79eb258",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83793/thumbnail",
+    "width": 475,
+    "height": 375
   },
   {
     "src": "https://www.dentons.com/assets/images/gpof/Icons/right-arrow-grey.svg",
@@ -406,8 +546,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{5DBAA812-4171-4829-921B-BFE52F9FB4FE}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/right-arrow-grey",
-    "imageFieldXml": "<image mediaid=\"{5DBAA812-4171-4829-921B-BFE52F9FB4FE}\" />",
-    "uploadedAt": "2026-10-27T13:25:00.692Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83802-right-arrow-grey?v=e5d1199b\" dam-id=\"TT0zF_E1SJ21lF5W3_Oozg\" width=\"24\" height=\"24\" alt=\"right-arrow-grey.svg\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83802/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:25:00.692Z",
+    "approved": true,
+    "assetId": 83802,
+    "assetIdentifier": "TT0zF_E1SJ21lF5W3_Oozg",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83802-right-arrow-grey?v=e5d1199b",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83802/thumbnail",
+    "width": 24,
+    "height": 24
   },
   {
     "src": "https://www.dentons.com/-/media/images/website/logos/logos_svg/dentons-hong-kong-logo-rgb.ashx",
@@ -426,8 +573,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{D3F4B02B-2421-4D61-819F-2C9D4ACDB9B0}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/footer-s08-1",
-    "imageFieldXml": "<image mediaid=\"{D3F4B02B-2421-4D61-819F-2C9D4ACDB9B0}\" />",
-    "uploadedAt": "2026-10-27T13:25:00.792Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83813-footer-s08-1?v=8430d407\" dam-id=\"F1C0bqsqREi9wYxJUU8qDg\" width=\"216\" height=\"54\" alt=\"Dentons\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83813/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:25:00.792Z",
+    "approved": true,
+    "assetId": 83813,
+    "assetIdentifier": "F1C0bqsqREi9wYxJUU8qDg",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83813-footer-s08-1?v=8430d407",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83813/thumbnail",
+    "width": 216,
+    "height": 54
   },
   {
     "src": "https://www.dentons.com/-/media/images/website/icons/social/linkedin.ashx",
@@ -446,8 +600,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{8E6A4F08-2CBA-4662-AF2D-2709F6B4F153}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/footer-s08-2",
-    "imageFieldXml": "<image mediaid=\"{8E6A4F08-2CBA-4662-AF2D-2709F6B4F153}\" />",
-    "uploadedAt": "2026-10-27T13:25:00.793Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83826-footer-s08-2?v=ff436f2a\" dam-id=\"sl0myBThQjq7g4pkVrRrZg\" width=\"23\" height=\"23\" alt=\"Dentons on LinkedIn\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83826/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:25:00.793Z",
+    "approved": true,
+    "assetId": 83826,
+    "assetIdentifier": "sl0myBThQjq7g4pkVrRrZg",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83826-footer-s08-2?v=ff436f2a",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83826/thumbnail",
+    "width": 23,
+    "height": 23
   },
   {
     "src": "https://www.dentons.com/-/media/images/website/icons/social/x-footer-logo.ashx",
@@ -466,8 +627,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{AEFA1AAC-BEB3-4536-8237-17B087D7E897}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/footer-s08-3",
-    "imageFieldXml": "<image mediaid=\"{AEFA1AAC-BEB3-4536-8237-17B087D7E897}\" />",
-    "uploadedAt": "2026-10-27T13:25:00.821Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83842-footer-s08-3?v=6eadd02f\" dam-id=\"XRjfI59LSFuB8kfa1Zqk0A\" width=\"21\" height=\"21\" alt=\"Dentons on Twitter\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83842/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:25:00.821Z",
+    "approved": true,
+    "assetId": 83842,
+    "assetIdentifier": "XRjfI59LSFuB8kfa1Zqk0A",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83842-footer-s08-3?v=6eadd02f",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83842/thumbnail",
+    "width": 21,
+    "height": 21
   },
   {
     "src": "https://www.dentons.com/-/media/images/website/icons/social/youtube.ashx",
@@ -486,8 +654,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{5969E406-C21A-42DF-83DE-9BF10A0668CC}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/footer-s08-4",
-    "imageFieldXml": "<image mediaid=\"{5969E406-C21A-42DF-83DE-9BF10A0668CC}\" />",
-    "uploadedAt": "2026-10-27T13:25:01.180Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83861-footer-s08-4?v=93ac4824\" dam-id=\"06xC0VyKQNCsnajAtg92ag\" width=\"26\" height=\"21\" alt=\"Dentons on YouTube\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83861/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:25:01.180Z",
+    "approved": true,
+    "assetId": 83861,
+    "assetIdentifier": "06xC0VyKQNCsnajAtg92ag",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83861-footer-s08-4?v=93ac4824",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83861/thumbnail",
+    "width": 26,
+    "height": 21
   },
   {
     "src": "https://www.dentons.com/-/media/images/website/icons/social/instagram.ashx",
@@ -506,8 +681,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{8894F6D8-1CB5-4106-9BC3-C0B8407912C0}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/footer-s08-5",
-    "imageFieldXml": "<image mediaid=\"{8894F6D8-1CB5-4106-9BC3-C0B8407912C0}\" />",
-    "uploadedAt": "2026-10-27T13:25:01.179Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83869-footer-s08-5?v=890052c5\" dam-id=\"eOqj6DeoQIC4cM7hxWO0zg\" width=\"23\" height=\"23\" alt=\"Dentons on Instagram\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83869/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:25:01.179Z",
+    "approved": true,
+    "assetId": 83869,
+    "assetIdentifier": "eOqj6DeoQIC4cM7hxWO0zg",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83869-footer-s08-5?v=890052c5",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83869/thumbnail",
+    "width": 23,
+    "height": 23
   },
   {
     "src": "https://www.dentons.com/-/media/images/website/icons/social/email_updated.ashx",
@@ -526,8 +708,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{FA007364-EC3C-4EF0-900C-B46A61E9A80E}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/footer-s08-6",
-    "imageFieldXml": "<image mediaid=\"{FA007364-EC3C-4EF0-900C-B46A61E9A80E}\" />",
-    "uploadedAt": "2026-10-27T13:25:01.183Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83877-footer-s08-6?v=b020f3e3\" dam-id=\"LFOvYEgTTWyik7RfvBOilA\" width=\"25\" height=\"25\" alt=\"Subscribe to our mailing list\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83877/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:25:01.183Z",
+    "approved": true,
+    "assetId": 83877,
+    "assetIdentifier": "LFOvYEgTTWyik7RfvBOilA",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83877-footer-s08-6?v=b020f3e3",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83877/thumbnail",
+    "width": 25,
+    "height": 25
   },
   {
     "src": "https://www.dentons.com/-/media/images/website/icons/social/rss_updated.ashx",
@@ -546,8 +735,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{225B065F-2E06-43AC-9762-2D9E1D0A7EB6}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/footer-s08-7",
-    "imageFieldXml": "<image mediaid=\"{225B065F-2E06-43AC-9762-2D9E1D0A7EB6}\" />",
-    "uploadedAt": "2026-10-27T13:25:01.289Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83895-footer-s08-7?v=82c80ecc\" dam-id=\"2Gd7qwmHQzq_haBHDAguPw\" width=\"25\" height=\"25\" alt=\"View our RSS feeds\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83895/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:25:01.289Z",
+    "approved": true,
+    "assetId": 83895,
+    "assetIdentifier": "2Gd7qwmHQzq_haBHDAguPw",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83895-footer-s08-7?v=82c80ecc",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83895/thumbnail",
+    "width": 25,
+    "height": 25
   },
   {
     "src": "https://www.dentons.com/assets/images/image/searchicon.svg",
@@ -559,8 +755,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{D66DE29A-D9B4-4BBB-85A6-158C1D274144}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/extra-1-searchicon",
-    "imageFieldXml": "<image mediaid=\"{D66DE29A-D9B4-4BBB-85A6-158C1D274144}\" />",
-    "uploadedAt": "2026-10-27T13:25:01.634Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83906-extra-1-searchicon?v=db0f1b97\" dam-id=\"IJgRP9gQQEGXvdpOXyj-VA\" width=\"24\" height=\"25\" alt=\"searchicon.svg\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83906/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:25:01.634Z",
+    "approved": true,
+    "assetId": 83906,
+    "assetIdentifier": "IJgRP9gQQEGXvdpOXyj-VA",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83906-extra-1-searchicon?v=db0f1b97",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83906/thumbnail",
+    "width": 24,
+    "height": 25
   },
   {
     "src": "https://www.dentons.com/assets/images/image/menu.svg",
@@ -572,8 +775,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{845D4760-3A77-42E1-A0F1-BE131A2636AB}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/extra-2-menu",
-    "imageFieldXml": "<image mediaid=\"{845D4760-3A77-42E1-A0F1-BE131A2636AB}\" />",
-    "uploadedAt": "2026-10-27T13:25:01.597Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83918-extra-2-menu?v=53f3e9cb\" dam-id=\"sb_KFsV9QKOlhgThJgQ-_A\" width=\"27\" height=\"22\" alt=\"menu.svg\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83918/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:25:01.597Z",
+    "approved": true,
+    "assetId": 83918,
+    "assetIdentifier": "sb_KFsV9QKOlhgThJgQ-_A",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83918-extra-2-menu?v=53f3e9cb",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83918/thumbnail",
+    "width": 27,
+    "height": 22
   },
   {
     "src": "https://www.dentons.com/-/media/images/website/social-media-icons/sidebar-icons/linkedin-share.ashx?crop=1&hash=BCC12C3F7382162E62A0560307C2B16E",
@@ -585,8 +795,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{3E2A2683-1D90-4631-838E-E402011B21B4}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/extra-3-linkedin-share",
-    "imageFieldXml": "<image mediaid=\"{3E2A2683-1D90-4631-838E-E402011B21B4}\" />",
-    "uploadedAt": "2026-10-27T13:25:01.567Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83931-extra-3-linkedin-share?v=74dafebe\" dam-id=\"WLm4vdIBSze6xogjmlBYLw\" width=\"21\" height=\"21\" alt=\"linkedin-share.ashx\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83931/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:25:01.567Z",
+    "approved": true,
+    "assetId": 83931,
+    "assetIdentifier": "WLm4vdIBSze6xogjmlBYLw",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83931-extra-3-linkedin-share?v=74dafebe",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83931/thumbnail",
+    "width": 21,
+    "height": 21
   },
   {
     "src": "https://www.dentons.com/-/media/images/website/person-images/b/ba-bd/balgobin-bhoyrul_priscilla.ashx",
@@ -598,8 +815,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{D551F20D-A327-4328-A4BD-BB4C2BBB789E}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/extra-4-balgobin-bhoyrul-priscilla",
-    "imageFieldXml": "<image mediaid=\"{D551F20D-A327-4328-A4BD-BB4C2BBB789E}\" />",
-    "uploadedAt": "2026-10-27T13:25:01.995Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83950-extra-4-balgobin-bhoyrul_priscilla?v=329ca826\" dam-id=\"zGR-8yCSSjShTDaDrNnKUQ\" width=\"151\" height=\"181\" alt=\"balgobin-bhoyrul_priscilla.ashx\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83950/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:25:01.995Z",
+    "approved": true,
+    "assetId": 83950,
+    "assetIdentifier": "zGR-8yCSSjShTDaDrNnKUQ",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83950-extra-4-balgobin-bhoyrul_priscilla?v=329ca826",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83950/thumbnail",
+    "width": 151,
+    "height": 181
   },
   {
     "src": "https://www.dentons.com/-/media/images/website/social-media-icons/sidebar-icons/x-share.ashx?crop=1&hash=8E67DFFF84A36A4F6A897A596112D369",
@@ -611,8 +835,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{DDCBB1C8-A43A-45A4-8321-08A3CC9B6FBF}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/extra-5-x-share",
-    "imageFieldXml": "<image mediaid=\"{DDCBB1C8-A43A-45A4-8321-08A3CC9B6FBF}\" />",
-    "uploadedAt": "2026-10-27T13:25:02.062Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83958-extra-5-x-share?v=a35f15e5\" dam-id=\"JGHwqGrTRt696bZh07DRuQ\" width=\"28\" height=\"28\" alt=\"x-share.ashx\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83958/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:25:02.062Z",
+    "approved": true,
+    "assetId": 83958,
+    "assetIdentifier": "JGHwqGrTRt696bZh07DRuQ",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83958-extra-5-x-share?v=a35f15e5",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83958/thumbnail",
+    "width": 28,
+    "height": 28
   },
   {
     "src": "https://www.dentons.com/assets/images/dentons-background.png",
@@ -624,8 +855,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{96F05AFD-1AFA-44BE-A1BE-8DE62728CE73}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/extra-6-dentons-background",
-    "imageFieldXml": "<image mediaid=\"{96F05AFD-1AFA-44BE-A1BE-8DE62728CE73}\" />",
-    "uploadedAt": "2026-10-27T13:25:02.094Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83976-extra-6-dentons-background?v=4113626e\" dam-id=\"ILzEU7WCSXmAYQ4HvN2xMg\" width=\"15\" height=\"361\" alt=\"dentons-background.png\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83976/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:25:02.094Z",
+    "approved": true,
+    "assetId": 83976,
+    "assetIdentifier": "ILzEU7WCSXmAYQ4HvN2xMg",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83976-extra-6-dentons-background?v=4113626e",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83976/thumbnail",
+    "width": 15,
+    "height": 361
   },
   {
     "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/gpof-footer.ashx",
@@ -637,8 +875,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{CCA48C16-EB41-4A7B-9837-ED4B4C2F1776}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/extra-7-gpof-footer",
-    "imageFieldXml": "<image mediaid=\"{CCA48C16-EB41-4A7B-9837-ED4B4C2F1776}\" />",
-    "uploadedAt": "2026-10-27T13:25:02.345Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83984-extra-7-gpof-footer?v=2019b0af\" dam-id=\"0CbJvxDRTL-PyTxLS7A2fA\" width=\"1600\" height=\"206\" alt=\"gpof-footer.ashx\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83984/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:25:02.345Z",
+    "approved": true,
+    "assetId": 83984,
+    "assetIdentifier": "0CbJvxDRTL-PyTxLS7A2fA",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83984-extra-7-gpof-footer?v=2019b0af",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83984/thumbnail",
+    "width": 1600,
+    "height": 206
   },
   {
     "src": "https://www.dentons.com/-/media/images/website/background-images/offices/melbourne/melbourne-02.ashx?sc_lang=en",
@@ -650,8 +895,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{F5822FB1-A691-4509-9609-24214331D424}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/extra-8-melbourne-02",
-    "imageFieldXml": "<image mediaid=\"{F5822FB1-A691-4509-9609-24214331D424}\" />",
-    "uploadedAt": "2026-10-27T13:25:02.810Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/83992-extra-8-melbourne-02?v=6734e88d\" dam-id=\"SE_YcKdSSu-a6w7n_GKgpw\" width=\"1900\" height=\"1500\" alt=\"melbourne-02.ashx\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/83992/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:25:02.810Z",
+    "approved": true,
+    "assetId": 83992,
+    "assetIdentifier": "SE_YcKdSSu-a6w7n_GKgpw",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/83992-extra-8-melbourne-02?v=6734e88d",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/83992/thumbnail",
+    "width": 1900,
+    "height": 1500
   },
   {
     "src": "https://www.dentons.com/-/media/images/website/person-images/a/aa-ad/abbott_nathan.ashx?h=181&iar=0&w=151&hash=D5B17CAD0CB662AC905442BAD01EE53C",
@@ -663,8 +915,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{44551EA1-9742-4F11-AF30-2F515F868CED}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/extra-9-abbott-nathan",
-    "imageFieldXml": "<image mediaid=\"{44551EA1-9742-4F11-AF30-2F515F868CED}\" />",
-    "uploadedAt": "2026-10-27T13:25:02.689Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/84000-extra-9-abbott_nathan?v=4288aeaf\" dam-id=\"M9gc9M7pSxmMmuRZts8slg\" width=\"151\" height=\"181\" alt=\"abbott_nathan.ashx\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/84000/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:25:02.689Z",
+    "approved": true,
+    "assetId": 84000,
+    "assetIdentifier": "M9gc9M7pSxmMmuRZts8slg",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/84000-extra-9-abbott_nathan?v=4288aeaf",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/84000/thumbnail",
+    "width": 151,
+    "height": 181
   },
   {
     "src": "https://www.dentons.com/-/media/images/website/background-images/landing-pages/search/global-search-new.ashx?sc_lang=en",
@@ -676,8 +935,15 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{72EFA824-F8E6-433B-AEA4-2F412F07E2D0}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/extra-10-global-search-new",
-    "imageFieldXml": "<image mediaid=\"{72EFA824-F8E6-433B-AEA4-2F412F07E2D0}\" />",
-    "uploadedAt": "2026-10-27T13:25:02.870Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/84023-extra-10-global-search-new?v=816538ce\" dam-id=\"eZIGbBHSSruXdORXLBy6bg\" width=\"1900\" height=\"1500\" alt=\"global-search-new.ashx\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/84023/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:25:02.870Z",
+    "approved": true,
+    "assetId": 84023,
+    "assetIdentifier": "eZIGbBHSSruXdORXLBy6bg",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/84023-extra-10-global-search-new?v=816538ce",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/84023/thumbnail",
+    "width": 1900,
+    "height": 1500
   },
   {
     "src": "https://www.dentons.com/assets/images/image/buttonsearch.jpg",
@@ -689,7 +955,122 @@
     "uploadStatus": "uploaded",
     "mediaItemId": "{0E642F03-5B71-4B7F-A6F2-B4F958300DA2}",
     "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/extra-11-buttonsearch",
-    "imageFieldXml": "<image mediaid=\"{0E642F03-5B71-4B7F-A6F2-B4F958300DA2}\" />",
-    "uploadedAt": "2026-10-27T13:25:02.841Z"
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/84036-extra-11-buttonsearch?v=efb0211e\" dam-id=\"xpVMm72iSbWccz_DCmTatw\" width=\"20\" height=\"20\" alt=\"buttonsearch.jpg\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/84036/thumbnail\" />",
+    "uploadedAt": "2026-10-27T13:25:02.841Z",
+    "approved": true,
+    "assetId": 84036,
+    "assetIdentifier": "xpVMm72iSbWccz_DCmTatw",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/84036-extra-11-buttonsearch?v=efb0211e",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/84036/thumbnail",
+    "width": 20,
+    "height": 20
+  },
+  {
+    "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/protect.ashx",
+    "uses": [
+      {
+        "page": "/Home",
+        "liveSection": 2,
+        "sectionsFile": "sections.json"
+      }
+    ],
+    "alt": "Protect",
+    "status": "downloaded",
+    "localFileName": "gpof-protect.jpg",
+    "localPath": "/Users/fols/sitecore/sitecoreAI/xmcloud-starter-js/industry-verticals/dentons/docs/ai/demos/dentons/images/gpof-protect.jpg",
+    "sizeBytes": 296882,
+    "uploadStatus": "uploaded",
+    "mediaItemId": "{5082FF3E-2ABA-4830-B1E9-0B817461FE93}",
+    "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/gpof-protect",
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/84043-gpof-protect?v=dbfebcb9\" dam-id=\"Z7t9jT9xSKS4Yn8YDJKH1w\" width=\"1900\" height=\"1500\" alt=\"Protect\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/84043/thumbnail\" />",
+    "uploadedAt": "2026-10-27T14:12:17.709Z",
+    "approved": true,
+    "assetId": 84043,
+    "assetIdentifier": "Z7t9jT9xSKS4Yn8YDJKH1w",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/84043-gpof-protect?v=dbfebcb9",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/84043/thumbnail",
+    "width": 1900,
+    "height": 1500
+  },
+  {
+    "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/operate.ashx",
+    "uses": [
+      {
+        "page": "/Home",
+        "liveSection": 2,
+        "sectionsFile": "sections.json"
+      }
+    ],
+    "alt": "Operate",
+    "status": "downloaded",
+    "localFileName": "gpof-operate.jpg",
+    "localPath": "/Users/fols/sitecore/sitecoreAI/xmcloud-starter-js/industry-verticals/dentons/docs/ai/demos/dentons/images/gpof-operate.jpg",
+    "sizeBytes": 305455,
+    "uploadStatus": "uploaded",
+    "mediaItemId": "{726A7DA6-32E2-4193-BEF7-A2E5F3F2F061}",
+    "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/gpof-operate",
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/84056-gpof-operate?v=cdeb90a8\" dam-id=\"KT0tOLsKSA2xFRGD_OeeVg\" width=\"1900\" height=\"1500\" alt=\"Operate\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/84056/thumbnail\" />",
+    "uploadedAt": "2026-10-27T14:12:17.690Z",
+    "approved": true,
+    "assetId": 84056,
+    "assetIdentifier": "KT0tOLsKSA2xFRGD_OeeVg",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/84056-gpof-operate?v=cdeb90a8",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/84056/thumbnail",
+    "width": 1900,
+    "height": 1500
+  },
+  {
+    "src": "https://www.dentons.com/-/media/images/website/background-images/gpof/finance.ashx",
+    "uses": [
+      {
+        "page": "/Home",
+        "liveSection": 2,
+        "sectionsFile": "sections.json"
+      }
+    ],
+    "alt": "Finance",
+    "status": "downloaded",
+    "localFileName": "gpof-finance.jpg",
+    "localPath": "/Users/fols/sitecore/sitecoreAI/xmcloud-starter-js/industry-verticals/dentons/docs/ai/demos/dentons/images/gpof-finance.jpg",
+    "sizeBytes": 280974,
+    "uploadStatus": "uploaded",
+    "mediaItemId": "{CC96CF1A-760B-4D42-955E-5F280D97F356}",
+    "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/gpof-finance",
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/84066-gpof-finance?v=fe6dddd4\" dam-id=\"go7clpaATamFnDaES0Zm-w\" width=\"1900\" height=\"1500\" alt=\"Finance\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/84066/thumbnail\" />",
+    "uploadedAt": "2026-10-27T14:12:17.696Z",
+    "approved": true,
+    "assetId": 84066,
+    "assetIdentifier": "go7clpaATamFnDaES0Zm-w",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/84066-gpof-finance?v=fe6dddd4",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/84066/thumbnail",
+    "width": 1900,
+    "height": 1500
+  },
+  {
+    "src": "https://www.dentons.com/-/media/images/website/person-images/a/aa-ad/abbott_nathan.ashx",
+    "uses": [
+      {
+        "page": "/Home/our-professionals/nathan-abbott",
+        "liveSection": 1,
+        "sectionsFile": "sections-nathan-abbott.json"
+      }
+    ],
+    "alt": "Nathan Abbott",
+    "status": "downloaded",
+    "localFileName": "abbott-nathan.jpg",
+    "localPath": "/Users/fols/sitecore/sitecoreAI/xmcloud-starter-js/industry-verticals/dentons/docs/ai/demos/dentons/images/abbott-nathan.jpg",
+    "sizeBytes": 22333,
+    "uploadStatus": "uploaded",
+    "mediaItemId": "{95D9A35E-7D26-4796-A05B-F6A60FE8C0E3}",
+    "mediaPath": "/sitecore/media library/Project/Legal/Dentons/demo-images/abbott-nathan",
+    "imageFieldXml": "<Image src=\"https://dentons.sitecoresandbox.cloud/api/public/content/84079-abbott-nathan?v=f0bcaee3\" dam-id=\"6CkWoX4yQhucFErrm0OKFw\" width=\"151\" height=\"181\" alt=\"Nathan Abbott\" dam-content-type=\"Image\" thumbnailsrc=\"https://dentons.sitecoresandbox.cloud/api/gateway/84079/thumbnail\" />",
+    "uploadedAt": "2026-10-27T14:18:48.685Z",
+    "approved": true,
+    "assetId": 84079,
+    "assetIdentifier": "6CkWoX4yQhucFErrm0OKFw",
+    "publicUrl": "https://dentons.sitecoresandbox.cloud/api/public/content/84079-abbott-nathan?v=f0bcaee3",
+    "thumbnailUrl": "https://dentons.sitecoresandbox.cloud/api/gateway/84079/thumbnail",
+    "width": 151,
+    "height": 181
   }
 ]

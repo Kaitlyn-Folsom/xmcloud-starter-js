@@ -170,32 +170,36 @@ export const WithSocials = (props: FooterProps): JSX.Element => {
   );
 };
 
-const FOOTER_LABELS = [
-  'Legal notices',
-  'Client extranets',
-  'Cookies',
-  'Privacy',
-  'Terms of use',
-  'Modern Slavery Statement',
-  'SRA Regulation',
-  'Fraud Alert',
-  'Web Accessibility',
-  'Tax Strategy Statement',
+const MORE_SOCIAL = [
+  '/dentons-media/footer-s08-5.svg',
+  '/dentons-media/footer-s08-6.svg',
+  '/dentons-media/footer-s08-7.svg',
 ];
 
 export const Dentons = (props: Parameters<typeof Default>[0]): JSX.Element => (
   <section className={`component footer variant-dentons ${props.params?.styles || ''}`}>
-    <div style={{ display: 'flex', flexWrap: 'nowrap', gap: 16, alignItems: 'center' }}>
-      {FOOTER_LABELS.map((label) => (
-        <a key={label} href="/" style={{ whiteSpace: 'nowrap', fontSize: 13 }}>
-          {label}
-        </a>
-      ))}
+    <div className="dentons-footer-top">
+      <img className="dentons-footer-logo" src="/dentons-logo.svg" alt="Dentons" width={160} height={40} />
+      <div className="dentons-footer-social">
+        {[props.fields?.SocialIcon1, props.fields?.SocialIcon2, props.fields?.SocialIcon3]
+          .filter((icon) => icon?.value?.src)
+          .map((icon, index) => (
+            <img key={index} src={String(icon?.value?.src || '')} alt={String(icon?.value?.alt || '')} width={22} height={22} />
+          ))}
+        {MORE_SOCIAL.map((src) => (
+          <img key={src} src={src} alt="" width={22} height={22} />
+        ))}
+      </div>
     </div>
-    <div>
-      {[1, 2, 3, 4, 5, 6, 7].map((n) => (
-        <img key={n} src={`/dentons-media/footer-s08-${n}.svg`} alt="" width={64} height={64} />
-      ))}
+    <div className="dentons-footer-links">
+      <RichText field={props.fields?.Text1} />
+      <RichText field={props.fields?.Text2} />
+    </div>
+    <div className="dentons-footer-bottom">
+      <span className="dentons-cookie">Cookie Consent Manager</span>
+      <p className="dentons-copyright">
+        <Text field={props.fields?.Copyright} />
+      </p>
     </div>
   </section>
 );

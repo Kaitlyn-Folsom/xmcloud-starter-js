@@ -30,13 +30,19 @@ const Profile = (props: PersonProfileProps): JSX.Element => {
   const id = props.params?.RenderingIdentifier;
 
   return (
-    <article className={`component person-profile ${props.params?.styles || ''}`} id={id || undefined}>
-      <div className="container">
-        {(fields?.Photo?.value?.src || isEditing) && fields?.Photo && <NextImage field={fields.Photo} />}
-        {(fields?.Name?.value || isEditing) && <Text tag="h1" field={fields?.Name} />}
-        {(fields?.Role?.value || isEditing) && <Text tag="p" field={fields?.Role} />}
-        {(fields?.Office?.value || isEditing) && <Text tag="p" field={fields?.Office} />}
-        {(fields?.Biography?.value || isEditing) && <RichText field={fields?.Biography} />}
+    <article className={`component person-profile variant-dentons ${props.params?.styles || ''}`} id={id || undefined}>
+      <div className="dentons-person">
+        <div className="dentons-person-head">
+          {(fields?.Photo?.value?.src || isEditing) && fields?.Photo && (
+            <NextImage field={fields.Photo} width={151} height={181} className="dentons-person-photo" />
+          )}
+          <div>
+            {(fields?.Name?.value || isEditing) && <Text tag="h1" field={fields?.Name} />}
+            {(fields?.Role?.value || isEditing) && <Text tag="p" className="dentons-person-role" field={fields?.Role} />}
+            {(fields?.Office?.value || isEditing) && <Text tag="p" field={fields?.Office} />}
+          </div>
+        </div>
+        {(fields?.Biography?.value || isEditing) && <RichText className="dentons-article-body" field={fields?.Biography} />}
         <div>
           {(fields?.items ?? []).map((item, index) => (
             <section key={item.displayName || index}>

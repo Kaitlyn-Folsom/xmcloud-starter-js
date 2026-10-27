@@ -86,8 +86,14 @@ export const Default = (props: HeroBannerProps): JSX.Element => {
 
 export const Dentons = (props: Parameters<typeof Default>[0]) => Default(props);
 export const DentonsPageIntro = (props: Parameters<typeof Default>[0]): JSX.Element => (
-  <section className={`component hero-banner variant-dentons ${props.params?.styles || ''}`}>
-    <h1>{props.fields?.Title?.value || 'Knowledge'}</h1>
-    <img src="/dentons-media/insights-s02-1.jpg" alt="" width={640} height={280} />
+  <section
+    className={`component hero-banner variant-dentons dentons-page-intro ${props.params?.styles || ''}`}
+    style={props.fields?.Image?.value?.src ? { backgroundImage: `url(${props.fields.Image.value.src})` } : undefined}
+  >
+    <div className="dentons-page-intro-copy">
+      <h1>
+        <Text field={props.fields?.Title} />
+      </h1>
+    </div>
   </section>
 );

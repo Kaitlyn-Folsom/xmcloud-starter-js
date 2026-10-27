@@ -22,37 +22,95 @@
 .component.eyebrow.variant-dentons { display: none; }
 
 .component.header.variant-dentons {
-  background: #000000;
-  height: 102px;
-  min-height: 102px;
+  background: #fff;
+  border-bottom: 3px solid #2a2a2a;
+  height: auto;
+  min-height: 0;
   overflow: visible;
-  .container { height: 102px; padding-top: 0; padding-bottom: 0; }
-  .row { flex-wrap: nowrap; height: 102px; min-height: 102px; align-items: center; margin: 0; }
-  .col { position: absolute; left: 0; right: 0; top: 102px; background: #fff; }
-  img { width: 180px; height: 45px; max-width: none; }
-}
 
-@media (min-width: 992px) {
-  .component.navigation.variant-dentons {
-    background: #fff;
-    nav { width: auto; }
-    nav > ul { display: flex; align-items: center; justify-content: flex-start; gap: 30px !important; margin: 0; padding: 0; list-style: none; width: max-content; }
-    nav > ul > li { flex: 0 0 auto !important; width: auto !important; margin: 0 !important; padding: 0 !important; }
-    nav > ul > li > ul { display: none !important; }   // top level only, whatever else comes through
-    .navigation-title a {
-      font-family: "Dentons Sans Web Semibold", sans-serif;
-    font-size: 15px;
-    font-weight: 600 !important;
-    text-transform: none;
-    color: #4c4c4c;
-      text-decoration: none; white-space: nowrap;
+  .dentons-header-bar {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    min-height: 76px;
+    padding: 12px 28px;
+  }
+
+  .dentons-logo {
+    flex: 0 0 auto;
+    line-height: 0;
+
+    img {
+      width: 148px;
+      height: 37px;
+      max-width: none;
     }
+  }
+
+  .dentons-header-nav {
+    margin-left: auto;
+  }
+
+  .dentons-header-tools {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    color: #702082;
+  }
+
+  .dentons-lang {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 36px;
+    padding: 0 12px;
+    border: 1.5px solid #702082;
+    border-radius: 8px;
+    color: #702082;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  .dentons-icon-button {
+    display: inline-flex;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: #702082;
+    line-height: 0;
   }
 }
 
 .component.navigation.variant-dentons {
+  background: transparent;
   width: auto;
+
+  .menu-humburger { display: none; }
   .component-content, nav, nav > ul { width: max-content; }
-  nav > ul { display: flex; justify-content: flex-start; gap: 30px; }
-  nav > ul > li { flex: 0 0 auto; width: auto; margin: 0; }
+  nav > ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 28px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: max-content;
+  }
+  nav > ul > li {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  nav > ul > li > ul { display: none !important; }
+  .navigation-title a {
+    font-size: 15px;
+    font-weight: 400 !important;
+    text-transform: none;
+    color: #4c4c4c;
+    text-decoration: none;
+    white-space: nowrap;
+  }
 }

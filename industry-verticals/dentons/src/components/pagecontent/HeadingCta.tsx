@@ -152,14 +152,16 @@ export const Centered = (props: HeadingCtaProps): JSX.Element => {
   );
 };
 
-const titleBand = (text: string | undefined, fallback: string, styles?: string): JSX.Element => (
-  <section className={`component heading-cta variant-dentons ${styles || ''}`} style={{ minHeight: 80 }}>
-    <h2>{text || fallback}</h2>
+const titleBand = (props: Parameters<typeof Default>[0], className: string): JSX.Element => (
+  <section className={`component heading-cta variant-dentons ${className} ${props.params?.styles || ''}`}>
+    <div className="dentons-heading-wrap">
+      <h2>
+        <Text field={props.fields?.Heading} />
+      </h2>
+    </div>
   </section>
 );
 
 export const Dentons = (props: Parameters<typeof Default>[0]) => Default(props);
-export const DentonsNewsHeading = (props: Parameters<typeof Default>[0]) =>
-  titleBand(props.fields?.Heading?.value, "Dentons' news from around the world", props.params?.styles);
-export const DentonsPageTitle = (props: Parameters<typeof Default>[0]) =>
-  titleBand(props.fields?.Heading?.value, props.fields?.Heading?.value || '', props.params?.styles);
+export const DentonsNewsHeading = (props: Parameters<typeof Default>[0]) => titleBand(props, 'dentons-news-heading');
+export const DentonsPageTitle = (props: Parameters<typeof Default>[0]) => titleBand(props, 'dentons-page-title');

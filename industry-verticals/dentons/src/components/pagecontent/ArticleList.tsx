@@ -6,8 +6,11 @@ import {
   ComponentRendering,
   Field,
   ImageField,
+  LinkField,
   Text,
+  Link as ContentLink,
   RichTextField,
+  useSitecore,
   withDatasourceCheck,
   NextImage,
 } from '@sitecore-content-sdk/nextjs';
@@ -206,29 +209,74 @@ export const ThreeColumn = withDatasourceCheck()<ArticleListComponentProps>(Arti
 export const Simplified = withDatasourceCheck()<ArticleListComponentProps>(ArticleListSimplified);
 export const Grid = withDatasourceCheck()<ArticleListComponentProps>(ArticleListGrid);
 
-const pictureBand = (title: string, files: string[], styles?: string): JSX.Element => (
-  <section className={`component article-list variant-dentons ${styles || ''}`}>
-    <h2>{title}</h2>
-    <div>
-      {files.map((file) => (
-        <img key={file} src={`/dentons-media/${file}`} alt="" width={320} height={200} />
-      ))}
-    </div>
-  </section>
-);
+type StoryCard = {
+  id?: string;
+  url?: string;
+  fields?: Fields & {
+    Label?: Field<string>;
+    Eyebrow?: Field<string>;
+    Text?: Field<string>;
+    Image?: ImageField;
+    Link?: LinkField;
+  };
+};
+
+const cardImage = (item: StoryCard): ImageField | undefined =>
+  item.fields?.Image?.value?.src ? item.fields.Image : item.fields?.Thumbnail;
+
+const StoryGrid = ({
+  props,
+  layout,
+}: {
+  props: Parameters<typeof Default>[0];
+  layout: 'featured' | 'news' | 'trending';
+}): JSX.Element => {
+  const { page } = useSitecore();
+  const isEditing = page.mode.isEditing;
+  const items = ((props.fields as { items?: StoryCard[] } | undefined)?.items ?? []) as StoryCard[];
+
+  return (
+    <section className={`component article-list variant-dentons dentons-${layout} ${props.params?.styles || ''}`}>
+      <div className="dentons-card-grid">
+        {items.map((item, index) => {
+          const image = cardImage(item);
+          const link = item.fields?.Link;
+          return (
+            <article className="dentons-card" key={item.id || item.url || index}>
+              {image?.value?.src && <NextImage field={image} width={900} height={420} className="dentons-card-image" />}
+              <div className="dentons-card-body">
+                {(item.fields?.Eyebrow?.value || isEditing) && (
+                  <p className="dentons-card-eyebrow">
+                    <Text field={item.fields?.Eyebrow} />
+                  </p>
+                )}
+                <h3>
+                  <Text field={item.fields?.Title} />
+                </h3>
+                {(item.fields?.Text?.value || isEditing) && (
+                  <p className="dentons-card-text">
+                    <Text field={item.fields?.Text} />
+                  </p>
+                )}
+                {(link?.value?.href || isEditing) && link && (
+                  <ContentLink field={link} className="dentons-card-cta" />
+                )}
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </section>
+  );
+};
 
 export const Dentons = (props: Parameters<typeof Default>[0]) => Default(props);
-export const DentonsFeaturedGrid = (props: Parameters<typeof Default>[0]) =>
-  pictureBand(
-    'Register now for our CX webinar program',
-    ['home-s03-1.jpg', 'home-s03-2.jpg', 'home-s03-3.jpg', 'home-s03-4.jpg', 'home-s03-5.jpg', 'home-s03-6.jpg'],
-    props.params?.styles
-  );
-export const DentonsNewsGrid = (props: Parameters<typeof Default>[0]) =>
-  pictureBand(
-    'Leading with Clarity in Times of Complexity',
-    ['home-s05-1.jpg', 'home-s05-2.jpg', 'home-s05-3.jpg', 'home-s05-4.jpg', 'home-s05-5.jpg'],
-    props.params?.styles
-  );
-export const DentonsTrending = (props: Parameters<typeof Default>[0]) =>
-  pictureBand('Trending', ['insights-s03-1.jpg', 'insights-s03-2.jpg', 'insights-s03-3.jpg'], props.params?.styles);
+export const DentonsFeaturedGrid = (props: Parameters<typeof Default>[0]) => (
+  <StoryGrid props={props} layout="featured" />
+);
+export const DentonsNewsGrid = (props: Parameters<typeof Default>[0]) => (
+  <StoryGrid props={props} layout="news" />
+);
+export const DentonsTrending = (props: Parameters<typeof Default>[0]) => (
+  <StoryGrid props={props} layout="trending" />
+);
