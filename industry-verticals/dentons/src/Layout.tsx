@@ -9,6 +9,13 @@ interface LayoutProps {
   page: Page;
 }
 
+type TaxonomyItem = {
+  id?: string;
+  name?: string;
+  displayName?: string;
+  fields?: { Title?: Field<string> };
+};
+
 export interface RouteFields {
   [key: string]: unknown;
   Title?: Field;
@@ -17,10 +24,27 @@ export interface RouteFields {
   Thumbnail?: ImageField;
   PublicationDate?: Field<string>;
   Author?: Field<string>;
+  'Content Type'?: TaxonomyItem | { value?: TaxonomyItem | string };
+  Sector?: TaxonomyItem[] | { value?: TaxonomyItem[] | string };
   SchemaJson?: Field<string>;
 }
 
-function schemaJsonLd(value: string | undefined): string | null {
+const taxonomyItems = (field: unknown): TaxonomyItem[] => {
+  if (!field || typeof field !== 'object') return [];
+  if (Array.isArray(field)) return field as TaxonomyItem[];
+  if ('value' in field) {
+    const value = (field as { value?: unknown }).value;
+    if (!value || typeof value === 'string') return [];
+    return (Array.isArray(value) ? value : [value]) as TaxonomyItem[];
+  }
+  return [field as TaxonomyItem];
+};
+
+const taxonomyLabel = (item: TaxonomyItem): string => item.displayName || item.fields?.Title?.value || item.name || '';
+
+export const taxonomyLabels = (field: unknown): string[] => taxonomyItems(field).map(taxonomyLabel).filter(Boolean);
+
+export function schemaJsonLd(value: string | undefined): string | null {
   if (!value?.trim()) return null;
   try {
     return JSON.stringify(JSON.parse(value)).replace(/</g, '\\u003c');
@@ -34,12 +58,8 @@ const Layout = ({ page }: LayoutProps): JSX.Element => {
   const { route } = layout.sitecore;
   const mainClassPageEditing = mode.isEditing ? 'editing-mode' : 'prod-mode';
   const siteThemeClass = getSiteThemeClass(page.siteName);
-  const schemaLd = schemaJsonLd((route?.fields as RouteFields | undefined)?.SchemaJson?.value);
   return (
     <>
-      {schemaLd && (
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: schemaLd }} />
-      )}
       <Scripts />
       <SitecoreStyles layoutData={layout} />
       {/* root placeholder for the app, which we add components to using route data */}

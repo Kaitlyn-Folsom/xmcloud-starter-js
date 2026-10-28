@@ -6,7 +6,7 @@ import sites from '.sitecore/sites.json';
 import { routing } from 'src/i18n/routing';
 import scConfig from 'sitecore.config';
 import client from 'src/lib/sitecore-client';
-import Layout, { RouteFields } from 'src/Layout';
+import Layout, { RouteFields, taxonomyLabels } from 'src/Layout';
 import Providers from 'src/Providers';
 import { NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
@@ -80,7 +80,14 @@ export const generateMetadata = async ({ params }: PageProps) => {
 
   // The same call as for rendering the page. Should be cached by default react behavior
   const page = await client.getPage(path ?? [], { site, locale });
+  const fields = page?.layout.sitecore.route?.fields as RouteFields | undefined;
+  const contentType = fields ? taxonomyLabels(fields['Content Type'])[0] : undefined;
+  const sectors = fields ? taxonomyLabels(fields.Sector) : [];
   return {
-    title: (page?.layout.sitecore.route?.fields as RouteFields)?.Title?.value?.toString() || 'Page',
+    title: fields?.Title?.value?.toString() || 'Page',
+    other: {
+      ...(contentType ? { 'content-type': contentType } : {}),
+      ...(sectors.length ? { sector: sectors.join(', ') } : {}),
+    },
   };
 };
