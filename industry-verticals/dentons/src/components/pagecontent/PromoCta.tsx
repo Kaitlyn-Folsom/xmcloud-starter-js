@@ -40,10 +40,10 @@ export const Default = (props: PromoCtaProps): JSX.Element => {
   const sxaStyles = `${props.params?.styles || ''}`;
 
   return (
-    <div className={`component promo-cta ${sxaStyles}`} id={id ? id : undefined} ref={domRef}>
+    <div className={`component promo-cta promo-cta-default ${sxaStyles}`} id={id ? id : undefined} ref={domRef}>
       <div className="container">
-        <div className="row row-gap-4 main-content align-items-center">
-          <div className="col-lg-5 text-center text-lg-start">
+        <div className="row row-gap-4 main-content align-items-stretch">
+          <div className="col-lg-8 text-center text-lg-start">
             <h6 className="eyebrow-accent">
               <Text field={props.fields.Eyebrow} />
             </h6>
@@ -57,24 +57,22 @@ export const Default = (props: PromoCtaProps): JSX.Element => {
 
               <RichText field={props.fields.Text} className="text-content" />
 
-              <div className="row mt-2">
-                <Placeholder name="promo-cta" rendering={props.rendering} />
+              <div className="promo-cta-actions">
+                {(isPageEditing || props.fields?.Link?.value?.href) && (
+                  <Link field={props.fields.Link} className="dentons-cta dentons-cta-purple" />
+                )}
+                {(isPageEditing || props.fields?.Link2?.value?.href) && (
+                  <Link field={props.fields.Link2} className="dentons-cta dentons-cta-blue" />
+                )}
               </div>
-
-              {(isPageEditing || props.fields?.Link?.value?.href) && (
-                <Link field={props.fields.Link} className="button button-main mt-3 me-4" />
-              )}
-              {(isPageEditing || props.fields?.Link2?.value?.href) && (
-                <Link field={props.fields.Link2} className="button button-simple mt-3 " />
-              )}
             </div>
           </div>
-          <div className="col-md-10 mx-auto col-lg-7 mx-lg-0">
+          <div className="col-lg-4 promo-cta-media">
             <div className="image-wrapper">
               <DottedAccent className="dotted-accent-top" />
               <NextImage
                 field={props.fields.Image}
-                className={`d-block mx-lg-auto img-fluid ${
+                className={`promo-cta-image d-block ${
                   !isPageEditing ? `fade-section ${isVisible ? 'is-visible' : ''}` : ''
                 }`}
                 width={900}

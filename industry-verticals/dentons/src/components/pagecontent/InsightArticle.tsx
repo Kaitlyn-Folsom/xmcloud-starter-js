@@ -56,6 +56,12 @@ const authorValue = (field?: ArticleFields['Author']): AuthorValue | undefined =
 const authorName = (author?: AuthorValue): string =>
   author?.fields?.Name?.value || author?.fields?.Title?.value || author?.fields?.NavigationTitle?.value || author?.displayName || author?.name || '';
 
+const authorPageUrl = (author?: AuthorValue): string => {
+  const url = author?.url || '';
+  if (!url.startsWith('/') || url.toLowerCase().startsWith('/data/')) return '';
+  return url;
+};
+
 const parseDate = (value?: string | Date | null): Date | null => {
   if (!value) return null;
   if (value instanceof Date) return Number.isNaN(value.getTime()) ? null : value;
@@ -77,6 +83,7 @@ const Article = (props: InsightArticleProps): JSX.Element => {
   const id = props.params?.RenderingIdentifier;
   const author = authorValue(fields?.Author);
   const name = authorName(author);
+  const profileUrl = authorPageUrl(author);
   const role = author?.fields?.Role?.value || '';
   const photo = author?.fields?.Photo;
   const dateValue = fields?.PublicationDate?.value || '';
@@ -102,8 +109,8 @@ const Article = (props: InsightArticleProps): JSX.Element => {
             )}
             <div>
               {name &&
-                (author?.url ? (
-                  <a className="dentons-article-author-name" href={author.url}>
+                (profileUrl ? (
+                  <a className="dentons-article-author-name" href={profileUrl}>
                     {name}
                   </a>
                 ) : (

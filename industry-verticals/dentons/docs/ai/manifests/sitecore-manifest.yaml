@@ -26,7 +26,7 @@ inventoryNotes:
   - "ProsperaFinancial/Data has no per-component folders except shared Promos and Texts. Location queries that select @@templatename equal to the component template have no separate folder template under /sitecore/templates/Project/Financial/Folders (only MetisNation Folder and Video Folder)."
   - "Component rendering-parameter templates live under /sitecore/templates/Project/Financial/Components/Rendering Parameters. The derived Rendering Parameters folder contains only Video."
   - "Project-layer renderings with no matching code component: DoctorDetails (componentName AuthorDetails), FeaturedProductsCarousel, IndustryList, KalTireFinderHero, KalTirePromoMosaic, MetisNation, MoreLikeThis, ProgramCarousel, SearchResults, Video."
-  - "Article Page {26655B75-9157-41B4-8868-F671150A9BD5} section Article {4017AC4C-2750-4524-9FC1-62054A3404B3}: PublicationDate {48659AED-E8AB-4C15-9F41-AAD44FC9798E} (Date), Author {A1E24018-A57C-4363-889D-D6F23B04D72C} (Droptree to /Home/our-professionals), Content Type {DA2A02B9-B91E-4A9F-A962-A9D36E56C97E} (Droplink to Data/Taxonomy/Content Types {3B798AFE-91E1-45C2-98FF-CE0FA64DA134}), Sector {F4B923BF-FA43-48E9-8CAD-5302D933D4F2} (Multilist to Data/Taxonomy/Sectors {35E25329-E66C-44F5-8FC1-1CCEB9C06D31}). Placeholder Article Body {290E4879-8022-40FE-A809-A64EC41510A9} key article-body. Knowledge insert options are Article Page only. Person Page section Profile {41C42047-6AFF-451D-81B8-4CAF935E975D}: Role {A2CFB6A1-445B-436E-95C7-AE81099B2F63}, Photo {99BD4145-8C6A-47DB-945D-75F4A2319661}."
+  - "Article Page {26655B75-9157-41B4-8868-F671150A9BD5} section Article {4017AC4C-2750-4524-9FC1-62054A3404B3}: PublicationDate {48659AED-E8AB-4C15-9F41-AAD44FC9798E} (Date), Author {A1E24018-A57C-4363-889D-D6F23B04D72C} (Droptree to /Data/People), Content Type {DA2A02B9-B91E-4A9F-A962-A9D36E56C97E} (Droplink to Data/Taxonomy/Content Types {3B798AFE-91E1-45C2-98FF-CE0FA64DA134}), Sector {F4B923BF-FA43-48E9-8CAD-5302D933D4F2} (Multilist to Data/Taxonomy/Sectors {35E25329-E66C-44F5-8FC1-1CCEB9C06D31}). Placeholder Article Body {290E4879-8022-40FE-A809-A64EC41510A9} key article-body. Knowledge insert options are Article Page only. Person Page section Profile {41C42047-6AFF-451D-81B8-4CAF935E975D}: Role {A2CFB6A1-445B-436E-95C7-AE81099B2F63}, Photo {99BD4145-8C6A-47DB-945D-75F4A2319661}. Person Profile standard values {6768DA25-94ED-42C7-B3D7-8C0C3E505840} default workflow Sample Workflow {A5BC37E7-ED96-4C1E-8590-A26E64DB55EA}."
 
 availableRenderings:
   itemId: "{0D181447-7CA1-4661-9F55-D752460957B4}"
@@ -1502,6 +1502,8 @@ components:
     pendingManual: []
   notes: 
     - "Datasource folder is the shared Promos folder."
+    - "Dentons global folder /sitecore/content/Legal/dentons/Data/Promos/Promo CTA {DCECA214-AA9B-479D-B5E9-8A72B83B6927}. Insert options are the Promo CTA template. The shared rendering location query already selects Data/Promos/Promo CTA."
+    - "Default variant only: purple and blue pill CTAs, image fills its column. Style Invert columns {5F4CCC49-D845-48CC-92D2-43E719E7DEE4} adds class reverse and is limited to the Promo CTA rendering."
 - name: "Questions"
   kind: "list"
   category: "Page Content"
