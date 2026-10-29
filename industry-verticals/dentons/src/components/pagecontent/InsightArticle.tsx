@@ -56,10 +56,23 @@ const authorValue = (field?: ArticleFields['Author']): AuthorValue | undefined =
 const authorName = (author?: AuthorValue): string =>
   author?.fields?.Name?.value || author?.fields?.Title?.value || author?.fields?.NavigationTitle?.value || author?.displayName || author?.name || '';
 
+const professionalPages: Record<string, string> = {
+  'agustin-acosta-cardenas': '/our-professionals/agustin-acosta',
+  'catelin-aiwohi': '/our-professionals/catelin-aiwohi',
+  'fatima-al-sabahi': '/our-professionals/fatima-alsabahi',
+  'florencia-ahumada': '/our-professionals/florencia-ahumada',
+  'jean-marc-allix': '/our-professionals/jeanmarc-allix',
+  'marcelo-alarcon': '/our-professionals/marcelo-alarcon',
+  'nathan-abbott': '/our-professionals/nathan-abbott',
+  'shaun-altshuller': '/our-professionals/shaun-altshuller',
+  'ulugbek-abdullaev': '/our-professionals/ulugbek-abdullaev',
+};
+
 const authorPageUrl = (author?: AuthorValue): string => {
   const url = author?.url || '';
-  if (!url.startsWith('/') || url.toLowerCase().startsWith('/data/')) return '';
-  return url;
+  if (url.startsWith('/') && !url.toLowerCase().startsWith('/data/')) return url;
+  const segment = decodeURIComponent(url.split('/').filter(Boolean).pop() || '').toLowerCase();
+  return professionalPages[segment] || '';
 };
 
 const parseDate = (value?: string | Date | null): Date | null => {
@@ -104,9 +117,14 @@ const Article = (props: InsightArticleProps): JSX.Element => {
         {(fields?.Excerpt?.value || isEditing) && <Text tag="p" className="dentons-article-excerpt" field={fields?.Excerpt} />}
         {(name || role || photo?.value?.src) && (
           <div className="dentons-article-author">
-            {photo?.value?.src && (
-              <NextImage field={photo} width={151} height={181} className="dentons-article-author-photo" />
-            )}
+            {photo?.value?.src &&
+              (profileUrl ? (
+                <a href={profileUrl} aria-label={name || undefined}>
+                  <NextImage field={photo} width={151} height={181} className="dentons-article-author-photo" />
+                </a>
+              ) : (
+                <NextImage field={photo} width={151} height={181} className="dentons-article-author-photo" />
+              ))}
             <div>
               {name &&
                 (profileUrl ? (

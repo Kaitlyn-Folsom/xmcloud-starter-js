@@ -422,6 +422,14 @@
   text-decoration: none;
 }
 
+a.dentons-article-author-name {
+  color: #702082;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .dentons-article-author-role {
   margin: 4px 0 0;
   color: #702082;
