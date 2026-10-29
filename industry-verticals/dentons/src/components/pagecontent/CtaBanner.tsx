@@ -35,51 +35,25 @@ export const Default = (props: CtaBannerProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
   const { page } = useSitecore();
   const isPageEditing = page.mode.isEditing;
-  const [isVisible, domRef] = useVisibility();
   const sxaStyles = `${props.params?.styles || ''}`;
 
   return (
-    <div
-      className={`component cta-banner component-spaced ${sxaStyles}`}
-      id={id ? id : undefined}
-      ref={domRef}
-    >
-      <div className="container container-widest-fluid">
-        <div className="container">
-          <div className="row row-gap-4 main-content align-items-center">
-            <div className="col-lg-6">
-              <IconAccent image={props.fields.Icon} inverted />
-              <div className="content-wrapper">
-                <h6 className="eyebrow-accent">
-                  <Text field={props.fields.Eyebrow} />
-                </h6>
-                <h1 className="display-4 fw-bold mb-3">
-                  <Text field={props.fields.Title} />
-                </h1>
-                <div className="fs-5">
-                  <RichText field={props.fields.Text} className="text-content" />
-
-                  {(isPageEditing || props.fields?.Link?.value?.href) && (
-                    <Link field={props.fields.Link} className="button button-main mt-3" />
-                  )}
-                </div>
-              </div>
-            </div>
-            <div className="col-md-10 mx-auto col-lg-6 mx-lg-0">
-              <div className="image-wrapper">
-                <DottedAccent className="dotted-accent-top" />
-                <NextImage
-                  field={props.fields.Image}
-                  className={`d-block mx-lg-auto img-fluid ${
-                    !isPageEditing ? `fade-section ${isVisible ? 'is-visible' : ''}` : ''
-                  }`}
-                  width={800}
-                  height={800}
-                />
-                <DottedAccent className="dotted-accent-bottom" />
-              </div>
-            </div>
+    <div className={`component cta-banner cta-banner-default component-spaced ${sxaStyles}`} id={id ? id : undefined}>
+      <div className="container">
+        <div className="cta-banner-bar">
+          <div className="cta-banner-copy">
+            {(props.fields?.Title?.value || isPageEditing) && (
+              <h2 className="cta-banner-title">
+                <Text field={props.fields.Title} />
+              </h2>
+            )}
+            {(props.fields?.Text?.value || isPageEditing) && (
+              <RichText field={props.fields.Text} className="cta-banner-text" />
+            )}
           </div>
+          {(isPageEditing || props.fields?.Link?.value?.href) && (
+            <Link field={props.fields.Link} className="cta-banner-link" />
+          )}
         </div>
       </div>
     </div>
