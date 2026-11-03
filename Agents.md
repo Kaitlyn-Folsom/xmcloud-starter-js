@@ -5,7 +5,7 @@
 This repository contains **XM Cloud Front End Application Starter Kits** - a collection of production-ready Next.js starter applications for Sitecore XM Cloud development. Each starter demonstrates modern headless CMS patterns with Sitecore Content SDK integration.
 
 **Repository Structure:**
-- `/examples/` - Contains starter front-end applications (Next.js and Angular)
+- `/examples/` - Contains starter front-end applications (Next.js and SPA)
 - `/authoring/` - Sitecore content items, templates, and deployment configurations
 - `/local-containers/` - Docker setup for local development environments
 - `xmcloud.build.json` - Primary configuration for XM Cloud deployment
@@ -61,7 +61,7 @@ Details: **[CONTRIBUTING.md – What we do not accept](CONTRIBUTING.md#what-we-d
 | **kit-nextjs-location-finder** | Location-based | Car dealers, retail chains | Google Maps integration, location search, Alaris brand |
 | **kit-nextjs-product-listing** | E-commerce | Product catalogs | Product grids, filters, SYNC audio brand |
 | **kit-nextjs-skate-park** | Demo/Examples | Component showcase | Component variants, testing patterns |
-| **kit-angular-skate-park** | Angular Alternative | Angular applications | Sitecore Content SDK for Angular, SSR support |
+| **basic-spa** | SPA Alternative | Angular applications | Angular + Node proxy, SSR support |
 
 ### When to Use Which Starter
 
@@ -95,11 +95,11 @@ Details: **[CONTRIBUTING.md – What we do not accept](CONTRIBUTING.md#what-we-d
 - Testing XM Cloud integration patterns
 - Building component libraries
 
-**Choose `kit-angular-skate-park` if:**
+**Choose `basic-spa` if:**
 - Prefer Angular over React
-- Need an Angular architecture with SSR
+- Need SPA architecture with SSR
 - Building Angular-based applications
-- Want direct SitecoreAI integration via the Sitecore Content SDK for Angular (no separate proxy app)
+- Require Node proxy for XM Cloud integration
 
 ## Development Workflow
 
@@ -458,7 +458,7 @@ This repository uses **DMZ git workflow**:
 - Location features → `kit-nextjs-location-finder`
 - Product catalogs → `kit-nextjs-product-listing`
 - Component examples → `kit-nextjs-skate-park`
-- Angular application → `kit-angular-skate-park`
+- Angular SPA → `basic-spa`
 
 **Where should I add a new component?**
 - `src/components/[component-name]/ComponentName.tsx`

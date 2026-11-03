@@ -5,7 +5,7 @@ description: Build a demo's theme, new components, images and content items for 
 
 # Theme, new components, images and content for all pages
 
-> Rules: `.skills/RULES.md` (R1–R24) is the one source and wins over anything below; this skill refers to rules by number.
+> Rules: `.skills/RULES.md` (R1–R26) is the one source and wins over anything below; this skill refers to rules by number.
 
 Runs after `demo-site-bootstrap` and before `sitecore-create-demo-variants` / `demo-build-pages`, inside an approved run (R1: no questions,
 R3: the run gate decides "done"). Input: the approved `demo-plan.yaml`, the captures (`sections*.json`, crops), `theme/theme.yaml`,
@@ -28,10 +28,22 @@ spec's `fields` / `children` / `behaviour`, open its section crop first (`compon
 the client variant.
 - `cms: true`: a real Sitecore component (template, rendering, datasource folder, Headless Variants container) registered in the customer's manifest
   copy and the component map (`npm run sitecore-tools:generate-map`). Sitecore items go in the shared project layer only for a NEW component (R22).
+  Its template is authorable (R26): every field has a Type that fits it (images `Image`, links `General Link`), no decoration fields (play
+  buttons, arrows, quote marks: the component draws them), and the code never parses a field value.
 - `cms: false` (header area only): no datasource, its content is a config file in code; it still gets a rendering item so it can be placed.
 - Afterwards: `node harness/scripts/bootstrap-plan.mjs <customer>`, then `demo-site-bootstrap` steps 2 and 3 for the new ones (container named like
   the rendering ITEM, Default + client variant, Available Renderings, Data folder when it has a datasource), `variants-verify.mjs --customer <customer> --fix`,
   and `build-check.mjs <customer>` (R17). Header-area components are placed in their partial design in `demo-build-pages` step 0.
+
+## 2b. Extended components (`fit: extend`)
+Every section with `fit: extend` (listed in `bootstrap-plan.json` → `extensions`): the registry component on a derived template (R22). The
+Financial template, the shared rendering and their standard values are never edited.
+1. Create the template `<Component><client variant>` under `/sitecore/templates/Project/<collection>/Components` (once per component, shared by
+   every section of this demo that extends it) with `__Base template` = the component's datasource template id (`bootstrap-plan.json`).
+2. Add a `Data` section with only the `extend.fields`, each with its Type, read back (R26). No `__Standard Values` content: an editor starts empty.
+3. On the site's own `Data/<component folder>` item (not the shared folder template), add the derived template to `__Masters` (insert options).
+4. Create those sections' datasource items from the derived template (`demo-build-pages` step 4 as usual). The client variant in the customer's
+   app reads the extra field; `Default` keeps ignoring it.
 
 ## 3. Images (R8): collect → upload → (after placement) attach
 1. `node harness/scripts/collect-images.mjs <customer>`: every image of every planned section on every mirrored page (and the footer), downloaded

@@ -5,7 +5,12 @@
  *
  *   node harness/scripts/run-gate.mjs init    <customer>                start of the run (idempotent): manual-tasks.md skeleton, arms the stop hook for THIS run
  *   node harness/scripts/run-gate.mjs approve <customer> story|plan     ONLY right after the SE said yes at gate 1 (story) / gate 2 (plan): records a hash of
- *                                                                      what was approved and sets storyApproved / userApproved. Any later change fails the gate.
+ *                                                                      what was approved and sets storyApproved / userApproved. A later change fails the gate.
+ *                                                                      The plan approval pins pages and mirrored/dropped/added sections, not each section's component.
+ *   node harness/scripts/run-gate.mjs swap    <customer> "<page path>#<live section|addedN>" --reason "<why>"
+ *                                                                      the agent changed a section's component after the plan approval: records why (hand-over lists it)
+ *   node harness/scripts/run-gate.mjs approve <customer> harness --answer "<the SE's words>"
+ *                                                                      ONLY after the SE saw and approved a change to the shared harness made during this run
  *   node harness/scripts/run-gate.mjs block   <customer> "<what>" -- <command ...>        runs the command and logs the attempt (blocked-log.jsonl)
  *   node harness/scripts/run-gate.mjs block   <customer> "<what>" --mcp <tool> --error "<error text>"   logs a failed Marketer MCP call
  *        A "BLOCKED after 2 attempts" line in manual-tasks.md only counts when blocked-log.jsonl holds two different failed attempts for that <what>.
@@ -13,25 +18,30 @@
  *                                                                      instead of the full build, cached link audit; it never marks the run complete.
  *   node harness/scripts/run-gate.mjs hook                              Cursor stop-hook entry (.cursor/hooks.json)
  *
- * Failures are printed in FIX ORDER (the agent does the first one): build → plan & approvals → partial designs → links → placement → measurements & images
- * → looks → variants & theme → manual tasks → progress. Checks:
+ * Failures are printed in FIX ORDER (the agent does the first one): build → harness → plan & approvals → partial designs → links → placement
+ * → measurements & images → looks → variants & theme → manual tasks → progress. Checks:
  *   build       the app builds (build-check.mjs; full in `check`, typecheck in `check --fast`)
- *   plan        the approved story and plan are unchanged since approval (approvals.json), validate-site-plan passes, component-crops passes
+ *   harness     the shared harness files are unchanged since the run's snapshot (harness-snapshot.json), or the SE approved the change
+ *   plan        the approved story and plan are unchanged since approval (approvals.json); every section whose component differs from the
+ *               approved one has a recorded reason (plan-changes.jsonl); validate-site-plan passes, component-crops passes
  *   partials    Header and Footer partial designs exist in Sitecore on template {FD2059FD-...} (read from Sitecore, not from a file)
- *   links       link-audit.mjs: no General Link / Image field in the site holds a literal value (needs the Authoring client; no self-reported fallback)
+ *   links       link-audit.mjs: no General Link / Image field in the site holds a literal value, and every field is authorable (R26: has a
+ *               type that fits its name and value) (needs the Authoring client; no self-reported fallback); the app's code parses no field
+ *               value for src= / href= and has no Image field for decoration (play button, arrow, quote mark, divider)
  *   placement   every planned page's headless-main renderings, read from the app's content endpoint (preview context = master), match the plan;
- *               no header/footer renderings on a page
+ *               no header/footer renderings on a page; no text in rendering parameters (content lives in datasource fields)
  *   images      every live image is in the manifest and uploaded (Content Hub, or the Media Library when CH_ENABLED=false); files over 50 MB are
  *               not uploaded but listed under "## Missing assets" and their sections are not failed for missing imagery
  *   looks       measurements exist; EVERY verdict (header, /Home, each mirrored page) exists, is stamped (url, reference hash, build fingerprint),
- *               did not compare the prospect's own site, and is current. Structural diffs (COLUMNS/LABELS/SAMPLE/RENDER/IMAGES, content width,
- *               missing sections) always fail; a measurement difference fails until fixed or, after 2 fix attempts, accepted by the SE (looks-review.mjs, accept)
+ *               did not compare the prospect's own site, and is current. Three tiers (_looks.mjs tierOf): build gaps (missing section, video,
+ *               images, cards or content, footer columns, sample content, render errors) always fail; visible differences fail until fixed or,
+ *               after 2 fix attempts, accepted by the SE in ONE review (looks-review.mjs, accept); cosmetic ones never fail and go in the hand-over
  *   variants    variants-verify --strict; theme applied
  *   manual      manual-tasks.md defers no core work (BLOCKED lines only with logged attempts)
  *   progress    demo-progress.yaml has no pending / failed / in_progress / blocked phase
  */
-import { existsSync, readFileSync, writeFileSync, readdirSync, mkdirSync, appendFileSync, unlinkSync } from "node:fs";
-import { join } from "node:path";
+import { existsSync, readFileSync, writeFileSync, readdirSync, mkdirSync, appendFileSync, unlinkSync, statSync } from "node:fs";
+import { join, sep } from "node:path";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { ENV, ROOT, die, demoDir, customerApp, readJson, readRegistry, chromeBands, topLabels, isAdBand, edgeRoute, routeOf, authoringClient,
@@ -68,7 +78,7 @@ if (process.argv[2] === "hook") {
 
 const args = process.argv.slice(2), flagged = (f) => args.includes(f);
 const [cmd, customer, third] = args.filter((a) => !a.startsWith("--"));
-if (!["init", "check", "approve", "block", "accept"].includes(cmd) || !customer) die("usage: run-gate.mjs <init|check|approve|block> <customer> ... (see the header)");
+if (!["init", "check", "approve", "block", "accept", "swap"].includes(cmd) || !customer) die("usage: run-gate.mjs <init|check|approve|block|accept|swap> <customer> ... (see the header)");
 const demo = demoDir(customer), app = customerApp(customer, { mustExist: false });
 const mt = join(demo, "manual-tasks.md"), planFile = join(demo, "demo-plan.yaml"), approvalsFile = join(demo, "approvals.json"), blockLog = join(demo, "blocked-log.jsonl");
 const read = (p) => { try { return readFileSync(p, "utf8"); } catch { return ""; } };
@@ -78,7 +88,45 @@ let planObj = null; try { planObj = planText ? parseYaml(planText) : null; } cat
 // what an approval pins: the story; the site plan plus the live URL it mirrors (deleting sourceUrl would switch the visual gates off)
 const stable = (v) => (Array.isArray(v) ? `[${v.map(stable).join(",")}]` : v && typeof v === "object" ? `{${Object.keys(v).sort().map((k) => `${JSON.stringify(k)}:${stable(v[k])}`).join(",")}}` : JSON.stringify(v ?? null));
 const storyHash = () => textHash(stable(planObj?.story ?? null));
-const planHash = () => textHash(stable({ site: planObj?.site ?? null, sourceUrl: planObj?.client?.sourceUrl ?? null }));
+// The plan approval pins the pages, which live sections each page mirrors (and which it drops or adds), the site and chrome choices and the
+// live URL. It does NOT pin which component builds a section: the agent may change that while building, and records why (`swap`), so a
+// better-fitting component never needs a second approval. A section is "<page path>#<live section number>", or "#added<n>" for an added one.
+const sectionGroups = (p) => {
+  const g = new Map(); let k = 0;
+  for (const s of p?.sections ?? []) { const key = Number(s?.liveSection) > 0 ? String(Number(s.liveSection)) : `added${++k}`; if (!g.has(key)) g.set(key, []); g.get(key).push(s); }
+  return g;
+};
+const choiceOf = (list) => list.map((s) => [s?.new?.name ? `${s.new.name} (new)` : String(s?.component ?? ""), s?.variant, s?.look ? `look ${s.look}` : null,
+  s?.extend ? `extended +${(Array.isArray(s.extend.fields) ? s.extend.fields : []).map((f) => f?.name).filter(Boolean).join("+")}` : null].filter(Boolean).join(" ")).join(" + ");
+const componentChoices = () => Object.fromEntries((planObj?.site?.pages ?? []).flatMap((p) => [...sectionGroups(p)].map(([k, list]) => [`${p.path}#${k}`, choiceOf(list)])));
+const planShape = () => {
+  const { componentVariants, pages, ...site } = planObj?.site ?? {};
+  return { ...site, pages: (pages ?? []).map((p) => { const { sections, ...rest } = p ?? {}; return { ...rest, sections: [...sectionGroups(p).keys()] }; }) };
+};
+const planHash = () => textHash(stable({ v: 2, site: planObj?.site ? planShape() : null, sourceUrl: planObj?.client?.sourceUrl ?? null }));
+const planHashV1 = () => textHash(stable({ site: planObj?.site ?? null, sourceUrl: planObj?.client?.sourceUrl ?? null }));   // approvals made before 2026-10-27
+const PLAN_CHANGES = "plan-changes.jsonl";
+
+// The shared harness never changes silently during a run: a snapshot of its files is taken when the run starts; any edit fails the gate until
+// the SE has seen it and said yes (`approve <customer> harness --answer "..."`). Line endings are ignored (git may rewrite them).
+const HARNESS_PATHS = ["harness/scripts", "harness/reference", "harness/templates", ".skills", ".claude/skills", ".cursor/skills", ".cursor/rules", ".cursor/hooks.json", ".githooks", "CLAUDE.md"];
+const HARNESS_SNAPSHOT = "harness-snapshot.json";
+const harnessFiles = () => {
+  const out = {};
+  const walk = (rel) => {
+    const abs = join(ROOT, rel); if (!existsSync(abs)) return;
+    if (statSync(abs).isDirectory()) { for (const e of readdirSync(abs)) if (e !== "node_modules" && !e.startsWith(".DS_")) walk(`${rel}/${e}`); return; }
+    out[rel] = textHash(readFileSync(abs, "utf8").replace(/\r\n/g, "\n"));
+  };
+  HARNESS_PATHS.forEach(walk);
+  return out;
+};
+const harnessDiff = (snap) => {
+  const now = harnessFiles(), was = snap?.files ?? {};
+  return [...new Set([...Object.keys(now), ...Object.keys(was)])].filter((f) => now[f] !== was[f]).sort()
+    .map((f) => `${f}${!was[f] ? " (new)" : !now[f] ? " (deleted)" : ""}`);
+};
+const writeHarnessSnapshot = () => writeFileSync(join(demo, HARNESS_SNAPSHOT), JSON.stringify({ at: new Date().toISOString(), files: harnessFiles() }, null, 2) + "\n");
 
 /* ---- init ---- */
 const ALWAYS = `## Always (every demo)
@@ -108,17 +156,30 @@ if (cmd === "init") {
   if (!cur) writeFileSync(mt, SKELETON);
   else if (!/^## Always \(every demo\)/m.test(cur)) writeFileSync(mt, cur.replace(/\s*$/, "\n\n") + ALWAYS);
   writeFileSync(ACTIVE, JSON.stringify({ customer, startedAt: new Date().toISOString() }));   // the stop hook only restarts THIS run
-  console.log(`✔ ${mt.slice(ROOT.length + 1).replace(/\\/g, "/")} ready (fixed "Always" section in place); stop hook armed for ${customer}`);
+  if (!existsSync(join(demo, HARNESS_SNAPSHOT))) writeHarnessSnapshot();   // a resumed run keeps its first snapshot: edits made since then still show
+  console.log(`✔ ${mt.slice(ROOT.length + 1).replace(/\\/g, "/")} ready (fixed "Always" section in place); stop hook armed for ${customer}; harness snapshot in place`);
   process.exit(0);
 }
 
 /* ---- approve: pin what the SE approved ---- */
 if (cmd === "approve") {
-  if (!["story", "plan"].includes(third)) die("usage: run-gate.mjs approve <customer> story|plan");
-  if (!planObj) die("demo-plan.yaml missing or unreadable");
+  if (!["story", "plan", "harness"].includes(third)) die('usage: run-gate.mjs approve <customer> story|plan  |  approve <customer> harness --answer "<the SE\'s words>"');
   const ap = readJson(approvalsFile, {}), now = new Date().toISOString();
+  if (third === "harness") {
+    // only after the SE saw the harness diff and said yes: the edits become the new baseline, the hand-over lists them
+    const answerAt = args.indexOf("--answer"), answer = answerAt >= 0 ? args[answerAt + 1] : null;
+    if (!answer) die('usage: run-gate.mjs approve <customer> harness --answer "<the SE\'s words>" (show the SE the diff first: git diff -- <files>)');
+    const files = harnessDiff(readJson(join(demo, HARNESS_SNAPSHOT)));
+    if (!files.length) { console.log("The shared harness has not changed since the snapshot: nothing to approve."); process.exit(0); }
+    ap.harness = [...(ap.harness ?? []), { at: now, files, answer }];
+    writeFileSync(approvalsFile, JSON.stringify(ap, null, 2) + "\n");
+    writeHarnessSnapshot();
+    console.log(`✔ harness change approved by the SE (${files.length} file(s): ${files.slice(0, 5).join(", ")}${files.length > 5 ? ", …" : ""}). The hand-over lists it.`);
+    process.exit(0);
+  }
+  if (!planObj) die("demo-plan.yaml missing or unreadable");
   if (third === "plan" && (!ap.story || ap.story.hash !== storyHash())) die("The story is not approved in its current form: show it to the SE (story gate), then `approve <customer> story` first.", 1);
-  ap[third] = { hash: third === "story" ? storyHash() : planHash(), at: now };
+  ap[third] = third === "story" ? { hash: storyHash(), at: now } : { v: 2, hash: planHash(), components: componentChoices(), at: now };
   writeFileSync(approvalsFile, JSON.stringify(ap, null, 2) + "\n");
   // the flags are written by this script, never by hand
   const set = (t, key, val) => (new RegExp(`^${key}:.*$`, "m").test(t) ? t.replace(new RegExp(`^${key}:.*$`, "m"), `${key}: ${val}`) : `${key}: ${val}\n${t}`);
@@ -126,7 +187,24 @@ if (cmd === "approve") {
   if (third === "story") t = set(set(t, "storyApprovedAt", `"${now}"`), "storyApproved", "true");
   else t = set(set(t, "approvedAt", `"${now}"`), "userApproved", "true");
   writeFileSync(planFile, t);
-  console.log(`✔ ${third} approval recorded (${now}). Any later change to the ${third} fails the gate until the SE approves it again.`);
+  console.log(`✔ ${third} approval recorded (${now}). ${third === "story" ? "Any later change to the story" : "A later change to the pages, the mirrored, dropped or added sections, the site or chrome choices"} fails the gate until the SE approves it again.${third === "plan" ? " A section's component may change while building: record why with run-gate.mjs swap." : ""}`);
+  process.exit(0);
+}
+
+/* ---- swap: the agent changed which component builds a section, after the plan approval; record why (the hand-over lists it) ---- */
+if (cmd === "swap") {
+  // Git Bash turns "/Home/x#2" into "C:/Program Files/Git/Home/x#2": keep the plan path from /Home on
+  const key = third && String(third).replace(/\\/g, "/").replace(/^(?:[A-Za-z]:\/.*?)?\/?(?=Home(\/|#))/i, "/"), reasonAt = args.indexOf("--reason"), reason = reasonAt >= 0 ? args[reasonAt + 1] : null;
+  if (!key || !reason) die('usage: run-gate.mjs swap <customer> "<page path>#<live section number | addedN>" --reason "<why the new component fits better>"  (change demo-plan.yaml first)');
+  if (!planObj) die("demo-plan.yaml missing or unreadable");
+  const ap = readJson(approvalsFile, {});
+  if (!ap.plan) die("the plan is not approved yet: before approval, just change demo-plan.yaml and show the SE the plan", 1);
+  if (!ap.plan.components) die(`this plan approval predates component swaps: run node harness/scripts/run-gate.mjs check ${customer} once (it upgrades the approval when the plan is unchanged), then swap`, 1);
+  const cur = componentChoices();
+  if (!(key in cur)) die(`no section "${key}" in demo-plan.yaml. Sections of that page: ${Object.keys(cur).filter((k) => k.split("#")[0] === key.split("#")[0]).join(", ") || "(none: check the page path)"}`, 1);
+  if (cur[key] === ap.plan.components[key]) die(`${key} still has its approved component (${cur[key]}): change the section in demo-plan.yaml first, then record why`, 1);
+  appendFileSync(join(demo, PLAN_CHANGES), JSON.stringify({ key, from: ap.plan.components[key] ?? "", to: cur[key], reason, at: new Date().toISOString() }) + "\n");
+  console.log(`✔ ${key}: ${ap.plan.components[key] || "(none)"} → ${cur[key]} recorded. Build it, then re-run the compares; the hand-over lists the change.`);
   process.exit(0);
 }
 
@@ -173,7 +251,7 @@ if (cmd === "block") {
 
 /* ---- check ---- */
 const fast = flagged("--fast");
-const STAGES = ["build", "plan", "partials", "links", "placement", "content", "images", "looks", "variants", "manual", "progress"];
+const STAGES = ["build", "harness", "plan", "partials", "links", "placement", "content", "images", "looks", "variants", "manual", "progress"];
 const fails = [];
 let stage = "build";
 const fail = (what, next) => fails.push({ stage, what, next });
@@ -203,6 +281,19 @@ if (existsSync(join(app, "package.json"))) {
   else if (r.status !== 0) fail(`the app does not ${fast ? "typecheck" : "build"}: ${(r.stdout.match(/^\s{2}\S.*$/gm) ?? []).slice(0, 3).map((l) => l.trim()).join(" | ").slice(0, 400) || r.stdout.trim().slice(-300)}`, `Fix the errors, then node harness/scripts/build-check.mjs ${customer}. Never commit or hand over an app that does not build (the pre-commit hook refuses it too).`);
 }
 
+// harness: nothing in the shared harness changed since the run's snapshot unless the SE approved it
+stage = "harness";
+const planChangeLog = read(join(demo, PLAN_CHANGES)).split(/\r?\n/).filter(Boolean).map((l) => { try { return JSON.parse(l); } catch { return null; } }).filter(Boolean);
+const planChanges = [], harnessApproved = readJson(approvalsFile, {})?.harness ?? [];
+if (planObj) {
+  const snap = readJson(join(demo, HARNESS_SNAPSHOT));
+  if (!snap) { writeHarnessSnapshot(); console.log("(no harness snapshot yet: taken now; harness edits from here on need the SE's yes)"); }
+  else {
+    const changed = harnessDiff(snap);
+    if (changed.length) fail(`the shared harness changed during this run (${changed.length} file(s): ${changed.slice(0, 5).join(", ")}${changed.length > 5 ? ", …" : ""})`, `Never change the harness silently. Show the SE the change (git diff -- ${changed.slice(0, 3).map((f) => f.replace(/ \(.*\)$/, "")).join(" ")}) and say why it is needed for every demo; after their yes: node harness/scripts/run-gate.mjs approve ${customer} harness --answer "<the SE's words>". If they say no, revert it.`);
+  }
+}
+
 // plan: approvals pinned, plan rules, crops
 stage = "plan";
 if (planObj) {
@@ -212,12 +303,28 @@ if (planObj) {
     else if (ap.story.hash !== storyHash()) fail("the story changed after the SE approved it", `Show the SE what changed (story gate); after their yes: node harness/scripts/run-gate.mjs approve ${customer} story`);
   }
   if (planObj.userApproved === true) {
+    // an approval made before component swaps existed pinned the whole plan: when that plan is unchanged, upgrade it in place
+    if (ap.plan && !ap.plan.v && ap.plan.hash === planHashV1()) {
+      ap.plan = { v: 2, hash: planHash(), components: componentChoices(), at: ap.plan.at, upgradedAt: new Date().toISOString() };
+      writeFileSync(approvalsFile, JSON.stringify(ap, null, 2) + "\n");
+      console.log("(the plan approval was upgraded: section components can now be swapped with run-gate.mjs swap)");
+    }
     if (!ap.plan) fail("the plan approval is not recorded (approvals.json)", `After the SE approved the plan (gate 2): node harness/scripts/run-gate.mjs approve ${customer} plan. Never set userApproved by hand.`);
-    else if (ap.plan.hash !== planHash()) fail("the plan changed after the SE approved it (sections, components, droppedLiveSections or sourceUrl)", `Show the SE what changed and why; after their yes: node harness/scripts/run-gate.mjs approve ${customer} plan. Never change the plan to make a check pass.`);
+    else if (ap.plan.hash !== planHash()) fail(`the plan changed after the SE approved it (${ap.plan.v ? "pages, mirrored, dropped or added sections, site or chrome choices, or sourceUrl" : "an approval from before component swaps: any change"})`, `Show the SE what changed and why; after their yes: node harness/scripts/run-gate.mjs approve ${customer} plan. A different component for a section is not such a change: record it with run-gate.mjs swap instead. Never change the plan to make a check pass.`);
+    else if (ap.plan.components) {
+      // a section whose component differs from the approved one needs a recorded reason that names the component it now has
+      const cur = componentChoices();
+      for (const [key, choice] of Object.entries(cur)) {
+        if (choice === ap.plan.components[key]) continue;
+        const rec = planChangeLog.filter((c) => c.key === key && c.to === choice).pop();
+        if (rec) planChanges.push({ ...rec, from: ap.plan.components[key] ?? rec.from });
+        else fail(`${key} is built with ${choice || "(nothing)"}, the approved plan says ${ap.plan.components[key] || "(nothing)"}, and no reason is recorded`, `If the new component fits the section better, record why: node harness/scripts/run-gate.mjs swap ${customer} "${key}" --reason "<why>". Otherwise put the approved component back in demo-plan.yaml.`);
+      }
+    }
     if (ap.story && ap.plan && ap.story.at > ap.plan.at) fail("the plan was approved before the story", `Approve the story first (gate 1), then show the plan again (gate 2).`);
   }
   const v = node("validate-site-plan.mjs", [customer], 60000);
-  if (v.status !== 0) fail(`validate-site-plan.mjs fails: ${(v.stdout.match(/^❌.*$/gm) ?? []).slice(0, 3).join(" | ").slice(0, 400)}`, "Fix demo-plan.yaml (a band that is more than prose gets its own component: reuse or fit: new, never Rich Text) WITH the SE (it changes the approved plan), rebuild the affected sections, re-run.");
+  if (v.status !== 0) fail(`validate-site-plan.mjs fails: ${(v.stdout.match(/^❌.*$/gm) ?? []).slice(0, 3).join(" | ").slice(0, 400)}`, "Fix demo-plan.yaml (a band that is more than prose gets its own component: reuse or fit: new, never Rich Text). A different component for a section: record why with run-gate.mjs swap. Adding or dropping a section or page: show the SE first. Rebuild the affected sections, re-run.");
   if (planPages.some((p) => p?.sectionsFile || /^\/home$/i.test(String(p?.path ?? "")))) {
     const r = node("component-crops.mjs", [customer], 60000);
     if (r.status !== 0) fail(`component-crops: ${(r.stdout.match(/^✖.*$/gm) ?? []).slice(0, 3).join(" | ").slice(0, 400)}`, "Capture the missing page (section-capture --out sections-<slug>.json), and give every non-prose band its own component (reuse or fit: new). Then rebuild that section from its crop.");
@@ -257,14 +364,36 @@ if (site && gql) {
 stage = "links";
 if (site) {
   const prev = readJson(join(demo, "link-audit.json"));
-  const fresh = fast && prev && Array.isArray(prev.bad) && !prev.bad.length && !(prev.unreadable ?? []).length && Date.now() - Date.parse(prev.at || 0) < 20 * 60 * 1000;
+  const fresh = fast && prev && Array.isArray(prev.bad) && !prev.bad.length && Array.isArray(prev.wrongType) && !prev.wrongType.length && !(prev.unreadable ?? []).length && Date.now() - Date.parse(prev.at || 0) < 20 * 60 * 1000;
   if (!fresh) {
     const r = node("link-audit.mjs", [customer], 90000), audit = readJson(join(demo, "link-audit.json"));
     if (timedOut(r)) fail("link-audit did not finish in time", `node harness/scripts/link-audit.mjs ${customer}`);
-    else if (r.status === 1) fail(`link-audit: ${(audit?.bad ?? []).length} link/image field(s) hold a literal value, so their components render empty (${(audit?.bad ?? []).slice(0, 2).map((b) => `${b.path.split("/").slice(-2).join("/")} · ${b.field}`).join("; ")})`, `Write each fix printed by node harness/scripts/link-audit.mjs ${customer} with update_fields_on_item (internal link = link-xml.mjs make --id, never a path), read back, re-run the audit.`);
-    else if (r.status === 3) fail("link-audit needs the Authoring GraphQL client (SITECORE_CM_HOST + automation client in harness/.env.local)", "node harness/scripts/env-check.mjs; there is no self-reported fallback.");
+    else if (r.status === 1) {
+      // both kinds of finding can be open at once: report each
+      if ((audit?.wrongType ?? []).length) fail(`${audit.wrongType.length} template field(s) are not authorable: no type, or a type that does not fit the name or value (${audit.wrongType.slice(0, 3).map((w) => `${w.template} · ${w.field}`).join("; ")})`, `R26: set each field's Type on its template (Image for pictures and icons, General Link for links and buttons; read it back), re-write the values as that type, then re-run node harness/scripts/link-audit.mjs ${customer}. Never parse a value in code instead.`);
+      if ((audit?.bad ?? []).length) fail(`link-audit: ${(audit?.bad ?? []).length} link/image field(s) hold a literal value, so their components render empty (${(audit?.bad ?? []).slice(0, 2).map((b) => `${b.path.split("/").slice(-2).join("/")} · ${b.field}`).join("; ")})`, `Write each fix printed by node harness/scripts/link-audit.mjs ${customer} with update_fields_on_item (internal link = link-xml.mjs make --id, never a path), read back, re-run the audit.`);
+    } else if (r.status === 3) fail("link-audit needs the Authoring GraphQL client (SITECORE_CM_HOST + automation client in harness/.env.local)", "node harness/scripts/env-check.mjs; there is no self-reported fallback.");
     else if (r.status !== 0) fail(`link-audit could not complete: ${(r.stderr || r.stdout).trim().split(/\r?\n/).pop()?.slice(0, 200)}`, `node harness/scripts/link-audit.mjs ${customer}`);
   }
+}
+// R26 in code: a field value is never parsed (the template's field type is fixed instead); decoration is drawn by the component, not a field
+{
+  const PARSE = /\.(match|matchAll|exec|replace|replaceAll|test)\(\s*\/[^\n]*\b(src|href)=/, DECOR = /\b(Play\w*|\w*Arrow\w*|Chevron\w*|Quote(?:Mark|Icon)\w*|Divider\w*|Bullet\w*)\??\s*:\s*(?:ImageField|NextImageField)\b/;
+  const srcDir = join(customerApp(customer, { mustExist: false }), "src"), hits = [];
+  const walk = (d) => {
+    for (const f of existsSync(d) ? readdirSync(d) : []) {
+      const p = join(d, f);
+      if (statSync(p).isDirectory()) { walk(p); continue; }
+      if (!/\.(tsx?|jsx?)$/.test(f)) continue;
+      readFileSync(p, "utf8").split(/\r?\n/).forEach((l, i) => {
+        const rel = `src${p.slice(srcDir.length).split(sep).join("/")}:${i + 1}`;
+        if (PARSE.test(l)) hits.push(`${rel} parses src=/href= out of a value`);
+        if (DECOR.test(l)) hits.push(`${rel} makes decoration an Image field`);
+      });
+    }
+  };
+  walk(srcDir);
+  if (hits.length) fail(`the app's code works around content that is not authorable (${hits.slice(0, 3).join("; ")}${hits.length > 3 ? `; ${hits.length - 3} more` : ""})`, `R26: fix the template field's type instead of parsing its value; draw play buttons, arrows, quote marks and dividers in the component (SVG/CSS) and remove the field. Then node harness/scripts/build-check.mjs ${customer}.`);
 }
 
 // placement, read from the app's content endpoint (the preview context in the app's .env.local serves master: no publish needed)
@@ -273,10 +402,14 @@ stage = "placement";
 const pageRoutes = new Map();   // plan path -> served route, reused by the content checks
 {
   const withSections = planPages.filter((p) => Array.isArray(p?.sections) && p.sections.length);
-  if (withSections.length && site) {
+  // a site name never contains a space (R21): the content endpoint knows such a site by another name, and every page then reads as missing
+  let appSite = ""; try { appSite = (readFileSync(join(customerApp(customer, { mustExist: false }), ".env.local"), "utf8").match(/^NEXT_PUBLIC_DEFAULT_SITE_NAME=(.*)$/m)?.[1] ?? "").trim().replace(/^["']|["']$/g, ""); } catch { /* no app env: reported below */ }
+  if (/\s/.test(appSite)) fail(`the app's site name "${appSite}" contains a space (NEXT_PUBLIC_DEFAULT_SITE_NAME)`, `Site names never contain spaces (R21). The SE sets NEXT_PUBLIC_DEFAULT_SITE_NAME in industry-verticals/${customer}/.env.local to the name SitecoreAI lists for the site (e.g. "${appSite.replace(/\s+/g, "")}"); restart the app so .sitecore/sites.json regenerates, then re-run.`);
+  else if (withSections.length && site) {
     let routes = null;
     try { routes = await Promise.all(withSections.map((p) => edgeRoute(customer, routeOf(p.path)))); } catch (e) { fail(`the app's content endpoint could not be reached: ${e.message.slice(0, 120)}`, "Check the network and the context id in the app's .env.local, then re-run."); }
     if (routes && routes.some((r) => r === undefined)) fail(`the app's .env.local has no content context id or site name (SITECORE_EDGE_CONTEXT_ID, NEXT_PUBLIC_DEFAULT_SITE_NAME)`, `demo-new-site: write industry-verticals/${customer}/.env.local. The gate reads placements from the app's content endpoint; it has no file fallback.`);
+    else if (routes && routes.length > 1 && routes.every((r) => r === null)) fail(`no page of the site is served by the app's content endpoint (site "${appSite}")`, "One cause, not missing pages: check that NEXT_PUBLIC_DEFAULT_SITE_NAME and the context id in the app's .env.local match the site as SitecoreAI lists it, then re-run.");
     else if (routes) withSections.forEach((p, i) => {
       const r = routes[i], want = p.sections.map(plannedName).filter(Boolean);
       if (r) pageRoutes.set(p.path, r);
@@ -285,8 +418,14 @@ const pageRoutes = new Map();   // plan path -> served route, reused by the cont
       const expand = (list) => (list ?? []).flatMap((c) => (c.componentName === "PartialDesignDynamicPlaceholder" ? Object.values(c.placeholders ?? {}).flatMap(expand) : c.componentName ? [c.componentName] : []));
       const got = expand(r.placeholders?.["headless-main"]);
       if (got.some((n) => CHROME_RENDERINGS.test(n))) fail(`${p.path} has header/footer renderings in its own layout (${got.filter((n) => CHROME_RENDERINGS.test(n)).join(", ")})`, "Remove them from the page. Header and footer come only from the Header and Footer partial designs (template {FD2059FD-6043-4DFE-8C04-E2437CE87634}) via the Page Design. If the page shows no header, fix the partial and the Page Design mapping, never the page.");
-      else if (got.join("|") !== want.join("|")) fail(`${p.path} renderings are ${got.join(", ") || "(none)"}; the plan is ${want.join(", ")}`, "Place the planned component, or build the one marked fit: new. Do not substitute Rich Text or put the layout in a Text field as HTML. Nothing in manual-tasks.md waives this.");
+      else if (got.join("|") !== want.join("|")) fail(`${p.path} renderings are ${got.join(", ") || "(none)"}; the plan is ${want.join(", ")}`, `Place the planned component with add_component_on_page (never by writing the page's layout field), or build the one marked fit: new. If another component fits the section better, change it in demo-plan.yaml and record why: run-gate.mjs swap ${customer} "<page path>#<live section>" --reason "<why>". Do not substitute Rich Text or put the layout in a Text field as HTML. Nothing in manual-tasks.md waives this.`);
     });
+    // content belongs in datasource fields a marketer edits, never in rendering parameters (a heading written into a parameter to be matched)
+    const TEXT_PARAM = /^(heading|title|subtitle|subheading|text|description|body|content|copy|intro|label|quote|eyebrow|tagline|caption)$/i;
+    const inParams = [];
+    const walk = (list, path) => { for (const c of list ?? []) { for (const [k, v] of Object.entries(c.params ?? {})) if (TEXT_PARAM.test(k) && /[a-z]{2,}\s+[a-z]{2,}/i.test(String(v ?? ""))) inParams.push(`${path} ${c.componentName} ${k}="${String(v).slice(0, 40)}"`); for (const sub of Object.values(c.placeholders ?? {})) walk(sub, path); } };
+    for (const [path, r] of pageRoutes) walk(r?.placeholders?.["headless-main"], path);
+    if (inParams.length) fail(`text in rendering parameters, where marketers cannot edit it as content: ${inParams.slice(0, 4).join("; ")}${inParams.length > 4 ? ` (+${inParams.length - 4} more)` : ""}`, "Put the text in a datasource field the component renders (add the field to the component's template if it has none), remove the parameter, read back. Never write content into a parameter so that a section is found by the compare.");
   }
 }
 
@@ -319,16 +458,18 @@ if (site && gql && planPages.length) {
     listFail(nav, "navigation flags are wrong", "NavigationFilter: tick Main Navigation on every page except navGroup: main pages directly under Home (demo-site-bootstrap step 5b).");
     listFail(local, "pages hold page-local datasource items", "Move each item under <site>/Data/<component folder> (create it there, set_component_datasource), then delete the page's Data folder once get_content_references shows 0.");
     // every datasource a page renders lives under the site's Data (or a partial design's own Data)
-    const dsIds = new Map();
-    const walk = (list, path) => { for (const c of list ?? []) { if (c.dataSource) dsIds.set(String(c.dataSource), `${path} ${c.componentName}`); for (const sub of Object.values(c.placeholders ?? {})) walk(sub, path); } };
+    const dsIds = new Map(), listsChildren = new Set();
+    const walk = (list, path) => { for (const c of list ?? []) { if (c.dataSource) { dsIds.set(String(c.dataSource), `${path} ${c.componentName}`); if (Array.isArray(c.fields?.items)) listsChildren.add(String(c.dataSource)); } for (const sub of Object.values(c.placeholders ?? {})) walk(sub, path); } };
     for (const [path, r] of pageRoutes) for (const list of Object.values(r.placeholders ?? {})) walk(list, path);
     const outside = [];
     await Promise.all([...dsIds].map(async ([id, where]) => {
       if (/^local:/i.test(id)) { outside.push(`${where} uses a page-local datasource (${id})`); return; }
       const it = (await gql(`query($id:ID!){ item(where:{itemId:$id,database:"master"}){ path } }`, { id }).catch(() => null))?.item;
       const pth = String(it?.path ?? "").toLowerCase(), root = sitePath.toLowerCase();
-      // allowed: the site's Data, a partial design's own Data (Presentation), and Home itself (Navigation's datasource is the navigation root)
-      if (it && !pth.startsWith(`${root}/data/`) && !pth.startsWith(`${root}/presentation/`) && pth !== `${root}/home`) outside.push(`${where} → ${it.path}`);
+      // allowed: the site's Data, a partial design's own Data (Presentation), Home itself (Navigation's datasource is the navigation root),
+      // and a page under Home when the component lists that page's children (children resolver: fields.items), e.g. an article list over a blog section
+      const childList = listsChildren.has(id) && pth.startsWith(`${root}/home/`);
+      if (it && !childList && !pth.startsWith(`${root}/data/`) && !pth.startsWith(`${root}/presentation/`) && pth !== `${root}/home`) outside.push(`${where} → ${it.path}`);
     }));
     listFail(outside, "datasources outside the site's Data folder", "Recreate the item under <site>/Data/<component folder> (create_content_item), point the component at it (set_component_datasource), read back.");
   } catch (e) { fail(`content checks could not read Sitecore: ${e.message.slice(0, 160)}`, "Check the Authoring client and the CM host, then re-run."); }
@@ -348,7 +489,9 @@ if (hasLive) {
       want.set(b.toLowerCase().replace(/\.[a-z0-9]+$/, ""), u);
     }
   }
-  const have = JSON.stringify(manifest ?? []).toLowerCase().replace(/%20/g, " ");
+  // the live URL's file name is decoded above, so compare with the decoded manifest URLs too (%E2%80%93, %26, ... not only %20)
+  const dec = (u) => { try { return decodeURIComponent(String(u ?? "")); } catch { return String(u ?? ""); } };
+  const have = `${JSON.stringify(manifest ?? []).toLowerCase().replace(/%20/g, " ")} ${manifestItems.map((x) => dec(x.src)).join(" ").toLowerCase()}`;
   const absent = [...want].filter(([k]) => !have.includes(k.replace(/%20/g, " "))).map(([, u]) => u);
   if (!manifest) fail("images not collected (images/image-manifest.json missing)", `node harness/scripts/collect-images.mjs ${customer} (every image of every planned section, traced to its page and section)`);
   else if (absent.length) fail(`${absent.length} image(s) of the live sections are not in images/image-manifest.json (e.g. ${absent[0].slice(0, 90)})`, `node harness/scripts/collect-images.mjs ${customer}, upload (content-hub-upload.mjs / media-upload.mjs), then node harness/scripts/attach-images.mjs ${customer} and write each proposed field with the MCP (uploaded is not attached).`);
@@ -359,8 +502,9 @@ if (hasLive) {
   }
 }
 
-// looks: every verdict required, stamped, current (_looks.mjs). Build gaps always fail; a measurement difference fails until it is fixed or,
-// after two fix attempts, accepted by the SE through the review page (looks-review.mjs → run-gate.mjs accept). Nothing the agent writes waives it.
+// looks: every verdict required, stamped, current (_looks.mjs). Three tiers: a build gap (fix) always fails; a visible difference fails until it
+// is fixed or, after two fix attempts, accepted by the SE through the review page (looks-review.mjs → run-gate.mjs accept); a cosmetic difference
+// never fails and is listed in the hand-over. Nothing the agent writes waives it.
 stage = "looks";
 const looks = hasLive ? looksState(customer, planObj, { tooLarge }) : { problems: [], findings: [], acceptedNow: [] };
 if (hasLive) {
@@ -368,13 +512,16 @@ if (hasLive) {
   if (!lookWaived) for (const p of looks.problems) fail(p.what, p.next);
   const byPage = new Map();
   for (const f of looks.findings) { if (!byPage.has(f.label)) byPage.set(f.label, []); byPage.get(f.label).push(f); }
+  // after two fix attempts on several pages, ONE review covers them all: one line, not one per page
+  const forSe = [];
   for (const [label, fs] of byPage) {
-    const fix = fs.filter((f) => f.cls === "fix"), open = fs.filter((f) => f.cls === "acceptable" && !f.accepted), attempts = Math.max(...fs.map((f) => f.attempts));
-    if (fix.length) fail(`${label} looks gate: the built page does not match the prospect's (${fix.slice(0, 6).map((f) => f.diff).join("; ").slice(0, 500)})`, "Build it: fix the component (or build the fit: new one) until the band matches, then re-run the compares. These are build gaps: the SE cannot accept them.");
+    const fix = fs.filter((f) => f.cls === "fix"), open = fs.filter((f) => f.cls === "visible" && !f.accepted), attempts = Math.max(...fs.map((f) => f.attempts));
+    if (fix.length) fail(`${label} looks gate: the built page does not match the prospect's (${fix.slice(0, 6).map((f) => f.diff).join("; ").slice(0, 500)})`, `Build it: fix the component until the band matches. If the planned component cannot show it (no Image field for the pictures, no video, no cards), use one that can: change the section's component in demo-plan.yaml and record why with node harness/scripts/run-gate.mjs swap ${customer} "<page path>#<live section>" --reason "<why>". Then re-run the compares. These are build gaps: the SE is never asked to accept them.`);
     if (!open.length || lookWaived) continue;
-    if (attempts < 2) fail(`${label} looks gate: ${open.length} measurement difference(s) (${open.slice(0, 2).map((f) => f.diff).join("; ").slice(0, 160)})`, `Fix the SCSS/variant cause (never the measurement JSON), then ${rerun}. A re-run without a code change does not count as an attempt.`);
-    else fail(`${label} looks gate: ${open.length} measurement difference(s) still open after ${attempts} fix attempts`, `Fix them, or let the SE decide: node harness/scripts/looks-review.mjs ${customer} opens the side-by-side page; ask the SE ONE question (accept all / keep fixing / accept some by number) and record the answer with node harness/scripts/run-gate.mjs accept ${customer} <all|numbers> --answer "<the SE's words>".`);
+    if (attempts < 2) fail(`${label} looks gate: ${open.length} visible difference(s) (${open.slice(0, 2).map((f) => f.diff).join("; ").slice(0, 160)})`, `Fix the SCSS/variant cause (never the measurement JSON), then ${rerun}. A re-run without a code change does not count as an attempt.`);
+    else forSe.push(`${label} (${open.length})`);
   }
+  if (forSe.length) fail(`visible differences still open after two fix attempts: ${forSe.join(", ")}`, `Let the SE decide, once for all pages: node harness/scripts/looks-review.mjs ${customer} --open writes one side-by-side page; ask the SE ONE question (accept all / keep fixing / accept some by number) and record the answer with node harness/scripts/run-gate.mjs accept ${customer} <all|none|numbers> --answer "<the SE's words>". Build gaps above come first.`);
   // footer shape and sample content, from the Home capture
   const live = readJson(join(demo, "sections.json")), built = readJson(join(demo, "sections.demo.json"));
   if (live && built) {
@@ -429,9 +576,23 @@ if (!fails.length) {
   let active = null; try { active = JSON.parse(readFileSync(ACTIVE, "utf8")); } catch { /* none */ }
   if (active?.customer === customer) writeFileSync(join(demo, ".run-complete"), new Date().toISOString());
   console.log("✔ run gate passed: nothing the scripts can see is unfinished. Now hand over.");
+  const pageName = (p) => (p === "header" ? "Header" : p === "sections" ? "Home" : String(p).replace(/^sections-/, ""));
   if (looks.acceptedNow.length) {   // the hand-over lists what the SE accepted, in the SE's own words
     console.log(`\nAccepted by the SE (list these in the hand-over under "Accepted by you"):`);
-    for (const a of looks.acceptedNow) console.log(`  - ${a.page === "header" ? "Header" : a.page === "sections" ? "Home" : a.page.replace(/^sections-/, "")}: ${String(a.diff).replace(/^#\d+\s*/, "")}  (${a.acceptedAt.slice(0, 10)}: "${a.answer}")`);
+    for (const a of looks.acceptedNow) console.log(`  - ${pageName(a.page)}: ${String(a.diff).replace(/^#\d+\s*/, "")}  (${a.acceptedAt.slice(0, 10)}: "${a.answer}")`);
+  }
+  const cosmetic = looks.findings.filter((f) => f.cls === "cosmetic");
+  if (cosmetic.length) {   // small differences are left as they are, never hidden
+    console.log(`\nSmall differences left as they are (list these in the hand-over under "Small differences"):`);
+    for (const f of cosmetic) console.log(`  - ${pageName(f.label)}: ${String(f.diff).replace(/^#\d+\s*/, "")}`);
+  }
+  if (planChanges.length) {   // components the agent changed after the plan approval, with its reasons
+    console.log(`\nComponents changed after the plan approval (list these in the hand-over under "Changed while building"):`);
+    for (const c of planChanges) console.log(`  - ${c.key}: ${c.from || "(none)"} → ${c.to}. ${c.reason}`);
+  }
+  if (harnessApproved.length) {
+    console.log(`\nShared harness changed during this run, approved by the SE (list these in the hand-over):`);
+    for (const h of harnessApproved) console.log(`  - ${h.files.join(", ")} (${h.at.slice(0, 10)}: "${h.answer}")`);
   }
   process.exit(0);
 }

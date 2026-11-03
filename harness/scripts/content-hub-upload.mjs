@@ -57,24 +57,25 @@ const entries = only ? [only] : manifest.filter((e) => e.status === "downloaded"
 const todo = entries.filter((e) => force || !(e.uploadStatus === "uploaded" && e.imageFieldXml));
 const fileName = (e) => e.localFileName || basename(resolveFile(e) || e.localPath || e.localFile || "image");
 let ashxChanged = false;
-const ashxFailed = [];
+const ashxFailed = [], ashxBad = new Set();   // this run's failures only: a file fixed since an earlier run is retried
 for (const e of todo) {
   const p = resolveFile(e);
   if (!p || !/\.ashx$/i.test(basename(p))) continue;
   const renamed = renameAshxImage(p);
   ashxChanged = true;
   if (!renamed) {
-    e.uploadStatus = "failed"; e.uploadError = ASHX_SNIFF_ERROR; ashxFailed.push(basename(p));
+    e.uploadStatus = "failed"; e.uploadError = ASHX_SNIFF_ERROR; ashxFailed.push(basename(p)); ashxBad.add(e);
     console.error(`  FAIL ${basename(p)}: ${ASHX_SNIFF_ERROR}`);
     continue;
   }
   const name = basename(renamed.path);
   e.localPath = renamed.path; e.localFileName = name;
+  if (e.uploadError === ASHX_SNIFF_ERROR) delete e.uploadError;
   if (e.localFile) e.localFile = isAbsolute(String(e.localFile)) ? renamed.path : name;
   console.log(`  ${basename(p)} → ${name}`);
 }
 if (ashxChanged) saveManifest(manifest);
-const ready = todo.filter((e) => e.uploadError !== ASHX_SNIFF_ERROR);
+const ready = todo.filter((e) => !ashxBad.has(e));
 
 // ---- disabled / dry-run ----------------------------------------------------------------------------------------------------
 function writeManualList(reason) {

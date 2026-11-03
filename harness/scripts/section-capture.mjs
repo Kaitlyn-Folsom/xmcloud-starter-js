@@ -21,6 +21,7 @@
 import { existsSync, mkdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { die, parseArgs, demoDir, safeWrite, readJson, rootRel, chromeBands, topLabels, isAdBand, verdictStamp } from "./_lib.mjs";
+import { measureBand } from "./_measure.mjs";
 
 const { flags } = parseArgs(process.argv.slice(2));
 const customer = flags.customer, url = flags.url;
@@ -92,91 +93,7 @@ try {
   // 2) measure + screenshot each
   const sections = [];
   for (const f of found) {
-    const m = await page.evaluate((idx) => {
-      const el = document.querySelector(`[data-hsec="${idx}"]`); const vw = window.innerWidth;
-      const clean = (t) => (t || "").replace(/\s+/g, " ").trim();
-      const parse = (c) => { const m = String(c).match(/rgba?\(([^)]+)\)/); if (!m) return null; const p = m[1].split(/[ ,\/]+/).filter(Boolean).map(Number); return { r: p[0], g: p[1], b: p[2], a: p.length > 3 ? p[3] : 1 }; };
-      const hex = (c) => { const p = typeof c === "string" ? parse(c) : c; if (!p) return null; return "#" + [p.r, p.g, p.b].map((x) => Math.round(x).toString(16).padStart(2, "0")).join(""); };
-      const num = (v) => Math.round((parseFloat(v) || 0) * 10) / 10;
-      const vis = (e) => { const r = e.getBoundingClientRect(), cs = getComputedStyle(e); return r.width > 0 && r.height > 0 && cs.display !== "none" && cs.visibility !== "hidden" && parseFloat(cs.opacity) !== 0; };
-      const solid = (e) => { for (let n = e; n; n = n.parentElement) { const c = parse(getComputedStyle(n).backgroundColor); if (c && c.a > 0.05) return hex(c); } return "#ffffff"; };
-      const ownBg = (e) => { const c = parse(getComputedStyle(e).backgroundColor); return c && c.a > 0.05 ? hex(c) : null; };
-      const urlOf = (v) => { const m = String(v).match(/url\(\s*(["']?)(.*?)\1\s*\)/); if (!m) return null; try { return new URL(m[2], location.href).href; } catch { return m[2]; } };
-      const sr = el.getBoundingClientRect(), secBg = solid(el);
-      const all = [...el.querySelectorAll("*")].filter(vis);
-      // background image: on the section or on a big descendant
-      let bgImage = urlOf(getComputedStyle(el).backgroundImage), bgImages = bgImage ? [bgImage] : [];
-      for (const d of all) { const u = urlOf(getComputedStyle(d).backgroundImage); if (u && !bgImages.includes(u)) { const r = d.getBoundingClientRect(); if (r.width * r.height >= sr.width * sr.height * 0.12) bgImages.push(u); } }
-      if (!bgImage && bgImages.length) bgImage = bgImages[0];
-      const sty = (e) => { const cs = getComputedStyle(e); return { fontFamily: (cs.fontFamily || "").split(",")[0].replace(/["']/g, "").trim(), fontSize: num(cs.fontSize), fontWeight: cs.fontWeight, textTransform: cs.textTransform, letterSpacing: cs.letterSpacing === "normal" ? 0 : num(cs.letterSpacing), lineHeight: cs.lineHeight === "normal" ? null : num(cs.lineHeight), color: hex(cs.color), textAlign: cs.textAlign }; };
-      const direct = (e) => [...e.childNodes].some((n) => n.nodeType === 3 && clean(n.textContent));
-      const els = [];
-      for (const e of all) {
-        const tag = e.tagName; const r = e.getBoundingClientRect(); let role = null;
-        if (/^H[1-6]$/.test(tag)) role = "heading";
-        else if (tag === "IMG" || tag === "PICTURE" || (tag.toUpperCase() === "SVG" && r.width > 60)) role = "image";
-        else if (/^(INPUT|TEXTAREA|SELECT)$/.test(tag)) role = "field";
-        else if (tag === "BUTTON" || (tag === "A" && (ownBg(e) || parseFloat(getComputedStyle(e).borderTopWidth) > 0 || /btn|button|cta/i.test(e.className)))) role = "button";
-        else if (tag === "A" && clean(e.textContent)) role = "link";
-        else if (/^(P|LI|SPAN|DIV|LABEL|DT|DD|BLOCKQUOTE)$/.test(tag) && direct(e) && !e.closest("a,button,h1,h2,h3,h4,h5,h6")) role = "text";
-        if (!role) continue;
-        if (role === "text" || role === "link" || role === "button") { if (!clean(e.textContent)) continue; }
-        if ((role === "link" || role === "text") && e.closest("button")) continue;
-        els.push({ e, role, r });
-      }
-      // a card <img> inside <picture> etc: drop nested duplicates
-      const items = els.filter((a) => !els.some((b) => b !== a && b.e.contains(a.e) && b.role === a.role && a.role === "image"));
-      items.sort((a, b) => (Math.abs(a.r.top - b.r.top) < 12 ? a.r.left - b.r.left : a.r.top - b.r.top));
-      const firstHeading = items.find((x) => x.role === "heading"), hSize = firstHeading ? num(getComputedStyle(firstHeading.e).fontSize) : null;
-      // eyebrow = small uppercase / letter-spaced text that is not a link or button (above OR below the heading)
-      for (const x of items) if (x.role === "text") { const cs = getComputedStyle(x.e), fs = num(cs.fontSize), t = clean(x.e.textContent); if (t.length <= 60 && ((cs.textTransform === "uppercase" || num(cs.letterSpacing) > 0.8 || t === t.toUpperCase()) && (!hSize || fs <= hSize * 0.85)) && fs <= 18) x.role = "eyebrow"; }
-      const elements = items.slice(0, 30).map((x) => { const cs = getComputedStyle(x.e); const o = { role: x.role, text: clean(x.e.textContent).slice(0, 80), x: Math.round(x.r.left), y: Math.round(x.r.top - sr.top), w: Math.round(x.r.width), h: Math.round(x.r.height) };
-        if (x.role !== "image") { Object.assign(o, sty(x.e)); }
-        if (x.role === "button") Object.assign(o, { background: ownBg(x.e), borderRadius: num(cs.borderTopLeftRadius), paddingX: num(cs.paddingLeft), paddingY: num(cs.paddingTop), border: parseFloat(cs.borderTopWidth) > 0 ? { width: num(cs.borderTopWidth), color: hex(cs.borderTopColor) } : null });
-        if (x.e.tagName === "A") o.href = x.e.getAttribute("href") || "";
-        if (x.role === "image") { const im = x.e.tagName === "IMG" ? x.e : x.e.querySelector("img"); o.src = im ? (im.currentSrc || im.src) : null; o.alt = im ? im.alt : ""; }
-        if (x.role === "field") { o.type = x.e.type || x.e.tagName.toLowerCase(); o.placeholder = x.e.placeholder || ""; o.background = ownBg(x.e); }
-        return o; });
-      const first = (role) => elements.find((x) => x.role === role);
-      const content = items.filter((x) => x.role !== "image" || x.r.width < sr.width * 0.9);
-      const cL = content.length ? Math.min(...content.map((x) => x.r.left)) : sr.left, cR = content.length ? Math.max(...content.map((x) => x.r.right)) : sr.right;
-      const cT = content.length ? Math.min(...content.map((x) => x.r.top)) : sr.top, cB = content.length ? Math.max(...content.map((x) => x.r.bottom)) : sr.bottom;
-      // inner cards: descendants with their own background that differs from the section background and cover a real area
-      const cards = [];
-      for (const d of all) { const b = ownBg(d); if (!b || b === secBg) continue; const r = d.getBoundingClientRect(); if (r.width * r.height < sr.width * sr.height * 0.04 || r.width > sr.width * 0.98 && r.height > sr.height * 0.9) continue; if (!d.querySelector("h1,h2,h3,h4,h5,h6,p,input,a")) continue; const cs = getComputedStyle(d); if (/^(A|BUTTON)$/.test(d.tagName)) continue; cards.push({ background: b, radius: num(cs.borderTopLeftRadius), border: parseFloat(cs.borderTopWidth) > 0 ? { width: num(cs.borderTopWidth), color: hex(cs.borderTopColor) } : null, w: Math.round(r.width), h: Math.round(r.height), childText: clean(d.textContent).slice(0, 40) }); }
-      // columns: distinct left edges of the content blocks (rounded)
-      const lefts = [...new Set(content.filter((x) => x.role !== "field").map((x) => Math.round(x.r.left / 60) * 60))];
-      const imgs = items.filter((x) => x.role === "image" && x.r.width >= sr.width * 0.12);
-      const bigBg = all.filter((d) => urlOf(getComputedStyle(d).backgroundImage) && d.getBoundingClientRect().width >= sr.width * 0.12 && d.getBoundingClientRect().width < sr.width * 0.9);
-      const imgBoxes = [...imgs.map((x) => x.r), ...bigBg.map((d) => d.getBoundingClientRect())];
-      const textBoxes = items.filter((x) => ["heading", "text", "eyebrow"].includes(x.role)).map((x) => x.r);
-      let imageSide = "none";
-      if (imgBoxes.length) { const ic = imgBoxes.reduce((s, r) => s + (r.left + r.right) / 2, 0) / imgBoxes.length, tc = textBoxes.length ? textBoxes.reduce((s, r) => s + (r.left + r.right) / 2, 0) / textBoxes.length : sr.left + sr.width / 2; imageSide = Math.abs(ic - tc) < sr.width * 0.08 ? "above-or-behind" : ic < tc ? "left" : "right"; }
-      else if (bgImage) imageSide = "background";
-      // text that cannot be read: colour (almost) equal to the background it sits on
-      const L = (c) => { const f = (v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }; return 0.2126 * f(c.r) + 0.7152 * f(c.g) + 0.0722 * f(c.b); };
-      const lowContrast = [];
-      for (const x of items) { if (x.role === "image") continue; const fg = parse(getComputedStyle(x.e).color), bgc = parse(x.role === "button" ? (ownBg(x.e) || solid(x.e)) : solid(x.e)) || parse(solid(x.e)); if (!fg || !bgc) continue; const a1 = L(fg), b1 = L(bgc), cr = (Math.max(a1, b1) + 0.05) / (Math.min(a1, b1) + 0.05); if (cr < 2.5 && clean(x.e.textContent || x.e.placeholder)) lowContrast.push({ text: clean(x.e.textContent).slice(0, 30), color: hex(fg), on: hex(bgc) }); }
-      const form = el.querySelector("form"), fields = items.filter((x) => x.role === "field");
-      const links = items.filter((x) => x.e.tagName === "A").slice(0, 12).map((x) => ({ text: clean(x.e.textContent).slice(0, 50), href: x.e.getAttribute("href") || "" }));
-      const logoish = el.querySelector("footer img, img[alt*=logo i], img[src*=logo i]");
-      return {
-        background: secBg, backgroundImage: bgImage, backgroundImages: bgImages,
-        contentLeft: Math.round(cL), contentRight: Math.round(cR), contentWidth: Math.round(cR - cL), fullWidth: (cR - cL) >= vw * 0.9, scroller: el.scrollWidth > el.clientWidth + 20 || (cR - cL) > vw * 1.05,
-        paddingTop: Math.max(0, Math.round(cT - sr.top)), paddingBottom: Math.max(0, Math.round(sr.bottom - cB)),
-        order: elements.map((x) => x.role).filter((r, i, a) => r !== a[i - 1]).join(","),
-        heading: first("heading") ? { text: first("heading").text, ...(({ role, text, x, y, w, h, ...s }) => s)(first("heading")) } : null,
-        eyebrow: first("eyebrow") ? (({ role, x, y, w, h, ...s }) => s)(first("eyebrow")) : null,
-        text: first("text") ? (({ role, x, y, w, h, text, ...s }) => s)(first("text")) : null,
-        button: first("button") ? (({ role, x, y, w, h, ...s }) => s)(first("button")) : null,
-        buttons: elements.filter((x) => x.role === "button").length, links: links, columns: lefts.length, imageSide,
-        cards: cards.slice(0, 6), images: elements.filter((x) => x.role === "image").map((x) => ({ src: x.src, alt: x.alt, w: x.w, h: x.h })),
-        form: form || fields.length ? { fields: fields.length, submit: !!(el.querySelector("button[type=submit], input[type=submit]") || elements.some((x) => x.role === "button" && /submit|send|request|go/i.test(x.text))), fieldBackground: fields[0] ? ownBg(fields[0].e) || solid(fields[0].e) : null } : null,
-        hasLogo: !!logoish, lowContrast: lowContrast.slice(0, 4), elements,
-        adSlot: !!el.querySelector('iframe[src*="doubleclick"], iframe[id^="google_ads"], [id^="div-gpt-ad"], ins.adsbygoogle, [data-ad-slot], [class*="advert" i], [id*="advert" i]'),
-        video: [...el.querySelectorAll("video, iframe")].some((v) => v.tagName === "VIDEO" || /youtu|vimeo|wistia|brightcove|video|player/i.test(v.getAttribute("src") || v.getAttribute("data-src") || "")),
-      };
-    }, f.i);
+    const m = await page.evaluate(measureBand, String(f.i));
     const slug = ((m.heading?.text || f.tag).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "section").slice(0, 32);
     const nn = String(f.i + 1).padStart(2, "0"), shot = `${nn}-${slug}.png`;
     try { await page.locator(`[data-hsec="${f.i}"]`).screenshot({ path: join(shotDir, shot), timeout: 15000 }); } catch { /* very tall or detached */ }
@@ -213,6 +130,7 @@ if (flags.compare && result) {
   const bad = [];
   const used = new Set(demoBands.headerIdx != null ? [demoBands.headerIdx] : []);
   const pairs = {};   // live section index -> the built section it was compared with (the review page shows both crops)
+  let lastPaired = demoBands.headerIdx ?? -1;   // pairing by shape only looks forward from the last paired built band
   // One band against its built counterpart. COLUMNS / LABELS (the footer's column headings) are checked on the footer only.
   const compareBand = (R, D, nm, isFooter) => {
     if (far(D.background, R.background, 20)) bad.push(`${nm}: background ${D.background} (prospect ${R.background})`);
@@ -255,10 +173,35 @@ if (flags.compare && result) {
     }
     // several built bands with the same heading (a title component above the component that repeats it): take the one most like the live band
     const likeR = (d) => Math.abs((d.elements ?? []).length - (R.elements ?? []).length) + Math.abs((d.images ?? []).length - (R.images ?? []).length);
-    const D = result.sections.filter((d) => !used.has(d.index) && d.index !== demoBands.footerIdx && R.heading?.text && norm(d.heading?.text) === norm(R.heading.text)).sort((a, b) => likeR(a) - likeR(b))[0] ?? (R.heading?.text ? null : result.sections.find((d) => !used.has(d.index) && d.index !== demoBands.footerIdx && d.index === R.index && d.kind === R.kind));   // only a band without a heading is matched by position: a missing titled band must not take its neighbour's place
+    // a band with several headings (tiles, cards) may report a different one as its main heading: then match on any of its headings
+    const headingsOf = (d) => new Set([d.heading?.text, ...(d.elements ?? []).filter((e) => e.role === "heading").map((e) => e.text)].filter(Boolean).map(norm));
+    const open = result.sections.filter((d) => !used.has(d.index) && d.index !== demoBands.footerIdx);
+    let D = (R.heading?.text && (open.filter((d) => norm(d.heading?.text) === norm(R.heading.text)).sort((a, b) => likeR(a) - likeR(b))[0]
+      ?? open.filter((d) => headingsOf(d).has(norm(R.heading.text))).sort((a, b) => likeR(a) - likeR(b))[0]))
+      ?? (R.heading?.text ? null : (open.find((d) => d.index === R.index && d.kind === R.kind)
+        // the built page can count its header bands differently (eyebrow, menu, breadcrumb), which shifts every index: then take the next
+        // unpaired heading-less band of the same kind between the last pair and the built band of the next titled live band (so it stays
+        // in its own gap). It is still compared band against band below.
+        ?? (() => {
+          const nextTitled = ref.sections.find((x) => x.index > R.index && x.heading?.text && x.index !== refBands.footerIdx);
+          const bound = nextTitled ? (open.find((d) => norm(d.heading?.text) === norm(nextTitled.heading.text))?.index ?? Infinity) : Infinity;
+          return open.filter((d) => d.index > lastPaired && d.index < bound && d.kind === R.kind && !d.heading?.text).sort((a, b) => a.index - b.index)[0];
+        })()));
+    // a titled band whose heading text is not found: pair it by position and shape instead, so a section is found by what it IS, not by
+    // a heading written in to be matched. Only the next unpaired built band after the last pair, only when it has the same make-up
+    // (kind, imagery, cards, a similar number of elements) and its heading is not another live band's heading.
+    let headingDiff = null;
+    if (!D && R.heading?.text) {
+      const liveHeadings = new Set(ref.sections.filter((x) => x !== R).flatMap((x) => [...headingsOf(x)]));
+      const shaped = (d) => d.kind === R.kind && !!(d.images ?? []).length === !!(R.images ?? []).length && !!(d.cards ?? []).length === !!(R.cards ?? []).length
+        && Math.abs((d.elements ?? []).length - (R.elements ?? []).length) <= Math.max(2, (R.elements ?? []).length * 0.5);
+      const cand = open.filter((d) => d.index > lastPaired).sort((a, b) => a.index - b.index)[0];
+      if (cand && shaped(cand) && ![...headingsOf(cand)].some((h) => liveHeadings.has(h))) { D = cand; headingDiff = cand.heading?.text ?? ""; }
+    }
     const nm = `#${R.index} ${(R.heading?.text || R.kind).slice(0, 30)}`;
     if (!D) { bad.push(`${nm}: not found in the demo`); continue; }
-    used.add(D.index); pairs[R.index] = D.index;
+    used.add(D.index); pairs[R.index] = D.index; lastPaired = Math.max(lastPaired, D.index);
+    if (headingDiff != null) bad.push(`${nm}: heading ${headingDiff ? `"${headingDiff.slice(0, 40)}"` : "missing"} (prospect "${R.heading.text.slice(0, 40)}")`);
     compareBand(R, D, nm, false);
   }
   for (const poison of ["Why PLAY! finance", "Copyright © Sitecore"]) if (JSON.stringify(result).includes(poison)) bad.push(`SAMPLE footer still shows the template sample "${poison}"`);

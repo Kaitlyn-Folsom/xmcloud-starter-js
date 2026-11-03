@@ -38,6 +38,7 @@ const pascalName = (n) => String(n || "").replace(/&/g, " ").split(/[^A-Za-z0-9]
 const clientVariant = plan.site?.variantName || pascalName(plan.client?.name || customer);   // every component gets this variant (pixel-matching, always)
 const newPending = new Map();   // NEW components from the plan (sections `new:` and site.chrome) that are not in the manifest yet
 const used = new Map(); // manifestName -> {variants:Set, pages:Set}
+const extensions = new Map();   // manifestName -> the derived template a `fit: extend` section needs
 const warnings = [];
 for (const p of arr(plan.site?.pages)) for (const s of arr(p.sections)) {
   if (typeof s !== "object" || !s?.component) continue;
@@ -48,15 +49,14 @@ for (const p of arr(plan.site?.pages)) for (const s of arr(p.sections)) {
   u.variants.add(s.variant || "Default"); u.pages.add(p.path); used.set(name, u);
   u.base = new Set([...(u.base ?? []), s.variant || "Default"]);
   if (s.look) { u.looks = new Set([...(u.looks ?? []), clientVariant + String(s.look)]); }   // one client variant per distinct look (ImageLeft/ImageRight)
+  if (s.fit === "extend" || s.extend) {   // R22: a derived template adds fields; the shared template stays as it is
+    const c = byName.get(name), e = extensions.get(name) ?? { component: name, template: `${name}${clientVariant}`, baseTemplateId: c.templates?.datasource?.itemId ?? null, fields: new Map(), pages: new Set() };
+    for (const f of arr(s.extend?.fields)) if (f?.name) e.fields.set(String(f.name), String(f.type ?? ""));
+    e.pages.add(p.path); extensions.set(name, e);
+    if (!e.baseTemplateId) warnings.push(`${name}: no datasource template in the manifest, so it cannot be extended (fit: new)`);
+  }
 }
 
-for (const f of arr(plan.site?.chrome)) if (f?.delivery === "reuse" && f.component) {
-  if (!byName.has(f.component)) { warnings.push(`chrome ${f.feature}: "${f.component}" is not in the manifest`); continue; }
-  const u = used.get(f.component) ?? { variants: new Set(["Default"]), pages: new Set() };
-  u.variants.add(f.variant || "Default"); u.pages.add(f.partial === "footer" ? "(footer partial)" : "(header area)"); used.set(f.component, u);
-  u.base = new Set([...(u.base ?? []), f.variant || "Default"]);
-  if (f.look) { u.looks = new Set([...(u.looks ?? []), clientVariant + String(f.look)]); }
-}
 for (const f of arr(plan.site?.chrome)) if (f?.delivery === "new" && f.new?.name) {
   if (byName.has(f.new.name)) { const u = used.get(f.new.name) ?? { variants: new Set(["Default"]), pages: new Set() }; u.pages.add("(header area)"); used.set(f.new.name, u); }
   else newPending.set(f.new.name, { name: f.new.name, kind: f.new.kind, cms: f.new.cms === true, where: "(header area)" });
@@ -111,11 +111,11 @@ const out = {
     "F. Header and Footer partial designs in <site>/Presentation/Partial Designs, each created with template {FD2059FD-6043-4DFE-8C04-E2437CE87634} (Partial Design). {C3CEB23C-D66D-4EF5-99E0-D45F60C02583} is the Partial Designs folder and is not a partial design. Header and footer are never copied onto a page. Header design = Eyebrow [client variant; ThemeSwitcher at eyebrow-left-0-<id>, LanguageSwitcher at eyebrow-right-0-<id>; the eyebrow links/phone/search/CTA are HARDCODED in the client Eyebrow variant, no Navigation inside it] above Header [client variant, datasource = the design's own Data/Header item with the logo] containing Navigation at header-right-0-<id> [client variant, datasource = Home, top level only]. Footer design = SiteFooter [client variant]. The client variants of Eyebrow/Header/Navigation are generated BEFORE placement by header-styles.mjs + header-kit.mjs (demo-site-bootstrap step 5). Datasource/variant/params on partial-design renderings: the ladder in placeholders-and-variants.md (a 'no datasource template' message is not an answer: go to layout XML). Plus a derived Header component template under /sitecore/templates/Project/<collection>/Components (try via the MCP; manual task only for what is refused)",
     "F2. Navigation Filters: find the site's filter items (Main Navigation, ...). No Eyebrow filter (the eyebrow is hardcoded). Main Navigation is visible ONLY for navGroup: main pages directly under Home; every other page gets Main Navigation ticked. The Navigation rendering must also carry the filter/levels rendering parameters (layout-variant.mjs patch --param), otherwise the filter is ignored (see demo-site-bootstrap step 5b)",
     "H. NEW components (newComponents above, from `new:` specs): built in phase 5 with the create-* skills; afterwards re-run bootstrap-plan.mjs and do steps A-D for them (Available Renderings, Data folder, container named like the rendering item, Default + client variant); header-area ones are then placed in the partial design placeholder named in their spec (demo-build-pages step 0)",
-    "G. Page Designs for each page type in the plan (Page, Article, Person, and any other) that use those partials, mapped to the derived templates (Template To Design)",
-    ...arr(plan.site?.pageFields).map((f) => `E2. page field ${f.name} (${f.type || "Multi-Line Text"}) on every derived page template, section "${f.section || "Structured data"}". Values in ${f.valuesFile || "the plan"}. Layout emits the JSON-LD.`),
-    ...arr(plan.site?.chrome).filter((f) => f?.partial === "footer" && f?.delivery === "reuse").map((f) => `F3. Footer partial, above SiteFooter: ${f.component} variant ${f.variant || "Default"}${f.look ? " look " + f.look : ""}. Inherited by every page. Not placed on the page.`),
+    "G. Page Designs for Page and Article that use those partials, mapped to the derived templates (Template To Design)",
+    "I. EXTENDED components (extensions below, `fit: extend`): in phase 5 (demo-build-content 2b) create each derived template under /sitecore/templates/Project/<collection>/Components with __Base template = baseTemplateId and only the listed fields (typed, read back, no standard values); add it to the insert options of the site's own Data/<component folder> item. The shared template, rendering and standard values are never edited (R22)",
   ],
   newComponents: [...newPending.values()],
+  extensions: [...extensions.values()].map((e) => ({ ...e, fields: [...e.fields].map(([name, type]) => ({ name, type })), pages: [...e.pages] })),
   availableRenderings: { ids: allRenderingIds, count: allRenderingIds.length },
   components, warnings,
 };
@@ -123,6 +123,7 @@ mkdirSync(demo, { recursive: true });
 writeFileSync(join(demo, "bootstrap-plan.json"), JSON.stringify(out, null, 2) + "\n");
 let md = `# Site bootstrap plan — ${customer}\n\nSource: demo-plan.yaml + shared manifest. Shared definitions (templates, renderings, rendering parameters) are reused, not created.\n\n## Per component (items to create inside the NEW site)\n| Component | Kind | Rendering id (shared) | Data folder | Variants needed | Pages |\n|---|---|---|---|---|---|\n`;
 for (const c of components) md += c.headerArea ? `| ${c.name} (header area) | ${c.kind}${c.contextOnly ? " (context-only)" : ""} | ${c.renderingId ?? "-"} | - | ${c.variants.join(", ")} | ${c.pages.join(", ")} |\n` : `| ${c.name} | ${c.kind}${c.contextOnly ? " (context-only)" : ""} | ${c.renderingId ?? "-"} | ${c.contextOnly ? "-" : c.datasourceFolderName} | ${c.variants.join(", ")} | ${c.pages.join(", ")} |\n`;
+if (out.extensions.length) md += `\n## Extended components (derived templates, R22)\n| Component | Derived template | Base template | Extra fields | Pages |\n|---|---|---|---|---|\n${out.extensions.map((e) => `| ${e.component} | ${e.template} | ${e.baseTemplateId ?? "-"} | ${e.fields.map((f) => `${f.name} (${f.type})`).join(", ")} | ${e.pages.join(", ")} |`).join("\n")}\n`;
 md += `\n## Site-level steps\n${out.siteLevelSteps.map((s) => `- ${s}`).join("\n")}\n\n## Available Renderings value to concatenate (${allRenderingIds.length} ids)\n\`\`\`\n${allRenderingIds.join("|")}\n\`\`\`\n`;
 if (warnings.length) md += `\n## Warnings\n${warnings.map((w) => `- ${w}`).join("\n")}\n`;
 writeFileSync(join(demo, "bootstrap-plan.md"), md);

@@ -5,9 +5,13 @@ disagree, **this file wins** and the skill is the bug. Change a rule here, once.
 
 ## Run and approvals
 - **R1 Two approvals, nothing else.** Gate 1 is the story alone (`demo-from-transcript` T2b); gate 2 is the build plan (T4). After the SE's yes, run
-  `node harness/scripts/run-gate.mjs approve <customer> story|plan`, never set `storyApproved` / `userApproved` by hand. A later change to the story or
-  plan (sections, components, `droppedLiveSections`, `sourceUrl`) is shown to the SE and approved again; the plan is never changed to make a check pass.
-  The only other questions after approval are R2's and a decision that is truly impossible to assume. *Enforced: run-gate (approval hashes).*
+  `node harness/scripts/run-gate.mjs approve <customer> story|plan`, never set `storyApproved` / `userApproved` by hand. The plan approval pins the
+  pages, which live sections each page mirrors, drops or adds, the site and chrome choices and `sourceUrl`; a later change to those (or to the story)
+  is shown to the SE and approved again. It does NOT pin which component builds a section: when another component fits a section better (it can show
+  the section's images, video, cards or layout and the planned one cannot), change it in `demo-plan.yaml` and record why with
+  `run-gate.mjs swap <customer> "<page path>#<live section>" --reason "<why>"`; no question to the SE, the hand-over lists the change. The plan is
+  never changed to make a check pass. The only other questions after approval are R2's, R15's single looks review, R25's and a decision that is
+  truly impossible to assume. *Enforced: run-gate (approval hashes, recorded swaps).*
 - **R2 Marketer MCP connected first.** `list_sites` must answer before anything else; not connected → send the auth request, ask once; a timeout stops the
   run with `blockedOn: marketer-mcp-auth` and the SE resumes with `/resume-demo <customer>`.
 - **R3 The run ends only when `node harness/scripts/run-gate.mjs check <customer>` exits 0.** Do its items in the printed order (build first). The stop
@@ -21,8 +25,12 @@ disagree, **this file wins** and the skill is the bug. Change a rule here, once.
   `add_component_on_page`, `set_component_datasource`, `remove_component_on_page`, ...), followed by a read-back. Scripts write directly (Authoring
   GraphQL / Sites API) ONLY for what the MCP cannot do: creating the collection and site (`sites-api.mjs`), uploading media (`media-upload.mjs`,
   `content-hub-upload.mjs`), setting a variant or rendering parameter on a placed rendering when the MCP route (writing the layout XML with
-  `update_fields_on_item`) is refused (`layout-variant.mjs apply`), and the editing host. Scripts may always READ Sitecore to verify (the run gate,
-  `link-audit.mjs`, the `attach-images.mjs` dry run). Never write a one-off script that creates items or layouts.
+  `update_fields_on_item`) is refused (`layout-variant.mjs apply`), the editing host, and the base site's component showcase
+  (`component-showcase.mjs`, only under `<base site>/Home/components` plus missing Headless Variant definitions, outside demo runs). Scripts may always READ Sitecore to verify (the run gate,
+  `link-audit.mjs`, the `attach-images.mjs` dry run). Never write a one-off script that creates items or layouts: a component is placed on a page
+  with `add_component_on_page` (the placeholder from `get_allowed_comps_by_ph`), never by writing the page's `__Final Renderings` / `__Renderings`
+  yourself; only its variant or a rendering parameter goes through `layout-variant.mjs` when the MCP route is refused. To read what is on a page or in
+  an item, use the MCP read tools (`get_components_on_page`, `get_content_item_by_path` / `_by_id`) rather than writing probe scripts.
 - **R6 Datasources live under the site's Data folder:** `/sitecore/content/<collection>/<site>/Data/<component folder>/<Customer> <Page> <Component>`,
   never under a page (`<page>/Data`), never in another site. Create the item first, place the component, point it at the item
   (`set_component_datasource`), delete the page-local item `add_component_on_page` made. Exceptions: the Header/Footer partial designs' own Data, and
@@ -50,18 +58,28 @@ disagree, **this file wins** and the skill is the bug. Change a rule here, once.
   (`liveSection`) or dropped with a reason; the story only adds sections a moment needs (`added: true`). Advertisement slots are never built. The footer
   is never dropped (R9). *Enforced: validate-site-plan P12/P12b/P12c.*
 - **R13 One component per section, chosen from its screenshot.** Open the section's crop (`component-crops.md`), then reuse a registry component of the
-  same shape (with the client variant or look) or build a new one (`fit: new`). Rich Text is only a heading and paragraphs: never images, buttons,
-  cards, columns, lists, an FAQ, a logo wall, a video, a form, a carousel, never with a `look`, never section HTML in a field.
-  *Enforced: validate-site-plan P16, component-crops, run-gate (placement).*
+  same shape (with the client variant or look) or build a new one (`fit: new`). **The choice is a comparison, not a description:** `component-match.mjs`
+  measures the live band and every base variant the same way and shortlists the closest three; pick from it, or name in `fitReason` the
+  shortlisted variant you compared with ("closest to PromoCta Default: …; differs: …"), for `fit: new` too. **Layout is shape, not look:** a variant
+  or look may restyle (colours, fonts, spacing, mirroring the photo left/right) but never restructure: a card row cannot become an image-and-text
+  split, a static row cannot become a slider. Only when the measurement is wrong, `shapeReason` on the section says why (shown at the gate). Rich Text is only a heading and paragraphs: never images, buttons,
+  cards, columns, lists, an FAQ, a logo wall, a video, a form, a carousel, never with a `look`, never section HTML in a field. A section with
+  pictures needs a component with an Image field, a video a component that plays one; if the chosen one cannot, swap it (R1). Text the visitor reads
+  lives in datasource fields, never in rendering parameters (a heading written into a parameter so the compare finds the section is a fake fix).
+  *Enforced: validate-site-plan P16/P17, component-crops, run-gate (placement, text in rendering parameters); seen by the SE on `plan-review.mjs`.*
 - **R14 Measurements come from the scripts.** `nav.json`, `header-styles*.json`, `sections*.json` are never edited by hand. A wrong result is re-measured
   with the script's override (`nav-extract --root`, `header-styles --eyebrow/--main`, `section-capture --selector`); a wrong demo is fixed in the
   variant/SCSS, never in the measurement. Only when a site blocks headless capture entirely may the numbers be read from the SE's screenshots into the
   same JSON shape, marked `"source": "screenshot"`. *Enforced: run-gate (verdict reference hash).*
-- **R15 Looks gates.** `node harness/scripts/looks-gates.mjs <customer>` against the running app compares the header and every mirrored page. Build gaps
-  (missing section, footer columns or labels, sample content, render errors, missing imagery) are always built. Measurement differences are fixed;
-  after two fix attempts the SE decides on what is left: `looks-review.mjs <customer> --open` (one page, live and built side by side), ONE question,
-  `run-gate.mjs accept <customer> all|none|<numbers> --answer "<the SE's words>"`. Accepted differences are listed in the hand-over; never accept
-  on the SE's behalf. *Enforced: run-gate (looks, accepted-differences.json).*
+- **R15 Looks gates.** `node harness/scripts/looks-gates.mjs <customer>` against the running app compares the header and every mirrored page. Every
+  difference has one of three tiers (`_looks.mjs`):
+  - **Build gap**, always built, never put to the SE: a missing section, video, images, cards, heading, button or form field, footer columns or
+    labels, sample content, render errors, unreadable text. Often the fix is a component that can show it (R1 swap).
+  - **Visible** (colours, content width, image side, a missing or extra button, a different heading): fixed; after two fix attempts the SE decides,
+    ONCE for all pages: `looks-review.mjs <customer> --open` (one page, live and built side by side), ONE question,
+    `run-gate.mjs accept <customer> all|none|<numbers> --answer "<the SE's words>"`.
+  - **Cosmetic** (a heading within about a third of the prospect's size, a label colour): left as it is, never fails the gate, listed in the hand-over.
+  Accepted and cosmetic differences are listed in the hand-over; never accept on the SE's behalf. *Enforced: run-gate (looks, accepted-differences.json).*
 
 ## Code
 - **R16 Code only in the customer's app copy** (`industry-verticals/<customer>/`); `industry-verticals/prospera` and other customers' folders are never
@@ -76,6 +94,11 @@ disagree, **this file wins** and the skill is the bug. Change a rule here, once.
   *Enforced: name-check (pre-commit hook, run-gate).*
 - **R19 Skills live in `.skills/`.** `.cursor/skills` and `.claude/skills` hold generated stubs only; after editing a skill run
   `node harness/scripts/sync-skills.mjs`. *Enforced: pre-commit hook.*
+- **R25 The harness never changes silently.** During a demo run, the shared harness (`harness/scripts`, `harness/reference`, `harness/templates`,
+  `.skills/`, the skill stubs, `.cursor/hooks.json` and rules, `.githooks`, `CLAUDE.md`) is left as it is. A harness bug that blocks the run is
+  shown to the SE: what fails, the diff (`git diff -- <files>`) and why every demo needs it. After their yes,
+  `run-gate.mjs approve <customer> harness --answer "<the SE's words>"`; after a no, revert it. Never change a measuring or checking script to pass
+  its own check. *Enforced: run-gate (harness-snapshot.json, taken at `init`).*
 
 ## Facts
 - **R20 Never invent facts.** Pains, quotes, numbers and names come from the transcript, RFP or the SE, marked stated / rfp / inferred; gaps stay gaps;
@@ -83,15 +106,36 @@ disagree, **this file wins** and the skill is the bug. Change a rule here, once.
   paste whole RFP documents into chat. Secrets come from `harness/.env.local` and are never pasted into chat. Content is English only.
 
 ## Sitecore scope and safety
-- **R21 Only this demo's own new site changes.** Never touch an existing site; no site is ever duplicated, copied, renamed or moved. Before EVERY
+- **R21 Only this demo's own new site changes.** Never touch an existing site; no site is ever duplicated, copied, renamed or moved. (The one
+  exception, outside demo runs: `component-showcase.mjs` maintains the base site's hidden `/Home/components` pages and adds the Headless
+  Variant definitions the base app's code variants need.) **A site name is lowercase letters and digits only** (`acmefoods`, not `AcmeFoods`,
+  `acme-foods` or `Acme Foods`); the readable name is the display name. SitecoreAI recorded no affinities for a mixed-case site name, and renaming
+  a site later wipes its page affinities, so the name is right at creation. The app's `NEXT_PUBLIC_DEFAULT_SITE_NAME` is exactly that site name. Before EVERY
   Sitecore write: `node harness/scripts/guard-customer.mjs sitecore-path <customer> "<item path>"`, stop on a failure; after every phase:
   `guard-customer.mjs check <customer>`. *Enforced: guard-customer.*
 - **R22 Existing components are reused as they are on the Sitecore side** (shared templates, renderings, rendering parameters under the project layer);
   only their code is replaced in the customer copy. Register something under /sitecore/layout only for a component that is NEW (not
   `status: complete` in the manifest). Marketer MCP field-name rules and the Agent API limits apply (`.skills/sitecore-reference/references/agent-api-limitations.md`).
+  **The default is never changed:** nothing in the base site's templates, renderings or standard values (the Prospera / Financial project
+  layer) is edited for a demo. When a registry component is the right shape but needs a field it lacks (a second image, an extra link), the
+  section is `fit: extend`: a DERIVED datasource template `/sitecore/templates/Project/<collection>/Components/<Component><client variant>`
+  whose `__Base template` is the component's own datasource template, plus only the extra fields (each with its Type, R26; no standard
+  values). The shared rendering is reused unchanged; the site's own Data folder for that component gets the derived template in its insert
+  options; the demo's client variant reads the extra field. Not for a component with a ComponentQuery (the query lives on the shared
+  rendering): that is `fit: new`.
 - **R23 No fire-and-forget writes.** Writes run in the foreground, one result checked (read back) per item. A script or job that exits non-zero, or a
   read-back that disagrees, is a FAILED step: fix it before saying the work is done. Only the app dev server runs in the background. Timestamps come
   from the real clock (`new Date().toISOString()`). On Windows PowerShell write a `.mjs` file instead of inline `node -e` (quotes get mangled).
 - **R24 A front-end workaround for a Sitecore feature is disclosed.** Code that imitates a Sitecore behaviour (for example a cookie that drives
   personalization) is allowed only when Sitecore's own mechanism cannot work on the demo host. The Sitecore rules are still built; the workaround is
   named at the approval gate under "Personalization / behaviour" and in `demo-script.md`, with what the SE does instead in Pages.
+- **R26 A new template is authorable.** An editor must be able to change every field in Pages with the right editor.
+  - Every template field gets an explicit Type, read back after it is set. An empty Type is Single-Line Text, so it is never left empty.
+    Pictures, icons, posters, logos, backgrounds → `Image`; links, buttons, CTAs, video URLs → `General Link`; formatted text → `Rich Text`;
+    plain text → `Single-Line Text` / `Multi-Line Text`.
+  - Image or link XML never goes in a field of another type, and component code never parses a field value (no regex on `src=` / `href=`, no
+    "as image field" helpers). A value that reaches the app as a string means the field type is wrong: fix the template, not the code.
+  - Decoration is code, not content: play buttons, arrows, chevrons, quote marks, dividers and accents are drawn by the component (SVG/CSS).
+    A field exists only for something an editor would change.
+  - A video next to text is a two-column component: video link + poster `Image` + the text fields, with the play button drawn in code.
+  *Enforced: `link-audit.mjs` (field types against names and values; Rich Text is never checked for markup) and `run-gate.mjs` (the code).*

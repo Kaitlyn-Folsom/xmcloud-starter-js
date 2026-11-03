@@ -50,23 +50,25 @@ const folder = `Project/${site.collection}/${site.siteName}/demo-images`;
 const todo = entries.filter((e) => e.uploadStatus !== "uploaded" && e.uploadStatus !== "too-large");
 const missing = [], tooLarge = [], failed = [];
 let uploaded = 0, ashxChanged = false;
+const ashxBad = new Set();   // this run's failures only: a file fixed since an earlier run is retried
 for (const e of todo) {
   const file = fileOf(e);
   if (!file || !/\.ashx$/i.test(basename(file))) continue;
   const renamed = renameAshxImage(file);
   ashxChanged = true;
   if (!renamed) {
-    e.uploadStatus = "failed"; e.uploadError = ASHX_SNIFF_ERROR;
+    e.uploadStatus = "failed"; e.uploadError = ASHX_SNIFF_ERROR; ashxBad.add(e);
     failed.push(`${basename(file)}: ${ASHX_SNIFF_ERROR}`);
     console.error(`  FAIL ${basename(file)}: ${ASHX_SNIFF_ERROR}`);
     continue;
   }
   const name = basename(renamed.path);
   e.localPath = renamed.path; e.localFileName = name;
-  if (e.localFile) e.localFile = name;
+  if (e.uploadError === ASHX_SNIFF_ERROR) delete e.uploadError;
+  if (e.localFile) e.localFile = renamed.path;   // fileOf() takes the full path; the bare name would lose its folder
   console.log(`  ${basename(file)} → ${name}`);
 }
-const queue = todo.filter((e) => e.uploadError !== ASHX_SNIFF_ERROR);
+const queue = todo.filter((e) => !ashxBad.has(e));
 const worker = async () => {
   while (queue.length) {
     const e = queue.shift(), file = fileOf(e);
