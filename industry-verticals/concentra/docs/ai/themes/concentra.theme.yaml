@@ -1,0 +1,86 @@
+# Concentra brand theme. Sources: Concentra UI Style Guide (Rev 07/31/2025, inputs/), colours sampled from the SE's screenshots of concentra.com.
+# The site blocks headless capture, so site-scraper.mjs was not run (R14 screenshot route).
+client:
+  name: "Concentra"
+  sourceUrl: "https://www.concentra.com/"
+  extractedAt: "2026-11-04"
+  extractedBy: "style guide + screenshot sampling"
+
+colors:
+  primary: "#236192"            # Concentra Blue: large text, headings, UI components, utility bar
+  primaryForeground: "#ffffff"
+  secondary: "#002855"          # Marine: text, graphics, dark bands, footer
+  secondaryForeground: "#ffffff"
+  accent: "#ed8b00"             # Concentra Orange: section rules, outlined buttons, bullet crosses, alert bar
+  accentForeground: "#002855"
+  background: "#ffffff"
+  foreground: "#002855"
+  muted: "#e6e6e6"              # card band background (style guide Light Grey #ebebeb)
+  mutedForeground: "#54585a"    # Charcoal: normal text
+  headerBackground: "#ffffff"
+  headerForeground: "#002855"
+  footerBackground: "#002855"
+  footerForeground: "#ffffff"
+  border: "#ed8b00"
+  ring: "#ed8b00"               # focus indicator: orange outline (style guide)
+  extra:
+    - { name: leaf700, value: "#587336", use: "default text links, primary pill buttons (Create New Account, Get started now, Submit)" }
+    - { name: spruce, value: "#006c67", use: "teal band (Physicals We Provide), tab labels" }
+    - { name: sky, value: "#80a6ce", use: "backgrounds" }
+    - { name: plum, value: "#5d285f", use: "alert bars, notifications" }
+
+typography:
+  headingFamily: "Source Sans Pro"   # Google Fonts: Source Sans 3 (the renamed Source Sans Pro); fallback Arial
+  headingWeight: "700 (intro, module headlines) / 400 (large headlines)"
+  bodyFamily: "Source Sans Pro"
+  bodyWeight: "400"
+  monoFamily: ""
+  googleFontsUrl: "https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&display=swap"
+  scale:
+    hero: "32px regular, sentence case, Marine (h2 'hero large headline')"
+    h1: "28px bold, CAPS, Concentra Blue (hero intro headline)"
+    h2: "32px regular, Marine"
+    h3: "varies per module (cards: 28px regular Marine)"
+    body: "16px regular, Charcoal or Marine"
+    small: "14px"
+  headingTransform: "uppercase for intro and full-width module headlines (h1, h4: 20.8px bold caps Blue); sentence case otherwise"
+  letterSpacing: "0"
+  lineHeight: "1.4"
+
+spacing:
+  density: "comfortable"
+  sectionGap: "0 (bands touch, separated by a 3px orange rule)"
+  containerMaxWidth: "1200px (style guide: desktop 1200 px)"
+  containerPadding: "20px"
+
+shape:
+  borderRadius: "0"
+  buttonRadius: "999px (pills) / 0 (orange-outlined block buttons on navy bands)"
+  cardRadius: "0"
+  imageRadius: "0; round (circle) thumbnails in lists and service items"
+  shadowStyle: "very light card shadow on grey bands"
+  borderStyle: "3px orange rule between sections"
+
+tone:
+  overall: "Corporate occupational health: trustworthy, clear, employer-focused"
+  colorMode: "light"
+  contrast: "high (Marine on white, white on Marine)"
+  imagery: "real workers and clinicians at work; photos fade to white at the bottom of cards"
+  heroStyle: "photo with intro + large headline bottom-left, translucent Marine panel on the right with a CTA"
+  cardStyle: "white cards on light grey, photo top fading to white"
+  navStyle: "logo left, blue utility bar (audiences + utilities) above a text menu row with a green pill CTA"
+
+siteThemeScss: |
+  body.site-concentra, .site-concentra {
+    --text-body: #002855; --text-body-inverted: #ffffff; --text-colored: #236192; --text-footer: #ffffff; --text-accent: #ed8b00;
+    --bg-body: #ffffff; --bg-footer: #002855; --bg-main: #ffffff; --bg-main-alt: #e6e6e6; --bg-color: #e6e6e6;
+    --bg-saturated: #002855; --bg-accent: #ed8b00; --border-color: #ed8b00; --hr-color: #ed8b00; --roundness: 0px;
+  }
+  body.site-concentra.dark, .dark .site-concentra { /* same as light: the brand has no dark mode */ }
+
+extraction:
+  confidence: "high"
+  method: "style guide values (colours, fonts, type scale, 1200px grid) confirmed by pixel sampling of the screenshots"
+  notes:
+    - "Source Sans Pro is free (Google Fonts 'Source Sans 3'); no licensed font needed."
+    - "Navy bands carry a subtle dotted texture; built in CSS."

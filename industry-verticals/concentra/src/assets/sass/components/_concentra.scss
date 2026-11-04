@@ -1,0 +1,1618 @@
+// Concentra demo look (site-concentra). Values from the screenshot measurements (sections*.json) and the Concentra UI Style Guide:
+// Source Sans Pro, 1200px column, Marine #002855, Concentra Blue #236192, Orange #ed8b00, Leaf #587336, Spruce #006c67, grey #e6e6e6.
+$cc-marine: #002855;
+$cc-blue: #236192;
+$cc-orange: #ed8b00;
+$cc-leaf: #587336;
+$cc-teal: #006c67;
+$cc-grey: #e6e6e6;
+$cc-band: #002753;
+
+.site-concentra {
+  font-family: 'Source Sans 3', 'Source Sans Pro', Arial, sans-serif;
+  color: $cc-marine;
+
+  .container {
+    max-width: 1200px;
+  }
+
+  // shared pieces --------------------------------------------------------------------------------------------------
+  .cc-navy-band {
+    background-color: $cc-band;
+    // the live bands carry a fine dotted texture
+    background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1.2px);
+    background-size: 12px 12px;
+    color: #fff;
+  }
+
+  .cc-intro {
+    font-size: 18px;
+    letter-spacing: 0.04em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $cc-blue;
+    margin: 0 0 4px;
+    line-height: 1.2;
+  }
+
+  .cc-headline {
+    font-size: 32px;
+    font-weight: 400;
+    color: $cc-marine;
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  .cc-module-headline {
+    font-size: 20.8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $cc-blue;
+    line-height: 1.4;
+    margin: 0 0 18px;
+  }
+
+  .cc-text-link {
+    color: $cc-leaf;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    border-bottom: 2px solid $cc-leaf;
+    padding-bottom: 4px;
+  }
+
+  .cc-pill {
+    display: inline-block;
+    border-radius: 999px;
+    padding: 8px 22px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    border: 2px solid transparent;
+    line-height: 1.3;
+    cursor: pointer;
+  }
+  .cc-pill-green {
+    background: $cc-leaf;
+    color: #fff;
+    border-color: #fff;
+    box-shadow: 0 0 0 2px $cc-leaf;
+  }
+  .cc-pill-white {
+    background: #fff;
+    color: $cc-marine;
+    border-color: $cc-marine;
+  }
+  .cc-pill-outline {
+    background: #fff;
+    color: $cc-marine;
+    border-color: $cc-marine;
+  }
+  .cc-pill-outline-white {
+    background: transparent;
+    color: #fff;
+    border-color: #fff;
+  }
+
+  .cc-button-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 76px;
+    padding: 10px 16px;
+    border: 2px solid $cc-orange;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    line-height: 1.4;
+    &:hover {
+      background: rgba(237, 139, 0, 0.12);
+      color: #fff;
+    }
+  }
+
+  // bullet lists with the orange Concentra cross (drawn in CSS, R26: decoration is code)
+  .cc-cross-list ul {
+    list-style: none;
+    padding-left: 0;
+    li {
+      position: relative;
+      padding-left: 22px;
+      margin-bottom: 6px;
+      &::before {
+        content: '';
+        position: absolute;
+        left: 2px;
+        top: 0.45em;
+        width: 12px;
+        height: 12px;
+        background:
+          linear-gradient($cc-orange, $cc-orange) center / 4px 12px no-repeat,
+          linear-gradient($cc-orange, $cc-orange) center / 12px 4px no-repeat;
+      }
+    }
+  }
+
+  // every band ends with the 3px orange rule
+  .cc-hero,
+  .cc-heading-band,
+  .cc-cards,
+  .service-icon-grid,
+  .cc-media,
+  .cc-four,
+  .checklist-band,
+  .expert-connect,
+  .cc-tabs-panel .ct-panel {
+    border-bottom: 3px solid $cc-orange;
+  }
+
+  // HeroBanner -----------------------------------------------------------------------------------------------------
+  .cc-hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    .cc-hero-inner {
+      position: relative;
+      min-height: 524px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .cc-hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .cc-hero-copy {
+      position: relative;
+      padding: 0 20px 34px;
+      max-width: 62%;
+      &::before {
+        content: '';
+        position: absolute;
+        inset: -60px -40px -34px -20px;
+        background: linear-gradient(to top, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0));
+        z-index: -1;
+      }
+    }
+    .cc-hero-panel {
+      position: absolute;
+      top: 0;
+      right: 30px;
+      bottom: 0;
+      width: 316px;
+      background: rgba(0, 40, 85, 0.82);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+      gap: 18px;
+      .cc-hero-panel-text {
+        font-size: 20px;
+        p {
+          margin: 0;
+        }
+      }
+    }
+    .cc-hero-icon {
+      width: 44px;
+      height: auto;
+    }
+    &.cc-hero-mini .cc-hero-inner {
+      min-height: 189px;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      .cc-hero-bg {
+        opacity: 0.18;
+      }
+      .cc-hero-copy {
+        max-width: 100%;
+        &::before {
+          display: none;
+        }
+      }
+      .cc-headline {
+        font-size: 26px;
+      }
+    }
+    &.cc-hero-light .cc-hero-inner {
+      min-height: 415px;
+      align-items: center;
+      .cc-hero-bg {
+        opacity: 0.55;
+      }
+      .cc-hero-copy::before {
+        display: none;
+      }
+      .cc-text-link {
+        display: inline-block;
+        margin-top: 18px;
+      }
+    }
+  }
+
+  // HeadingCta ------------------------------------------------------------------------------------------------------
+  .cc-heading-band {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 0 40px;
+    text-align: center;
+    .cc-band-heading {
+      color: #fff;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+    .cc-band-text {
+      color: #fff;
+      font-size: 15px;
+      max-width: 620px;
+      margin: 0 auto 24px;
+    }
+  }
+  .cc-block-buttons,
+  .sig-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    max-width: 1040px;
+    margin: 0 auto;
+    .cc-button-block {
+      min-height: 60px;
+    }
+  }
+  .cc-page-title {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 48px 20px;
+    background: #f8f8f8;
+    border-bottom: 3px solid $cc-orange;
+  }
+
+  // TwoColumnCta cards -----------------------------------------------------------------------------------------------
+  .cc-cards {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: $cc-grey;
+    padding: 18px 0 18px;
+    .cc-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      padding: 0 36px;
+    }
+    .cc-card {
+      background: #fff;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+      display: flex;
+      flex-direction: column;
+    }
+    .cc-card-img {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 55%, #fff 100%);
+      }
+    }
+    .cc-card-body {
+      padding: 6px 32px 32px;
+      flex: 1;
+    }
+    .cc-card-title {
+      font-size: 28px;
+      font-weight: 400;
+      color: $cc-marine;
+      margin-bottom: 18px;
+    }
+    .cc-card-text,
+    .cc-card-rich {
+      font-size: 15px;
+      color: #000;
+    }
+    .cc-card-rich a {
+      color: $cc-leaf;
+      text-decoration: underline;
+    }
+    .cc-news-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 10px 0;
+      border-bottom: 1px solid $cc-grey;
+      .cc-news-thumb img {
+        width: 62px;
+        height: 62px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      .cc-news-link {
+        color: $cc-marine;
+        font-weight: 700;
+        font-size: 14px;
+        text-decoration: none;
+      }
+    }
+    .cc-card-more {
+      margin-top: 22px;
+      text-align: center;
+      &.right {
+        text-align: right;
+      }
+    }
+  }
+
+  // ServiceIconGrid --------------------------------------------------------------------------------------------------
+  .service-icon-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 0 40px;
+    text-align: center;
+    .sig-heading {
+      font-size: 28px;
+      font-weight: 400;
+      color: #fff;
+    }
+    .sig-text {
+      font-size: 14px;
+      color: #fff;
+      margin: 28px 0;
+    }
+    .sig-items {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto 32px;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      max-width: 1000px;
+    }
+    .sig-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+      color: #fff;
+      text-decoration: none;
+    }
+    .sig-ring {
+      width: 108px;
+      height: 108px;
+      border-radius: 50%;
+      border: 2px solid $cc-orange;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      img {
+        width: 62px;
+        height: 62px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+    .sig-label {
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+      max-width: 120px;
+    }
+  }
+
+  // PromoCta media-text -----------------------------------------------------------------------------------------------
+  .cc-media {
+    max-width: 1200px;
+    margin: 0 auto;
+    .cc-media-inner {
+      display: grid;
+      grid-template-columns: 600px 1fr;
+      min-height: 400px;
+    }
+    .cc-media-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .cc-media-copy {
+      padding: 46px 30px 30px 32px;
+      font-size: 14px;
+    }
+    .cc-media-text {
+      color: $cc-marine;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    &.cc-media-right .cc-media-inner {
+      grid-template-columns: 1fr 600px;
+      .cc-media-img {
+        order: 2;
+      }
+      .cc-media-copy {
+        padding-left: 52px;
+      }
+    }
+    &.cc-media-fade .cc-media-inner {
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      min-height: 382px;
+      .cc-media-img {
+        position: relative;
+        &::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(to right, rgba(255, 255, 255, 0) 30%, #fff 100%);
+        }
+      }
+      .cc-pill {
+        margin-top: 12px;
+      }
+    }
+  }
+
+  // FourColumnCta --------------------------------------------------------------------------------------------------
+  .cc-four {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 34px 0 40px;
+    text-align: center;
+    .cc-four-heading {
+      font-size: 28px;
+      font-weight: 400;
+      margin-bottom: 36px;
+    }
+    .cc-four-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 0 16px;
+    }
+    .cc-four-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .cc-round img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .cc-four-title {
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin: 8px 0 0;
+      a {
+        color: inherit;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    .cc-four-text {
+      font-size: 13px;
+      flex: 1;
+    }
+    &.cc-four-round {
+      color: #fff;
+      .cc-four-heading,
+      .cc-four-title,
+      .cc-four-text {
+        color: #fff;
+      }
+    }
+    &.cc-four-teal {
+      background: $cc-teal;
+      color: #fff;
+      .cc-four-heading,
+      .cc-four-title,
+      .cc-four-text {
+        color: #fff;
+      }
+      .cc-four-heading {
+        margin-bottom: 70px;
+      }
+    }
+    &.cc-four-tiles {
+      background: #fff;
+      border-bottom: 0;
+      .cc-four-heading {
+        font-size: 18px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: $cc-blue;
+        margin-bottom: 26px;
+      }
+      .cc-four-grid {
+        gap: 4px;
+        padding: 0 56px;
+      }
+    }
+    .cc-tile {
+      position: relative;
+      display: block;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(255, 255, 255, 0.55);
+      }
+      .cc-tile-label {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px;
+        font-size: 34px;
+        line-height: 1.1;
+        color: $cc-marine;
+      }
+    }
+  }
+
+  // ChecklistBand ----------------------------------------------------------------------------------------------------
+  .checklist-band {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 34px 0 44px;
+    text-align: center;
+    color: #fff;
+    .clb-heading {
+      font-size: 28px;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 26px;
+    }
+    .clb-text {
+      font-size: 14px;
+      max-width: 860px;
+      margin: 0 auto 18px;
+    }
+    .clb-columns {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: left;
+      font-size: 14px;
+    }
+  }
+
+  // ExpertConnect ----------------------------------------------------------------------------------------------------
+  .expert-connect {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    border-top: 3px solid $cc-orange;
+    .ec-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      padding: 14px 16px 18px;
+    }
+    .ec-steps {
+      &::before {
+        content: 'Step';
+      }
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      list-style: none;
+      padding: 8px 0 14px;
+      margin: 14px 0 40px;
+      width: 160px;
+      border-bottom: 3px solid $cc-orange;
+      font-size: 12px;
+    }
+    .ec-step {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1px solid #999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      position: relative;
+      margin: 0;
+      // custom radio: the input is the circle's hit area, the number sits on top
+      input {
+        appearance: none;
+        position: absolute;
+        inset: 0;
+        margin: 0;
+        border-radius: 50%;
+        background: transparent;
+        cursor: pointer;
+        &:disabled {
+          cursor: default;
+        }
+        &:focus-visible {
+          outline: 2px solid $cc-blue;
+          outline-offset: 2px;
+        }
+      }
+      &::after {
+        content: attr(data-n);
+        pointer-events: none;
+      }
+      &.active {
+        border: 2px solid $cc-orange;
+      }
+    }
+    .ec-heading {
+      font-size: 34px;
+      font-weight: 700;
+      color: $cc-marine;
+      line-height: 1.1;
+    }
+    .ec-prompt {
+      display: inline-block;
+      font-size: 24px;
+      color: $cc-blue;
+      text-decoration: none;
+      &::after {
+        content: ' ▸';
+        font-size: 18px;
+      }
+    }
+    .ec-options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .ec-option {
+      display: block;
+      background: $cc-blue;
+      border: 4px solid $cc-orange;
+      color: #fff;
+      font-size: 22px;
+      padding: 16px 18px;
+      text-decoration: none;
+      line-height: 1.3;
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  // ContentTabs -------------------------------------------------------------------------------------------------------
+  .content-tabs {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0 0;
+    .ct-heading {
+      font-size: 22px;
+      color: $cc-marine;
+    }
+    .ct-tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+    .ct-tab {
+      border: 1px solid $cc-marine;
+      background: #fff;
+      color: $cc-marine;
+      font-size: 13px;
+      padding: 10px 26px;
+      &.active {
+        background: $cc-blue;
+        color: #fff;
+        border-color: $cc-blue;
+      }
+    }
+    .ct-panel {
+      padding: 6px 16px 30px;
+      font-size: 13px;
+      color: #000;
+    }
+    .ct-title {
+      font-size: 22px;
+      color: $cc-marine;
+      margin: 18px 0 14px;
+    }
+    .ct-body ul {
+      columns: 3;
+    }
+    &.cc-tabs-panel {
+      .ct-panel {
+        background: $cc-marine;
+        color: #fff;
+        text-align: center;
+        padding: 30px 90px 40px;
+      }
+      .ct-title {
+        color: #fff;
+        text-transform: uppercase;
+      }
+      .ct-body ul {
+        columns: 2;
+        text-align: left;
+        max-width: 490px;
+        margin: 0 auto 14px;
+      }
+    }
+  }
+
+  // ResourceColumns ---------------------------------------------------------------------------------------------------
+  .resource-columns {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: $cc-grey;
+    padding: 30px 0;
+    .rc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      padding: 0 50px;
+    }
+    .rc-column {
+      position: relative;
+      background: #fff;
+      padding: 0 36px 26px;
+    }
+    .rc-label {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: $cc-teal;
+      color: #fff;
+      font-size: 14px;
+      padding: 4px 20px;
+      white-space: nowrap;
+    }
+    .rc-featured-img {
+      margin: 0 -36px;
+      height: 220px;
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .rc-featured-title {
+      font-size: 28px;
+      line-height: 1.25;
+      color: $cc-marine;
+      font-weight: 400;
+      margin: 18px 0 6px;
+      padding-top: 30px;
+      a {
+        color: $cc-marine;
+        text-decoration: none;
+      }
+    }
+    .rc-date {
+      display: block;
+      color: $cc-blue;
+      font-size: 11px;
+      margin: 0 0 12px;
+    }
+    .rc-excerpt {
+      font-size: 12px;
+      color: #000;
+    }
+    .rc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px;
+    }
+    .rc-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 8px 0;
+      border-bottom: 1px solid $cc-grey;
+      img {
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+    .rc-row-link {
+      font-size: 12px;
+      font-weight: 700;
+      color: $cc-marine;
+      text-decoration: none;
+    }
+    .rc-more {
+      display: block;
+      width: max-content;
+      margin: 0 auto;
+      font-size: 12px;
+      font-weight: 700;
+      color: $cc-marine;
+      text-decoration: none;
+      border-bottom: 2px solid $cc-leaf;
+      padding-bottom: 4px;
+    }
+  }
+
+  // GatedResource -----------------------------------------------------------------------------------------------------
+  .gated-resource {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6px 0 40px;
+    .gr-grid {
+      display: grid;
+      grid-template-columns: 1fr 222px;
+      gap: 24px;
+    }
+    .gr-main {
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+      padding: 0 0 30px;
+    }
+    .gr-image {
+      height: 225px;
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .gr-body {
+      padding: 0 22px;
+    }
+    .gr-title {
+      font-size: 24px;
+      font-weight: 400;
+      color: $cc-marine;
+      margin: 6px 0 16px;
+    }
+    .gr-share {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+    .gr-share-icon {
+      width: 32px;
+      height: 32px;
+      border: 2px solid $cc-blue;
+      border-radius: 50%;
+      color: $cc-blue;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .gr-columns {
+      display: grid;
+      grid-template-columns: 1fr 140px;
+      gap: 56px;
+      font-size: 13px;
+      color: #000;
+    }
+    .gr-field {
+      display: block;
+      font-size: 12px;
+      color: $cc-blue;
+      margin-bottom: 6px;
+      input {
+        display: block;
+        width: 100%;
+        border: 2px solid $cc-blue;
+        height: 22px;
+      }
+    }
+    .gr-consent {
+      display: flex;
+      gap: 6px;
+      font-size: 11px;
+      color: $cc-blue;
+      line-height: 1.2;
+      margin: 8px 0 12px;
+    }
+    .gr-sidebar .gr-box {
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+      margin-bottom: 24px;
+      padding-bottom: 14px;
+    }
+    .gr-box-title {
+      background: $cc-teal;
+      color: #fff;
+      font-size: 17px;
+      font-weight: 700;
+      padding: 4px 22px;
+    }
+    .gr-list {
+      list-style: none;
+      padding: 0 22px;
+      margin: 0;
+    }
+    .gr-list-item {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid $cc-grey;
+      img {
+        width: 66px;
+        height: 66px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      a {
+        font-size: 12px;
+        font-weight: 700;
+        color: $cc-marine;
+        text-decoration: none;
+      }
+    }
+    .gr-box-body {
+      padding: 12px 22px 0;
+    }
+  }
+
+  // LocationFinder ----------------------------------------------------------------------------------------------------
+  .location-finder {
+    .lf-titlebar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(#d5e3ef, #d5e3ef);
+      padding: 12px 10px;
+    }
+    .lf-heading {
+      font-size: 22px;
+      font-weight: 700;
+      color: $cc-marine;
+      margin: 0;
+    }
+    .lf-telemed {
+      font-weight: 700;
+      a {
+        color: $cc-leaf;
+        text-decoration: underline;
+      }
+    }
+    .lf-body {
+      display: grid;
+      grid-template-columns: 530px 1fr;
+      height: 500px;
+    }
+    .lf-list-col {
+      overflow-y: auto;
+      padding: 0 10px;
+    }
+    .lf-search {
+      display: flex;
+      align-items: flex-end;
+      gap: 60px;
+      padding: 6px 0 8px;
+      label {
+        font-size: 14px;
+        color: $cc-marine;
+      }
+      .lf-input {
+        display: flex;
+        border: 2px solid $cc-blue;
+        width: 316px;
+        input {
+          border: 0;
+          flex: 1;
+          height: 26px;
+          padding: 0 6px;
+        }
+        button {
+          border: 0;
+          background: #fff;
+          color: $cc-marine;
+          padding: 0 8px;
+          display: inline-flex;
+          align-items: center;
+        }
+      }
+    }
+    .lf-filters {
+      background: $cc-marine;
+      color: #fff;
+      border: 0;
+      border-radius: 999px;
+      padding: 6px 22px;
+      font-weight: 700;
+    }
+    .lf-count {
+      font-size: 12px;
+      margin: 0;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #ddd;
+    }
+    .lf-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .lf-item {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #ddd;
+      padding: 12px 0;
+      font-size: 13px;
+    }
+    .lf-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: $cc-marine;
+      text-decoration: none;
+    }
+    .lf-address,
+    .lf-status,
+    .lf-phone {
+      margin: 2px 0;
+    }
+    .lf-status {
+      color: $cc-teal;
+    }
+    .lf-item-links {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-end;
+      a {
+        color: $cc-leaf;
+        text-decoration: underline;
+        font-size: 13px;
+      }
+    }
+    .lf-map {
+      position: relative;
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .lf-map-pin {
+        display: none;
+      }
+    }
+    .lf-bottombar {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: $cc-blue;
+      color: #fff;
+      padding: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      button {
+        background: none;
+        border: 0;
+        color: #fff;
+        font: inherit;
+        padding: 0;
+        cursor: pointer;
+      }
+      .lf-export {
+        text-decoration: underline;
+      }
+      .lf-market {
+        margin-left: auto;
+        border: 2px solid #fff;
+        border-radius: 999px;
+        padding: 6px 20px;
+      }
+    }
+  }
+
+  // LocationDetails ---------------------------------------------------------------------------------------------------
+  .location-details {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 0 30px;
+    .ld-back {
+      font-size: 13px;
+      font-weight: 700;
+      color: $cc-marine;
+      text-decoration: none;
+      border-bottom: 2px solid $cc-leaf;
+      padding-bottom: 4px;
+    }
+    .ld-name {
+      font-size: 34px;
+      font-weight: 400;
+      color: $cc-marine;
+      margin: 28px 0 4px;
+    }
+    .ld-address {
+      font-size: 17px;
+      color: #000;
+      .ld-sep {
+        display: inline-block;
+        width: 10px;
+      }
+    }
+    .ld-badges {
+      display: flex;
+      gap: 18px;
+    }
+    .ld-badge {
+      color: $cc-teal;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 14px;
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: $cc-teal;
+        margin-right: 6px;
+      }
+    }
+    .ld-grid {
+      display: grid;
+      grid-template-columns: 1fr 376px;
+      gap: 24px;
+      margin-top: 20px;
+    }
+    .ld-acc {
+      border-bottom: 1px solid #ddd;
+    }
+    .ld-acc-head {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      background: none;
+      border: 0;
+      padding: 6px 0;
+      font-size: 13px;
+      font-weight: 700;
+      color: $cc-marine;
+    }
+    .ld-acc-icon {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: $cc-marine;
+      color: #fff;
+      font-size: 13px;
+      line-height: 16px;
+      text-align: center;
+    }
+    .ld-acc-body {
+      font-size: 13px;
+      padding-bottom: 8px;
+      p {
+        margin: 0 0 4px;
+      }
+    }
+    .ld-map img {
+      width: 100%;
+      height: auto;
+    }
+    .ld-directions {
+      display: block;
+      text-align: right;
+      color: $cc-leaf;
+      font-size: 13px;
+      text-decoration: underline;
+      margin-top: 6px;
+    }
+  }
+
+  // RichText (About the Center) --------------------------------------------------------------------------------------
+  .cc-rich-text {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 0 20px;
+    h2,
+    h3 {
+      font-size: 22px;
+      color: $cc-marine;
+      font-weight: 400;
+    }
+    p {
+      font-size: 13px;
+      color: #000;
+    }
+  }
+
+  // ThreeColumnCta nearby locations ---------------------------------------------------------------------------------
+  .cc-nearby {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: $cc-grey;
+    padding: 24px 0 20px;
+    .cc-nearby-heading {
+      text-align: center;
+      font-size: 24px;
+      font-weight: 400;
+      color: $cc-marine;
+    }
+    .cc-nearby-intro {
+      font-size: 13px;
+      color: #000;
+    }
+    .cc-nearby-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      padding: 0 80px;
+      font-size: 13px;
+    }
+    .cc-nearby-name {
+      font-weight: 700;
+      text-decoration: underline;
+      color: $cc-marine;
+      margin: 0;
+      a {
+        color: inherit;
+      }
+    }
+    .cc-nearby-address {
+      white-space: pre-line;
+      margin: 0;
+    }
+    .cc-nearby-link {
+      font-weight: 700;
+      color: $cc-marine;
+      text-decoration: underline;
+    }
+  }
+
+  // Footer --------------------------------------------------------------------------------------------------------------
+  .cc-footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: $cc-marine;
+    color: #fff;
+    padding: 40px 0 60px;
+    .cc-footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1.3fr;
+      gap: 20px;
+      padding: 0 40px;
+    }
+    .cc-footer-title {
+      font-size: 18px;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 18px;
+    }
+    .cc-footer-links {
+      p {
+        margin: 0 0 8px;
+      }
+      a {
+        color: #fff;
+        font-size: 13px;
+        text-decoration: none;
+      }
+    }
+    .cc-social-icons {
+      display: grid;
+      grid-template-columns: repeat(3, 40px);
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .cc-social {
+      width: 40px;
+      height: 40px;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+    .cc-copyright {
+      font-size: 13px;
+    }
+  }
+}
+
+// Header layout (screenshot header-reference.png): logo top-left, blue utility bar right of the logo, main menu under the bar,
+// "Create New Account" as a green pill at the end of the menu row. Overrides the generated header-kit styles; theme and
+// language switchers are developer tools, hidden in the demo.
+@media (min-width: 992px) {
+  .site-concentra {
+    .component.eyebrow.variant-concentra {
+      // blue only behind the bar (right of the logo, to the 1200px column's edge); white either side
+      background-color: $cc-blue;
+      background-image: linear-gradient(
+        to right,
+        #fff 0,
+        #fff calc(50% - 324px),
+        transparent calc(50% - 324px),
+        transparent calc(50% + 600px),
+        #fff calc(50% + 600px)
+      );
+      .container {
+        position: relative;
+      }
+      .eyebrow-bar {
+        margin-left: 276px;
+        padding: 0 20px;
+        min-height: 52px;
+        background: transparent;
+        gap: 28px;
+      }
+      .eyebrow-links {
+        gap: 28px;
+        a {
+          font-size: 16px;
+        }
+      }
+      .eyebrow-search svg {
+        width: 18px;
+        height: 18px;
+      }
+      .eyebrow-slot-left,
+      .eyebrow-slot-right {
+        display: none;
+      }
+      .eyebrow-cta {
+        position: absolute;
+        right: 52px;
+        top: 64px;
+        padding: 9px 16px;
+        border-radius: 22px;
+        background: $cc-leaf;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 700;
+        &:hover {
+          background: darken($cc-leaf, 6%);
+        }
+      }
+    }
+    .component.header.variant-concentra {
+      margin-top: -52px;
+      padding-top: 0;
+      padding-bottom: 0;
+      // sits above the eyebrow (its logo overlaps the eyebrow's height); clicks pass through to the bar except on the header's own links
+      position: relative;
+      z-index: 61;
+      background: transparent;
+      pointer-events: none;
+      a,
+      button,
+      nav {
+        pointer-events: auto;
+      }
+      border-bottom: 3px solid #a9b3bf;
+      .row {
+        min-height: 113px;
+        align-items: flex-start;
+      }
+      .col-auto {
+        padding-top: 6px;
+      }
+      .row {
+        position: relative;
+      }
+      .col {
+        position: static;
+      }
+    }
+    .component.header.variant-concentra .component.navigation.variant-concentra {
+      position: absolute;
+      top: 72px;
+      left: 12px;
+      right: 266px;
+      width: auto;
+      max-width: none;
+      padding: 0;
+      nav > ul {
+        width: 100%;
+        justify-content: flex-end;
+        gap: 20px;
+        padding: 0;
+      }
+      .navigation-title a {
+        font-family: 'Source Sans 3', 'Source Sans Pro', Arial, sans-serif;
+        font-size: 17px;
+        font-weight: 400;
+      }
+    }
+    .eyebrow-links a {
+      font-family: 'Source Sans 3', 'Source Sans Pro', Arial, sans-serif;
+    }
+  }
+}
+@media (max-width: 991px) {
+  .site-concentra .component.eyebrow.variant-concentra {
+    .eyebrow-slot-left,
+    .eyebrow-slot-right {
+      display: none;
+    }
+  }
+}
+
+// Hero: white fade across the bottom of the photo behind the headline (as on the live homepage); the panel sits above it.
+.site-concentra .cc-hero {
+  .cc-hero-inner {
+    isolation: isolate;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 55%;
+      background: linear-gradient(to top, rgba(255, 255, 255, 0.92) 15%, rgba(255, 255, 255, 0));
+      z-index: 1;
+      pointer-events: none;
+    }
+  }
+  .cc-hero-copy {
+    z-index: 2;
+    &::before {
+      display: none;
+    }
+  }
+  // the navy panel is a tinted overlay on the photo (as on the live page): drawn by a pseudo-element, not a box background
+  .cc-hero-panel {
+    z-index: 3;
+    background: transparent;
+    isolation: isolate;
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 40, 85, 0.82);
+      z-index: -1;
+    }
+  }
+  &.cc-hero-mini .cc-hero-inner::after,
+  &.cc-hero-light .cc-hero-inner::after {
+    display: none;
+  }
+}
+
+// ContentTabs panel look: the navy band is an overlay behind the copy, like the hero panel
+.site-concentra .content-tabs.cc-tabs-panel .ct-panel {
+  position: relative;
+  isolation: isolate;
+  background: transparent;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: $cc-marine;
+    z-index: -1;
+  }
+}
+// ResourceColumns: the column label is a button to the column's listing (live: 'Latest Press Releases' button)
+.site-concentra .resource-columns a.rc-label {
+  text-decoration: none;
+  &:hover {
+    background: darken($cc-teal, 5%);
+    color: #fff;
+  }
+}
+// GatedResource: white cards with a soft shadow on a very light grey page (as on the live white-paper page)
+.site-concentra .gated-resource.cc-gated {
+  background: #f7f7f7;
+  padding: 24px 0 40px;
+  .gr-main,
+  .gr-box {
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  }
+  .gr-box + .gr-box {
+    margin-top: 24px;
+  }
+}
+// GatedResource proportions from the white-paper screenshot (main card : sidebar ≈ 2.2 : 1, photo ≈ 0.46 of the card width,
+// form column ≈ 0.27 of the card, round sidebar thumbnails ≈ 110px)
+@media (min-width: 992px) {
+  .site-concentra .gated-resource.cc-gated {
+    .gr-grid {
+      grid-template-columns: 1fr 365px;
+      gap: 30px;
+    }
+    .gr-image {
+      height: 375px;
+    }
+    .gr-body {
+      padding: 0 44px;
+    }
+    .gr-title {
+      font-size: 30px;
+      margin: 10px 0 24px;
+    }
+    .gr-columns {
+      grid-template-columns: 1fr 230px;
+      gap: 60px;
+      font-size: 16px;
+    }
+    .gr-field {
+      font-size: 15px;
+      margin-bottom: 8px;
+      input {
+        height: 34px;
+      }
+    }
+    .gr-consent {
+      font-size: 14px;
+    }
+    .gr-box-title {
+      font-size: 26px;
+      padding: 6px 44px;
+    }
+    .gr-list {
+      padding: 0 44px;
+    }
+    .gr-list-item {
+      gap: 18px;
+      padding: 12px 0;
+      img {
+        width: 110px;
+        height: 110px;
+      }
+      a {
+        font-size: 17px;
+      }
+    }
+    .gr-box-body {
+      padding: 18px 44px 6px;
+    }
+  }
+}
+// image + text bands sit on white on the live site (the base promo style paints them grey)
+.site-concentra .promo-cta.cc-media {
+  background-color: #fff;
+}
+.site-concentra .resource-columns {
+  .rc-featured {
+    position: relative;
+  }
+  .rc-featured-hit {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    &:focus-visible {
+      outline: 2px solid $cc-blue;
+    }
+  }
+  .rc-featured:hover .rc-featured-title {
+    text-decoration: underline;
+  }
+}
+.site-concentra .gated-resource .gr-share-link {
+  display: inline-flex;
+  color: $cc-blue;
+  &:hover .gr-share-icon {
+    background: $cc-blue;
+    color: #fff;
+  }
+}
+@media (min-width: 992px) {
+  .site-concentra .gated-resource.cc-gated .gr-share {
+    margin-bottom: 34px;
+  }
+}
