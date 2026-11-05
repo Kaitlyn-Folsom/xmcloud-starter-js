@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="224" viewBox="0 0 450 112" preserveAspectRatio="xMidYMid slice" role="img" aria-label="">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2b5f8f"/>
+      <stop offset="1" stop-color="#9cc0dd"/>
+    </linearGradient>
+  </defs>
+  <rect width="450" height="112" fill="url(#sky)"/>
+  <circle cx="370" cy="38" r="18" fill="#f6c46b" opacity="0.85"/>
+  <!-- far plants -->
+  <path d="M0 86 L0 70 L40 70 L40 58 L70 70 L70 58 L100 70 L100 58 L130 70 L130 76 L160 76 L160 64 L176 64 L176 76 L210 76 L210 66 L260 66 L260 74 L300 74 L300 60 L330 72 L330 60 L360 72 L360 66 L410 66 L410 74 L450 74 L450 86 Z" fill="#5d86ad" opacity="0.7"/>
+  <!-- near plant with stacks -->
+  <rect x="56" y="34" width="8" height="40" fill="#1d3b5a"/>
+  <rect x="72" y="42" width="7" height="32" fill="#1d3b5a"/>
+  <rect x="318" y="38" width="8" height="36" fill="#1d3b5a"/>
+  <path d="M0 112 L0 82 L30 82 L30 70 L60 82 L60 70 L90 82 L90 70 L120 82 L120 74 L190 74 L190 84 L240 84 L240 72 L270 84 L270 72 L300 84 L300 72 L340 72 L340 80 L390 80 L390 70 L420 70 L420 82 L450 82 L450 112 Z" fill="#1d3b5a"/>
+  <!-- windows -->
+  <g fill="#f6c46b" opacity="0.85">
+    <rect x="140" y="88" width="10" height="5"/><rect x="156" y="88" width="10" height="5"/><rect x="172" y="88" width="10" height="5"/>
+    <rect x="350" y="90" width="10" height="5"/><rect x="366" y="90" width="10" height="5"/>
+    <rect x="40" y="94" width="10" height="5"/><rect x="56" y="94" width="10" height="5"/>
+  </g>
+  <!-- hazard stripe -->
+  <g>
+    <rect x="0" y="106" width="450" height="6" fill="#f2a33a"/>
+  </g>
+</svg>
